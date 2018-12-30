@@ -1,0 +1,78 @@
+PODS:
+  - Differentiator (3.1.0)
+  - PromiseKit (6.7.0):
+    - PromiseKit/CorePromise (= 6.7.0)
+    - PromiseKit/Foundation (= 6.7.0)
+    - PromiseKit/UIKit (= 6.7.0)
+  - PromiseKit/CorePromise (6.7.0)
+  - PromiseKit/Foundation (6.7.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.7.0):
+    - PromiseKit/CorePromise
+  - ReachabilitySwift (4.3.0)
+  - Realm (3.13.0):
+    - Realm/Headers (= 3.13.0)
+  - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxRealm (0.7.6):
+    - RealmSwift (~> 3.0)
+    - RxSwift (~> 4.0)
+  - RxRealmDataSources (0.2.10):
+    - RealmSwift (~> 3.10)
+    - RxCocoa (~> 4.0)
+    - RxRealm (~> 0.7.6)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - PromiseKit (~> 6.0)
+  - ReachabilitySwift
+  - RealmSwift
+  - RxCocoa
+  - RxDataSources
+  - RxRealmDataSources
+  - RxSwift
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Differentiator
+    - PromiseKit
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxRealm
+    - RxRealmDataSources
+    - RxSwift
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
+  RxRealmDataSources: 89b61c0d3edf7769da2a6bf4dcf317bc713394db
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: 926af2b9d4e4d04e3ce5903932a4d887f0cf91a5
+
+COCOAPODS: 1.5.3
