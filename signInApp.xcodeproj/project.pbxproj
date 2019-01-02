@@ -10,6 +10,9 @@
 		009644D1982A1FFB8E11B013 /* Pods_signInApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9944ADD7597329722D2089E /* Pods_signInApp.framework */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
+		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
+		AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */; };
+		AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */; };
 		AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */; };
 		AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013C21D8F68E00946CBA /* Secret.swift */; };
 		AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
+		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
+		AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorPayload.swift; sourceTree = "<group>"; };
+		AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysExtensions.swift; sourceTree = "<group>"; };
 		AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		AD4F013C21D8F68E00946CBA /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
@@ -87,6 +93,14 @@
 			path = "UIViewController+ErrorPresentation";
 			sourceTree = "<group>";
 		};
+		AD1739C221DD4D1A00218BE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AD4F013921D8F61F00946CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +108,8 @@
 				ADE9552621D9016C00B86052 /* Campaign.swift */,
 				AD4F013C21D8F68E00946CBA /* Secret.swift */,
 				ADE9552E21D9193500B86052 /* LeadLinkKitError.swift */,
+				AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */,
+				AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +162,7 @@
 		ADAEE87921D8F331000B3C52 /* signInApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD1739C221DD4D1A00218BE5 /* Extensions */,
 				AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */,
 				AD4F014121D8F7BF00946CBA /* DataLayer */,
 				AD4F013E21D8F72600946CBA /* Viewmodel */,
@@ -373,12 +390,15 @@
 				ADAEE87D21D8F331000B3C52 /* ViewController.swift in Sources */,
 				ADE9552221D9008200B86052 /* Implementations.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
+				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
+				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
+				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

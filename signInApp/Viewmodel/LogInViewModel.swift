@@ -81,10 +81,18 @@ public class LogInViewModel {
         emailInputEnabled.onNext(true)
         passwordInputEnabled.onNext(true)
         signInButtonEnabled.onNext(true)
-        signInActivityIndicatorAnimating.onNext(false)
+        
+        // (*) ovo je kvarno, jer si trebao kao handler u OK na alert-u (secas da si remove tu func....)
+        delay(0.5) { [weak self] in // mali trik da se emituje malo kasnije jer se vidi "gap" u promeni text-a pre nego iskoci alert
+            guard let sSelf = self else {return}
+            sSelf.signInActivityIndicatorAnimating.onNext(false)
+        }
+        
     }
 }
 
 public protocol SignedInResponder {
     func signedIn(to userSession: UserSession)
 }
+
+//// trik da bih zadrzao logiku na VC (bez ovoga ima mali gap izmedju set title i show alert)

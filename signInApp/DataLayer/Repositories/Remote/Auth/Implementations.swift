@@ -21,9 +21,8 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
     
     public init() {}
     
-    //public func logIn(email: String, password: String) -> Promise<UserSession> {
     public func logIn(credentials: LoginCredentials) -> Promise<UserSession> {
-    //let bodyData = try JSONEncoder().encode(account)
+    
         return Promise<UserSession> { seal in
             // Build Request
             var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/login")!)
@@ -48,19 +47,22 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
                     seal.reject(error)
                     return
                 }
-                guard let httpResponse = response as? HTTPURLResponse else {
+                guard let httpResponse = response as? HTTPURLResponse, let data = data else {
                     seal.reject(RemoteAPIError.unknown)
                     return
                 }
                 guard 401 != httpResponse.statusCode else {
-                    let message = "Invalid email or password."
-                    seal.reject(RemoteAPIError.unauthorized([message]))
+                    let decoder = JSONDecoder.init()
+                    let payload = try? decoder.decode(UnauthorizedPayload.self, from: data)
+                    seal.reject(RemoteAPIError.unauthorized([payload?.message ?? "Unauthorized."]))
                     return
                 }
                 guard 422 != httpResponse.statusCode else { //
-                    let title = "Invalid input data"
-                    let errors = ["The password field is required when none of access code are present.", "The email field is required."]
-                    seal.reject(RemoteAPIError.unprocessableEntity(title, errors))
+                    let decoder = JSONDecoder.init()
+                    let payload = try? decoder.decode(UnprocessableEntityPayload.self, from: data)
+                    let parsedErrors = (payload != nil) ? ((payload!.errors.email ?? [ ]) + (payload!.errors.password ?? [ ])) : ["Invalid input data"]
+                    let message = payload?.message ?? "Invalid input data!"
+                    seal.reject(RemoteAPIError.unprocessableEntity(message, parsedErrors))
                     return
                 }
                 
@@ -68,37 +70,18 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
                     seal.reject(RemoteAPIError.httpError)
                     return
                 }
-                if let data = data {
-                    do {
-                        let decoder = JSONDecoder()
-                        let payload = try decoder.decode(SignInResponsePayload.self, from: data)
-                        let remoteSession = RemoteUserSession(token: payload.data.token)
-                        print("ovde imam remoteSession.token = \(remoteSession.token)")
-                        seal.fulfill(UserSession(remoteSession: remoteSession))
-                    } catch {
-                        seal.reject(error)
-                    }
-                } else {
-                    seal.reject(RemoteAPIError.unknown)
+
+                do {
+                    let decoder = JSONDecoder()
+                    let payload = try decoder.decode(SignInResponsePayload.self, from: data)
+                    let remoteSession = RemoteUserSession(token: payload.data.token)
+                    print("ovde imam remoteSession.token = \(remoteSession.token)")
+                    seal.fulfill(UserSession(remoteSession: remoteSession))
+                } catch {
+                    seal.reject(error)
                 }
-                }.resume()
+            }.resume()
         }
     }
     
-}
-
-struct SignInResponsePayload: Codable {
-    var data: SignInToken
-}
-
-struct SignInToken: Codable {
-    var token: String
-    var first_name: String
-    var last_name: String
-}
-
-
-public struct LoginCredentials: Codable {
-    var email: String
-    var password: String
 }
