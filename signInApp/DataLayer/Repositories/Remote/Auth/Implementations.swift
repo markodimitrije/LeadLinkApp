@@ -32,13 +32,11 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
             let headers = [ // Build Auth Header
                 "Api-Key": apiKey,
                 "Content-Type": "application/x-www-form-urlencoded",
-                "cache-control": "no-cache"//,
-                //"Postman-Token": "adff07f1-101b-47c6-a3cd-978ed6bb7f29"
+                "cache-control": "no-cache"
             ]
             
             let postData = NSMutableData(data: "email=\(credentials.email)".data(using: String.Encoding.utf8)!)
             postData.append("&password=\(credentials.password)".data(using: String.Encoding.utf8)!)
-            //postData.append("&undefined=undefined".data(using: String.Encoding.utf8)!)
             
             request.httpBody = postData as Data
             request.allHTTPHeaderFields = headers
@@ -83,6 +81,8 @@ struct SignInResponsePayload: Codable {
 
 struct SignInToken: Codable {
     var token: String
+    var first_name: String
+    var last_name: String
 }
 
 
