@@ -47,13 +47,6 @@ public class LogInViewModel {
             .catch(indicateErrorSigningIn)
     }
     
-    public func fakeSignIn(credentials: LoginCredentials) {
-        
-        userSessionRepository.signIn(email: credentials.email, password: credentials.password)
-            .done(signedInResponder.signedIn(to:))
-            .catch(indicateErrorSigningIn)
-    }
-    
     func indicateSigningIn() {
         emailInputEnabled.onNext(false)
         passwordInputEnabled.onNext(false)
@@ -72,8 +65,19 @@ public class LogInViewModel {
     }
     
     func indicateErrorSigningIn(_ error: Error) {
-        errorMessagesSubject.onNext(ErrorMessage(title: "Sign In Failed",
-                                                 message: "Could not sign in.\nPlease try again."))
+        
+        var errorMessage: ErrorMessage!
+        if let err = error as? RemoteAPIError {
+            errorMessage = err.translateToErrorMessage()
+        } else {
+            errorMessage = ErrorMessage(title: "Sign In Failed",
+                                        message: error.localizedDescription)
+        }
+        
+        print("error = \(error)")
+        
+        errorMessagesSubject.onNext(errorMessage)
+        
         emailInputEnabled.onNext(true)
         passwordInputEnabled.onNext(true)
         signInButtonEnabled.onNext(true)

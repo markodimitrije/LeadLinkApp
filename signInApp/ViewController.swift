@@ -42,6 +42,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() { super.viewDidLoad()
         
         bindViews(to: logInViewModel)
+        
+        observeErrorMessages(viewmodel: logInViewModel)
     }
     
     private func bindViews(to viewmodel: LogInViewModel) {
@@ -62,7 +64,7 @@ class ViewController: UIViewController {
         emailField.rx.text
             .asDriver()
             .map { $0 ?? "" }
-            .drive(viewmodel.emailInput)
+            .drive(logInViewModel.emailInput)
             .disposed(by: disposeBag)
     }
     
@@ -70,12 +72,12 @@ class ViewController: UIViewController {
         passField.rx.text
             .asDriver()
             .map { $0 ?? "" }
-            .drive(viewmodel.passwordInput)
+            .drive(logInViewModel.passwordInput)
             .disposed(by: disposeBag)
     }
     
     private func bindActivityIndicator(viewmodel: LogInViewModel) { // viewmodel -> VC
-        let activityDriver = viewmodel
+        let activityDriver = logInViewModel
             .signInActivityIndicatorAnimating
             .asDriver(onErrorJustReturn: false)
         activityDriver
@@ -88,7 +90,7 @@ class ViewController: UIViewController {
     }
     
     private func bindViewModelToEmailField(viewmodel: LogInViewModel) {
-        viewmodel
+        logInViewModel
             .emailInputEnabled
             .asDriver(onErrorJustReturn: true)
             .drive(emailField.rx.isEnabled)
@@ -96,7 +98,7 @@ class ViewController: UIViewController {
     }
     
     private func bindViewModelToPasswordField(viewmodel: LogInViewModel) {
-        viewmodel
+        logInViewModel
             .passwordInputEnabled
             .asDriver(onErrorJustReturn: true)
             .drive(passField.rx.isEnabled)
@@ -104,10 +106,21 @@ class ViewController: UIViewController {
     }
     
     private func bindViewModelToLogInButton(viewmodel: LogInViewModel) {
-        viewmodel
+        logInViewModel
             .signInButtonEnabled
             .asDriver(onErrorJustReturn: true)
             .drive(logInBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func observeErrorMessages(viewmodel: LogInViewModel) {
+        logInViewModel
+            .errorMessages
+            .asDriver { _ in fatalError("Unexpected error from error messages observable.") }
+            .drive(onNext: { [weak self] errorMessage in
+                guard let strongSelf = self else { return }
+                strongSelf.present(errorMessage: errorMessage)
+            })
             .disposed(by: disposeBag)
     }
     

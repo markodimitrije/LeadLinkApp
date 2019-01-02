@@ -52,6 +52,18 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
                     seal.reject(RemoteAPIError.unknown)
                     return
                 }
+                guard 401 != httpResponse.statusCode else {
+                    let message = "Invalid email or password."
+                    seal.reject(RemoteAPIError.unauthorized([message]))
+                    return
+                }
+                guard 422 != httpResponse.statusCode else { //
+                    let title = "Invalid input data"
+                    let errors = ["The password field is required when none of access code are present.", "The email field is required."]
+                    seal.reject(RemoteAPIError.unprocessableEntity(title, errors))
+                    return
+                }
+                
                 guard 200..<300 ~= httpResponse.statusCode else {
                     seal.reject(RemoteAPIError.httpError)
                     return
