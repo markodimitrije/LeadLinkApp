@@ -12,7 +12,7 @@ import RxSwift
 import Foundation
 import RxSwift
 
-public class SignInViewModel {
+public class LogInViewModel {
     
     // MARK: - Properties
     let userSessionRepository: UserSessionRepository

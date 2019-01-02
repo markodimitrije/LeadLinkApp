@@ -1,0 +1,6 @@
+// Login screen
+
+Strings.Login.enterUsernameAndPassword = "Plese enter your username and password";
+Strings.Login.username = "Username";
+Strings.Login.password = "Password";
+Strings.Login.btn = "Log in";
