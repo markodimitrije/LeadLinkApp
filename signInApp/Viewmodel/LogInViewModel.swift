@@ -9,8 +9,7 @@
 import Foundation
 import RxSwift
 
-import Foundation
-import RxSwift
+import PromiseKit
 
 public class LogInViewModel {
     
@@ -23,6 +22,7 @@ public class LogInViewModel {
                 signedInResponder: SignedInResponder) {
         self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
+        loadInitialSession()
     }
     
     public let emailInput = BehaviorSubject<String>(value: "")
@@ -45,6 +45,9 @@ public class LogInViewModel {
         userSessionRepository.signIn(email: email, password: password)
             .done(signedInResponder.signedIn(to:))
             .catch(indicateErrorSigningIn)
+            .finally { [weak self] in guard let sSelf = self else {return}
+                sSelf.enableInputs()
+        }
     }
     
     func indicateSigningIn() {
@@ -74,25 +77,41 @@ public class LogInViewModel {
                                         message: error.localizedDescription)
         }
         
-        print("error = \(error)")
-        
         errorMessagesSubject.onNext(errorMessage)
         
-        emailInputEnabled.onNext(true)
-        passwordInputEnabled.onNext(true)
-        signInButtonEnabled.onNext(true)
-        
-        // (*) ovo je kvarno, jer si trebao kao handler u OK na alert-u (secas da si remove tu func....)
-        delay(0.5) { [weak self] in // mali trik da se emituje malo kasnije jer se vidi "gap" u promeni text-a pre nego iskoci alert
-            guard let sSelf = self else {return}
-            sSelf.signInActivityIndicatorAnimating.onNext(false)
-        }
+        enableInputs()
         
     }
-}
+    
+    private func enableInputs() {
+        delay(0.5) { [weak self] in // jer se update pre nego se prikaze alert (u slucaju da ima error)
+            guard let sSelf = self else {return}
+            sSelf.emailInputEnabled.onNext(true)
+            sSelf.passwordInputEnabled.onNext(true)
+            sSelf.signInButtonEnabled.onNext(true)
+            sSelf.signInActivityIndicatorAnimating.onNext(false)
+        }
+    }
+    
+    private func loadInitialSession() {
+        userSessionRepository
+            .readUserSession()
+            .done { [weak self] (session) in
+                guard let sSelf = self else {return}
+                print("loadInitialSession.session emituje = \(session?.remoteSession.email ?? "")")
+                sSelf.emailInput.onNext(session?.remoteSession.email ?? "")
+                sSelf.passwordInput.onNext(session?.remoteSession.pass ?? "")
+            }
+            .catch {_ in }
+    }
+    
+    func userLogedOut() {
+        print("userLogedOut is called")
+        emailInput.onNext("")
+        passwordInput.onNext("")
+    }
 
-public protocol SignedInResponder {
-    func signedIn(to userSession: UserSession)
+    
 }
 
 //// trik da bih zadrzao logiku na VC (bez ovoga ima mali gap izmedju set title i show alert)

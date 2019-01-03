@@ -13,10 +13,11 @@ import RxSwift
 
 class ViewController: UIViewController {
 
-    let dataStore = FileUserSessionDataStore.init()
+    let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
     var repository: LeadLinkUserSessionRepository!
-    let responder = FakeSignedInResponder.init()
+    //let responder = MainViewModel.init()
     var logInViewModel: LogInViewModel!
+    let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -36,31 +37,40 @@ class ViewController: UIViewController {
     
     override func awakeFromNib() {
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
-        logInViewModel = LogInViewModel.init(userSessionRepository: repository, signedInResponder: responder)
+        logInViewModel = LogInViewModel.init(userSessionRepository: repository, signedInResponder: factory.sharedMainViewModel)
     }
     
     override func viewDidLoad() { super.viewDidLoad()
         
         bindViews(to: logInViewModel)
         
+        bindActualSessionToCredentialFields()
+        
+        observe(userSessionState: factory.sharedMainViewModel.view) // bind VC to listen for signedIn event (from mainViewModel):
+        
         observeErrorMessages(viewmodel: logInViewModel)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
+//        bindActualSessionToCredentialFields()
     }
     
     private func bindViews(to viewmodel: LogInViewModel) {
         
         // bind UI to viewmodel:
-        bindEmailField(viewmodel: viewmodel)
-        bindPasswordField(viewmodel: viewmodel)
+        bindEmailField()
+        bindPasswordField()
         
         // bind viewmodel to UI:
-        bindActivityIndicator(viewmodel: viewmodel)
-        bindViewModelToEmailField(viewmodel: viewmodel)
-        bindViewModelToPasswordField(viewmodel: viewmodel)
-        bindViewModelToLogInButton(viewmodel: viewmodel)
+        bindActivityIndicator()
+        bindViewModelToEmailField()
+        bindViewModelToPasswordField()
+        bindViewModelToLogInButton()
+        
     }
 
     
-    private func bindEmailField(viewmodel: LogInViewModel) { // VC -> viewmodel
+    private func bindEmailField() { // VC -> viewmodel
         emailField.rx.text
             .asDriver()
             .map { $0 ?? "" }
@@ -68,7 +78,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindPasswordField(viewmodel: LogInViewModel) { // VC -> viewmodel
+    private func bindPasswordField() { // VC -> viewmodel
         passField.rx.text
             .asDriver()
             .map { $0 ?? "" }
@@ -76,7 +86,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindActivityIndicator(viewmodel: LogInViewModel) { // viewmodel -> VC
+    private func bindActivityIndicator() { // viewmodel -> VC
         let activityDriver = logInViewModel
             .signInActivityIndicatorAnimating
             .asDriver(onErrorJustReturn: false)
@@ -89,7 +99,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindViewModelToEmailField(viewmodel: LogInViewModel) {
+    private func bindViewModelToEmailField() {
         logInViewModel
             .emailInputEnabled
             .asDriver(onErrorJustReturn: true)
@@ -97,7 +107,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindViewModelToPasswordField(viewmodel: LogInViewModel) {
+    private func bindViewModelToPasswordField() {
         logInViewModel
             .passwordInputEnabled
             .asDriver(onErrorJustReturn: true)
@@ -105,7 +115,7 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindViewModelToLogInButton(viewmodel: LogInViewModel) {
+    private func bindViewModelToLogInButton() {
         logInViewModel
             .signInButtonEnabled
             .asDriver(onErrorJustReturn: true)
@@ -113,27 +123,63 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func bindActualSessionToCredentialFields() { // ako nije logout, prikazi mu
+        
+        logInViewModel.emailInput
+            .asDriver(onErrorJustReturn: "")
+            .drive(emailField.rx.text)
+            .disposed(by: disposeBag)
+        
+        logInViewModel.passwordInput
+            .asDriver(onErrorJustReturn: "")
+            .drive(passField.rx.text)
+            .disposed(by: disposeBag)
+    }
+    
     private func observeErrorMessages(viewmodel: LogInViewModel) {
         logInViewModel
             .errorMessages
             .asDriver { _ in fatalError("Unexpected error from error messages observable.") }
-            .drive(onNext: { [weak self] errorMessage in
-                guard let strongSelf = self else { return }
+            .drive(onNext: { [weak self] errorMessage in guard let strongSelf = self else { return }
                 strongSelf.present(errorMessage: errorMessage)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func observe(userSessionState: Observable<MainViewState>) {
+        userSessionState
+            .debug()
+            .skip(1)
+            .subscribe(onNext: { [weak self] state in
+                print("emitujem state = \(state)")
+                guard let sSelf = self else {return}
+                switch state {
+                case .signedIn(let userSession):
+                    sSelf.presentSignedIn(userSession: userSession)
+                case .signOut:
+                    sSelf.logInViewModel.userLogedOut()
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func presentSignedIn(userSession: UserSession) {
+        
+        let logoutVC = factory.makeLogoutViewController()
+        logoutVC.factory = factory
+        
+        navigationController?.pushViewController(logoutVC, animated: true)
     }
     
     private let disposeBag = DisposeBag.init()
 
 }
 
-struct FakeSignedInResponder: SignedInResponder {
-    func signedIn(to userSession: UserSession) {
-        print("FakeSignedInResponder.signedIn imam token: \(userSession.remoteSession.token)")
-        print("FakeSignedInResponder.signedIn implement me.....")
-        print("skini kampanje, save ih na disk, itd....")
-    }
-    
-    
-}
+//struct FakeSignedInResponder: SignedInResponder {
+//    func signedIn(to userSession: UserSession) {
+//        print("FakeSignedInResponder.signedIn imam token: \(userSession.remoteSession.token)")
+//        print("FakeSignedInResponder.signedIn implement me.....")
+//        print("skini kampanje, save ih na disk, itd....")
+//    }
+//
+//
+//}

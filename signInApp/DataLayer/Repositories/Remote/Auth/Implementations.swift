@@ -74,12 +74,54 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
                 do {
                     let decoder = JSONDecoder()
                     let payload = try decoder.decode(SignInResponsePayload.self, from: data)
-                    let remoteSession = RemoteUserSession(token: payload.data.token)
+                    let remoteSession = RemoteUserSession(credentials: credentials, token: payload.data.token)
                     print("ovde imam remoteSession.token = \(remoteSession.token)")
                     seal.fulfill(UserSession(remoteSession: remoteSession))
                 } catch {
                     seal.reject(error)
                 }
+            }.resume()
+        }
+    }
+    
+    public func logOut(userSession: UserSession) -> Promise<UserSession> {
+        
+        let authToken = userSession.remoteSession.token
+        
+        return Promise<UserSession> { seal in
+            // Build Request
+            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/logout")!)
+            request.httpMethod = "POST"
+            
+            let headers = [ // Build Auth Header
+                "Api-Key": apiKey,
+                "Authorization": "Bearer \(authToken)",
+                "Content-Type": "application/x-www-form-urlencoded",
+                "cache-control": "no-cache"
+            ]
+            
+            request.allHTTPHeaderFields = headers
+            
+            // Send Data Task
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    seal.reject(error)
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    seal.reject(RemoteAPIError.unknown)
+                    return
+                }
+
+                guard 200..<300 ~= httpResponse.statusCode else {
+                    seal.reject(RemoteAPIError.httpError)
+                    return
+                }
+                
+                print("logout = SUCCESS!")
+                seal.fulfill(userSession)
+                
             }.resume()
         }
     }

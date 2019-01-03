@@ -38,7 +38,13 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
             .then(dataStore.save(userSession:))
     }
     
+//    public func signOut(userSession: UserSession) -> Promise<UserSession> {
+//        return dataStore.delete(userSession: userSession)
+//    }
     public func signOut(userSession: UserSession) -> Promise<UserSession> {
-        return dataStore.delete(userSession: userSession)
+        
+        return remoteAPI.logOut(userSession: userSession)
+            .then(dataStore.delete(userSession:))
+            //.catch(<#T##body: (Error) -> Void##(Error) -> Void#>)
     }
 }

@@ -11,12 +11,23 @@ import Foundation
 public struct RemoteUserSession: Codable {
     
     // MARK: - Properties
+    let credentials: LoginCredentials
     let token: AuthToken
     
+    // MARK: calculated vars
+    var email: String {
+        return credentials.email
+    }
+    var pass: String {
+        return credentials.password
+    }
+    
     // MARK: - Methods
-    public init(token: AuthToken) {
+    public init(credentials: LoginCredentials, token: AuthToken) {
+        self.credentials = credentials
         self.token = token
     }
+
 }
 
 extension RemoteUserSession: Equatable {

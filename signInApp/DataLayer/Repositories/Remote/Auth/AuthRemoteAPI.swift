@@ -12,4 +12,5 @@ import PromiseKit
 public protocol AuthRemoteAPI {
     //func logIn(email: String, password: String) -> Promise<UserSession>
     func logIn(credentials: LoginCredentials) -> Promise<UserSession>
+    func logOut(userSession: UserSession) -> Promise<UserSession>
 }
