@@ -156,6 +156,14 @@
                                     <action selector="logOutTapped:" destination="eDH-9a-LCb" eventType="touchUpInside" id="tMt-0G-ogx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ao-hL-fXC">
+                                <rect key="frame" x="542" y="497" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="get campaigns !"/>
+                                <connections>
+                                    <action selector="getCampaignsTapped:" destination="eDH-9a-LCb" eventType="touchUpInside" id="71i-he-zNS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="beQ-2G-J4W"/>

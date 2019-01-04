@@ -14,8 +14,3 @@ public protocol AuthRemoteAPI {
     func logIn(credentials: LoginCredentials) -> Promise<UserSession>
     func logOut(userSession: UserSession) -> Promise<UserSession>
 }
-
-public protocol RemoteAPI {
-    func getCampaigns(userSession: UserSession) -> Promise<[Campaign]>
-    //func getQuestions(campaignId id: Int) -> Promise<[Question]>
-}

@@ -9,19 +9,6 @@
 import Foundation
 import PromiseKit
 
-public protocol NewRideRemoteAPI {
-    
-    func getCampaigns(auth: AuthToken) -> Promise<[Campaign]>
-    
-}
-
-//enum RemoteAPIError: Error {
-//
-//    case unknown
-//    case createURL
-//    case httpError
-//}
-
 enum RemoteAPIError: Error {
     case unknown
     case createURL

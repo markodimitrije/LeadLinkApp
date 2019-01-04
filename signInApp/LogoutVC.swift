@@ -30,6 +30,19 @@ class LogoutVC: UIViewController {
         
     }
     
+    @IBAction func getCampaignsTapped(_ sender: UIButton) { // oprez - samo za bekend..
+        
+        print("zovi svoj viewmodel da ti da podatke")
+        
+        let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
+        
+        campaignsViewmodel.getCampaignsFromWeb()
+        
+        
+    }
+    
+    
+    
     override func viewDidLoad() { super.viewDidLoad()
         
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)

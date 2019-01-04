@@ -44,36 +44,4 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
             .then(dataStore.delete(userSession:))
     }
     
-    
-    
-}
-
-
-public protocol UserCampaignsRepository {
-    
-    func readCampaigns(userSession: UserSession) -> Promise<[Campaign]>
-    //func readQuestions(userSession: UserSession) -> Promise<[Question]> // imas u main proj..
-
-}
-
-public class CampaignsRepository: UserCampaignsRepository {
-    
-    // MARK: - Properties
-    let dataStore: UserCampaignsDataStore
-    let userSession: UserSession
-    let remoteAPI: RemoteAPI
-    
-    // MARK: - Methods
-    public init(userSession: UserSession, dataStore: UserCampaignsDataStore, remoteAPI: RemoteAPI) {
-        self.userSession = userSession
-        self.dataStore = dataStore
-        self.remoteAPI = remoteAPI
-    }
-    
-    public func readCampaigns(userSession: UserSession) -> Promise<[Campaign]> {
-        
-        return remoteAPI.getCampaigns(userSession: userSession)
-            .then(dataStore.save(campaigns:))
-    }
-    
 }

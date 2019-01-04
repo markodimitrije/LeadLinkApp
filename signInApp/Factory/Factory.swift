@@ -18,6 +18,7 @@ public class AppDependencyContainer {
     // Long-lived dependencies
     let sharedUserSessionRepository: UserSessionRepository
     let sharedMainViewModel: MainViewModel
+    let sharedCampaignsRepository: CampaignsRepository
 
     public init() {
         
@@ -41,8 +42,23 @@ public class AppDependencyContainer {
             return MainViewModel()
         }
         
+        // campaigns
+        
+        func makeCampaignsRepository() -> CampaignsRepository {
+            
+            //let userSession = sharedUserSessionRepository.readUserSession().value!! // oprez - ne valja ovo mislim....
+            let userSession = makeUserSessionRepository().readUserSession().value
+            let dataStore = RealmCampaignsDataStore.init()
+            let remoteAPI = LeadLinkCampaignsRemoteAPI.shared
+            
+            return CampaignsRepository.init(userSession: userSession,
+                                             dataStore: dataStore,
+                                             remoteAPI: remoteAPI)
+        }
+        
         self.sharedUserSessionRepository = makeUserSessionRepository()
         self.sharedMainViewModel = makeMainViewModel()
+        self.sharedCampaignsRepository = makeCampaignsRepository()
 
     }
     

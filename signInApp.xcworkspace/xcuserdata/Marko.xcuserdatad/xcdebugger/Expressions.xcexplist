@@ -10,5 +10,30 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.sharedUserSessionRepository">
+            </PersistentString>
+            <PersistentString
+               value = "makeUserSessionRepository().readUserSession()">
+            </PersistentString>
+            <PersistentString
+               value = "makeUserSessionRepository()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in RealmCampaignsDataStore.save(campaigns:):RealmCampaignsDataStore.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "realm.object(ofType: RealmCampaign.self)">
+            </PersistentString>
+            <PersistentString
+               value = "realm.object(ofType: RealmCampaign.self, forPrimaryKey: &quot;id&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

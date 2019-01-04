@@ -11,7 +11,7 @@ public struct Campaigns: Codable {
 }
 
 public struct Campaign: Codable {
-    var id: String
+    var id: Int
     var name: String
     var description: String
     var user_id: Int
@@ -20,6 +20,20 @@ public struct Campaign: Codable {
     var created_at: String // (Date)
     var primary_color: String? // oprez - ne vidim iz response koji je ovo type
     var color: String? // oprez - ne vidim iz response koji je ovo type
-    var logo: String // url
+    var logo: String? // url
     var settings: [String] // oprez - ne vidim iz response koji je ovo type
+    
+    init(realmCampaign campaign: RealmCampaign) {
+        self.id = campaign.id
+        self.name = campaign.name
+        self.description = campaign.desc
+        self.user_id = campaign.user_id
+        self.conference_id = campaign.conference_id
+        self.organization_id = campaign.organization_id
+        self.created_at = campaign.created_at
+        self.primary_color = campaign.primary_color
+        self.color = campaign.color
+        self.logo = campaign.logo
+        self.settings = Array(campaign.settings)
+    }
 }

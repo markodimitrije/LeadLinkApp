@@ -75,7 +75,7 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
                     let decoder = JSONDecoder()
                     let payload = try decoder.decode(SignInResponsePayload.self, from: data)
                     let remoteSession = RemoteUserSession(credentials: credentials, token: payload.data.token)
-                    print("ovde imam remoteSession.token = \(remoteSession.token)")
+//                    print("ovde imam remoteSession.token = \(remoteSession.token)")
                     seal.fulfill(UserSession(remoteSession: remoteSession))
                 } catch {
                     seal.reject(error)
