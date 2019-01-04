@@ -106,6 +106,40 @@
             </objects>
             <point key="canvasLocation" x="564.321608040201" y="54.676258992805757"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="wYa-0H-bzZ">
+            <objects>
+                <viewController id="cxs-lg-6LW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uru-lS-1uS">
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-nD-C1J">
+                                <rect key="frame" x="20" y="80" width="1154" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uiF-F4-BXy">
+                                <rect key="frame" x="20" y="24" width="1154" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UwI-nD-C1J" firstAttribute="top" secondItem="uiF-F4-BXy" secondAttribute="bottom" id="1I0-A5-JSc"/>
+                            <constraint firstItem="U8j-MS-AoK" firstAttribute="trailing" secondItem="uiF-F4-BXy" secondAttribute="trailing" constant="20" id="1xP-Xm-oNV"/>
+                            <constraint firstItem="UwI-nD-C1J" firstAttribute="bottom" secondItem="U8j-MS-AoK" secondAttribute="bottom" id="Bun-MQ-bnw"/>
+                            <constraint firstItem="uiF-F4-BXy" firstAttribute="top" secondItem="U8j-MS-AoK" secondAttribute="top" id="NhQ-N2-qFJ"/>
+                            <constraint firstItem="UwI-nD-C1J" firstAttribute="leading" secondItem="U8j-MS-AoK" secondAttribute="leading" constant="20" id="f6b-kz-15v"/>
+                            <constraint firstItem="uiF-F4-BXy" firstAttribute="leading" secondItem="U8j-MS-AoK" secondAttribute="leading" constant="20" id="oWJ-ra-CXP"/>
+                            <constraint firstItem="U8j-MS-AoK" firstAttribute="trailing" secondItem="UwI-nD-C1J" secondAttribute="trailing" constant="20" id="qYy-92-Hl0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U8j-MS-AoK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kI5-1n-joP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.6834170854272" y="-690.64748201438852"/>
+        </scene>
         <!--LogoutVC-->
         <scene sceneID="nxe-YX-6BV">
             <objects>
@@ -130,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuY-h3-dSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295.4773869346734" y="54.676258992805757"/>
+            <point key="canvasLocation" x="1720" y="55"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mWB-Yf-7t9">

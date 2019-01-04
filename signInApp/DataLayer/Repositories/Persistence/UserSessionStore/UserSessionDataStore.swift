@@ -17,3 +17,10 @@ public protocol UserSessionDataStore {
     func save(userSession: UserSession) -> Promise<(UserSession)>
     func delete(userSession: UserSession) -> Promise<(UserSession)>
 }
+
+public protocol UserCampaignsDataStore {
+    
+    func readCampaigns() -> Promise<UserSession?>
+    func save(campaigns: [Campaign]) -> Promise<([Campaign])>
+    func delete(campaigns: [Campaign]) -> Promise<([Campaigns])>
+}

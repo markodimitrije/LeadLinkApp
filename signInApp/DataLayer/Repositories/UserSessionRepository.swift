@@ -38,13 +38,42 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
             .then(dataStore.save(userSession:))
     }
     
-//    public func signOut(userSession: UserSession) -> Promise<UserSession> {
-//        return dataStore.delete(userSession: userSession)
-//    }
     public func signOut(userSession: UserSession) -> Promise<UserSession> {
         
         return remoteAPI.logOut(userSession: userSession)
             .then(dataStore.delete(userSession:))
-            //.catch(<#T##body: (Error) -> Void##(Error) -> Void#>)
     }
+    
+    
+    
+}
+
+
+public protocol UserCampaignsRepository {
+    
+    func readCampaigns(userSession: UserSession) -> Promise<[Campaign]>
+    //func readQuestions(userSession: UserSession) -> Promise<[Question]> // imas u main proj..
+
+}
+
+public class CampaignsRepository: UserCampaignsRepository {
+    
+    // MARK: - Properties
+    let dataStore: UserCampaignsDataStore
+    let userSession: UserSession
+    let remoteAPI: RemoteAPI
+    
+    // MARK: - Methods
+    public init(userSession: UserSession, dataStore: UserCampaignsDataStore, remoteAPI: RemoteAPI) {
+        self.userSession = userSession
+        self.dataStore = dataStore
+        self.remoteAPI = remoteAPI
+    }
+    
+    public func readCampaigns(userSession: UserSession) -> Promise<[Campaign]> {
+        
+        return remoteAPI.getCampaigns(userSession: userSession)
+            .then(dataStore.save(campaigns:))
+    }
+    
 }
