@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in RealmCampaignsDataStore.save(campaigns:):RealmCampaignsDataStore.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "realm.object(ofType: RealmCampaign.self)">
+            </PersistentString>
+            <PersistentString
+               value = "realm.object(ofType: RealmCampaign.self, forPrimaryKey: &quot;id&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CampaignsRepository.getCampaignsAndQuestions(userSession:):CampaignsRepository.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "allCampaignsSaved &amp;&amp; allQuestionsSaved">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in LeadLinkRemoteAPI.logIn(credentials:):Implementations.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,24 +33,13 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.sharedUserSessionRepository">
+               value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
                value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
             <PersistentString
-               value = "makeUserSessionRepository()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in RealmCampaignsDataStore.save(campaigns:):RealmCampaignsDataStore.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "realm.object(ofType: RealmCampaign.self)">
-            </PersistentString>
-            <PersistentString
-               value = "realm.object(ofType: RealmCampaign.self, forPrimaryKey: &quot;id&quot;)">
+               value = "self.sharedUserSessionRepository">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

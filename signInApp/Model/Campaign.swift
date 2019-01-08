@@ -6,6 +6,9 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
+import Realm
+import RealmSwift
+
 public struct Campaigns: Codable {
     var data: [Campaign]
 }
@@ -22,6 +25,7 @@ public struct Campaign: Codable {
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
     var settings: [String] // oprez - ne vidim iz response koji je ovo type
+    var questions: [Question]
     
     init(realmCampaign campaign: RealmCampaign) {
         self.id = campaign.id
@@ -35,5 +39,6 @@ public struct Campaign: Codable {
         self.color = campaign.color
         self.logo = campaign.logo
         self.settings = Array(campaign.settings)
+        self.questions = campaign.questions(campaignId: campaign.id)
     }
 }

@@ -50,7 +50,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                 try realm.write { // ovako
                     realm.add(objects, update: true)
                 }
-                print("sAVED CAMPAIGNS!")
+//                print("SAVED CAMPAIGNS!")
                 seal.fulfill(campaigns)
             } catch {
                 seal.reject(CampaignError.cantSave)
@@ -81,5 +81,22 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
+    
+    
+    public func readAllCampaignLogoUrls() -> Promise<[String]> {
+        
+        return Promise() { seal in
+            
+            readAllCampaigns()
+                .then({ (campaigns) -> Promise<[String]> in
+                    return Promise.init(resolver: { seal in
+                        seal.fulfill(campaigns.compactMap {$0.logo})
+                    })
+                }).catch({ (err) in
+                    seal.reject(err)
+                })
+        }
+        
+    }
     
 }

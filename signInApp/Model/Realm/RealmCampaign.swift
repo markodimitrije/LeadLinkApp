@@ -42,6 +42,34 @@ class RealmCampaign: Object {
         self.settings = list
     }
     
+    public func questions(forCampaignId id: Int) -> [RealmQuestion] {
+        
+        guard let realm = try? Realm.init() else {return [ ]}
+        
+        let questions: Results<RealmQuestion> = realm.objects(RealmQuestion.self).filter ("id == %@", id)
+        
+        return Array(questions)
+        
+    }
+    
+    public func questions(campaignId id: Int) -> [Question] {
+        
+        let rqs = questions(forCampaignId: id)
+        
+//        guard let realm = try? Realm.init() else {return [ ]}
+//
+//        let questions: Results<RealmQuestion> = realm.objects(RealmQuestion.self).filter ("id == %@", id)
+//
+//        return questions.map {
+//            Question.init(realmQuestion: $0)
+//        }
+
+        return rqs.map {
+            Question.init(realmQuestion: $0)
+        }
+        
+    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }

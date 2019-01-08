@@ -18,10 +18,8 @@ public class CampaignsViewModel {
     //let campaignsReadyResponder: CampaignsReadyResponder
     
     // MARK: - Methods
-    public init(campaignsRepository: CampaignsRepository) {//,
-//                campaignsReadyResponder: CampaignsReadyResponder) {
+    public init(campaignsRepository: CampaignsRepository) {
         self.campaignsRepository = campaignsRepository
-//        self.campaignsReadyResponder = campaignsReadyResponder
     }
     
     @objc
@@ -31,33 +29,37 @@ public class CampaignsViewModel {
             return
         }
         
-        campaignsRepository.readCampaigns(userSession: userSession)
-            .done { [weak self] campaigns in guard let sSelf = self else {return}
-                guard campaigns.count != 0 else {return}
-                print("imam campaigns.count = \(campaigns.count)")
-                print("prvo ih snimi na disk preko Promise")
-                print("pa im skini slike iz urls")
-
-//                let _ = sSelf.userSessionRepository
-//                    .signOut(userSession: session)
-//                    .ensure { [weak self] in guard let sSelf = self else {return}
-//                        print("u ensure (ili gde treba) je obrisi - implement me")
-//                        sSelf.notSignedInResponder.notSignedIn()
-//                }
+        campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
+            .done { success in
+                print("CampaignsAndQuestions are saved in realm = \(success)")
+            }.catch { (err) in
+                print("CampaignsAndQuestions catch err. DaTA NOT SAVED !")
         }
+        
+        /*
+        campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
+            .done { [weak self] (success) in guard let sSelf = self else {return}
+                guard success else {return}
+                print("getCampaignsFromWeb.okini sve by url....")
+                sSelf.campaignsRepository.dataStore.readAllCampaignLogoUrls()
+                    .then({ urls -> Promise<[Bool]> in
+                        urls.map({ url -> Bool in
+                            return
+                        })
+                        return Promise() { seal in
+                            
+                        })
+                    }).catch({ (err) in
+                        
+                    })
+            }.catch { (err) in
+                print("getCampaignsFromWeb.err catched....")
+        }
+        */
+
     }
+
     
-//    @objc
-//    public func signIn() {
-//        indicateSigningIn()
-//        let (email, password) = getEmailPassword()
-//        userSessionRepository.signIn(email: email, password: password)
-//            .done(signedInResponder.signedIn(to:))
-//            .catch(indicateErrorSigningIn)
-//            .finally { [weak self] in guard let sSelf = self else {return}
-//                sSelf.enableInputs()
-//        }
-//    }
     
     
 }
