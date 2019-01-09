@@ -37,7 +37,7 @@ public class RealmQuestionsDataStore: QuestionsDataStore {
     
     public func save(questions: [Question]) -> Promise<[Question]> {
         
-        print("Realm location = \(Realm.Configuration.defaultConfiguration.fileURL!)")
+//        print("Realm location = \(Realm.Configuration.defaultConfiguration.fileURL!)")
         return Promise() { seal in
             
             let objects = questions.compactMap { question -> RealmQuestion in
