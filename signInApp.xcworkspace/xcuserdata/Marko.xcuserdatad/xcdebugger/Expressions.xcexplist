@@ -22,6 +22,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CampaignsViewModel.getCampaignsFromWeb():CampaignsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "a">
+            </PersistentString>
+            <PersistentString
+               value = "aa">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in LeadLinkRemoteAPI.logIn(credentials:):Implementations.swift">
          <PersistentStrings>
             <PersistentString
@@ -33,13 +44,27 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
+               value = "self.sharedUserSessionRepository">
+            </PersistentString>
+            <PersistentString
                value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
                value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #4 in CampaignsViewModel.getCampaignsFromWeb():CampaignsViewModel.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "self.sharedUserSessionRepository">
+               value = "promisses.compactMap {$0.value}">
+            </PersistentString>
+            <PersistentString
+               value = "promisses.map {$0.value}">
+            </PersistentString>
+            <PersistentString
+               value = "promisses.map {$0.value}.map {$0}">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

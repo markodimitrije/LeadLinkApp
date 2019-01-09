@@ -29,34 +29,17 @@ public class CampaignsViewModel {
             return
         }
         
-        campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
-            .done { success in
-                print("CampaignsAndQuestions are saved in realm = \(success)")
-            }.catch { (err) in
-                print("CampaignsAndQuestions catch err. DaTA NOT SAVED !")
+        firstly {
+            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
+            }.then { success -> Promise<[String]> in
+                return self.campaignsRepository.dataStore.readAllCampaignLogoUrls()
+            }.thenMap { url -> Promise<Data> in
+                return self.campaignsRepository.remoteAPI.getImage(url: url)
+            }.done { data in
+                print("data upisi u realm = \(data)")
+                
         }
         
-        /*
-        campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
-            .done { [weak self] (success) in guard let sSelf = self else {return}
-                guard success else {return}
-                print("getCampaignsFromWeb.okini sve by url....")
-                sSelf.campaignsRepository.dataStore.readAllCampaignLogoUrls()
-                    .then({ urls -> Promise<[Bool]> in
-                        urls.map({ url -> Bool in
-                            return
-                        })
-                        return Promise() { seal in
-                            
-                        })
-                    }).catch({ (err) in
-                        
-                    })
-            }.catch { (err) in
-                print("getCampaignsFromWeb.err catched....")
-        }
-        */
-
     }
 
     

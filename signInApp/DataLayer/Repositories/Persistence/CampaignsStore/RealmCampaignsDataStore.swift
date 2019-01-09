@@ -85,17 +85,9 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     
     public func readAllCampaignLogoUrls() -> Promise<[String]> {
         
-        return Promise() { seal in
-            
-            readAllCampaigns()
-                .then({ (campaigns) -> Promise<[String]> in
-                    return Promise.init(resolver: { seal in
-                        seal.fulfill(campaigns.compactMap {$0.logo})
-                    })
-                }).catch({ (err) in
-                    seal.reject(err)
-                })
-        }
+        return readAllCampaigns().map({ camps -> [String] in
+            return camps.compactMap {$0.logo}
+        })
         
     }
     

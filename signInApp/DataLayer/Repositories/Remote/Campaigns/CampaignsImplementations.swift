@@ -145,4 +145,40 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         }
     }
     
+    public func getImage(url: String) -> Promise<Data> {
+        
+        return Promise<Data>.init(resolver: { seal in
+            
+            guard let url = URL(string: url) else { seal.reject(CampaignError.unknown); return }
+            
+            var request = URLRequest(url: url); request.httpMethod = "GET"
+            
+            let session = URLSession.shared
+            
+            session.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    seal.reject(error)
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse, let data = data else {
+                    seal.reject(RemoteAPIError.unknown)
+                    return
+                }
+                
+                guard 200..<300 ~= httpResponse.statusCode else {
+                    seal.reject(RemoteAPIError.httpError)
+                    return
+                }
+                
+                print("imam image data = \(data)")
+                
+                print("getImage. imam logo, nisam proverio ispravnost data....")
+                seal.fulfill(data)
+                
+            }.resume()
+            
+        })
+        
+    }
+    
 }

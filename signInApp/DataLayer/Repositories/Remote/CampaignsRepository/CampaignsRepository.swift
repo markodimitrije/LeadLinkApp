@@ -32,21 +32,6 @@ public class CampaignsRepository: UserCampaignsRepository {
         self.remoteAPI = remoteAPI
         self.questionsDataStore = questionsDataStore
     }
-    
-    
-    //public func readCampaigns(userSession: UserSession) -> Promise<[Bool]> { // getCampaignsAndQuestions...
-//    public func readCampaigns(userSession: UserSession) -> Promise<[Question]> {
-//
-//    // rename it...
-//    //public func readCampaigns(userSession: UserSession) -> Promise<[Campaign]> { // readAllCampaigns()
-//
-//        return remoteAPI.getCampaignsAndQuestions(userSession: userSession) // skini Campaigns... + (corr) Questions
-//            //.then(dataStore.save(campaigns:)) // skini questions...
-//            .then({ result -> Promise<Bool> in
-//
-//        })
-//
-//    }
 
     //public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
@@ -73,9 +58,5 @@ public class CampaignsRepository: UserCampaignsRepository {
             })
 
     }
-
-
-//.then(remoteAPI.getQuestions(campaignId: ))
-//.then(<#T##body: ([Campaign]) throws -> Thenable##([Campaign]) throws -> Thenable#>) // skini slike od svake Campaign
 
 }
