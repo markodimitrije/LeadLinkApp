@@ -30,14 +30,29 @@ public class CampaignsViewModel {
         }
         
         firstly {
+            
             campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
-            }.then { success -> Promise<[String]> in
-                return self.campaignsRepository.dataStore.readAllCampaignLogoUrls()
-            }.thenMap { url -> Promise<Data> in
-                return self.campaignsRepository.remoteAPI.getImage(url: url)
-            }.done { data in
-                print("data upisi u realm = \(data)")
+            
+            }.then { success -> Promise<[LogoInfo]> in
                 
+                return self.campaignsRepository.dataStore.readAllCampaignLogoUrls()
+                
+            }
+            .thenMap { logoInfo -> Promise<LogoInfo> in//Promise<Data?> in//Promise<LogoInfo> in
+
+                let dataPromise = self.campaignsRepository.remoteAPI.getImage(url: logoInfo.url ?? "")
+
+                return dataPromise.map { (data) -> LogoInfo in
+
+                    return LogoInfo.init(id: logoInfo.id, url: logoInfo.url, imgData: data)
+                }
+                
+        }.done { (infos) in     //       print("imam logo infos")
+            let _ = infos.map {
+                print("data ovaj \(String(describing: $0.imgData)) u realm, za campaign id = \($0.id)....")
+            }
+        }.catch { (err) in
+            print("err = \(err)")
         }
         
     }

@@ -13,5 +13,5 @@ public protocol CampaignsRemoteAPI {
     //func getCampaigns(userSession: UserSession) -> Promise<[Campaign]>
     //func getQuestions(campaignId id: Int) -> Promise<[Question]>
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]>
-    func getImage(url: String) -> Promise<Data>
+    func getImage(url: String) -> Promise<Data?>
 }

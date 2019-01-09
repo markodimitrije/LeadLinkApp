@@ -18,5 +18,5 @@ public protocol CampaignsDataStoreOld {
 }
 
 public protocol CampaignsDataStore: CampaignsDataStoreOld {
-    func readAllCampaignLogoUrls() -> Promise<[String]>
+    func readAllCampaignLogoUrls() -> Promise<[LogoInfo]>
 }

@@ -83,12 +83,36 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     
     
     
-    public func readAllCampaignLogoUrls() -> Promise<[String]> {
+//    public func readAllCampaignLogoUrls() -> Promise<[String]> {
+//
+//        return readAllCampaigns().map({ camps -> [String] in
+//            return camps.compactMap {$0.logo}
+//        })
+//
+//    }
+    
+    public func readAllCampaignLogoUrls() -> Promise<[LogoInfo]> {
         
-        return readAllCampaigns().map({ camps -> [String] in
-            return camps.compactMap {$0.logo}
-        })
+        return readAllCampaigns().map { camps -> [LogoInfo] in
+            return camps.compactMap { LogoInfo.init(campaign: $0) }
+        }
         
     }
     
+}
+
+public struct LogoInfo {
+    var id: Int
+    var url: String?
+    var imgData: Data?
+    init(campaign: Campaign) {
+        self.id = campaign.id
+        self.url = campaign.logo
+        self.imgData = nil // hard-coded
+    }
+    init(id: Int, url: String?, imgData: Data?) {
+        self.id = id
+        self.url = url
+        self.imgData = imgData
+    }
 }

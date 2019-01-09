@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.977819"
+            timestampString = "568728808.511374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.977924"
+            timestampString = "568728808.512266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978003"
+            timestampString = "568728808.512861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978074"
+            timestampString = "568728808.513446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978137"
+            timestampString = "568728808.513871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978205"
+            timestampString = "568728808.514274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978271"
+            timestampString = "568728808.5147361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            timestampString = "568719051.978332"
+            timestampString = "568728808.515438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
@@ -138,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "signInApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
-            timestampString = "568719051.978392"
+            timestampString = "568728808.515892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "save(questions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "signInApp/Viewmodel/CampaignsViewModel.swift"
-            timestampString = "568719051.9788719"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getCampaignsFromWeb()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -177,6 +161,54 @@
             endingLineNumber = "23"
             landmarkName = "logHandler"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+            timestampString = "568728808.516412"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "getImage(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+            timestampString = "568728808.5170749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "getImage(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "signInApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+            timestampString = "568728808.517607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "getImage(url:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
