@@ -186,6 +186,9 @@
                         <viewLayoutGuide key="safeArea" id="beQ-2G-J4W"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="O37-QQ-ps6" id="wOT-6a-SYf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuY-h3-dSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

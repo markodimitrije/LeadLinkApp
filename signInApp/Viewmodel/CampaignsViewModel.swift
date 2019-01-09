@@ -6,8 +6,14 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
+//import Foundation
+//import RxSwift
+
 import Foundation
+import RealmSwift
+import Realm
 import RxSwift
+import RxRealm
 
 import PromiseKit
 
@@ -20,9 +26,10 @@ public class CampaignsViewModel {
     // MARK: - Methods
     public init(campaignsRepository: CampaignsRepository) {
         self.campaignsRepository = campaignsRepository
+        bindOutput()
     }
     
-    @objc
+    @objc // zasto si zvao odavde ? verovatno treba da je matod pod repository
     public func getCampaignsFromWeb() { // neko ti trazi da download-ujes i persist...
         
         guard let session = campaignsRepository.userSession, let userSession = session else {
@@ -55,5 +62,37 @@ public class CampaignsViewModel {
         }
         
     }
+    
+    private(set) var campaigns: Results<RealmCampaign>!
+    
+    // input
+    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: nil)
+    
+    // output
+    
+    private(set) var oCampaigns: Observable<(AnyRealmCollection<RealmCampaign>, RealmChangeset?)>!
+    
+    private(set) var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
+    
+    // MARK:- calculators
+    
+    func getCampaign(forSelectedTableIndex index: Int) -> RealmCampaign {
+        // mogao si check za index i rooms.count -> RealmCampaign?
+        return campaigns[index]
+    }
+    
+    // MARK:- Private methods
+    
+    private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
+        
+        guard let realm = try? Realm() else { return }
+        
+        campaigns = realm.objects(RealmCampaign.self)
+        
+        oCampaigns = Observable.changeset(from: campaigns)
+        
+    }
+    
+    private let disposeBag = DisposeBag()
    
 }
