@@ -27,6 +27,8 @@ public struct Campaign: Codable {
     var settings: [String] // oprez - ne vidim iz response koji je ovo type
     var questions: [Question]
     
+    var imgData: Data? = nil
+    
     init(realmCampaign campaign: RealmCampaign) {
         self.id = campaign.id
         self.name = campaign.name
@@ -40,5 +42,8 @@ public struct Campaign: Codable {
         self.logo = campaign.logo
         self.settings = Array(campaign.settings)
         self.questions = campaign.questions(campaignId: campaign.id)
+        
+        self.imgData = campaign.imgData
+        
     }
 }

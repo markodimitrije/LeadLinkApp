@@ -91,7 +91,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
 //
 //    }
     
-    public func readAllCampaignLogoUrls() -> Promise<[LogoInfo]> {
+    public func readAllCampaignLogoInfos() -> Promise<[LogoInfo]> {
         
         return readAllCampaigns().map { camps -> [LogoInfo] in
             return camps.compactMap { LogoInfo.init(campaign: $0) }

@@ -25,7 +25,10 @@ class RealmCampaign: Object {
     @objc dynamic var primary_color: String? // oprez - ne vidim iz response koji je ovo types
     @objc dynamic var color: String? // oprez - ne vidim iz response koji je ovo type
     @objc dynamic var logo: String? = "" // url
+    
     var settings = List<String>() // oprez - ne vidim iz response koji je ovo type
+    
+    @objc dynamic var imgData: Data?
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
@@ -40,6 +43,8 @@ class RealmCampaign: Object {
         self.logo = campaign.logo
         let list = List<String>.init(); list.append(objectsIn: settings)
         self.settings = list
+        
+        self.imgData = campaign.imgData
     }
     
     public func questions(forCampaignId id: Int) -> [RealmQuestion] {
@@ -72,6 +77,15 @@ class RealmCampaign: Object {
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    static func updateImg(data: Data?, campaignId id: Int) {
+        guard let realm = try? Realm.init() else {return}
+        guard let record = realm.objects(RealmCampaign.self).first(where: {$0.id == id}) else {return}
+        print("RealmCampaign/updateImg. image data treba da su saved... ")
+        try? realm.write {
+            record.imgData = data
+        }
     }
     
 //    override static func ignoredProperties() -> [String] { // sta nije bitno za Scaner app?

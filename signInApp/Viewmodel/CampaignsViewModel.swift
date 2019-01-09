@@ -33,31 +33,27 @@ public class CampaignsViewModel {
             
             campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
             
-            }.then { success -> Promise<[LogoInfo]> in
-                
-                return self.campaignsRepository.dataStore.readAllCampaignLogoUrls()
-                
+        }.then { success -> Promise<[LogoInfo]> in
+            
+            return self.campaignsRepository.dataStore.readAllCampaignLogoInfos()
+            
+        }.thenMap { logoInfo -> Promise<LogoInfo> in
+
+            let dataPromise = self.campaignsRepository.remoteAPI.getImage(url: logoInfo.url ?? "")
+
+            return dataPromise.map { (data) -> LogoInfo in
+
+                return LogoInfo.init(id: logoInfo.id, url: logoInfo.url, imgData: data)
             }
-            .thenMap { logoInfo -> Promise<LogoInfo> in//Promise<Data?> in//Promise<LogoInfo> in
-
-                let dataPromise = self.campaignsRepository.remoteAPI.getImage(url: logoInfo.url ?? "")
-
-                return dataPromise.map { (data) -> LogoInfo in
-
-                    return LogoInfo.init(id: logoInfo.id, url: logoInfo.url, imgData: data)
-                }
                 
         }.done { (infos) in     //       print("imam logo infos")
             let _ = infos.map {
-                print("data ovaj \(String(describing: $0.imgData)) u realm, za campaign id = \($0.id)....")
+                RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
             }
         }.catch { (err) in
             print("err = \(err)")
         }
         
     }
-
-    
-    
-    
+   
 }
