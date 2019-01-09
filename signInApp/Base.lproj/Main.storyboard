@@ -149,10 +149,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrx-fI-Ns6">
-                                <rect key="frame" x="1074" y="74" width="100" height="60"/>
+                                <rect key="frame" x="1126" y="74" width="48" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="IXw-e0-LvG"/>
-                                    <constraint firstAttribute="width" constant="100" id="qJq-Bc-rdO"/>
                                 </constraints>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -160,16 +159,53 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O37-QQ-ps6">
-                                <rect key="frame" x="20" y="74" width="1046" height="740"/>
+                                <rect key="frame" x="20" y="74" width="1098" height="740"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="kx2-Vn-0yr">
-                                        <rect key="frame" x="0.0" y="28" width="1046" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="kx2-Vn-0yr" customClass="CampaignCell" customModule="signInApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="1098" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kx2-Vn-0yr" id="Xtc-EQ-7Dp">
-                                            <rect key="frame" x="0.0" y="0.0" width="1046" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1098" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jU3-oM-JXV">
+                                                    <rect key="frame" x="15" y="4.5" width="90" height="90.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jU3-oM-JXV" secondAttribute="height" multiplier="1:1" id="Gpu-fE-hfI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bq2-EI-fau">
+                                                    <rect key="frame" x="113" y="39.5" width="92" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-T2-bxN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC5-89-2tk">
+                                                            <rect key="frame" x="50" y="0.0" width="42" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jU3-oM-JXV" firstAttribute="height" secondItem="Xtc-EQ-7Dp" secondAttribute="height" multiplier="0.9" constant="0.5" id="VZ5-AM-cNE"/>
+                                                <constraint firstItem="bq2-EI-fau" firstAttribute="leading" secondItem="jU3-oM-JXV" secondAttribute="trailing" constant="8" symbolic="YES" id="aEm-Dp-myf"/>
+                                                <constraint firstItem="jU3-oM-JXV" firstAttribute="centerY" secondItem="Xtc-EQ-7Dp" secondAttribute="centerY" id="l9g-tR-1Vs"/>
+                                                <constraint firstItem="bq2-EI-fau" firstAttribute="centerY" secondItem="jU3-oM-JXV" secondAttribute="centerY" id="tGX-6d-7O3"/>
+                                                <constraint firstItem="jU3-oM-JXV" firstAttribute="leading" secondItem="Xtc-EQ-7Dp" secondAttribute="leading" constant="15" id="uqw-bR-x4r"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eventNameLbl" destination="CC5-89-2tk" id="E9X-0A-miZ"/>
+                                            <outlet property="imgView" destination="jU3-oM-JXV" id="5Zy-Dg-ogE"/>
+                                            <outlet property="orgNameLbl" destination="CK6-T2-bxN" id="rLr-Kg-ddO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

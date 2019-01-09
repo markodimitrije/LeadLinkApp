@@ -77,10 +77,12 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
     }
     
     private func bindUI() { // bind dataSource
-        let dataSource = RxTableViewRealmDataSource<RealmCampaign>(cellIdentifier:"cell", cellType: UITableViewCell.self)
-        { cell, _, rRoom in
-            print("item/ campaign name = \(rRoom.name)")
-            cell.textLabel?.text = rRoom.name
+        
+        let dataSource = RxTableViewRealmDataSource<RealmCampaign>(cellIdentifier:"cell", cellType: CampaignCell.self)
+        { cell, _, rCampaign in
+            print("item/ campaign name = \(rCampaign.name)")
+            let campaign = Campaign.init(realmCampaign: rCampaign)
+            cell.update(campaign: campaign)
         }
         
         campaignsViewModel.oCampaigns
