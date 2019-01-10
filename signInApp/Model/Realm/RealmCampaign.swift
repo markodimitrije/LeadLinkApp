@@ -26,8 +26,6 @@ class RealmCampaign: Object {
     @objc dynamic var color: String? // oprez - ne vidim iz response koji je ovo type
     @objc dynamic var logo: String? = "" // url
     
-    var settings = List<String>() // oprez - ne vidim iz response koji je ovo type
-    
     @objc dynamic var imgData: Data?
 
     public func update(with campaign: Campaign) {
@@ -41,8 +39,6 @@ class RealmCampaign: Object {
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo
-        let list = List<String>.init(); list.append(objectsIn: settings)
-        self.settings = list
         
         self.imgData = campaign.imgData
     }
@@ -60,14 +56,6 @@ class RealmCampaign: Object {
     public func questions(campaignId id: Int) -> [Question] {
         
         let rqs = questions(forCampaignId: id)
-        
-//        guard let realm = try? Realm.init() else {return [ ]}
-//
-//        let questions: Results<RealmQuestion> = realm.objects(RealmQuestion.self).filter ("id == %@", id)
-//
-//        return questions.map {
-//            Question.init(realmQuestion: $0)
-//        }
 
         return rqs.map {
             Question.init(realmQuestion: $0)

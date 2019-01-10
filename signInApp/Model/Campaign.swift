@@ -24,7 +24,7 @@ public struct Campaign: Codable {
     var primary_color: String? // oprez - ne vidim iz response koji je ovo type
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
-    var settings: [String] // oprez - ne vidim iz response koji je ovo type
+    // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
     var questions: [Question]
     
     var imgData: Data? = nil
@@ -40,7 +40,7 @@ public struct Campaign: Codable {
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo
-        self.settings = Array(campaign.settings)
+        
         self.questions = campaign.questions(campaignId: campaign.id)
         
         self.imgData = campaign.imgData

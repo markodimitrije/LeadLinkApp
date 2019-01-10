@@ -148,7 +148,7 @@ class ViewController: UIViewController {
     
     private func observe(userSessionState: Observable<MainViewState>) {
         userSessionState
-            .debug()
+            //.debug()
             .skip(1)
             .subscribe(onNext: { [weak self] state in
                 print("emitujem state = \(state)")

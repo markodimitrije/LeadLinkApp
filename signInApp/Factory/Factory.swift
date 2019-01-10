@@ -51,11 +51,16 @@ public class AppDependencyContainer {
             let dataStore = RealmCampaignsDataStore.init()
             let questionsDataStore = RealmQuestionsDataStore.init()
             let remoteAPI = LeadLinkCampaignsRemoteAPI.shared
+            let campaignsVersionChecker: CampaignsVersionChecker = {
+                let dataStore = RealmCampaignsDataStore.init()
+                return CampaignsVersionChecker.init(campaignsDataStore: dataStore)
+            }()
             
             return CampaignsRepository.init(userSession: userSession,
                                             dataStore: dataStore, // persist campaigns + rename...
                                             questionsDataStore: questionsDataStore, // persist questions
-                                            remoteAPI: remoteAPI) // ovde nadji data
+                                            remoteAPI: remoteAPI, // ovde nadji data
+                                            campaignsVersionChecker: campaignsVersionChecker)
         }
         
         self.sharedUserSessionRepository = makeUserSessionRepository()

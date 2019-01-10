@@ -81,16 +81,6 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
-    
-    
-//    public func readAllCampaignLogoUrls() -> Promise<[String]> {
-//
-//        return readAllCampaigns().map({ camps -> [String] in
-//            return camps.compactMap {$0.logo}
-//        })
-//
-//    }
-    
     public func readAllCampaignLogoInfos() -> Promise<[LogoInfo]> {
         
         return readAllCampaigns().map { camps -> [LogoInfo] in
@@ -98,21 +88,46 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         }
         
     }
-    
-}
 
-public struct LogoInfo {
-    var id: Int
-    var url: String?
-    var imgData: Data?
-    init(campaign: Campaign) {
-        self.id = campaign.id
-        self.url = campaign.logo
-        self.imgData = nil // hard-coded
+    public func getCampaignsJsonString(requestName name: String) -> Promise<String> {
+        
+        return Promise() { seal in
+            
+            guard let realm = try? Realm.init() else {
+                seal.reject(CampaignError.unknown)
+                return
+            }
+            
+            guard let realmJson = realm.objects(RealmJson.self).first(where: {$0.name == name} ) else {
+                seal.fulfill("") // ako nemas nista
+                return
+            }
+            
+            seal.fulfill(realmJson.value)
+            
+        }
+        
     }
-    init(id: Int, url: String?, imgData: Data?) {
-        self.id = id
-        self.url = url
-        self.imgData = imgData
+    
+    public func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<String> {
+        
+        return Promise() { seal in
+            
+            let object = RealmJson()
+            object.update(name: name, value: json)
+            
+            do {
+                try realm.write {
+                    realm.add(object, update: true)
+                }
+                print("SAVED JSON za kampanje !")
+                seal.fulfill(json)
+            } catch {
+                seal.reject(CampaignError.cantSave)
+            }
+            
+        }
+        
     }
+    
 }

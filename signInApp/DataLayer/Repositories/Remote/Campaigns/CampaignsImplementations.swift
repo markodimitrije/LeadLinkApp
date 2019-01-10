@@ -92,11 +92,11 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
     
     
     
-    public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
+    public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<CampaignResults> {
         
         let authToken = userSession.remoteSession.token
         
-        return Promise<[(Campaign, [Question])]> { seal in
+        return Promise<CampaignResults> { seal in
             // Build Request
             var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions")!)
             request.httpMethod = "GET"
@@ -132,12 +132,16 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
                     
                     print("getCampaignsAndQuestions. PROSAO SAM DECODE: ALL GOOD....")
                     
+                    let jsonString = String.init(data: data, encoding: String.Encoding.utf8) // versioning
+                    
                     let campaigns = payload.data
                     let questions = campaigns.map {$0.questions}
                     
                     let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
                     
-                    seal.fulfill(results)
+                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
+                    
+                    seal.fulfill(campaignResults)
                 } catch {
                     seal.reject(error)
                 }
@@ -183,4 +187,9 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         
     }
     
+}
+
+public struct CampaignResults {
+    var campaignsWithQuestions = [(Campaign, [Question])]()
+    var jsonString: String = ""
 }

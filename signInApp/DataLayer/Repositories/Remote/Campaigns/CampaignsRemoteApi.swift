@@ -12,6 +12,39 @@ import PromiseKit
 public protocol CampaignsRemoteAPI {
     //func getCampaigns(userSession: UserSession) -> Promise<[Campaign]>
     //func getQuestions(campaignId id: Int) -> Promise<[Question]>
-    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]>
+    //func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]>
+    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<CampaignResults>
+    
     func getImage(url: String) -> Promise<Data?>
+}
+
+public protocol CampaignsVersionChecking {
+    func needsUpdate(newCampaignData json: String) -> Promise<Bool>
+}
+
+public struct CampaignsVersionChecker: CampaignsVersionChecking {
+    
+    var campaignsDataStore: CampaignsDataStore
+    
+    init(campaignsDataStore: CampaignsDataStore) {
+        self.campaignsDataStore = campaignsDataStore
+    }
+    
+    
+    
+    public func needsUpdate(newCampaignData json: String) -> Promise<Bool> {
+        
+        let realmString = campaignsDataStore.getCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions)
+
+        return realmString.compactMap { str -> Bool? in
+            
+            return (realmString.value != json)
+        }
+
+    }
+    
+}
+
+struct WebRequestName {
+    static let campaignsWithQuestions = "campaigns?include=questions"
 }

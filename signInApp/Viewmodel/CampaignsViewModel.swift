@@ -35,6 +35,7 @@ public class CampaignsViewModel {
         guard let session = campaignsRepository.userSession, let userSession = session else {
             return
         }
+        // "moj firstly"
         
         firstly {
             

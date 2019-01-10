@@ -79,10 +79,11 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
     private func bindUI() { // bind dataSource
         
         let dataSource = RxTableViewRealmDataSource<RealmCampaign>(cellIdentifier:"cell", cellType: CampaignCell.self)
-        { cell, _, rCampaign in
-            print("item/ campaign name = \(rCampaign.name)")
+        { cell, _, rCampaign in //print("item/ campaign name = \(rCampaign.name)")
+            
             let campaign = Campaign.init(realmCampaign: rCampaign)
-            cell.update(campaign: campaign)
+            cell.update(campaign: campaign) // ovo nije Rx, za to ti treba viewmodel: [cellViewmodel**] i na svakom ** Driver<Campaign>
+            
         }
         
         campaignsViewModel.oCampaigns

@@ -19,4 +19,6 @@ public protocol CampaignsDataStoreOld {
 
 public protocol CampaignsDataStore: CampaignsDataStoreOld {
     func readAllCampaignLogoInfos() -> Promise<[LogoInfo]>
+    func getCampaignsJsonString(requestName name: String) -> Promise<String>
+    func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<String>
 }

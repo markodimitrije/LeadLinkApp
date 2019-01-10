@@ -24,36 +24,54 @@ public class CampaignsRepository: UserCampaignsRepository {
     let userSession: UserSession??
     let remoteAPI: CampaignsRemoteAPI
     let questionsDataStore: QuestionsDataStore
+    let campaignsVersionChecker: CampaignsVersionChecker
     
     // MARK: - Methods
-    public init(userSession: UserSession??, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI) {
+    public init(userSession: UserSession??, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
         self.userSession = userSession
         self.dataStore = dataStore
         self.remoteAPI = remoteAPI
         self.questionsDataStore = questionsDataStore
+        self.campaignsVersionChecker = campaignsVersionChecker
     }
 
     //public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
 
         return remoteAPI.getCampaignsAndQuestions(userSession: userSession) // skini Campaigns... + (corr) Questions
-            //.then(dataStore.save(campaigns:)) // skini questions...
+            
             .then({ results -> Promise<Bool> in
                 
-                var allCampaignsSaved = false; var allQuestionsSaved = false;
+                var allCampaignsSaved = false; var allQuestionsSaved = false; var jsonUpdated = false
                 
-                allCampaignsSaved = self.dataStore.save(campaigns: results.map {$0.0}).isFulfilled
+                let a = self.campaignsVersionChecker.needsUpdate(newCampaignData: results.jsonString)
                 
-                let quests = results.map {$0.1}
+                a.done({ needs in
+                    if needs {
+                        self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
+                                                               json: results.jsonString)
+                        jsonUpdated = true
+                    } else {
+                        print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
+                    }
+                }).catch { err in
+                    print("CapmaignsRepository.getCampaignsAndQuestions.err = \(err), nije saved ceo json od kampanja...")
+                }
+                
+                let campaignsWithQuestions = results.campaignsWithQuestions
+                
+                allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
+                
+                let quests = campaignsWithQuestions.map {$0.1}
                 let savedQuestions = quests.map { questions -> Bool in
                     return self.questionsDataStore.save(questions: questions).isFulfilled
                 }
                 
                 allQuestionsSaved = !savedQuestions.contains(false)
                 
-                print("saved both campaigns and questions = \(allCampaignsSaved && allQuestionsSaved)")
+                print("saved both (campaigns,questions) and json = \(allCampaignsSaved && allQuestionsSaved && jsonUpdated)")
                 
-                return Promise.value(allCampaignsSaved && allQuestionsSaved)
+                return Promise.value(allCampaignsSaved && allQuestionsSaved && jsonUpdated)
                 
             })
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class CampaignCell: UITableViewCell {
     
@@ -24,4 +25,21 @@ class CampaignCell: UITableViewCell {
     }
     
     private let disposeBag = DisposeBag.init()
+    
 }
+
+//extension Reactive where Base: CampaignCell {
+//
+//    var eventName: Binder<String> {
+//        return Binder.init(self.base, binding: { (cell, value) in
+//            cell.eventNameLbl?.text = value
+//        })
+//    }
+//
+//    var campaign: Binder<Campaign> {
+//        return Binder.init(self.base, binding: { (cell, campaign) in
+//            cell.update(campaign: campaign)
+//        })
+//    }
+//
+//}

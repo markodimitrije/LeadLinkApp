@@ -36,10 +36,10 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "makeUserSessionRepository().readUserSession()">
+               value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
-               value = "makeUserSessionRepository()">
+               value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
             <PersistentString
                value = "self.sharedUserSessionRepository">
@@ -69,6 +69,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in LeadLinkCampaignsRemoteAPI.getCampaignsAndQuestions(userSession:):CampaignsImplementations.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json as? [String: Any]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CampaignsViewModel.getCampaignsFromWeb():CampaignsViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -76,6 +84,14 @@
             </PersistentString>
             <PersistentString
                value = "aa">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CampaignsVersionChecker.needsUpdate(newCampaignData:):CampaignsRemoteApi.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "realmString.value == json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
