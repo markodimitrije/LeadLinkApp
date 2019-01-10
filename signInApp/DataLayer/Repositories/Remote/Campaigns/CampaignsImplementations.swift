@@ -98,7 +98,7 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         
         return Promise<CampaignResults> { seal in
             // Build Request
-            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions")!)
+            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization")!)
             request.httpMethod = "GET"
             
             let headers = [ // Build Auth Header

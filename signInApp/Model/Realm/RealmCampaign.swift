@@ -26,6 +26,8 @@ class RealmCampaign: Object {
     @objc dynamic var color: String? // oprez - ne vidim iz response koji je ovo type
     @objc dynamic var logo: String? = "" // url
     
+    @objc dynamic var organization: RealmOrganization? = RealmOrganization()
+    
     @objc dynamic var imgData: Data?
 
     public func update(with campaign: Campaign) {
@@ -39,6 +41,9 @@ class RealmCampaign: Object {
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo
+        
+        let org = RealmOrganization(); org.update(with: campaign.organization)
+        self.organization = org
         
         self.imgData = campaign.imgData
     }

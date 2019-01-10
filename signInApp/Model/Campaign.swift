@@ -27,6 +27,8 @@ public struct Campaign: Codable {
     // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
     var questions: [Question]
     
+    var organization: Organization
+    
     var imgData: Data? = nil
     
     init(realmCampaign campaign: RealmCampaign) {
@@ -42,6 +44,8 @@ public struct Campaign: Codable {
         self.logo = campaign.logo
         
         self.questions = campaign.questions(campaignId: campaign.id)
+        
+        self.organization = Organization.init(realmOrganization: campaign.organization)
         
         self.imgData = campaign.imgData
         

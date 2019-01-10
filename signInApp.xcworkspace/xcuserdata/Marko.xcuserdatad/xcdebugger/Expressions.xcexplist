@@ -36,13 +36,13 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
+               value = "self.sharedUserSessionRepository">
+            </PersistentString>
+            <PersistentString
                value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
                value = "makeUserSessionRepository().readUserSession()">
-            </PersistentString>
-            <PersistentString
-               value = "self.sharedUserSessionRepository">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -65,6 +65,14 @@
             </PersistentString>
             <PersistentString
                value = "promisses.map {$0.value}.map {$0}">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CampaignCell.update(campaign:):CampaignCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "campaign.organization.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

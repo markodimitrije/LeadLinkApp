@@ -46,5 +46,5 @@ public struct CampaignsVersionChecker: CampaignsVersionChecking {
 }
 
 struct WebRequestName {
-    static let campaignsWithQuestions = "campaigns?include=questions"
+    static let campaignsWithQuestions = "campaigns?include=questions,organization"
 }

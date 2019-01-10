@@ -19,7 +19,7 @@ class CampaignCell: UITableViewCell {
     func update(campaign: Campaign) {
         
         self.eventNameLbl?.text = campaign.name
-        self.orgNameLbl?.text = "\(campaign.organization_id) nabavi data"
+        self.orgNameLbl?.text = "\(campaign.organization.name)"
         self.imgView?.image = (campaign.imgData != nil) ? UIImage.init(data: campaign.imgData!) : UIImage.campaignPlaceholder
         
     }
