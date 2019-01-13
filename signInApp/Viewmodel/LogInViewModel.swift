@@ -98,9 +98,9 @@ public class LogInViewModel {
             .readUserSession()
             .done { [weak self] (session) in
                 guard let sSelf = self else {return}
-                print("loadInitialSession.session emituje = \(session?.remoteSession.email ?? "")")
-                sSelf.emailInput.onNext(session?.remoteSession.email ?? "")
-                sSelf.passwordInput.onNext(session?.remoteSession.pass ?? "")
+                print("loadInitialSession.session emituje = \(session.remoteSession.email)")
+                sSelf.emailInput.onNext(session.remoteSession.email)
+                sSelf.passwordInput.onNext(session.remoteSession.pass)
             }
             .catch {_ in }
     }

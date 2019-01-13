@@ -22,6 +22,7 @@
 		AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */; };
 		AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013C21D8F68E00946CBA /* Secret.swift */; };
 		AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */; };
+		ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7791821E7AE9200527623 /* UserSessionError.swift */; };
 		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
@@ -73,6 +74,7 @@
 		AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		AD4F013C21D8F68E00946CBA /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
+		ADA7791821E7AE9200527623 /* UserSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionError.swift; sourceTree = "<group>"; };
 		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				ADB6A63C21DF8B94002224C0 /* CampaignsDataStore.swift */,
 				ADB6A63E21DF8BA5002224C0 /* RealmCampaignsDataStore.swift */,
 				ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */,
+				ADA7791821E7AE9200527623 /* UserSessionError.swift */,
 			);
 			path = CampaignsStore;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			files = (
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
+				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,

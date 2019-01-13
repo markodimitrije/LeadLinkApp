@@ -156,6 +156,7 @@ class ViewController: UIViewController {
                 switch state {
                 case .signedIn(let userSession):
                     sSelf.presentSignedIn(userSession: userSession)
+                    sSelf.downloadCampaigns()
                 case .signOut:
                     sSelf.logInViewModel.userLogedOut()
                 }
@@ -168,6 +169,14 @@ class ViewController: UIViewController {
         logoutVC.factory = factory
         
         navigationController?.pushViewController(logoutVC, animated: true)
+    }
+    
+    private func downloadCampaigns() {
+        
+        if let appdel = UIApplication.shared.delegate as? AppDelegate {
+            appdel.downloadCampaignsQuestionsAndLogos()
+        }
+        
     }
     
     private let disposeBag = DisposeBag.init()

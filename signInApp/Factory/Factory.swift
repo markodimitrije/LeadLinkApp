@@ -47,7 +47,7 @@ public class AppDependencyContainer {
         func makeCampaignsRepository() -> CampaignsRepository {
             
             //let userSession = sharedUserSessionRepository.readUserSession().value!! // oprez - ne valja ovo mislim....
-            let userSession = makeUserSessionRepository().readUserSession().value
+            let userSessionRepository = makeUserSessionRepository()
             let dataStore = RealmCampaignsDataStore.init()
             let questionsDataStore = RealmQuestionsDataStore.init()
             let remoteAPI = LeadLinkCampaignsRemoteAPI.shared
@@ -56,7 +56,7 @@ public class AppDependencyContainer {
                 return CampaignsVersionChecker.init(campaignsDataStore: dataStore)
             }()
             
-            return CampaignsRepository.init(userSession: userSession,
+            return CampaignsRepository.init(userSessionRepository: userSessionRepository,
                                             dataStore: dataStore, // persist campaigns + rename...
                                             questionsDataStore: questionsDataStore, // persist questions
                                             remoteAPI: remoteAPI, // ovde nadji data

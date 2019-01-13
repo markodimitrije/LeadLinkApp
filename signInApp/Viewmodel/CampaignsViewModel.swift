@@ -32,14 +32,13 @@ public class CampaignsViewModel {
     @objc // zasto si zvao odavde ? verovatno treba da je matod pod repository
     public func getCampaignsFromWeb() { // neko ti trazi da download-ujes i persist...
         
-        guard let session = campaignsRepository.userSession, let userSession = session else {
+        guard let userSession = campaignsRepository.userSessionRepository.readUserSession().value else {
             return
         }
-        // "moj firstly"
         
         firstly {
             
-            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
+            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)//userSession)
             
         }.then { success -> Promise<[LogoInfo]> in
             

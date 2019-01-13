@@ -15,7 +15,7 @@ public struct LogoInfo {
     init(campaign: Campaign) {
         self.id = campaign.id
         self.url = campaign.logo
-        self.imgData = nil // hard-coded
+        self.imgData = nil
     }
     init(id: Int, url: String?, imgData: Data?) {
         self.id = id

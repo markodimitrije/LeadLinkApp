@@ -11,7 +11,7 @@ import PromiseKit
 
 public protocol UserSessionRepository {
     
-    func readUserSession() -> Promise<UserSession?>
+    func readUserSession() -> Promise<UserSession>
     func signIn(email: String, password: String) -> Promise<UserSession>
     func signOut(userSession: UserSession) -> Promise<UserSession>
 }
@@ -28,7 +28,7 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
         self.remoteAPI = remoteAPI
     }
     
-    public func readUserSession() -> Promise<UserSession?> {
+    public func readUserSession() -> Promise<UserSession> {
         return dataStore.readUserSession()
     }
     

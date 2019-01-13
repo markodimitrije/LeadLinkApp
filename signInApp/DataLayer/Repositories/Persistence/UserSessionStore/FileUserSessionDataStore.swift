@@ -21,14 +21,14 @@ public class FileUserSessionDataStore: UserSessionDataStore {
     // MARK: - Methods
     public init() {}
     
-    public func readUserSession() -> Promise<UserSession?> {
+    public func readUserSession() -> Promise<UserSession> {
         return Promise() { seal in
             guard let docsURL = docsURL else {
                 seal.reject(LeadLinkKitError.any)
                 return
             }
             guard let jsonData = try? Data(contentsOf: docsURL.appendingPathComponent("user_session.json")) else {
-                seal.fulfill(nil)
+                seal.reject(UserSessionError.notSignedIn)
                 return
             }
             let decoder = JSONDecoder()

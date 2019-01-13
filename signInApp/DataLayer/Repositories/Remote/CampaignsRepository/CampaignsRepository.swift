@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import RxSwift
 
 public protocol UserCampaignsRepository {
     
@@ -21,14 +22,16 @@ public class CampaignsRepository: UserCampaignsRepository {
     
     // MARK: - Properties
     let dataStore: CampaignsDataStore
-    let userSession: UserSession??
+    let userSessionRepository: UserSessionRepository
     let remoteAPI: CampaignsRemoteAPI
     let questionsDataStore: QuestionsDataStore
     let campaignsVersionChecker: CampaignsVersionChecker
     
+    
+    
     // MARK: - Methods
-    public init(userSession: UserSession??, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
-        self.userSession = userSession
+    public init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
+        self.userSessionRepository = userSessionRepository
         self.dataStore = dataStore
         self.remoteAPI = remoteAPI
         self.questionsDataStore = questionsDataStore
@@ -44,13 +47,16 @@ public class CampaignsRepository: UserCampaignsRepository {
                 
                 var allCampaignsSaved = false; var allQuestionsSaved = false; var jsonUpdated = false
                 
-                let a = self.campaignsVersionChecker.needsUpdate(newCampaignData: results.jsonString)
+                let needsUpdate = self.campaignsVersionChecker.needsUpdate(newCampaignData: results.jsonString)
                 
-                a.done({ needs in
+                needsUpdate.done({ needs in
                     if needs {
-                        self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
-                                                               json: results.jsonString)
-                        jsonUpdated = true
+                        
+                        let saved = self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
+                                                                       json: results.jsonString)
+                        
+                        jsonUpdated = saved.isFulfilled
+                        
                     } else {
                         print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
                     }
@@ -71,8 +77,8 @@ public class CampaignsRepository: UserCampaignsRepository {
                 
                 print("saved both (campaigns,questions) and json = \(allCampaignsSaved && allQuestionsSaved && jsonUpdated)")
                 
-                //return Promise.value(allCampaignsSaved && allQuestionsSaved && jsonUpdated)
-                return Promise.value(true) // hard-coded
+                return Promise.value(allCampaignsSaved && allQuestionsSaved && jsonUpdated)
+                //return Promise.value(true) // hard-coded
                 
             })
 

@@ -29,7 +29,6 @@ public class LogOutViewModel {
         
         userSessionRepository.readUserSession()
             .done { [weak self] session in guard let sSelf = self else {return}
-                guard let session = session else {return}
                 print("imam pravu sesiju, email = \(session.remoteSession.email)")
                 let _ = sSelf.userSessionRepository
                     .signOut(userSession: session)

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    private func downloadCampaignsQuestionsAndLogos() {
+    func downloadCampaignsQuestionsAndLogos() {
         
         print("AppDelegate.downloadCampaignsQuestionsAndLogos/ zovi svoj viewmodel da ti da podatke")
         
