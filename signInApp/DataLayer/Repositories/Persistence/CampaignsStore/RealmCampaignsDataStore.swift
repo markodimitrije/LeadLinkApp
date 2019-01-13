@@ -115,7 +115,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    public func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<String> {
+    public func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool> {
         
         return Promise() { seal in
             
@@ -127,7 +127,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                     realm.add(object, update: true)
                 }
                 print("SAVED JSON za kampanje !")
-                seal.fulfill(json)
+                seal.fulfill(true)
             } catch {
                 seal.reject(CampaignError.cantSave)
             }

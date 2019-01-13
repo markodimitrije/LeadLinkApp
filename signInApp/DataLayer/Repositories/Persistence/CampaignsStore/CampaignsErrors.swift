@@ -13,6 +13,7 @@ enum CampaignError: Error {
     case unknown
     case cantSave
     case cantDelete
+    case dontNeedUpdate// nije pravi Err
     
     func translateToErrorMessage() -> ErrorMessage {
         switch self {
@@ -22,6 +23,8 @@ enum CampaignError: Error {
             return ErrorMessage.init(title: "Error", message: "Could not delete campaigns.\n Check storage permissions.")
         case .unknown:
             return ErrorMessage.init(title: "Error", message: "Could not execute campaigns task.\n Unknown error occured.")
+        case .dontNeedUpdate:
+            return ErrorMessage.init(title: "'Error'", message: "Not really error, used to break chain if update campaigns not needed.")
         }
         
     }

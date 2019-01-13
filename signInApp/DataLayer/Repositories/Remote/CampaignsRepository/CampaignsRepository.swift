@@ -40,48 +40,63 @@ public class CampaignsRepository: UserCampaignsRepository {
 
     //public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
-
-        return remoteAPI.getCampaignsAndQuestions(userSession: userSession) // skini Campaigns... + (corr) Questions
-            
-            .then({ results -> Promise<Bool> in
+        
+        //let s = when(fulfilled: [remoteAPI.getCampaignsAndQuestions(userSession: userSession)]
+        
+        
+        let update = when(fulfilled: [remoteAPI.getCampaignsAndQuestions(userSession: userSession)])
+            .then { results -> Promise<(Bool, CampaignResults)> in
                 
-                var allCampaignsSaved = false; var allQuestionsSaved = false; var jsonUpdated = false
+                let promise = self.campaignsVersionChecker.needsUpdate(newCampaignData: (results.first!).jsonString)
                 
-                let needsUpdate = self.campaignsVersionChecker.needsUpdate(newCampaignData: results.jsonString)
+                return promise.map({ update -> (Bool, CampaignResults) in
+                    return (update, results.first!)
+                })
+            }.map { (shouldUpdate, results) -> (Bool, CampaignResults) in
                 
-                needsUpdate.done({ needs in
-                    if needs {
-                        
-                        let saved = self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
-                                                                       json: results.jsonString)
-                        
-                        jsonUpdated = saved.isFulfilled
-                        
-                    } else {
-                        print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
-                    }
-                }).catch { err in
-                    print("CapmaignsRepository.getCampaignsAndQuestions.err = \(err), nije saved ceo json od kampanja...")
+                if !shouldUpdate { // ako ne treba da update, samo izadji.....
+                    return (shouldUpdate, results)
                 }
                 
+                return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
+                                                               json: results.jsonString).isFulfilled, results)
+                
+        }
+        
+        return update.map { (jsonUpdated, results) -> Bool in
+            
+            if jsonUpdated {
+                
+                var allCampaignsSaved = false; var allQuestionsSaved = false; // jsonUpdated ti je arg...
+
                 let campaignsWithQuestions = results.campaignsWithQuestions
-                
+
                 allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
-                
+
                 let quests = campaignsWithQuestions.map {$0.1}
                 let savedQuestions = quests.map { questions -> Bool in
                     return self.questionsDataStore.save(questions: questions).isFulfilled
                 }
-                
-                allQuestionsSaved = !savedQuestions.contains(false)
-                
-                print("saved both (campaigns,questions) and json = \(allCampaignsSaved && allQuestionsSaved && jsonUpdated)")
-                
-                return Promise.value(allCampaignsSaved && allQuestionsSaved && jsonUpdated)
-                //return Promise.value(true) // hard-coded
-                
-            })
 
+                allQuestionsSaved = !savedQuestions.contains(false)
+
+                let shouldUpdate = allCampaignsSaved && allQuestionsSaved && jsonUpdated
+                
+                print("saved both (campaigns,questions) and json = \(shouldUpdate)")
+                
+                if shouldUpdate {
+                    return (allCampaignsSaved && allQuestionsSaved && jsonUpdated)
+                } else {
+                    return false//Promise.init(error: CampaignError.unknown)
+                }
+                
+            } else {
+                print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
+                return false
+            }
+            
+        }
+        
     }
 
 }

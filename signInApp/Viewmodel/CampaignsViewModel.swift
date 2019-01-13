@@ -42,7 +42,13 @@ public class CampaignsViewModel {
             
         }.then { success -> Promise<[LogoInfo]> in
             
-            return self.campaignsRepository.dataStore.readAllCampaignLogoInfos()
+            if success {
+                return self.campaignsRepository.dataStore.readAllCampaignLogoInfos()
+            } else {
+                return Promise<[LogoInfo]>.init(resolver: { (seal) in
+                    seal.reject(CampaignError.dontNeedUpdate)
+                })
+            }
             
         }.thenMap { logoInfo -> Promise<LogoInfo> in
 
@@ -52,7 +58,7 @@ public class CampaignsViewModel {
 
                 return LogoInfo.init(id: logoInfo.id, url: logoInfo.url, imgData: data)
             }
-                
+
         }.done { (infos) in     //       print("imam logo infos")
             let _ = infos.map {
                 RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
@@ -60,7 +66,7 @@ public class CampaignsViewModel {
         }.catch { (err) in
             print("err = \(err)")
         }
-        
+    
     }
     
     private(set) var campaigns: Results<RealmCampaign>!
