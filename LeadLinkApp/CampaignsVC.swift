@@ -103,6 +103,7 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
 
 
 extension CampaignsVC: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedCampaign = campaignsViewModel.getCampaign(forSelectedTableIndex: indexPath.item)
@@ -114,4 +115,8 @@ extension CampaignsVC: UITableViewDelegate {
         
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 116.0
+//    }
+//    
 }
