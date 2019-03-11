@@ -30,6 +30,7 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
             
             let headers = [ // Build Auth Header
                 "Api-Key": apiKey,
+                "Accept": "application/json",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "cache-control": "no-cache"
             ]
