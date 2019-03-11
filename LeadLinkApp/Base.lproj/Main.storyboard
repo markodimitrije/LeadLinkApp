@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1136.6834170854272" y="-690.64748201438852"/>
         </scene>
-        <!--LogoutVC-->
+        <!--CampaignsVC-->
         <scene sceneID="nxe-YX-6BV">
             <objects>
-                <viewController storyboardIdentifier="LogoutVC" id="eDH-9a-LCb" customClass="LogoutVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignsVC" id="eDH-9a-LCb" customClass="CampaignsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZS1-Sj-7r2">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

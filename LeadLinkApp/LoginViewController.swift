@@ -171,10 +171,10 @@ class LoginViewController: UIViewController {
     
     private func presentSignedIn(userSession: UserSession) {
         
-        let logoutVC = factory.makeLogoutViewController()
-        logoutVC.factory = factory
+        let campaignsVC = factory.makeCampaignsViewController()
+        campaignsVC.factory = factory
         
-        navigationController?.pushViewController(logoutVC, animated: true)
+        navigationController?.pushViewController(campaignsVC, animated: true)
     }
     
     private func downloadCampaigns() {

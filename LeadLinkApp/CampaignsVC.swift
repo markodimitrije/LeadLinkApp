@@ -13,7 +13,7 @@ import RxSwift
 import RxRealm
 import RxRealmDataSources
 
-class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
+class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,7 +25,7 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
     var logOutViewModel: LogOutViewModel!
     var campaignsViewModel: CampaignsViewModel!
     
-    var notSignedInResponder: NotSignedInResponder { // ovo je ultra bez veze....
+    var notSignedInResponder: NotSignedInResponder { // ultra stupid ....
         return factory.sharedMainViewModel
     }
     
@@ -88,7 +88,7 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
     }
     
     private func addLogoutBtn() {
-        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(LogoutVC.logoutBtnTapped(_:)))
+        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(CampaignsVC.logoutBtnTapped(_:)))
         self.navigationItem.rightBarButtonItem = logoutBtn
     }
     
@@ -102,7 +102,7 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
 
 
 
-extension LogoutVC: UITableViewDelegate {
+extension CampaignsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedCampaign = campaignsViewModel.getCampaign(forSelectedTableIndex: indexPath.item)

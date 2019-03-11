@@ -13,7 +13,7 @@
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
 		AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */; };
 		AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */; };
-		AD1739C921DE14B900218BE5 /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C821DE14B900218BE5 /* LogoutVC.swift */; };
+		AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739C821DE14B900218BE5 /* CampaignsVC.swift */; };
 		AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739CA21DE1ADA00218BE5 /* MainViewModel.swift */; };
 		AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739CD21DE1B8900218BE5 /* SignInResponder.swift */; };
 		AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739CF21DE1BDA00218BE5 /* MainViewState.swift */; };
@@ -65,7 +65,7 @@
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
 		AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorPayload.swift; sourceTree = "<group>"; };
 		AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysExtensions.swift; sourceTree = "<group>"; };
-		AD1739C821DE14B900218BE5 /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
+		AD1739C821DE14B900218BE5 /* CampaignsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsVC.swift; sourceTree = "<group>"; };
 		AD1739CA21DE1ADA00218BE5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AD1739CD21DE1B8900218BE5 /* SignInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponder.swift; sourceTree = "<group>"; };
 		AD1739CF21DE1BDA00218BE5 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 				ADAEE88C21D8F359000B3C52 /* SignIn */,
 				ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */,
 				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
-				AD1739C821DE14B900218BE5 /* LogoutVC.swift */,
+				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
 				ADAEE87E21D8F331000B3C52 /* Main.storyboard */,
 				ADAEE88121D8F332000B3C52 /* Assets.xcassets */,
 				ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */,
@@ -564,7 +564,7 @@
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
-				AD1739C921DE14B900218BE5 /* LogoutVC.swift in Sources */,
+				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,

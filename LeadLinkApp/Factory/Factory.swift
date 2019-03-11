@@ -72,10 +72,10 @@ public class AppDependencyContainer {
     // Main
     // Factories needed to create a MainViewController.
     
-        func makeLogoutViewController() -> LogoutVC {
+        func makeCampaignsViewController() -> CampaignsVC {
             
             // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-            return sb.instantiateViewController(withIdentifier: "LogoutVC") as! LogoutVC
+            return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
             
         }
 
