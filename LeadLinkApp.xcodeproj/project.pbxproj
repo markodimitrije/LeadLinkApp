@@ -35,7 +35,7 @@
 		ADAD040F21E7826E006463A2 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040E21E7826E006463A2 /* Organization.swift */; };
 		ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD041021E782EA006463A2 /* RealmOrganization.swift */; };
 		ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */; };
-		ADAEE87D21D8F331000B3C52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87C21D8F331000B3C52 /* ViewController.swift */; };
+		ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */; };
 		ADAEE88021D8F331000B3C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE87E21D8F331000B3C52 /* Main.storyboard */; };
 		ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88121D8F332000B3C52 /* Assets.xcassets */; };
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
@@ -88,7 +88,7 @@
 		ADAD041021E782EA006463A2 /* RealmOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrganization.swift; sourceTree = "<group>"; };
 		ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeadLinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADAEE87C21D8F331000B3C52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADAEE87F21D8F331000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADAEE88121D8F332000B3C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAEE88421D8F332000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 				AD4F013921D8F61F00946CBA /* Model */,
 				ADAEE88C21D8F359000B3C52 /* SignIn */,
 				ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */,
-				ADAEE87C21D8F331000B3C52 /* ViewController.swift */,
+				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
 				AD1739C821DE14B900218BE5 /* LogoutVC.swift */,
 				ADAEE87E21D8F331000B3C52 /* Main.storyboard */,
 				ADAEE88121D8F332000B3C52 /* Assets.xcassets */,
@@ -570,7 +570,7 @@
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
-				ADAEE87D21D8F331000B3C52 /* ViewController.swift in Sources */,
+				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
 				ADE9552221D9008200B86052 /* AuthImplementations.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
@@ -741,6 +741,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,6 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,7 +11,7 @@ import PromiseKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
     var repository: LeadLinkUserSessionRepository!
@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         observe(userSessionState: factory.sharedMainViewModel.view) // bind VC to listen for signedIn event (from mainViewModel):
         
         observeErrorMessages(viewmodel: logInViewModel)
+        
+        formatControls()
     }
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
@@ -177,6 +179,10 @@ class ViewController: UIViewController {
             appdel.downloadCampaignsQuestionsAndLogos()
         }
         
+    }
+    
+    private func formatControls() {
+        logInBtn.layer.cornerRadius = 17.0
     }
     
     private let disposeBag = DisposeBag.init()
