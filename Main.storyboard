@@ -145,9 +145,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="76" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awG-NC-r5Y">
-                                <rect key="frame" x="16" y="120" width="343" height="547"/>
+                                <rect key="frame" x="16" y="120" width="343" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="100" minY="0.0" maxX="8" maxY="0.0"/>
+                                <inset key="separatorInset" minX="76" minY="0.0" maxX="8" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="76" id="Yld-mc-6sQ" customClass="CampaignCell" customModule="LeadLinkApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="76"/>
@@ -210,12 +210,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="awG-NC-r5Y" firstAttribute="leading" secondItem="m8A-fH-5FJ" secondAttribute="leading" constant="16" id="1Jx-SL-uWw"/>
+                            <constraint firstItem="m8A-fH-5FJ" firstAttribute="bottom" secondItem="awG-NC-r5Y" secondAttribute="bottom" constant="8" id="AzE-YA-6nE"/>
                             <constraint firstItem="m8A-fH-5FJ" firstAttribute="trailing" secondItem="awG-NC-r5Y" secondAttribute="trailing" constant="16" id="Sdb-3w-CrP"/>
                             <constraint firstItem="awG-NC-r5Y" firstAttribute="top" secondItem="ge9-un-FWR" secondAttribute="bottom" constant="16" id="W4e-b5-W4K"/>
                             <constraint firstItem="ge9-un-FWR" firstAttribute="top" secondItem="m8A-fH-5FJ" secondAttribute="top" constant="16" id="ZJV-Yr-EaF"/>
                             <constraint firstItem="ge9-un-FWR" firstAttribute="centerX" secondItem="VjZ-0O-5BK" secondAttribute="centerX" id="aZx-kF-wSs"/>
                             <constraint firstItem="awG-NC-r5Y" firstAttribute="centerX" secondItem="VjZ-0O-5BK" secondAttribute="centerX" id="uhA-jG-dsF"/>
-                            <constraint firstItem="awG-NC-r5Y" firstAttribute="bottom" secondItem="m8A-fH-5FJ" secondAttribute="bottom" id="zAn-4y-ENr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m8A-fH-5FJ"/>
                     </view>

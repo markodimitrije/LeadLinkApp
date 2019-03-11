@@ -4,3 +4,6 @@ Strings.Login.enterUsernameAndPassword = "Plese enter your username and password
 Strings.Login.username = "Username";
 Strings.Login.password = "Password";
 Strings.Login.btn = "Log in";
+
+Strings.Scaner.scanCode = "Click on the image below to scan the delagete’s badge barcode with the device camera";
+Strings.Scaner.enterCodeManually = "Enter the badge barcode number manually";
