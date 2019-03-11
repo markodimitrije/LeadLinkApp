@@ -29,7 +29,7 @@ class CampaignCell: UITableViewCell {
         
     }
     
-    private let disposeBag = DisposeBag.init()
+    private let disposeBag = DisposeBag()
     
 }
 
