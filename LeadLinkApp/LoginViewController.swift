@@ -18,16 +18,14 @@ class LoginViewController: UIViewController {
     //let responder = MainViewModel.init()
     var logInViewModel: LogInViewModel!
     let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
+    var keyboardManager: LoginKeyboardDelegate?
     
+    @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var logInBtn: UIButton!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
-        didSet {
-            activityIndicator.isHidden = true
-        }
-    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func loginTapped(_ sender: UIButton) {
        
@@ -51,10 +49,12 @@ class LoginViewController: UIViewController {
         observeErrorMessages(viewmodel: logInViewModel)
         
         formatControls()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
-//        bindActualSessionToCredentialFields()
+        
+        keyboardManager = LoginKeyboardDelegate.init(keyboardShowsHandler: { verticalShift in
+            self.loginStackView.frame.origin.y += verticalShift
+        }, keyboardHidesHandler: { verticalShift in
+            self.loginStackView.frame.origin.y += verticalShift
+        })
     }
     
     private func bindViews(to viewmodel: LogInViewModel) {
@@ -182,6 +182,7 @@ class LoginViewController: UIViewController {
     }
     
     private func formatControls() {
+        activityIndicator.isHidden = true
         logInBtn.layer.cornerRadius = 17.0
     }
     
@@ -198,3 +199,33 @@ class LoginViewController: UIViewController {
 //
 //
 //}
+
+class LoginKeyboardDelegate {
+    var keyboardShowsHandler: (_ verticalShift: CGFloat) -> ()
+    var keyboardHidesHandler: (_ verticalShift: CGFloat) -> ()
+    init(keyboardShowsHandler: @escaping (_ verticalShift: CGFloat) -> (), keyboardHidesHandler: @escaping (_ verticalShift: CGFloat) -> ()) {
+        self.keyboardShowsHandler = keyboardShowsHandler
+        self.keyboardHidesHandler = keyboardHidesHandler
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LoginKeyboardDelegate.keyboardShowingUp(_:)),
+                                               name: UIApplication.keyboardWillShowNotification,// didshow ?
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LoginKeyboardDelegate.keyboardDissapears(_:)),
+                                               name: UIApplication.keyboardWillHideNotification,// didshow ?
+                                               object: nil)
+    }
+    
+    @objc func keyboardShowingUp(_ notification: NSNotification) {
+        print("keyboard shows, notification = \(notification)")
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        print("keyboardSize = \(keyboardSize)")
+        keyboardShowsHandler(-keyboardSize.height/2)
+    }
+    @objc func keyboardDissapears(_ notification: NSNotification) {
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        print("keyboard hides")
+        keyboardHidesHandler(keyboardSize.height/2)
+    }
+}
+

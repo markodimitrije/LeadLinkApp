@@ -92,6 +92,7 @@
                         <outlet property="activityIndicator" destination="G27-rA-2tD" id="D6n-lC-Gb6"/>
                         <outlet property="emailField" destination="vf8-Dg-AS8" id="QlD-K0-zzQ"/>
                         <outlet property="logInBtn" destination="XmH-T3-q0g" id="SfM-JW-INP"/>
+                        <outlet property="loginStackView" destination="yzp-z3-Xjs" id="QBT-Ed-7Ay"/>
                         <outlet property="passField" destination="9OT-vB-bZ6" id="bgb-Vm-Ia1"/>
                         <segue destination="eDH-9a-LCb" kind="show" id="A0O-09-3Un"/>
                     </connections>
