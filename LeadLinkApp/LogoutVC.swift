@@ -29,19 +29,12 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
         return factory.sharedMainViewModel
     }
     
-    
     // MARK: - campaigns outputs
     
     fileprivate let selRealmCampaign = PublishSubject<RealmCampaign>()
     
     var selectedRealmCampaign: Observable<RealmCampaign> { // exposed selectedRealmCampaign
         return selRealmCampaign.asObservable()
-    }
-    
-    @IBAction func logOutTapped(_ sender: UIButton) {
-        
-        logOutViewModel.signOut()
-        
     }
     
     override func viewDidLoad() { super.viewDidLoad()
@@ -51,6 +44,8 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
         logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
         campaignsViewModel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
+        
+        addLogoutBtn()
         
         observe(userSessionState: factory.sharedMainViewModel.view) // bind VC to listen for signedIn event (from mainViewModel):
         
@@ -90,6 +85,15 @@ class LogoutVC: UIViewController { // rename u campaignsVC a logout funkcionalno
             .bind(to: tableView.rx.realmChanges(dataSource))
             .disposed(by: disposeBag)
         
+    }
+    
+    private func addLogoutBtn() {
+        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(LogoutVC.logoutBtnTapped(_:)))
+        self.navigationItem.rightBarButtonItem = logoutBtn
+    }
+    
+    @objc private func logoutBtnTapped(_ sender: UIButton) { //Do your stuff here
+        logOutViewModel.signOut()
     }
     
     private let disposeBag = DisposeBag.init()

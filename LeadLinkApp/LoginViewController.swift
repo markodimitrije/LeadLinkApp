@@ -53,11 +53,12 @@ class LoginViewController: UIViewController {
         formatControls()
         
         keyboardManager = LoginKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
-            self.loginStackViewYConstraint.constant += verticalShift
+            self.loginStackViewYConstraint!.constant += verticalShift
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
         })
+        
     }
     
     private func bindViews(to viewmodel: LogInViewModel) {
