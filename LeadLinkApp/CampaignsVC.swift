@@ -114,9 +114,4 @@ extension CampaignsVC: UITableViewDelegate {
         //navigationController?.popViewController(animated: true)
         
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 116.0
-//    }
-//    
 }

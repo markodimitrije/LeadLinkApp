@@ -13,13 +13,18 @@ import RxCocoa
 class CampaignCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var orgNameLbl: UILabel!
-    @IBOutlet weak var eventNameLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var subtitleLbl: UILabel!
     
     func update(campaign: Campaign) {
         
-        self.eventNameLbl?.text = campaign.name
-        self.orgNameLbl?.text = "\(campaign.organization.name)"
+        self.titleLbl?.text = campaign.name
+        self.subtitleLbl?.text = campaign.description
+        //self.titleLbl?.text = "\(campaign.organization.name)"
+        
+//        self.orgNameLbl?.text = campaign.description // temp test
+//        self.eventNameLbl?.text = campaign.description // temp test
+        
         self.imgView?.image = (campaign.imgData != nil) ? UIImage.init(data: campaign.imgData!) : UIImage.campaignPlaceholder
         
     }
