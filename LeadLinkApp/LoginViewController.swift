@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var logInBtn: UIButton!
+    @IBOutlet weak var loginStackViewYConstraint: NSLayoutConstraint!
+    
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -50,10 +52,11 @@ class LoginViewController: UIViewController {
         
         formatControls()
         
-        keyboardManager = LoginKeyboardDelegate.init(keyboardShowsHandler: { verticalShift in
-            self.loginStackView.frame.origin.y += verticalShift
-        }, keyboardHidesHandler: { verticalShift in
-            self.loginStackView.frame.origin.y += verticalShift
+        keyboardManager = LoginKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
+            self.loginStackViewYConstraint.constant += verticalShift
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
         })
     }
     
@@ -201,31 +204,24 @@ class LoginViewController: UIViewController {
 //}
 
 class LoginKeyboardDelegate {
-    var keyboardShowsHandler: (_ verticalShift: CGFloat) -> ()
-    var keyboardHidesHandler: (_ verticalShift: CGFloat) -> ()
-    init(keyboardShowsHandler: @escaping (_ verticalShift: CGFloat) -> (), keyboardHidesHandler: @escaping (_ verticalShift: CGFloat) -> ()) {
-        self.keyboardShowsHandler = keyboardShowsHandler
-        self.keyboardHidesHandler = keyboardHidesHandler
+    var keyboardChangeHandler: (_ verticalShift: CGFloat) -> ()
+    init(keyboardChangeHandler: @escaping (_ verticalShift: CGFloat) -> ()) {
+        self.keyboardChangeHandler = keyboardChangeHandler
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LoginKeyboardDelegate.keyboardShowingUp(_:)),
+                                               selector: #selector(LoginKeyboardDelegate.keyboardChange(_:)),
                                                name: UIApplication.keyboardWillShowNotification,// didshow ?
                                                object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LoginKeyboardDelegate.keyboardDissapears(_:)),
+                                               selector: #selector(LoginKeyboardDelegate.keyboardChange(_:)),
                                                name: UIApplication.keyboardWillHideNotification,// didshow ?
                                                object: nil)
     }
     
-    @objc func keyboardShowingUp(_ notification: NSNotification) {
+    @objc func keyboardChange(_ notification: NSNotification) {
         print("keyboard shows, notification = \(notification)")
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
-        print("keyboardSize = \(keyboardSize)")
-        keyboardShowsHandler(-keyboardSize.height/2)
-    }
-    @objc func keyboardDissapears(_ notification: NSNotification) {
-        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
-        print("keyboard hides")
-        keyboardHidesHandler(keyboardSize.height/2)
+        let shift = (notification.name == UIApplication.keyboardWillShowNotification) ? (-keyboardSize.height/2) : (keyboardSize.height/2)
+        keyboardChangeHandler(shift)
     }
 }
 
