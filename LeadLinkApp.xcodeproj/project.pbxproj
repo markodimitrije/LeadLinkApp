@@ -23,6 +23,8 @@
 		AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013C21D8F68E00946CBA /* Secret.swift */; };
 		AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */; };
 		ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7791821E7AE9200527623 /* UserSessionError.swift */; };
+		ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA9B1C922384C5400B7D74F /* DividerView.xib */; };
+		ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CB22384D8400B7D74F /* DividerView.swift */; };
 		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
@@ -77,6 +79,8 @@
 		AD4F013C21D8F68E00946CBA /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
 		ADA7791821E7AE9200527623 /* UserSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionError.swift; sourceTree = "<group>"; };
+		ADA9B1C922384C5400B7D74F /* DividerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DividerView.xib; sourceTree = "<group>"; };
+		ADA9B1CB22384D8400B7D74F /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				ADAD040821E65EC4006463A2 /* CampaignCell.swift */,
+				ADA9B1C922384C5400B7D74F /* DividerView.xib */,
+				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */,
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
 				AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
@@ -579,6 +586,7 @@
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
+				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
 				ADE9552221D9008200B86052 /* AuthImplementations.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,

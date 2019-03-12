@@ -303,7 +303,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="50.666666666666664"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4A-Bd-atN" userLabel="orView">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4A-Bd-atN" userLabel="orView" customClass="DividerView" customModule="LeadLinkApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="50.666666666666742" width="366" height="50.333333333333343"/>
                                                         <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
@@ -375,6 +375,7 @@ barcode number manually</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="trailing" secondItem="X8o-EZ-Nbw" secondAttribute="trailing" constant="8" id="IdJ-9X-Dzv"/>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="bottom" secondItem="X8o-EZ-Nbw" secondAttribute="bottom" constant="8" id="MpA-1i-TNR"/>
