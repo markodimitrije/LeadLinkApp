@@ -104,8 +104,6 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
     
 }
 
-
-
 extension CampaignsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
