@@ -19,7 +19,6 @@
 		AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739CF21DE1BDA00218BE5 /* MainViewState.swift */; };
 		AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739D221DE1E7900218BE5 /* Factory.swift */; };
 		AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739D421DE3D6900218BE5 /* LogoutViewModel.swift */; };
-		AD49368C2236B28A0062D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD49368B2236B28A0062D1D2 /* Main.storyboard */; };
 		AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */; };
 		AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F013C21D8F68E00946CBA /* Secret.swift */; };
 		AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */; };
@@ -49,6 +48,7 @@
 		ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64221DF9089002224C0 /* RealmCampaign.swift */; };
 		ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */; };
 		ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */; };
+		ADBECCEF2237EBD000C846F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
 		ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551C21D8FAE900B86052 /* UserSession.swift */; };
 		ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551F21D9005300B86052 /* AuthRemoteAPI.swift */; };
@@ -73,7 +73,6 @@
 		AD1739CF21DE1BDA00218BE5 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		AD1739D221DE1E7900218BE5 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		AD1739D421DE3D6900218BE5 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
-		AD49368B2236B28A0062D1D2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		AD4F013C21D8F68E00946CBA /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		AD4F014321D8F7D500946CBA /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		ADB6A64221DF9089002224C0 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
 		ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsErrors.swift; sourceTree = "<group>"; };
 		ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVC.swift; sourceTree = "<group>"; };
+		ADBECCEE2237EBD000C846F8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		ADE9551C21D8FAE900B86052 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		ADE9551F21D9005300B86052 /* AuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPI.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		ADAEE86E21D8F331000B3C52 = {
 			isa = PBXGroup;
 			children = (
-				AD49368B2236B28A0062D1D2 /* Main.storyboard */,
+				ADBECCEE2237EBD000C846F8 /* Main.storyboard */,
 				ADAEE87921D8F331000B3C52 /* LeadLinkApp */,
 				ADAEE87821D8F331000B3C52 /* Products */,
 				34FB1A58E047A32A96F61519 /* Pods */,
@@ -487,10 +487,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
-				AD49368C2236B28A0062D1D2 /* Main.storyboard in Resources */,
 				AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
 				ADAEE88021D8F331000B3C52 /* Main.storyboard in Resources */,
+				ADBECCEF2237EBD000C846F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
