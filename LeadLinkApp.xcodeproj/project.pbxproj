@@ -25,6 +25,7 @@
 		ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7791821E7AE9200527623 /* UserSessionError.swift */; };
 		ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA9B1C922384C5400B7D74F /* DividerView.xib */; };
 		ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CB22384D8400B7D74F /* DividerView.swift */; };
+		ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */; };
 		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
@@ -81,6 +82,7 @@
 		ADA7791821E7AE9200527623 /* UserSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionError.swift; sourceTree = "<group>"; };
 		ADA9B1C922384C5400B7D74F /* DividerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DividerView.xib; sourceTree = "<group>"; };
 		ADA9B1CB22384D8400B7D74F /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegate.swift; sourceTree = "<group>"; };
 		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		ADA9B1CD22385DAC00B7D74F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +290,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				ADA9B1CD22385DAC00B7D74F /* Utilities */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
 				ADABCC4B21E4AB3300B43427 /* Domain */,
@@ -564,6 +575,7 @@
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
+				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,

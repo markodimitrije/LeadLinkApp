@@ -40,13 +40,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-la-4gg">
                                                 <rect key="frame" x="0.0" y="69" width="374" height="57"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jR-fG-MZ2">
                                                 <rect key="frame" x="0.0" y="138.00000000000006" width="374" height="57"/>
@@ -326,31 +326,30 @@
                                         <rect key="frame" x="16" y="638" width="366" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ix4-Fc-kHn">
-                                                <rect key="frame" x="83.666666666666686" y="0.0" width="199" height="42"/>
+                                                <rect key="frame" x="83.666666666666686" y="0.0" width="199" height="40.666666666666664"/>
                                                 <string key="text">Enter the badge 
 barcode number manually</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Barcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hk7-Ck-rpP">
-                                                <rect key="frame" x="81.666666666666686" y="50" width="203" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Barcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WU-36-H24">
+                                                <rect key="frame" x="43" y="46" width="280" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="203" id="R1q-yA-5BN"/>
-                                                    <constraint firstAttribute="height" constant="50" id="xhf-Qz-Jc1"/>
+                                                    <constraint firstAttribute="height" constant="50" id="0uK-n8-NQM"/>
+                                                    <constraint firstAttribute="width" constant="280" id="K7K-Tj-ppP"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="0.1229112413" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="2WU-36-H24" firstAttribute="centerX" secondItem="oUo-uu-Mfb" secondAttribute="centerX" id="3HR-jU-6sS"/>
                                             <constraint firstItem="Ix4-Fc-kHn" firstAttribute="top" secondItem="oUo-uu-Mfb" secondAttribute="top" id="9kj-17-pNT"/>
-                                            <constraint firstAttribute="bottom" secondItem="Hk7-Ck-rpP" secondAttribute="bottom" id="KRm-ND-d2Q"/>
                                             <constraint firstItem="Ix4-Fc-kHn" firstAttribute="centerX" secondItem="oUo-uu-Mfb" secondAttribute="centerX" id="Nzg-iY-xVj"/>
-                                            <constraint firstItem="Hk7-Ck-rpP" firstAttribute="centerX" secondItem="oUo-uu-Mfb" secondAttribute="centerX" id="XkO-Db-Kxa"/>
-                                            <constraint firstItem="Hk7-Ck-rpP" firstAttribute="top" secondItem="Ix4-Fc-kHn" secondAttribute="bottom" constant="8" id="onu-LM-NaA"/>
+                                            <constraint firstItem="2WU-36-H24" firstAttribute="top" secondItem="Ix4-Fc-kHn" secondAttribute="bottom" constant="5.3333333333333357" id="Tf8-w3-Dv3"/>
                                             <constraint firstAttribute="height" constant="100" id="rz5-p0-RfZ"/>
                                         </constraints>
                                     </view>
@@ -385,10 +384,15 @@ barcode number manually</string>
                         <viewLayoutGuide key="safeArea" id="oqc-iA-ie5"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="barCodeTxtField" destination="2WU-36-H24" id="2T7-uc-zoR"/>
+                        <outlet property="contentViewToBottomSafeAreaConstraint" destination="MpA-1i-TNR" id="fSI-go-Oiw"/>
+                        <outlet property="contentViewToTopSafeAreaConstraint" destination="bWt-v0-uJp" id="gsS-rD-6N3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6S-xH-t9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206.875" y="53.87323943661972"/>
+            <point key="canvasLocation" x="2205.7971014492755" y="53.571428571428569"/>
         </scene>
     </scenes>
     <resources>

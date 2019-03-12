@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     //let responder = MainViewModel.init()
     var logInViewModel: LogInViewModel!
     let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
-    var keyboardManager: LoginKeyboardDelegate?
+    var keyboardManager: MovingKeyboardDelegate?
     
     @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var emailField: UITextField!
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         
         formatControls()
         
-        keyboardManager = LoginKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
+        keyboardManager = MovingKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
             self.loginStackViewYConstraint!.constant += verticalShift
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
@@ -203,26 +203,4 @@ class LoginViewController: UIViewController {
 //
 //
 //}
-
-class LoginKeyboardDelegate {
-    var keyboardChangeHandler: (_ verticalShift: CGFloat) -> ()
-    init(keyboardChangeHandler: @escaping (_ verticalShift: CGFloat) -> ()) {
-        self.keyboardChangeHandler = keyboardChangeHandler
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LoginKeyboardDelegate.keyboardChange(_:)),
-                                               name: UIApplication.keyboardWillShowNotification,// didshow ?
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LoginKeyboardDelegate.keyboardChange(_:)),
-                                               name: UIApplication.keyboardWillHideNotification,// didshow ?
-                                               object: nil)
-    }
-    
-    @objc func keyboardChange(_ notification: NSNotification) {
-        print("keyboard shows, notification = \(notification)")
-        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
-        let shift = (notification.name == UIApplication.keyboardWillShowNotification) ? (-keyboardSize.height/2) : (keyboardSize.height/2)
-        keyboardChangeHandler(shift)
-    }
-}
 
