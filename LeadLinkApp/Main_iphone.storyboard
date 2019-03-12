@@ -222,11 +222,12 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="TXv-hy-WJz" id="t7L-xM-w1j"/>
+                        <segue destination="ABe-fK-jwS" kind="show" identifier="showScannerSegue" id="wg8-03-nck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVC-em-zAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1285.5999999999999" y="54.422788605697157"/>
+            <point key="canvasLocation" x="1344" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAq-dM-Cgz">
@@ -245,6 +246,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxI-ZA-l7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230" y="55"/>
+        </scene>
+        <!--ScanningVC-->
+        <scene sceneID="oiz-A1-mBD">
+            <objects>
+                <viewController storyboardIdentifier="ScanningVC" id="ABe-fK-jwS" customClass="ScanningVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egE-tl-KCs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.034017540509999999" green="0.6561780572" blue="0.33652114869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="oqc-iA-ie5"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6S-xH-t9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207" y="54"/>
         </scene>
     </scenes>
     <resources>

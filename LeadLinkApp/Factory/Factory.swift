@@ -11,7 +11,14 @@ import RxSwift
 
 public class AppDependencyContainer {
 
-    let sb = UIStoryboard.init(name: "Main_iphone", bundle: nil)
+    let sb: UIStoryboard = {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIStoryboard.init(name: "Main_ipad", bundle: nil)
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIStoryboard.init(name: "Main_iphone", bundle: nil)
+        }
+        return UIStoryboard.init(name: "Main", bundle: nil)
+    }()
     
     // MARK: - Properties
 
