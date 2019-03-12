@@ -11,7 +11,7 @@ import RxSwift
 
 public class AppDependencyContainer {
 
-    let sb = UIStoryboard.init(name: "Main", bundle: nil)
+    let sb = UIStoryboard.init(name: "Main_iphone", bundle: nil)
     
     // MARK: - Properties
 

@@ -36,7 +36,7 @@
 		ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD041021E782EA006463A2 /* RealmOrganization.swift */; };
 		ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */; };
 		ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */; };
-		ADAEE88021D8F331000B3C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE87E21D8F331000B3C52 /* Main.storyboard */; };
+		ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */; };
 		ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88121D8F332000B3C52 /* Assets.xcassets */; };
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
@@ -48,7 +48,7 @@
 		ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64221DF9089002224C0 /* RealmCampaign.swift */; };
 		ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */; };
 		ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */; };
-		ADBECCEF2237EBD000C846F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main.storyboard */; };
+		ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
 		ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551C21D8FAE900B86052 /* UserSession.swift */; };
 		ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551F21D9005300B86052 /* AuthRemoteAPI.swift */; };
@@ -91,7 +91,7 @@
 		ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeadLinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		ADAEE87F21D8F331000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ADAEE87F21D8F331000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 		ADAEE88121D8F332000B3C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAEE88421D8F332000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		ADB6A64221DF9089002224C0 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
 		ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsErrors.swift; sourceTree = "<group>"; };
 		ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVC.swift; sourceTree = "<group>"; };
-		ADBECCEE2237EBD000C846F8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		ADE9551C21D8FAE900B86052 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		ADE9551F21D9005300B86052 /* AuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPI.swift; sourceTree = "<group>"; };
@@ -256,7 +256,6 @@
 		ADAEE86E21D8F331000B3C52 = {
 			isa = PBXGroup;
 			children = (
-				ADBECCEE2237EBD000C846F8 /* Main.storyboard */,
 				ADAEE87921D8F331000B3C52 /* LeadLinkApp */,
 				ADAEE87821D8F331000B3C52 /* Products */,
 				34FB1A58E047A32A96F61519 /* Pods */,
@@ -286,22 +285,15 @@
 				AD4F014121D8F7BF00946CBA /* DataLayer */,
 				AD4F013E21D8F72600946CBA /* Viewmodel */,
 				AD4F013921D8F61F00946CBA /* Model */,
-				ADAEE88C21D8F359000B3C52 /* SignIn */,
 				ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */,
-				ADAEE87E21D8F331000B3C52 /* Main.storyboard */,
+				ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */,
+				ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */,
 				ADAEE88121D8F332000B3C52 /* Assets.xcassets */,
 				ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */,
 				ADAEE88621D8F332000B3C52 /* Info.plist */,
 				AD1739B421DCE8FC00218BE5 /* Localizable.strings */,
 			);
 			path = LeadLinkApp;
-			sourceTree = "<group>";
-		};
-		ADAEE88C21D8F359000B3C52 /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignIn;
 			sourceTree = "<group>";
 		};
 		ADB6A63221DF831E002224C0 /* Campaigns */ = {
@@ -489,8 +481,8 @@
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
 				AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
-				ADAEE88021D8F331000B3C52 /* Main.storyboard in Resources */,
-				ADBECCEF2237EBD000C846F8 /* Main.storyboard in Resources */,
+				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
+				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,12 +606,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ADAEE87E21D8F331000B3C52 /* Main.storyboard */ = {
+		ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ADAEE87F21D8F331000B3C52 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main_ipad.storyboard;
 			sourceTree = "<group>";
 		};
 		ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */ = {
