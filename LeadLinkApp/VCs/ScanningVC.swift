@@ -18,10 +18,8 @@ class ScanningVC: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var barCodeTxtField: UITextField!
     
-    @IBAction func confirmBarcodeTapped(_ sender: UIButton) {
-        print("entered code = \(try! viewModel.codeInput.value())")
-        dismissKeyboard()
-    }
+    @IBOutlet weak var confirmBarcodeBtn: UIButton!
+    @IBOutlet weak var scanBarcodeBtn: UIButton!
     
     var viewModel: ScanningViewModel!
     
@@ -38,6 +36,7 @@ class ScanningVC: UIViewController {
     }
     
     private func bindUI() {
+        
         logoImageView?.image = viewModel?.logo
         
         barCodeTxtField.rx.text
@@ -45,6 +44,15 @@ class ScanningVC: UIViewController {
             .map { $0 ?? "" }
             .drive(viewModel.codeInput)
             .disposed(by: disposeBag)
+        
+        confirmBarcodeBtn.rx.controlEvent(.touchUpInside).asDriver()
+            .drive(self.rx.dismissKeyboard)
+            .disposed(by: disposeBag)
+        
+        scanBarcodeBtn.rx.controlEvent(UIControlEvents.touchUpInside).subscribe(onNext: { _ in
+            print("open scan component")
+        }).disposed(by: disposeBag)
+        
     }
     
     private func loadKeyboardManager() {
@@ -63,10 +71,6 @@ class ScanningVC: UIViewController {
                 self.view.layoutIfNeeded()
             }
         })
-    }
-    
-    private func dismissKeyboard() {
-        self.view.endEditing(true)
     }
     
     private let disposeBag = DisposeBag()

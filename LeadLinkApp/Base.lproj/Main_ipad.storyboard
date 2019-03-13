@@ -291,21 +291,22 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanCode" translatesAutoresizingMaskIntoConstraints="NO" id="SET-em-XB7">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwK-NA-QaB">
                                                         <rect key="frame" x="235" y="301.5" width="173" height="192"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="173" id="I66-6x-uX2"/>
-                                                            <constraint firstAttribute="height" constant="192" id="mZ1-sM-VvF"/>
+                                                            <constraint firstAttribute="width" constant="173" id="0WK-Pi-MTY"/>
+                                                            <constraint firstAttribute="height" constant="192" id="KUZ-BP-sbp"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" image="scanCode" backgroundImage="scanCode"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.15745048280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="SET-em-XB7" firstAttribute="centerX" secondItem="ihg-Vd-fit" secondAttribute="centerX" id="Lgn-3z-bii"/>
-                                                    <constraint firstItem="SET-em-XB7" firstAttribute="top" secondItem="l78-t4-rbM" secondAttribute="bottom" constant="44" id="MXp-ik-beO"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l78-t4-rbM" secondAttribute="trailing" constant="20" id="PcK-Zi-eE3"/>
-                                                    <constraint firstItem="SET-em-XB7" firstAttribute="centerY" secondItem="ihg-Vd-fit" secondAttribute="centerY" id="XKQ-8Q-f6j"/>
+                                                    <constraint firstItem="mwK-NA-QaB" firstAttribute="top" secondItem="l78-t4-rbM" secondAttribute="bottom" constant="44" id="bV3-Fw-pG9"/>
+                                                    <constraint firstItem="mwK-NA-QaB" firstAttribute="centerX" secondItem="ihg-Vd-fit" secondAttribute="centerX" id="dvN-7r-PaJ"/>
                                                     <constraint firstItem="l78-t4-rbM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ihg-Vd-fit" secondAttribute="leading" constant="20" id="rgV-Zc-fyF"/>
+                                                    <constraint firstItem="mwK-NA-QaB" firstAttribute="centerY" secondItem="ihg-Vd-fit" secondAttribute="centerY" id="u98-fX-HfW"/>
                                                     <constraint firstItem="l78-t4-rbM" firstAttribute="centerX" secondItem="ihg-Vd-fit" secondAttribute="centerX" id="z7W-SV-Mmv"/>
                                                 </constraints>
                                             </view>
@@ -331,9 +332,6 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aA-qD-C0F">
                                                         <rect key="frame" x="294" y="443.5" width="55" height="30"/>
                                                         <state key="normal" title="Confirm"/>
-                                                        <connections>
-                                                            <action selector="confirmBarcodeTapped:" destination="Tfl-51-fDY" eventType="touchUpInside" id="leG-Gp-xRb"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -388,9 +386,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="barCodeTxtField" destination="Uqn-Dc-G5A" id="Nfo-Cd-rEp"/>
+                        <outlet property="confirmBarcodeBtn" destination="1aA-qD-C0F" id="h1f-wm-KNe"/>
                         <outlet property="contentViewToBottomSafeAreaConstraint" destination="Jwq-Hn-OaY" id="h1u-P3-43K"/>
                         <outlet property="contentViewToTopSafeAreaConstraint" destination="Oc6-6V-cgl" id="ZG2-WT-lWL"/>
                         <outlet property="logoImageView" destination="gSQ-0E-WDg" id="bnJ-JI-fC1"/>
+                        <outlet property="scanBarcodeBtn" destination="mwK-NA-QaB" id="Beg-kd-dJK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93Z-RB-s6i" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -43,6 +43,7 @@
 		ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88121D8F332000B3C52 /* Assets.xcassets */; };
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
 		ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */; };
+		ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */; };
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
 		ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */; };
 		ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */; };
@@ -103,6 +104,7 @@
 		ADAEE88421D8F332000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewModel.swift; sourceTree = "<group>"; };
+		ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Rx.swift"; sourceTree = "<group>"; };
 		ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsImplementations.swift; sourceTree = "<group>"; };
 		ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */,
 				ADAD040521E65E8D006463A2 /* UIKit_Extensions.swift */,
+				ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
+				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
