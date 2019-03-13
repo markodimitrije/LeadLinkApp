@@ -23,7 +23,7 @@ class MovingKeyboardDelegate {
     }
     
     @objc func keyboardChange(_ notification: NSNotification) {
-        print("keyboard shows, notification = \(notification)")
+        //print("keyboard shows, notification = \(notification)")
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         let shift = (notification.name == UIApplication.keyboardWillShowNotification) ? (-keyboardSize.height/2) : (keyboardSize.height/2)
         keyboardChangeHandler(shift)

@@ -18,6 +18,11 @@ class ScanningVC: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var barCodeTxtField: UITextField!
     
+    @IBAction func confirmBarcodeTapped(_ sender: UIButton) {
+        print("entered code = \(try! viewModel.codeInput.value())")
+        dismissKeyboard()
+    }
+    
     var viewModel: ScanningViewModel!
     
     var keyboardManager: MovingKeyboardDelegate?
@@ -44,22 +49,32 @@ class ScanningVC: UIViewController {
     
     private func loadKeyboardManager() {
         keyboardManager = MovingKeyboardDelegate.init(keyboardChangeHandler: { (halfKeyboardHeight) in
-            
-            self.contentViewToTopSafeAreaConstraint!.constant += 2*halfKeyboardHeight
-            self.contentViewToBottomSafeAreaConstraint!.constant -= 2*halfKeyboardHeight
+            var verticalShift: CGFloat = 0
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                verticalShift = 2*halfKeyboardHeight
+            } else if UIDevice.current.userInterfaceIdiom == .pad {
+                verticalShift = halfKeyboardHeight
+            }
+
+            self.contentViewToTopSafeAreaConstraint!.constant += verticalShift
+            self.contentViewToBottomSafeAreaConstraint!.constant -= verticalShift
             
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
         })
     }
+    
+    private func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     private let disposeBag = DisposeBag()
 }
 
 extension ScanningVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //print("barCodeTxtField = \(barCodeTxtField.text)")
         print("entered code = \(try! viewModel.codeInput.value())")
         return true
     }
