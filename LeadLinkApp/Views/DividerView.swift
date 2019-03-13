@@ -22,7 +22,7 @@ class DividerView: UIView {
     
     // new code:
     convenience init(position: CGPoint) {
-        var frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        var frame = CGRect(x: 0, y: 0, width: 100, height: 60)
         frame.origin = position
         self.init(frame: frame)
         loadViewFromNib ()

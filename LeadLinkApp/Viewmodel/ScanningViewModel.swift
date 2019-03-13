@@ -14,17 +14,19 @@ import RxSwift
 class ScanningViewModel {
     
     var campaign: Campaign
-    var code: String?
     var logo: UIImage?
+    public let codeInput = BehaviorSubject<String>(value: "")
     
     init(campaign: Campaign) {
         self.campaign = campaign
         updateLogoImage(campaign: campaign)
+        setCodeListener()
     }
 
     init(realmCampaign: RealmCampaign) {
         self.campaign = Campaign.init(realmCampaign: realmCampaign)
         updateLogoImage(campaign: campaign)
+        setCodeListener()
     }
     
     private func updateLogoImage(realmCampaign: RealmCampaign) {
@@ -33,5 +35,11 @@ class ScanningViewModel {
     private func updateLogoImage(campaign: Campaign) {
         self.logo = UIImage.imageFromData(data: campaign.imgData) ?? UIImage.campaignPlaceholder
     }
+    private func setCodeListener() {
+        codeInput.subscribe(onNext: { code in
+//            print("code is = \(code)")
+        }).disposed(by: disposeBag)
+    }
+    private let disposeBag = DisposeBag()
     
 }

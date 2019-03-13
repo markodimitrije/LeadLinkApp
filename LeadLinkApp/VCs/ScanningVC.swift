@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ScanningVC: UIViewController {
 
@@ -32,6 +34,12 @@ class ScanningVC: UIViewController {
     
     private func bindUI() {
         logoImageView?.image = viewModel?.logo
+        
+        barCodeTxtField.rx.text
+            .asDriver()
+            .map { $0 ?? "" }
+            .drive(viewModel.codeInput)
+            .disposed(by: disposeBag)
     }
     
     private func loadKeyboardManager() {
@@ -45,12 +53,14 @@ class ScanningVC: UIViewController {
             }
         })
     }
+    private let disposeBag = DisposeBag()
 }
 
 extension ScanningVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        print("barCodeTxtField = \(barCodeTxtField.text)")
+        //print("barCodeTxtField = \(barCodeTxtField.text)")
+        print("entered code = \(try! viewModel.codeInput.value())")
         return true
     }
 }

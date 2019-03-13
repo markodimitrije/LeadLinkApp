@@ -259,23 +259,22 @@
                                 <rect key="frame" x="8" y="72" width="304" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wej-m5-tEi" userLabel="scanView">
-                                        <rect key="frame" x="16" y="56" width="272" height="200"/>
+                                        <rect key="frame" x="16" y="56" width="272" height="180"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Click on the image below to scan the delagete’s badge barcode with the device camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-cl-Wb0">
-                                                <rect key="frame" x="28.5" y="8" width="215.5" height="56"/>
+                                                <rect key="frame" x="28.5" y="8" width="215.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanCode" translatesAutoresizingMaskIntoConstraints="NO" id="zv7-zU-FdK">
-                                                <rect key="frame" x="30" y="72" width="212" height="120"/>
+                                                <rect key="frame" x="30" y="52" width="212" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="GtH-xg-B24"/>
                                                     <constraint firstAttribute="width" secondItem="zv7-zU-FdK" secondAttribute="height" multiplier="136:77" id="c39-oq-GCD"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="zv7-zU-FdK" firstAttribute="centerX" secondItem="wej-m5-tEi" secondAttribute="centerX" id="4Iu-4b-Ltd"/>
                                             <constraint firstItem="xm2-cl-Wb0" firstAttribute="centerX" secondItem="wej-m5-tEi" secondAttribute="centerX" id="J79-17-XrX"/>
@@ -292,26 +291,23 @@
                                             <constraint firstAttribute="width" secondItem="xMU-Ek-bve" secondAttribute="height" multiplier="3.3:1" id="Cef-GE-Wk0"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-B1-hwn">
-                                        <rect key="frame" x="16" y="264" width="272" height="28"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-B1-hwn" userLabel="verticalDividerView">
+                                        <rect key="frame" x="16" y="244" width="272" height="48"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dRy-fM-ts3">
-                                                <rect key="frame" x="0.0" y="0.0" width="272" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgS-N3-xNl" userLabel="placeholderView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="4"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="9"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4A-Bd-atN" userLabel="orView" customClass="DividerView" customModule="LeadLinkApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="4" width="272" height="20"/>
-                                                        <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="9" width="272" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="bqm-Ca-FE4"/>
+                                                            <constraint firstAttribute="height" constant="30" id="bqm-Ca-FE4"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZd-fc-ukh" userLabel="placeholderView">
-                                                        <rect key="frame" x="0.0" y="24" width="272" height="4"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="0.0" y="39" width="272" height="9"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -319,7 +315,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.1229112413" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="dRy-fM-ts3" secondAttribute="trailing" id="1DJ-kb-nO8"/>
                                             <constraint firstItem="dRy-fM-ts3" firstAttribute="top" secondItem="vgq-B1-hwn" secondAttribute="top" id="Atq-Ko-lZw"/>
@@ -349,7 +344,6 @@ barcode number manually</string>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.1229112413" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="2WU-36-H24" firstAttribute="centerX" secondItem="oUo-uu-Mfb" secondAttribute="centerX" id="3HR-jU-6sS"/>
                                             <constraint firstItem="Ix4-Fc-kHn" firstAttribute="top" secondItem="oUo-uu-Mfb" secondAttribute="top" id="9kj-17-pNT"/>
@@ -364,7 +358,7 @@ barcode number manually</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="wej-m5-tEi" firstAttribute="leading" secondItem="X8o-EZ-Nbw" secondAttribute="leading" constant="16" id="5VM-cy-QuR"/>
-                                    <constraint firstItem="wej-m5-tEi" firstAttribute="height" secondItem="X8o-EZ-Nbw" secondAttribute="height" multiplier="0.5" id="A72-4o-h8W"/>
+                                    <constraint firstItem="wej-m5-tEi" firstAttribute="height" secondItem="X8o-EZ-Nbw" secondAttribute="height" multiplier="0.45" id="A72-4o-h8W"/>
                                     <constraint firstItem="vgq-B1-hwn" firstAttribute="leading" secondItem="X8o-EZ-Nbw" secondAttribute="leading" constant="16" id="AGf-WP-XDx"/>
                                     <constraint firstItem="vgq-B1-hwn" firstAttribute="top" secondItem="wej-m5-tEi" secondAttribute="bottom" constant="7.9999999999998863" id="CFc-HX-BkB"/>
                                     <constraint firstItem="xMU-Ek-bve" firstAttribute="centerX" secondItem="X8o-EZ-Nbw" secondAttribute="centerX" id="Kre-Vb-rBU"/>
