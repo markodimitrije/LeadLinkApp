@@ -375,6 +375,9 @@
                         <viewLayoutGuide key="safeArea" id="mI1-JS-5Zw"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="logoImageView" destination="gSQ-0E-WDg" id="bnJ-JI-fC1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93Z-RB-s6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

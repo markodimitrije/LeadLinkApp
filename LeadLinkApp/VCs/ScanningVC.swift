@@ -13,15 +13,28 @@ class ScanningVC: UIViewController {
     @IBOutlet weak var contentViewToTopSafeAreaConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewToBottomSafeAreaConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var barCodeTxtField: UITextField!
     
-    var campaignId: Int? // ako ti neko dobaci ovo, mozes da izvuces campaign (Logo, questions, answers....) (iz dataProvider-a)
+    var viewModel: ScanningViewModel!
+    
     var keyboardManager: MovingKeyboardDelegate?
     
     override func viewDidLoad() { super.viewDidLoad()
         
         barCodeTxtField.delegate = self
         
+        loadKeyboardManager()
+        
+        bindUI()
+        
+    }
+    
+    private func bindUI() {
+        logoImageView?.image = viewModel?.logo
+    }
+    
+    private func loadKeyboardManager() {
         keyboardManager = MovingKeyboardDelegate.init(keyboardChangeHandler: { (halfKeyboardHeight) in
             
             self.contentViewToTopSafeAreaConstraint!.constant += 2*halfKeyboardHeight
@@ -31,9 +44,7 @@ class ScanningVC: UIViewController {
                 self.view.layoutIfNeeded()
             }
         })
-        
     }
-    
 }
 
 extension ScanningVC: UITextFieldDelegate {

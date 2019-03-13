@@ -53,10 +53,6 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // implement me ?
-    }
-    
     private func observe(userSessionState: Observable<MainViewState>) { // navigation...
         userSessionState
             .skip(1) // jer je inicijano set-ovan na signOut
@@ -112,7 +108,9 @@ extension CampaignsVC: UITableViewDelegate {
         
         selRealmCampaign.onNext(selectedCampaign)
         
-        self.performSegue(withIdentifier: "showScannerSegue", sender: self)
+        let scanningVC = factory.makeScanningViewController(viewModel: ScanningViewModel.init(realmCampaign: selectedCampaign))
+        
+        navigationController?.pushViewController(scanningVC, animated: true)
         
     }
 }

@@ -42,6 +42,7 @@
 		ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */; };
 		ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88121D8F332000B3C52 /* Assets.xcassets */; };
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
+		ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */; };
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
 		ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */; };
 		ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */; };
@@ -101,6 +102,7 @@
 		ADAEE88121D8F332000B3C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAEE88421D8F332000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsImplementations.swift; sourceTree = "<group>"; };
 		ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				AD1739CA21DE1ADA00218BE5 /* MainViewModel.swift */,
 				AD1739D421DE3D6900218BE5 /* LogoutViewModel.swift */,
 				ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */,
+				ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */,
 			);
 			path = Viewmodel;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
+				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,

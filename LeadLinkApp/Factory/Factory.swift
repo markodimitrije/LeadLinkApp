@@ -85,5 +85,18 @@ public class AppDependencyContainer {
             return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
             
         }
+    
+    // Scanning
+    
+    func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
+        
+        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
+        //return sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
+        let scanningVC = sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
+        if let viewModel = viewModel {
+            scanningVC.viewModel = viewModel
+        }
+        return scanningVC
+    }
 
 }

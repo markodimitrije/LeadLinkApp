@@ -395,6 +395,7 @@ barcode number manually</string>
                         <outlet property="barCodeTxtField" destination="2WU-36-H24" id="2T7-uc-zoR"/>
                         <outlet property="contentViewToBottomSafeAreaConstraint" destination="MpA-1i-TNR" id="fSI-go-Oiw"/>
                         <outlet property="contentViewToTopSafeAreaConstraint" destination="bWt-v0-uJp" id="gsS-rD-6N3"/>
+                        <outlet property="logoImageView" destination="xMU-Ek-bve" id="749-qA-Lm0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6S-xH-t9K" userLabel="First Responder" sceneMemberID="firstResponder"/>

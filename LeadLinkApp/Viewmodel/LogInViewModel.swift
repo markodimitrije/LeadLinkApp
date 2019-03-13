@@ -110,8 +110,5 @@ public class LogInViewModel {
         emailInput.onNext("")
         passwordInput.onNext("")
     }
-
-    
+   
 }
-
-//// trik da bih zadrzao logiku na VC (bez ovoga ima mali gap izmedju set title i show alert)
