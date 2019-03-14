@@ -37,16 +37,17 @@ class LoginViewController: UIViewController {
     
     override func awakeFromNib() {
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
-        logInViewModel = LogInViewModel.init(userSessionRepository: repository, signedInResponder: factory.sharedMainViewModel)
+        logInViewModel = LogInViewModel.init(userSessionRepository: factory.sharedUserSessionRepository,
+                                             signedInResponder: factory.sharedMainViewModel)
     }
     
     override func viewDidLoad() { super.viewDidLoad()
         
-        bindViews(to: logInViewModel)
+        //bindViews(to: logInViewModel)
         
         bindActualSessionToCredentialFields()
         
-        observe(userSessionState: factory.sharedMainViewModel.view) // bind VC to listen for signedIn event (from mainViewModel):
+        observe(userSessionState: factory.sharedMainViewModel.viewSubjectObservable) // bind VC to listen for signedIn event (from mainViewModel):
         
         observeErrorMessages(viewmodel: logInViewModel)
         

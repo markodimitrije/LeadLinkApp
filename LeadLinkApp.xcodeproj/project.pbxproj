@@ -26,6 +26,7 @@
 		ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA9B1C922384C5400B7D74F /* DividerView.xib */; };
 		ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CB22384D8400B7D74F /* DividerView.swift */; };
 		ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */; };
+		ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D92223A540D00450625 /* NavigationViewModel.swift */; };
 		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
@@ -44,6 +45,11 @@
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
 		ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */; };
 		ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */; };
+		ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */; };
+		ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7F22395CB2004C4AC1 /* QRcodeView.swift */; };
+		ADAFED8622395CB3004C4AC1 /* ScViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8022395CB2004C4AC1 /* ScViewController.swift */; };
+		ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8222395CB3004C4AC1 /* AVSessionViewModel.swift */; };
+		ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */; };
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
 		ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */; };
 		ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */; };
@@ -85,6 +91,7 @@
 		ADA9B1C922384C5400B7D74F /* DividerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DividerView.xib; sourceTree = "<group>"; };
 		ADA9B1CB22384D8400B7D74F /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegate.swift; sourceTree = "<group>"; };
+		ADAB3D92223A540D00450625 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
@@ -105,6 +112,11 @@
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewModel.swift; sourceTree = "<group>"; };
 		ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Rx.swift"; sourceTree = "<group>"; };
+		ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRcodeView.xib; sourceTree = "<group>"; };
+		ADAFED7F22395CB2004C4AC1 /* QRcodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
+		ADAFED8022395CB2004C4AC1 /* ScViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScViewController.swift; sourceTree = "<group>"; };
+		ADAFED8222395CB3004C4AC1 /* AVSessionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVSessionViewModel.swift; sourceTree = "<group>"; };
+		ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAVCaptureMetadataCaptureDelegate.swift; sourceTree = "<group>"; };
 		ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsImplementations.swift; sourceTree = "<group>"; };
 		ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -209,6 +221,7 @@
 				AD1739D421DE3D6900218BE5 /* LogoutViewModel.swift */,
 				ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */,
 				ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */,
+				ADAB3D92223A540D00450625 /* NavigationViewModel.swift */,
 			);
 			path = Viewmodel;
 			sourceTree = "<group>";
@@ -296,6 +309,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				ADAFED7C22395C92004C4AC1 /* Scanning */,
 				ADA9B1CD22385DAC00B7D74F /* Utilities */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
@@ -317,6 +331,34 @@
 				AD1739B421DCE8FC00218BE5 /* Localizable.strings */,
 			);
 			path = LeadLinkApp;
+			sourceTree = "<group>";
+		};
+		ADAFED7C22395C92004C4AC1 /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				ADAFED8122395CB3004C4AC1 /* Viewmodel */,
+				ADAFED7D22395CB2004C4AC1 /* Views */,
+				ADAFED8022395CB2004C4AC1 /* ScViewController.swift */,
+			);
+			path = Scanning;
+			sourceTree = "<group>";
+		};
+		ADAFED7D22395CB2004C4AC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */,
+				ADAFED7F22395CB2004C4AC1 /* QRcodeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADAFED8122395CB3004C4AC1 /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				ADAFED8222395CB3004C4AC1 /* AVSessionViewModel.swift */,
+				ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */,
+			);
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 		ADB6A63221DF831E002224C0 /* Campaigns */ = {
@@ -506,6 +548,7 @@
 				AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
 				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
+				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +625,7 @@
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
+				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
@@ -613,6 +657,7 @@
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
+				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
@@ -620,6 +665,8 @@
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,
+				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
+				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
@@ -627,6 +674,7 @@
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				ADAFED8622395CB3004C4AC1 /* ScViewController.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,7 +825,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -797,7 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

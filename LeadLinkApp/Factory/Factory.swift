@@ -76,16 +76,26 @@ public class AppDependencyContainer {
 
     }
     
+    // Viewmodels
+    
+    
+    
     // Main
     // Factories needed to create a MainViewController.
     
-        func makeCampaignsViewController() -> CampaignsVC {
-            
-            // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-            return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
-            
-        }
+    func makeLoginViewController() -> LoginViewController {
+        
+        return sb.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+    }
     
+    func makeCampaignsViewController() -> CampaignsVC {
+        
+        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
+        return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
+        
+    }
+
     // Scanning
     
     func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
@@ -98,5 +108,38 @@ public class AppDependencyContainer {
         }
         return scanningVC
     }
+    
+    private func getViewControllerTypes() -> [UIViewController.Type] {
+        return [LoginViewController.self,
+                CampaignsVC.self,
+                ScanningVC.self]
+    }
 
+    // make viewmodels
+    
+    func makeNavigationViewModel() -> NavigationViewModel {
+        let items = [NavBarItem.stats, NavBarItem.logout]
+        let viewmodel = NavigationViewModel.init(navBarItems: items,
+                                                 viewControllerTypes: getViewControllerTypes(),
+                                                 logOutViewModel: makeLogoutViewModel())
+        return viewmodel
+    }
+    
+    func makeLoginViewModel() -> LogInViewModel {
+        let viewmodel = LogInViewModel.init(userSessionRepository: sharedUserSessionRepository, signedInResponder: self.sharedMainViewModel)
+        return viewmodel
+    }
+    
+    func makeLogoutViewModel() -> LogOutViewModel {
+        
+        let viewmodel = LogOutViewModel.init(userSessionRepository: sharedUserSessionRepository, notSignedInResponder: self.sharedMainViewModel)
+        return viewmodel
+    }
+    
+}
+
+// zna da li je ovaj btn visible ili ne
+enum NavBarItem {
+    case logout
+    case stats
 }

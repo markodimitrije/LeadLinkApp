@@ -12,7 +12,7 @@ import RxSwift
 public class MainViewModel: SignedInResponder, NotSignedInResponder {
 
     // MARK: - Properties
-    public var view: Observable<MainViewState> { return viewSubject.asObservable() }
+    public var viewSubjectObservable: Observable<MainViewState> { return viewSubject.asObservable() }
     private let viewSubject = BehaviorSubject<MainViewState>(value: .signOut)
 
     // MARK: - Methods

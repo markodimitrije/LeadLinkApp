@@ -12,6 +12,8 @@ import RxCocoa
 import RxSwift
 import RxRealm
 import RxRealmDataSources
+import NotificationCenter
+import UserNotifications
 
 class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
     
@@ -45,9 +47,9 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
         logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
         campaignsViewModel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
         
-        addLogoutBtn()
+        //addLogoutBtn()
         
-        observe(userSessionState: factory.sharedMainViewModel.view) // bind VC to listen for signedIn event (from mainViewModel):
+        observe(userSessionState: factory.sharedMainViewModel.viewSubjectObservable) // bind VC to listen for signedIn event (from mainViewModel):
         
         bindUI()
         
@@ -67,7 +69,7 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
     }
     
     private func navigateToRootVC() {
-        
+        print("navigateToRootVC is called !!!")
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -87,10 +89,10 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
         
     }
     
-    private func addLogoutBtn() {
-        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(CampaignsVC.logoutBtnTapped(_:)))
-        self.navigationItem.rightBarButtonItem = logoutBtn
-    }
+//    private func addLogoutBtn() {
+//        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(CampaignsVC.logoutBtnTapped(_:)))
+//        self.navigationItem.rightBarButtonItem = logoutBtn
+//    }
     
     @objc private func logoutBtnTapped(_ sender: UIButton) { //Do your stuff here
         logOutViewModel.signOut()
@@ -114,3 +116,4 @@ extension CampaignsVC: UITableViewDelegate {
         
     }
 }
+
