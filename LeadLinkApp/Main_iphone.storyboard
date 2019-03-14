@@ -398,6 +398,21 @@ barcode number manually</string>
             </objects>
             <point key="canvasLocation" x="2205" y="52.5"/>
         </scene>
+        <!--StatsVC-->
+        <scene sceneID="tM5-mj-hdq">
+            <objects>
+                <viewController storyboardIdentifier="StatsVC" id="zVw-Kv-1Ud" customClass="StatsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C2K-Jl-h1N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="bHg-RC-f2d"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVA-v6-Cph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3007" y="54"/>
+        </scene>
     </scenes>
     <resources>
         <image name="navusLogo" width="350" height="63"/>

@@ -27,6 +27,8 @@
 		ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CB22384D8400B7D74F /* DividerView.swift */; };
 		ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */; };
 		ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D92223A540D00450625 /* NavigationViewModel.swift */; };
+		ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D96223AAE8B00450625 /* StatsVC.swift */; };
+		ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D99223AAFB500450625 /* Constants.swift */; };
 		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
@@ -92,6 +94,8 @@
 		ADA9B1CB22384D8400B7D74F /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegate.swift; sourceTree = "<group>"; };
 		ADAB3D92223A540D00450625 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		ADAB3D96223AAE8B00450625 /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
+		ADAB3D99223AAFB500450625 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
@@ -252,6 +256,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		ADAB3D98223AAFA900450625 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB3D99223AAFB500450625 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +321,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				ADAB3D98223AAFA900450625 /* Constants */,
 				ADAFED7C22395C92004C4AC1 /* Scanning */,
 				ADA9B1CD22385DAC00B7D74F /* Utilities */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
@@ -415,6 +428,7 @@
 				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
 				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
 				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
+				ADAB3D96223AAE8B00450625 /* StatsVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -641,6 +655,7 @@
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
+				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
@@ -661,6 +676,7 @@
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
+				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,

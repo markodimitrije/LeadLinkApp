@@ -32,6 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
     }
     
+    @objc func statsBtnTapped() {
+        let statsVC = factory.makeStatsViewController()
+        (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
+    }
+    
     func downloadCampaignsQuestionsAndLogos() {
         
         print("AppDelegate.downloadCampaignsQuestionsAndLogos/ zovi svoj viewmodel da ti da podatke")

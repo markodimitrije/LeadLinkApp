@@ -101,7 +101,7 @@ class LoginViewController: UIViewController {
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         activityDriver
-            .map { return $0 ? "" : "Log In" }
+            .map { return $0 ? "" : Constants.BtnTitles.logIn }
             .drive(logInBtn.rx.title(for: .normal))
             .disposed(by: disposeBag)
     }

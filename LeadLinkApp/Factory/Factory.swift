@@ -95,6 +95,12 @@ public class AppDependencyContainer {
         return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
         
     }
+    
+    func makeStatsViewController() -> StatsVC {
+        
+        return sb.instantiateViewController(withIdentifier: "StatsVC") as! StatsVC
+        
+    }
 
     // Scanning
     

@@ -41,8 +41,14 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         
         let selector = #selector(NavigationViewModel.navBtnTapped(_:))
         
-        let logoutItem = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: selector); logoutItem.tag = 1
-        let statsItem = UIBarButtonItem.init(title: "Stats", style: .plain, target: self, action: selector); statsItem.tag = 0
+        let logoutItem = UIBarButtonItem.init(title: Constants.BtnTitles.logOut,
+                                              style: .plain,
+                                              target: self,
+                                              action: selector); logoutItem.tag = 1
+        let statsItem = UIBarButtonItem.init(title: Constants.BtnTitles.stats,
+                                             style: .plain,
+                                             target: self,
+                                             action: selector); statsItem.tag = 0
         
         switch typeName {
         case "LoginViewController": return [ ]
@@ -55,7 +61,12 @@ extension NavigationViewModel: UINavigationControllerDelegate {
     
     @objc func navBtnTapped(_ sender: UIBarButtonItem) {
         switch sender.tag {
-        case 0: print("open statsVC")
+        case 0:
+            Timer.scheduledTimer(timeInterval: 0.0,
+                                     target: UIApplication.shared.delegate as? AppDelegate,
+                                     selector: #selector(AppDelegate.statsBtnTapped),
+                                     userInfo: nil,
+                                     repeats: false)
         case 1:
             logOutViewModel.signOut()
             Timer.scheduledTimer(timeInterval: 0.0,
@@ -66,19 +77,6 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         default: break
         }
     }
-    
-//    private func observe(userSessionState: Observable<MainViewState>) { // navigation...
-//        userSessionState
-//            .skip(1) // jer je inicijano set-ovan na signOut
-//            .subscribe(onNext: { state in
-//                switch state {
-//                case .signOut:
-//                    print("grab navigation and pop")
-//
-//                default: break
-//                }
-//            }).disposed(by: disposeBag)
-//    }
     
 }
 
