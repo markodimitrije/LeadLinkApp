@@ -50,9 +50,9 @@
 		ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */; };
 		ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */; };
 		ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7F22395CB2004C4AC1 /* QRcodeView.swift */; };
-		ADAFED8622395CB3004C4AC1 /* ScViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8022395CB2004C4AC1 /* ScViewController.swift */; };
 		ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8222395CB3004C4AC1 /* AVSessionViewModel.swift */; };
 		ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */; };
+		ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB305E4223BB0D20069FACB /* PreviewLayer.swift */; };
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
 		ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */; };
 		ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */; };
@@ -120,9 +120,9 @@
 		ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Rx.swift"; sourceTree = "<group>"; };
 		ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRcodeView.xib; sourceTree = "<group>"; };
 		ADAFED7F22395CB2004C4AC1 /* QRcodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
-		ADAFED8022395CB2004C4AC1 /* ScViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScViewController.swift; sourceTree = "<group>"; };
 		ADAFED8222395CB3004C4AC1 /* AVSessionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVSessionViewModel.swift; sourceTree = "<group>"; };
 		ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAVCaptureMetadataCaptureDelegate.swift; sourceTree = "<group>"; };
+		ADB305E4223BB0D20069FACB /* PreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63321DF8356002224C0 /* CampaignsImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsImplementations.swift; sourceTree = "<group>"; };
 		ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -352,9 +352,9 @@
 		ADAFED7C22395C92004C4AC1 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				ADB305E3223BB0BD0069FACB /* Utilities */,
 				ADAFED8122395CB3004C4AC1 /* Viewmodel */,
 				ADAFED7D22395CB2004C4AC1 /* Views */,
-				ADAFED8022395CB2004C4AC1 /* ScViewController.swift */,
 			);
 			path = Scanning;
 			sourceTree = "<group>";
@@ -375,6 +375,14 @@
 				ADAFED8322395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift */,
 			);
 			path = Viewmodel;
+			sourceTree = "<group>";
+		};
+		ADB305E3223BB0BD0069FACB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				ADB305E4223BB0D20069FACB /* PreviewLayer.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		ADB6A63221DF831E002224C0 /* Campaigns */ = {
@@ -657,6 +665,7 @@
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
+				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
@@ -694,7 +703,6 @@
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
-				ADAFED8622395CB3004C4AC1 /* ScViewController.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

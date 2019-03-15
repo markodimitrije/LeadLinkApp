@@ -36,6 +36,10 @@ class ScanningVC: UIViewController {
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+    
     override func viewDidLoad() { super.viewDidLoad()
         
         barCodeTxtField.delegate = self
@@ -111,12 +115,10 @@ class ScanningVC: UIViewController {
         avSessionViewModel.oSession
             .subscribe(onNext: { [unowned self] (session) in
                 
-                self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
-                self.previewLayer.frame = self.scannerView.layer.bounds
-                self.previewLayer.videoGravity = .resizeAspectFill
-                //self.previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                let previewLayer = CameraPreviewLayer(session: session,
+                                                      frame: self.scannerView.layer.bounds)
                 
-                self.scannerView.attachCameraForScanning(previewLayer: self.previewLayer)
+                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
                 
                 }, onError: { [unowned self] err in
                     self.failed()
@@ -187,12 +189,12 @@ class ScanningVC: UIViewController {
         
 //        self.scannerView.qrCodeView.addSubview(qrAnimView)
 //
-//        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
-//            DispatchQueue.main.async {
-//                self.scannerView.qrCodeView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
-//                self.avSessionViewModel.captureSession.startRunning()
-//            }
-//        }
+        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
+            DispatchQueue.main.async {
+                //self.scannerView.qrCodeView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
+                self.avSessionViewModel.captureSession.startRunning()
+            }
+        }
         
         print("prosledi code report....")
         //codeReporter.codeReport.accept(getActualCodeReport())

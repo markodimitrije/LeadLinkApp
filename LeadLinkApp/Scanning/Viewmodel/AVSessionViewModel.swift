@@ -40,8 +40,7 @@ class AVSessionViewModel {
         
         captureSession = AVCaptureSession()
         oSession = BehaviorSubject<AVCaptureSession>.init(value: captureSession)
-        
-        //let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
+
         let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
         
         guard let cameraDevice = videoCaptureDevice else {
@@ -113,7 +112,7 @@ class AVSessionViewModel {
             
         })
     }
-
+    
 }
 
 enum AVCaptureSessionError: Error {
