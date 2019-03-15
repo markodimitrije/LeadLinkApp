@@ -15,4 +15,3 @@ struct Constants {
         static let stats = NSLocalizedString("Strings.Stats.btn", comment: "")
     }
 }
-

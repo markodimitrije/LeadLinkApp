@@ -24,7 +24,7 @@ class ScanningVC: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var barCodeTxtField: UITextField!
     
-    @IBOutlet weak var confirmBarcodeBtn: UIButton!
+    @IBOutlet weak var confirmBarcodeBtn: UIButton! // treba za iPad
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     
     var scannerView: QRcodeView!
@@ -74,7 +74,9 @@ class ScanningVC: UIViewController {
     }
     
     private func loadScannerView() {
-        let frame = getFrameForQrCodeView()
+
+        let frame = getRectForQrCodeView(center: self.view.center)
+        
         let qrCodeView = QRcodeView.init(frame: frame) {
             self.scannerView.isHidden = true
         }
@@ -146,26 +148,26 @@ class ScanningVC: UIViewController {
     
     private func failed() { print("failed.....")
         
-        //        self.alert(title: AlertInfo.Scan.ScanningNotSupported.title,
-        //                   text: AlertInfo.Scan.ScanningNotSupported.msg,
-        //                   btnText: AlertInfo.ok)
-        //            .subscribe {
-        //                self.dismiss(animated: true)
-        //            }
-        //            .disposed(by: disposeBag)
+        self.alert(title: Constants.AlertInfo.ScanningNotSupported.title,
+                   text: Constants.AlertInfo.ScanningNotSupported.msg,
+                   btnText: Constants.AlertInfo.ok)
+            .subscribe {
+                self.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func failedDueToNoSettings() {
         
         print("failedDueToNoSettings. prikazi alert....")
         
-        //        self.alert(title: AlertInfo.Scan.NoSettings.title,
-        //                   text: AlertInfo.Scan.NoSettings.msg,
-        //                   btnText: AlertInfo.ok)
-        //            .subscribe {
-        //                self.dismiss(animated: true)
-        //            }
-        //            .disposed(by: disposeBag)
+        self.alert(title: Constants.AlertInfo.NoSettings.title,
+                   text: Constants.AlertInfo.NoSettings.msg,
+                   btnText: Constants.AlertInfo.ok)
+            .subscribe {
+                self.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func codeSuccessfull(code: String) {
@@ -180,17 +182,17 @@ class ScanningVC: UIViewController {
         scanedCode.onNext(code)
         print("scanned code = \(code), dojavi viewmodel-u + navigate na questions/answers")
         
-        let qrAnimView = getArrowImgView(frame: scannerView.qrCodeView.bounds)
-        qrAnimView.tag = 20
+//        let qrAnimView = getArrowImgView(frame: scannerView.qrCodeView.bounds)
+//        qrAnimView.tag = 20
         
-        self.scannerView.qrCodeView.addSubview(qrAnimView)
-        
-        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
-            DispatchQueue.main.async {
-                self.scannerView.qrCodeView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
-                self.avSessionViewModel.captureSession.startRunning()
-            }
-        }
+//        self.scannerView.qrCodeView.addSubview(qrAnimView)
+//
+//        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
+//            DispatchQueue.main.async {
+//                self.scannerView.qrCodeView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
+//                self.avSessionViewModel.captureSession.startRunning()
+//            }
+//        }
         
         print("prosledi code report....")
         //codeReporter.codeReport.accept(getActualCodeReport())
@@ -247,17 +249,37 @@ class DataAccess {
     static let shared = DataAccess.init()
 }
 
-func getArrowImgView(frame: CGRect) -> UIImageView {
-    let imageView = UIImageView.init(frame: getFrameForQrCodeView())
-    imageView.image = UIImage.init(named: "QR_code")
-    return imageView
-}
+//func getArrowImgView(frame: CGRect) -> UIImageView {
+//    let imageView = UIImageView.init(frame: getFrameForQrCodeView())
+//    imageView.image = UIImage.init(named: "QR_code")
+//    return imageView
+//}
 
-func getFrameForQrCodeView() -> CGRect {
+func getSizeForQrCodeView() -> CGSize {
     
     let width = UIScreen.main.bounds.width
+    let height = UIScreen.main.bounds.height
     
-    return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 0.9*width, height: 0.9*width))
+    let side = min(width, height)
+    return CGSize.init(width: 0.6*side, height: 0.6*side)
     
 }
+
+func getRectForQrCodeView(center: CGPoint) -> CGRect {
+    
+    return CGRect.init(center: center, size: getSizeForQrCodeView())
+    
+}
+
+extension CGRect {
+    var center: CGPoint {
+        return CGPoint.init(x: self.origin.x - self.size.width/2, y: self.origin.y - self.size.height/2)
+    }
+    init(center: CGPoint, size: CGSize) {
+        let orig = CGPoint.init(x: center.x - size.width/2, y: center.y - size.height/2)
+        let rect = CGRect.init(origin: orig, size: size)
+        self = rect
+    }
+}
+
 
