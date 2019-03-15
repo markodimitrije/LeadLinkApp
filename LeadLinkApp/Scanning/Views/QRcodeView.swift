@@ -11,7 +11,7 @@ import AVFoundation
 
 class QRcodeView: UIView {
     
-    @IBOutlet weak var qrCodeView: UIView!
+    @IBOutlet weak var cameraView: UIView!
     
     @IBAction func btnTapped(_ sender: UIButton) {
         btnTapHandler?()
@@ -25,7 +25,6 @@ class QRcodeView: UIView {
     }
     
     convenience init(frame: CGRect, btnTapHandler: @escaping () -> ()) {
-        print("apply handler's logic")
         self.init(frame: frame)
         self.btnTapHandler = btnTapHandler
     }
@@ -47,7 +46,11 @@ class QRcodeView: UIView {
     }
     
     func attachCameraForScanning(previewLayer: AVCaptureVideoPreviewLayer) {
-        self.qrCodeView?.layer.addSublayer(previewLayer)
+//        self.qrCodeView?.layer.addSublayer(previewLayer)
+        let layer = previewLayer
+        layer.frame.origin = CGPoint.init(x: 0, y: 0)
+        self.cameraView?.layer.addSublayer(layer)
+        
     }
     
 }

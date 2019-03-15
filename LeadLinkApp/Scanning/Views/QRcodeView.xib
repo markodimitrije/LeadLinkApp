@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRcodeView" customModule="tryJustScan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRcodeView" customModule="LeadLinkApp" customModuleProvider="target">
             <connections>
-                <outlet property="qrCodeView" destination="8gv-OX-RwP" id="LxH-bS-BUw"/>
+                <outlet property="cameraView" destination="8gv-OX-RwP" id="mhV-VV-OFd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,20 +22,22 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU0-mi-AQ5">
                     <rect key="frame" x="300" y="12" width="48" height="30"/>
-                    <state key="normal" title="Cancel"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="eH1-GF-Wok"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-OX-RwP">
-                    <rect key="frame" x="16" y="50" width="328" height="290"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-OX-RwP">
+                    <rect key="frame" x="16" y="50" width="328" height="294"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sU0-mi-AQ5" secondAttribute="trailing" constant="12" id="3MP-rx-wk6"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8gv-OX-RwP" secondAttribute="bottom" constant="20" id="BPZ-hV-be0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8gv-OX-RwP" secondAttribute="bottom" constant="16" id="BPZ-hV-be0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8gv-OX-RwP" secondAttribute="trailing" constant="16" id="Pwb-K1-Njd"/>
                 <constraint firstItem="8gv-OX-RwP" firstAttribute="top" secondItem="sU0-mi-AQ5" secondAttribute="bottom" constant="8" id="ZVl-Oi-N10"/>
                 <constraint firstItem="sU0-mi-AQ5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="gex-eT-dJt"/>

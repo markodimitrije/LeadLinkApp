@@ -116,7 +116,7 @@ class ScanningVC: UIViewController {
             .subscribe(onNext: { [unowned self] (session) in
                 
                 let previewLayer = CameraPreviewLayer(session: session,
-                                                      frame: self.scannerView.layer.bounds)
+                                                      bounds: self.scannerView.layer.bounds)
                 
                 self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
                 

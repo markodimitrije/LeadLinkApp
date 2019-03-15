@@ -13,9 +13,9 @@ class CameraPreviewLayer: AVCaptureVideoPreviewLayer {
     
     var deviceOrientation = UIDevice.current.orientation
     
-    init(session: AVCaptureSession, frame: CGRect) {
+    init(session: AVCaptureSession, bounds: CGRect) {
         super.init(session: session)
-        self.frame = frame
+        self.bounds = bounds
         self.videoGravity = .resizeAspectFill
         self.connection?.videoOrientation = cameraOrientation() ?? .portrait
     }
