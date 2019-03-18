@@ -324,6 +324,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				ADB305E6223BE1A90069FACB /* Navigation */,
 				ADAB3D98223AAFA900450625 /* Constants */,
 				ADAFED7C22395C92004C4AC1 /* Scanning */,
 				ADA9B1CD22385DAC00B7D74F /* Utilities */,
@@ -383,6 +384,13 @@
 				ADB305E4223BB0D20069FACB /* PreviewLayer.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ADB305E6223BE1A90069FACB /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		ADB6A63221DF831E002224C0 /* Campaigns */ = {

@@ -227,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVC-em-zAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="54"/>
+            <point key="canvasLocation" x="1386" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAq-dM-Cgz">
@@ -245,7 +245,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxI-ZA-l7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="55"/>
+            <point key="canvasLocation" x="-282" y="54"/>
         </scene>
         <!--ScanningVC-->
         <scene sceneID="oiz-A1-mBD">
@@ -411,7 +411,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVA-v6-Cph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3007" y="54"/>
+            <point key="canvasLocation" x="2204" y="812"/>
         </scene>
     </scenes>
     <resources>

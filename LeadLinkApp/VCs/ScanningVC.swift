@@ -44,11 +44,12 @@ class ScanningVC: UIViewController {
         
         barCodeTxtField.delegate = self
         
+        bindQrAndBarScanCamera()
+        
         loadKeyboardManager()
         bindUI()
         
-        bindQrAndBarScanCamera()
-        
+        //bindQrAndBarScanCamera()
     }
     
     private func bindQrAndBarScanCamera() {
@@ -61,8 +62,7 @@ class ScanningVC: UIViewController {
         
         logoImageView?.image = viewModel?.logo
         
-        barCodeTxtField.rx.text
-            .asDriver()
+        barCodeTxtField.rx.text.asDriver()
             .map { $0 ?? "" }
             .drive(viewModel.codeInput)
             .disposed(by: disposeBag)
@@ -71,19 +71,25 @@ class ScanningVC: UIViewController {
             .drive(self.rx.dismissKeyboard)
             .disposed(by: disposeBag)
         
-        scanBarcodeBtn.rx.controlEvent(UIControlEvents.touchUpInside).subscribe(onNext: { _ in
-            self.scannerView.isHidden = false
+        scanBarcodeBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { _ in
+            self.scannerView.isHidden = false // show avSession (camera) view
+            self.barCodeTxtField.resignFirstResponder() // dismiss barCodeTxtField and keyboard if any
         }).disposed(by: disposeBag)
-        
+
+        keyboardManager?.keyboardActive.filter {$0}.map {_ in return()}
+            .bind(to: scannerView.rx.dismiss)
+            .disposed(by: disposeBag)
+
     }
     
     private func loadScannerView() {
 
         let frame = getRectForQrCodeView(center: self.view.center)
         
-        let qrCodeView = QRcodeView.init(frame: frame) {
-            self.scannerView.isHidden = true
-        }
+        let qrCodeView = QRcodeView.init(frame: frame, btnTapHandler: {
+                self.scannerView.isHidden = true
+            })
+        
         self.scannerView = qrCodeView
         self.scannerView.isHidden = true
         
@@ -201,9 +207,6 @@ class ScanningVC: UIViewController {
         
     }
     
-    
-    
-    
     private let disposeBag = DisposeBag()
 }
 
@@ -283,5 +286,3 @@ extension CGRect {
         self = rect
     }
 }
-
-
