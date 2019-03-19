@@ -63,14 +63,14 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         switch sender.tag {
         case 0:
             Timer.scheduledTimer(timeInterval: 0.0,
-                                     target: UIApplication.shared.delegate as? AppDelegate,
+                                     target: UIApplication.shared.delegate,
                                      selector: #selector(AppDelegate.statsBtnTapped),
                                      userInfo: nil,
                                      repeats: false)
         case 1:
             logOutViewModel.signOut()
             Timer.scheduledTimer(timeInterval: 0.0,
-                                 target: UIApplication.shared.delegate as? AppDelegate,
+                                 target: UIApplication.shared.delegate,
                                  selector: #selector(AppDelegate.logoutBtnTapped),
                                  userInfo: nil,
                                  repeats: false)
