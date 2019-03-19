@@ -75,11 +75,11 @@ class ScanningVC: UIViewController {
             self.scannerView.isHidden = false // show avSession (camera) view
             self.barCodeTxtField.resignFirstResponder() // dismiss barCodeTxtField and keyboard if any
         }).disposed(by: disposeBag)
-
-        keyboardManager?.keyboardActive.filter {$0}.map {_ in return()}
-            .bind(to: scannerView.rx.dismiss)
+        
+        keyboardManager?.keyboardActive
+            .filter {$0}
+            .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
-
     }
     
     private func loadScannerView() {

@@ -267,7 +267,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-VO-eht" userLabel="scanBtn">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-VO-eht" userLabel="scanBtn">
                                                 <rect key="frame" x="68.5" y="85" width="190" height="171.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="VQ4-VO-eht" secondAttribute="height" multiplier="192:173" id="Jkp-V0-cFu"/>

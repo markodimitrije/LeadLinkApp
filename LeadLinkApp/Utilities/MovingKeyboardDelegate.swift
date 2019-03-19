@@ -10,8 +10,11 @@ import UIKit
 import RxSwift
 
 class MovingKeyboardDelegate {
+    
     var keyboardChangeHandler: (_ verticalShift: CGFloat) -> ()
     var keyboardActive = BehaviorSubject<Bool>.init(value: false)
+    let disposeBag = DisposeBag()
+    
     init(keyboardChangeHandler: @escaping (_ verticalShift: CGFloat) -> ()) {
         self.keyboardChangeHandler = keyboardChangeHandler
         NotificationCenter.default.addObserver(self,
@@ -31,4 +34,5 @@ class MovingKeyboardDelegate {
         keyboardChangeHandler(shift)
         keyboardActive.onNext(notification.name == UIApplication.keyboardWillShowNotification)
     }
+    
 }

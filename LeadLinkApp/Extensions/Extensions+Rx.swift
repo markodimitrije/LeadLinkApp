@@ -19,17 +19,8 @@ extension Reactive where Base: UIViewController {
     }
 }
 
-extension Reactive where Base: QRcodeView {
-    var dismiss: Binder<Void> {
-        return Binder.init(base, binding: { (base, _) in
-            base.isHidden = true
-        })
-    }
-}
-
-
 extension Reactive where Base: UITextField {
-    var dismiss: Binder<Void> {
+    var resignFirstResponder: Binder<Void> {
         return Binder.init(base, binding: { (base, _) in
             base.resignFirstResponder()
         })
