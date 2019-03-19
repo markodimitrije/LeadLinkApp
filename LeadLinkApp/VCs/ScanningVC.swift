@@ -191,7 +191,7 @@ class ScanningVC: UIViewController {
     
         viewModel.codeInput.onNext(code)
 
-        delay(1.0) {
+        delay(2.0) {
             DispatchQueue.main.async {
                 self.avSessionViewModel.captureSession.startRunning()
             }

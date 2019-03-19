@@ -65,7 +65,7 @@ public class CampaignsRepository: UserCampaignsRepository {
         
         return update.map { (jsonUpdated, results) -> Bool in
             
-            if true {//jsonUpdated { hard-coded
+            if jsonUpdated {
                 
                 var allCampaignsSaved = false; var allQuestionsSaved = false; // jsonUpdated ti je arg...
 
