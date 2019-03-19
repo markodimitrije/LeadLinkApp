@@ -398,6 +398,21 @@ barcode number manually</string>
             </objects>
             <point key="canvasLocation" x="2205" y="52.5"/>
         </scene>
+        <!--Questions And AnswersVC-->
+        <scene sceneID="nCq-7z-jq9">
+            <objects>
+                <viewController storyboardIdentifier="QuestionsAndAnswersVC" id="iIg-DC-P3M" customClass="QuestionsAndAnswersVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h8q-d2-Tzo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.86783581970000001" green="0.27090615029999998" blue="0.3469858468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Xn3-dL-1K9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEu-f7-ubq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3035" y="50"/>
+        </scene>
         <!--StatsVC-->
         <scene sceneID="tM5-mj-hdq">
             <objects>

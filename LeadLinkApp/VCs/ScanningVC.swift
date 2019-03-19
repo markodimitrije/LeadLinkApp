@@ -31,10 +31,11 @@ class ScanningVC: UIViewController {
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     let avSessionViewModel = AVSessionViewModel()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
     
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
+    
+    private let factory = AppDependencyContainer()
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -45,17 +46,15 @@ class ScanningVC: UIViewController {
         barCodeTxtField.delegate = self
         
         bindQrAndBarScanCamera()
-        
         loadKeyboardManager()
         bindUI()
         
-        //bindQrAndBarScanCamera()
     }
     
     private func bindQrAndBarScanCamera() {
         loadScannerView()
         bindAVSession()
-        bindBarCode()
+        bindCamera()
     }
     
     private func bindUI() {
@@ -80,6 +79,11 @@ class ScanningVC: UIViewController {
             .filter {$0}
             .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
+        
+        confirmBarcodeBtn?.rx.controlEvent(.touchUpInside).debounce(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                self.codeSuccessfull(code: self.barCodeTxtField.text ?? "")
+            }).disposed(by: disposeBag)
     }
     
     private func loadScannerView() {
@@ -114,6 +118,11 @@ class ScanningVC: UIViewController {
         })
     }
     
+    private func navigateToQuestionsScreen() {
+        let questionsVC = factory.makeQuestionsAndAnswersViewController(scanningViewModel: viewModel)
+        navigationController?.pushViewController(questionsVC, animated: true)
+    }
+    
     // camera session binding:
     
     private func bindAVSession() {
@@ -132,9 +141,9 @@ class ScanningVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindBarCode() {
+    private func bindCamera() {
         
-        avSessionViewModel.oCode
+        avSessionViewModel.oCode.debounce(1.0, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (barCodeValue) in
                 guard let sSelf = self else {return}
                 
@@ -165,9 +174,7 @@ class ScanningVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func failedDueToNoSettings() {
-        
-        print("failedDueToNoSettings. prikazi alert....")
+    private func failedDueToNoSettings() { print("failedDueToNoSettings. prikazi alert....")
         
         self.alert(title: Constants.AlertInfo.NoSettings.title,
                    text: Constants.AlertInfo.NoSettings.msg,
@@ -178,32 +185,19 @@ class ScanningVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func codeSuccessfull(code: String) {
+    private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
         
         avSessionViewModel.captureSession.stopRunning()
-        
-        if self.scannerView.subviews.contains(where: {$0.tag == 20}) {
-            //            print("vec prikazuje arrow, izadji...")
-            return
-        } // already arr
-        
-        scanedCode.onNext(code)
-        print("scanned code = \(code), dojavi viewmodel-u + navigate na questions/answers")
-        
-//        let qrAnimView = getArrowImgView(frame: scannerView.qrCodeView.bounds)
-//        qrAnimView.tag = 20
-        
-//        self.scannerView.qrCodeView.addSubview(qrAnimView)
-//
-        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
+    
+        viewModel.codeInput.onNext(code)
+
+        delay(1.0) {
             DispatchQueue.main.async {
-                //self.scannerView.qrCodeView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
                 self.avSessionViewModel.captureSession.startRunning()
             }
         }
         
-        print("prosledi code report....")
-        //codeReporter.codeReport.accept(getActualCodeReport())
+        navigateToQuestionsScreen()
         
     }
     
@@ -213,7 +207,7 @@ class ScanningVC: UIViewController {
 extension ScanningVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        print("entered code = \(try! viewModel.codeInput.value())")
+        //print("entered code = \(try! viewModel.codeInput.value())")
         return true
     }
 }

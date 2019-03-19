@@ -595,5 +595,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/APIController/APIController.swift"
+            timestampString = "574688934.19734"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getQuestions(campaignId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+            timestampString = "574695883.730444"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getQuestions(campaignId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LeadLinkApp.LeadLinkCampaignsRemoteAPI.getQuestions(campaignId: Swift.Int) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
+                  moduleName = "LeadLinkApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+                  timestampString = "574695883.956669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PromiseKit.Resolver&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;) -&gt; () in LeadLinkApp.LeadLinkCampaignsRemoteAPI.getQuestions(campaignId: Swift.Int) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
+                  moduleName = "LeadLinkApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+                  timestampString = "574695883.959879"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

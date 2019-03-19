@@ -21,7 +21,6 @@ public class CampaignsViewModel {
     
     // MARK: - Properties
     let campaignsRepository: CampaignsRepository
-    //let campaignsReadyResponder: CampaignsReadyResponder
     
     // MARK: - Methods
     public init(campaignsRepository: CampaignsRepository) {

@@ -106,13 +106,27 @@ public class AppDependencyContainer {
     
     func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
         
-        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-        //return sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
         let scanningVC = sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
         if let viewModel = viewModel {
             scanningVC.viewModel = viewModel
         }
         return scanningVC
+    }
+    
+    // Questions and Answers
+    
+    func makeQuestionsAndAnswersViewController(scanningViewModel viewModel: ScanningViewModel?) -> QuestionsAndAnswersVC {
+        
+        print ("makeQuestionsAndAnswersViewController.codeInput.value() = \(try! viewModel!.codeInput.value())")
+        print ("makeQuestionsAndAnswersViewController.campaign.name = \(viewModel!.campaign)")
+        
+        let vc = sb.instantiateViewController(withIdentifier: "QuestionsAndAnswersVC") as! QuestionsAndAnswersVC
+        if let viewModel = viewModel {
+            let questionsViewModel = makeQuestionsViewModel(scanningViewmodel: viewModel)
+            vc.viewModel = questionsViewModel
+        }
+        
+        return vc
     }
     
     private func getViewControllerTypes() -> [UIViewController.Type] {
@@ -139,6 +153,11 @@ public class AppDependencyContainer {
     func makeLogoutViewModel() -> LogOutViewModel {
         
         let viewmodel = LogOutViewModel.init(userSessionRepository: sharedUserSessionRepository, notSignedInResponder: self.sharedMainViewModel)
+        return viewmodel
+    }
+    
+    func makeQuestionsViewModel(scanningViewmodel: ScanningViewModel) -> QuestionsViewmodel {
+        let viewmodel = QuestionsViewmodel.init(scanningViewmodel: scanningViewmodel)
         return viewmodel
     }
     
