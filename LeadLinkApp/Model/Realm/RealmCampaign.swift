@@ -25,10 +25,11 @@ class RealmCampaign: Object {
     @objc dynamic var primary_color: String? // oprez - ne vidim iz response koji je ovo types
     @objc dynamic var color: String? // oprez - ne vidim iz response koji je ovo type
     @objc dynamic var logo: String? = "" // url
+    @objc dynamic var imgData: Data?
     
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
-    @objc dynamic var imgData: Data?
+    public var questions = List<RealmQuestion>()
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
@@ -46,6 +47,17 @@ class RealmCampaign: Object {
         self.organization = org
         
         self.imgData = campaign.imgData
+        
+        let realmQuestions = campaign.questions.map { question -> RealmQuestion in
+            let rQuestion = RealmQuestion()
+            rQuestion.updateWith(question: question)
+            return rQuestion
+        }
+        print("appendujem questions.count = \(realmQuestions.count)")
+        try? Realm.init().write {
+            questions.append(objectsIn: realmQuestions)
+        }
+        
     }
     
     public func questions(forCampaignId id: Int) -> [RealmQuestion] {
@@ -68,6 +80,12 @@ class RealmCampaign: Object {
         
     }
     
+//    public func answers(campaignId id: Int, code: String) -> [Answer] {
+//
+//        fatalError("answers, implement me, send bar code.!! ")
+//
+//    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }
@@ -75,7 +93,7 @@ class RealmCampaign: Object {
     static func updateImg(data: Data?, campaignId id: Int) {
         guard let realm = try? Realm.init() else {return}
         guard let record = realm.objects(RealmCampaign.self).first(where: {$0.id == id}) else {return}
-        print("RealmCampaign/updateImg. image data treba da su saved... ")
+        //print("RealmCampaign/updateImg. image data treba da su saved... ")
         try? realm.write {
             record.imgData = data
         }

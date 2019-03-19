@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import RxCocoa
 import RxSwift
+import RealmSwift
 
 class LoginViewController: UIViewController {
 
@@ -21,8 +22,16 @@ class LoginViewController: UIViewController {
     var keyboardManager: MovingKeyboardDelegate?
     
     @IBOutlet weak var loginStackView: UIStackView!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var emailField: UITextField! {
+        didSet {
+            emailField.text = "test.tdasdasdasdae@mailinator.com"
+        }
+    }
+    @IBOutlet weak var passField: UITextField! {
+        didSet {
+            passField.text = "test1234"
+        }
+    }
     @IBOutlet weak var logInBtn: UIButton!
     @IBOutlet weak var loginStackViewYConstraint: NSLayoutConstraint!
     
@@ -43,7 +52,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() { super.viewDidLoad()
         
-        //bindViews(to: logInViewModel)
+        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL)")
+        
+        bindViews(to: logInViewModel)
         
         bindActualSessionToCredentialFields()
         

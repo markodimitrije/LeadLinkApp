@@ -52,7 +52,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                 try realm.write { // ovako
                     realm.add(objects, update: true)
                 }
-                print("SAVED CAMPAIGNS!")
+//                print("SAVED CAMPAIGNS!")
                 seal.fulfill(campaigns)
             } catch {
                 seal.reject(CampaignError.cantSave)
@@ -126,7 +126,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                 try realm.write {
                     realm.add(object, update: true)
                 }
-                print("SAVED JSON za kampanje !")
+//                print("SAVED JSON za kampanje !")
                 seal.fulfill(true)
             } catch {
                 seal.reject(CampaignError.cantSave)

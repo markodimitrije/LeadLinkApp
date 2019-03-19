@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in LeadLinkRemoteAPI.logIn(credentials:):AuthImplementations.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in LeadLinkRemoteAPI.logIn(credentials:):Implementations.swift">
          <PersistentStrings>
             <PersistentString
@@ -25,13 +28,13 @@
          contextName = "CameraPreviewLayer.init(session:frame:):PreviewLayer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cameraOrientationInfo[UIDevice.current.orientation]">
+               value = "self.connection?.videoOrientation">
             </PersistentString>
             <PersistentString
                value = "UIDevice.current.orientation">
             </PersistentString>
             <PersistentString
-               value = "self.connection?.videoOrientation">
+               value = "cameraOrientationInfo[UIDevice.current.orientation]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -96,13 +99,21 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
+               value = "self.sharedUserSessionRepository">
+            </PersistentString>
+            <PersistentString
                value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
                value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LogInViewModel.loadInitialSession():LogInViewModel.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "self.sharedUserSessionRepository">
+               value = "userSessionRepository">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -125,6 +136,31 @@
             </PersistentString>
             <PersistentString
                value = "allCampaignsSaved &amp;&amp; allQuestionsSaved">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LogInViewModel.getEmailPassword():LogInViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "email">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.questions">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.questions">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.questions.count">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.id">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -159,10 +195,10 @@
          contextName = "CampaignsViewModel.campaign.getter:CampaignsViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "selectedCampaign">
+               value = "selectedCampaign.value()">
             </PersistentString>
             <PersistentString
-               value = "selectedCampaign.value()">
+               value = "selectedCampaign">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -195,6 +231,9 @@
                value = "loginViewModel">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RealmCampaign.questions(forCampaignId:):RealmCampaign.swift">
       </ContextState>
       <ContextState
          contextName = "BarItemsListeningNavigationController.configureMyself():AppDelegate.swift">

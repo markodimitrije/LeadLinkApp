@@ -48,6 +48,8 @@
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
 		ADAF73442241131F00A1F6D2 /* QuestionsAndAnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */; };
 		ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73452241161300A1F6D2 /* QuestionsViewmodel.swift */; };
+		ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73472241314C00A1F6D2 /* Answer.swift */; };
+		ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73492241327600A1F6D2 /* RealmAnswer.swift */; };
 		ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */; };
 		ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */; };
 		ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */; };
@@ -120,6 +122,8 @@
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAndAnswersVC.swift; sourceTree = "<group>"; };
 		ADAF73452241161300A1F6D2 /* QuestionsViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewmodel.swift; sourceTree = "<group>"; };
+		ADAF73472241314C00A1F6D2 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		ADAF73492241327600A1F6D2 /* RealmAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAnswer.swift; sourceTree = "<group>"; };
 		ADAFED7822390CD5004C4AC1 /* ScanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewModel.swift; sourceTree = "<group>"; };
 		ADAFED7A2239577A004C4AC1 /* Extensions+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Rx.swift"; sourceTree = "<group>"; };
 		ADAFED7E22395CB2004C4AC1 /* QRcodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRcodeView.xib; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				ADB6A64121DF907D002224C0 /* Realm */,
 				AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */,
 				ADE9552621D9016C00B86052 /* Campaign.swift */,
+				ADAF73472241314C00A1F6D2 /* Answer.swift */,
 				AD4F013C21D8F68E00946CBA /* Secret.swift */,
 				ADE9552E21D9193500B86052 /* LeadLinkKitError.swift */,
 				AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */,
@@ -432,6 +437,7 @@
 			children = (
 				ADB6A64221DF9089002224C0 /* RealmCampaign.swift */,
 				ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */,
+				ADAF73492241327600A1F6D2 /* RealmAnswer.swift */,
 				ADAD040C21E73F4E006463A2 /* RealmJson.swift */,
 				ADAD041021E782EA006463A2 /* RealmOrganization.swift */,
 			);
@@ -691,6 +697,7 @@
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
+				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
@@ -699,6 +706,7 @@
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
+				ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,

@@ -25,6 +25,7 @@ public struct Campaign: Codable {
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
     // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
+    
     var questions: [Question]
     
     var organization: Organization
@@ -42,12 +43,10 @@ public struct Campaign: Codable {
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo
-        
-        self.questions = campaign.questions(campaignId: campaign.id)
+        self.imgData = campaign.imgData
         
         self.organization = Organization.init(realmOrganization: campaign.organization)
         
-        self.imgData = campaign.imgData
-        
+        self.questions = campaign.questions.toArray().map(Question.init)
     }
 }

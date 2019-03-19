@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func downloadCampaignsQuestionsAndLogos() {
         
-        print("AppDelegate.downloadCampaignsQuestionsAndLogos/ zovi svoj viewmodel da ti da podatke")
+        //print("AppDelegate.downloadCampaignsQuestionsAndLogos/ zovi svoj viewmodel da ti da podatke")
         
         let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
         

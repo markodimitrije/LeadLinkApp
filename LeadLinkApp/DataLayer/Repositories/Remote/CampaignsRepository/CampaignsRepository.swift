@@ -65,7 +65,7 @@ public class CampaignsRepository: UserCampaignsRepository {
         
         return update.map { (jsonUpdated, results) -> Bool in
             
-            if jsonUpdated {
+            if true {//jsonUpdated { hard-coded
                 
                 var allCampaignsSaved = false; var allQuestionsSaved = false; // jsonUpdated ti je arg...
 
@@ -76,6 +76,7 @@ public class CampaignsRepository: UserCampaignsRepository {
                 let quests = campaignsWithQuestions.map {$0.1}
                 let savedQuestions = quests.map { questions -> Bool in
                     return self.questionsDataStore.save(questions: questions).isFulfilled
+//                    when(fulfilled: self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}),              self.questionsDataStore.save(questions: questions)).isFulfilled
                 }
 
                 allQuestionsSaved = !savedQuestions.contains(false)

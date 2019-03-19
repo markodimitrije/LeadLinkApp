@@ -44,6 +44,8 @@ public class RealmQuestionsDataStore: QuestionsDataStore {
                 
                 let rc = RealmQuestion()
                 rc.updateWith(question: question)
+//                let myCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: question.campaign_id)
+//                myCampaign!.questions.append(rc)
                 return rc
             }
             

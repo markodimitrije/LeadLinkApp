@@ -130,7 +130,7 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
                     let decoder = JSONDecoder()
                     let payload = try decoder.decode(Campaigns.self, from: data)
                     
-                    print("getCampaignsAndQuestions. PROSAO SAM DECODE: ALL GOOD....")
+//                    print("getCampaignsAndQuestions. PROSAO SAM DECODE: ALL GOOD....")
                     
                     let jsonString = String.init(data: data, encoding: String.Encoding.utf8) // versioning
                     
