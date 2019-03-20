@@ -17,12 +17,6 @@ class ScanningViewModel {
     var codesDataStore: CodesDataStore
     var logo: UIImage?
     public let codeInput = BehaviorSubject<String>(value: "")
-    
-//    init(campaign: Campaign) {
-//        self.campaign = campaign
-//        updateLogoImage(campaign: campaign)
-//        setCodeListener()
-//    }
 
     init(campaign: Campaign, codesDataStore: CodesDataStore) {
         self.campaign = campaign
