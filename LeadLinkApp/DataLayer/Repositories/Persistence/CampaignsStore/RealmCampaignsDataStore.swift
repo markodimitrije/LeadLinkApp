@@ -18,6 +18,25 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     
     // MARK: - manage campaigns
     
+     public func readCampaign(id: Int) -> Promise<Campaign> {
+        
+        return Promise() { seal in
+            
+            guard let _ = try? Realm.init() else {
+                seal.reject(CampaignError.unknown)
+                return
+            }
+            
+            guard let result = realm.object(ofType: RealmCampaign.self, forPrimaryKey: id) else {
+                fatalError("asking for not existing code in database!")
+            }
+            
+            seal.fulfill(Campaign.init(realmCampaign: result))
+            
+        }
+        
+    }
+    
     public func readAllCampaigns() -> Promise<[Campaign]> {
         
         return Promise() { seal in

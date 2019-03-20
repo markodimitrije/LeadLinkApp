@@ -65,6 +65,12 @@
 		ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63E21DF8BA5002224C0 /* RealmCampaignsDataStore.swift */; };
 		ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64221DF9089002224C0 /* RealmCampaign.swift */; };
 		ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */; };
+		ADBB467D22425BB200E1020F /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB467C22425BB200E1020F /* Code.swift */; };
+		ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468022425C5F00E1020F /* TokenAndCredentials.swift */; };
+		ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468322425F0C00E1020F /* CodesDataStore.swift */; };
+		ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468522425F4F00E1020F /* RealmCodesDataStore.swift */; };
+		ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4687224265ED00E1020F /* CodesErrors.swift */; };
+		ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468922426C3C00E1020F /* RealmCode.swift */; };
 		ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */; };
 		ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
@@ -139,6 +145,12 @@
 		ADB6A63E21DF8BA5002224C0 /* RealmCampaignsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignsDataStore.swift; sourceTree = "<group>"; };
 		ADB6A64221DF9089002224C0 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
 		ADB6A64421DFA2BA002224C0 /* CampaignsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsErrors.swift; sourceTree = "<group>"; };
+		ADBB467C22425BB200E1020F /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		ADBB468022425C5F00E1020F /* TokenAndCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAndCredentials.swift; sourceTree = "<group>"; };
+		ADBB468322425F0C00E1020F /* CodesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataStore.swift; sourceTree = "<group>"; };
+		ADBB468522425F4F00E1020F /* RealmCodesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodesDataStore.swift; sourceTree = "<group>"; };
+		ADBB4687224265ED00E1020F /* CodesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesErrors.swift; sourceTree = "<group>"; };
+		ADBB468922426C3C00E1020F /* RealmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCode.swift; sourceTree = "<group>"; };
 		ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVC.swift; sourceTree = "<group>"; };
 		ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
@@ -217,14 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				ADB6A64121DF907D002224C0 /* Realm */,
-				AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */,
-				ADE9552621D9016C00B86052 /* Campaign.swift */,
-				ADAF73472241314C00A1F6D2 /* Answer.swift */,
-				AD4F013C21D8F68E00946CBA /* Secret.swift */,
-				ADE9552E21D9193500B86052 /* LeadLinkKitError.swift */,
-				AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */,
-				AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */,
-				ADAD040A21E73F29006463A2 /* LogoInfo.swift */,
+				ADBB467E22425BD200E1020F /* Domain */,
+				ADBB467F22425C3700E1020F /* Error and Payload */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,12 +442,47 @@
 			isa = PBXGroup;
 			children = (
 				ADB6A64221DF9089002224C0 /* RealmCampaign.swift */,
+				ADBB468922426C3C00E1020F /* RealmCode.swift */,
 				ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */,
 				ADAF73492241327600A1F6D2 /* RealmAnswer.swift */,
 				ADAD040C21E73F4E006463A2 /* RealmJson.swift */,
 				ADAD041021E782EA006463A2 /* RealmOrganization.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		ADBB467E22425BD200E1020F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				ADAD040A21E73F29006463A2 /* LogoInfo.swift */,
+				ADE9552621D9016C00B86052 /* Campaign.swift */,
+				ADBB467C22425BB200E1020F /* Code.swift */,
+				ADAF73472241314C00A1F6D2 /* Answer.swift */,
+				AD4F013C21D8F68E00946CBA /* Secret.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		ADBB467F22425C3700E1020F /* Error and Payload */ = {
+			isa = PBXGroup;
+			children = (
+				AD4F013A21D8F62E00946CBA /* ErrorMessage.swift */,
+				ADE9552E21D9193500B86052 /* LeadLinkKitError.swift */,
+				AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */,
+				ADBB468022425C5F00E1020F /* TokenAndCredentials.swift */,
+				AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */,
+			);
+			path = "Error and Payload";
+			sourceTree = "<group>";
+		};
+		ADBB468222425EF800E1020F /* CodesStore */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB468322425F0C00E1020F /* CodesDataStore.swift */,
+				ADBB468522425F4F00E1020F /* RealmCodesDataStore.swift */,
+				ADBB4687224265ED00E1020F /* CodesErrors.swift */,
+			);
+			path = CodesStore;
 			sourceTree = "<group>";
 		};
 		ADBECCE22237CB5500C846F8 /* VCs */ = {
@@ -496,6 +537,7 @@
 		ADE9552821D9170A00B86052 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB468222425EF800E1020F /* CodesStore */,
 				ADABCC5021E4E22900B43427 /* QuestionsStore */,
 				ADB6A63B21DF8B80002224C0 /* CampaignsStore */,
 				ADE9552921D9173F00B86052 /* UserSessionStore */,
@@ -682,6 +724,7 @@
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				ADAF73442241131F00A1F6D2 /* QuestionsAndAnswersVC.swift in Sources */,
+				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
@@ -690,6 +733,7 @@
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
 				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
+				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
 				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
@@ -710,8 +754,10 @@
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,
+				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
+				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
@@ -719,7 +765,9 @@
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
+				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

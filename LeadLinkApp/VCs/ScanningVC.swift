@@ -141,7 +141,7 @@ class ScanningVC: UIViewController {
     
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
-        print("found(code = \(Date())")
+        //print("found(code = \(Date())")
         
         if scanerViewModel.sessionId != -1 && code != "" {
             codeSuccessfull(code: code)
@@ -174,7 +174,7 @@ class ScanningVC: UIViewController {
     }
     
     private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
-        print("stopRunning()")
+        //print("codeSuccessfull.stopRunning()")
         avSessionViewModel.captureSession.stopRunning()
     
         viewModel.codeInput.onNext(code)
@@ -185,7 +185,7 @@ class ScanningVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("startRunning()")
+        //print("viewWillAppear.startRunning()")
         self.avSessionViewModel.captureSession.startRunning()
     }
     

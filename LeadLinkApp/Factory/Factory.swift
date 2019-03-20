@@ -160,6 +160,22 @@ public class AppDependencyContainer {
         return viewmodel
     }
     
+    func makeScanningViewModel(campaign: Campaign, codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
+        
+        let dataStore = codesDataStore ?? makeCodeDataStore()
+        let scanningViewmodel = ScanningViewModel.init(campaign: campaign, codesDataStore: dataStore)
+        
+        return scanningViewmodel
+    }
+    
+    // make datastore
+    
+    private func makeCodeDataStore() -> CodesDataStore {
+        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
+        return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
+    }
+    
+    
 }
 
 // zna da li je ovaj btn visible ili ne

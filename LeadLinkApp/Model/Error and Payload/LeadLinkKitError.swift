@@ -9,6 +9,5 @@
 import Foundation
 
 enum LeadLinkKitError: Error {
-    
     case any
 }

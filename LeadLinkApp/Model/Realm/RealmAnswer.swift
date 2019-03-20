@@ -23,7 +23,7 @@ public class RealmAnswer: Object {
         self.questionId = answer.questionId
         self.code = answer.code
         self.result = answer.result
-        id = "\(campaignId)" + "\(questionId)"
+        self.id = "\(campaignId)" + "\(questionId)"
     }
     
     override public static func primaryKey() -> String? {

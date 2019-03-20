@@ -14,17 +14,26 @@ import RxSwift
 class ScanningViewModel {
     
     var campaign: Campaign
+    var codesDataStore: CodesDataStore
     var logo: UIImage?
     public let codeInput = BehaviorSubject<String>(value: "")
     
-    init(campaign: Campaign) {
+//    init(campaign: Campaign) {
+//        self.campaign = campaign
+//        updateLogoImage(campaign: campaign)
+//        setCodeListener()
+//    }
+
+    init(campaign: Campaign, codesDataStore: CodesDataStore) {
         self.campaign = campaign
+        self.codesDataStore = codesDataStore
         updateLogoImage(campaign: campaign)
         setCodeListener()
     }
-
-    init(realmCampaign: RealmCampaign) {
+    
+    init(realmCampaign: RealmCampaign, codesDataStore: CodesDataStore) {
         self.campaign = Campaign.init(realmCampaign: realmCampaign)
+        self.codesDataStore = codesDataStore
         updateLogoImage(campaign: campaign)
         setCodeListener()
     }
@@ -38,6 +47,9 @@ class ScanningViewModel {
     private func setCodeListener() {
         codeInput.subscribe(onNext: { code in
             print("ScanningViewModel. code is = \(code), forward to dataProvider campaign = \(self.campaign)")
+            let myCode = Code.init(value: code, campaign_id: self.campaign.id)
+            _ = self.codesDataStore.save(code: myCode) // hard-coded, report to webApi
+            // u stvari treba da dobacis sledecem a da on fetch answers i kasnije ih save za ovaj code
         }).disposed(by: disposeBag)
     }
     private let disposeBag = DisposeBag()

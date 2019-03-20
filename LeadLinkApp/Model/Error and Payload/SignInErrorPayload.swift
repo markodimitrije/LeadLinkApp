@@ -8,19 +8,6 @@
 
 import Foundation
 
-//{
-//  "message": "Invalid email or password."
-//}
-
-//{
-//    "message": "Invalid input data",
-//    "errors": {
-//        "password": [
-//        "The password field is required when none of access code are present."
-//        ]
-//    }
-//}
-
 struct UnauthorizedPayload: Codable {
     var message: String
 }

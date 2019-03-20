@@ -91,12 +91,6 @@ class RealmCampaign: Object {
         
     }
     
-//    public func answers(campaignId id: Int, code: String) -> [Answer] {
-//
-//        fatalError("answers, implement me, send bar code.!! ")
-//
-//    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
@@ -114,27 +108,4 @@ class RealmCampaign: Object {
 //        return ["primary_color"]//, "floor", "imported_id"]
 //    }
     
-}
-
-class RealmCode: Object {
-    @objc dynamic var value: String = ""
-    @objc dynamic var campaign_id: Int = 0
-    var answers = List<RealmAnswer>()
-    func update(with code: Code) {
-        self.value = code.value
-        self.campaign_id = code.campaign_id
-        self.answers.append(objectsIn: code.answers.map(RealmAnswer.init))
-    }
-}
-
-class Code: Codable {
-    let value: String
-    var campaign_id: Int
-    var answers: [Answer]
-    
-    init(realmQuestion: RealmCode) {
-        self.value = realmQuestion.value
-        self.campaign_id = realmQuestion.campaign_id
-        self.answers = realmQuestion.answers.toArray().map(Answer.init)
-    }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Answer: Codable {
+public struct Answer: Codable {
     var campaignId: Int
     var questionId: Int
     var code = ""
