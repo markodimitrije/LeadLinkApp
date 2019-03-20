@@ -25,12 +25,11 @@ public struct Campaign: Codable {
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
     // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
+    var imgData: Data? = nil
     
     var questions: [Question]
-    
+    var codes: [Code]?
     var organization: Organization
-    
-    var imgData: Data? = nil
     
     init(realmCampaign campaign: RealmCampaign) {
         self.id = campaign.id
@@ -48,5 +47,6 @@ public struct Campaign: Codable {
         self.organization = Organization.init(realmOrganization: campaign.organization)
         
         self.questions = campaign.questions.toArray().map(Question.init)
+        self.codes = campaign.codes.toArray().map(Code.init)
     }
 }

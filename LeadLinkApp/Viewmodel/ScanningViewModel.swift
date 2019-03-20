@@ -36,7 +36,8 @@ class ScanningViewModel {
         self.logo = UIImage.imageFromData(data: campaign.imgData) ?? UIImage.campaignPlaceholder
     }
     private func setCodeListener() {
-        codeInput.subscribe(onNext: { code in // print("code is = \(code)")
+        codeInput.subscribe(onNext: { code in
+            print("ScanningViewModel. code is = \(code), forward to dataProvider")
         }).disposed(by: disposeBag)
     }
     private let disposeBag = DisposeBag()

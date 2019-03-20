@@ -88,7 +88,7 @@ class ScanningVC: UIViewController {
     
     private func loadScannerView() {
 
-        let frame = getRectForQrCodeView(center: self.view.center)
+        let frame = QRcodeView.getRectForQrCodeView(center: self.view.center)
         
         let qrCodeView = QRcodeView.init(frame: frame, btnTapHandler: {
                 self.scannerView.isHidden = true
@@ -246,37 +246,4 @@ class ScannerViewModel {
 
 class DataAccess {
     static let shared = DataAccess.init()
-}
-
-//func getArrowImgView(frame: CGRect) -> UIImageView {
-//    let imageView = UIImageView.init(frame: getFrameForQrCodeView())
-//    imageView.image = UIImage.init(named: "QR_code")
-//    return imageView
-//}
-
-func getSizeForQrCodeView() -> CGSize {
-    
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.height
-    
-    let side = min(width, height)
-    return CGSize.init(width: 0.6*side, height: 0.6*side)
-    
-}
-
-func getRectForQrCodeView(center: CGPoint) -> CGRect {
-    
-    return CGRect.init(center: center, size: getSizeForQrCodeView())
-    
-}
-
-extension CGRect {
-    var center: CGPoint {
-        return CGPoint.init(x: self.origin.x - self.size.width/2, y: self.origin.y - self.size.height/2)
-    }
-    init(center: CGPoint, size: CGSize) {
-        let orig = CGPoint.init(x: center.x - size.width/2, y: center.y - size.height/2)
-        let rect = CGRect.init(origin: orig, size: size)
-        self = rect
-    }
 }

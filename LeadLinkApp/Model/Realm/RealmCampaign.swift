@@ -30,6 +30,7 @@ class RealmCampaign: Object {
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
     public var questions = List<RealmQuestion>()
+    public var codes = List<RealmCode>()
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
@@ -42,20 +43,36 @@ class RealmCampaign: Object {
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo
+        self.imgData = campaign.imgData
         
         let org = RealmOrganization(); org.update(with: campaign.organization)
         self.organization = org
-        
-        self.imgData = campaign.imgData
         
         let realmQuestions = campaign.questions.map { question -> RealmQuestion in
             let rQuestion = RealmQuestion()
             rQuestion.updateWith(question: question)
             return rQuestion
         }
-        print("appendujem questions.count = \(realmQuestions.count)")
+        
+        var realmCodes = [RealmCode]()
+        if let codes = campaign.codes {
+            realmCodes = codes.map { code -> RealmCode in
+                let rCode = RealmCode()
+                rCode.update(with: code)
+                return rCode
+            }
+        }
+        
+//        let realmCodes = (campaign.codes ?? []).compactMap { code -> RealmCode in
+//            let rCode = RealmCode()
+//            rCode.update(with: code)
+//            return rCode
+//        }
+        
+        print("appendujem questions.count = \(realmQuestions.count) i realmCodes.count = \(realmCodes.count)")
         try? Realm.init().write {
             questions.append(objectsIn: realmQuestions)
+            codes.append(objectsIn: realmCodes)
         }
         
     }
@@ -103,4 +120,27 @@ class RealmCampaign: Object {
 //        return ["primary_color"]//, "floor", "imported_id"]
 //    }
     
+}
+
+class RealmCode: Object {
+    @objc dynamic var value: String = ""
+    @objc dynamic var campaign_id: Int = 0
+    var answers = List<RealmAnswer>()
+    func update(with code: Code) {
+        self.value = code.value
+        self.campaign_id = code.campaign_id
+        self.answers.append(objectsIn: code.answers.map(RealmAnswer.init))
+    }
+}
+
+class Code: Codable {
+    let value: String
+    var campaign_id: Int
+    var answers: [Answer]
+    
+    init(realmQuestion: RealmCode) {
+        self.value = realmQuestion.value
+        self.campaign_id = realmQuestion.campaign_id
+        self.answers = realmQuestion.answers.toArray().map(Answer.init)
+    }
 }
