@@ -63,13 +63,7 @@ class RealmCampaign: Object {
             }
         }
         
-//        let realmCodes = (campaign.codes ?? []).compactMap { code -> RealmCode in
-//            let rCode = RealmCode()
-//            rCode.update(with: code)
-//            return rCode
-//        }
-        
-        print("appendujem questions.count = \(realmQuestions.count) i realmCodes.count = \(realmCodes.count)")
+//        print("appendujem questions.count = \(realmQuestions.count) i realmCodes.count = \(realmCodes.count)")
         try? Realm.init().write {
             questions.append(objectsIn: realmQuestions)
             codes.append(objectsIn: realmCodes)

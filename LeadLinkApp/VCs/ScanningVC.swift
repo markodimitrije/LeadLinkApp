@@ -24,12 +24,11 @@ class ScanningVC: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var barCodeTxtField: UITextField!
     
-    @IBOutlet weak var confirmBarcodeBtn: UIButton! // treba za iPad
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     
     var scannerView: QRcodeView!
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
-    let avSessionViewModel = AVSessionViewModel()
+    var avSessionViewModel = AVSessionViewModel()
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var viewModel: ScanningViewModel!
@@ -44,6 +43,7 @@ class ScanningVC: UIViewController {
     override func viewDidLoad() { super.viewDidLoad()
         
         barCodeTxtField.delegate = self
+        barCodeTxtField.returnKeyType = .done
         
         bindQrAndBarScanCamera()
         loadKeyboardManager()
@@ -61,15 +61,6 @@ class ScanningVC: UIViewController {
         
         logoImageView?.image = viewModel?.logo
         
-        barCodeTxtField.rx.text.asDriver()
-            .map { $0 ?? "" }
-            .drive(viewModel.codeInput)
-            .disposed(by: disposeBag)
-        
-        confirmBarcodeBtn?.rx.controlEvent(.touchUpInside).asDriver()
-            .drive(self.rx.dismissKeyboard)
-            .disposed(by: disposeBag)
-        
         scanBarcodeBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { _ in
             self.scannerView.isHidden = false // show avSession (camera) view
             self.barCodeTxtField.resignFirstResponder() // dismiss barCodeTxtField and keyboard if any
@@ -79,11 +70,6 @@ class ScanningVC: UIViewController {
             .filter {$0}
             .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
-        
-        confirmBarcodeBtn?.rx.controlEvent(.touchUpInside).debounce(0.5, scheduler: MainScheduler.instance)
-            .subscribe(onNext: { _ in
-                self.codeSuccessfull(code: self.barCodeTxtField.text ?? "")
-            }).disposed(by: disposeBag)
     }
     
     private func loadScannerView() {
@@ -143,10 +129,10 @@ class ScanningVC: UIViewController {
     
     private func bindCamera() {
         
-        avSessionViewModel.oCode.debounce(1.0, scheduler: MainScheduler.instance)
+        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (barCodeValue) in
                 guard let sSelf = self else {return}
-                
+                print("scanner camera emituje barCodeValue \(barCodeValue)")
                 sSelf.found(code: barCodeValue)
             })
             .disposed(by: disposeBag)
@@ -155,7 +141,9 @@ class ScanningVC: UIViewController {
     
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
-        if scanerViewModel.sessionId != -1 {
+        print("found(code = \(Date())")
+        
+        if scanerViewModel.sessionId != -1 && code != "" {
             codeSuccessfull(code: code)
         } else {
             failedDueToNoSettings()
@@ -186,19 +174,19 @@ class ScanningVC: UIViewController {
     }
     
     private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
-        
+        print("stopRunning()")
         avSessionViewModel.captureSession.stopRunning()
     
         viewModel.codeInput.onNext(code)
-
-        delay(2.0) {
-            DispatchQueue.main.async {
-                self.avSessionViewModel.captureSession.startRunning()
-            }
-        }
         
         navigateToQuestionsScreen()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("startRunning()")
+        self.avSessionViewModel.captureSession.startRunning()
     }
     
     private let disposeBag = DisposeBag()
@@ -207,7 +195,7 @@ class ScanningVC: UIViewController {
 extension ScanningVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //print("entered code = \(try! viewModel.codeInput.value())")
+        found(code: textField.text ?? "")
         return true
     }
 }

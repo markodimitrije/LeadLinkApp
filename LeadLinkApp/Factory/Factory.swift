@@ -118,7 +118,6 @@ public class AppDependencyContainer {
     func makeQuestionsAndAnswersViewController(scanningViewModel viewModel: ScanningViewModel?) -> QuestionsAndAnswersVC {
         
         print ("makeQuestionsAndAnswersViewController.codeInput.value() = \(try! viewModel!.codeInput.value())")
-        print ("makeQuestionsAndAnswersViewController.campaign = \(viewModel!.campaign)")
         
         let vc = sb.instantiateViewController(withIdentifier: "QuestionsAndAnswersVC") as! QuestionsAndAnswersVC
         if let viewModel = viewModel {

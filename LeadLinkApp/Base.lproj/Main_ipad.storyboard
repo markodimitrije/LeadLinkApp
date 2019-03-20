@@ -329,19 +329,13 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aA-qD-C0F">
-                                                        <rect key="frame" x="294" y="443.5" width="55" height="30"/>
-                                                        <state key="normal" title="Confirm"/>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Uqn-Dc-G5A" firstAttribute="centerY" secondItem="heX-NN-Fhf" secondAttribute="centerY" id="Nuh-GL-QmQ"/>
                                                     <constraint firstItem="H01-9Z-aA9" firstAttribute="centerX" secondItem="heX-NN-Fhf" secondAttribute="centerX" id="O4j-dt-rSB"/>
                                                     <constraint firstItem="Uqn-Dc-G5A" firstAttribute="top" secondItem="H01-9Z-aA9" secondAttribute="bottom" constant="20" id="hPP-Sq-l0Y"/>
-                                                    <constraint firstItem="1aA-qD-C0F" firstAttribute="top" secondItem="Uqn-Dc-G5A" secondAttribute="bottom" constant="16" id="orB-hb-1W3"/>
                                                     <constraint firstItem="Uqn-Dc-G5A" firstAttribute="centerX" secondItem="heX-NN-Fhf" secondAttribute="centerX" id="t5M-YV-cpL"/>
-                                                    <constraint firstItem="1aA-qD-C0F" firstAttribute="centerX" secondItem="Uqn-Dc-G5A" secondAttribute="centerX" id="ygh-CB-fZz"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -386,7 +380,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="barCodeTxtField" destination="Uqn-Dc-G5A" id="Nfo-Cd-rEp"/>
-                        <outlet property="confirmBarcodeBtn" destination="1aA-qD-C0F" id="h1f-wm-KNe"/>
                         <outlet property="contentViewToBottomSafeAreaConstraint" destination="Jwq-Hn-OaY" id="h1u-P3-43K"/>
                         <outlet property="contentViewToTopSafeAreaConstraint" destination="Oc6-6V-cgl" id="ZG2-WT-lWL"/>
                         <outlet property="logoImageView" destination="gSQ-0E-WDg" id="bnJ-JI-fC1"/>

@@ -24,12 +24,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var emailField: UITextField! {
         didSet {
-            emailField.text = "test.tdasdasdasdae@mailinator.com"
+            emailField.text = "test.tdasdasdasdae@mailinator.com" // hard-coded
         }
     }
     @IBOutlet weak var passField: UITextField! {
         didSet {
-            passField.text = "test1234"
+            passField.text = "test1234" // hard-coded
         }
     }
     @IBOutlet weak var logInBtn: UIButton!

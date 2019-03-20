@@ -37,7 +37,7 @@ class ScanningViewModel {
     }
     private func setCodeListener() {
         codeInput.subscribe(onNext: { code in
-            print("ScanningViewModel. code is = \(code), forward to dataProvider")
+            print("ScanningViewModel. code is = \(code), forward to dataProvider campaign = \(self.campaign)")
         }).disposed(by: disposeBag)
     }
     private let disposeBag = DisposeBag()

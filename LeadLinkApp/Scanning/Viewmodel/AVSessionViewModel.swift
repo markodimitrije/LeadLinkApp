@@ -24,9 +24,7 @@ class AVSessionViewModel {
     
     private var code = PublishSubject<String>.init()
     var oCode: Observable<String> {
-        return code
-                .asObservable()
-                .throttle(2.0, scheduler: MainScheduler.instance)
+        return code.asObservable()
     }
     
     init() {
@@ -80,7 +78,6 @@ class AVSessionViewModel {
         
         oSession.onNext(captureSession)
         
-        captureSession.startRunning()
     }
     
     private func configureDelegate() {
@@ -107,8 +104,6 @@ class AVSessionViewModel {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             self.code.onNext(stringValue)
-            
-            self.captureSession.startRunning()
             
         })
     }
