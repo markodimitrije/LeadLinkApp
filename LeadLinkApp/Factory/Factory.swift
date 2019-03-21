@@ -121,7 +121,7 @@ public class AppDependencyContainer {
                                                        cellId: "CodeCell")
         let codesDelegate = CodesDelegate()
         
-        var codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
+        let codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
         
         codesVC.codesDataSource = codesDataSource
         codesVC.codesDelegate = codesDelegate

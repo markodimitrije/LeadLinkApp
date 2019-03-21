@@ -15,16 +15,10 @@ class CodesVC: UIViewController, Storyboarded {
     let factory: AppDependencyContainer = {
         return AppDependencyContainer()
     }()
-//    var codesDataSource: CodesDataSource? {
-//        didSet {
-//            print("codesDataSource is SET!")
-//        }
-//    }
-//    var codesDelegate: CodesDelegate?
-    var codesDataSource = CodesDataSource.init(campaignId: 9,
+
+    var codesDataSource = CodesDataSource?.init(campaignId: 9,
                                                codesDataStore: RealmCodesDataStore.init(campaignsDataStore: RealmCampaignsDataStore()),
                                                cellId: "CodeCell")
-    
     var codesDelegate = CodesDelegate()
     
     override func viewDidLoad() {

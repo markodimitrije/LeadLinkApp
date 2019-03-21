@@ -34,10 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func statsBtnTapped() {
         //let statsVC = factory.makeStatsViewController()
-//        let statsVC = factory.makeStatsViewController(campaignId: 1) // hard-coded
-//        (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
-        let codesVC = factory.makeCodesViewController(campaignId: 9) // hard-coded
-        (window?.rootViewController as? UINavigationController)?.pushViewController(codesVC, animated: true)
+        let statsVC = factory.makeStatsViewController(campaignId: 9) // hard-coded
+        (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
     }
     
     func downloadCampaignsQuestionsAndLogos() {
