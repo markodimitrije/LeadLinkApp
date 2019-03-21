@@ -14,17 +14,11 @@ class CodesDataSource: NSObject, UITableViewDataSource {
     var cellId: String
     var data = [Code]()
     
-//    init(campaignId: Int, codesDataStore: CodesDataStore, tableView: UITableView, cellId: String) {
-//        self.tableView = tableView
-//        self.cellId = cellId
-//        self.data = codesDataStore.getCodes(campaignId: campaignId)
-//    }
     init(campaignId: Int, codesDataStore: CodesDataStore, cellId: String) {
         self.cellId = cellId
         self.data = codesDataStore.getCodes(campaignId: campaignId)
     }
 
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,6 +43,7 @@ class CodesDataSource: NSObject, UITableViewDataSource {
 }
 
 class CodesDelegate: NSObject, UITableViewDelegate {
+    weak var tableView: UITableView!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("CodesDelegate notify somebody about selected row = \(indexPath.row)")
     }

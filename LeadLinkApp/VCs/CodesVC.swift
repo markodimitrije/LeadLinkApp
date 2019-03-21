@@ -12,26 +12,19 @@ class CodesVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let factory: AppDependencyContainer = {
-        return AppDependencyContainer()
-    }()
-    
-    var codesDataSource: CodesDataSource? {
-        didSet {
-            print("codesDataSource injected from outside")
-        }
-    }
-    var codesDelegate = CodesDelegate()
+    var codesDataSource: CodesDataSource?
+    var codesDelegate: CodesDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("codesDataSource != nil", codesDataSource != nil)
         codesDataSource?.tableView = self.tableView
+        codesDelegate?.tableView = self.tableView
         self.tableView.dataSource = codesDataSource
+        self.tableView.delegate = codesDelegate
     }
     
     deinit {
-        print("CodesVC is deinit")
+        print("CodesVC.deinit")
     }
     
 }

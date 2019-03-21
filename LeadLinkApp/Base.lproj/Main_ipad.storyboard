@@ -425,9 +425,6 @@
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2p-wy-rb9">
                                         <rect key="frame" x="667" y="0.0" width="659" height="984"/>
-                                        <connections>
-                                            <segue destination="FNu-e7-3ua" kind="embed" id="x6b-C1-zBv"/>
-                                        </connections>
                                     </containerView>
                                 </subviews>
                             </stackView>
@@ -493,21 +490,20 @@
             <objects>
                 <viewController storyboardIdentifier="CodesVC" id="FNu-e7-3ua" customClass="CodesVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zJo-Fy-eez">
-                        <rect key="frame" x="0.0" y="0.0" width="659" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iZQ-CJ-ARl">
-                                <rect key="frame" x="20" y="20" width="619" height="944"/>
+                                <rect key="frame" x="20" y="20" width="1326" height="984"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" rowHeight="400" id="d3q-dy-ce2">
-                                        <rect key="frame" x="0.0" y="28" width="619" height="400"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" id="d3q-dy-ce2">
+                                        <rect key="frame" x="0.0" y="28" width="1326" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3q-dy-ce2" id="oGU-Id-x0b">
-                                            <rect key="frame" x="0.0" y="0.0" width="619" height="399.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1326" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.86783581970000001" green="0.27090615029999998" blue="0.3469858468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -527,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5z6-wF-3o8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989" y="1517"/>
+            <point key="canvasLocation" x="2178" y="1529"/>
         </scene>
     </scenes>
     <resources>

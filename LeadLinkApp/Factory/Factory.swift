@@ -109,16 +109,9 @@ public class AppDependencyContainer {
     }
 
     func makeCodesViewController(campaignId id: Int) -> CodesVC {
-        
-//        codesVC.codesDataSource = CodesDataSource.init(campaignId: id,
-//                                                       codesDataStore: makeCodeDataStore(),
-//                                                       tableView: codesVC.tableView,
-//                                                       cellId: "CodeCell")
-//        codesVC.codesDelegate = CodesDelegate()
 
         let codesDataSource = CodesDataSource.init(campaignId: id,
                                                        codesDataStore: makeCodeDataStore(),
-                              //                         tableView: codesVC.tableView,
                                                        cellId: "CodeCell")
         let codesDelegate = CodesDelegate()
         
