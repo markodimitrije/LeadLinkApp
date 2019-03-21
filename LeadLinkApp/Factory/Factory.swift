@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 public class AppDependencyContainer {
-
+    
     let sb: UIStoryboard = {
         if UIDevice.current.userInterfaceIdiom == .pad {
             return UIStoryboard.init(name: "Main_ipad", bundle: nil)
@@ -26,7 +26,7 @@ public class AppDependencyContainer {
     let sharedUserSessionRepository: UserSessionRepository
     let sharedMainViewModel: MainViewModel
     let sharedCampaignsRepository: CampaignsRepository
-
+    
     public init() {
         
         func makeUserSessionRepository() -> UserSessionRepository {
@@ -85,28 +85,68 @@ public class AppDependencyContainer {
     
     func makeLoginViewController() -> LoginViewController {
         
-        return sb.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
+        return LoginViewController.instantiate(using: sb)
     }
     
     func makeCampaignsViewController() -> CampaignsVC {
         
         // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-        return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
-        
+        //return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
+        let campaignsVC = CampaignsVC.instantiate(using: sb)
+        campaignsVC.campaignsViewModel = makeCampaignsViewModel()
+        return campaignsVC
     }
     
-    func makeStatsViewController() -> StatsVC {
+    func makeStatsViewController(campaignId id: Int) -> StatsVC {
         
-        return sb.instantiateViewController(withIdentifier: "StatsVC") as! StatsVC
+        //let statsVC = sb.instantiateViewController(withIdentifier: "StatsVC") as! StatsVC
+        let statsVC = StatsVC.instantiate(using: sb)
+        statsVC.codesVC = makeCodesViewController(campaignId: id)
+        statsVC.chartVC = makeChartViewController(campaignId: id)
+        return statsVC
         
     }
 
+    func makeCodesViewController(campaignId id: Int) -> CodesVC {
+        
+//        codesVC.codesDataSource = CodesDataSource.init(campaignId: id,
+//                                                       codesDataStore: makeCodeDataStore(),
+//                                                       tableView: codesVC.tableView,
+//                                                       cellId: "CodeCell")
+//        codesVC.codesDelegate = CodesDelegate()
+
+        let codesDataSource = CodesDataSource.init(campaignId: id,
+                                                       codesDataStore: makeCodeDataStore(),
+                              //                         tableView: codesVC.tableView,
+                                                       cellId: "CodeCell")
+        let codesDelegate = CodesDelegate()
+        
+        let codesVC = CodesVC.init(codesDataSource: codesDataSource, codesDelegate: codesDelegate)
+        
+        return codesVC
+        
+    }
+    
+    func makeChartViewController(campaignId id: Int) -> UIViewController {
+        
+//        let codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
+//
+//        codesVC.codesDataSource = CodesDataSource.init(campaignId: id,
+//                                                       codesDataStore: makeCodeDataStore(),
+//                                                       cellId: "CodesCell")
+//        codesVC.codesDelegate = CodesDelegate()
+        
+//        return codesVC
+        return UIViewController.init()
+        
+    }
+    
     // Scanning
     
     func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
         
-        let scanningVC = sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
+        //let scanningVC = sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
+        let scanningVC = ScanningVC.instantiate(using: sb)
         if let viewModel = viewModel {
             scanningVC.viewModel = viewModel
         }
@@ -119,7 +159,8 @@ public class AppDependencyContainer {
         
         print ("makeQuestionsAndAnswersViewController.codeInput.value() = \(try! viewModel!.codeInput.value())")
         
-        let vc = sb.instantiateViewController(withIdentifier: "QuestionsAndAnswersVC") as! QuestionsAndAnswersVC
+        //let vc = sb.instantiateViewController(withIdentifier: "QuestionsAndAnswersVC") as! QuestionsAndAnswersVC
+        let vc = QuestionsAndAnswersVC.instantiate(using: sb)
         if let viewModel = viewModel {
             let questionsViewModel = makeQuestionsViewModel(scanningViewmodel: viewModel)
             vc.viewModel = questionsViewModel
@@ -168,6 +209,10 @@ public class AppDependencyContainer {
         return scanningViewmodel
     }
     
+    func makeCampaignsViewModel() -> CampaignsViewModel {
+        return CampaignsViewModel.init(campaignsRepository: sharedCampaignsRepository)
+    }
+    
     // make datastore
     
     private func makeCodeDataStore() -> CodesDataStore {
@@ -182,4 +227,16 @@ public class AppDependencyContainer {
 enum NavBarItem {
     case logout
     case stats
+}
+
+protocol Storyboarded: class {
+    static func instantiate(using sb: UIStoryboard?) -> Self
+}
+
+extension Storyboarded where Self: UIViewController {
+    static func instantiate(using sb: UIStoryboard? = nil) -> Self {
+        let sb = sb ?? UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let name = String(describing: self)
+        return sb.instantiateViewController(withIdentifier: name) as! Self
+    }
 }

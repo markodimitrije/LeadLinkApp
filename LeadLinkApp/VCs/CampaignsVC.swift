@@ -15,7 +15,7 @@ import RxRealmDataSources
 import NotificationCenter
 import UserNotifications
 
-class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
+class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -45,7 +45,7 @@ class CampaignsVC: UIViewController { // rename u campaignsVC a logout funkciona
         
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
         logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
-        campaignsViewModel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
+        //campaignsViewModel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
         
         //addLogoutBtn()
         

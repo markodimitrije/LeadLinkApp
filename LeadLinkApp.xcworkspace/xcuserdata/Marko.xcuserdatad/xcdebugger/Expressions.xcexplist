@@ -3,7 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in LeadLinkRemoteAPI.logIn(credentials:):AuthImplementations.swift">
+         contextName = "BarItemsListeningNavigationController.configureMyself():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in closure #1 in LeadLinkRemoteAPI.logIn(credentials:):Implementations.swift">
@@ -28,10 +33,10 @@
          contextName = "CameraPreviewLayer.init(session:frame:):PreviewLayer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.connection?.videoOrientation">
+               value = "UIDevice.current.orientation">
             </PersistentString>
             <PersistentString
-               value = "UIDevice.current.orientation">
+               value = "self.connection?.videoOrientation">
             </PersistentString>
             <PersistentString
                value = "cameraOrientationInfo[UIDevice.current.orientation]">
@@ -72,10 +77,19 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in LeadLinkCampaignsRemoteAPI.getCampaignsAndQuestions(userSession:):CampaignsImplementations.swift">
+         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json as? [String: Any]">
+               value = "self.questions">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.questions">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.questions.count">
+            </PersistentString>
+            <PersistentString
+               value = "campaign.id">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -102,10 +116,10 @@
                value = "self.sharedUserSessionRepository">
             </PersistentString>
             <PersistentString
-               value = "makeUserSessionRepository()">
+               value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
             <PersistentString
-               value = "makeUserSessionRepository().readUserSession()">
+               value = "makeUserSessionRepository()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -114,6 +128,14 @@
          <PersistentStrings>
             <PersistentString
                value = "userSessionRepository">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LogInViewModel.getEmailPassword():LogInViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "email">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -140,27 +162,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LogInViewModel.getEmailPassword():LogInViewModel.swift">
+         contextName = "closure #1 in closure #1 in LeadLinkCampaignsRemoteAPI.getCampaignsAndQuestions(userSession:):CampaignsImplementations.swift">
          <PersistentStrings>
             <PersistentString
-               value = "email">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.questions">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.questions">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.questions.count">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.id">
+               value = "json as? [String: Any]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -184,10 +189,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "static CodesVC.instantiate(from:):Factory.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in CampaignsRepository.getCampaignsAndQuestions(userSession:):CampaignsRepository.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.campaignsVersionChecker.needsUpdate(newCampaignData: results.jsonString).value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDependencyContainer.makeCodesViewController(campaignId:):Factory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "codesVC.tableView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -199,6 +215,22 @@
             </PersistentString>
             <PersistentString
                value = "selectedCampaign">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CodesVC.viewDidLoad():CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "codesDataSource">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CodesVC.viewDidAppear(_:):CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "codesDataSource">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -236,10 +268,10 @@
          contextName = "RealmCampaign.questions(forCampaignId:):RealmCampaign.swift">
       </ContextState>
       <ContextState
-         contextName = "BarItemsListeningNavigationController.configureMyself():AppDelegate.swift">
+         contextName = "CodesVC.init(codesDataSource:codesDelegate:):CodesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.navigationItem">
+               value = "tableView.dataSource">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -250,6 +282,9 @@
                value = "results.jsonString == saved">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LeadLinkRemoteAPI.logIn(credentials:):AuthImplementations.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

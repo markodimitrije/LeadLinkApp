@@ -8,6 +8,7 @@
 
 import UIKit
 
-class StatsVC: UIViewController {
-    
+class StatsVC: UIViewController, Storyboarded {
+    var chartVC: UIViewController? = nil
+    var codesVC: CodesVC? = nil
 }

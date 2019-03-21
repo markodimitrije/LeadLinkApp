@@ -27,9 +27,7 @@ public class RealmCodesDataStore: CodesDataStore {
         
         return Promise() { seal in
             
-            let rCodes = realm.objects(RealmCode.self).filter("campaign_id == @i", id).toArray()
-            
-            let codes = rCodes.map(Code.init)
+            let codes = getCodes(campaignId: id)
             
             seal.fulfill(codes)
             
@@ -59,5 +57,17 @@ public class RealmCodesDataStore: CodesDataStore {
         }
         
     }
+    
+    // sync
+    
+    public func getCodes(campaignId id: Int) -> [Code] {
+        
+        let rCodes = realm.objects(RealmCode.self).filter("campaign_id == %i", id).toArray()
+        
+        return rCodes.map(Code.init)
+        
+    }
+    
+    
     
 }

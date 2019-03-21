@@ -16,7 +16,7 @@ import RxCocoa
 import AVFoundation
 import RealmSwift
 
-class ScanningVC: UIViewController {
+class ScanningVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var contentViewToTopSafeAreaConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewToBottomSafeAreaConstraint: NSLayoutConstraint!

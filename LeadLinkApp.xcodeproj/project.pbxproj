@@ -71,6 +71,8 @@
 		ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468522425F4F00E1020F /* RealmCodesDataStore.swift */; };
 		ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4687224265ED00E1020F /* CodesErrors.swift */; };
 		ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468922426C3C00E1020F /* RealmCode.swift */; };
+		ADBB468C2242942300E1020F /* CodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468B2242942300E1020F /* CodesVC.swift */; };
+		ADBB468F2242947F00E1020F /* DataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */; };
 		ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */; };
 		ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
@@ -151,6 +153,8 @@
 		ADBB468522425F4F00E1020F /* RealmCodesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodesDataStore.swift; sourceTree = "<group>"; };
 		ADBB4687224265ED00E1020F /* CodesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesErrors.swift; sourceTree = "<group>"; };
 		ADBB468922426C3C00E1020F /* RealmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCode.swift; sourceTree = "<group>"; };
+		ADBB468B2242942300E1020F /* CodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesVC.swift; sourceTree = "<group>"; };
+		ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVC.swift; sourceTree = "<group>"; };
 		ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				ADAB3D98223AAFA900450625 /* Constants */,
 				ADAFED7C22395C92004C4AC1 /* Scanning */,
 				ADA9B1CD22385DAC00B7D74F /* Utilities */,
+				ADBB468D2242943F00E1020F /* DataSourceAndDelegate */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
 				ADABCC4B21E4AB3300B43427 /* Domain */,
@@ -485,6 +490,14 @@
 			path = CodesStore;
 			sourceTree = "<group>";
 		};
+		ADBB468D2242943F00E1020F /* DataSourceAndDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */,
+			);
+			path = DataSourceAndDelegate;
+			sourceTree = "<group>";
+		};
 		ADBECCE22237CB5500C846F8 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +506,7 @@
 				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
 				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
 				ADAB3D96223AAE8B00450625 /* StatsVC.swift */,
+				ADBB468B2242942300E1020F /* CodesVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -701,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
+				ADBB468F2242947F00E1020F /* DataSourceAndDelegate.swift in Sources */,
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
@@ -765,6 +780,7 @@
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				ADBB468C2242942300E1020F /* CodesVC.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,

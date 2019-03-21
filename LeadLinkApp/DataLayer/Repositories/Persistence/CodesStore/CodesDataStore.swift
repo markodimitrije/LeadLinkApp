@@ -14,4 +14,6 @@ public protocol CodesDataStore {
     func readCodes(campaignId: Int) -> Promise<[Code]>
     /// Save
     func save(code: Code) -> Promise<Code>
+    // Read sync
+    func getCodes(campaignId: Int) -> [Code]
 }

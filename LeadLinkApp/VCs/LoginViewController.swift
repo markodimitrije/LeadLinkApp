@@ -12,7 +12,7 @@ import RxCocoa
 import RxSwift
 import RealmSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Storyboarded {
 
     let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
     var repository: LeadLinkUserSessionRepository!

@@ -8,6 +8,6 @@
 
 import UIKit
 
-class QuestionsAndAnswersVC: UIViewController {
+class QuestionsAndAnswersVC: UIViewController, Storyboarded {
     var viewModel: QuestionsViewmodel!
 }
