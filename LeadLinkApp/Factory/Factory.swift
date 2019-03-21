@@ -103,6 +103,7 @@ public class AppDependencyContainer {
         let statsVC = StatsVC.instantiate(using: sb)
         statsVC.codesVC = makeCodesViewController(campaignId: id)
         statsVC.chartVC = makeChartViewController(campaignId: id)
+        
         return statsVC
         
     }

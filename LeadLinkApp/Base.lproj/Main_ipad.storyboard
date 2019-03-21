@@ -441,6 +441,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vF5-KD-ma3"/>
                     </view>
+                    <connections>
+                        <outlet property="codesView" destination="O2p-wy-rb9" id="zzi-aD-5CR"/>
+                        <outlet property="statisticsView" destination="D8Z-zb-Biw" id="qFs-lC-dXS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBY-rl-cOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -456,7 +460,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-UV-aIp">
                                 <rect key="frame" x="20" y="20" width="619" height="583"/>
-                                <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.1229112413" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZg-CQ-oJM">
                                 <rect key="frame" x="20" y="611" width="619" height="353"/>
@@ -482,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679" y="1424"/>
+            <point key="canvasLocation" x="1679" y="1517"/>
         </scene>
         <!--CodesVC-->
         <scene sceneID="2rk-wX-QdK">
@@ -496,13 +500,14 @@
                                 <rect key="frame" x="20" y="20" width="619" height="944"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" rowHeight="200" id="d3q-dy-ce2">
-                                        <rect key="frame" x="0.0" y="28" width="619" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" rowHeight="400" id="d3q-dy-ce2">
+                                        <rect key="frame" x="0.0" y="28" width="619" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3q-dy-ce2" id="oGU-Id-x0b">
-                                            <rect key="frame" x="0.0" y="0.0" width="619" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="619" height="399.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.86783581970000001" green="0.27090615029999998" blue="0.3469858468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -522,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5z6-wF-3o8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.6530014641287" y="1423.828125"/>
+            <point key="canvasLocation" x="1989" y="1517"/>
         </scene>
     </scenes>
     <resources>

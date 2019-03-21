@@ -15,15 +15,18 @@ class CodesVC: UIViewController, Storyboarded {
     let factory: AppDependencyContainer = {
         return AppDependencyContainer()
     }()
-
-    var codesDataSource = CodesDataSource?.init(campaignId: 9,
-                                               codesDataStore: RealmCodesDataStore.init(campaignsDataStore: RealmCampaignsDataStore()),
-                                               cellId: "CodeCell")
+    
+    var codesDataSource: CodesDataSource? {
+        didSet {
+            print("codesDataSource injected from outside")
+        }
+    }
     var codesDelegate = CodesDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        codesDataSource.tableView = self.tableView
+        print("codesDataSource != nil", codesDataSource != nil)
+        codesDataSource?.tableView = self.tableView
         self.tableView.dataSource = codesDataSource
     }
     

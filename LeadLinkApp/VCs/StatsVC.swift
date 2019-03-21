@@ -12,8 +12,13 @@ class StatsVC: UIViewController, Storyboarded {
     var chartVC: UIViewController? = nil
     var codesVC: CodesVC? = nil
     
+    @IBOutlet weak var statisticsView: UIView!
+    @IBOutlet weak var codesView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = codesView.subviews.map {$0.removeFromSuperview()}
+        codesView.addSubview(codesVC!.view)
     }
     
 }
