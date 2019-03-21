@@ -71,13 +71,13 @@ public class CampaignsViewModel {
     private(set) var campaigns: Results<RealmCampaign>!
     
     // input
-    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: nil)
+    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: 0)
     
     // output
     
     private(set) var oCampaigns: Observable<(AnyRealmCollection<RealmCampaign>, RealmChangeset?)>!
     
-    private(set) var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
+    var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
     
     // MARK:- calculators
     
@@ -95,6 +95,11 @@ public class CampaignsViewModel {
         campaigns = realm.objects(RealmCampaign.self)
         
         oCampaigns = Observable.changeset(from: campaigns)
+        
+        selectedTableIndex.subscribe(onNext: { index in
+            let campaign = self.campaigns.toArray()[index!]
+            self.selectedCampaign.onNext(campaign)
+        }).disposed(by: disposeBag)
         
     }
     

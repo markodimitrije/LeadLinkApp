@@ -40,6 +40,7 @@ class ScanningViewModel {
     }
     private func setCodeListener() {
         codeInput.subscribe(onNext: { code in
+            guard code != "" else {return}
             print("ScanningViewModel. code is = \(code), forward to dataProvider campaign = \(self.campaign)")
             let myCode = Code.init(value: code, campaign_id: self.campaign.id)
             _ = self.codesDataStore.save(code: myCode) // hard-coded, report to webApi

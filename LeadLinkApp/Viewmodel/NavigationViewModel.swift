@@ -15,15 +15,20 @@ class NavigationViewModel: NSObject {
     
     var navBarItems: [NavBarItem]
     var viewControllerTypes: [UIViewController.Type]
+    var campaignsViewModel: CampaignsViewModel
     var logOutViewModel: LogOutViewModel
     private let disposeBag = DisposeBag()
     
     var navBarItemsPublisher = PublishSubject<[NavBarItem: Bool]>() // publish this dictionary
     
-    init(navBarItems: [NavBarItem], viewControllerTypes: [UIViewController.Type], logOutViewModel: LogOutViewModel) {
+    init(navBarItems: [NavBarItem],
+         viewControllerTypes: [UIViewController.Type],
+         campaignsViewModel: CampaignsViewModel,
+         logOutViewModel: LogOutViewModel) {
         self.navBarItems = navBarItems
         self.viewControllerTypes = viewControllerTypes
         self.logOutViewModel = logOutViewModel
+        self.campaignsViewModel = campaignsViewModel
         super.init()
     }
     
@@ -60,12 +65,19 @@ extension NavigationViewModel: UINavigationControllerDelegate {
     }
     
     @objc func navBtnTapped(_ sender: UIBarButtonItem) {
+        
         switch sender.tag {
         case 0:
+
+            guard let observed = try? campaignsViewModel.selectedCampaign.value(),
+                let campaign = observed else {
+                    print("internal problem, no campaign available....)"); return
+            }
+            
             Timer.scheduledTimer(timeInterval: 0.0,
                                      target: UIApplication.shared.delegate,
-                                     selector: #selector(AppDelegate.statsBtnTapped),
-                                     userInfo: nil,
+                                     selector: #selector(AppDelegate.statsBtnTapped(_:)),
+                                     userInfo: ["campaignId": campaign.id],
                                      repeats: false)
         case 1:
             logOutViewModel.signOut()
@@ -98,7 +110,7 @@ extension UIViewController {
     
     var myTypeName: String {
         let s = getMyTypeName(object: self)
-        print("typeName = ", s)
+//        print("typeName = ", s)
         return s
     }
     

@@ -178,6 +178,7 @@ public class AppDependencyContainer {
         let items = [NavBarItem.stats, NavBarItem.logout]
         let viewmodel = NavigationViewModel.init(navBarItems: items,
                                                  viewControllerTypes: getViewControllerTypes(),
+                                                 campaignsViewModel: makeCampaignsViewModel(),
                                                  logOutViewModel: makeLogoutViewModel())
         return viewmodel
     }

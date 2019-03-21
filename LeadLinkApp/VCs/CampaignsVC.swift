@@ -110,6 +110,8 @@ extension CampaignsVC: UITableViewDelegate {
         
         selRealmCampaign.onNext(selectedCampaign)
         
+        campaignsViewModel.selectedTableIndex.onNext(indexPath.item)
+        
         let scanningViewModel = factory.makeScanningViewModel(campaign: Campaign.init(realmCampaign: selectedCampaign))
         
         let scanningVC = factory.makeScanningViewController(viewModel: scanningViewModel)

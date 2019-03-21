@@ -32,9 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
     }
     
-    @objc func statsBtnTapped() {
-        //let statsVC = factory.makeStatsViewController()
-        let statsVC = factory.makeStatsViewController(campaignId: 9) // hard-coded
+    @objc func statsBtnTapped(_ notification: NSNotification) {
+        guard let campaignId = notification.userInfo?["campaignId"] as? Int else {
+            return
+        }
+        let statsVC = factory.makeStatsViewController(campaignId: campaignId)
         (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
     }
     

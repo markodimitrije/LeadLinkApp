@@ -344,7 +344,7 @@
                                             <constraint firstItem="Uqn-Dc-G5A" firstAttribute="centerY" secondItem="aek-ON-miB" secondAttribute="centerY" id="CYk-dr-UZD"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gSQ-0E-WDg" userLabel="logoImageView">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gSQ-0E-WDg" userLabel="logoImageView">
                                         <rect key="frame" x="573" y="20" width="180" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="c5i-j6-rvr"/>
