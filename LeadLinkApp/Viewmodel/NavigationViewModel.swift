@@ -32,7 +32,7 @@ class NavigationViewModel: NSObject {
 extension NavigationViewModel: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print("willShow/viewController.implement me....")
+
         viewController.navigationItem.setRightBarButtonItems(getNavBarItems(typeName: viewController.myTypeName), animated: false)
         
     }

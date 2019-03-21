@@ -11,4 +11,9 @@ import UIKit
 class StatsVC: UIViewController, Storyboarded {
     var chartVC: UIViewController? = nil
     var codesVC: CodesVC? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
 }

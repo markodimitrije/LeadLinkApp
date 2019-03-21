@@ -34,6 +34,9 @@ class CodesDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("tableView", tableView)
+        print("indexPath", indexPath)
+        print("cellId", cellId)
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         populate(cell: cell, at: indexPath)
         return cell
@@ -42,6 +45,7 @@ class CodesDataSource: NSObject, UITableViewDataSource {
     private func populate(cell: UITableViewCell, at indexPath: IndexPath) {
         cell.textLabel?.text = data[indexPath.row].value
     }
+
 }
 
 class CodesDelegate: NSObject, UITableViewDelegate {

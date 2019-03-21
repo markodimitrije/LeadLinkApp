@@ -10,35 +10,31 @@ import UIKit
 
 class CodesVC: UIViewController, Storyboarded {
     
-    var tableView: UITableView = {
-        let tableView = UITableView.init(frame: CGRect.zero)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CodeCell")
-        return tableView
+    @IBOutlet weak var tableView: UITableView!
+    
+    let factory: AppDependencyContainer = {
+        return AppDependencyContainer()
     }()
+//    var codesDataSource: CodesDataSource? {
+//        didSet {
+//            print("codesDataSource is SET!")
+//        }
+//    }
+//    var codesDelegate: CodesDelegate?
+    var codesDataSource = CodesDataSource.init(campaignId: 9,
+                                               codesDataStore: RealmCodesDataStore.init(campaignsDataStore: RealmCampaignsDataStore()),
+                                               cellId: "CodeCell")
     
-    var codesDataSource: CodesDataSource?
-    var codesDelegate: CodesDelegate?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    convenience init(codesDataSource: CodesDataSource?, codesDelegate: CodesDelegate?) {
-        self.init(nibName: nil, bundle: nil)
-        codesDataSource?.tableView = self.tableView
-        tableView.dataSource = codesDataSource
-        tableView.delegate = codesDelegate
-    }
+    var codesDelegate = CodesDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.frame = self.view.bounds
-        self.view.addSubview(tableView)
-        tableView.reloadData()
+        codesDataSource.tableView = self.tableView
+        self.tableView.dataSource = codesDataSource
+    }
+    
+    deinit {
+        print("CodesVC is deinit")
     }
     
 }

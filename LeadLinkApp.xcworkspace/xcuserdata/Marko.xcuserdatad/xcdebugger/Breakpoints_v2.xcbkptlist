@@ -618,7 +618,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-                  timestampString = "574807515.5909311"
+                  timestampString = "574861953.792042"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -633,7 +633,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-                  timestampString = "574807515.592702"
+                  timestampString = "574861953.793836"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -762,7 +762,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/Model/Realm/RealmCampaign.swift"
-                  timestampString = "574807515.619172"
+                  timestampString = "574861953.8215261"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
@@ -777,7 +777,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/Model/Realm/RealmCampaign.swift"
-                  timestampString = "574807515.620916"
+                  timestampString = "574861953.823797"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -785,54 +785,6 @@
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataSourceAndDelegate/DataSourceAndDelegate.swift"
-            timestampString = "574807515.148932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataSourceAndDelegate/DataSourceAndDelegate.swift"
-            timestampString = "574807515.149419"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataSourceAndDelegate/DataSourceAndDelegate.swift"
-            timestampString = "574807515.149828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "unknown"
-            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
