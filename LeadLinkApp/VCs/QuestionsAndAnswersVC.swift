@@ -11,7 +11,7 @@ import UIKit
 class QuestionsAndAnswersVC: UIViewController, Storyboarded {
     var viewModel: QuestionsViewmodel!
     override func viewDidLoad() {
-        print("QandA.viewModel = \(viewModel.)")
+        //print("QandA.viewModel = \(viewModel.)")
     }
     
 }

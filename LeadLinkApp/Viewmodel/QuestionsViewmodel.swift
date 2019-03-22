@@ -12,13 +12,14 @@ import RxSwift
 class QuestionsViewmodel {
     
     var scanningViewmodel: ScanningViewModel
-    var codesDataStore: CodesDataStore
+    //var codesDataStore: CodesDataStore
     
     var saveBtnEvent: Observable<Void>!
     
-    init(scanningViewmodel: ScanningViewModel, codesDataStore: CodesDataStore) {
+    //init(scanningViewmodel: ScanningViewModel, codesDataStore: CodesDataStore) {
+    init(scanningViewmodel: ScanningViewModel) {
         self.scanningViewmodel = scanningViewmodel
-        self.codesDataStore = codesDataStore
+        //self.codesDataStore = codesDataStore
     }
     
     private let disposeBag = DisposeBag()
