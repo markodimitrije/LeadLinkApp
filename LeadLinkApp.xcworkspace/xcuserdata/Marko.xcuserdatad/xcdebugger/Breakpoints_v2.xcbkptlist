@@ -570,7 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/VCs/CampaignsVC.swift"
+<<<<<<< HEAD
             timestampString = "574871033.820226"
+=======
+            timestampString = "574944605.738281"
+>>>>>>> forwardCampaign
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -618,7 +622,11 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+<<<<<<< HEAD
                   timestampString = "574871034.2217309"
+=======
+                  timestampString = "574944605.961414"
+>>>>>>> forwardCampaign
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -633,7 +641,11 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
+<<<<<<< HEAD
                   timestampString = "574871034.223518"
+=======
+                  timestampString = "574944605.964358"
+>>>>>>> forwardCampaign
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -746,7 +758,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/Model/Realm/RealmCampaign.swift"
+<<<<<<< HEAD
             timestampString = "574871033.820443"
+=======
+            timestampString = "574944605.7387559"
+>>>>>>> forwardCampaign
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -762,7 +778,11 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/Model/Realm/RealmCampaign.swift"
+<<<<<<< HEAD
                   timestampString = "574871034.254433"
+=======
+                  timestampString = "574944606.012025"
+>>>>>>> forwardCampaign
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
@@ -777,7 +797,11 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Marko/development/Navus/LeadLinkApp/LeadLinkApp/Model/Realm/RealmCampaign.swift"
+<<<<<<< HEAD
                   timestampString = "574871034.256207"
+=======
+                  timestampString = "574944606.014864"
+>>>>>>> forwardCampaign
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -787,6 +811,7 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -803,5 +828,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+>>>>>>> forwardCampaign
    </Breakpoints>
 </Bucket>

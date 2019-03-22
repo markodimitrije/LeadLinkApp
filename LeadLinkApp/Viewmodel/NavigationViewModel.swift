@@ -77,7 +77,11 @@ extension NavigationViewModel: UINavigationControllerDelegate {
             Timer.scheduledTimer(timeInterval: 0.0,
                                      target: UIApplication.shared.delegate,
                                      selector: #selector(AppDelegate.statsBtnTapped(_:)),
+<<<<<<< HEAD
                                      userInfo: ["campaignId": campaign.id],
+=======
+                                     userInfo: ["campaignId": UserDefaults.standard.value(forKey: "campaignId") as? Int],
+>>>>>>> forwardCampaign
                                      repeats: false)
         case 1:
             logOutViewModel.signOut()

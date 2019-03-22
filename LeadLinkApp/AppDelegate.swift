@@ -33,10 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func statsBtnTapped(_ notification: NSNotification) {
+<<<<<<< HEAD
         guard let campaignId = notification.userInfo?["campaignId"] as? Int else {
             return
         }
         let statsVC = factory.makeStatsViewController(campaignId: campaignId)
+=======
+        
+        guard let info = notification.userInfo, let id = info["campaignId"] as? Int else {
+            fatalError("no campaignId sent from statsBtn")
+        }
+        
+        let statsVC = factory.makeStatsViewController(campaignId: id)
+>>>>>>> forwardCampaign
         (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
     }
     

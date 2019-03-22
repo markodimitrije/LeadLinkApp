@@ -143,10 +143,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.statsBtnTapped(_:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+<<<<<<< HEAD
+               value = "cameraOrientationInfo[UIDevice.current.orientation]">
+            </PersistentString>
+            <PersistentString
+               value = "self.connection?.videoOrientation">
+            </PersistentString>
+            <PersistentString
+               value = "UIDevice.current.orientation">
+=======
+               value = "notification.userInfo?[&quot;campaignId&quot;] as? Int">
+            </PersistentString>
+            <PersistentString
+               value = "notification">
+            </PersistentString>
+            <PersistentString
+               value = "notification.userInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CameraPreviewLayer.init(session:frame:):PreviewLayer.swift">
          <PersistentStrings>
             <PersistentString
                value = "cameraOrientationInfo[UIDevice.current.orientation]">
+>>>>>>> forwardCampaign
             </PersistentString>
             <PersistentString
                value = "self.connection?.videoOrientation">
@@ -292,6 +316,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+<<<<<<< HEAD
          contextName = "closure #1 in CampaignsViewModel.bindOutput():CampaignsViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -316,6 +341,12 @@
             </PersistentString>
             <PersistentString
                value = "campaignsViewModel">
+=======
+         contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.value(forKey: &quot;campaignId&quot;) as? Int">
+>>>>>>> forwardCampaign
             </PersistentString>
          </PersistentStrings>
       </ContextState>

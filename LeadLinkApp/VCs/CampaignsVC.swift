@@ -116,6 +116,8 @@ extension CampaignsVC: UITableViewDelegate {
         
         let scanningVC = factory.makeScanningViewController(viewModel: scanningViewModel)
         
+        UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
+        
         navigationController?.pushViewController(scanningVC, animated: true)
         
     }
