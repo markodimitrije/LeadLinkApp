@@ -64,8 +64,8 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         case 0:
             Timer.scheduledTimer(timeInterval: 0.0,
                                      target: UIApplication.shared.delegate,
-                                     selector: #selector(AppDelegate.statsBtnTapped),
-                                     userInfo: nil,
+                                     selector: #selector(AppDelegate.statsBtnTapped(_:)),
+                                     userInfo: ["campaignId": UserDefaults.standard.value(forKey: "campaignId") as? Int],
                                      repeats: false)
         case 1:
             logOutViewModel.signOut()

@@ -113,13 +113,13 @@
          contextName = "AppDependencyContainer.makeCodesViewController(campaignId:):Factory.swift">
          <PersistentStrings>
             <PersistentString
+               value = "codesVC.tableView">
+            </PersistentString>
+            <PersistentString
                value = "codesVC.tableView.delegate">
             </PersistentString>
             <PersistentString
                value = "codesVC.tableView.dataSource">
-            </PersistentString>
-            <PersistentString
-               value = "codesVC.tableView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -143,16 +143,30 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.statsBtnTapped(_:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notification.userInfo?[&quot;campaignId&quot;] as? Int">
+            </PersistentString>
+            <PersistentString
+               value = "notification">
+            </PersistentString>
+            <PersistentString
+               value = "notification.userInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CameraPreviewLayer.init(session:frame:):PreviewLayer.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "cameraOrientationInfo[UIDevice.current.orientation]">
+            </PersistentString>
             <PersistentString
                value = "self.connection?.videoOrientation">
             </PersistentString>
             <PersistentString
                value = "UIDevice.current.orientation">
-            </PersistentString>
-            <PersistentString
-               value = "cameraOrientationInfo[UIDevice.current.orientation]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -182,10 +196,10 @@
          contextName = "CampaignsViewModel.campaign.getter:CampaignsViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "selectedCampaign.value()">
+               value = "selectedCampaign">
             </PersistentString>
             <PersistentString
-               value = "selectedCampaign">
+               value = "selectedCampaign.value()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -215,13 +229,13 @@
          contextName = "makeCampaignsRepository #1 () in AppDependencyContainer.init():Factory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.sharedUserSessionRepository">
+               value = "makeUserSessionRepository().readUserSession()">
             </PersistentString>
             <PersistentString
                value = "makeUserSessionRepository()">
             </PersistentString>
             <PersistentString
-               value = "makeUserSessionRepository().readUserSession()">
+               value = "self.sharedUserSessionRepository">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -288,6 +302,14 @@
          <PersistentStrings>
             <PersistentString
                value = "campaign.organization.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.value(forKey: &quot;campaignId&quot;) as? Int">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
