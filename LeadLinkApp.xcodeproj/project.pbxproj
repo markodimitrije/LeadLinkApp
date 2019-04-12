@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		009644D1982A1FFB8E11B013 /* Pods_signInApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9944ADD7597329722D2089E /* Pods_signInApp.framework */; };
+		79B1EC37252D636B80384A09 /* Pods_LeadLinkApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -88,6 +88,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeadLinkApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeadLinkApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		ADE9553021D91A4E00B86052 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		D08CF387B9FE9F532D6742A4 /* Pods-signInApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signInApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-signInApp/Pods-signInApp.release.xcconfig"; sourceTree = "<group>"; };
 		E1700DCECF7299904F9EAF9E /* Pods-signInApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signInApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-signInApp/Pods-signInApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F53764155E2138DEEC52D099 /* Pods-LeadLinkApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeadLinkApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp.release.xcconfig"; sourceTree = "<group>"; };
 		F9944ADD7597329722D2089E /* Pods_signInApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signInApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,7 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				009644D1982A1FFB8E11B013 /* Pods_signInApp.framework in Frameworks */,
+				79B1EC37252D636B80384A09 /* Pods_LeadLinkApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +192,8 @@
 			children = (
 				E1700DCECF7299904F9EAF9E /* Pods-signInApp.debug.xcconfig */,
 				D08CF387B9FE9F532D6742A4 /* Pods-signInApp.release.xcconfig */,
+				7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */,
+				F53764155E2138DEEC52D099 /* Pods-LeadLinkApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				F9944ADD7597329722D2089E /* Pods_signInApp.framework */,
+				673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -655,13 +661,12 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-signInApp/Pods-signInApp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
@@ -676,7 +681,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
@@ -686,7 +690,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-signInApp/Pods-signInApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FA2536D2D3165823C77F9547 /* [CP] Check Pods Manifest.lock */ = {
@@ -700,7 +704,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-signInApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LeadLinkApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -927,7 +931,7 @@
 		};
 		ADAEE88A21D8F332000B3C52 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1700DCECF7299904F9EAF9E /* Pods-signInApp.debug.xcconfig */;
+			baseConfigurationReference = 7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -947,7 +951,7 @@
 		};
 		ADAEE88B21D8F332000B3C52 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D08CF387B9FE9F532D6742A4 /* Pods-signInApp.release.xcconfig */;
+			baseConfigurationReference = F53764155E2138DEEC52D099 /* Pods-LeadLinkApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
