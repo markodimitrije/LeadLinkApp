@@ -11,3 +11,14 @@ import Foundation
 enum LeadLinkKitError: Error {
     case any
 }
+
+enum ApiError: Error {
+    case invalidJson
+    case invalidKey
+    case cityNotFound
+    case serverFailure
+}
+
+enum PersmissionError: Error {
+    case denied
+}

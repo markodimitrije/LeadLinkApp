@@ -153,9 +153,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failed() { print("failed.....")
         
-        self.alert(title: Constants.AlertInfo.ScanningNotSupported.title,
-                   text: Constants.AlertInfo.ScanningNotSupported.msg,
-                   btnText: Constants.AlertInfo.ok)
+        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
             .subscribe {
                 self.dismiss(animated: true)
             }
@@ -164,9 +162,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failedDueToNoSettings() { print("failedDueToNoSettings. prikazi alert....")
         
-        self.alert(title: Constants.AlertInfo.NoSettings.title,
-                   text: Constants.AlertInfo.NoSettings.msg,
-                   btnText: Constants.AlertInfo.ok)
+        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
             .subscribe {
                 self.dismiss(animated: true)
             }

@@ -105,17 +105,5 @@ class ApiController {
             }
         }
     }
-    
-    
-    
-    
-}
 
-
-
-enum ApiError: Error {
-    case invalidJson
-    case invalidKey
-    case cityNotFound
-    case serverFailure
 }

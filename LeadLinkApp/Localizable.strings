@@ -15,3 +15,7 @@ AlertInfo.Scan.ScanningNotSupported.title = "Scan error";
 AlertInfo.Scan.ScanningNotSupported.msg = "Scanning is not supported";
 AlertInfo.Scan.NoSettings.title = "Scan error";
 AlertInfo.Scan.NoSettings.msg = "No scanning settings";
+AlertInfo.Permission.title = "";
+AlertInfo.Permission.subtitle = "Do you agree to share your data with Navus? All your data will stay private and be use only to be contacted by Navus";
+AlertInfo.Option.cancel = "Cancel";
+AlertInfo.Option.agree = "Agree";
