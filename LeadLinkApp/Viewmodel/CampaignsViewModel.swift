@@ -97,8 +97,12 @@ public class CampaignsViewModel {
         oCampaigns = Observable.changeset(from: campaigns)
         
         selectedTableIndex.subscribe(onNext: { index in
-            let campaign = self.campaigns.toArray()[index!]
-            self.selectedCampaign.onNext(campaign)
+            print("selectedTableIndex je dobio index = \(index)")
+            let campaigns = self.campaigns.toArray()
+            if let index = index, index < campaigns.count {
+                print("da li je ikada emitovao index >!>>! = \(index)")
+                self.selectedCampaign.onNext(campaigns[index])
+            }
         }).disposed(by: disposeBag)
         
     }
