@@ -25,6 +25,7 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var barCodeTxtField: UITextField!
     
     @IBOutlet weak var scanBarcodeBtn: UIButton!
+    @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
@@ -153,7 +154,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failed() { print("failed.....")
         
-        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
+        //self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
+        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
             .subscribe {
                 self.dismiss(animated: true)
             }
@@ -162,7 +164,9 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failedDueToNoSettings() { print("failedDueToNoSettings. prikazi alert....")
         
-        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
+        //self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
+        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
+        //orLabel
             .subscribe {
                 self.dismiss(animated: true)
             }

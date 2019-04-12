@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y8v-yG-hSY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y8v-yG-hSY">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -384,6 +384,7 @@
                         <outlet property="contentViewToBottomSafeAreaConstraint" destination="Jwq-Hn-OaY" id="h1u-P3-43K"/>
                         <outlet property="contentViewToTopSafeAreaConstraint" destination="Oc6-6V-cgl" id="ZG2-WT-lWL"/>
                         <outlet property="logoImageView" destination="gSQ-0E-WDg" id="bnJ-JI-fC1"/>
+                        <outlet property="orLabel" destination="RLy-49-60P" id="FeN-OO-OEF"/>
                         <outlet property="scanBarcodeBtn" destination="mwK-NA-QaB" id="Beg-kd-dJK"/>
                     </connections>
                 </viewController>
@@ -398,9 +399,26 @@
                     <view key="view" contentMode="scaleToFill" id="3pe-5b-GAf">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nX3-Wz-TJH" userLabel="alertAnchorView">
+                                <rect key="frame" x="680.5" y="519.5" width="5" height="5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="Onr-zS-WDN"/>
+                                    <constraint firstAttribute="width" constant="5" id="x05-ho-dHK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nX3-Wz-TJH" firstAttribute="centerY" secondItem="co6-29-2Gv" secondAttribute="centerY" id="6HG-j8-5CI"/>
+                            <constraint firstItem="nX3-Wz-TJH" firstAttribute="centerX" secondItem="co6-29-2Gv" secondAttribute="centerX" id="g5F-0H-E78"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="co6-29-2Gv"/>
                     </view>
+                    <connections>
+                        <outlet property="alertAnchorView" destination="nX3-Wz-TJH" id="JLq-6r-YGi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3r-si-5uv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -450,7 +468,7 @@
         <!--View Controller-->
         <scene sceneID="6bM-QK-A69">
             <objects>
-                <viewController id="KdU-82-MbN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartVC" id="KdU-82-MbN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZp-lu-eBF">
                         <rect key="frame" x="0.0" y="0.0" width="659" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

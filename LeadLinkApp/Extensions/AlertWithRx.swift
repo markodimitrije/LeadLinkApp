@@ -38,29 +38,36 @@ extension UIViewController {
 //        }
 //    }
     //AlertInfo
-    func alert(alertInfo: AlertInfo) -> Observable<Int> {
+    func alert(alertInfo: AlertInfo, preferredStyle: UIAlertController.Style = .actionSheet, sourceView: UIView? = nil) -> Observable<Int> {
         return Observable.create { [weak self] observer in
             // check if already on screen
             guard self?.presentedViewController == nil else {
                 return Disposables.create()
             }
             
-            let alertVC = UIAlertController(title: alertInfo.title, message: alertInfo.text, preferredStyle: .alert)
+            let alertVC = UIAlertController(title: alertInfo.title, message: alertInfo.text, preferredStyle: preferredStyle)
+            
+            if let popoverController = alertVC.popoverPresentationController, let sourceView = sourceView {
+                popoverController.sourceRect = sourceView.bounds// ?? CGRect.init(center: UIScreen.main.bounds.center, size: CGSize.zero)
+                popoverController.sourceView = sourceView
+                popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
+            }
             
             _ = alertInfo.btnText.enumerated().map({ (index, title) -> Void in
                 alertVC.addAction(
-                    UIAlertAction(title: title, style: .default, handler: {_ in
+                    UIAlertAction(title: title, style: .destructive, handler: {_ in
                         observer.onNext(index)
                     })
                 )
             })
-            
             self?.present(alertVC, animated: true, completion: nil)
+            
             return Disposables.create {
                 self?.dismiss(animated: true, completion: nil)
             }
         }
     }
+    
 }
 
 extension Constants {
@@ -105,5 +112,6 @@ enum AlertInfoType {
     case noCamera
     case dataPermission
 }
+
 
 

@@ -11,10 +11,13 @@ import RxSwift
 import RxCocoa
 
 class QuestionsAndAnswersVC: UIViewController, Storyboarded {
+    
+    @IBOutlet weak var alertAnchorView: UIView!
+    
     var viewModel: QuestionsViewmodel!
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
-        self.alert(alertInfo: AlertInfo.getInfo(type: .dataPermission))
+        self.alert(alertInfo: AlertInfo.getInfo(type: .dataPermission), preferredStyle: .actionSheet, sourceView: alertAnchorView)
             .subscribe(onNext: { index in
                 switch index {
                 case 0: print("all good...")
