@@ -13,30 +13,7 @@ import RxCocoa
 import UIKit
 
 extension UIViewController {
-//    func alert(title: String, text: String?, btnText: [String]) -> Observable<Int> {
-//        return Observable.create { [weak self] observer in
-//            // check if already on screen
-//            guard self?.presentedViewController == nil else {
-//                return Disposables.create()
-//            }
-//            // all good
-//            //let alertVC = UIAlertController(title: title, message: text, preferredStyle: .actionSheet)
-//            let alertVC = UIAlertController(title: title, message: text, preferredStyle: .alert)
-//
-//            _ = btnText.enumerated().map({ (index, title) -> Void in
-//                alertVC.addAction(
-//                    UIAlertAction(title: title, style: .default, handler: {_ in
-//                        observer.onNext(index)
-//                    })
-//                )
-//            })
-//
-//            self?.present(alertVC, animated: true, completion: nil)
-//            return Disposables.create {
-//                self?.dismiss(animated: true, completion: nil)
-//            }
-//        }
-//    }
+
     //AlertInfo
     func alert(alertInfo: AlertInfo, preferredStyle: UIAlertController.Style = .actionSheet, sourceView: UIView? = nil) -> Observable<Int> {
         return Observable.create { [weak self] observer in

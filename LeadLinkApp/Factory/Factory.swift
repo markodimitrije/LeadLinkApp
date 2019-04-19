@@ -76,9 +76,7 @@ public class AppDependencyContainer {
 
     }
     
-    // Viewmodels
-    
-    
+    //MARK:- Make Viewmodels
     
     // Main
     // Factories needed to create a MainViewController.
@@ -94,6 +92,7 @@ public class AppDependencyContainer {
         //return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
         let campaignsVC = CampaignsVC.instantiate(using: sb)
         campaignsVC.campaignsViewModel = makeCampaignsViewModel()
+        campaignsVC.factory = self
         return campaignsVC
     }
     
@@ -172,7 +171,7 @@ public class AppDependencyContainer {
                 ScanningVC.self]
     }
 
-    // make viewmodels
+    //MARK:- Make viewmodels
     
     func makeNavigationViewModel() -> NavigationViewModel {
         let items = [NavBarItem.stats, NavBarItem.logout]
@@ -211,13 +210,19 @@ public class AppDependencyContainer {
         return CampaignsViewModel.init(campaignsRepository: sharedCampaignsRepository)
     }
     
-    // make datastore
+    //MARK:- Make datastore
     
     private func makeCodeDataStore() -> CodesDataStore {
         let realmCampaignsDataStore = RealmCampaignsDataStore.init()
         return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
     }
     
+    // MARK:- Make repositories
+    
+    func makeUserSessionRepository() -> LeadLinkUserSessionRepository {
+        let dataStore = FileUserSessionDataStore()
+        return LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
+    }
     
 }
 

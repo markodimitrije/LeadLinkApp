@@ -184,7 +184,6 @@ class LoginViewController: UIViewController, Storyboarded {
     private func presentSignedIn(userSession: UserSession) {
         
         let campaignsVC = factory.makeCampaignsViewController()
-        campaignsVC.factory = factory
         
         navigationController?.pushViewController(campaignsVC, animated: true)
     }

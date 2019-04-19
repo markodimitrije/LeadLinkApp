@@ -15,15 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var factory =  AppDependencyContainer.init()
     var navigationViewModel: NavigationViewModel!
+    var startVCProvider: StartViewControllerProviding!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        startVCProvider = StartViewControllerProvider(factory: factory)
         
         navigationViewModel = factory.makeNavigationViewModel()
         
         downloadCampaignsQuestionsAndLogos()
         
+        let navVC = window?.rootViewController as? UINavigationController
+        
         bindNavigationViewModelWithNavigationViewController(navViewModel: navigationViewModel,
-                                                            navVC: window?.rootViewController as? UINavigationController)
+                                                            navVC: navVC)
+        
+        let startingVC = startVCProvider.getStartViewController()
+        
+        navVC?.pushViewController(startingVC, animated: false)
         
         return true
     }
@@ -42,8 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func downloadCampaignsQuestionsAndLogos() {
         
-        //print("AppDelegate.downloadCampaignsQuestionsAndLogos/ zovi svoj viewmodel da ti da podatke")
-        
         let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
         
         campaignsViewmodel.getCampaignsFromWeb()
@@ -61,4 +68,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let disposeBag = DisposeBag()
     
+}
+
+protocol StartViewControllerProviding {
+    func getStartViewController() -> UIViewController
+}
+
+class StartViewControllerProvider: StartViewControllerProviding {
+    
+    var factory: AppDependencyContainer
+
+    init(factory: AppDependencyContainer) {
+        self.factory = factory
+    }
+    func getStartViewController() -> UIViewController {
+        let userSession = factory.makeUserSessionRepository().readUserSession()
+        if let _ = userSession.value {
+            return factory.makeCampaignsViewController()
+        } else {
+            return factory.makeLoginViewController()
+        }
+    }
 }

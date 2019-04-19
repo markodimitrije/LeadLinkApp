@@ -69,15 +69,6 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         switch sender.tag {
         case 0:
 
-            guard let observed = try? campaignsViewModel.selectedTableIndex.value() else {
-                print("internal problem, no campaign available even from index....)"); return
-            }
-            
-//            guard let observed = try? campaignsViewModel.selectedCampaign.value(),
-//                let campaign = observed else {
-//                    print("internal problem, no campaign available....)"); return
-//            }
-            
             Timer.scheduledTimer(timeInterval: 0.0,
                                  target: UIApplication.shared.delegate as! AppDelegate,
                                      selector: #selector(AppDelegate.statsBtnTapped(_:)),
