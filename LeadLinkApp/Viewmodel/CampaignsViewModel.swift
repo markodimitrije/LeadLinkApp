@@ -63,7 +63,7 @@ public class CampaignsViewModel {
                 RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
             }
         }.catch { (err) in
-            print("err = \(err)")
+            print("err or status = \(err)")
         }
     
     }

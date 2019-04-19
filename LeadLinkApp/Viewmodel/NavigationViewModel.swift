@@ -69,20 +69,24 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         switch sender.tag {
         case 0:
 
-            guard let observed = try? campaignsViewModel.selectedCampaign.value(),
-                let campaign = observed else {
-                    print("internal problem, no campaign available....)"); return
+            guard let observed = try? campaignsViewModel.selectedTableIndex.value() else {
+                print("internal problem, no campaign available even from index....)"); return
             }
             
+//            guard let observed = try? campaignsViewModel.selectedCampaign.value(),
+//                let campaign = observed else {
+//                    print("internal problem, no campaign available....)"); return
+//            }
+            
             Timer.scheduledTimer(timeInterval: 0.0,
-                                     target: UIApplication.shared.delegate,
+                                 target: UIApplication.shared.delegate as! AppDelegate,
                                      selector: #selector(AppDelegate.statsBtnTapped(_:)),
                                      userInfo: ["campaignId": UserDefaults.standard.value(forKey: "campaignId") as? Int],
                                      repeats: false)
         case 1:
             logOutViewModel.signOut()
             Timer.scheduledTimer(timeInterval: 0.0,
-                                 target: UIApplication.shared.delegate,
+                                 target: UIApplication.shared.delegate as! AppDelegate,
                                  selector: #selector(AppDelegate.logoutBtnTapped),
                                  userInfo: nil,
                                  repeats: false)

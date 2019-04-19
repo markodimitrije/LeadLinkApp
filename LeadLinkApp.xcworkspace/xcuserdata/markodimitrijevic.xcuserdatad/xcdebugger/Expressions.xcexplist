@@ -11,10 +11,27 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "campaignsViewModel">
+            </PersistentString>
+            <PersistentString
+               value = "campaignsViewModel.selectedCampaign">
+            </PersistentString>
+            <PersistentString
+               value = "campaignsViewModel.selectedCampaign.value()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "StatsVC.viewDidLoad():StatsVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "codesView">
+            </PersistentString>
+            <PersistentString
+               value = "containerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

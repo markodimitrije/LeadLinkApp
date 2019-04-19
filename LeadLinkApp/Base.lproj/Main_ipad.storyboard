@@ -465,10 +465,10 @@
             </objects>
             <point key="canvasLocation" x="1834" y="763"/>
         </scene>
-        <!--View Controller-->
+        <!--ChartVC-->
         <scene sceneID="6bM-QK-A69">
             <objects>
-                <viewController storyboardIdentifier="ChartVC" id="KdU-82-MbN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartVC" id="KdU-82-MbN" customClass="ChartVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZp-lu-eBF">
                         <rect key="frame" x="0.0" y="0.0" width="659" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679" y="1517"/>
+            <point key="canvasLocation" x="2063" y="1510"/>
         </scene>
         <!--CodesVC-->
         <scene sceneID="2rk-wX-QdK">
@@ -541,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5z6-wF-3o8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="1529"/>
+            <point key="canvasLocation" x="1512" y="1522"/>
         </scene>
     </scenes>
     <resources>
