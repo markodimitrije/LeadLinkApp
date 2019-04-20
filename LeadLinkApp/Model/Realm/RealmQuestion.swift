@@ -22,7 +22,7 @@ public class RealmQuestion: Object {
     
     var group: String?
     var element_id: Int? = nil
-    //@objc dynamic var settings: RealmSetting? = RealmSetting.init()
+    @objc dynamic var setting: RealmSetting? = RealmSetting.init()
     
     func updateWith(question: Question) {
         self.id = question.id
@@ -35,7 +35,7 @@ public class RealmQuestion: Object {
         self.order = question.order
         self.element_id = question.element_id
         
-        //self.settings?.updateWith(setting: question.settings)
+        self.setting?.updateWith(setting: question.settings)
     }
     
     override public static func primaryKey() -> String? {
