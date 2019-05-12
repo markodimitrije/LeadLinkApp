@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() { super.viewDidLoad()
         
-        print("Realm url: \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
+        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         bindViews(to: logInViewModel)
         

@@ -302,15 +302,6 @@
 			path = APIController;
 			sourceTree = "<group>";
 		};
-		ADABCC4B21E4AB3300B43427 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				ADABCC4C21E4AB3C00B43427 /* Question.swift */,
-				ADAD040E21E7826E006463A2 /* Organization.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		ADABCC5021E4E22900B43427 /* QuestionsStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +348,6 @@
 				ADBB468D2242943F00E1020F /* DataSourceAndDelegate */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
-				ADABCC4B21E4AB3300B43427 /* Domain */,
 				ADABCC4821E4A30D00B43427 /* APIController */,
 				AD1739D121DE1E6E00218BE5 /* Factory */,
 				AD1739CC21DE1B7700218BE5 /* UILayer */,
@@ -466,6 +456,8 @@
 		ADBB467E22425BD200E1020F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				ADABCC4C21E4AB3C00B43427 /* Question.swift */,
+				ADAD040E21E7826E006463A2 /* Organization.swift */,
 				ADAD040A21E73F29006463A2 /* LogoInfo.swift */,
 				ADE9552621D9016C00B86052 /* Campaign.swift */,
 				ADBB467C22425BB200E1020F /* Code.swift */,
