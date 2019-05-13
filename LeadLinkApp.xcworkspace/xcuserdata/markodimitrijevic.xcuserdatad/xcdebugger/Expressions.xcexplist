@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "popoverController.sourceRect">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -32,6 +24,30 @@
             </PersistentString>
             <PersistentString
                value = "containerView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "popoverController.sourceRect">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "questions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "surveyInfo.campaign">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

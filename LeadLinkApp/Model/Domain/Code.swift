@@ -21,7 +21,7 @@ public class Code: Codable {
     init(realmCode: RealmCode) {
         self.value = realmCode.value
         self.campaign_id = realmCode.campaign_id
-        self.answers = realmCode.answers.toArray().map(Answer.init)
+        self.answers = realmCode.answers.compactMap(Answer.init)
     }
     
 }

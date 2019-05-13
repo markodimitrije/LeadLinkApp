@@ -8,6 +8,66 @@
 
 /* Begin PBXBuildFile section */
 		79B1EC37252D636B80384A09 /* Pods_LeadLinkApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */; };
+		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
+		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
+		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
+		7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */; };
+		7C98A670228961D400DA184E /* ViewStackerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66D228961D400DA184E /* ViewStackerFactory.swift */; };
+		7C98A671228961D400DA184E /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66E228961D400DA184E /* ViewFactory.swift */; };
+		7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66F228961D400DA184E /* ViewmodelFactory.swift */; };
+		7C98A6772289625200DA184E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6742289625200DA184E /* Protocols.swift */; };
+		7C98A6782289625200DA184E /* ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6752289625200DA184E /* ViewModels.swift */; };
+		7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6762289625200DA184E /* ParentViewModel.swift */; };
+		7C98A67C228962D900DA184E /* SurveyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A67B228962D900DA184E /* SurveyInfo.swift */; };
+		7C98A67E2289675D00DA184E /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A67D2289675D00DA184E /* AnswerModel.swift */; };
+		7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A67F2289677000DA184E /* AnswerInfo.swift */; };
+		7C98A6992289689900DA184E /* QuestionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6822289689900DA184E /* QuestionsScrollView.swift */; };
+		7C98A69A2289689900DA184E /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6832289689900DA184E /* SaveButton.swift */; };
+		7C98A69B2289689900DA184E /* LabelAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6852289689900DA184E /* LabelAndTextField.swift */; };
+		7C98A69C2289689900DA184E /* LabelAndTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A6862289689900DA184E /* LabelAndTextView.xib */; };
+		7C98A69F2289689900DA184E /* CheckboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A68A2289689900DA184E /* CheckboxView.xib */; };
+		7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A68B2289689900DA184E /* ViewStacker.swift */; };
+		7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A68C2289689900DA184E /* OneRowStacker.swift */; };
+		7C98A6A22289689900DA184E /* RadioBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A68D2289689900DA184E /* RadioBtnView.swift */; };
+		7C98A6A32289689900DA184E /* LabelAndTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A68E2289689900DA184E /* LabelAndTextField.xib */; };
+		7C98A6A42289689900DA184E /* LabelBtnSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A68F2289689900DA184E /* LabelBtnSwitchView.xib */; };
+		7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6902289689900DA184E /* CheckboxView.swift */; };
+		7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6912289689900DA184E /* QuestionGroupFooterView.swift */; };
+		7C98A6A72289689900DA184E /* OneRowStacker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A6922289689900DA184E /* OneRowStacker.xib */; };
+		7C98A6A82289689900DA184E /* RadioBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A6932289689900DA184E /* RadioBtnView.xib */; };
+		7C98A6A92289689900DA184E /* LabelAndTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6942289689900DA184E /* LabelAndTextView.swift */; };
+		7C98A6AA2289689900DA184E /* QuestionGroupFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A6962289689900DA184E /* QuestionGroupFooterView.xib */; };
+		7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6972289689900DA184E /* LabelBtnSwitchView.swift */; };
+		7C98A6AC2289689900DA184E /* ViewStacker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C98A6982289689900DA184E /* ViewStacker.xib */; };
+		7C98A6AE2289699C00DA184E /* MyAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6AD2289699C00DA184E /* MyAnswer.swift */; };
+		7C98A6B222896AB200DA184E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B122896AB200DA184E /* DataProvider.swift */; };
+		7C98A6BC22896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B522896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift */; };
+		7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B622896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift */; };
+		7C98A6BE22896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B722896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift */; };
+		7C98A6BF22896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B822896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift */; };
+		7C98A6C022896D4700DA184E /* TextFieldViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6B922896D4700DA184E /* TextFieldViewModelBinder.swift */; };
+		7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6BA22896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift */; };
+		7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6BB22896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift */; };
+		7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C422896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift */; };
+		7C98A6CC22896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C522896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift */; };
+		7C98A6CD22896ED500DA184E /* CheckboxViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C622896ED500DA184E /* CheckboxViewmodelInputCreator.swift */; };
+		7C98A6CE22896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C722896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift */; };
+		7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C822896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift */; };
+		7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6C922896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift */; };
+		7C98A6D122896ED500DA184E /* RadioViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */; };
+		7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D322896F9300DA184E /* RxDataBaseEmiters.swift */; };
+		7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D422896F9300DA184E /* MyRxExtensions.swift */; };
+		7C98A6D822896F9300DA184E /* RxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D522896F9300DA184E /* RxViewModel.swift */; };
+		7C98A6DF228971A500DA184E /* FetchingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6DA228971A500DA184E /* FetchingData.swift */; };
+		7C98A6E1228971A500DA184E /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6DD228971A500DA184E /* AnswersDataStore.swift */; };
+		7C98A6E8228972F700DA184E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6E5228972F700DA184E /* Extensions.swift */; };
+		7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6E6228972F700DA184E /* URL+Extensions.swift */; };
+		7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6EA2289733200DA184E /* SequenceExtensions.swift */; };
+		7C98A6ED2289735B00DA184E /* OptionsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6EC2289735B00DA184E /* OptionsTextView.swift */; };
+		7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6EF2289740800DA184E /* MultipleStringOptions.swift */; };
+		7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */; };
+		7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */; };
+		7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
@@ -91,6 +151,66 @@
 /* Begin PBXFileReference section */
 		673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeadLinkApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeadLinkApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
+		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
+		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
+		7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersVC.swift; sourceTree = "<group>"; };
+		7C98A66D228961D400DA184E /* ViewStackerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStackerFactory.swift; sourceTree = "<group>"; };
+		7C98A66E228961D400DA184E /* ViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		7C98A66F228961D400DA184E /* ViewmodelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewmodelFactory.swift; sourceTree = "<group>"; };
+		7C98A6742289625200DA184E /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		7C98A6752289625200DA184E /* ViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
+		7C98A6762289625200DA184E /* ParentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewModel.swift; sourceTree = "<group>"; };
+		7C98A67B228962D900DA184E /* SurveyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInfo.swift; sourceTree = "<group>"; };
+		7C98A67D2289675D00DA184E /* AnswerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
+		7C98A67F2289677000DA184E /* AnswerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerInfo.swift; sourceTree = "<group>"; };
+		7C98A6822289689900DA184E /* QuestionsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsScrollView.swift; sourceTree = "<group>"; };
+		7C98A6832289689900DA184E /* SaveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
+		7C98A6852289689900DA184E /* LabelAndTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAndTextField.swift; sourceTree = "<group>"; };
+		7C98A6862289689900DA184E /* LabelAndTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelAndTextView.xib; sourceTree = "<group>"; };
+		7C98A68A2289689900DA184E /* CheckboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxView.xib; sourceTree = "<group>"; };
+		7C98A68B2289689900DA184E /* ViewStacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStacker.swift; sourceTree = "<group>"; };
+		7C98A68C2289689900DA184E /* OneRowStacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRowStacker.swift; sourceTree = "<group>"; };
+		7C98A68D2289689900DA184E /* RadioBtnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioBtnView.swift; sourceTree = "<group>"; };
+		7C98A68E2289689900DA184E /* LabelAndTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelAndTextField.xib; sourceTree = "<group>"; };
+		7C98A68F2289689900DA184E /* LabelBtnSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelBtnSwitchView.xib; sourceTree = "<group>"; };
+		7C98A6902289689900DA184E /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		7C98A6912289689900DA184E /* QuestionGroupFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionGroupFooterView.swift; sourceTree = "<group>"; };
+		7C98A6922289689900DA184E /* OneRowStacker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneRowStacker.xib; sourceTree = "<group>"; };
+		7C98A6932289689900DA184E /* RadioBtnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadioBtnView.xib; sourceTree = "<group>"; };
+		7C98A6942289689900DA184E /* LabelAndTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAndTextView.swift; sourceTree = "<group>"; };
+		7C98A6962289689900DA184E /* QuestionGroupFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionGroupFooterView.xib; sourceTree = "<group>"; };
+		7C98A6972289689900DA184E /* LabelBtnSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelBtnSwitchView.swift; sourceTree = "<group>"; };
+		7C98A6982289689900DA184E /* ViewStacker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewStacker.xib; sourceTree = "<group>"; };
+		7C98A6AD2289699C00DA184E /* MyAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnswer.swift; sourceTree = "<group>"; };
+		7C98A6B122896AB200DA184E /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		7C98A6B522896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewToCheckboxBtnsViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6B622896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewToRadioBtnsWithInputViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6B722896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewToRadioBtnsViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6B822896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewToSwitchBtnsViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6B922896D4700DA184E /* TextFieldViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6BA22896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewToCheckboxBtnsWithInputViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6BB22896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithOptionsViewModelBinder.swift; sourceTree = "<group>"; };
+		7C98A6C422896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAndTextFieldFromModelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6C522896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioWithInputViewmodelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6C622896ED500DA184E /* CheckboxViewmodelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxViewmodelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6C722896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOptionTextViewModelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6C822896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6C922896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxWithInputViewmodelCreator.swift; sourceTree = "<group>"; };
+		7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewmodelInputCreator.swift; sourceTree = "<group>"; };
+		7C98A6D322896F9300DA184E /* RxDataBaseEmiters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataBaseEmiters.swift; sourceTree = "<group>"; };
+		7C98A6D422896F9300DA184E /* MyRxExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRxExtensions.swift; sourceTree = "<group>"; };
+		7C98A6D522896F9300DA184E /* RxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewModel.swift; sourceTree = "<group>"; };
+		7C98A6DA228971A500DA184E /* FetchingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchingData.swift; sourceTree = "<group>"; };
+		7C98A6DD228971A500DA184E /* AnswersDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
+		7C98A6E5228972F700DA184E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7C98A6E6228972F700DA184E /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		7C98A6EA2289733200DA184E /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		7C98A6EC2289735B00DA184E /* OptionsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTextView.swift; sourceTree = "<group>"; };
+		7C98A6EF2289740800DA184E /* MultipleStringOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleStringOptions.swift; sourceTree = "<group>"; };
+		7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionsVC.swift; sourceTree = "<group>"; };
+		7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionOptionsDataSource.swift; sourceTree = "<group>"; };
+		7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
@@ -200,6 +320,178 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7C98A663228960B100DA184E /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A664228960B100DA184E /* GlobalVars.swift */,
+				7C98A665228960B100DA184E /* GlobalFuncs.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		7C98A66C228961D400DA184E /* QuestionsAnswersFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A66D228961D400DA184E /* ViewStackerFactory.swift */,
+				7C98A66E228961D400DA184E /* ViewFactory.swift */,
+				7C98A66F228961D400DA184E /* ViewmodelFactory.swift */,
+			);
+			path = QuestionsAnswersFactory;
+			sourceTree = "<group>";
+		};
+		7C98A6732289625200DA184E /* QAViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6742289625200DA184E /* Protocols.swift */,
+				7C98A6752289625200DA184E /* ViewModels.swift */,
+				7C98A6762289625200DA184E /* ParentViewModel.swift */,
+			);
+			path = QAViewModels;
+			sourceTree = "<group>";
+		};
+		7C98A67A2289628600DA184E /* QAModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6EE2289740800DA184E /* Convinient */,
+				7C98A67B228962D900DA184E /* SurveyInfo.swift */,
+				7C98A67D2289675D00DA184E /* AnswerModel.swift */,
+				7C98A67F2289677000DA184E /* AnswerInfo.swift */,
+				7C98A6EC2289735B00DA184E /* OptionsTextView.swift */,
+			);
+			path = QAModel;
+			sourceTree = "<group>";
+		};
+		7C98A6812289689900DA184E /* QAViews */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6822289689900DA184E /* QuestionsScrollView.swift */,
+				7C98A6832289689900DA184E /* SaveButton.swift */,
+				7C98A6842289689900DA184E /* Components */,
+			);
+			path = QAViews;
+			sourceTree = "<group>";
+		};
+		7C98A6842289689900DA184E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6852289689900DA184E /* LabelAndTextField.swift */,
+				7C98A6862289689900DA184E /* LabelAndTextView.xib */,
+				7C98A68A2289689900DA184E /* CheckboxView.xib */,
+				7C98A68B2289689900DA184E /* ViewStacker.swift */,
+				7C98A68C2289689900DA184E /* OneRowStacker.swift */,
+				7C98A68D2289689900DA184E /* RadioBtnView.swift */,
+				7C98A68E2289689900DA184E /* LabelAndTextField.xib */,
+				7C98A68F2289689900DA184E /* LabelBtnSwitchView.xib */,
+				7C98A6902289689900DA184E /* CheckboxView.swift */,
+				7C98A6912289689900DA184E /* QuestionGroupFooterView.swift */,
+				7C98A6922289689900DA184E /* OneRowStacker.xib */,
+				7C98A6932289689900DA184E /* RadioBtnView.xib */,
+				7C98A6942289689900DA184E /* LabelAndTextView.swift */,
+				7C98A6952289689900DA184E /* New Group */,
+				7C98A6972289689900DA184E /* LabelBtnSwitchView.swift */,
+				7C98A6982289689900DA184E /* ViewStacker.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7C98A6952289689900DA184E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6962289689900DA184E /* QuestionGroupFooterView.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		7C98A6B022896AB200DA184E /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6B122896AB200DA184E /* DataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		7C98A6B322896CE100DA184E /* QA */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6C322896ED500DA184E /* InputCreators */,
+				7C98A6B422896D4700DA184E /* StackViewToVMBinders */,
+			);
+			path = QA;
+			sourceTree = "<group>";
+		};
+		7C98A6B422896D4700DA184E /* StackViewToVMBinders */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6B522896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift */,
+				7C98A6B622896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift */,
+				7C98A6B722896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift */,
+				7C98A6B822896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift */,
+				7C98A6B922896D4700DA184E /* TextFieldViewModelBinder.swift */,
+				7C98A6BA22896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift */,
+				7C98A6BB22896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift */,
+			);
+			path = StackViewToVMBinders;
+			sourceTree = "<group>";
+		};
+		7C98A6C322896ED500DA184E /* InputCreators */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6C422896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift */,
+				7C98A6C522896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift */,
+				7C98A6C622896ED500DA184E /* CheckboxViewmodelInputCreator.swift */,
+				7C98A6C722896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift */,
+				7C98A6C822896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift */,
+				7C98A6C922896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift */,
+				7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */,
+			);
+			path = InputCreators;
+			sourceTree = "<group>";
+		};
+		7C98A6D222896F9300DA184E /* QA_MyRxExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6D322896F9300DA184E /* RxDataBaseEmiters.swift */,
+				7C98A6D422896F9300DA184E /* MyRxExtensions.swift */,
+				7C98A6D522896F9300DA184E /* RxViewModel.swift */,
+			);
+			path = QA_MyRxExtensions;
+			sourceTree = "<group>";
+		};
+		7C98A6D9228971A500DA184E /* FetchingData */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6DA228971A500DA184E /* FetchingData.swift */,
+				7C98A6DB228971A500DA184E /* Campaigns */,
+			);
+			path = FetchingData;
+			sourceTree = "<group>";
+		};
+		7C98A6DB228971A500DA184E /* Campaigns */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6DD228971A500DA184E /* AnswersDataStore.swift */,
+			);
+			path = Campaigns;
+			sourceTree = "<group>";
+		};
+		7C98A6E3228972F700DA184E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6E5228972F700DA184E /* Extensions.swift */,
+				7C98A6E6228972F700DA184E /* URL+Extensions.swift */,
+				7C98A6EA2289733200DA184E /* SequenceExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7C98A6EE2289740800DA184E /* Convinient */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6EF2289740800DA184E /* MultipleStringOptions.swift */,
+			);
+			path = Convinient;
+			sourceTree = "<group>";
+		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +503,8 @@
 		AD1739C221DD4D1A00218BE5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A6E3228972F700DA184E /* Extensions */,
+				7C98A6D222896F9300DA184E /* QA_MyRxExtensions */,
 				ADAB3D9B223AB56200450625 /* AlertWithRx.swift */,
 				AD1739C321DD4D2700218BE5 /* AlwaysExtensions.swift */,
 				ADAD040521E65E8D006463A2 /* UIKit_Extensions.swift */,
@@ -231,6 +525,7 @@
 		AD1739D121DE1E6E00218BE5 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
 				AD1739D221DE1E7900218BE5 /* Factory.swift */,
 			);
 			path = Factory;
@@ -239,6 +534,8 @@
 		AD4F013921D8F61F00946CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A6D9228971A500DA184E /* FetchingData */,
+				7C98A67A2289628600DA184E /* QAModel */,
 				ADB6A64121DF907D002224C0 /* Realm */,
 				ADBB467E22425BD200E1020F /* Domain */,
 				ADBB467F22425C3700E1020F /* Error and Payload */,
@@ -249,6 +546,7 @@
 		AD4F013E21D8F72600946CBA /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A6732289625200DA184E /* QAViewModels */,
 				ADE9553021D91A4E00B86052 /* LogInViewModel.swift */,
 				AD1739CA21DE1ADA00218BE5 /* MainViewModel.swift */,
 				AD1739D421DE3D6900218BE5 /* LogoutViewModel.swift */,
@@ -282,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */,
+				7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -314,6 +613,7 @@
 		ADAD040721E65EB7006463A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A6812289689900DA184E /* QAViews */,
 				ADAD040821E65EC4006463A2 /* CampaignCell.swift */,
 				ADA9B1C922384C5400B7D74F /* DividerView.xib */,
 				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
@@ -342,10 +642,12 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A663228960B100DA184E /* Globals */,
 				ADAB3D98223AAFA900450625 /* Constants */,
 				ADAFED7C22395C92004C4AC1 /* Scanning */,
 				ADA9B1CD22385DAC00B7D74F /* Utilities */,
 				ADBB468D2242943F00E1020F /* DataSourceAndDelegate */,
+				7C98A6B022896AB200DA184E /* DataProvider */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
 				ADABCC4821E4A30D00B43427 /* APIController */,
@@ -355,6 +657,7 @@
 				AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */,
 				AD4F014121D8F7BF00946CBA /* DataLayer */,
 				AD4F013E21D8F72600946CBA /* Viewmodel */,
+				7C98A6B322896CE100DA184E /* QA */,
 				AD4F013921D8F61F00946CBA /* Model */,
 				ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */,
 				ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */,
@@ -462,7 +765,9 @@
 				ADE9552621D9016C00B86052 /* Campaign.swift */,
 				ADBB467C22425BB200E1020F /* Code.swift */,
 				ADAF73472241314C00A1F6D2 /* Answer.swift */,
+				7C98A6AD2289699C00DA184E /* MyAnswer.swift */,
 				AD4F013C21D8F68E00946CBA /* Secret.swift */,
+				7C98A6612289603400DA184E /* PresentQuestion.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -493,6 +798,7 @@
 			isa = PBXGroup;
 			children = (
 				ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */,
+				7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */,
 			);
 			path = DataSourceAndDelegate;
 			sourceTree = "<group>";
@@ -502,11 +808,13 @@
 			children = (
 				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
 				ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */,
+				7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */,
 				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
 				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
 				ADAB3D96223AAE8B00450625 /* StatsVC.swift */,
 				ADBB468B2242942300E1020F /* CodesVC.swift */,
 				7CCFEACC2269C968004F4838 /* ChartVC.swift */,
+				7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -637,13 +945,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C98A6A42289689900DA184E /* LabelBtnSwitchView.xib in Resources */,
+				7C98A6A32289689900DA184E /* LabelAndTextField.xib in Resources */,
+				7C98A69C2289689900DA184E /* LabelAndTextView.xib in Resources */,
 				ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */,
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
+				7C98A6A82289689900DA184E /* RadioBtnView.xib in Resources */,
+				7C98A6AA2289689900DA184E /* QuestionGroupFooterView.xib in Resources */,
 				AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */,
+				7C98A6AC2289689900DA184E /* ViewStacker.xib in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
 				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
+				7C98A6A72289689900DA184E /* OneRowStacker.xib in Resources */,
 				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
+				7C98A69F2289689900DA184E /* CheckboxView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,42 +1031,72 @@
 			files = (
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
 				ADBB468F2242947F00E1020F /* DataSourceAndDelegate.swift in Sources */,
+				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
+				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
+				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
+				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
+				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
+				7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */,
 				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
 				7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */,
+				7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
+				7C98A67E2289675D00DA184E /* AnswerModel.swift in Sources */,
+				7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */,
+				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
+				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
+				7C98A6B222896AB200DA184E /* DataProvider.swift in Sources */,
+				7C98A6E1228971A500DA184E /* AnswersDataStore.swift in Sources */,
+				7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
+				7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */,
+				7C98A671228961D400DA184E /* ViewFactory.swift in Sources */,
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
+				7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */,
+				7C98A69B2289689900DA184E /* LabelAndTextField.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				ADAF73442241131F00A1F6D2 /* QuestionsAndAnswersVC.swift in Sources */,
+				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
+				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
+				7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */,
+				7C98A6C022896D4700DA184E /* TextFieldViewModelBinder.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
+				7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */,
+				7C98A670228961D400DA184E /* ViewStackerFactory.swift in Sources */,
+				7C98A6A92289689900DA184E /* LabelAndTextView.swift in Sources */,
 				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
+				7C98A6D122896ED500DA184E /* RadioViewmodelInputCreator.swift in Sources */,
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
+				7C98A6BF22896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift in Sources */,
 				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
+				7C98A6782289625200DA184E /* ViewModels.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
+				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
+				7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */,
 				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
 				ADE9552221D9008200B86052 /* AuthImplementations.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
@@ -758,32 +1104,54 @@
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
+				7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */,
+				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
+				7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
+				7C98A6A22289689900DA184E /* RadioBtnView.swift in Sources */,
+				7C98A6CC22896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
+				7C98A6ED2289735B00DA184E /* OptionsTextView.swift in Sources */,
+				7C98A6992289689900DA184E /* QuestionsScrollView.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
+				7C98A6D822896F9300DA184E /* RxViewModel.swift in Sources */,
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
 				ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
+				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
+				7C98A6CE22896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
+				7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
+				7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
 				AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */,
+				7C98A6772289625200DA184E /* Protocols.swift in Sources */,
+				7C98A6CD22896ED500DA184E /* CheckboxViewmodelInputCreator.swift in Sources */,
+				7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */,
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				7C98A6BE22896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift in Sources */,
+				7C98A67C228962D900DA184E /* SurveyInfo.swift in Sources */,
 				ADBB468C2242942300E1020F /* CodesVC.swift in Sources */,
+				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
+				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
+				7C98A6BC22896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift in Sources */,
+				7C98A6DF228971A500DA184E /* FetchingData.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
+				7C98A6AE2289699C00DA184E /* MyAnswer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

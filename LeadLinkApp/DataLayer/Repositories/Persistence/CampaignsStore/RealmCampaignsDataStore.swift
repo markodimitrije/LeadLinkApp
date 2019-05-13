@@ -18,7 +18,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     
     // MARK: - manage campaigns
     
-     public func readCampaign(id: Int) -> Promise<Campaign> {
+    public func readCampaign(id: Int) -> Promise<Campaign> {
         
         return Promise() { seal in
             
@@ -40,7 +40,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     public func readAllCampaigns() -> Promise<[Campaign]> {
         
         return Promise() { seal in
-           
+            
             guard let _ = try? Realm.init() else {
                 seal.reject(CampaignError.unknown)
                 return
@@ -61,17 +61,16 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         return Promise() { seal in
             
             let objects = campaigns.compactMap { campaign -> RealmCampaign? in
-                //let rc = realm.objects(RealmCampaign.self)
                 let rc = RealmCampaign()
                 rc.update(with: campaign)
                 return rc
             }
-
+            
             do {
                 try realm.write { // ovako
                     realm.add(objects, update: true)
                 }
-//                print("SAVED CAMPAIGNS!")
+                //                print("SAVED CAMPAIGNS!")
                 seal.fulfill(campaigns)
             } catch {
                 seal.reject(CampaignError.cantSave)
@@ -85,7 +84,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         let ids = campaigns.map {$0.id}
         
         return Promise() { seal in
-        
+            
             let objects = realm.objects(RealmCampaign.self).filter { campaign -> Bool in
                 return ids.contains(campaign.id)
             }
@@ -113,7 +112,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     }
     
     // MARK: - manage json
-
+    
     public func getCampaignsJsonString(requestName name: String) -> Promise<String> {
         
         return Promise() { seal in
@@ -145,7 +144,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                 try realm.write {
                     realm.add(object, update: true)
                 }
-//                print("SAVED JSON za kampanje !")
+                //                print("SAVED JSON za kampanje !")
                 seal.fulfill(true)
             } catch {
                 seal.reject(CampaignError.cantSave)

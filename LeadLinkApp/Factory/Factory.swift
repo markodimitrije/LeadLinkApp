@@ -27,6 +27,8 @@ public class AppDependencyContainer {
     let sharedMainViewModel: MainViewModel
     let sharedCampaignsRepository: CampaignsRepository
     
+    private let campaignsDataStore = RealmCampaignsDataStore.init()
+    
     public init() {
         
         func makeUserSessionRepository() -> UserSessionRepository {
@@ -151,16 +153,26 @@ public class AppDependencyContainer {
     
     // Questions and Answers
     
-    func makeQuestionsAndAnswersViewController(scanningViewModel viewModel: ScanningViewModel?) -> QuestionsAndAnswersVC {
+    func makeQuestionsAnswersViewController(scanningViewModel viewModel: ScanningViewModel?) -> QuestionsAnswersVC {
         
-        print ("makeQuestionsAndAnswersViewController.codeInput.value() = \(try! viewModel!.codeInput.value())")
+        guard let code = try? viewModel!.codeInput.value() else {fatalError()}
         
-        //let vc = sb.instantiateViewController(withIdentifier: "QuestionsAndAnswersVC") as! QuestionsAndAnswersVC
-        let vc = QuestionsAndAnswersVC.instantiate(using: sb)
-        if let viewModel = viewModel {
-            let questionsViewModel = makeQuestionsViewModel(scanningViewmodel: viewModel)
-            vc.viewModel = questionsViewModel
-        }
+        print ("makeQuestionsAnswersViewController.codeInput.value() = \(code)")
+        
+        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {fatalError("no campaign selected !?!")}
+        
+        // next vc should know about campaign and code (campaignId and code); campaignId -> Campaign.questions
+        
+        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
+        
+        let surveyInfo = SurveyInfo.init(campaign: campaign , code: code)
+        
+        let vc = QuestionsAnswersVC.instantiate(using: sb)
+//        if let viewModel = viewModel {
+//            let questionsViewModel = makeQuestionsViewModel(scanningViewmodel: viewModel)
+//            vc.viewModel = questionsViewModel
+//        }
+        vc.surveyInfo = surveyInfo
         
         return vc
     }
@@ -168,7 +180,9 @@ public class AppDependencyContainer {
     private func getViewControllerTypes() -> [UIViewController.Type] {
         return [LoginViewController.self,
                 CampaignsVC.self,
-                ScanningVC.self]
+                ScanningVC.self,
+                QuestionsAnswersVC.self
+            ]
     }
 
     //MARK:- Make viewmodels

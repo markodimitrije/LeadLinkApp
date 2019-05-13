@@ -32,10 +32,10 @@ public struct Question: Codable {
         self.group = realmQuestion.group
         self.required = realmQuestion.required
         self.description = realmQuestion.desc
-
+        
         self.order = realmQuestion.order
         self.element_id = realmQuestion.element_id
-
+        
         self.settings = Setting.init(realmSetting: realmQuestion.setting!)
     }
 }
@@ -47,3 +47,16 @@ public struct Setting: Codable {
         self.options = realmSetting.options.sorted()
     }
 }
+
+enum QuestionType: String {
+    case radioBtn = "radio"//"radioBtn"
+    case checkbox = "checkbox"
+    case radioBtnWithInput = "radioBtnWithInput"
+    case checkboxWithInput = "checkboxWithInput"
+    case switchBtn = "switchBtn"
+    case textField = "text"//"textField"
+    case textArea = "textArea"
+    case dropdown = "dropdown"// case textWithOptions = "textWithOptions"
+}
+
+

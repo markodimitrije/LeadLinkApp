@@ -106,7 +106,7 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func navigateToQuestionsScreen() {
-        let questionsVC = factory.makeQuestionsAndAnswersViewController(scanningViewModel: viewModel)
+        let questionsVC = factory.makeQuestionsAnswersViewController(scanningViewModel: viewModel)
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     

@@ -10,20 +10,62 @@ import Foundation
 import Realm
 import RealmSwift
 
+//public class RealmAnswer: Object {
+//
+//    @objc dynamic var id: String = ""
+//    @objc dynamic var campaignId: Int = 0
+//    @objc dynamic var questionId: Int = 0
+//    @objc dynamic var code = ""
+//    @objc dynamic var result = ""
+//
+//    func updateWith(answer: Answer) {
+//        self.campaignId = answer.campaignId
+//        self.questionId = answer.questionId
+//        self.code = answer.code
+//        self.result = answer.result
+//        self.id = "\(campaignId)" + "\(questionId)"
+//    }
+//
+//    override public static func primaryKey() -> String? {
+//        return "id"
+//    }
+//
+//}
+
 public class RealmAnswer: Object {
     
     @objc dynamic var id: String = ""
     @objc dynamic var campaignId: Int = 0
     @objc dynamic var questionId: Int = 0
     @objc dynamic var code = ""
-    @objc dynamic var result = ""
+    var optionIds = List<Int>()
+    var content = List<String>()
     
     func updateWith(answer: Answer) {
+        self.id = "\(answer.campaignId)" + "\(answer.questionId)" + answer.code
         self.campaignId = answer.campaignId
         self.questionId = answer.questionId
         self.code = answer.code
-        self.result = answer.result
-        self.id = "\(campaignId)" + "\(questionId)"
+        self.content.removeAll()
+        self.content.append(objectsIn: answer.content)
+    }
+    
+    func updateWith(answer: MyAnswer) {
+        self.id = "\(answer.campaignId)" + "\(answer.questionId)" + answer.code
+        self.campaignId = answer.campaignId
+        self.questionId = answer.questionId
+        self.code = answer.code
+        
+        if (answer.optionIds == nil) {
+            self.optionIds.removeAll()
+        } else {
+            self.optionIds.removeAll()
+            self.optionIds.append(objectsIn: answer.optionIds!)
+        }
+        
+        
+        self.content.removeAll();
+        self.content.append(objectsIn: answer.content)
     }
     
     override public static func primaryKey() -> String? {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelBtnSwitchView" customModule="tryLeadLinkModularComponent" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="pMT-AM-trd" id="IBn-Wq-U0r"/>
+                <outlet property="switcher" destination="ATm-yX-Fdz" id="Mao-8J-nnL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="524" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-q0-Hx0">
+                    <rect key="frame" x="8" y="0.0" width="508" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="I have read and accept the" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
+                            <rect key="frame" x="0.0" y="0.0" width="441.5" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PP0-JE-myS">
+                            <rect key="frame" x="449.5" y="0.0" width="58.5" height="44"/>
+                            <subviews>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
+                                    <rect key="frame" x="8" y="6.5" width="44.5" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="31" id="RC8-92-MzR"/>
+                                    </constraints>
+                                </switch>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerX" secondItem="PP0-JE-myS" secondAttribute="centerX" id="9cV-0r-MKi"/>
+                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="PP0-JE-myS" secondAttribute="centerY" id="Hko-Pb-aGB"/>
+                                <constraint firstAttribute="width" secondItem="PP0-JE-myS" secondAttribute="height" multiplier="1:0.75" id="Lba-ee-ldp"/>
+                                <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="8" id="c2e-cK-xS3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745100000003" green="0.57647058819999997" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="b9O-q0-Hx0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="IxM-lI-Lgc"/>
+                <constraint firstItem="b9O-q0-Hx0" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="JXg-tK-JSn"/>
+                <constraint firstItem="b9O-q0-Hx0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cWg-F4-Jo0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b9O-q0-Hx0" secondAttribute="trailing" constant="8" id="i8l-Tu-Grg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="454.39999999999998" y="-94.452773613193415"/>
+        </view>
+    </objects>
+</document>
