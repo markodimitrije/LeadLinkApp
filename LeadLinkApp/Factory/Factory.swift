@@ -177,11 +177,20 @@ public class AppDependencyContainer {
         return vc
     }
     
+    //func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
+    func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
+        let chooseOptionsVC = ChooseOptionsVC.instantiate(using: sb)
+//        let sb = UIStoryboard.init(name: "Main_iphone", bundle: nil)
+//        let chooseOptionsVC = sb.instantiateViewController(withIdentifier: "ChooseOptionsVC") as! ChooseOptionsVC
+        return chooseOptionsVC
+    }
+    
     private func getViewControllerTypes() -> [UIViewController.Type] {
         return [LoginViewController.self,
                 CampaignsVC.self,
                 ScanningVC.self,
-                QuestionsAnswersVC.self
+//                QuestionsAnswersVC.self,
+//                ChooseOptionsVC.self
             ]
     }
 

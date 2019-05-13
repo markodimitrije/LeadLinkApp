@@ -37,7 +37,10 @@ class NavigationViewModel: NSObject {
 extension NavigationViewModel: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-
+        
+        if type(of: viewController) is ChooseOptionsVC.Type {
+            return
+        }
         viewController.navigationItem.setRightBarButtonItems(getNavBarItems(typeName: viewController.myTypeName), animated: false)
         
     }
@@ -54,7 +57,6 @@ extension NavigationViewModel: UINavigationControllerDelegate {
                                              style: .plain,
                                              target: self,
                                              action: selector); statsItem.tag = 0
-        
         switch typeName {
         case "LoginViewController": return [ ]
         case "CampaignsVC": return [logoutItem]

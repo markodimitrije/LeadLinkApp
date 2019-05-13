@@ -28,6 +28,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "surveyInfo.campaign">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -36,18 +44,33 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
+         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "questions">
+               value = "count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "doneBtn">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
+            </PersistentString>
+            <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems!.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "surveyInfo.campaign">
+               value = "questions">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -54,11 +54,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.tableView.dataSource = myDataSourceAndDelegate
-//        self.tableView.delegate = myDataSourceAndDelegate
-//    }
+    @objc func doneWithOptionsIsTapped() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
     private func loadQuestions(surveyInfo: SurveyInfo?) {
         
@@ -150,6 +148,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 
 class ViewControllerDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
+    private let factory = AppDependencyContainer.init()
     lazy private var dataSourceHelper = ViewControllerDataSourceAndDelegateHelper(questions: questions)
     
     private var viewController: QuestionsAnswersVC
@@ -224,11 +223,14 @@ extension ViewControllerDataSourceAndDelegate: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        guard
-            let chooseOptionsVC = UIStoryboard.main.instantiateViewController(withIdentifier: "ChooseOptionsVC") as? ChooseOptionsVC,
-            let childViewmodel = parentViewmodel.childViewmodels[textView.tag] as? SelectOptionTextFieldViewModel else {
-                return
+        let chooseOptionsVC = factory.makeFlatChooseOptionsVC()
+        
+        guard let childViewmodel = parentViewmodel.childViewmodels[textView.tag] as? SelectOptionTextFieldViewModel else {
+            return
         }
+        
+        let navBarTitle = childViewmodel.question.headlineText
+        chooseOptionsVC.navigationItem.title = navBarTitle
         
         let dataSourceAndDelegate = QuestionOptionsTableViewDataSourceAndDelegate(selectOptionTextViewModel: childViewmodel)
         chooseOptionsVC.dataSourceAndDelegate = dataSourceAndDelegate

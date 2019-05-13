@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 
- class ChooseOptionsVC: UIViewController {
+ class ChooseOptionsVC: UIViewController, Storyboarded {
  
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,6 +31,10 @@ import RxCocoa
         tableView.dataSource = dataSourceAndDelegate
         tableView.delegate = dataSourceAndDelegate
         setUpBindings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     private func setUpBindings() {
