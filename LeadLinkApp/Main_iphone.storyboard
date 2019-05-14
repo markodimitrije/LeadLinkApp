@@ -433,7 +433,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEu-f7-ubq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3034.4000000000001" y="49.925037481259373"/>
+            <point key="canvasLocation" x="2986" y="54"/>
         </scene>
         <!--StatsVC-->
         <scene sceneID="eeZ-AI-LVQ">
@@ -472,7 +472,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZ4-RV-D25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3032.8000000000002" y="774.96251874062978"/>
+            <point key="canvasLocation" x="2985" y="779"/>
         </scene>
         <!--ChartVC-->
         <scene sceneID="jqy-t6-uOy">

@@ -149,7 +149,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="140" minY="0.0" maxX="30" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="kx2-Vn-0yr" customClass="CampaignCell" customModule="LeadLinkApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="kx2-Vn-0yr" customClass="CampaignCell" customModule="LeadLinkApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="683" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kx2-Vn-0yr" id="Xtc-EQ-7Dp">
@@ -533,7 +533,7 @@
                                 <rect key="frame" x="20" y="20" width="1326" height="984"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" id="d3q-dy-ce2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" id="d3q-dy-ce2">
                                         <rect key="frame" x="0.0" y="28" width="1326" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3q-dy-ce2" id="oGU-Id-x0b">
@@ -564,8 +564,7 @@
         <!--Choose OptionsVC-->
         <scene sceneID="ZXf-EK-vyl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IR6-EZ-nPF" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="ChooseOptionsVC" id="Ump-PN-Vi0" customClass="ChooseOptionsVC" customModule="tryLeadLinkModularComponent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseOptionsVC" id="Ump-PN-Vi0" customClass="ChooseOptionsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ND6-Kn-ICC">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,6 +609,7 @@
                         <outlet property="tableView" destination="uwn-LD-iyf" id="8ew-B2-rge"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IR6-EZ-nPF" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3303" y="54"/>
         </scene>

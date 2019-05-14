@@ -43,7 +43,7 @@ class CodesDataSource: NSObject, UITableViewDataSource {
 
 class CodesDelegate: NSObject, UITableViewDelegate {
     weak var tableView: UITableView!
-    var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) // dummy initialization
+    var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) at destination // dummy initialization
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex.accept(indexPath)
     }
