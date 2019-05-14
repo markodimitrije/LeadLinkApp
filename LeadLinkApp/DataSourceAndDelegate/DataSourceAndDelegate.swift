@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CodesDataSource: NSObject, UITableViewDataSource {
     
@@ -41,7 +43,8 @@ class CodesDataSource: NSObject, UITableViewDataSource {
 
 class CodesDelegate: NSObject, UITableViewDelegate {
     weak var tableView: UITableView!
+    var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) // dummy initialization
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("CodesDelegate notify somebody about selected row = \(indexPath.row)")
+        selectedIndex.accept(indexPath)
     }
 }

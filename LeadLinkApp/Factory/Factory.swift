@@ -168,10 +168,27 @@ public class AppDependencyContainer {
         let surveyInfo = SurveyInfo.init(campaign: campaign , code: code)
         
         let vc = QuestionsAnswersVC.instantiate(using: sb)
-//        if let viewModel = viewModel {
-//            let questionsViewModel = makeQuestionsViewModel(scanningViewmodel: viewModel)
-//            vc.viewModel = questionsViewModel
-//        }
+
+        vc.surveyInfo = surveyInfo
+        
+        return vc
+    }
+    
+    func makeQuestionsAnswersViewController(code: Code) -> QuestionsAnswersVC {
+        
+        let codeValue = code.value
+        
+        //guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {fatalError("no campaign selected !?!")}
+        let campaignId = code.campaign_id
+        
+        // next vc should know about campaign and code (campaignId and code); campaignId -> Campaign.questions
+        
+        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
+        
+        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        
+        let vc = QuestionsAnswersVC.instantiate(using: sb)
+        
         vc.surveyInfo = surveyInfo
         
         return vc

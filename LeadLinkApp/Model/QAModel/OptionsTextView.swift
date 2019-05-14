@@ -19,16 +19,19 @@ class OptionsTextView: UITextView {
         formatLayout()
     }
     func formatLayout() {
+        
         self.tintColor = UIColor.clear
         if let oneRowStacker = UIView.closestParentObject(for: self, ofType: OneRowStacker.self) {
             oneRowStacker.resizeHeight(by: 20)
             self.resizeHeight(by: 20)
         }
+        
     }
     
     func formatLayout(accordingToOptions options: [String]) {
         if options.count > 1 {
             self.sizeToFit()
+            self.scrollRectToVisible(self.bounds, animated: false)
         } else {
             self.frame = CGRect.init(origin: self.frame.origin,
                                      size: CGSize.init(width: self.bounds.width, height: 80))
@@ -39,4 +42,5 @@ class OptionsTextView: UITextView {
     private func setCursor(toPosition position: UITextPosition) {
         self.selectedTextRange = self.textRange(from: position, to: position)
     }
+    
 }

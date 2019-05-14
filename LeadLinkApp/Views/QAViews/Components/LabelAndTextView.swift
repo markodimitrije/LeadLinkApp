@@ -57,7 +57,6 @@ class LabelAndTextView: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.addSubview(view)
-        
     }
     
     func update(headlineText: String?, inputTxt: String?) {

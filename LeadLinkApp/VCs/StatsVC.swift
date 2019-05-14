@@ -52,8 +52,10 @@ class StatsVC: UIViewController, Storyboarded {
     }
     private func loadCodesVC() {
         _ = codesView?.subviews.map {$0.removeFromSuperview()}
-        codesVC?.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
-        codesView?.addSubview(codesVC!.view)
+        guard let codesVC = codesVC else {return}
+        codesVC.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
+        codesView?.addSubview(codesVC.view)
+        self.addChild(codesVC)
     }
     
     private let disposeBag = DisposeBag()
