@@ -39,19 +39,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func logoutBtnTapped() {
         
-        if let topController = UIApplication.topViewController() {
+        guard let topController = UIApplication.topViewController() else { fatalError() }
+        let centerView = UIView.init(frame: CGRect.init(center: CGPoint.init(x: UIScreen.main.bounds.midX,
+                                                                             y: UIScreen.main.bounds.midY), size: CGSize.init(width: 1, height: 1)))
+        topController.view.addSubview(centerView)
             
-//            let source =
-//            topController.alert(alertInfo: AlertInfo.getInfo(type: .logout), sourceView: )
-//                .subscribe { index in
-//                    print("selected btn je sa index = \(index)")
-//                    topController.dismiss(animated: true)
-//                }
-//                .disposed(by: disposeBag)
-        }
-
-        
-        (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
+        topController.alert(alertInfo: AlertInfo.getInfo(type: .logout), sourceView: centerView)
+            .subscribe(onNext: { index in
+                if index == 0 { // logout
+                    (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
+                } else { // cancel
+                    topController.dismiss(animated: true)
+                }
+            }).disposed(by: disposeBag)
     }
     
     @objc func statsBtnTapped(_ notification: NSNotification) {

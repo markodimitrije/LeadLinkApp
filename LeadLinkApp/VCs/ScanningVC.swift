@@ -28,7 +28,6 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
-    //lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     var avSessionViewModel = AVSessionViewModel()
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -152,7 +151,6 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failed() { print("failed.....")
         
-        //self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
             .subscribe {
                 self.dismiss(animated: true)
@@ -162,9 +160,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func failedDueToNoCodeDetected() { print("failedDueToNoCodeDetected. prikazi alert....")
         
-        //self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCodeDetected), sourceView: orLabel)
-        //orLabel
             .subscribe {
                 self.dismiss(animated: true)
             }
@@ -216,19 +212,6 @@ struct CodeReport {
 }
 
 class CodeReportsState {}
-
-class ScannerViewModel {
-    
-    var dataAccess: DataAccess
-    
-    var sessionId = 0
-    var sessionName: PublishSubject<String> = PublishSubject.init()
-    var sessionInfo: PublishSubject<String> = PublishSubject.init()
-    
-    init(dataAccess: DataAccess) {
-        self.dataAccess = dataAccess
-    }
-}
 
 class DataAccess {
     static let shared = DataAccess.init()

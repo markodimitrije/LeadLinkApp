@@ -24,9 +24,13 @@ extension UIViewController {
             
             let alertVC = UIAlertController(title: alertInfo.title, message: alertInfo.text, preferredStyle: preferredStyle)
             
-            if let popoverController = alertVC.popoverPresentationController, let sourceView = sourceView {
-                popoverController.sourceRect = sourceView.bounds// ?? CGRect.init(center: UIScreen.main.bounds.center, size: CGSize.zero)
-                popoverController.sourceView = sourceView
+            if let popoverController = alertVC.popoverPresentationController {
+                if let sourceView = sourceView {
+                    popoverController.sourceRect = sourceView.bounds
+                    popoverController.sourceView = sourceView
+                } else {
+                    popoverController.barButtonItem = UIApplication.topViewController()!.navigationItem.rightBarButtonItems?.first
+                }
                 popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
             }
             
@@ -66,9 +70,10 @@ struct AlertInfo {
                                   text: Constants.AlertInfo.NoCodeDetected.msg,
                                   btnText: [Constants.AlertInfo.ok])
         case AlertInfoType.logout:
-            return AlertInfo.init(title: Constants.AlertInfo.NoCodeDetected.title,
+            return AlertInfo.init(title: Constants.AlertInfo.logout.title,
                                   text: "",
-                                  btnText: [Constants.AlertInfo.ok, Constants.AlertInfo.cancel])
+                                  btnText: [Constants.AlertInfo.ok,
+                                            Constants.AlertInfo.cancel])
         }
     }
 }
