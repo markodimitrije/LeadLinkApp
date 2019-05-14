@@ -28,7 +28,7 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
-    lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
+    //lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     var avSessionViewModel = AVSessionViewModel()
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -142,12 +142,10 @@ class ScanningVC: UIViewController, Storyboarded {
     
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
-        //print("found(code = \(Date())")
-        
-        if scanerViewModel.sessionId != -1 && code != "" {
+        if code != "" {
             codeSuccessfull(code: code)
         } else {
-            failedDueToNoSettings()
+            failedDueToNoCodeDetected()
         }
         
     }
@@ -162,10 +160,10 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func failedDueToNoSettings() { print("failedDueToNoSettings. prikazi alert....")
+    private func failedDueToNoCodeDetected() { print("failedDueToNoCodeDetected. prikazi alert....")
         
         //self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera))
-        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
+        self.alert(alertInfo: AlertInfo.getInfo(type: .noCodeDetected), sourceView: orLabel)
         //orLabel
             .subscribe {
                 self.dismiss(animated: true)

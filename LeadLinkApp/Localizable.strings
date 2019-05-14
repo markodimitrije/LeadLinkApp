@@ -11,11 +11,17 @@ Strings.Scaner.scanCode = "Click on the image below to scan the delagete’s bad
 Strings.Scaner.enterCodeManually = "Enter the badge barcode number manually";
 
 AlertInfo.ok = "OK";
+AlertInfo.cancel = "Cancel";
 AlertInfo.Scan.ScanningNotSupported.title = "Scan error";
 AlertInfo.Scan.ScanningNotSupported.msg = "Scanning is not supported";
 AlertInfo.Scan.NoSettings.title = "Scan error";
 AlertInfo.Scan.NoSettings.msg = "No scanning settings";
+AlertInfo.Scan.NoCodeDetected.title = "Scan error: Code can't be detected";
+AlertInfo.Scan.NoCodeDetected.msg = "Try to scan again, or type code manually";
 AlertInfo.Permission.title = "";
 AlertInfo.Permission.subtitle = "Do you agree to share your data with Navus? All your data will stay private and be use only to be contacted by Navus";
 AlertInfo.Option.cancel = "Cancel";
 AlertInfo.Option.agree = "Agree";
+
+AlertInfo.Logout.title = "Are you sure you want to log out?";
+AlertInfo.Logout.btnTitle.logout = "Logout";

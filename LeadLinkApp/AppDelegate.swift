@@ -38,6 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func logoutBtnTapped() {
+        
+        if let topController = UIApplication.topViewController() {
+            
+//            let source =
+//            topController.alert(alertInfo: AlertInfo.getInfo(type: .logout), sourceView: )
+//                .subscribe { index in
+//                    print("selected btn je sa index = \(index)")
+//                    topController.dismiss(animated: true)
+//                }
+//                .disposed(by: disposeBag)
+        }
+
+        
         (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
     }
     

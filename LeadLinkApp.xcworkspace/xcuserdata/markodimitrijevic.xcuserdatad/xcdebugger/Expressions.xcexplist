@@ -44,6 +44,9 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+            <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
             </PersistentString>
             <PersistentString
@@ -58,9 +61,6 @@
             <PersistentString
                value = "viewController.navigationItem">
             </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -68,6 +68,14 @@
          <PersistentStrings>
             <PersistentString
                value = "sSelf.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scanerViewModel.sessionId">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

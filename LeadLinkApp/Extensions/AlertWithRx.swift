@@ -47,26 +47,6 @@ extension UIViewController {
     
 }
 
-extension Constants {
-    struct AlertInfo {
-        static let ok = NSLocalizedString("AlertInfo.ok", comment: "")
-        struct ScanningNotSupported {
-            static let title = NSLocalizedString("AlertInfo.Scan.ScanningNotSupported.title", comment: "")
-            static let msg = NSLocalizedString("AlertInfo.Scan.ScanningNotSupported.msg", comment: "")
-        }
-        struct NoSettings {
-            static let title = NSLocalizedString("AlertInfo.Scan.NoSettings.title", comment: "")
-            static let msg = NSLocalizedString("AlertInfo.Scan.NoSettings.msg", comment: "")
-        }
-        struct Permission {
-            static let title = NSLocalizedString("AlertInfo.Permission.title", comment: "")
-            static let subtitle = NSLocalizedString("AlertInfo.Permission.subtitle", comment: "")
-            static let cancel = NSLocalizedString("AlertInfo.Option.cancel", comment: "")
-            static let agree = NSLocalizedString("AlertInfo.Option.agree", comment: "")
-        }
-    }
-}
-
 struct AlertInfo {
     var title: String?
     var text: String?
@@ -81,6 +61,14 @@ struct AlertInfo {
             return AlertInfo.init(title: Constants.AlertInfo.Permission.title,
                                   text: Constants.AlertInfo.Permission.subtitle,
                                   btnText: [Constants.AlertInfo.Permission.agree, Constants.AlertInfo.Permission.cancel])
+        case AlertInfoType.noCodeDetected:
+            return AlertInfo.init(title: Constants.AlertInfo.NoCodeDetected.title,
+                                  text: Constants.AlertInfo.NoCodeDetected.msg,
+                                  btnText: [Constants.AlertInfo.ok])
+        case AlertInfoType.logout:
+            return AlertInfo.init(title: Constants.AlertInfo.NoCodeDetected.title,
+                                  text: "",
+                                  btnText: [Constants.AlertInfo.ok, Constants.AlertInfo.cancel])
         }
     }
 }
@@ -88,6 +76,8 @@ struct AlertInfo {
 enum AlertInfoType {
     case noCamera
     case dataPermission
+    case noCodeDetected
+    case logout
 }
 
 
