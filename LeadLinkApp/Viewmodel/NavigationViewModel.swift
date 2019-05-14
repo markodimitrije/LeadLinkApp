@@ -61,7 +61,8 @@ extension NavigationViewModel: UINavigationControllerDelegate {
         case "LoginViewController": return [ ]
         case "CampaignsVC": return [logoutItem]
         case "ScanningVC": return [logoutItem, statsItem]
-        case "QuestionsAnswersVC": return [logoutItem, statsItem]
+        case "QuestionsAnswersVC": return []
+        case "StatsVC": return [logoutItem]
         default: break
         }
         return [ ]
