@@ -140,6 +140,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         print("answers saved to realm = \(saved)")
                     }).disposed(by: strongSelf.bag)
                 
+                self?.navigationController?.popViewController(animated: true)
+                
             })
             .disposed(by: bag)
     }
