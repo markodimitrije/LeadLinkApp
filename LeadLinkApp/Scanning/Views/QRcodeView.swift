@@ -53,14 +53,34 @@ class QRcodeView: UIView {
         
     }
     
-    static func getSizeForQrCodeView() -> CGSize {
+    private static func getSizeForQrCodeViewOnIpad() -> CGSize {
+
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+
+        let side = min(width, height)
+        return CGSize.init(width: 0.75*side, height: 0.75*side)
+
+    }
+    
+    private static func getSizeForQrCodeViewOnIphone() -> CGSize {
         
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         
-        let side = min(width, height)
-        return CGSize.init(width: 0.6*side, height: 0.6*side)
+        return CGSize.init(width: 0.9*width, height: 0.9*height)
         
+    }
+    
+    static func getSizeForQrCodeView() -> CGSize {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return getSizeForQrCodeViewOnIpad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone{
+            return getSizeForQrCodeViewOnIphone()
+        }
+        return CGSize.zero
+
     }
     
     static func getRectForQrCodeView(center: CGPoint) -> CGRect {

@@ -39,8 +39,16 @@ class AVSessionViewModel {
         captureSession = AVCaptureSession()
         oSession = BehaviorSubject<AVCaptureSession>.init(value: captureSession)
 
-        //let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
-        let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
+        guard let cameraPosition = AVCaptureDevice.cameraPosition() else {
+            oSession.onError(AVCaptureSessionError.cantDetermineCameraPosition)
+            return
+        }
+        
+//        let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
+//        let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
+        let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                         for: AVMediaType.video,
+                                                         position: cameraPosition)
         
         guard let cameraDevice = videoCaptureDevice else {
             print("AVSessionViewModel.init. no videoCaptureDevice");
@@ -116,4 +124,16 @@ enum AVCaptureSessionError: Error {
     case noVideoInput
     case cantAddInputToSession
     case cantAddOutputToSession
+    case cantDetermineCameraPosition
+}
+
+extension AVCaptureDevice {
+    static func cameraPosition() -> AVCaptureDevice.Position? {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return .front
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            return .back
+        }
+        return nil
+    }
 }

@@ -30,9 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bindNavigationViewModelWithNavigationViewController(navViewModel: navigationViewModel,
                                                             navVC: navVC)
         
-        let startingVC = startVCProvider.getStartViewController()
+        let startingVCs = startVCProvider.getStartViewControllers()
         
-        navVC?.pushViewController(startingVC, animated: false)
+        _ = startingVCs.map { vc -> Void in
+            navVC?.pushViewController(vc, animated: false)
+        }
+        
+        //navVC?.pushViewController(startingVC, animated: false)
         
         return true
     }
@@ -84,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 protocol StartViewControllerProviding {
-    func getStartViewController() -> UIViewController
+    func getStartViewControllers() -> [UIViewController]
 }
 
 class StartViewControllerProvider: StartViewControllerProviding {
@@ -94,12 +98,14 @@ class StartViewControllerProvider: StartViewControllerProviding {
     init(factory: AppDependencyContainer) {
         self.factory = factory
     }
-    func getStartViewController() -> UIViewController {
+    func getStartViewControllers() -> [UIViewController] {
         let userSession = factory.makeUserSessionRepository().readUserSession()
+        let loginVC = factory.makeLoginViewController()
+        let campaignsVC = factory.makeCampaignsViewController()
         if let _ = userSession.value {
-            return factory.makeCampaignsViewController()
+            return [loginVC, campaignsVC]
         } else {
-            return factory.makeLoginViewController()
+            return [loginVC]
         }
     }
 }
