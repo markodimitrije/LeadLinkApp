@@ -29,7 +29,7 @@ struct PresentQuestion {
         self.inputTxt = question.description
         self.options = question.settings.options ?? [ ]
         if (type == .dropdown) { // we actualy need two types: textOptionsSingleChoice and textOptionsMultipleChoice
-            self.multipleSelection = true
+            self.multipleSelection = false
         }
     }
 }

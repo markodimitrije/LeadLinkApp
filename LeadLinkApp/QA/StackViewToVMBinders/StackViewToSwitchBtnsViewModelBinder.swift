@@ -49,8 +49,6 @@ class StackViewToSwitchBtnsViewModelBinder: StackViewToViewModelBinder {
         // ovo radi... ali nije PRAVI Reactive !
         output.ids.subscribe(onNext: { array in
             
-            //            print("StackViewToSwitchBtnsViewModelBinder.subscribe.array = \(array)")
-            
             let active = btnViews.filter { view -> Bool in
                 array.contains(view.switcher.tag)
             }

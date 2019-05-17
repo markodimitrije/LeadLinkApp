@@ -1,0 +1,301 @@
+{
+    "data": [
+        {
+            "id": 9,
+            "name": "marko_1",
+            "description": "initial",
+            "user_id": 26529,
+            "conference_id": 7480,
+            "organization_id": 132,
+            "created_at": "2018-12-10 12:44:57",
+            "primary_color": null,
+            "color": null,
+            "logo": "https://service.e-materials.com/storage/resources/my_organization/123/123.png",
+            "settings": {},
+            "questions": [
+                {
+                    "id": 21,
+                    "campaign_id": 9,
+                    "title": "Rep name",
+                    "type": "dropdown",
+                    "group": null,
+                    "required": false,
+                    "description": "representative's name",
+                    "order": 17,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "alex skinner",
+                            "ali braun",
+                            "angie lewis",
+                            "brenda wiggins",
+                            "erin kelley"
+                        ]
+                    }
+                },
+                {
+                    "id": 22,
+                    "campaign_id": 9,
+                    "title": "title",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "title value",
+                    "order": 2,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Title"
+                        ]
+                    }
+                },
+                {
+                    "id": 26,
+                    "campaign_id": 9,
+                    "title": "country",
+                    "type": "dropdown",
+                    "group": null,
+                    "required": false,
+                    "description": "Country",
+                    "order": 7,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Brasil",
+                            "Singapur",
+                            "Serbia",
+                            "India",
+                            "China"
+                        ]
+                    }
+                },
+                {
+                    "id": 27,
+                    "campaign_id": 9,
+                    "title": "city",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "City",
+                    "order": 8,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "City"
+                        ]
+                    }
+                },
+                {
+                    "id": 28,
+                    "campaign_id": 9,
+                    "title": "postcode",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "postcode",
+                    "order": 9,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Postcode"
+                        ]
+                    }
+                },
+                {
+                    "id": 29,
+                    "campaign_id": 9,
+                    "title": "phone_number",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "Phone number",
+                    "order": 10,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Phone number"
+                        ]
+                    }
+                },
+                {
+                    "id": 31,
+                    "campaign_id": 9,
+                    "title": "specialty",
+                    "type": "dropdown",
+                    "group": null,
+                    "required": false,
+                    "description": "Specialty",
+                    "order": 12,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Specialty"
+                        ]
+                    }
+                },
+                {
+                    "id": 32,
+                    "campaign_id": 9,
+                    "title": "hospital_institution",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "Hospital/institution",
+                    "order": 13,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Hospital/institution"
+                        ]
+                    }
+                },
+                {
+                    "id": 33,
+                    "campaign_id": 9,
+                    "title": "Colors",
+                    "type": "switchBtn",
+                    "group": null,
+                    "required": false,
+                    "description": "Colors",
+                    "order": 14,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "I would like to be contacted by a local representative",
+                        ]
+                    }
+                },
+                {
+                    "id": 34,
+                    "campaign_id": 9,
+                    "title": "Terms",
+                    "type": "switchBtn",
+                    "group": null,
+                    "required": false,
+                    "description": "Terms",
+                    "order": 15,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "I have read and agree to",
+                            "Terms & Conditions",
+                            "sdbhdbhcdhshabhasbhdsahhdsabhja,sdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsabh jasdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsassxsSXSHDSVHDSVHHVDSHCDHSVDSSGDKSGVHCGHSGDFSGDFGVDFSVGDFSabhja"
+                        ]
+                    }
+                },
+                {
+                    "id": 36,
+                    "campaign_id": 9,
+                    "title": "sport",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "Sport",
+                    "order": 3,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "water sport",
+                            "field sport"
+                        ]
+                    }
+                },
+                {
+                    "id": 37,
+                    "campaign_id": 9,
+                    "title": "curently_customer",
+                    "type": "radio",
+                    "group": null,
+                    "required": false,
+                    "description": "curently_customer",
+                    "order": 16,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Yes",
+                            "No"
+                        ]
+                    }
+                },
+                {
+                    "id": 38,
+                    "campaign_id": 9,
+                    "title": "city_selection",
+                    "type": "radio",
+                    "group": null,
+                    "required": false,
+                    "description": "select city",
+                    "order": 11,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "Belgrade",
+                            "Paris",
+                            "London",
+                            "New York",
+                            "Beijing"
+                        ]
+                    }
+                }
+            ],
+            "organization": {
+                "id": 132,
+                "name": "My organization",
+                "conferences": [
+                    {
+                        "id": 7480,
+                        "name": "sasa test",
+                        "starts_at": "2018-09-04",
+                        "ends_at": "2018-09-04",
+                        "slug": null,
+                        "description": null,
+                        "location": "sasa",
+                        "allow_downloads": true,
+                        "sponsored": false,
+                        "sponsor_banner": null,
+                        "sponsor_title": null,
+                        "sponsor_link": null,
+                        "banner_small": null,
+                        "banner_medium": null,
+                        "banner_large": null,
+                        "has_presentations": 1,
+                        "website": null,
+                        "city": null,
+                        "venue": null,
+                        "coordinates": null,
+                        "country_id": null,
+                        "mobile_settings": {},
+                        "has_mobile_application": 0,
+                        "api_key": null
+                    },
+                    {
+                        "id": 7414,
+                        "name": "NDT Reviewers Course",
+                        "starts_at": "2018-03-26",
+                        "ends_at": "2018-03-26",
+                        "slug": "e-learning-1",
+                        "description": "e-learning course",
+                        "location": null,
+                        "allow_downloads": true,
+                        "sponsored": false,
+                        "sponsor_banner": null,
+                        "sponsor_title": null,
+                        "sponsor_link": null,
+                        "banner_small": null,
+                        "banner_medium": null,
+                        "banner_large": null,
+                        "has_presentations": 1,
+                        "website": null,
+                        "city": null,
+                        "venue": null,
+                        "coordinates": null,
+                        "country_id": null,
+                        "mobile_settings": {},
+                        "has_mobile_application": null,
+                        "api_key": null
+                    }
+                ]
+            }
+        }
+    ]
+}

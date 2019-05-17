@@ -16,6 +16,8 @@ class ViewmodelFactory {
         let answer = singleQuestion.answer
         
         switch singleQuestion.question.type {
+        case .textField:
+            return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? TextAnswer)
         case .radioBtn:
             return RadioViewModel.init(question: question, answer: answer)
         case .checkbox:
@@ -26,10 +28,10 @@ class ViewmodelFactory {
             return CheckboxWithInputViewModel.init(question: question, answer: answer)
         case .switchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer)
-        case .textField:
-            return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? TextAnswer)
         case .dropdown:
             return SelectOptionTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
+        case .textArea:
+            return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
         default:
             fatalError("ViewmodelFactory/makeViewmodel/no supported type")
         }

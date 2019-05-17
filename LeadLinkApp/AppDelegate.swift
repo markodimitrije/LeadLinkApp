@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         campaignsViewmodel.getCampaignsFromWeb()
         
     }
-
+   
     private func bindNavigationViewModelWithNavigationViewController(navViewModel: NavigationViewModel, navVC: UINavigationController?) {
         navVC?.delegate = navViewModel
         navViewModel.navBarItemsPublisher

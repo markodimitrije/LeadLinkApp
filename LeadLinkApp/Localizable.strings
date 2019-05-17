@@ -25,3 +25,5 @@ AlertInfo.Option.agree = "Agree";
 
 AlertInfo.Logout.title = "Are you sure you want to log out?";
 AlertInfo.Logout.btnTitle.logout = "Logout";
+
+TermsAndConditions.btnLabel.text = "Terms & Conditions";

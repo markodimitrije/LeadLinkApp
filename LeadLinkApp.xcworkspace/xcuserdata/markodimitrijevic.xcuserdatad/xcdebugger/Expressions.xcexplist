@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "question.type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,10 +52,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem">
+               value = "doneBtn">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
@@ -57,17 +68,6 @@
             </PersistentString>
             <PersistentString
                value = "count">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -85,6 +85,14 @@
             </PersistentString>
             <PersistentString
                value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
