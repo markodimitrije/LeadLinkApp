@@ -44,5 +44,9 @@ extension Constants {
             static let logoutBtnTitle = NSLocalizedString("AlertInfo.Logout.btnTitle.logout", comment: "")
             static let cancelBtnTitle = NSLocalizedString("AlertInfo.cancel", comment: "")
         }
+        struct questionsFormNotValid {
+            static let title = NSLocalizedString("AlertInfo.QuestionsAnswers.FormNotValid.title", comment: "")
+            static let msg = NSLocalizedString("AlertInfo.QuestionsAnswers.FormNotValid.msg", comment: "")
+        }
     }
 }

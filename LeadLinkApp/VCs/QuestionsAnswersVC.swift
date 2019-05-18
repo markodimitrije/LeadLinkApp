@@ -100,6 +100,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func listenToSaveEvent() {
+        
         saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
@@ -136,15 +137,27 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                     }
                 })
                 
-                strongSelf.surveyInfo.save(answers: answers)
-                    .subscribe({ (saved) in
-                        print("answers saved to realm = \(saved)")
-                    }).disposed(by: strongSelf.bag)
-                
-                self?.navigationController?.popViewController(animated: true)
+                let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+                if validator.hasValidEmail {
+                    strongSelf.surveyInfo.save(answers: answers)
+                        .subscribe({ (saved) in
+                            print("answers saved to realm = \(saved)")
+                        }).disposed(by: strongSelf.bag)
+
+                    strongSelf.navigationController?.popViewController(animated: true)
+                } else {
+                    strongSelf.showAlertFormNotValid()
+                }
                 
             })
             .disposed(by: bag)
+    }
+    
+    private func showAlertFormNotValid() {
+        let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
+        self.alert(alertInfo: alertInfo, preferredStyle: .alert)
+            .subscribe(onNext: { _ in
+            }).disposed(by: bag)
     }
     
 }

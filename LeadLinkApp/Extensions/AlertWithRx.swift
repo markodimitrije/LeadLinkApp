@@ -57,23 +57,27 @@ struct AlertInfo {
     var btnText: [String]
     static func getInfo(type: AlertInfoType) -> AlertInfo {
         switch type {
-        case AlertInfoType.noCamera:
+        case .noCamera:
             return AlertInfo.init(title: Constants.AlertInfo.ScanningNotSupported.title,
                                   text: Constants.AlertInfo.ScanningNotSupported.msg,
                                   btnText: [Constants.AlertInfo.ok])
-        case AlertInfoType.dataPermission:
+        case .dataPermission:
             return AlertInfo.init(title: Constants.AlertInfo.Permission.title,
                                   text: Constants.AlertInfo.Permission.subtitle,
                                   btnText: [Constants.AlertInfo.Permission.agree, Constants.AlertInfo.Permission.cancel])
-        case AlertInfoType.noCodeDetected:
+        case .noCodeDetected:
             return AlertInfo.init(title: Constants.AlertInfo.NoCodeDetected.title,
                                   text: Constants.AlertInfo.NoCodeDetected.msg,
                                   btnText: [Constants.AlertInfo.ok])
-        case AlertInfoType.logout:
+        case .logout:
             return AlertInfo.init(title: Constants.AlertInfo.logout.title,
                                   text: "",
                                   btnText: [Constants.AlertInfo.ok,
                                             Constants.AlertInfo.cancel])
+        case .questionsFormNotValid:
+            return AlertInfo.init(title: Constants.AlertInfo.questionsFormNotValid.title,
+                                  text: Constants.AlertInfo.questionsFormNotValid.msg,
+                                  btnText: [Constants.AlertInfo.ok])
         }
     }
 }
@@ -83,6 +87,7 @@ enum AlertInfoType {
     case dataPermission
     case noCodeDetected
     case logout
+    case questionsFormNotValid
 }
 
 

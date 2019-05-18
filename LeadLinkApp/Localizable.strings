@@ -26,4 +26,7 @@ AlertInfo.Option.agree = "Agree";
 AlertInfo.Logout.title = "Are you sure you want to log out?";
 AlertInfo.Logout.btnTitle.logout = "Logout";
 
+AlertInfo.QuestionsAnswers.FormNotValid.title = "Form can't be saved";
+AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms and conditions are mandatory fields";
+
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
