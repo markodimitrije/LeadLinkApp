@@ -137,20 +137,24 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                     }
                 })
                 
-                let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
-                if validator.hasValidEmail {
-                    strongSelf.surveyInfo.save(answers: answers)
-                        .subscribe({ (saved) in
-                            print("answers saved to realm = \(saved)")
-                        }).disposed(by: strongSelf.bag)
-
-                    strongSelf.navigationController?.popViewController(animated: true)
-                } else {
-                    strongSelf.showAlertFormNotValid()
-                }
+                strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: answers)
                 
             })
             .disposed(by: bag)
+    }
+    
+    private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
+        let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+        if validator.hasValidEmail {
+            strongSelf.surveyInfo.save(answers: answers)
+                .subscribe({ (saved) in
+                    print("answers saved to realm = \(saved)")
+                }).disposed(by: strongSelf.bag)
+            
+            strongSelf.navigationController?.popViewController(animated: true)
+        } else {
+            strongSelf.showAlertFormNotValid()
+        }
     }
     
     private func showAlertFormNotValid() {
@@ -165,7 +169,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 class ViewControllerDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private let factory = AppDependencyContainer.init()
-    lazy private var dataSourceHelper = ViewControllerDataSourceAndDelegateHelper(questions: questions)
+    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: questions)
     
     private var viewController: QuestionsAnswersVC
     
@@ -311,7 +315,7 @@ extension ViewControllerDataSourceAndDelegate: UITextViewDelegate {
     }
 }
 
-struct ViewControllerDataSourceAndDelegateHelper {
+struct QuestionsDataSourceAndDelegateHelper {
     
     private var orderedQuestions = [PresentQuestion]()
     
