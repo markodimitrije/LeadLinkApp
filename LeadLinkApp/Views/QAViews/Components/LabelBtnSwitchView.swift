@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LabelBtnSwitchView: UIView {
+class LabelBtnSwitchView: UIView, ViewWithSwitch {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switcher: UISwitch!

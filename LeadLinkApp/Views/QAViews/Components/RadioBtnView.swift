@@ -137,6 +137,16 @@ extension Reactive where Base: LabelBtnSwitchView {
     
 }
 
+extension Reactive where Base: TermsLabelBtnSwitchView {
+    
+    var optionTxt: Binder<String> {
+        return Binder.init(self.base, binding: { (view, value) in
+            view.labelText = value
+        })
+    }
+    
+}
+
 extension Reactive where Base: LabelAndTextField {
     
     var headlineTxt: Binder<String> {

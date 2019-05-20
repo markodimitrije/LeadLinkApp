@@ -23,6 +23,7 @@ class ViewStackerFactory {
     private let switchBtnsViewModelBinder = StackViewToSwitchBtnsViewModelBinder()
     private let txtFieldToViewModelBinder = TextFieldToViewModelBinder()
     private let txtViewToDropdownViewModelBinder = TextViewToDropdownViewModelBinder()
+    private let termsSwitchBtnsViewModelBinder = StackViewToTermsViewModelBinder()
     
     init(viewFactory: ViewFactory, bag: DisposeBag, delegate: UITextViewDelegate?) {
         self.viewFactory = viewFactory
@@ -56,10 +57,7 @@ class ViewStackerFactory {
                                                  viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                                  bag: bag)
             }
-//            txtFieldToViewModelBinder.hookUp(view: stackerView,
-//                                             labelAndTextView: btnViews.first as! LabelAndTextField,
-//                                             viewmodel: viewmodel as! LabelWithTextFieldViewModel,
-//                                             bag: bag)
+//
             finalView = stackerView
             
         case .dropdown:
@@ -135,6 +133,17 @@ class ViewStackerFactory {
                                              btnViews: btnViews as! [LabelBtnSwitchView],
                                              viewmodel: viewmodel as! SwitchBtnsViewModel,
                                              bag: bag)
+            
+        case .termsSwitchBtn:
+            let res = self.getTermsSwitchBtnsQuestion(question: singleQuestion.question,
+                                                      answer: singleQuestion.answer,
+                                                      frame: fr)
+            finalView = res.0; btnViews = res.1
+            
+            termsSwitchBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+                                                  btnViews: btnViews as! [TermsLabelBtnSwitchView],
+                                                  viewmodel: viewmodel as! SwitchBtnsViewModel,
+                                                  bag: bag)
             
         default: break
         }
@@ -229,6 +238,21 @@ class ViewStackerFactory {
         _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
         
         //let finalView = questionViewWithHeadlineLabelForSwitchView(question: question, aboveStackerView: stackerView)
+        
+        let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
+        
+        return (finalView, btnViews)
+    }
+    
+    private func getTermsSwitchBtnsQuestion(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
+        
+        let stackerView = viewFactory.getStackedTermsSwitchBtns(question: question, answer: answer, frame: frame)
+        
+        let btnViews = stackerView.components.flatMap { view -> [TermsLabelBtnSwitchView] in
+            return (view as? OneRowStacker)?.components as? [TermsLabelBtnSwitchView] ?? [ ]
+        }
+        
+        _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
         
         let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
         

@@ -27,12 +27,23 @@ class SwitchBtnsViewmodelInputCreator {
     
     // sa svakim tap na switch, posalji snapshot svih switcheva - uradio sam da emituje samo onaj koji je fire (single data)
 
-    func createSwitchBtnsInput(btnViews: [LabelBtnSwitchView] ) -> Observable<Int> {
-        
+//    func createSwitchBtnsInput(btnViews: [LabelBtnSwitchView] ) -> Observable<Int> {
+//
+//        let allEvents = btnViews.map {($0.switcher.rx.switchTag.asObservable())}
+//
+//        return Observable.merge(allEvents)
+//
+//    }
+    func createSwitchBtnsInput(btnViews: [ViewWithSwitch] ) -> Observable<Int> {
+
         let allEvents = btnViews.map {($0.switcher.rx.switchTag.asObservable())}
-        
+
         return Observable.merge(allEvents)
-        
+
     }
-    
+
+}
+
+protocol ViewWithSwitch {
+    var switcher: UISwitch! {get set}
 }

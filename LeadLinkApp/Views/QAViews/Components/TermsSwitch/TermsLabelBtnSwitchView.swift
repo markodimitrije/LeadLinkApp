@@ -8,11 +8,13 @@
 
 import UIKit
 
-class TermsLabelBtnSwitchView: UIView {
+class TermsLabelBtnSwitchView: UIView, ViewWithSwitch {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var linkBtn: UIButton!
+    
+    
     
     var labelText: String? {
         get {

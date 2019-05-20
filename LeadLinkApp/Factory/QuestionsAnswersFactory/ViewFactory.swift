@@ -82,6 +82,12 @@ class ViewFactory {
         
     }
     
+    func getStackedTermsSwitchBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
+        
+        return createStackWithSameComponents(ofType: TermsLabelBtnSwitchView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        
+    }
+    
     func getStackedLblAndTextField(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
         //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!

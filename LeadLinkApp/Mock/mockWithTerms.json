@@ -168,18 +168,18 @@
                 {
                     "id": 34,
                     "campaign_id": 9,
-                    "title": "Terms",
-                    "type": "switchBtn",
+                    "title": "Implement Terms",
+                    "type": "termsSwitchBtn",
                     "group": null,
                     "required": false,
-                    "description": "Terms",
+                    "description": "Implement Terms",
                     "order": 15,
                     "element_id": null,
                     "settings": {
                         "options": [
-                            "I have read and agree to",
-                            "Terms & Conditions",
-                            "sdbhdbhcdhshabhasbhdsahhdsabhja,sdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsabh jasdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsabhjasdbhdbhcdhshabhasbhdsahhdsassxsSXSHDSVHDSVHHVDSHCDHSVDSSGDKSGVHCGHSGDFSGDFGVDFSVGDFSabhja"
+                            "Implement I ... read and agree",
+                            "Implement Terms & Conditions",
+                            "implemet me"
                         ]
                     }
                 },

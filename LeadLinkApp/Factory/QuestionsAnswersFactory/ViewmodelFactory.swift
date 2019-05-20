@@ -32,6 +32,8 @@ class ViewmodelFactory {
             return SelectOptionTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
         case .textArea:
             return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
+        case .termsSwitchBtn:
+            return SwitchBtnsViewModel.init(question: question, answer: answer)
         default:
             fatalError("ViewmodelFactory/makeViewmodel/no supported type")
         }
