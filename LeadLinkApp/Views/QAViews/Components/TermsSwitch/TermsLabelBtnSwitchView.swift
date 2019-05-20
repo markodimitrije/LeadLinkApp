@@ -14,6 +14,9 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch {
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var linkBtn: UIButton!
     
+    @IBAction func termsTapped(_ sender: UIButton) {
+        termsBtnTapped()
+    }
     
     
     var labelText: String? {
@@ -76,6 +79,14 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch {
         self.switchIsOn = termsInfo.switchInfo.switchIsOn
         self.desc = termsInfo.switchInfo.desc
         self.linkBtnText = termsInfo.linkText
+    }
+    
+    private func termsBtnTapped() { print("show terms screen....")
+        if let topVC = UIApplication.topViewController() {
+            let factory = AppDependencyContainer()
+            let termsVC = factory.makeTermsVC()
+            topVC.present(termsVC, animated: true, completion: nil)
+        }
     }
     
 }

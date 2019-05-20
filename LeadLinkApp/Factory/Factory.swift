@@ -202,6 +202,15 @@ public class AppDependencyContainer {
         return chooseOptionsVC
     }
     
+    func makeTermsVC() -> UINavigationController {
+        guard let navForTerms = NavForTermsVC.instantiate(using: sb) as? NavForTermsVC,
+            let termsVC = navForTerms.viewControllers.first as? TermsVC else { fatalError() }
+    
+        termsVC.termsTxt.accept(termsString) // global var...
+        
+        return navForTerms
+    }
+    
     private func getViewControllerTypes() -> [UIViewController.Type] {
         return [LoginViewController.self,
                 CampaignsVC.self,

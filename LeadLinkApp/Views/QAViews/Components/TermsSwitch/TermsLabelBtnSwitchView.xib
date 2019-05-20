@@ -42,6 +42,9 @@
                                             <rect key="frame" x="0.0" y="36" width="404" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <state key="normal" title="Terms &amp; conditions"/>
+                                            <connections>
+                                                <action selector="termsTapped:" destination="-1" eventType="touchUpInside" id="ncJ-zn-T6r"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
