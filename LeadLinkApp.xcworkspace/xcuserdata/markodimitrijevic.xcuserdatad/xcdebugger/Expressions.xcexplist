@@ -3,26 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
          <PersistentStrings>
             <PersistentString
-               value = "surveyInfo.campaign">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewStackerFactory.drawStackView(questionsOfSameType:viewmodel:):ViewStackerFactory.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "btnViews as! [TermsLabelBtnSwitchView]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "popoverController.sourceRect">
+               value = "question.type">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -41,14 +25,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sSelf.navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -57,13 +33,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "codesView">
+               value = "popoverController.sourceRect">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "containerView">
+               value = "surveyInfo.campaign">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -91,30 +72,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in StackViewToTermsViewModelBinder.hookUp(view:btnViews:viewmodel:bag:):StackViewToTermsViewModelBinder.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "btnViews[offset]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ScanningVC.found(code:):ScanningVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "scanerViewModel.sessionId">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "question.type">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -128,6 +85,33 @@
             </PersistentString>
             <PersistentString
                value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sSelf.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scanerViewModel.sessionId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "codesView">
+            </PersistentString>
+            <PersistentString
+               value = "containerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -290,13 +290,32 @@ class ViewStackerFactory {
         
     }
     
+//    private func questionViewWithHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UIView {
+//        let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
+//                                                         size: CGSize.init(width: stackerView.bounds.width,
+//                                                                           height: tableRowHeightCalculator.getHeadlineHeightForDeviceType())))
+//        titleLabel.backgroundColor = .red
+//        titleLabel.numberOfLines = 0
+//        titleLabel.text = question.headlineText
+//
+//        let finalView = UIView()
+//        finalView.addSubview(titleLabel)
+//        finalView.frame = CGRect.init(origin: stackerView.frame.origin, size: CGSize.init(width: stackerView.bounds.width, height: stackerView.bounds.height + titleLabel.bounds.height))
+//        let stackerShifted = stackerView
+//        stackerShifted.frame.origin.y += titleLabel.bounds.height
+//        finalView.insertSubview(stackerShifted, at: 1)
+//
+//        return finalView
+//    }
     private func questionViewWithHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UIView {
-        let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
-                                                         size: CGSize.init(width: stackerView.bounds.width,
-                                                                           height: tableRowHeightCalculator.getHeadlineHeightForDeviceType())))
-        titleLabel.backgroundColor = .red
-        titleLabel.numberOfLines = 0
-        titleLabel.text = question.headlineText
+        
+        return headlinedQuestionView(question: question, aboveStackerView: stackerView) // refactor u podfunc
+        
+    }
+    
+    private func headlinedQuestionView(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UIView {
+        
+        let titleLabel = getHeadlineLabel(question: question, aboveStackerView: stackerView)
         
         let finalView = UIView()
         finalView.addSubview(titleLabel)
@@ -306,6 +325,23 @@ class ViewStackerFactory {
         finalView.insertSubview(stackerShifted, at: 1)
         
         return finalView
+    }
+    
+    private func getHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UILabel {
+        let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
+                                                         size: CGSize.init(width: stackerView.bounds.width,
+                                                                           height: tableRowHeightCalculator.getHeadlineHeightForDeviceType())))
+        titleLabel.backgroundColor = .red
+        titleLabel.numberOfLines = 0
+        titleLabel.text = question.headlineText
+        
+        if question.headlineText == "" {
+            titleLabel.frame = CGRect.init(origin: titleLabel.frame.origin,
+                                           size: CGSize.init(width: titleLabel.bounds.width,
+                                                             height: CGFloat(0)))
+        }
+        
+        return titleLabel
     }
     
 }

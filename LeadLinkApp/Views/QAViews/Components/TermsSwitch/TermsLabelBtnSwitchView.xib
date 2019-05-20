@@ -32,7 +32,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
                                     <rect key="frame" x="0.0" y="0.0" width="404" height="72"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="I have read and accept the" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Implement &quot;read and accept the&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
                                             <rect key="frame" x="0.0" y="0.0" width="404" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
@@ -41,7 +41,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
                                             <rect key="frame" x="0.0" y="36" width="404" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="Terms &amp; conditions"/>
+                                            <state key="normal" title="Implement Terms &amp; conditions"/>
                                             <connections>
                                                 <action selector="termsTapped:" destination="-1" eventType="touchUpInside" id="ncJ-zn-T6r"/>
                                             </connections>

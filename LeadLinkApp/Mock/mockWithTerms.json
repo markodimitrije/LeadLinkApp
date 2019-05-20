@@ -152,12 +152,12 @@
                 {
                     "id": 33,
                     "campaign_id": 9,
-                    "title": "Colors",
+                    "title": "",
                     "type": "switchBtn",
                     "group": null,
                     "required": false,
-                    "description": "Colors",
-                    "order": 14,
+                    "description": "",
+                    "order": 40,
                     "element_id": null,
                     "settings": {
                         "options": [
@@ -169,7 +169,7 @@
                     "id": 34,
                     "campaign_id": 9,
                     "title": "Implement Terms",
-                    "type": "termsSwitchBtn",
+                    "type": "switchBtn",
                     "group": null,
                     "required": false,
                     "description": "Implement Terms",
@@ -177,9 +177,25 @@
                     "element_id": null,
                     "settings": {
                         "options": [
-                            "Implement I ... read and agree",
-                            "Implement Terms & Conditions",
-                            "implemet me"
+                            "red color",
+                            "blue color",
+                            "gree color"
+                        ]
+                    }
+                },
+                {
+                    "id": 35,
+                    "campaign_id": 9,
+                    "title": "",
+                    "type": "termsSwitchBtn",
+                    "group": null,
+                    "required": false,
+                    "description": "Implement Terms",
+                    "order": 41,
+                    "element_id": null,
+                    "settings": {
+                        "options": [
+                            "I have read and understand"
                         ]
                     }
                 },
