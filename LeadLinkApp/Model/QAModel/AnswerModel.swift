@@ -95,6 +95,7 @@ struct SwitchAnswer: Answering {
         self.id = "\(self.campaignId)" + "\(self.questionId)" + code
         self.content = content
         self.optionIds = optionIds
+        print("SwitchAnswer.optionIds = \(optionIds)")
     }
     
     init(realmAnswer: RealmAnswer?) {
@@ -113,6 +114,7 @@ struct SwitchAnswer: Answering {
             let optionIds = realmAnswer.optionIds ?? List<Int>()
             options = Array(optionIds)
         }
+        print("SwitchAnswer.options.count = \(options.count)")
         self.optionIds = options
 
     }

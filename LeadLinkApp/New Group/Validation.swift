@@ -10,18 +10,39 @@ import Foundation
 
 struct Validation {
     
+    // API
+    var questionsFormIsValid: Bool {
+        return hasValidEmail && hasCheckedTermsAndConditions
+    }
+    
     private let emailValidator = EmailValidator()
     
     private var emailAnswer: MyAnswer?
+    private var termsAnswer: MyAnswer?
     
-    var hasValidEmail: Bool {
+    private var hasValidEmail: Bool {
         return emailAnswer != nil
     }
+    private var hasCheckedTermsAndConditions: Bool {
+        if termsAnswer == nil {return true}
+        return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
+    }
     
-    init(answers: [MyAnswer]) {
+    init(questions: [SingleQuestion], answers: [MyAnswer]) {
         self.emailAnswer = answers.first(where: { answer -> Bool in
             emailValidator.isValidEmail(testStr: answer.content.first)
         })
+        
+        let termsQuestion = questions.first { question -> Bool in
+            question.question.type == .termsSwitchBtn
+        }
+        
+        if let terms = termsQuestion {
+            self.termsAnswer = answers.first(where: { answer -> Bool in
+                answer.questionId == terms.question.id
+            })
+        }
+        
     }
     
 }

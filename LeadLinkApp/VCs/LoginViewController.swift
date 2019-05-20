@@ -52,8 +52,6 @@ class LoginViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() { super.viewDidLoad()
         
-        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        
         bindViews(to: logInViewModel)
         
         bindActualSessionToCredentialFields()

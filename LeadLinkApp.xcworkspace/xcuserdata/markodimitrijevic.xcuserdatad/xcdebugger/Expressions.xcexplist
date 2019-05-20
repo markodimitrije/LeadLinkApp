@@ -52,10 +52,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "count">
+               value = "chooseOptionsVC">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "count">
             </PersistentString>
             <PersistentString
                value = "doneBtn">
@@ -65,9 +68,6 @@
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -101,6 +101,14 @@
          <PersistentStrings>
             <PersistentString
                value = "scanerViewModel.sessionId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "termsAnswer?.optionIds?.first">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

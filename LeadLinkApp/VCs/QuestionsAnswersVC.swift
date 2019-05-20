@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Realm
+import RealmSwift
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {//}, RadioBtnListener {
     
@@ -38,6 +40,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     override func viewDidLoad() { super.viewDidLoad()
+        
+        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         self.saveBtn = SaveButton()
         
@@ -144,8 +148,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
-        let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
-        if validator.hasValidEmail {
+        //let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+        let validator = Validation(questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+        if validator.questionsFormIsValid {
             strongSelf.surveyInfo.save(answers: answers)
                 .subscribe({ (saved) in
                     print("answers saved to realm = \(saved)")
