@@ -71,7 +71,7 @@ public class CampaignsViewModel {
     private(set) var campaigns: Results<RealmCampaign>!
     
     // input
-    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: 0)
+    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: nil)
     
     // output
     
@@ -97,10 +97,10 @@ public class CampaignsViewModel {
         oCampaigns = Observable.changeset(from: campaigns)
         
         selectedTableIndex.subscribe(onNext: { index in
-            print("selectedTableIndex je dobio index = \(index)")
+//            print("selectedTableIndex je dobio index = \(index)")
             let campaigns = self.campaigns.toArray()
             if let index = index, index < campaigns.count {
-                print("da li je ikada emitovao index >!>>! = \(index)")
+//                print("da li je ikada emitovao index >!>>! = \(index)")
                 self.selectedCampaign.onNext(campaigns[index])
             }
         }).disposed(by: disposeBag)

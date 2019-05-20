@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,41 +21,23 @@
             <rect key="frame" x="0.0" y="0.0" width="524" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-q0-Hx0">
-                    <rect key="frame" x="8" y="0.0" width="508" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="What is your favourite movie?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
-                            <rect key="frame" x="0.0" y="0.0" width="441.5" height="44"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PP0-JE-myS">
-                            <rect key="frame" x="449.5" y="0.0" width="58.5" height="44"/>
-                            <subviews>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
-                                    <rect key="frame" x="8" y="6.5" width="44.5" height="31"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="31" id="RC8-92-MzR"/>
-                                    </constraints>
-                                </switch>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerX" secondItem="PP0-JE-myS" secondAttribute="centerX" id="9cV-0r-MKi"/>
-                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="PP0-JE-myS" secondAttribute="centerY" id="Hko-Pb-aGB"/>
-                                <constraint firstAttribute="width" secondItem="PP0-JE-myS" secondAttribute="height" multiplier="1:0.75" id="Lba-ee-ldp"/>
-                                <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="8" id="c2e-cK-xS3"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="What is your favourite movie?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
+                    <rect key="frame" x="16" y="12" width="225" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
+                    <rect key="frame" x="459" y="6.5" width="51" height="31"/>
+                </switch>
             </subviews>
             <color key="backgroundColor" red="0.96862745100000003" green="0.57647058819999997" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="IxM-lI-Lgc"/>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="JXg-tK-JSn"/>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cWg-F4-Jo0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b9O-q0-Hx0" secondAttribute="trailing" constant="8" id="i8l-Tu-Grg"/>
+                <constraint firstItem="pMT-AM-trd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7lT-x6-G26"/>
+                <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="16" id="EKO-Ee-Z6T"/>
+                <constraint firstItem="pMT-AM-trd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="M8m-dZ-pgU"/>
+                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WeM-Mq-WIL"/>
+                <constraint firstItem="ATm-yX-Fdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pMT-AM-trd" secondAttribute="trailing" constant="8" id="bA5-Zh-08i"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

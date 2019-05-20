@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TermsLabelBtnSwitchView: UIView, ViewWithSwitch {
+class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switcher: UISwitch!
