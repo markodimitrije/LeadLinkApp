@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,69 +19,44 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="524" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="524" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-q0-Hx0">
-                    <rect key="frame" x="8" y="0.0" width="508" height="72"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
+                    <rect key="frame" x="16" y="4" width="239.5" height="37"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7mZ-UB-e3J">
-                            <rect key="frame" x="0.0" y="0.0" width="404" height="72"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
-                                    <rect key="frame" x="0.0" y="0.0" width="404" height="72"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Implement &quot;read and accept the&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
-                                            <rect key="frame" x="0.0" y="36" width="404" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="Implement Terms &amp; conditions"/>
-                                            <connections>
-                                                <action selector="termsTapped:" destination="-1" eventType="touchUpInside" id="ncJ-zn-T6r"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                        </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PP0-JE-myS" userLabel="SwitchHolderView">
-                            <rect key="frame" x="412" y="0.0" width="96" height="72"/>
-                            <subviews>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
-                                    <rect key="frame" x="8" y="20.5" width="82" height="31"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="31" id="RC8-92-MzR"/>
-                                    </constraints>
-                                </switch>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerX" secondItem="PP0-JE-myS" secondAttribute="centerX" id="9cV-0r-MKi"/>
-                                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="PP0-JE-myS" secondAttribute="centerY" id="Hko-Pb-aGB"/>
-                                <constraint firstAttribute="width" secondItem="PP0-JE-myS" secondAttribute="height" multiplier="1:0.75" id="Lba-ee-ldp"/>
-                                <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="8" id="c2e-cK-xS3"/>
-                            </constraints>
-                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Implement &quot;read and accept the&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
+                            <rect key="frame" x="0.0" y="0.0" width="239.5" height="18.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
+                            <rect key="frame" x="0.0" y="18.5" width="239.5" height="18.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Implement Terms &amp; conditions"/>
+                            <connections>
+                                <action selector="termsTapped:" destination="-1" eventType="touchUpInside" id="ncJ-zn-T6r"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="PP0-JE-myS" secondAttribute="trailing" id="jOW-Fl-DIV"/>
-                    </constraints>
                 </stackView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
+                    <rect key="frame" x="459" y="7" width="51" height="31"/>
+                </switch>
             </subviews>
             <color key="backgroundColor" red="0.96862745100000003" green="0.57647058819999997" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="IxM-lI-Lgc"/>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="JXg-tK-JSn"/>
-                <constraint firstItem="b9O-q0-Hx0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cWg-F4-Jo0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b9O-q0-Hx0" secondAttribute="trailing" constant="8" id="i8l-Tu-Grg"/>
+                <constraint firstItem="ATm-yX-Fdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ruh-gA-AcD" secondAttribute="trailing" constant="8" id="BMn-3R-NBQ"/>
+                <constraint firstItem="ruh-gA-AcD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="BjI-W1-HtX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ruh-gA-AcD" secondAttribute="bottom" constant="4" id="PjR-HV-WWr"/>
+                <constraint firstItem="ruh-gA-AcD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="dEt-Zl-cvm"/>
+                <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rbh-Ed-llb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="16" id="tEH-h3-KpT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="448" y="-112"/>
+            <point key="canvasLocation" x="569.60000000000002" y="-204.64767616191907"/>
         </view>
     </objects>
 </document>
