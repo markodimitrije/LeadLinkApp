@@ -16,11 +16,11 @@ class RealmWebReportedAnswers: Object {
     @objc dynamic var code: String = ""
     @objc dynamic var date: Date?
     
-    static func create(id: String, report: AnswersReport) -> RealmWebReportedAnswers {
+    static func create(report: AnswersReport) -> RealmWebReportedAnswers {
         let object = RealmWebReportedAnswers()
-        object.id = id
         object.campaignId = report.campaignId
         object.code = report.code
+        object.id = object.campaignId + object.code
         object.date = report.date
         return object
     }

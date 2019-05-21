@@ -55,21 +55,21 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                 
                 let obs = sSelf.reportImidiatelly(report: sSelf.report.value)
                 obs
-                    .subscribe(onNext: { (code, success) in
+                    .subscribe(onNext: { (report, success) in
 
-                        sSelf.webNotified.accept((code, success)) // postavi na svoj Output
+                        sSelf.webNotified.accept((report, success)) // postavi na svoj Output
 
                         if success {
                             print("jesam success, implement save to realm!")
                             
-                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [code])
+                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [report])
                                 .subscribe(onNext: { saved in
                                     print("code successfully reported to web, save in your archive")
                                 }).disposed(by: sSelf.bag)
                         }
 
                         if !success {
-                            sSelf.codeReportFailed(code) // izmestac code
+                            sSelf.codeReportFailed(report) // izmestac code
                         }
 
                     })

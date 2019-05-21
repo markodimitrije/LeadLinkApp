@@ -120,7 +120,7 @@ struct RealmDataPersister {
         
         //let newCodeReport = RealmCodeReport.create(with: codeReport)
         let id = "\(report.campaignId)" + report.code
-        let newCodeReport = RealmWebReportedAnswers.create(id: id, report: report)
+        let newCodeReport = RealmWebReportedAnswers.create(report: report)
         
         if realm.objects(RealmWebReportedAnswers.self).filter("code = %@ && campaignId = %@", newCodeReport.code, newCodeReport.campaignId).isEmpty {
             
@@ -178,25 +178,24 @@ struct RealmDataPersister {
     // MARK: save codes successfully reported to web
     func save(codesAcceptedFromWeb: [AnswersReport]) -> Observable<Bool> {
 
-        fatalError() // hard-coded off impelement me
-//        guard let realm = try? Realm() else {
-//            return Observable<Bool>.just(false) // treba da imas err za Realm...
-//        }
-//
-//        let firstAvailableId = realm.objects(RealmWebReportedAnswers.self).count
-//        let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedAnswers in
-//            let record = RealmWebReportedAnswers.create(id: firstAvailableId + offset, codeReport: codeReport)
-//            return record
-//        }
-//
-//        do {
-//            try realm.write {
-//                realm.add(realmWebReportedCodes)
-//                print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
-//            }
-//        } catch {
-//            return Observable<Bool>.just(false)
-//        }
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+
+        //let firstAvailableId = realm.objects(RealmWebReportedAnswers.self).count
+        let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedAnswers in
+            let record = RealmWebReportedAnswers.create(report: codeReport)
+            return record
+        }
+
+        do {
+            try realm.write {
+                realm.add(realmWebReportedCodes)
+                print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
+            }
+        } catch {
+            return Observable<Bool>.just(false)
+        }
         
         return Observable<Bool>.just(true) // all good here
         
