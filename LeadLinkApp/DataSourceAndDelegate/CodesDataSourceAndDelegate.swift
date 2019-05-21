@@ -1,8 +1,8 @@
 //
-//  DataSourceAndDelegate.swift
+//  CodesDataSourceAndDelegate.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 20/03/2019.
+//  Created by Marko Dimitrijevic on 21/05/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class CodesDataSource: NSObject, UITableViewDataSource {
         self.cellId = cellId
         self.data = codesDataStore.getCodes(campaignId: campaignId)
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,7 +38,7 @@ class CodesDataSource: NSObject, UITableViewDataSource {
     private func populate(cell: UITableViewCell, at indexPath: IndexPath) {
         cell.textLabel?.text = data[indexPath.row].value
     }
-
+    
 }
 
 class CodesDelegate: NSObject, UITableViewDelegate {

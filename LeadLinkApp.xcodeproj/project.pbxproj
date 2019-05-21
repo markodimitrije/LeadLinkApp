@@ -16,6 +16,7 @@
 		7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */; };
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
+		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
 		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
 		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
@@ -141,7 +142,6 @@
 		ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4687224265ED00E1020F /* CodesErrors.swift */; };
 		ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468922426C3C00E1020F /* RealmCode.swift */; };
 		ADBB468C2242942300E1020F /* CodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468B2242942300E1020F /* CodesVC.swift */; };
-		ADBB468F2242947F00E1020F /* DataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */; };
 		ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */; };
 		ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
@@ -167,6 +167,7 @@
 		7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToTermsViewModelBinder.swift; sourceTree = "<group>"; };
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
 		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
@@ -294,7 +295,6 @@
 		ADBB4687224265ED00E1020F /* CodesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesErrors.swift; sourceTree = "<group>"; };
 		ADBB468922426C3C00E1020F /* RealmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCode.swift; sourceTree = "<group>"; };
 		ADBB468B2242942300E1020F /* CodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesVC.swift; sourceTree = "<group>"; };
-		ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVC.swift; sourceTree = "<group>"; };
 		ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
@@ -354,12 +354,12 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		7C0E5CC3228F0AF40011E0A2 /* New Group */ = {
+		7C0E5CC3228F0AF40011E0A2 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
 				7C0E5CC4228F0B030011E0A2 /* Validation.swift */,
 			);
-			path = "New Group";
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		7C98A663228960B100DA184E /* Globals */ = {
@@ -687,7 +687,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
-				7C0E5CC3228F0AF40011E0A2 /* New Group */,
+				7C0E5CC3228F0AF40011E0A2 /* Validation */,
 				7C0E5CBC228EE0960011E0A2 /* Mock */,
 				7C98A663228960B100DA184E /* Globals */,
 				ADAB3D98223AAFA900450625 /* Constants */,
@@ -844,8 +844,8 @@
 		ADBB468D2242943F00E1020F /* DataSourceAndDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB468E2242947F00E1020F /* DataSourceAndDelegate.swift */,
 				7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */,
+				7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */,
 			);
 			path = DataSourceAndDelegate;
 			sourceTree = "<group>";
@@ -1081,7 +1081,6 @@
 			files = (
 				7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */,
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
-				ADBB468F2242947F00E1020F /* DataSourceAndDelegate.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
 				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
@@ -1165,6 +1164,7 @@
 				7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
+				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				7C98A6A22289689900DA184E /* RadioBtnView.swift in Sources */,
