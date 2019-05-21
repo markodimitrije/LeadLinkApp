@@ -15,11 +15,11 @@ import Realm
 
 class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
-    private var codeReports: Results<CodeReport>? {
+    private var codeReports: Results<AnswersReport>? {
         
         guard let realm = try? Realm.init() else {return nil} // ovde bi trebalo RealmError!
         
-        return realm.objects(CodeReport.self)
+        return realm.objects(AnswersReport.self)
     }
     
     private var shouldReportToWeb: Bool {
@@ -35,11 +35,11 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
     // INPUT
     
-    let report = BehaviorRelay<CodeReport?>.init(value: nil)
+    let report = BehaviorRelay<AnswersReport?>.init(value: nil)
     
     // OUTPUT
     
-    let webNotified = BehaviorRelay<(CodeReport, Bool)?>.init(value: nil)
+    let webNotified = BehaviorRelay<(AnswersReport, Bool)?>.init(value: nil)
     
     init() {
         
@@ -61,11 +61,11 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
 
                         if success {
                             print("jesam success, implement save to realm!")
-                            fatalError()
-//                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [code])
-//                                .subscribe(onNext: { saved in
-//                                    print("code successfully reported to web, save in your archive")
-//                                }).disposed(by: sSelf.bag)
+                            
+                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [code])
+                                .subscribe(onNext: { saved in
+                                    print("code successfully reported to web, save in your archive")
+                                }).disposed(by: sSelf.bag)
                         }
 
                         if !success {
@@ -79,7 +79,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func codeReportFailed(_ report: CodeReport) {
+    private func codeReportFailed(_ report: AnswersReport) {
         
         fatalError("codeReportFailed implement me!")
         
@@ -101,22 +101,24 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func reportImidiatelly(report: CodeReport?) -> Observable<(CodeReport, Bool)> {
+    private func reportImidiatelly(report: AnswersReport?) -> Observable<(AnswersReport, Bool)> {
         
         guard let report = report else {return Observable.empty()}
         
         print("prijavi ovaj report = \(report)")
         
+        return AnswersApiController.shared.notifyWeb(withCodeReport: report)
+        
         //return ApiController.shared.reportSingleCode(report: report)
         
-        fatalError()
+      
         
         
         
     }
     
     // implement me...
-    private func reportToWeb(codeReports: Results<CodeReport>?) {
+    private func reportToWeb(codeReports: Results<AnswersReport>?) {
         
         // sviranje... treba mi servis da javi sve.... za sada posalji samo jedan...
         

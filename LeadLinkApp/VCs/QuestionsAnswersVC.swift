@@ -158,7 +158,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                     print("answers saved to realm = \(saved)")
                 }).disposed(by: strongSelf.bag)
             
-            let newReport = CodeReport.init(answers: answers)
+            let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers)
             answersReporter.report.accept(newReport)
             
             strongSelf.navigationController?.popViewController(animated: true)

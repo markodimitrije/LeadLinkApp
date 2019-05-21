@@ -19,9 +19,12 @@
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
-		7C62226D2294232300717CA1 /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* CodeReport.swift */; };
+		7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* AnswersReport.swift */; };
 		7C62226F2294264600717CA1 /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* CodesDumper.swift */; };
 		7C622272229426D600717CA1 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622271229426D500717CA1 /* ReachabilityManager.swift */; };
+		7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersAPIController.swift */; };
+		7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622276229444BA00717CA1 /* RealmDataPersister.swift */; };
+		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
 		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
 		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
 		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
@@ -172,9 +175,12 @@
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
-		7C62226C2294232300717CA1 /* CodeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
+		7C62226C2294232300717CA1 /* AnswersReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersReport.swift; sourceTree = "<group>"; };
 		7C62226E2294264600717CA1 /* CodesDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
 		7C622271229426D500717CA1 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		7C6222732294345E00717CA1 /* AnswersAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersAPIController.swift; sourceTree = "<group>"; };
+		7C622276229444BA00717CA1 /* RealmDataPersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
+		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
 		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
 		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
@@ -369,7 +375,8 @@
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
 			isa = PBXGroup;
 			children = (
-				7C62226C2294232300717CA1 /* CodeReport.swift */,
+				7C6222782294469F00717CA1 /* Model */,
+				7C62226C2294232300717CA1 /* AnswersReport.swift */,
 				7C62226A229422A800717CA1 /* CodeReportState.swift */,
 				7C62226E2294264600717CA1 /* CodesDumper.swift */,
 			);
@@ -383,6 +390,22 @@
 			);
 			name = Services;
 			path = ../../../Desktop/Services;
+			sourceTree = "<group>";
+		};
+		7C622275229444BA00717CA1 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				7C622276229444BA00717CA1 /* RealmDataPersister.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		7C6222782294469F00717CA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7C98A663228960B100DA184E /* Globals */ = {
@@ -656,6 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				ADABCC4921E4AA6A00B43427 /* APIController.swift */,
+				7C6222732294345E00717CA1 /* AnswersAPIController.swift */,
 			);
 			path = APIController;
 			sourceTree = "<group>";
@@ -701,6 +725,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C622275229444BA00717CA1 /* Persistance */,
 				7C622270229426D500717CA1 /* Services */,
 				7C6222692294227600717CA1 /* AnswersReporting */,
 				7C0E5CC3228F0AF40011E0A2 /* Validation */,
@@ -1112,6 +1137,7 @@
 				ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
 				7C98A67E2289675D00DA184E /* AnswerModel.swift in Sources */,
+				7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */,
 				7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */,
 				7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */,
 				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
@@ -1170,6 +1196,7 @@
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */,
+				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */,
 				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,
@@ -1179,7 +1206,7 @@
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C622272229426D600717CA1 /* ReachabilityManager.swift in Sources */,
-				7C62226D2294232300717CA1 /* CodeReport.swift in Sources */,
+				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
 				7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				7C98A6A22289689900DA184E /* RadioBtnView.swift in Sources */,
@@ -1206,6 +1233,7 @@
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
 				7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
+				7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
 				AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */,

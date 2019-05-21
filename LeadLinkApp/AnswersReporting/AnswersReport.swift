@@ -1,0 +1,56 @@
+//
+//  CodeReport.swift
+//  tryWebApiAndSaveToRealm
+//
+//  Created by Marko Dimitrijevic on 18/04/2019.
+//  Copyright © 2019 Navus. All rights reserved.
+//
+
+import Foundation
+import Realm
+import RealmSwift
+
+class AnswersReport: Object { // Realm Entity
+    
+    private var answers = [MyAnswer]()
+    var campaignId = "0"
+    var code = ""
+    var date: Date = Date(timeIntervalSinceNow: 0)
+    
+    var payload: [[String: String]] {
+        return answers.map { $0.toWebReportJson() }
+    }
+    
+    init(surveyInfo: SurveyInfo, answers: [MyAnswer], date: Date? = nil) {
+        self.answers = answers
+        self.campaignId = "\(surveyInfo.campaign.id)"
+        self.code = surveyInfo.code
+        self.date = date ?? Date(timeIntervalSinceNow: 0)
+        super.init()
+    }
+    
+    init(realmAnswersReport: RealmWebReportedAnswers) {
+        self.code = realmAnswersReport.code
+        self.date = realmAnswersReport.date ?? Date(timeIntervalSinceNow: 0)
+        super.init()
+    }
+
+    func getPayload() -> [[String: String]] {  print("AnswersReport.getPayload = \(answers.map { $0.toWebReportJson() })")
+        return answers.map { $0.toWebReportJson() }
+    }
+    
+    // kompajler me tera da implementiram, mogu li ikako bez toga ? ...
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+}

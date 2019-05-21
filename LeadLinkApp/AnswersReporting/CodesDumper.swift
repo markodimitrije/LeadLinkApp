@@ -122,7 +122,7 @@ class CodesDumper {
             .disposed(by: bag)
     }
     
-    func reportSavedCodesToWeb(codeReports: [CodeReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    func reportSavedCodesToWeb(codeReports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
         guard !codeReports.isEmpty else { print("CodesDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)
