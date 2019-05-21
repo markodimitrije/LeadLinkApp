@@ -17,6 +17,7 @@
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
+		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
 		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
 		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
@@ -67,8 +68,6 @@
 		7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D322896F9300DA184E /* RxDataBaseEmiters.swift */; };
 		7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D422896F9300DA184E /* MyRxExtensions.swift */; };
 		7C98A6D822896F9300DA184E /* RxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6D522896F9300DA184E /* RxViewModel.swift */; };
-		7C98A6DF228971A500DA184E /* FetchingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6DA228971A500DA184E /* FetchingData.swift */; };
-		7C98A6E1228971A500DA184E /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6DD228971A500DA184E /* AnswersDataStore.swift */; };
 		7C98A6E8228972F700DA184E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6E5228972F700DA184E /* Extensions.swift */; };
 		7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6E6228972F700DA184E /* URL+Extensions.swift */; };
 		7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6EA2289733200DA184E /* SequenceExtensions.swift */; };
@@ -116,7 +115,6 @@
 		ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */; };
 		ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88121D8F332000B3C52 /* Assets.xcassets */; };
 		ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAEE88321D8F332000B3C52 /* LaunchScreen.storyboard */; };
-		ADAF73442241131F00A1F6D2 /* QuestionsAndAnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */; };
 		ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73452241161300A1F6D2 /* QuestionsViewmodel.swift */; };
 		ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73472241314C00A1F6D2 /* Answer.swift */; };
 		ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF73492241327600A1F6D2 /* RealmAnswer.swift */; };
@@ -168,6 +166,7 @@
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
+		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
 		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
@@ -218,8 +217,6 @@
 		7C98A6D322896F9300DA184E /* RxDataBaseEmiters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataBaseEmiters.swift; sourceTree = "<group>"; };
 		7C98A6D422896F9300DA184E /* MyRxExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRxExtensions.swift; sourceTree = "<group>"; };
 		7C98A6D522896F9300DA184E /* RxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewModel.swift; sourceTree = "<group>"; };
-		7C98A6DA228971A500DA184E /* FetchingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchingData.swift; sourceTree = "<group>"; };
-		7C98A6DD228971A500DA184E /* AnswersDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C98A6E5228972F700DA184E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7C98A6E6228972F700DA184E /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		7C98A6EA2289733200DA184E /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
@@ -269,7 +266,6 @@
 		ADAEE88121D8F332000B3C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAEE88421D8F332000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAEE88621D8F332000B3C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAndAnswersVC.swift; sourceTree = "<group>"; };
 		ADAF73452241161300A1F6D2 /* QuestionsViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewmodel.swift; sourceTree = "<group>"; };
 		ADAF73472241314C00A1F6D2 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		ADAF73492241327600A1F6D2 /* RealmAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAnswer.swift; sourceTree = "<group>"; };
@@ -505,18 +501,9 @@
 		7C98A6D9228971A500DA184E /* FetchingData */ = {
 			isa = PBXGroup;
 			children = (
-				7C98A6DA228971A500DA184E /* FetchingData.swift */,
-				7C98A6DB228971A500DA184E /* Campaigns */,
+				7C62226722941F9300717CA1 /* AnswersDataStore.swift */,
 			);
 			path = FetchingData;
-			sourceTree = "<group>";
-		};
-		7C98A6DB228971A500DA184E /* Campaigns */ = {
-			isa = PBXGroup;
-			children = (
-				7C98A6DD228971A500DA184E /* AnswersDataStore.swift */,
-			);
-			path = Campaigns;
 			sourceTree = "<group>";
 		};
 		7C98A6E3228972F700DA184E /* Extensions */ = {
@@ -854,7 +841,6 @@
 			isa = PBXGroup;
 			children = (
 				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
-				ADAF73432241131F00A1F6D2 /* QuestionsAndAnswersVC.swift */,
 				7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */,
 				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
 				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
@@ -1105,7 +1091,6 @@
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
 				7C98A6B222896AB200DA184E /* DataProvider.swift in Sources */,
 				7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */,
-				7C98A6E1228971A500DA184E /* AnswersDataStore.swift in Sources */,
 				7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
@@ -1124,7 +1109,6 @@
 				7C98A69B2289689900DA184E /* LabelAndTextField.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
-				ADAF73442241131F00A1F6D2 /* QuestionsAndAnswersVC.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
@@ -1171,6 +1155,7 @@
 				7C98A6CC22896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
 				7C98A6ED2289735B00DA184E /* OptionsTextView.swift in Sources */,
+				7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */,
 				7C98A6992289689900DA184E /* QuestionsScrollView.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				7C98A6D822896F9300DA184E /* RxViewModel.swift in Sources */,
@@ -1203,7 +1188,6 @@
 				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C98A6BC22896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift in Sources */,
-				7C98A6DF228971A500DA184E /* FetchingData.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
