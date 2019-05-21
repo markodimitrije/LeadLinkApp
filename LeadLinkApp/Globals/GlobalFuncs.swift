@@ -28,8 +28,10 @@ class QuestionsAnswersTableRowHeightCalculator {
         switch type {
         case .textField:
             return CGFloat.init(90)
-        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn, .termsSwitchBtn:
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
             return CGFloat.init(60)
+        case .termsSwitchBtn:
+            return CGFloat.init(30)
         default:
             return 0.0
         }
@@ -39,8 +41,10 @@ class QuestionsAnswersTableRowHeightCalculator {
         switch type {
         case .textField:
             return CGFloat.init(80)
-        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn, .termsSwitchBtn:
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
             return CGFloat.init(50)
+        case .termsSwitchBtn:
+            return CGFloat.init(30)
         default:
             return 0.0
         }
