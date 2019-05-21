@@ -193,25 +193,7 @@ extension ScanningVC: UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
-
-
-
-
-
-// GDE OVO:
-
-struct CodeReport {
-    var code: String
-    var sessionId: Int
-    var date: Date
-}
-
-class CodeReportsState {}
+// GDE OVO
 
 class DataAccess {
     static let shared = DataAccess.init()

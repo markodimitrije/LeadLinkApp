@@ -50,4 +50,11 @@ struct MyAnswer: Answering {
         
     }
     
+    func toWebReportJson() -> [String: String] {
+        var res = [String: String]()
+        res["question_id"] = self.id
+        res["content"] = self.content.first ?? "" // hard-coded (concatanate multiple) !
+        return res
+    }
+    
 }

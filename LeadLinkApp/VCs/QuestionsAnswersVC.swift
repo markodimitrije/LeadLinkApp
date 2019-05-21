@@ -30,6 +30,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     fileprivate var saveBtn: UIButton!
     fileprivate var bag = DisposeBag()
     
+    private let answersReporter = CodeReportsState.init() // report to web (manage API and REALM if failed)
+    
     lazy private var myDataSourceAndDelegate = ViewControllerDataSourceAndDelegate.init(viewController: self)
     
     // API
@@ -155,6 +157,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 .subscribe({ (saved) in
                     print("answers saved to realm = \(saved)")
                 }).disposed(by: strongSelf.bag)
+            
+            let newReport = CodeReport.init(answers: answers)
+            answersReporter.report.accept(newReport)
             
             strongSelf.navigationController?.popViewController(animated: true)
         } else {
