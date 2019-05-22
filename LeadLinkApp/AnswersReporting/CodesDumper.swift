@@ -126,17 +126,15 @@ class ReportsDumper {
             return Observable.just(false)
         }
         
-        // posalji codes web-u... - // posalji web-u ... koji vraca Observable<>Bool
-
         return AnswersApiController.shared
-            .reportMultipleCodes(reports: reports) // Observable<Bool>
-            .map({ (success) -> Bool in
+            .notifyWeb(withCodeReports: reports) // Observable<[AnswersReport], Bool>
+            .map { (reports, success) -> Bool in
                 if success {
                     return true
                 } else {
                     return false
                 }
-            })
+            }
     }
     
 }

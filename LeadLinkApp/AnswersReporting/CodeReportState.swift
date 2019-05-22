@@ -61,21 +61,20 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                         
                         report.success = success
                         
-                        report.success = false // hard-coded
+//                        report.success = false // hard-coded
+//                        sSelf.codeReportFailed(report) // hard-coded
                         
-//                        if success { // hard-coded of
-//                            print("jesam success, implement save to realm!")
-//                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
-//                                .subscribe(onNext: { saved in
-//                                    print("code successfully reported to web, save in your archive")
-//                                }).disposed(by: sSelf.bag)
-//                        }
-//
-//                        if !success {
-//                            sSelf.codeReportFailed(report) // izmestac code
-//                        }
-                        
-                        sSelf.codeReportFailed(report) // izmestac code
+                        if success { // hard-coded of
+                            print("jesam success, implement save to realm!")
+                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
+                                .subscribe(onNext: { saved in
+                                    print("code successfully reported to web, save in your archive")
+                                }).disposed(by: sSelf.bag)
+                        }
+
+                        if !success {
+                            sSelf.codeReportFailed(report) // izmestac code
+                        }
 
                     })
                     .disposed(by: sSelf.bag)
@@ -110,7 +109,11 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
         print("prijavi ovaj report = \(report)")
         
-        return AnswersApiController.shared.notifyWeb(withCodeReport: report)
+        return AnswersApiController.shared.notifyWeb(withCodeReports: [report]).map { (reports, success) -> (AnswersReport, Bool) in
+            return (reports.first!, success)
+        }
+        
+        //return AnswersApiController.shared.notifyWeb(withCodeReports: [report])
         
     }
     

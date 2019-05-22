@@ -37,12 +37,25 @@ class AnswersApiController {
     }
     
     //MARK: - Api Calls
-    func notifyWeb(withCodeReport report: AnswersReport) -> Observable<(AnswersReport, Bool)> {
+    func notifyWeb(withCodeReports reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
         
-        return postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", report: report)
+        return postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", reports: reports)
         
     }
     
+    // API
+//    func reportMultipleCodes(reports: [AnswersReport]?) -> Observable<Bool> {
+//        
+//        // treba mi ovo - bulk, nema jos na backend-u
+//        guard let reports = reports else {return Observable.empty()}
+//        
+//        return
+//            postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", reports: reports)
+//                .map({ (_, success) -> Bool in
+//                    return success
+//                })
+//        
+//    }
     
     // MARK:- Private
     
@@ -99,7 +112,7 @@ class AnswersApiController {
     }
     
     
-    private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, report: AnswersReport) -> Observable<(AnswersReport, Bool)> {
+    private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
         
         let url = base.appendingPathComponent(pathComponent)
         var request = URLRequest(url: url)
@@ -113,11 +126,13 @@ class AnswersApiController {
                                        "Authorization": authorization]
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-//        guard let data = try? JSONSerialization.data(withJSONObject: report.payload, options: .prettyPrinted) else {
+        let payload = reports.map {$0.payload}
+        
+//        guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {
 //            fatalError()
 //        }
-        let dict = [["question_id": "29", // hard-coded, jer citam moju kampanju iz jsonBundle !
-                    "content": "381642624322"]]
+        let dict = [[["question_id": "29", // hard-coded, jer citam moju kampanju iz jsonBundle !
+                    "content": "381642624322"]]]
 
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
             fatalError()
@@ -129,34 +144,8 @@ class AnswersApiController {
         
         return session.rx.response(request: request).map() { response, data in
             let success = (200...299).contains(response.statusCode)
-            return (report, success)
+            return (reports, success)
         }
-    }
-    
-    func reportMultipleCodes(reports: [AnswersReport]?) -> Observable<Bool> {
-
-        fatalError()
-        
-        // treba mi ovo - bulk, nema jos na backend-u
-//        guard let reports = reports else {return Observable.empty()}
-//
-//        let params = CodeReport.getPayload(reports)
-//
-//        return buildRequest(base: Domain.baseTrackerURL,
-//                            method: "POST",
-//                            pathComponent: "attendances",
-//                            params: params)
-//            .map() { data in
-//                guard let object = try? JSONSerialization.jsonObject(with: data),
-//                    let json = object as? [String: Any],
-//                    let created = json["created"] as? Int, created == 201 else {
-//                        //                        print("reportCodes vraca FALSE!!")
-//                        return false
-//                }
-//                //                print("reportCodes vraca TRUE!!")
-//                return true
-//        }
-        
     }
     
 }
