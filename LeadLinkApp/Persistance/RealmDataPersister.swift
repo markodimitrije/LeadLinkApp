@@ -31,15 +31,15 @@ struct RealmDataPersister {
 
     // MARK:- CodeReports
     
-    func getReportsCount() -> Observable<Int> {
-        
-        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-        
-        let count = realm.objects(RealmWebReportedAnswers.self).count
-        
-        return Observable.just(count)
-        
-    }
+//    func getReportsCount() -> Observable<Int> {
+//
+//        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
+//
+//        let count = realm.objects(RealmWebReportedAnswers.self).count
+//
+//        return Observable.just(count)
+//
+//    }
     
     func getReports() -> [AnswersReport] {
         
@@ -51,7 +51,14 @@ struct RealmDataPersister {
         
     }
     
-    func deleteAllAnswersReports() -> Observable<Bool> {
+    func getFailedReports() -> [AnswersReport] {
+        
+        let all = getReports()
+        return all.filter {$0.success == false}
+        
+    }
+    
+    func deleteReports() -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
             return Observable.just(false)
@@ -71,7 +78,7 @@ struct RealmDataPersister {
         
     }
     
-    func deleteAnswersReports(_ reports: [AnswersReport]) -> Observable<Bool> {
+    func deleteReports(_ reports: [AnswersReport]) -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
             return Observable.just(false)
@@ -103,7 +110,8 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                realm.add(objects)
+                //realm.add(objects)
+                realm.add(objects, update: true)
             }
         } catch {
             return Observable<Bool>.just(false)
@@ -120,21 +128,15 @@ struct RealmDataPersister {
         }
         
         let newReport = RealmWebReportedAnswers.create(report: report)
-        
-        if realm.objects(RealmWebReportedAnswers.self).filter("code = %@ && campaignId = %@", newReport.code, newReport.campaignId).isEmpty {
+
+        do { // ako nemas ovaj objekat kod sebe u bazi
             
-            do { // ako nemas ovaj objekat kod sebe u bazi
-                
-                try realm.write {
-                    realm.add(newReport)
-                    print("\(newReport.code), \(newReport.campaignId) saved to realm")
-                }
-            } catch {
-                return Observable<Bool>.just(false)
+            try realm.write { //realm.add(newReport) old solution
+                realm.add(newReport, update:true)
+                print("\(newReport.code), \(newReport.campaignId), \(newReport.success), saved to realm")
             }
-        
-        } else {
-            print("saveToRealm.objekat, code = \(newReport.code), \(newReport.campaignId) vec postoji u bazi")
+        } catch {
+            return Observable<Bool>.just(false)
         }
         
         return Observable<Bool>.just(true) // all good here

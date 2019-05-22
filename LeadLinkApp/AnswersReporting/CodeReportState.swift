@@ -58,19 +58,24 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                     .subscribe(onNext: { (report, success) in
 
                         sSelf.webNotified.accept((report, success)) // postavi na svoj Output
-
-                        if success {
-                            print("jesam success, implement save to realm!")
-                            
-                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
-                                .subscribe(onNext: { saved in
-                                    print("code successfully reported to web, save in your archive")
-                                }).disposed(by: sSelf.bag)
-                        }
-
-                        if !success {
-                            sSelf.codeReportFailed(report) // izmestac code
-                        }
+                        
+                        report.success = success
+                        
+                        report.success = false // hard-coded
+                        
+//                        if success { // hard-coded of
+//                            print("jesam success, implement save to realm!")
+//                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
+//                                .subscribe(onNext: { saved in
+//                                    print("code successfully reported to web, save in your archive")
+//                                }).disposed(by: sSelf.bag)
+//                        }
+//
+//                        if !success {
+//                            sSelf.codeReportFailed(report) // izmestac code
+//                        }
+                        
+                        sSelf.codeReportFailed(report) // izmestac code
 
                     })
                     .disposed(by: sSelf.bag)
@@ -79,27 +84,23 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    implemetiraj mozda samo 1 report sa flagom true ili false tako da znas da li treba da ga report ili je sve ok 
-    
     private func codeReportFailed(_ report: AnswersReport) {
         
-        fatalError("codeReportFailed implement me!")
+        print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
-        //print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
-        
-//        _ = RealmDataPersister().saveToRealm(codeReport: report)
-//        // okini process da javljas web-u sve sto ima u realm (codes)
-//        if codesDumper == nil {
-//            codesDumper = CodesDumper() // u svom init, zna da javlja reports web-u...
-//            codesDumper.oCodesDumped
-//                .asObservable()
-//                .subscribe(onNext: { (success) in
-//                    if success {
-//                        codesDumper = nil
-//                    }
-//                })
-//                .disposed(by: bag)
-//        }
+        RealmDataPersister.shared.saveToRealm(report: report)
+        // okini process da javljas web-u sve sto ima u realm (codes)
+        if reportsDumper == nil {
+            reportsDumper = ReportsDumper() // u svom init, zna da javlja reports web-u...
+            reportsDumper.oCodesDumped
+                .asObservable()
+                .subscribe(onNext: { (success) in
+                    if success {
+                        reportsDumper = nil
+                    }
+                })
+                .disposed(by: bag)
+        }
         
     }
     

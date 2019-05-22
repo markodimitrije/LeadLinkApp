@@ -98,6 +98,7 @@ class AnswersApiController {
         }
     }
     
+    
     private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, report: AnswersReport) -> Observable<(AnswersReport, Bool)> {
         
         let url = base.appendingPathComponent(pathComponent)
@@ -130,6 +131,32 @@ class AnswersApiController {
             let success = (200...299).contains(response.statusCode)
             return (report, success)
         }
+    }
+    
+    func reportMultipleCodes(reports: [AnswersReport]?) -> Observable<Bool> {
+
+        fatalError()
+        
+        // treba mi ovo - bulk, nema jos na backend-u
+//        guard let reports = reports else {return Observable.empty()}
+//
+//        let params = CodeReport.getPayload(reports)
+//
+//        return buildRequest(base: Domain.baseTrackerURL,
+//                            method: "POST",
+//                            pathComponent: "attendances",
+//                            params: params)
+//            .map() { data in
+//                guard let object = try? JSONSerialization.jsonObject(with: data),
+//                    let json = object as? [String: Any],
+//                    let created = json["created"] as? Int, created == 201 else {
+//                        //                        print("reportCodes vraca FALSE!!")
+//                        return false
+//                }
+//                //                print("reportCodes vraca TRUE!!")
+//                return true
+//        }
+        
     }
     
 }

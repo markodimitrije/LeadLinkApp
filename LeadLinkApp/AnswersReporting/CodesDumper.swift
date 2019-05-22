@@ -1,5 +1,5 @@
 //
-//  CodesDumper.swift
+//  ReportsDumper.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 04/11/2018.
@@ -12,7 +12,7 @@ import RxCocoa
 import RealmSwift
 import Realm
 
-class CodesDumper {
+class ReportsDumper {
     
     let bag = DisposeBag.init()
     
@@ -30,11 +30,10 @@ class CodesDumper {
     }
     
     var codeReportsDeleted: BehaviorRelay<Bool> = {
-        fatalError()
-        //return BehaviorRelay.init(value: RealmDataPersister.shared.getReports().isEmpty)
+        return BehaviorRelay.init(value: RealmDataPersister.shared.getFailedReports().isEmpty)
     }()
     
-    init() { print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
+    init() { print("ReportsDumper.INIT, fire every 8 sec or on wi-fi changed")
         
         hookUpTimer()
         
@@ -78,31 +77,30 @@ class CodesDumper {
                 
                 guard let sSelf = self else {return}
 
-                fatalError()
-//                let codeReports = RealmDataPersister.shared.getReports()
-//
-//                sSelf.reportSavedCodesToWeb(codeReports: codeReports)
-//                    .subscribe(onNext: { success in
-//                        if success {
-//
-//                            print("save this bulk of codes into realm = \(codeReports), implement me !!")
-//
-//                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: codeReports)
-//                                .subscribe(onNext: { saved in
-//                                    print("to web reported codes saved to realm = \(saved)")
-//                            }).disposed(by: sSelf.bag)
-//
-//                            RealmDataPersister.shared.deleteCodeReports(codeReports)
-//                                .subscribe(onNext: { deleted in
-//
-//                                    sSelf.codeReportsDeleted.accept(deleted)
-//                                })
-//                                .disposed(by: sSelf.bag)
-//                        } else {
-//                            print("nije success, nastavi da saljes")
-//                        }
-//                    })
-//                    .disposed(by: sSelf.bag)
+                let reports = RealmDataPersister.shared.getFailedReports()
+
+                sSelf.reportToWeb(reports: reports)
+                    .subscribe(onNext: { success in
+                        if success {
+
+                            print("save this bulk of codes into realm = \(reports), implement me !!")
+
+                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: reports)
+                                .subscribe(onNext: { saved in
+                                    print("to web reported codes saved to realm = \(saved)")
+                            }).disposed(by: sSelf.bag)
+
+                            RealmDataPersister.shared.deleteReports(reports)
+                                .subscribe(onNext: { deleted in
+
+                                    sSelf.codeReportsDeleted.accept(deleted)
+                                })
+                                .disposed(by: sSelf.bag)
+                        } else {
+                            print("nije success, nastavi da saljes")
+                        }
+                    })
+                    .disposed(by: sSelf.bag)
             })
             .disposed(by: bag)
         
@@ -122,25 +120,23 @@ class CodesDumper {
             .disposed(by: bag)
     }
     
-    func reportSavedCodesToWeb(codeReports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    func reportToWeb(reports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
-        guard !codeReports.isEmpty else { print("CodesDumper.reportSavedCodes/ internal error...")
+        guard !reports.isEmpty else { print("ReportsDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)
         }
         
         // posalji codes web-u... - // posalji web-u ... koji vraca Observable<>Bool
 
-        
-        fatalError()
-//        return ApiController.shared
-//            .reportMultipleCodes(reports: codeReports) // Observable<Bool>
-//            .map({ (success) -> Bool in
-//                if success {
-//                    return true
-//                } else {
-//                    return false
-//                }
-//            })
+        return AnswersApiController.shared
+            .reportMultipleCodes(reports: reports) // Observable<Bool>
+            .map({ (success) -> Bool in
+                if success {
+                    return true
+                } else {
+                    return false
+                }
+            })
     }
     
 }

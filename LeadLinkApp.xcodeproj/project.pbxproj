@@ -21,7 +21,6 @@
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
 		7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* AnswersReport.swift */; };
 		7C62226F2294264600717CA1 /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* CodesDumper.swift */; };
-		7C622272229426D600717CA1 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622271229426D500717CA1 /* ReachabilityManager.swift */; };
 		7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersAPIController.swift */; };
 		7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622276229444BA00717CA1 /* RealmDataPersister.swift */; };
 		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
@@ -83,6 +82,7 @@
 		7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */; };
 		7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */; };
 		7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */; };
+		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
@@ -177,7 +177,6 @@
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		7C62226C2294232300717CA1 /* AnswersReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersReport.swift; sourceTree = "<group>"; };
 		7C62226E2294264600717CA1 /* CodesDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
-		7C622271229426D500717CA1 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		7C6222732294345E00717CA1 /* AnswersAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersAPIController.swift; sourceTree = "<group>"; };
 		7C622276229444BA00717CA1 /* RealmDataPersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
 		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
@@ -239,6 +238,7 @@
 		7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionsVC.swift; sourceTree = "<group>"; };
 		7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionOptionsDataSource.swift; sourceTree = "<group>"; };
 		7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
+		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/AnswersReporting/Model/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		7C622270229426D500717CA1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7C622271229426D500717CA1 /* ReachabilityManager.swift */,
+				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
 			);
 			name = Services;
 			path = ../../../Desktop/Services;
@@ -1185,6 +1185,7 @@
 				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				7C98A6782289625200DA184E /* ViewModels.swift in Sources */,
+				7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
 				7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */,
@@ -1205,7 +1206,6 @@
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
-				7C622272229426D600717CA1 /* ReachabilityManager.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
 				7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,

@@ -15,22 +15,29 @@ class AnswersReport: Object { // Realm Entity
     private var answers = [MyAnswer]()
     var campaignId = "0"
     var code = ""
+    var success = false
     var date: Date = Date(timeIntervalSinceNow: 0)
     
     var payload: [[String: String]] {
         return answers.map { $0.toWebReportJson() }
     }
+
+//    var payload: [[[String: String]]] {
+//        return [answers.map { $0.toWebReportJson() }]
+//    }
     
-    init(surveyInfo: SurveyInfo, answers: [MyAnswer], date: Date? = nil) {
+    init(surveyInfo: SurveyInfo, answers: [MyAnswer], date: Date? = nil, success: Bool) {
         self.answers = answers
         self.campaignId = "\(surveyInfo.campaign.id)"
         self.code = surveyInfo.code
+        self.success = success
         self.date = date ?? Date(timeIntervalSinceNow: 0)
         super.init()
     }
     
     init(realmAnswersReport: RealmWebReportedAnswers) {
         self.code = realmAnswersReport.code
+        self.success = realmAnswersReport.success
         self.date = realmAnswersReport.date ?? Date(timeIntervalSinceNow: 0)
         super.init()
     }
