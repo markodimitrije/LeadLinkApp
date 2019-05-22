@@ -108,6 +108,8 @@ class AnswersApiController {
         request.url = urlComponents.url!
         request.httpMethod = "POST"
         
+        request.timeoutInterval = TimeInterval.init(integerLiteral: 10)
+        
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
                                        "Authorization": authorization]
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -129,9 +131,13 @@ class AnswersApiController {
         let session = URLSession.shared
         
         return session.rx.response(request: request).map() { response, data in
+
+            print("da li je moguce da ne emituje nista ovde ???")
+            
             let success = (200...299).contains(response.statusCode)
             return (reports, success)
         }
+        
     }
     
 }

@@ -84,15 +84,10 @@ class ReportsDumper {
                     .subscribe(onNext: { success in
                         if success {
 
-                            print("save this bulk of codes into realm = \(reports), implement me !!")
-
-                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: reports)
-                                .subscribe(onNext: { saved in
-                                    print("to web reported codes saved to realm = \(saved)")
-                            }).disposed(by: sSelf.bag)
-
-                            //RealmDataPersister.shared.deleteReports(reports)
-                              RealmDataPersister.shared.updateReports(reports)
+                            let reported = reports.map({ report -> AnswersReport in
+                                return report.updated(withSuccess: success)
+                            })
+                            RealmDataPersister.shared.updateReports(reported)
                                 .subscribe(onNext: { deleted in
 
                                     sSelf.reportsDeleted.accept(deleted)

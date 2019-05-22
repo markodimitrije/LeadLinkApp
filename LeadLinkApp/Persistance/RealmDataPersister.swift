@@ -17,8 +17,6 @@ struct RealmDataPersister {
     static var shared = RealmDataPersister()
     
     // observable OUTPUT
-    
-    //func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedAnswers>> {
     func getRealmWebReportedAnswers() -> Observable<Results<RealmWebReportedAnswers>> {
         
         guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
@@ -29,17 +27,7 @@ struct RealmDataPersister {
         
     }
 
-    // MARK:- CodeReports
-    
-//    func getReportsCount() -> Observable<Int> {
-//
-//        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-//
-//        let count = realm.objects(RealmWebReportedAnswers.self).count
-//
-//        return Observable.just(count)
-//
-//    }
+    // MARK:- Reports
     
     func getReports() -> [AnswersReport] {
         

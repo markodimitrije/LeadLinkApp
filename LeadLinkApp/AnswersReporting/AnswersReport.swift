@@ -28,8 +28,8 @@ class AnswersReport: Object { // Realm Entity
     
     init(surveyInfo: SurveyInfo, answers: [MyAnswer], date: Date? = nil, success: Bool) {
         self.answers = answers
-        self.campaignId = "\(surveyInfo.campaign.id)"
         self.code = surveyInfo.code
+        self.campaignId = "\(surveyInfo.campaign.id)"
         self.success = success
         self.date = date ?? Date(timeIntervalSinceNow: 0)
         super.init()
@@ -37,6 +37,7 @@ class AnswersReport: Object { // Realm Entity
     
     init(realmAnswersReport: RealmWebReportedAnswers) {
         self.code = realmAnswersReport.code
+        self.campaignId = realmAnswersReport.campaignId
         self.success = realmAnswersReport.success
         self.date = realmAnswersReport.date ?? Date(timeIntervalSinceNow: 0)
         super.init()
@@ -44,6 +45,12 @@ class AnswersReport: Object { // Realm Entity
 
     func getPayload() -> [[String: String]] {  print("AnswersReport.getPayload = \(answers.map { $0.toWebReportJson() })")
         return answers.map { $0.toWebReportJson() }
+    }
+    
+    func updated(withSuccess success: Bool) -> AnswersReport {
+        let updated = self
+        updated.success = success
+        return updated
     }
     
     // kompajler me tera da implementiram, mogu li ikako bez toga ? ...

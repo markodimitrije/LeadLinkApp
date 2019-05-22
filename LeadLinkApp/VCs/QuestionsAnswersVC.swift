@@ -30,7 +30,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     fileprivate var saveBtn: UIButton!
     fileprivate var bag = DisposeBag()
     
-    private let answersReporter = CodeReportsState.init() // report to web (manage API and REALM if failed)
+    private let answersReporter = AnswersReportsState.init() // report to web (manage API and REALM if failed)
     
     lazy private var myDataSourceAndDelegate = ViewControllerDataSourceAndDelegate.init(viewController: self)
     
