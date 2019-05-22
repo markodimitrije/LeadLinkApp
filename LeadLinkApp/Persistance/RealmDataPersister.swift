@@ -58,6 +58,7 @@ struct RealmDataPersister {
         
     }
     
+    /*
     func deleteReports() -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
@@ -77,7 +78,8 @@ struct RealmDataPersister {
         }
         
     }
-    
+    */
+    /*
     func deleteReports(_ reports: [AnswersReport]) -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
@@ -93,6 +95,27 @@ struct RealmDataPersister {
                 realm.delete(realmResults)
             }
             print("RealmDataPersister.deleteAnswersReports: delete Reported AnswersReports")
+            return Observable.just(true)
+        } catch {
+            return Observable.just(false)
+        }
+        
+    }
+    */
+    
+    func updateReports(_ reports: [AnswersReport]) -> Observable<Bool> {
+        
+        guard let realm = try? Realm.init() else {
+            return Observable.just(false)
+        } // iako je Error!
+        
+        let records = reports.map {RealmWebReportedAnswers.create(report: $0)}
+        
+        do {
+            try realm.write {
+                realm.add(records, update: true)
+            }
+            print("RealmDataPersister.deleteAnswersReports: update Reported AnswersReports")
             return Observable.just(true)
         } catch {
             return Observable.just(false)

@@ -36,26 +36,12 @@ class AnswersApiController {
         }
     }
     
-    //MARK: - Api Calls
-    func notifyWeb(withCodeReports reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
+    //MARK: - API Calls
+    func notifyWeb(withReports reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
         
         return postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", reports: reports)
         
     }
-    
-    // API
-//    func reportMultipleCodes(reports: [AnswersReport]?) -> Observable<Bool> {
-//        
-//        // treba mi ovo - bulk, nema jos na backend-u
-//        guard let reports = reports else {return Observable.empty()}
-//        
-//        return
-//            postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", reports: reports)
-//                .map({ (_, success) -> Bool in
-//                    return success
-//                })
-//        
-//    }
     
     // MARK:- Private
     

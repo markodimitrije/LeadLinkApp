@@ -29,7 +29,7 @@ class ReportsDumper {
                     .withLatestFrom(connectedToInternet()) // temp OFF
     }
     
-    var codeReportsDeleted: BehaviorRelay<Bool> = {
+    var reportsDeleted: BehaviorRelay<Bool> = {
         return BehaviorRelay.init(value: RealmDataPersister.shared.getFailedReports().isEmpty)
     }()
     
@@ -45,7 +45,7 @@ class ReportsDumper {
     
     // Output
     
-    var oCodesDumped = BehaviorRelay<Bool>.init(value: false)
+    var oReportsDumped = BehaviorRelay<Bool>.init(value: false)
     
     // MARK:- Private
     
@@ -56,7 +56,8 @@ class ReportsDumper {
             .flatMapLatest {  isRunning in
                 isRunning ? Observable<Int>.interval(8, scheduler: MainScheduler.instance) : .empty()
             }
-            .flatMapWithIndex { (int, index) in
+            //.flatMapWithIndex { (int, index) in
+        .enumerated().flatMap { (int, index) in
                 return Observable.just(index)
             }
             .debug("timer")
@@ -90,10 +91,11 @@ class ReportsDumper {
                                     print("to web reported codes saved to realm = \(saved)")
                             }).disposed(by: sSelf.bag)
 
-                            RealmDataPersister.shared.deleteReports(reports)
+                            //RealmDataPersister.shared.deleteReports(reports)
+                              RealmDataPersister.shared.updateReports(reports)
                                 .subscribe(onNext: { deleted in
 
-                                    sSelf.codeReportsDeleted.accept(deleted)
+                                    sSelf.reportsDeleted.accept(deleted)
                                 })
                                 .disposed(by: sSelf.bag)
                         } else {
@@ -108,26 +110,26 @@ class ReportsDumper {
     
     private func hookUpAllCodesReportedToWeb() {
         
-        codeReportsDeleted.asObservable()
+        reportsDeleted.asObservable()
             .subscribe(onNext: { [weak self] success in
                 guard let sSelf = self else {return}
                 if success { print("all good, ugasi timer!")
                     
                     sSelf.isRunning.accept(false)  // ugasi timer, uspesno si javio i obrisao Realm
-                    sSelf.oCodesDumped.accept(true)
+                    sSelf.oReportsDumped.accept(true)
                 }
             })
             .disposed(by: bag)
     }
     
-    func reportToWeb(reports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    private func reportToWeb(reports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
         guard !reports.isEmpty else { print("ReportsDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)
         }
         
         return AnswersApiController.shared
-            .notifyWeb(withCodeReports: reports) // Observable<[AnswersReport], Bool>
+            .notifyWeb(withReports: reports) // Observable<[AnswersReport], Bool>
             .map { (reports, success) -> Bool in
                 if success {
                     return true

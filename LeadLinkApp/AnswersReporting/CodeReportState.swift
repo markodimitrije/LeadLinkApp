@@ -91,7 +91,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         // okini process da javljas web-u sve sto ima u realm (codes)
         if reportsDumper == nil {
             reportsDumper = ReportsDumper() // u svom init, zna da javlja reports web-u...
-            reportsDumper.oCodesDumped
+            reportsDumper.oReportsDumped
                 .asObservable()
                 .subscribe(onNext: { (success) in
                     if success {
@@ -109,27 +109,25 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
         print("prijavi ovaj report = \(report)")
         
-        return AnswersApiController.shared.notifyWeb(withCodeReports: [report]).map { (reports, success) -> (AnswersReport, Bool) in
+        return AnswersApiController.shared.notifyWeb(withReports: [report]).map { (reports, success) -> (AnswersReport, Bool) in
             return (reports.first!, success)
         }
-        
-        //return AnswersApiController.shared.notifyWeb(withCodeReports: [report])
         
     }
     
     // implement me...
-    private func reportToWeb(codeReports: Results<AnswersReport>?) {
-        
-        // sviranje... treba mi servis da javi sve.... za sada posalji samo jedan...
-        
-        guard let report = codeReports?.first else {
-            print("nemam ni jedan code da report!...")
-            return
-        }
-        
-        print("CodeReportsState/ javi web-u za ovaj report:")
-        print("code.payload = \(report.payload)")
-
-    }
+//    private func reportToWeb(codeReports: Results<AnswersReport>?) {
+//        
+//        // sviranje... treba mi servis da javi sve.... za sada posalji samo jedan...
+//        
+//        guard let report = codeReports?.first else {
+//            print("nemam ni jedan code da report!...")
+//            return
+//        }
+//        
+//        print("CodeReportsState/ javi web-u za ovaj report:")
+//        print("code.payload = \(report.payload)")
+//
+//    }
     
 }
