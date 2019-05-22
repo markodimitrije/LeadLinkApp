@@ -62,7 +62,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                         if success {
                             print("jesam success, implement save to realm!")
                             
-                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [report])
+                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
                                 .subscribe(onNext: { saved in
                                     print("code successfully reported to web, save in your archive")
                                 }).disposed(by: sSelf.bag)
@@ -78,6 +78,8 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
             .disposed(by: bag)
         
     }
+    
+    implemetiraj mozda samo 1 report sa flagom true ili false tako da znas da li treba da ga report ili je sve ok 
     
     private func codeReportFailed(_ report: AnswersReport) {
         
@@ -108,12 +110,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         print("prijavi ovaj report = \(report)")
         
         return AnswersApiController.shared.notifyWeb(withCodeReport: report)
-        
-        //return ApiController.shared.reportSingleCode(report: report)
-        
-      
-        
-        
         
     }
     

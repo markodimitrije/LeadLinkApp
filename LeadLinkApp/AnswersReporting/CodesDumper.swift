@@ -31,7 +31,7 @@ class CodesDumper {
     
     var codeReportsDeleted: BehaviorRelay<Bool> = {
         fatalError()
-        //return BehaviorRelay.init(value: RealmDataPersister.shared.getCodeReports().isEmpty)
+        //return BehaviorRelay.init(value: RealmDataPersister.shared.getReports().isEmpty)
     }()
     
     init() { print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
@@ -79,7 +79,7 @@ class CodesDumper {
                 guard let sSelf = self else {return}
 
                 fatalError()
-//                let codeReports = RealmDataPersister.shared.getCodeReports()
+//                let codeReports = RealmDataPersister.shared.getReports()
 //
 //                sSelf.reportSavedCodesToWeb(codeReports: codeReports)
 //                    .subscribe(onNext: { success in
@@ -87,7 +87,7 @@ class CodesDumper {
 //
 //                            print("save this bulk of codes into realm = \(codeReports), implement me !!")
 //
-//                            RealmDataPersister.shared.save(codesAcceptedFromWeb: codeReports)
+//                            RealmDataPersister.shared.save(reportsAcceptedFromWeb: codeReports)
 //                                .subscribe(onNext: { saved in
 //                                    print("to web reported codes saved to realm = \(saved)")
 //                            }).disposed(by: sSelf.bag)

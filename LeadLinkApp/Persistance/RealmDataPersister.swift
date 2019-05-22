@@ -18,7 +18,8 @@ struct RealmDataPersister {
     
     // observable OUTPUT
     
-    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedAnswers>> {
+    //func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedAnswers>> {
+    func getRealmWebReportedAnswers() -> Observable<Results<RealmWebReportedAnswers>> {
         
         guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
         
@@ -30,7 +31,7 @@ struct RealmDataPersister {
 
     // MARK:- CodeReports
     
-    func getCodeReportsCount() -> Observable<Int> {
+    func getReportsCount() -> Observable<Int> {
         
         guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
         
@@ -40,7 +41,7 @@ struct RealmDataPersister {
         
     }
     
-    func getCodeReports() -> [AnswersReport] {
+    func getReports() -> [AnswersReport] {
         
         guard let realm = try? Realm.init() else {return [ ]} // iako je Error!
         
@@ -70,14 +71,14 @@ struct RealmDataPersister {
         
     }
     
-    func deleteAnswersReports(_ codeReports: [AnswersReport]) -> Observable<Bool> {
+    func deleteAnswersReports(_ reports: [AnswersReport]) -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
             return Observable.just(false)
         } // iako je Error!
         
         let realmResults = realm.objects(RealmWebReportedAnswers.self).filter { report -> Bool in
-            return codeReports.map {$0.code}.contains(report.code)
+            return reports.map {$0.code}.contains(report.code)
         }
         
         do {
@@ -118,22 +119,22 @@ struct RealmDataPersister {
             return Observable<Bool>.just(false) // treba da imas err za Realm...
         }
         
-        let newCodeReport = RealmWebReportedAnswers.create(report: report)
+        let newReport = RealmWebReportedAnswers.create(report: report)
         
-        if realm.objects(RealmWebReportedAnswers.self).filter("code = %@ && campaignId = %@", newCodeReport.code, newCodeReport.campaignId).isEmpty {
+        if realm.objects(RealmWebReportedAnswers.self).filter("code = %@ && campaignId = %@", newReport.code, newReport.campaignId).isEmpty {
             
             do { // ako nemas ovaj objekat kod sebe u bazi
                 
                 try realm.write {
-                    realm.add(newCodeReport)
-                    print("\(newCodeReport.code), \(newCodeReport.campaignId) saved to realm")
+                    realm.add(newReport)
+                    print("\(newReport.code), \(newReport.campaignId) saved to realm")
                 }
             } catch {
                 return Observable<Bool>.just(false)
             }
         
         } else {
-            print("saveToRealm.objekat, code = \(newCodeReport.code), \(newCodeReport.campaignId) vec postoji u bazi")
+            print("saveToRealm.objekat, code = \(newReport.code), \(newReport.campaignId) vec postoji u bazi")
         }
         
         return Observable<Bool>.just(true) // all good here
@@ -174,7 +175,7 @@ struct RealmDataPersister {
     }
     
     // MARK: save codes successfully reported to web
-    func save(codesAcceptedFromWeb reports: [AnswersReport]) -> Observable<Bool> {
+    func save(reportsAcceptedFromWeb reports: [AnswersReport]) -> Observable<Bool> {
 
         guard let realm = try? Realm() else {
             return Observable<Bool>.just(false) // treba da imas err za Realm...
