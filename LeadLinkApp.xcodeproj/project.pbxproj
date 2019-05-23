@@ -15,6 +15,8 @@
 		7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CC4228F0B030011E0A2 /* Validation.swift */; };
 		7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45EF22968D580032C860 /* ReportsVC.swift */; };
 		7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */; };
+		7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */; };
+		7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F722969A5E0032C860 /* ReportsTVC.swift */; };
 		7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */; };
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
@@ -173,6 +175,8 @@
 		7C0E5CC4228F0B030011E0A2 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		7C1A45EF22968D580032C860 /* ReportsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsVC.swift; sourceTree = "<group>"; };
 		7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReportsDataStore.swift; sourceTree = "<group>"; };
+		7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataSourceAndDelegate.swift; sourceTree = "<group>"; };
+		7C1A45F722969A5E0032C860 /* ReportsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToTermsViewModelBinder.swift; sourceTree = "<group>"; };
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
@@ -382,6 +386,14 @@
 				7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */,
 			);
 			path = ReportsStore;
+			sourceTree = "<group>";
+		};
+		7C1A45F622969A3A0032C860 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7C1A45F722969A5E0032C860 /* ReportsTVC.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
@@ -708,6 +720,7 @@
 		ADAD040721E65EB7006463A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C1A45F622969A3A0032C860 /* Cells */,
 				7C98A6812289689900DA184E /* QAViews */,
 				ADAD040821E65EC4006463A2 /* CampaignCell.swift */,
 				ADA9B1C922384C5400B7D74F /* DividerView.xib */,
@@ -899,6 +912,7 @@
 			children = (
 				7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */,
 				7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */,
+				7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */,
 			);
 			path = DataSourceAndDelegate;
 			sourceTree = "<group>";
@@ -1135,12 +1149,14 @@
 			files = (
 				7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */,
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
+				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
 				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
 				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
+				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */,

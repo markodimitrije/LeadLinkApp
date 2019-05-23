@@ -102,7 +102,8 @@ public class AppDependencyContainer {
         
         //let statsVC = sb.instantiateViewController(withIdentifier: "StatsVC") as! StatsVC
         let statsVC = StatsVC.instantiate(using: sb)
-        statsVC.codesVC = makeCodesViewController(campaignId: id)
+        //statsVC.codesVC = makeCodesViewController(campaignId: id)
+        statsVC.reportsVC = makeReportsViewController(campaignId: id)
         statsVC.chartVC = makeChartViewController(campaignId: id)
         
         return statsVC
@@ -129,7 +130,7 @@ public class AppDependencyContainer {
         
         let dataSource = ReportsDataSource.init(campaignId: id,
                                                 reportsDataStore: makeReportsDataStore(),
-                                                cellId: "ReportsCell")
+                                                cellId: "ReportsTVC")
         
         let delegate = ReportsDelegate()
         

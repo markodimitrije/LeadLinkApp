@@ -24,7 +24,8 @@ public class RealmReportsDataStore: ReportsDataStore {
     }
     
     func getReports(campaignId: Int) -> [Report] {
-        let rCodes = realm.objects(RealmWebReportedAnswers.self).filter("campaign_id == %i", campaignId).toArray()
+        let id = "\(campaignId)"
+        let rCodes = realm.objects(RealmWebReportedAnswers.self).filter("campaignId == %@", id).toArray()
         
         return rCodes.map(Report.init)
     }
