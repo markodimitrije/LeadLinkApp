@@ -12,6 +12,9 @@ import RxSwift
 class ReportsVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func syncTapped(_ sender: UIButton) {
+        syncTapped()
+    }
     
     var dataSource: ReportsDataSource?
     var delegate: ReportsDelegate?
@@ -26,9 +29,7 @@ class ReportsVC: UIViewController, Storyboarded {
         listenTableTapEvents()
     }
     
-    deinit {
-        print("ReportsVC.deinit")
-    }
+    deinit { print("ReportsVC.deinit") }
     
     private func listenTableTapEvents() {
         delegate?.selectedIndex.skip(1)
@@ -41,6 +42,13 @@ class ReportsVC: UIViewController, Storyboarded {
                 guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
                 statsVC.navigationController?.pushViewController(nextVC, animated: true)
             }).disposed(by: bag)
+    }
+    
+    private func syncTapped() {
+        if reportsDumper == nil {
+            reportsDumper = ReportsDumper()
+        }
+        reportsDumper.sendToWebUnsycedReports()
     }
     
     private let factory = AppDependencyContainer()

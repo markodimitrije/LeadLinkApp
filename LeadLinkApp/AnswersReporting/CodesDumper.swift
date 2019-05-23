@@ -37,7 +37,7 @@ class ReportsDumper {
         
         hookUpTimer()
         
-        hookUpNotifyWeb()
+        hookUpNotifyWebRepeteadly()
         
         hookUpAllCodesReportedToWeb()
         
@@ -46,6 +46,30 @@ class ReportsDumper {
     // Output
     
     var oReportsDumped = BehaviorRelay<Bool>.init(value: false)
+    
+    // MARK:- API
+    func sendToWebUnsycedReports() {
+        
+        let reports = RealmDataPersister.shared.getFailedReports()
+        
+        self.reportToWeb(reports: reports)
+            .subscribe(onNext: { success in
+                if success {
+                    
+                    let reported = reports.map({ report -> AnswersReport in
+                        return report.updated(withSuccess: success)
+                    })
+                    RealmDataPersister.shared.updateReports(reported)
+                        .subscribe(onNext: { deleted in
+                            
+                            self.reportsDeleted.accept(deleted)
+                        })
+                        .disposed(by: self.bag)
+                }
+            })
+            .disposed(by: self.bag)
+    }
+    
     
     // MARK:- Private
     
@@ -71,33 +95,15 @@ class ReportsDumper {
         
     }
     
-    private func hookUpNotifyWeb() {
+    private func hookUpNotifyWebRepeteadly() {
         
         timeToSendReport
             .subscribe(onNext: { [weak self] timeToReport in // print("timeToReport = \(timeToReport)")
                 
                 guard let sSelf = self else {return}
 
-                let reports = RealmDataPersister.shared.getFailedReports()
-
-                sSelf.reportToWeb(reports: reports)
-                    .subscribe(onNext: { success in
-                        if success {
-
-                            let reported = reports.map({ report -> AnswersReport in
-                                return report.updated(withSuccess: success)
-                            })
-                            RealmDataPersister.shared.updateReports(reported)
-                                .subscribe(onNext: { deleted in
-
-                                    sSelf.reportsDeleted.accept(deleted)
-                                })
-                                .disposed(by: sSelf.bag)
-                        } else {
-                            print("nije success, nastavi da saljes")
-                        }
-                    })
-                    .disposed(by: sSelf.bag)
+                sSelf.sendToWebUnsycedReports()
+                
             })
             .disposed(by: bag)
         
