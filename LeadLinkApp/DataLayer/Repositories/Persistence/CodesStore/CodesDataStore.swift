@@ -17,3 +17,9 @@ public protocol CodesDataStore {
     // Read sync
     func getCodes(campaignId: Int) -> [Code]
 }
+
+protocol ReportsDataStore {
+    /// Read
+    func getReports(campaignId: Int) -> [Report]
+}
+

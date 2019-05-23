@@ -13,10 +13,12 @@ class CodesVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var codesDataSource: CodesDataSource?
-    var codesDelegate: CodesDelegate?
+    //var codesDataSource: CodesDataSource?
+    //var codesDelegate: CodesDelegate?
     
-    
+    var codesDataSource: ReportsDataSource?
+    var codesDelegate: ReportsDelegate?
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +34,29 @@ class CodesVC: UIViewController, Storyboarded {
         print("CodesVC.deinit")
     }
     
+//    private func listenTapEvents() {
+//        codesDelegate?.selectedIndex.skip(1)
+//            .subscribe(onNext: { [weak self] indexPath in guard let sSelf = self else {return}
+//            let index = indexPath.row
+//                guard let code = sSelf.codesDataSource?.data[index] else {return}
+//                print("selected code na CodesVC je: \(code.value)")
+//                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(code: code)
+//                //sSelf.navigationController!.pushViewController(nextVC, animated: true)
+//                guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
+//                statsVC.navigationController?.pushViewController(nextVC, animated: true)
+//        }).disposed(by: bag)
+//    }
     private func listenTapEvents() {
         codesDelegate?.selectedIndex.skip(1)
             .subscribe(onNext: { [weak self] indexPath in guard let sSelf = self else {return}
-            let index = indexPath.row
-                guard let code = sSelf.codesDataSource?.data[index] else {return}
-                print("selected code na CodesVC je: \(code.value)")
-                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(code: code)
+                let index = indexPath.row
+                guard let report = sSelf.codesDataSource?.data[index] else {return}
+                print("selected report na CodesVC je: \(report.value)")
+                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(code: report.code)
                 //sSelf.navigationController!.pushViewController(nextVC, animated: true)
                 guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
                 statsVC.navigationController?.pushViewController(nextVC, animated: true)
-        }).disposed(by: bag)
+            }).disposed(by: bag)
     }
     
     private let factory = AppDependencyContainer()
