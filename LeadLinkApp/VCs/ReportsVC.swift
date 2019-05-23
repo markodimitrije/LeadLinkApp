@@ -36,10 +36,9 @@ class ReportsVC: UIViewController, Storyboarded {
                 let index = indexPath.row
                 guard let report = sSelf.dataSource?.data[index] else {return}
                 print("selected report na ReportsVC je: \(report.code)")
-                fatalError("covert to code - implement me!!")
-//                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(code: report.code)
-//                guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
-//                statsVC.navigationController?.pushViewController(nextVC, animated: true)
+                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(codeValue: report.code, campaignId: 9)
+                guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
+                statsVC.navigationController?.pushViewController(nextVC, animated: true)
             }).disposed(by: bag)
     }
     

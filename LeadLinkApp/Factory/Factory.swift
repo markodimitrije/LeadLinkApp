@@ -214,6 +214,19 @@ public class AppDependencyContainer {
         return vc
     }
     
+    func makeQuestionsAnswersViewController(codeValue: String, campaignId: Int) -> QuestionsAnswersVC {
+        
+        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
+        
+        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        
+        let vc = QuestionsAnswersVC.instantiate(using: sb)
+        
+        vc.surveyInfo = surveyInfo
+        
+        return vc
+    }
+    
     //func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
     func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
         let chooseOptionsVC = ChooseOptionsVC.instantiate(using: sb)
