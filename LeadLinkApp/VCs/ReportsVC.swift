@@ -35,8 +35,9 @@ class ReportsVC: UIViewController, Storyboarded {
             .subscribe(onNext: { [weak self] indexPath in guard let sSelf = self else {return}
                 let index = indexPath.row
                 guard let report = sSelf.dataSource?.data[index] else {return}
-                print("selected report na ReportsVC je: \(report.code)")
-                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(codeValue: report.code, campaignId: 9)
+                
+                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(codeValue: report.code,
+                                                                              campaignId: report.campaignId)
                 guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
                 statsVC.navigationController?.pushViewController(nextVC, animated: true)
             }).disposed(by: bag)

@@ -50,9 +50,11 @@ struct Report {
     var code: String
     var date: Date?
     var sync: Bool
+    var campaignId: Int
     init(realmReport: RealmWebReportedAnswers) {
         self.code = realmReport.code
         self.date = realmReport.date
         self.sync = realmReport.success
+        self.campaignId = Int(realmReport.campaignId)!
     }
 }
