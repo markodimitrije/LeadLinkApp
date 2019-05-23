@@ -15,6 +15,7 @@ class ReportsVC: UIViewController, Storyboarded {
     @IBAction func syncTapped(_ sender: UIButton) {
         syncTapped()
     }
+    @IBOutlet weak var syncBtn: UIButton!
     
     private var myReportsDumper: ReportsDumper? = reportsDumper
     
@@ -29,7 +30,7 @@ class ReportsVC: UIViewController, Storyboarded {
         self.tableView.delegate = delegate
         
         listenTableTapEvents()
-        monitorVisibility()
+//        monitorVisibility()
     }
     
     deinit { print("ReportsVC.deinit") }
@@ -51,11 +52,23 @@ class ReportsVC: UIViewController, Storyboarded {
         reportsDumper?.sendToWebUnsycedReports()
     }
     
-    private func monitorVisibility() {
-        myReportsDumper?.oReportsDumped.subscribe(onNext: { dumped in
-            print("monitorVisibility.dumped = \(dumped)")
-        }).disposed(by: bag)
-    }
+//    private func monitorVisibility() {
+//
+//        Observable.combineLatest(myReportsDumper?.oReportsDumped.asObservable() ?? Observable.just(true), connectedToInternet()) {
+//            (reportsDumped, isConected) -> Bool in
+//
+//            if reportsDumped {
+//                return true // isHidden
+//            } else if isConected {
+//                return false
+//            }
+//            return false
+//        }
+//            .asDriver(onErrorJustReturn: false)
+//            .drive(syncBtn.rx.isHidden)
+//            .disposed(by: bag)
+//
+//    }
     
     private let factory = AppDependencyContainer()
     let bag = DisposeBag()

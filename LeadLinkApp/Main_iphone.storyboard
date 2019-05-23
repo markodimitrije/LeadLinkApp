@@ -266,7 +266,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-VO-eht" userLabel="scanBtn">
-                                                <rect key="frame" x="97" y="85" width="133" height="120"/>
+                                                <rect key="frame" x="68.5" y="85" width="190" height="171.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="VQ4-VO-eht" secondAttribute="height" multiplier="192:173" id="Jkp-V0-cFu"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="olT-H7-0Bf"/>
@@ -801,6 +801,7 @@ barcode number manually</string>
                         <viewLayoutGuide key="safeArea" id="Oqf-ug-U1R"/>
                     </view>
                     <connections>
+                        <outlet property="syncBtn" destination="GLO-Ee-23e" id="5yP-Vz-MaQ"/>
                         <outlet property="tableView" destination="0ay-KL-bMo" id="EsU-E0-V4K"/>
                     </connections>
                 </viewController>
