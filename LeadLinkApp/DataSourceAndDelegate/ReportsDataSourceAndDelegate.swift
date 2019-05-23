@@ -9,16 +9,30 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RealmSwift
 
 class ReportsDataSource: NSObject, UITableViewDataSource {
     
     weak var tableView: UITableView!
     var cellId: String
-    var data = [Report]()
+    private var reportsDataStore: ReportsDataStore
+
+    var data = [Report]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
+        }
+    }
     
     init(campaignId: Int, reportsDataStore: ReportsDataStore, cellId: String) {
         self.cellId = cellId
-        self.data = reportsDataStore.getReports(campaignId: campaignId)
+        self.reportsDataStore = reportsDataStore
+        super.init()
+        reportsDataStore.oReports
+            .subscribe(onNext: { [weak self] realmReports in guard let sSelf = self else {return}
+                sSelf.data = realmReports.map(Report.init)
+            }).disposed(by: bag)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,6 +49,8 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
+    private let bag = DisposeBag()
+    
 }
 
 class ReportsDelegate: NSObject, UITableViewDelegate {
@@ -44,7 +60,6 @@ class ReportsDelegate: NSObject, UITableViewDelegate {
         selectedIndex.accept(indexPath)
     }
 }
-
 
 struct Report {
     var code: String

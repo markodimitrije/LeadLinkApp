@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import RxCocoa
 
 public protocol CodesDataStore {
     /// Read
@@ -20,6 +21,7 @@ public protocol CodesDataStore {
 
 protocol ReportsDataStore {
     /// Read
-    func getReports(campaignId: Int) -> [Report]
+//    func getReports(campaignId: Int) -> [Report]
+    var oReports: BehaviorRelay<[RealmWebReportedAnswers]> {get set}
 }
 

@@ -23,14 +23,14 @@ class ReportsVC: UIViewController, Storyboarded {
         self.tableView.dataSource = dataSource
         self.tableView.delegate = delegate
         
-        listenTapEvents()
+        listenTableTapEvents()
     }
     
     deinit {
         print("ReportsVC.deinit")
     }
     
-    private func listenTapEvents() {
+    private func listenTableTapEvents() {
         delegate?.selectedIndex.skip(1)
             .subscribe(onNext: { [weak self] indexPath in guard let sSelf = self else {return}
                 let index = indexPath.row
@@ -44,6 +44,6 @@ class ReportsVC: UIViewController, Storyboarded {
     }
     
     private let factory = AppDependencyContainer()
-    private let bag = DisposeBag()
+    let bag = DisposeBag()
 }
 

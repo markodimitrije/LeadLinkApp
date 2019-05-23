@@ -10,71 +10,42 @@ import Foundation
 import PromiseKit
 import Realm
 import RealmSwift
+import RxRealm
+
+import RxSwift
+import RxCocoa
 
 public class RealmReportsDataStore: ReportsDataStore {
     
-    var realm = try! Realm.init()
-    var campaignsDataStore: CampaignsDataStore
+    private var realm = try! Realm.init()
+    private var campaignsDataStore: CampaignsDataStore
+    
+    // output:
+    var oReports = BehaviorRelay<[RealmWebReportedAnswers]>.init(value: [])
     
     init(campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
         self.campaignsDataStore = campaignsDataStore
         if let realm = realm {
             self.realm = realm
         }
+        self.hookUpOutput()
     }
     
-    func getReports(campaignId: Int) -> [Report] {
-        let id = "\(campaignId)"
-        let rCodes = realm.objects(RealmWebReportedAnswers.self).filter("campaignId == %@", id).toArray()
-        
-        return rCodes.map(Report.init)
+    private func hookUpOutput() {
+        guard let realm = try? Realm.init() else {return}
+        let realmReports = realm.objects(RealmWebReportedAnswers.self)
+        Observable.collection(from: realmReports)
+            .subscribe(onNext: { [weak self] results in guard let sSelf = self else {return}
+                let reports = Array(results)
+                print("emitujem nove reports iz baze = \(reports)")
+                sSelf.oReports.accept(reports)
+            }).disposed(by: bag)
     }
     
-    
-    /*
-    public func readCodes(campaignId id: Int) -> Promise<[Code]> {
-        
-        return Promise() { seal in
-            
-            let codes = getCodes(campaignId: id)
-            
-            seal.fulfill(codes)
-            
-        }
-        
+    deinit {
+        print("o-o, RealmReportsDataStore is deinit!!!")
     }
     
-    public func save(code: Code) -> Promise<Code> {
-        
-        return Promise() { seal in
-            
-            let rCode = RealmCode.init()
-            rCode.update(with: code)
-            
-            do {
-                try realm.write {
-                    print("code = \(code.value) successfully saved in realm")
-                    realm.add(rCode, update: true)
-                }
-            } catch {
-                print("RealmCodesDataStore.save.... o-o... catch")
-                seal.reject(CodeError.cantSave)
-            }
-            
-            seal.fulfill(code)
-            
-        }
-        
-    }
+    private let bag = DisposeBag()
     
-    // sync
-    
-    public func getCodes(campaignId id: Int) -> [Code] {
-        
-        let rCodes = realm.objects(RealmCode.self).filter("campaign_id == %i", id).toArray()
-        
-        return rCodes.map(Code.init)
-        
-    }
-    */
 }
