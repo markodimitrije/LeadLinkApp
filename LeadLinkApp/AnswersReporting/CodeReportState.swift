@@ -73,9 +73,6 @@ class AnswersReportsState { // ovo je trebalo da zoves viewModel-om !
         
         report.success = success
         
-        //                        report.success = false // hard-coded
-        //                        sSelf.codeReportFailed(report) // hard-coded
-        
         if success { // hard-coded of
             print("jesam success, implement save to realm!")
             RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])

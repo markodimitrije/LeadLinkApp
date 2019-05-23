@@ -16,6 +16,8 @@ class ReportsVC: UIViewController, Storyboarded {
         syncTapped()
     }
     
+    private var myReportsDumper: ReportsDumper? = reportsDumper
+    
     var dataSource: ReportsDataSource?
     var delegate: ReportsDelegate?
     
@@ -27,6 +29,7 @@ class ReportsVC: UIViewController, Storyboarded {
         self.tableView.delegate = delegate
         
         listenTableTapEvents()
+        monitorVisibility()
     }
     
     deinit { print("ReportsVC.deinit") }
@@ -45,10 +48,13 @@ class ReportsVC: UIViewController, Storyboarded {
     }
     
     private func syncTapped() {
-        if reportsDumper == nil {
-            reportsDumper = ReportsDumper()
-        }
-        reportsDumper.sendToWebUnsycedReports()
+        reportsDumper?.sendToWebUnsycedReports()
+    }
+    
+    private func monitorVisibility() {
+        myReportsDumper?.oReportsDumped.subscribe(onNext: { dumped in
+            print("monitorVisibility.dumped = \(dumped)")
+        }).disposed(by: bag)
     }
     
     private let factory = AppDependencyContainer()

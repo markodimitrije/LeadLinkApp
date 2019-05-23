@@ -24,7 +24,7 @@
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
 		7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* AnswersReport.swift */; };
-		7C62226F2294264600717CA1 /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* CodesDumper.swift */; };
+		7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* ReportsDumper.swift */; };
 		7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersAPIController.swift */; };
 		7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622276229444BA00717CA1 /* RealmDataPersister.swift */; };
 		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
@@ -184,7 +184,7 @@
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		7C62226C2294232300717CA1 /* AnswersReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersReport.swift; sourceTree = "<group>"; };
-		7C62226E2294264600717CA1 /* CodesDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
+		7C62226E2294264600717CA1 /* ReportsDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsDumper.swift; sourceTree = "<group>"; };
 		7C6222732294345E00717CA1 /* AnswersAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersAPIController.swift; sourceTree = "<group>"; };
 		7C622276229444BA00717CA1 /* RealmDataPersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
 		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
@@ -402,7 +402,7 @@
 				7C6222782294469F00717CA1 /* Model */,
 				7C62226C2294232300717CA1 /* AnswersReport.swift */,
 				7C62226A229422A800717CA1 /* CodeReportState.swift */,
-				7C62226E2294264600717CA1 /* CodesDumper.swift */,
+				7C62226E2294264600717CA1 /* ReportsDumper.swift */,
 			);
 			path = AnswersReporting;
 			sourceTree = "<group>";
@@ -1247,7 +1247,7 @@
 				7C98A6ED2289735B00DA184E /* OptionsTextView.swift in Sources */,
 				7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */,
 				7C98A6992289689900DA184E /* QuestionsScrollView.swift in Sources */,
-				7C62226F2294264600717CA1 /* CodesDumper.swift in Sources */,
+				7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				7C98A6D822896F9300DA184E /* RxViewModel.swift in Sources */,
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
