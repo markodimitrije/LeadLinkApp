@@ -1,8 +1,8 @@
 //
-//  RealmCodesDataStore.swift
+//  RealmReportsDataStore.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 20/03/2019.
+//  Created by Marko Dimitrijevic on 23/05/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import PromiseKit
 import Realm
 import RealmSwift
 
-public class RealmCodesDataStore: CodesDataStore {
+public class RealmReportsDataStore: ReportsDataStore {
     
     var realm = try! Realm.init()
     var campaignsDataStore: CampaignsDataStore
@@ -23,6 +23,14 @@ public class RealmCodesDataStore: CodesDataStore {
         }
     }
     
+    func getReports(campaignId: Int) -> [Report] {
+        let rCodes = realm.objects(RealmWebReportedAnswers.self).filter("campaign_id == %i", campaignId).toArray()
+        
+        return rCodes.map(Report.init)
+    }
+    
+    
+    /*
     public func readCodes(campaignId id: Int) -> Promise<[Code]> {
         
         return Promise() { seal in
@@ -51,7 +59,7 @@ public class RealmCodesDataStore: CodesDataStore {
                 print("RealmCodesDataStore.save.... o-o... catch")
                 seal.reject(CodeError.cantSave)
             }
-          
+            
             seal.fulfill(code)
             
         }
@@ -67,5 +75,5 @@ public class RealmCodesDataStore: CodesDataStore {
         return rCodes.map(Code.init)
         
     }
-    
+    */
 }

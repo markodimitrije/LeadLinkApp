@@ -110,20 +110,39 @@ public class AppDependencyContainer {
     }
 
     func makeCodesViewController(campaignId id: Int) -> CodesVC {
-
+        
         let codesDataSource = CodesDataSource.init(campaignId: id,
                                                        codesDataStore: makeCodeDataStore(),
                                                        cellId: "CodeCell")
         let codesDelegate = CodesDelegate()
-        
+
         let codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
-        
+
         codesVC.codesDataSource = codesDataSource
         codesVC.codesDelegate = codesDelegate
         
         return codesVC
         
     }
+    
+    func makeReportsViewController(campaignId id: Int) -> ReportsVC {
+        
+        let dataSource = ReportsDataSource.init(campaignId: id,
+                                                reportsDataStore: makeReportsDataStore(),
+                                                cellId: "ReportsCell")
+        
+        let delegate = ReportsDelegate()
+        
+        let reportsVC = sb.instantiateViewController(withIdentifier: "ReportsVC") as! ReportsVC
+        
+        reportsVC.dataSource = dataSource
+        reportsVC.delegate = delegate
+        
+        return reportsVC
+        
+    }
+    
+    
     
     func makeChartViewController(campaignId id: Int) -> UIViewController {
         
@@ -264,6 +283,11 @@ public class AppDependencyContainer {
     private func makeCodeDataStore() -> CodesDataStore {
         let realmCampaignsDataStore = RealmCampaignsDataStore.init()
         return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
+    }
+    
+    private func makeReportsDataStore() -> ReportsDataStore {
+        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
+        return RealmReportsDataStore.init(campaignsDataStore: realmCampaignsDataStore)
     }
     
     // MARK:- Make repositories
