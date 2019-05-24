@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AnswersReport.payload.getter:AnswersReport.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "answers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -29,14 +37,6 @@
             </PersistentString>
             <PersistentString
                value = "campaignsViewModel.selectedCampaign.value()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ReportsVC.syncTapped():ReportsVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "reportsDumper">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -66,6 +66,9 @@
                value = "containerView">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AnswersApiController.postRequest(base:pathComponent:reports:):AnswersAPIController.swift">
       </ContextState>
       <ContextState
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">

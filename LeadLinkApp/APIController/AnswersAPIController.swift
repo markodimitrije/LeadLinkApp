@@ -97,7 +97,6 @@ class AnswersApiController {
         }
     }
     
-    
     private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
         
         let url = base.appendingPathComponent(pathComponent)
@@ -108,21 +107,13 @@ class AnswersApiController {
         request.url = urlComponents.url!
         request.httpMethod = "POST"
         
-        request.timeoutInterval = TimeInterval.init(integerLiteral: 10)
-        
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
-                                       "Authorization": authorization]
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                                       "Authorization": authorization,
+                                       "Content-Type": "application/json"]
         
         let payload = reports.map {$0.payload}
         
-//        guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {
-//            fatalError()
-//        }
-        let dict = [[["question_id": "29", // hard-coded, jer citam moju kampanju iz jsonBundle !
-                    "content": "381642624322"]]]
-
-        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+        guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {
             fatalError()
         }
         

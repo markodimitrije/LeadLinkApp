@@ -33,6 +33,7 @@ class AnswersReport: Object { // Realm Entity
         self.success = success
         self.date = date ?? Date(timeIntervalSinceNow: 0)
         super.init()
+        self.loadAnswers()
     }
     
     init(realmAnswersReport: RealmWebReportedAnswers) {
@@ -41,8 +42,17 @@ class AnswersReport: Object { // Realm Entity
         self.success = realmAnswersReport.success
         self.date = realmAnswersReport.date ?? Date(timeIntervalSinceNow: 0)
         super.init()
+        self.loadAnswers()
     }
 
+    private func loadAnswers() {
+        guard let realm = try? Realm.init(),
+             let campaignId = Int(campaignId) else {return}
+        
+        let realmAnswers = realm.objects(RealmAnswer.self).filter("campaignId == %i && code == %@", campaignId, code)
+        answers = Array(realmAnswers).compactMap(MyAnswer.init)
+    }
+    
     func getPayload() -> [[String: String]] {  print("AnswersReport.getPayload = \(answers.map { $0.toWebReportJson() })")
         return answers.map { $0.toWebReportJson() }
     }
