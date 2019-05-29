@@ -691,35 +691,40 @@ barcode number manually</string>
                                 <rect key="frame" x="0.0" y="64" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportsTVC" id="SWz-sm-oWJ" customClass="ReportsTVC" customModule="LeadLinkApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportsTVC" rowHeight="160" id="SWz-sm-oWJ" customClass="ReportsTVC" customModule="LeadLinkApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SWz-sm-oWJ" id="F3P-sR-EGY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IFF-52-4Xb">
-                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="138"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxb-b9-UvP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="109.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="109.5" height="138"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1N-ir-Mw7">
-                                                            <rect key="frame" x="117.5" y="0.0" width="110" height="20.5"/>
+                                                            <rect key="frame" x="117.5" y="0.0" width="110" height="138"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="sync" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKG-ee-6Xf">
-                                                            <rect key="frame" x="235.5" y="0.0" width="109.5" height="20.5"/>
+                                                            <rect key="frame" x="235.5" y="0.0" width="109.5" height="138"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="aKG-ee-6Xf" firstAttribute="centerY" secondItem="IFF-52-4Xb" secondAttribute="centerY" id="9er-SG-1iJ"/>
+                                                        <constraint firstItem="pxb-b9-UvP" firstAttribute="centerY" secondItem="IFF-52-4Xb" secondAttribute="centerY" id="BNh-if-OT5"/>
+                                                        <constraint firstItem="T1N-ir-Mw7" firstAttribute="centerY" secondItem="IFF-52-4Xb" secondAttribute="centerY" id="awu-dq-0uh"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -730,9 +735,9 @@ barcode number manually</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="codeLbl" destination="pxb-b9-UvP" id="npU-Vn-PBw"/>
-                                            <outlet property="dateLbl" destination="T1N-ir-Mw7" id="RHZ-Ih-GkU"/>
-                                            <outlet property="syncLbl" destination="aKG-ee-6Xf" id="i8l-Hw-AR9"/>
+                                            <outlet property="codeLbl" destination="pxb-b9-UvP" id="tX4-PS-hSF"/>
+                                            <outlet property="dateLbl" destination="T1N-ir-Mw7" id="ZQk-aF-sH6"/>
+                                            <outlet property="syncLbl" destination="aKG-ee-6Xf" id="Fjq-dV-Jlu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

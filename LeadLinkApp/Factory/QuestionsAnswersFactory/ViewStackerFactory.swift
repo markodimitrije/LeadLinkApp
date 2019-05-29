@@ -57,7 +57,26 @@ class ViewStackerFactory {
                                                  viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                                  bag: bag)
             }
-//
+
+            finalView = stackerView
+            
+        case .textArea:
+            
+            let res = self.getLabelAndTextView(question: singleQuestion.question,
+                                               answer: singleQuestion.answer,
+                                               frame: fr)
+            let stackerView = res.0; btnViews = res.1
+            
+            txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
+                                                    labelAndTextView: btnViews.first as! LabelAndTextView,
+                                                    viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
+                                                    bag: bag)
+            
+            let resized = CGRect.init(origin: stackerView.frame.origin,
+                                      size: CGSize.init(width: stackerView.bounds.width,
+                                                        height: CGFloat.init(integerLiteral: 200)))
+            stackerView.frame = resized
+            
             finalView = stackerView
             
         case .dropdown:

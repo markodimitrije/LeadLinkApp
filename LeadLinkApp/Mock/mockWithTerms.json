@@ -14,6 +14,20 @@
             "settings": {},
             "questions": [
                 {
+                    "id": 1,
+                    "campaign_id": 9,
+                    "title": "barcode",
+                    "type": "text",
+                    "group": null,
+                    "required": false,
+                    "description": "Barcode",
+                    "order": 0,
+                    "element_id": null,
+                    "settings": {
+                        "options": []
+                    }
+                },
+                {
                     "id": 21,
                     "campaign_id": 9,
                     "title": "Rep name",
@@ -161,7 +175,7 @@
                     "element_id": null,
                     "settings": {
                         "options": [
-                            "I would like to be contacted by a local representative",
+                            "I would like to be contacted by a local representative"
                         ]
                     }
                 },
