@@ -31,8 +31,7 @@ class ViewmodelFactory {
         case .dropdown:
             return SelectOptionTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
         case .textArea:
-            //return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
-            return SelectOptionTextFieldViewModel.init(question: question, answer: answer)
+            return LabelWithTextFieldViewModel.init(question: question, answer: answer)
         case .termsSwitchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer)
         default:

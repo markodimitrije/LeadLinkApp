@@ -24,6 +24,7 @@ class ViewStackerFactory {
     private let txtFieldToViewModelBinder = TextFieldToViewModelBinder()
     private let txtViewToDropdownViewModelBinder = TextViewToDropdownViewModelBinder()
     private let termsSwitchBtnsViewModelBinder = StackViewToTermsViewModelBinder()
+    private let textAreaViewModelBinder = TextAreaViewModelBinder()
     
     init(viewFactory: ViewFactory, bag: DisposeBag, delegate: UITextViewDelegate?) {
         self.viewFactory = viewFactory
@@ -67,10 +68,10 @@ class ViewStackerFactory {
                                                frame: fr)
             let stackerView = res.0; btnViews = res.1
             
-            txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
-                                                    labelAndTextView: btnViews.first as! LabelAndTextView,
-                                                    viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
-                                                    bag: bag)
+            textAreaViewModelBinder.hookUp(view: stackerView,
+                                           labelAndTextView: btnViews.first as! LabelAndTextView,
+                                           viewmodel: viewmodel as! LabelWithTextFieldViewModel,
+                                           bag: bag)
             
             let resized = CGRect.init(origin: stackerView.frame.origin,
                                       size: CGSize.init(width: stackerView.bounds.width,
