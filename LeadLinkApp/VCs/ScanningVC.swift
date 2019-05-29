@@ -53,8 +53,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func bindQrAndBarScanCamera() {
         loadScannerView()
-        bindAVSession()
-        bindCamera()
+        bindSessionUsingAVSessionViewModel()
+        bindCameraUsingAVSessionViewModel()
     }
     
     private func bindUI() {
@@ -111,7 +111,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     // camera session binding:
     
-    private func bindAVSession() {
+    private func bindSessionUsingAVSessionViewModel() {
         
         avSessionViewModel.oSession
             .subscribe(onNext: { [unowned self] (session) in
@@ -127,7 +127,7 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func bindCamera() {
+    private func bindCameraUsingAVSessionViewModel() {
         
         avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (barCodeValue) in
