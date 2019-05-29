@@ -15,8 +15,8 @@ class ReportsTVC: UITableViewCell {
     @IBOutlet weak var syncLbl: UILabel!
     
     func update(report: Report) {
-        codeLbl.text = report.code
-        dateLbl.text = report.date?.toString(format: Date.defaultFormatString)
+        codeLbl.text = trimmedToSixCharactersCode(code: report.code)
+        dateLbl.text = report.date?.toString(format: Date.codeReportShortFormatString)
         syncLbl.text = report.sync ? "YES" : "NO"
         self.setColor(synced: report.sync)
     }

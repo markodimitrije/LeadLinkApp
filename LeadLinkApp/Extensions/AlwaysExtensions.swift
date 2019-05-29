@@ -69,6 +69,7 @@ extension Date { // (*)
     }
     
     static var defaultFormatString = "yyyy-MM-dd HH:mm:ss"
+    static var codeReportShortFormatString = "MM-dd HH:mm"
 }
 
 extension Date { // (*)

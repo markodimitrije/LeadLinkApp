@@ -83,3 +83,10 @@ func getDeviceType() -> DeviceType? {
     }
     return nil
 }
+
+func trimmedToSixCharactersCode(code: String) -> String {
+    let startPosition = code.count - 6
+    let trimToSixCharactersCode = NSString(string: code).substring(from: startPosition)
+    //    print("trimed code = \(trimToSixCharactersCode), with code = \(code)")
+    return trimToSixCharactersCode
+}
