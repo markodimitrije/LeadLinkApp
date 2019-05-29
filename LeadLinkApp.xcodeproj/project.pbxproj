@@ -391,9 +391,82 @@
 		7C1A45F622969A3A0032C860 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ADAD040821E65EC4006463A2 /* CampaignCell.swift */,
 				7C1A45F722969A5E0032C860 /* ReportsTVC.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7C1C1528229ED5CE0050337B /* LabelAndTextView */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6862289689900DA184E /* LabelAndTextView.xib */,
+				7C98A6942289689900DA184E /* LabelAndTextView.swift */,
+			);
+			path = LabelAndTextView;
+			sourceTree = "<group>";
+		};
+		7C1C1529229ED5E50050337B /* LabelAndTextField */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A6852289689900DA184E /* LabelAndTextField.swift */,
+				7C98A68E2289689900DA184E /* LabelAndTextField.xib */,
+			);
+			path = LabelAndTextField;
+			sourceTree = "<group>";
+		};
+		7C1C152A229ED6010050337B /* CheckboxView */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A68A2289689900DA184E /* CheckboxView.xib */,
+				7C98A6902289689900DA184E /* CheckboxView.swift */,
+			);
+			path = CheckboxView;
+			sourceTree = "<group>";
+		};
+		7C1C152B229ED6350050337B /* RadioBtnView */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A68D2289689900DA184E /* RadioBtnView.swift */,
+				7C98A6932289689900DA184E /* RadioBtnView.xib */,
+			);
+			path = RadioBtnView;
+			sourceTree = "<group>";
+		};
+		7C1C152C229ED6400050337B /* ViewStacker */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A68B2289689900DA184E /* ViewStacker.swift */,
+				7C98A6982289689900DA184E /* ViewStacker.xib */,
+			);
+			path = ViewStacker;
+			sourceTree = "<group>";
+		};
+		7C1C152D229ED64B0050337B /* OneRowStacker */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A68C2289689900DA184E /* OneRowStacker.swift */,
+				7C98A6922289689900DA184E /* OneRowStacker.xib */,
+			);
+			path = OneRowStacker;
+			sourceTree = "<group>";
+		};
+		7C1C152E229ED65B0050337B /* LabelBtnSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				7C98A68F2289689900DA184E /* LabelBtnSwitchView.xib */,
+				7C98A6972289689900DA184E /* LabelBtnSwitchView.swift */,
+			);
+			path = LabelBtnSwitchView;
+			sourceTree = "<group>";
+		};
+		7C1C152F229ED67A0050337B /* DividerView */ = {
+			isa = PBXGroup;
+			children = (
+				ADA9B1C922384C5400B7D74F /* DividerView.xib */,
+				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
+			);
+			path = DividerView;
 			sourceTree = "<group>";
 		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
@@ -487,32 +560,25 @@
 			isa = PBXGroup;
 			children = (
 				7C0E5CB7228ECD310011E0A2 /* TermsSwitch */,
-				7C98A6852289689900DA184E /* LabelAndTextField.swift */,
-				7C98A6862289689900DA184E /* LabelAndTextView.xib */,
-				7C98A68A2289689900DA184E /* CheckboxView.xib */,
-				7C98A68B2289689900DA184E /* ViewStacker.swift */,
-				7C98A68C2289689900DA184E /* OneRowStacker.swift */,
-				7C98A68D2289689900DA184E /* RadioBtnView.swift */,
-				7C98A68E2289689900DA184E /* LabelAndTextField.xib */,
-				7C98A68F2289689900DA184E /* LabelBtnSwitchView.xib */,
-				7C98A6972289689900DA184E /* LabelBtnSwitchView.swift */,
-				7C98A6902289689900DA184E /* CheckboxView.swift */,
-				7C98A6912289689900DA184E /* QuestionGroupFooterView.swift */,
-				7C98A6922289689900DA184E /* OneRowStacker.xib */,
-				7C98A6932289689900DA184E /* RadioBtnView.xib */,
-				7C98A6942289689900DA184E /* LabelAndTextView.swift */,
-				7C98A6952289689900DA184E /* New Group */,
-				7C98A6982289689900DA184E /* ViewStacker.xib */,
+				7C1C1529229ED5E50050337B /* LabelAndTextField */,
+				7C1C1528229ED5CE0050337B /* LabelAndTextView */,
+				7C1C152A229ED6010050337B /* CheckboxView */,
+				7C1C152C229ED6400050337B /* ViewStacker */,
+				7C1C152D229ED64B0050337B /* OneRowStacker */,
+				7C1C152B229ED6350050337B /* RadioBtnView */,
+				7C1C152E229ED65B0050337B /* LabelBtnSwitchView */,
+				7C98A6952289689900DA184E /* FooterView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		7C98A6952289689900DA184E /* New Group */ = {
+		7C98A6952289689900DA184E /* FooterView */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A6912289689900DA184E /* QuestionGroupFooterView.swift */,
 				7C98A6962289689900DA184E /* QuestionGroupFooterView.xib */,
 			);
-			path = "New Group";
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		7C98A6B022896AB200DA184E /* DataProvider */ = {
@@ -722,9 +788,7 @@
 			children = (
 				7C1A45F622969A3A0032C860 /* Cells */,
 				7C98A6812289689900DA184E /* QAViews */,
-				ADAD040821E65EC4006463A2 /* CampaignCell.swift */,
-				ADA9B1C922384C5400B7D74F /* DividerView.xib */,
-				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
+				7C1C152F229ED67A0050337B /* DividerView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
