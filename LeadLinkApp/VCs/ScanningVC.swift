@@ -179,7 +179,6 @@ class ScanningVC: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //print("viewWillAppear.startRunning()")
         self.avSessionViewModel.captureSession.startRunning()
     }
     

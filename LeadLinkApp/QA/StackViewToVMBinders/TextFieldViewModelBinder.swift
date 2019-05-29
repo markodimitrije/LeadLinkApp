@@ -13,10 +13,23 @@ import RxCocoa
 // regular textField...
 class TextFieldToViewModelBinder {
     
+    private var view: ViewStacker!
+    private var labelAndTextView: LabelAndTextField!
+    private var viewmodel: LabelWithTextFieldViewModel!
+    private var bag: DisposeBag!
+    
+    private var isBarcodeTxtField: Bool { return viewmodel.question.options.contains("barcode") }
+    private var isEmailTxtField: Bool { return viewmodel.question.options.contains("email") }
+    
     func hookUp(view: ViewStacker, labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag) {
         
+        self.view = view
+        self.labelAndTextView = labelAndTextView
+        self.viewmodel = viewmodel
+        self.bag = bag
+        
         let inputCreator = LabelAndTextFieldFromModelInputCreator(viewmodel: viewmodel)
-        let driver = inputCreator.createTxtDriver()
+        let driver = isBarcodeTxtField ? inputCreator.createTxtDriver() : inputCreator.createBarcodeTxtDriver()
         
         driver
             .bind(to: labelAndTextView.rx.titles)
@@ -26,7 +39,26 @@ class TextFieldToViewModelBinder {
             .bind(to: viewmodel.rx.answer)
             .disposed(by: bag)
         
+        checkForBarcodeAndEmailFields()
+        
     }
     
+    private func checkForBarcodeAndEmailFields() {
+        if isBarcodeTxtField {
+            self.formatBarcodeTextField()
+        } else if isEmailTxtField {
+            self.formatEmailTextField()
+        }
+    }
+    
+    private func formatBarcodeTextField() {
+        labelAndTextView.textField.isEnabled = false
+        labelAndTextView.textField.backgroundColor = .green
+        labelAndTextView.textField.font = UIFont.systemFont(ofSize: 22)
+    }
+    
+    private func formatEmailTextField() {
+        labelAndTextView.textField.keyboardType = .emailAddress
+    }
 }
 

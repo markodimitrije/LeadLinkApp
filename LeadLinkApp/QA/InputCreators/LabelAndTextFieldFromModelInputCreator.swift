@@ -26,4 +26,12 @@ class LabelAndTextFieldFromModelInputCreator {
         
     }
     
+    func createBarcodeTxtDriver() -> Observable<(String, String)> {
+        
+        let headline = viewmodel.question.headlineText
+        let text = viewmodel.code
+        return Observable.from([(headline, text)])
+        
+    }
+    
 }
