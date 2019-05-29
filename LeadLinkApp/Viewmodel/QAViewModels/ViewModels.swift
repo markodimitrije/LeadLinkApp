@@ -16,9 +16,10 @@ class RadioViewModel: NSObject, ViewModelType, Questanable {
     var code: String = ""
     
     //init(question: PresentQuestion, answer: RadioAnswer?) {
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -49,9 +50,10 @@ class CheckboxViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -89,9 +91,10 @@ class RadioWithInputViewModel: NSObject, ViewModelType, Questanable {
     var code: String = ""
     
     //init(question: PresentQuestion, answer: RadioAnswer?) {
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -121,9 +124,10 @@ class CheckboxWithInputViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -155,9 +159,10 @@ class SwitchBtnsViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -190,9 +195,10 @@ class LabelWithTextFieldViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {
@@ -223,9 +229,10 @@ class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
+        self.code = code
     }
     
     struct Input {

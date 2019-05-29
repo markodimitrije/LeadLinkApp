@@ -10,6 +10,13 @@ import Foundation
 
 class ViewmodelFactory {
 
+    var code: String
+    
+    init(code: String) {
+        print("ViewmodelFactory.imam barcode = \(code)")
+        self.code = code
+    }
+    
     func makeViewmodel(singleQuestion: SingleQuestion) -> Any {
         
         let question = singleQuestion.question
@@ -17,23 +24,23 @@ class ViewmodelFactory {
         
         switch singleQuestion.question.type {
         case .textField:
-            return LabelWithTextFieldViewModel.init(question: question, answer: answer)// as? TextAnswer)
+            return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)// as? TextAnswer)
         case .radioBtn:
-            return RadioViewModel.init(question: question, answer: answer)
+            return RadioViewModel.init(question: question, answer: answer, code: code)
         case .checkbox:
-            return CheckboxViewModel.init(question: question, answer: answer)
+            return CheckboxViewModel.init(question: question, answer: answer, code: code)
         case .radioBtnWithInput:
-            return RadioWithInputViewModel.init(question: question, answer: answer)
+            return RadioWithInputViewModel.init(question: question, answer: answer, code: code)
         case .checkboxWithInput:
-            return CheckboxWithInputViewModel.init(question: question, answer: answer)
+            return CheckboxWithInputViewModel.init(question: question, answer: answer, code: code)
         case .switchBtn:
-            return SwitchBtnsViewModel.init(question: question, answer: answer)
+            return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
         case .dropdown:
-            return SelectOptionTextFieldViewModel.init(question: question, answer: answer)// as? OptionTextAnswer)
+            return SelectOptionTextFieldViewModel.init(question: question, answer: answer, code: code)// as? OptionTextAnswer)
         case .textArea:
-            return LabelWithTextFieldViewModel.init(question: question, answer: answer)
+            return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)
         case .termsSwitchBtn:
-            return SwitchBtnsViewModel.init(question: question, answer: answer)
+            return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
         default:
             fatalError("ViewmodelFactory/makeViewmodel/no supported type")
         }

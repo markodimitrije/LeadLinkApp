@@ -15,7 +15,7 @@ import RealmSwift
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {//}, RadioBtnListener {
     
     private lazy var viewFactory = ViewFactory.init(bounds: self.view.bounds)
-    private let viewmodelFactory = ViewmodelFactory.init()
+    private var viewmodelFactory: ViewmodelFactory!
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
                                                                   delegate: myDataSourceAndDelegate)
@@ -38,6 +38,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             loadQuestions(surveyInfo: surveyInfo)
+            self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
         }
     }
     

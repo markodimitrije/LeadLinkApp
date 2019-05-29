@@ -29,7 +29,7 @@ class TextFieldToViewModelBinder {
         self.bag = bag
         
         let inputCreator = LabelAndTextFieldFromModelInputCreator(viewmodel: viewmodel)
-        let driver = isBarcodeTxtField ? inputCreator.createTxtDriver() : inputCreator.createBarcodeTxtDriver()
+        let driver = isBarcodeTxtField ? inputCreator.createBarcodeTxtDriver(): inputCreator.createTxtDriver()
         
         driver
             .bind(to: labelAndTextView.rx.titles)
