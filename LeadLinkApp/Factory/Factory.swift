@@ -235,11 +235,13 @@ public class AppDependencyContainer {
         return chooseOptionsVC
     }
     
-    func makeTermsVC() -> UINavigationController {
+    func makeTermsVC(termsTxt: String? = nil) -> UINavigationController {
         guard let navForTerms = NavForTermsVC.instantiate(using: sb) as? NavForTermsVC,
             let termsVC = navForTerms.viewControllers.first as? TermsVC else { fatalError() }
     
-        termsVC.termsTxt.accept(termsString) // global var...
+        let text = termsTxt ?? termsString // backup je global var...
+        
+        termsVC.termsTxt.accept(text)
         
         return navForTerms
     }

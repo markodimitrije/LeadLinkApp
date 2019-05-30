@@ -46,7 +46,7 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         }
     }
     
-    var desc: String? // zapamti state koji ti je neko poslao
+    var termsTxt: String? // zapamti state koji ti je neko poslao
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,11 +56,6 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib()
-    }
-    
-    convenience init(frame: CGRect, termsInfo: TermsAndConditionsInfo) {
-        self.init(frame: frame)
-        update(termsAndConditionsInfo: termsInfo)
     }
     
     func loadViewFromNib() {
@@ -74,25 +69,13 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         
     }
     
-    func update(termsAndConditionsInfo termsInfo: TermsAndConditionsInfo) {
-        self.labelText = termsInfo.switchInfo.text
-        self.switchIsOn = termsInfo.switchInfo.switchIsOn
-        self.desc = termsInfo.switchInfo.desc
-        self.linkBtnText = termsInfo.linkText
-    }
-    
     private func termsBtnTapped() { print("show terms screen....")
         if let topVC = UIApplication.topViewController() {
             let factory = AppDependencyContainer()
-            let termsVC = factory.makeTermsVC()
+            let termsVC = factory.makeTermsVC(termsTxt: self.termsTxt)
             topVC.present(termsVC, animated: true, completion: nil)
         }
     }
     
-}
-
-struct TermsAndConditionsInfo {
-    var switchInfo: SwitchInfo
-    var linkText: String
 }
 

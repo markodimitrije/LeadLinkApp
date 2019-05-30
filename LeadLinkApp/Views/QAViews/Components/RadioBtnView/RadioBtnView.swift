@@ -159,7 +159,7 @@ extension Reactive where Base: TermsLabelBtnSwitchView {
     
     var termsTxt: Binder<String> {
         return Binder.init(self.base, binding: { (view, value) in
-            print("implement me, save terms txt")
+            view.termsTxt = value
         })
     }
     
