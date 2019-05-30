@@ -15,8 +15,14 @@ class StackViewToTermsViewModelBinder: StackViewToViewModelBinder {
         
         let inputCreator = TermsSwitchBtnsViewmodelInputCreator(viewmodel: viewmodel)
         
-        _ = inputCreator.createTxtDrivers().enumerated().map { (offset, textDriver) in
-            textDriver.drive(btnViews[offset].rx.optionTxt)
+        _ = inputCreator.createTxtDrivers()
+            .enumerated().map { (offset, textDriver) in
+            switch offset {
+                case 0: textDriver.drive(btnViews.first!.rx.termsTxt).disposed(by: bag)
+                case 1: textDriver.drive(btnViews.first!.rx.labelTxt).disposed(by: bag)
+                case 2: textDriver.drive(btnViews.first!.rx.linkBtnTxt).disposed(by: bag)
+            default: break
+            }
         }
         
         let initial = viewmodel.answer?.optionIds ?? [ ]

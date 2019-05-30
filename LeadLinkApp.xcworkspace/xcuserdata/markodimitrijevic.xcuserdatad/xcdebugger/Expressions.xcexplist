@@ -11,10 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AnswersReport.payload.getter:AnswersReport.swift">
+         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
          <PersistentStrings>
             <PersistentString
-               value = "answers">
+               value = "termsAnswer?.optionIds?.first">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -49,6 +49,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewmodel.question.options">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -74,10 +82,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "count">
@@ -87,9 +98,6 @@
             </PersistentString>
             <PersistentString
                value = "doneBtn">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -127,10 +135,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
+         contextName = "AnswersReport.payload.getter:AnswersReport.swift">
          <PersistentStrings>
             <PersistentString
-               value = "termsAnswer?.optionIds?.first">
+               value = "answers">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

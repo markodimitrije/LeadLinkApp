@@ -266,7 +266,7 @@ class ViewStackerFactory {
     
     private func getTermsSwitchBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
         
-        let stackerView = viewFactory.getStackedTermsSwitchBtns(question: question, answer: answer, frame: frame)
+        let stackerView = viewFactory.getTermsSwitchBtn(question: question, answer: answer, frame: frame)
         
         let btnViews = stackerView.components.flatMap { view -> [TermsLabelBtnSwitchView] in
             return (view as? OneRowStacker)?.components as? [TermsLabelBtnSwitchView] ?? [ ]

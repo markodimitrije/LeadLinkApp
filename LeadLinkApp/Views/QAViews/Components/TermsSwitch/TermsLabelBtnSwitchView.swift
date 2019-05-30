@@ -18,7 +18,6 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         termsBtnTapped()
     }
     
-    
     var labelText: String? {
         get {
             return label?.text
@@ -33,7 +32,8 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
             return linkBtn?.titleLabel?.text
         }
         set {
-            linkBtn?.titleLabel?.text = newValue
+            //linkBtn?.titleLabel?.text = newValue
+            linkBtn?.setTitle(newValue, for: .normal)
         }
     }
 
