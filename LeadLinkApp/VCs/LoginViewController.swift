@@ -63,7 +63,13 @@ class LoginViewController: UIViewController, Storyboarded {
         formatControls()
         
         keyboardManager = MovingKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
-            self.loginStackViewYConstraint!.constant += verticalShift
+
+            if verticalShift > 0 {
+                self.loginStackViewYConstraint!.constant = CGFloat(0) // budi tu gde jesi...
+            } else {
+                self.loginStackViewYConstraint!.constant = -abs(verticalShift) // podigni se za keyboardHeight/2 pt
+            }
+            
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
