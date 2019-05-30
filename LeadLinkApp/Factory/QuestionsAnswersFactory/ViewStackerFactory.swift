@@ -334,9 +334,9 @@ class ViewStackerFactory {
         let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
                                                          size: CGSize.init(width: stackerView.bounds.width,
                                                                            height: tableRowHeightCalculator.getHeadlineHeightForDeviceType())))
-        titleLabel.backgroundColor = .red
+
         titleLabel.numberOfLines = 0
-        titleLabel.text = question.headlineText
+        titleLabel.text = "  " + question.headlineText
         
         if question.headlineText == "" {
             titleLabel.frame = CGRect.init(origin: titleLabel.frame.origin,

@@ -421,7 +421,7 @@ barcode number manually</string>
                         </subviews>
                         <color key="backgroundColor" red="0.66666668650000005" green="0.66370729750000002" blue="0.1147340125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="BMq-Yc-a3T" firstAttribute="trailing" secondItem="Xn3-dL-1K9" secondAttribute="trailing" id="18c-T9-9Y4"/>
+                            <constraint firstItem="Xn3-dL-1K9" firstAttribute="trailing" secondItem="BMq-Yc-a3T" secondAttribute="trailing" id="18c-T9-9Y4"/>
                             <constraint firstItem="BMq-Yc-a3T" firstAttribute="bottom" secondItem="Xn3-dL-1K9" secondAttribute="bottom" id="S5M-EN-y5r"/>
                             <constraint firstItem="BMq-Yc-a3T" firstAttribute="leading" secondItem="Xn3-dL-1K9" secondAttribute="leading" id="gms-8g-V27"/>
                             <constraint firstItem="BMq-Yc-a3T" firstAttribute="top" secondItem="Xn3-dL-1K9" secondAttribute="top" id="uMR-sy-Wbw"/>
@@ -434,7 +434,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEu-f7-ubq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2986" y="54"/>
+            <point key="canvasLocation" x="2984.8000000000002" y="53.523238380809602"/>
         </scene>
         <!--StatsVC-->
         <scene sceneID="eeZ-AI-LVQ">
