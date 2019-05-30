@@ -338,7 +338,7 @@ barcode number manually</string>
                                                     <constraint firstAttribute="height" constant="44" id="0uK-n8-NQM"/>
                                                     <constraint firstAttribute="width" constant="260" id="K7K-Tj-ppP"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.93332207202911377" green="0.93729609251022339" blue="0.93334120512008667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -485,7 +485,7 @@ barcode number manually</string>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-fU-5fj">
                                 <rect key="frame" x="16" y="28" width="343" height="400"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.1229112413" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93724346160888672" green="0.93724900484085083" blue="0.93726325035095215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
                                 <rect key="frame" x="16" y="439" width="343" height="220"/>

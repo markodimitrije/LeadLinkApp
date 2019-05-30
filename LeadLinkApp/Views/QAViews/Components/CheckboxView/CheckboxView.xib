@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckboxView" customModule="tryLeadLinkModularComponent" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckboxView" customModule="LeadLinkApp" customModuleProvider="target">
             <connections>
                 <outlet property="checkboxImageBtn" destination="Yxq-hu-iqD" id="6dQ-88-6dK"/>
                 <outlet property="headlineLbl" destination="0a2-7j-sUj" id="0Cm-Rm-zRp"/>
@@ -46,7 +46,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ieg-NS-IzM" firstAttribute="trailing" secondItem="Kds-Jb-tlO" secondAttribute="trailing" constant="16" id="I1z-uV-4iv"/>
                 <constraint firstItem="Kds-Jb-tlO" firstAttribute="leading" secondItem="ieg-NS-IzM" secondAttribute="leading" id="QHo-qN-czW"/>
@@ -62,6 +61,6 @@
         </view>
     </objects>
     <resources>
-        <image name="checkbox_OFF" width="62" height="60"/>
+        <image name="checkbox_OFF" width="94" height="94"/>
     </resources>
 </document>

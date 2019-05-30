@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewStacker" customModule="tryLeadLinkModularComponent" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewStacker" customModule="LeadLinkApp" customModuleProvider="target">
             <connections>
                 <outlet property="viewStacker" destination="Ini-75-AJL" id="lBU-YP-Ud1"/>
             </connections>
@@ -25,7 +25,6 @@
                     <rect key="frame" x="0.0" y="4" width="375" height="72"/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Ini-75-AJL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="6c8-4E-AY3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ini-75-AJL" secondAttribute="bottom" constant="4" id="Xli-lH-2ci"/>

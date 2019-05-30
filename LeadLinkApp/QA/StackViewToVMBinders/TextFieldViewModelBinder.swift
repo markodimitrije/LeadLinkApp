@@ -53,7 +53,8 @@ class TextFieldToViewModelBinder {
     
     private func formatBarcodeTextField() {
         labelAndTextView.textField.isEnabled = false
-        labelAndTextView.textField.backgroundColor = .green
+        labelAndTextView.textField.textColor = UIColor.barcodeTxtGray
+        labelAndTextView.textField.backgroundColor = UIColor.barcodeBackground
         labelAndTextView.textField.font = UIFont.systemFont(ofSize: 22)
     }
     

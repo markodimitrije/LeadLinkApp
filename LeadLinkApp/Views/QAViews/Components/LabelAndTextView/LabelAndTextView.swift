@@ -13,7 +13,7 @@ class LabelAndTextView: UIView {
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var headlineLbl: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: UITextView! {didSet { format()}}
     
     var headlineTxt: String? {
         get {
@@ -63,6 +63,11 @@ class LabelAndTextView: UIView {
     func update(headlineText: String?, inputTxt: String?) {
         self.headlineTxt = headlineText
         self.inputTxt = inputTxt
+    }
+    
+    private func format() {
+        textView.layer.borderColor = UIColor.fieldBorderGray.cgColor
+        textView.layer.borderWidth = CGFloat.init(integerLiteral: 1)
     }
     
 }
