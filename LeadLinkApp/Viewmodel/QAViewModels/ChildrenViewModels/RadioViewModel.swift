@@ -15,7 +15,6 @@ class RadioViewModel: NSObject, ViewModelType, Questanable {
     var answer: MyAnswer?
     var code: String = ""
     
-    //init(question: PresentQuestion, answer: RadioAnswer?) {
     init(question: PresentQuestion, answer: MyAnswer?, code: String) {
         self.question = question
         self.answer = answer
@@ -24,7 +23,6 @@ class RadioViewModel: NSObject, ViewModelType, Questanable {
     
     struct Input {
         var ids: Observable<Int>
-        //var answer: RadioAnswer?
         var answer: MyAnswer?
     }
     
