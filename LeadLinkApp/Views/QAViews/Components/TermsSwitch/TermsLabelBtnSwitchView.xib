@@ -22,17 +22,17 @@
             <rect key="frame" x="0.0" y="0.0" width="524" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-32" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
                     <rect key="frame" x="16" y="4" width="239.5" height="37"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Implement &quot;read and accept the&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
-                            <rect key="frame" x="0.0" y="0.0" width="239.5" height="18.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="239.5" height="34.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
-                            <rect key="frame" x="0.0" y="18.5" width="239.5" height="18.5"/>
+                            <rect key="frame" x="0.0" y="2.5" width="239.5" height="34.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="Implement Terms &amp; conditions"/>
                             <connections>
