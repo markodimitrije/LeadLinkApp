@@ -51,12 +51,6 @@ class ReportsVC: UIViewController, Storyboarded {
         reportsDumper?.sendToWebUnsycedReports()
     }
     
-//    private func formatSyncBtn() {
-//        syncBtn.layer.cornerRadius = CGFloat.init(integerLiteral: 15)
-//        syncBtn.layer.borderColor = UIColor.init(red: 178/255, green: 178/255, blue: 178/255, alpha: 1.0).cgColor
-//        syncBtn.layer.borderWidth = CGFloat.init(integerLiteral: 1)
-//    }
-    
 //    private func monitorVisibility() {
 //
 //        Observable.combineLatest(myReportsDumper?.oReportsDumped.asObservable() ?? Observable.just(true), connectedToInternet()) {
@@ -77,16 +71,4 @@ class ReportsVC: UIViewController, Storyboarded {
     
     private let factory = AppDependencyContainer()
     let bag = DisposeBag()
-}
-
-class ReportsSyncBtn: UIButton {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        format()
-    }
-    private func format() {
-        self.layer.cornerRadius = CGFloat.init(integerLiteral: 15)
-        self.layer.borderColor = UIColor.init(red: 178/255, green: 178/255, blue: 178/255, alpha: 1.0).cgColor
-        self.layer.borderWidth = CGFloat.init(integerLiteral: 1)
-    }
 }
