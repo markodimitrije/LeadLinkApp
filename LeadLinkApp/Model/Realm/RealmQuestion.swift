@@ -20,8 +20,8 @@ public class RealmQuestion: Object {
     @objc dynamic var desc: String = ""
     @objc dynamic var order: Int = 0
     
-    var group: String?
-    var element_id: Int? = nil
+    @objc dynamic var group: String?
+    var element_id: Int?
     @objc dynamic var setting: RealmSetting? = RealmSetting.init()
     
     func updateWith(question: Question) {
