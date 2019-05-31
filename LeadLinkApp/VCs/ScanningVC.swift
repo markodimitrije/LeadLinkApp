@@ -22,7 +22,11 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var contentViewToBottomSafeAreaConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var barCodeTxtField: UITextField!
+    @IBOutlet weak var barCodeTxtField: UITextField! {
+        didSet {
+            barCodeTxtField.textColor = .black
+        }
+    }
     
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     @IBOutlet weak var orLabel: UILabel!
