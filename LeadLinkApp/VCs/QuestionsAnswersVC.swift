@@ -16,6 +16,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private lazy var viewFactory = ViewFactory.init(bounds: self.view.bounds)
     private var viewmodelFactory: ViewmodelFactory!
+    
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
                                                                   delegate: myDataSourceAndDelegate)
@@ -43,6 +44,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     override func viewDidLoad() { super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
         
         print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
@@ -402,3 +405,4 @@ enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
 }
+

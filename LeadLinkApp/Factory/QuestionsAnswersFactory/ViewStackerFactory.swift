@@ -52,11 +52,14 @@ class ViewStackerFactory {
                                                 frame: fr)
             let stackerView = res.0; btnViews = res.1
             
+            let selector = (singleQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
+            
             _ = btnViews.map { (btnView) -> () in
                 txtFieldToViewModelBinder.hookUp(view: stackerView,
                                                  labelAndTextView: btnView as! LabelAndTextField,
                                                  viewmodel: viewmodel as! LabelWithTextFieldViewModel,
-                                                 bag: bag)
+                                                 bag: bag,
+                                                 selector: selector)
             }
 
             finalView = stackerView
@@ -347,4 +350,19 @@ class ViewStackerFactory {
         return titleLabel
     }
     
+    @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {
+        labelAndTextView.textField.endEditing(true)
+    }
+    
 }
+
+
+
+
+/*
+ let selector = #selector(doneButtonAction)
+ 
+ @objc func doneButtonAction(_ barButtonItem: UIBarButtonItem) {
+ self.view.endEditing(true)
+ }
+*/

@@ -19,6 +19,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view as? UITextView">
+            </PersistentString>
+            <PersistentString
+               value = "view as? UITextField">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -98,14 +109,6 @@
             </PersistentString>
             <PersistentString
                value = "chooseOptionsVC">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewControllerDataSourceAndDelegate.numberOfSections(in:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dataSourceHelper.numberOfDifferentGroups()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

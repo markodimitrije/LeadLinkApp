@@ -56,3 +56,15 @@ extension UIColor {
     static let fieldBorderGray = UIColor.init(red: 159/255, green: 159/255, blue: 159/255, alpha: 1.0)
     static let barcodeBackground = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false // VRH !!
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
