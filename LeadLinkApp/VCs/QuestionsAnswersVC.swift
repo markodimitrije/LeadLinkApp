@@ -350,7 +350,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func groupNames() -> [String] {
-        print("groupNames.orderedGroups = \(orderedGroups)")
+//        print("groupNames.orderedGroups = \(orderedGroups)")
         return orderedGroups
     }
     

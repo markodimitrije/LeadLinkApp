@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CEk-eC-qjC">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,41 +16,41 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="PCc-mF-hfr" customClass="LoginViewController" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4fl-Uu-7nG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rqU-Hd-uYl">
-                                <rect key="frame" x="20" y="183.5" width="335" height="300"/>
+                                <rect key="frame" x="20" y="139" width="280" height="290"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XO7-v2-cmw">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="50.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XO7-v2-cmw" secondAttribute="height" multiplier="50:9" id="T1v-Aw-7gn"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your e-mail and password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hb-pD-uYE">
-                                        <rect key="frame" x="0.0" y="72.5" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="62.5" width="280" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-f2-psH" userLabel="ControlsStackView">
-                                        <rect key="frame" x="0.0" y="105" width="335" height="195"/>
+                                        <rect key="frame" x="0.0" y="95" width="280" height="195"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxe-Vc-y2d">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="57"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="57"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-la-4gg">
-                                                <rect key="frame" x="0.0" y="69" width="335" height="57"/>
+                                                <rect key="frame" x="0.0" y="69" width="280" height="57"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jR-fG-MZ2">
-                                                <rect key="frame" x="0.0" y="138" width="335" height="57"/>
+                                                <rect key="frame" x="0.0" y="138" width="280" height="57"/>
                                                 <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="pW6-7U-yjK"/>
@@ -72,7 +72,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dpZ-IH-x4E">
-                                <rect key="frame" x="177.5" y="445" width="20" height="20"/>
+                                <rect key="frame" x="150" y="390.5" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -108,15 +108,15 @@
             <objects>
                 <viewController id="1Wb-E1-gRw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Doh-WJ-40Y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-2D-ajP">
-                                <rect key="frame" x="20" y="76" width="335" height="591"/>
+                                <rect key="frame" x="20" y="76" width="280" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wzT-po-K0V">
-                                <rect key="frame" x="20" y="20" width="335" height="56"/>
+                                <rect key="frame" x="20" y="20" width="280" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -142,23 +142,23 @@
             <objects>
                 <viewController storyboardIdentifier="CampaignsVC" id="8gY-64-C8K" customClass="CampaignsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DTu-zE-6ds">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="76" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-hy-WJz">
-                                <rect key="frame" x="16" y="120" width="343" height="539"/>
+                                <rect key="frame" x="16" y="120" width="288" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="76" minY="0.0" maxX="8" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="76" id="e6R-Vk-9Vt" customClass="CampaignCell" customModule="LeadLinkApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="76"/>
+                                        <rect key="frame" x="0.0" y="28" width="288" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e6R-Vk-9Vt" id="CUm-cu-gta">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-TN-a7X" userLabel="ContentStackView">
-                                                    <rect key="frame" x="8" y="8" width="327" height="59.5"/>
+                                                    <rect key="frame" x="8" y="8" width="366" height="59.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1tk-lw-DC4">
                                                             <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
@@ -167,16 +167,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqW-6e-vJi" userLabel="LabelsStackView">
-                                                            <rect key="frame" x="67.5" y="0.0" width="259.5" height="59.5"/>
+                                                            <rect key="frame" x="67.5" y="0.0" width="298.5" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="At vero eos et accusamus et iusto odio dignissimo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uBR-Ja-4gc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="259.5" height="38.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="298.5" height="38.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRE-u8-Uef">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="259.5" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="298.5" height="24"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select campaign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7F2-HY-Aid">
-                                <rect key="frame" x="115" y="80" width="145" height="24"/>
+                                <rect key="frame" x="87.5" y="80" width="145" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -236,7 +236,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CEk-eC-qjC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eB4-LL-I0V">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -250,23 +250,23 @@
             <objects>
                 <viewController storyboardIdentifier="ScanningVC" id="ABe-fK-jwS" customClass="ScanningVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="egE-tl-KCs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-EZ-Nbw" userLabel="allControlsView">
-                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <rect key="frame" x="8" y="72" width="304" height="488"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wej-m5-tEi" userLabel="scanView">
-                                        <rect key="frame" x="16" y="74.5" width="327" height="264.5"/>
+                                        <rect key="frame" x="16" y="65" width="272" height="219.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Click on the image below to scan the delagete’s badge barcode with the device camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-cl-Wb0">
-                                                <rect key="frame" x="21" y="8" width="285" height="61"/>
+                                                <rect key="frame" x="28.5" y="8" width="215.5" height="67.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-VO-eht" userLabel="scanBtn">
-                                                <rect key="frame" x="68.5" y="85" width="190" height="171.5"/>
+                                                <rect key="frame" x="69.5" y="91.5" width="133" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="VQ4-VO-eht" secondAttribute="height" multiplier="192:173" id="Jkp-V0-cFu"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="olT-H7-0Bf"/>
@@ -285,28 +285,28 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xMU-Ek-bve">
-                                        <rect key="frame" x="82.5" y="8" width="194" height="58.5"/>
+                                        <rect key="frame" x="71.5" y="8" width="161" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xMU-Ek-bve" secondAttribute="height" multiplier="3.3:1" id="Cef-GE-Wk0"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-B1-hwn" userLabel="verticalDividerView">
-                                        <rect key="frame" x="16" y="347" width="327" height="130"/>
+                                        <rect key="frame" x="16" y="292.5" width="272" height="87.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dRy-fM-ts3">
-                                                <rect key="frame" x="0.0" y="0.0" width="327" height="130"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="87.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgS-N3-xNl" userLabel="placeholderView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="28.5"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4A-Bd-atN" userLabel="orView" customClass="DividerView" customModule="LeadLinkApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="327" height="30"/>
+                                                        <rect key="frame" x="0.0" y="28.5" width="272" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="bqm-Ca-FE4"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZd-fc-ukh" userLabel="placeholderView">
-                                                        <rect key="frame" x="0.0" y="80" width="327" height="50"/>
+                                                        <rect key="frame" x="0.0" y="58.5" width="272" height="29"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -322,10 +322,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUo-uu-Mfb" userLabel="barCodeView">
-                                        <rect key="frame" x="16" y="485" width="327" height="82"/>
+                                        <rect key="frame" x="16" y="388" width="272" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ix4-Fc-kHn">
-                                                <rect key="frame" x="64" y="0.0" width="199" height="28.5"/>
+                                                <rect key="frame" x="36.5" y="0.0" width="199" height="26.5"/>
                                                 <string key="text">Enter the badge 
 barcode number manually</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -333,7 +333,7 @@ barcode number manually</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Barcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WU-36-H24">
-                                                <rect key="frame" x="33.5" y="34" width="260" height="44"/>
+                                                <rect key="frame" x="6" y="32" width="260" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="0uK-n8-NQM"/>
                                                     <constraint firstAttribute="width" constant="260" id="K7K-Tj-ppP"/>
@@ -401,18 +401,18 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="QuestionsAnswersVC" id="iIg-DC-P3M" customClass="QuestionsAnswersVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8q-d2-Tzo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BMq-Yc-a3T">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Axb-9d-O8p">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Axb-9d-O8p" id="wqx-VM-csV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -441,18 +441,18 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="StatsVC" id="Vbh-oW-fo6" customClass="StatsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncF-y5-WLH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZIQ-ak-Tx5">
-                                <rect key="frame" x="127" y="28" width="121" height="29"/>
+                                <rect key="frame" x="99.5" y="28" width="121" height="29"/>
                                 <segments>
                                     <segment title="Badges"/>
                                     <segment title="Chart"/>
                                 </segments>
                             </segmentedControl>
                             <containerView opaque="NO" tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-uX-bbP">
-                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                                <rect key="frame" x="16" y="64" width="288" height="484"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -480,15 +480,15 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="ChartVC" id="7Ni-YW-00I" customClass="ChartVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B6A-DY-6gI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-fU-5fj">
-                                <rect key="frame" x="16" y="28" width="343" height="400"/>
+                                <rect key="frame" x="16" y="28" width="288" height="341"/>
                                 <color key="backgroundColor" red="0.93724346160888672" green="0.93724900484085083" blue="0.93726325035095215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
-                                <rect key="frame" x="16" y="439" width="343" height="220"/>
+                                <rect key="frame" x="16" y="372.5" width="288" height="187.5"/>
                                 <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -516,18 +516,18 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="CodesVC" id="bcr-YJ-hrB" customClass="CodesVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="68I-5M-RZX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZ8-Nu-9mj">
-                                <rect key="frame" x="20" y="20" width="335" height="627"/>
+                                <rect key="frame" x="20" y="20" width="280" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" id="vn7-G7-fuJ">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vn7-G7-fuJ" id="XD1-Bg-cgM">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -556,25 +556,25 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="ChooseOptionsVC" id="e07-pE-kgx" customClass="ChooseOptionsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1hE-Y1-0sI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njC-a8-rgm">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionCell" id="iZ7-F3-WjF">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iZ7-F3-WjF" id="5fo-ZP-agR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OuD-tG-7Xc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -609,7 +609,7 @@ barcode number manually</string>
                 <navigationController restorationIdentifier="NavForOptionsVC" storyboardIdentifier="NavForOptionsVC" automaticallyAdjustsScrollViewInsets="NO" id="xdp-O4-cig" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSE-Dh-Yml">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -626,11 +626,11 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="TermsVC" id="bfr-z2-KtV" customClass="TermsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KCT-ys-D8v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-BI-tz0">
-                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                                <rect key="frame" x="16" y="64" width="288" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -667,7 +667,7 @@ barcode number manually</string>
                 <navigationController storyboardIdentifier="NavForTermsVC" automaticallyAdjustsScrollViewInsets="NO" id="llI-uq-9Gd" customClass="NavForTermsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwc-n7-bjS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -684,34 +684,34 @@ barcode number manually</string>
             <objects>
                 <viewController storyboardIdentifier="ReportsVC" id="DdE-yv-XbT" customClass="ReportsVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehb-iV-YEE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ay-KL-bMo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportsTVC" rowHeight="160" id="SWz-sm-oWJ" customClass="ReportsTVC" customModule="LeadLinkApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SWz-sm-oWJ" id="F3P-sR-EGY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IFF-52-4Xb">
-                                                    <rect key="frame" x="15" y="11" width="345" height="138"/>
+                                                    <rect key="frame" x="15" y="11" width="384" height="138"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jCl-4Q-B8A">
-                                                            <rect key="frame" x="0.0" y="0.0" width="301" height="138"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="138"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pxb-b9-UvP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="146.5" height="138"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="166" height="138"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="T1N-ir-Mw7">
-                                                                    <rect key="frame" x="154.5" y="0.0" width="146.5" height="138"/>
+                                                                    <rect key="frame" x="174" y="0.0" width="166" height="138"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -719,7 +719,7 @@ barcode number manually</string>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="sync" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aKG-ee-6Xf">
-                                                            <rect key="frame" x="309" y="0.0" width="36" height="138"/>
+                                                            <rect key="frame" x="348" y="0.0" width="36" height="138"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -747,22 +747,22 @@ barcode number manually</string>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bi-io-UcS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-8C-Buu">
-                                        <rect key="frame" x="16" y="8" width="343" height="28"/>
+                                        <rect key="frame" x="16" y="8" width="288" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lbg-K5-k1W">
-                                                <rect key="frame" x="0.0" y="0.0" width="297" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF0-Cb-YJn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz2-6t-4r2">
-                                                        <rect key="frame" x="152.5" y="0.0" width="144.5" height="20.5"/>
+                                                        <rect key="frame" x="125" y="0.0" width="117" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -770,7 +770,7 @@ barcode number manually</string>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Sync" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXW-N2-qkF">
-                                                <rect key="frame" x="305" y="0.0" width="38" height="20.5"/>
+                                                <rect key="frame" x="250" y="0.0" width="38" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -790,7 +790,7 @@ barcode number manually</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-Ee-23e" customClass="ReportsSyncBtn" customModule="LeadLinkApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="587" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="488" width="320" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hkP-aD-xgy"/>
@@ -804,13 +804,12 @@ barcode number manually</string>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7Bi-io-UcS" firstAttribute="top" secondItem="Oqf-ug-U1R" secondAttribute="top" id="01J-nI-zuR"/>
-                            <constraint firstItem="Oqf-ug-U1R" firstAttribute="trailing" secondItem="GLO-Ee-23e" secondAttribute="trailing" id="7vT-V7-gUf"/>
                             <constraint firstItem="Oqf-ug-U1R" firstAttribute="bottom" secondItem="GLO-Ee-23e" secondAttribute="bottom" constant="20" id="NFO-CI-sYG"/>
                             <constraint firstItem="GLO-Ee-23e" firstAttribute="centerX" secondItem="ehb-iV-YEE" secondAttribute="centerX" id="PbZ-TH-Okp"/>
+                            <constraint firstItem="GLO-Ee-23e" firstAttribute="width" secondItem="0ay-KL-bMo" secondAttribute="width" id="SHG-qK-GPv"/>
                             <constraint firstItem="0ay-KL-bMo" firstAttribute="firstBaseline" secondItem="7Bi-io-UcS" secondAttribute="baseline" id="Xzq-Eh-Ecq"/>
                             <constraint firstItem="0ay-KL-bMo" firstAttribute="leading" secondItem="Oqf-ug-U1R" secondAttribute="leading" id="a1P-ex-Xa7"/>
                             <constraint firstItem="7Bi-io-UcS" firstAttribute="trailing" secondItem="Oqf-ug-U1R" secondAttribute="trailing" id="ahq-ha-3Fp"/>
-                            <constraint firstItem="GLO-Ee-23e" firstAttribute="leading" secondItem="Oqf-ug-U1R" secondAttribute="leading" id="ami-hf-B8s"/>
                             <constraint firstItem="GLO-Ee-23e" firstAttribute="top" secondItem="0ay-KL-bMo" secondAttribute="bottom" constant="20" id="bCW-Y5-1Hb"/>
                             <constraint firstItem="7Bi-io-UcS" firstAttribute="leading" secondItem="Oqf-ug-U1R" secondAttribute="leading" id="ey3-hI-ewP"/>
                             <constraint firstItem="Oqf-ug-U1R" firstAttribute="trailing" secondItem="0ay-KL-bMo" secondAttribute="trailing" id="suV-BT-1rb"/>

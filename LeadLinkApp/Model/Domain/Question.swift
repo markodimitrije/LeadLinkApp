@@ -57,7 +57,6 @@ enum QuestionType: String {
     case textField = "text"//"textField"
     case textArea = "textarea"
     case dropdown = "dropdown"// case textWithOptions = "textWithOptions"
-    
     case termsSwitchBtn = "termsSwitchBtn"
 }
 
