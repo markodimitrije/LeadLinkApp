@@ -92,11 +92,6 @@ extension UIView {
 }
 
 extension UITableView {
-//    func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
-//        let distFromCellToTableCenter = cell.frame.origin.y - self.frame.midY
-//        print("your cell is below half of the scree = \(distFromCellToTableCenter > 0)")
-//        return distFromCellToTableCenter > 0
-//    }
     
     func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
         let contentOffsetVertical = self.contentOffset.y
