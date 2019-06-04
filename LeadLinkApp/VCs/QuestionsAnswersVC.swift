@@ -72,13 +72,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
             
-            print("dobio sam verticalShift = \(verticalShift)")
-            
             let firstResponder: UITableViewCell? = self.tableView.visibleCells.first(where: { cell -> Bool in
-                guard let textField = cell.locateClosestChild(ofType: UITextField.self) else {
+                let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
+                guard let textControl = textControlObject else {
                     return false
                 }
-                return textField.isFirstResponder
+                return textControl.isFirstResponder
             })
             
             guard let firstResponderCell = firstResponder,
@@ -91,13 +90,24 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 countOfCellsInSection = self.tableView.numberOfRows(inSection: sectionIndex)
             }
             
-            let isCellBelowBottomHalfOfTheScreen = self.tableView.isCellBelowBottomHalfOfTheScreen(cell: firstResponderCell)
+            let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
             
-            if isCellBelowBottomHalfOfTheScreen {
+            if isCellBelowHalfOfTheScreen {
                 if verticalShift < 0 {
-                    guard firstResponderIdexPath.row - 1 >= 0 else {return}
-                    let newIp = IndexPath(row: firstResponderIdexPath.row - 1, section: firstResponderIdexPath.section)
-                    self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.top, animated: true)
+//                    guard firstResponderIdexPath.row - 1 >= 0 else {
+//                        return
+//                    }
+                    if let firstCellAbove = self.tableView.getFirstCellAbove(cell: firstResponderCell),
+                        let newIp = self.tableView.indexPath(for: firstCellAbove) {
+                            self.tableView.scrollToRow(at: newIp, at: .top, animated: true)
+                    } else {
+                        fatalError()
+                    }
+                    
+//                    else {
+//                        let newIp = IndexPath(row: firstResponderIdexPath.row - 1, section: firstResponderIdexPath.section)
+//                        self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.top, animated: true)
+//                    }
                 } else {
                     if firstResponderIdexPath.row + 1 < countOfCellsInSection {
                         let newIp = IndexPath(row: firstResponderIdexPath.row + 1, section: firstResponderIdexPath.section)

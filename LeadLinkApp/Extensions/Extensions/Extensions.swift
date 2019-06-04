@@ -70,21 +70,21 @@ extension UIViewController {
 }
 
 extension UIView {
-    func locateClosestChild<T: UIControl>(ofType objectType: T.Type) -> T? {
+    func locateClosestChild<T: UITextInput>(ofType objectType: T.Type) -> T? {
         
-        if type(of: self) is UITextField {
-            return self as! T
-        }
+//        if type(of: self) is UITextField || type(of: self) is UITextView {
+//            return self as! T
+//        }
         
         if self.subviews.count == 0 {
             return nil
         } else {
             let matchedTypeSubviews = self.subviews.compactMap { subview -> T? in
-                    if type(of: subview) is T.Type {
-                        return subview as! T
-                    } else {
-                        return subview.locateClosestChild(ofType: objectType)
-                    }
+                if type(of: subview) is T.Type {
+                    return subview as! T
+                } else {
+                    return subview.locateClosestChild(ofType: objectType)
+                }
             }
             return matchedTypeSubviews.first
         }
@@ -92,8 +92,59 @@ extension UIView {
 }
 
 extension UITableView {
-    func isCellBelowBottomHalfOfTheScreen(cell: UITableViewCell) -> Bool {
-        let distFromCellToTableCenter = cell.frame.origin.y - self.frame.midY
-        return distFromCellToTableCenter > 0
+//    func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
+//        let distFromCellToTableCenter = cell.frame.origin.y - self.frame.midY
+//        print("your cell is below half of the scree = \(distFromCellToTableCenter > 0)")
+//        return distFromCellToTableCenter > 0
+//    }
+    
+    func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
+        let contentOffsetVertical = self.contentOffset.y
+        let distFromCellToTableCenter = cell.frame.origin.y - contentOffsetVertical
+        print("your cell is below half of the scree = \(distFromCellToTableCenter > self.frame.midY)")
+        return distFromCellToTableCenter > self.frame.midY
+    }
+    
+    func getFirstCellBelow(cell: UITableViewCell) -> UITableViewCell? {
+        
+        var countOfCellsInSection = 0
+        guard let actualIndexPath = self.indexPath(for: cell),
+            let sectionIndex = self.indexPath(for: cell)?.section else {
+                fatalError()
+        }
+                
+        countOfCellsInSection = self.numberOfRows(inSection: sectionIndex)
+        
+        var newIp: IndexPath!
+        if actualIndexPath.row + 1 < countOfCellsInSection {
+            newIp = IndexPath(row: actualIndexPath.row + 1, section: actualIndexPath.section)
+        } else {
+            newIp = IndexPath(row: 0, section: actualIndexPath.section + 1)
+        }
+        return self.cellForRow(at: newIp)
+    }
+    
+    func getFirstCellAbove(cell: UITableViewCell) -> UITableViewCell? {
+        
+        var countOfCellsInSection = 0
+        guard let actualIndexPath = self.indexPath(for: cell),
+            let sectionIndex = self.indexPath(for: cell)?.section else {
+                fatalError()
+        }
+        
+        countOfCellsInSection = self.numberOfRows(inSection: sectionIndex)
+        
+        var newIp: IndexPath!
+        if isActualIndexSafe(actualIndexPath: actualIndexPath, countOfCellsInSection: countOfCellsInSection) {
+            newIp = IndexPath(row: actualIndexPath.row - 1, section: actualIndexPath.section)
+        } else {
+            let lastIndexInPreviousSection = self.numberOfRows(inSection: sectionIndex - 1) - 1
+            newIp = IndexPath(row: lastIndexInPreviousSection, section: actualIndexPath.section - 1)
+        }
+        return self.cellForRow(at: newIp)
+    }
+    
+    private func isActualIndexSafe(actualIndexPath: IndexPath, countOfCellsInSection: Int) -> Bool {
+        return actualIndexPath.row + 1 <= countOfCellsInSection && actualIndexPath.row - 1 >= 0
     }
 }

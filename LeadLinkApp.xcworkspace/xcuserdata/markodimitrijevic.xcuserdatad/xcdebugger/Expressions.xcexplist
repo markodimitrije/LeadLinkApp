@@ -133,6 +133,25 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in QuestionsAnswersVC.setUpKeyboardBehavior():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "firstCellAbove">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UITableView.getFirstCellAbove(cell:):Extensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "actualIndexPath.section - 1">
+            </PersistentString>
+            <PersistentString
+               value = "sectionIndex - 1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UIView.locateClosestChild&lt;A&gt;(ofType:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
