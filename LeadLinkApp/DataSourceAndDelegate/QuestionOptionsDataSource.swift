@@ -15,12 +15,12 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     lazy var observableAnswer = BehaviorRelay.init(value: answer)
     var observableSearch: ControlProperty<String?>! {
         didSet {
-            observableSearch.subscribe(onNext: { (value) in
-                if value == "" {
+            observableSearch.subscribe(onNext: { (search) in
+                if search == "" {
                     self.options.accept(self.question.options)
                 } else {
                     let contained = self.question.options.filter({ option -> Bool in
-                        return NSString.init(string: option).contains(value ?? "")
+                        return NSString.init(string: option.lowercased()).contains(search?.lowercased() ?? "")
                     })
                     self.options.accept(contained)
                 }
