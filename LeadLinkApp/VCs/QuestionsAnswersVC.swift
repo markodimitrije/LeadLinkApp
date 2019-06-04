@@ -35,6 +35,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     lazy private var myDataSourceAndDelegate = ViewControllerDataSourceAndDelegate.init(viewController: self)
     
+    private var keyboardDelegate: MovingKeyboardDelegate?
+    
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
@@ -62,6 +64,51 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView.dataSource = myDataSourceAndDelegate
         self.tableView.delegate = myDataSourceAndDelegate
         
+        setUpKeyboardBehavior()
+        
+    }
+    
+    private func setUpKeyboardBehavior() {
+        
+        keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
+            
+            print("dobio sam verticalShift = \(verticalShift)")
+            
+            let firstResponder: UITableViewCell? = self.tableView.visibleCells.first(where: { cell -> Bool in
+                guard let textField = cell.locateClosestChild(ofType: UITextField.self) else {
+                    return false
+                }
+                return textField.isFirstResponder
+            })
+            
+            guard let firstResponderCell = firstResponder,
+                 let firstResponderIdexPath = self.tableView.indexPath(for: firstResponderCell) else {
+                    return
+            }
+            
+            var countOfCellsInSection = 0
+            if let sectionIndex = self.tableView.indexPath(for: firstResponderCell)?.section {
+                countOfCellsInSection = self.tableView.numberOfRows(inSection: sectionIndex)
+            }
+            
+            let isCellBelowBottomHalfOfTheScreen = self.tableView.isCellBelowBottomHalfOfTheScreen(cell: firstResponderCell)
+            
+            if isCellBelowBottomHalfOfTheScreen {
+                if verticalShift < 0 {
+                    guard firstResponderIdexPath.row - 1 >= 0 else {return}
+                    let newIp = IndexPath(row: firstResponderIdexPath.row - 1, section: firstResponderIdexPath.section)
+                    self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.top, animated: true)
+                } else {
+                    if firstResponderIdexPath.row + 1 < countOfCellsInSection {
+                        let newIp = IndexPath(row: firstResponderIdexPath.row + 1, section: firstResponderIdexPath.section)
+                        self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.bottom, animated: true)
+                    } else {
+                        print("scroll to next section!")
+                    }
+                }
+            }
+            
+        })
     }
     
     @objc func doneWithOptionsIsTapped() {
@@ -384,7 +431,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     private func itemHasNoGroup(question: PresentQuestion) -> Bool {
-        print("itemHasNoGroup = \(question.group == nil || question.group == ""), za qId = \(question.id)")
+//        print("itemHasNoGroup = \(question.group == nil || question.group == ""), za qId = \(question.id)")
         return question.group == nil || question.group == ""
     }
     

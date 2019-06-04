@@ -68,3 +68,32 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIView {
+    func locateClosestChild<T: UIControl>(ofType objectType: T.Type) -> T? {
+        
+        if type(of: self) is UITextField {
+            return self as! T
+        }
+        
+        if self.subviews.count == 0 {
+            return nil
+        } else {
+            let matchedTypeSubviews = self.subviews.compactMap { subview -> T? in
+                    if type(of: subview) is T.Type {
+                        return subview as! T
+                    } else {
+                        return subview.locateClosestChild(ofType: objectType)
+                    }
+            }
+            return matchedTypeSubviews.first
+        }
+    }
+}
+
+extension UITableView {
+    func isCellBelowBottomHalfOfTheScreen(cell: UITableViewCell) -> Bool {
+        let distFromCellToTableCenter = cell.frame.origin.y - self.frame.midY
+        return distFromCellToTableCenter > 0
+    }
+}
