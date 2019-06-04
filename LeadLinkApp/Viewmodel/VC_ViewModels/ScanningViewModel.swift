@@ -48,5 +48,5 @@ class ScanningViewModel {
         }).disposed(by: disposeBag)
     }
     private let disposeBag = DisposeBag()
-    
+     
 }
