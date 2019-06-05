@@ -42,6 +42,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         didSet {
             loadQuestions(surveyInfo: surveyInfo)
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
+            fetchDelegateAndSaveToRealm(code: surveyInfo.code)
         }
     }
     
@@ -65,6 +66,25 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView.delegate = myDataSourceAndDelegate
         
         setUpKeyboardBehavior()
+        
+    }
+    
+    private func fetchDelegateAndSaveToRealm(code: String) {
+        
+        let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
+        
+        oNewDelegate
+            .subscribe(onNext: { results in
+                print("results = \(results), update-uj realm")
+            })
+            .disposed(by: bag)
+        
+//        result.flatMap(RealmDelegatesPersister.shared.save)
+//            .subscribe(onNext: { [weak self] success in guard let sSelf = self else {return}
+//
+//                sSelf.downloadsState.newlyDownloaded.accept("delegates")
+//            })
+//            .disposed(by: self.bag)
         
     }
     

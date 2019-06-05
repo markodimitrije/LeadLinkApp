@@ -17,7 +17,8 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
     
     // MARK:- Properties
     
-    var apiKey = "0pCnX8hgOPYOsO42mRRBCPLBrXsDWInS" // ovo je const ali moguce da ce vratiti API i da treba da save negde kod sebe a posle prosledis ovde..
+    var apiKey = "LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01"
+//    var apiKey = "0pCnX8hgOPYOsO42mRRBCPLBrXsDWInS" // ovo je const ali moguce da ce vratiti API i da treba da save negde kod sebe a posle prosledis ovde..
     
     // MARK: - Methods
     
@@ -90,60 +91,14 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         
     }
     
-    
-    
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<CampaignResults> {
-
-//        let authToken = userSession.remoteSession.token // hard-coded ON
-//
-//        return Promise<CampaignResults> { seal in
-//            // Build Request
-//            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization")!)
-//            request.httpMethod = "GET"
-//
-//            let headers = [ // Build Auth Header
-//                "Api-Key": apiKey,
-//                "Authorization": "Bearer \(authToken)",
-//                "cache-control": "no-cache"
-//            ]
-//
-//            request.allHTTPHeaderFields = headers
-//
-//            // Send Data Task
-//            let session = URLSession.shared
-//            session.dataTask(with: request) { (_, _, _) in
-//
-//                guard let json = MainBundleJsonParser.readJSONFromFile(fileName: "mockWithTerms") as? [String: Any],
-//                    let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) else {
-//                        fatalError()
-//                }
-//
-//                do {
-//                    let decoder = JSONDecoder()
-//                    let payload = try decoder.decode(Campaigns.self, from: data)
-//
-//                    let jsonString = String.init(data: data, encoding: String.Encoding.utf8) // versioning
-//
-//                    let campaigns = payload.data
-//                    let questions = campaigns.map {$0.questions}
-//
-//                    let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
-//
-//                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
-//
-//                    seal.fulfill(campaignResults)
-//                } catch {
-//                    seal.reject(error)
-//                }
-//                }.resume()
-//        }
         
-        let authToken = userSession.remoteSession.token // hard-coded off
+        let authToken = userSession.remoteSession.token
 
         return Promise<CampaignResults> { seal in
             // Build Request
-            var request = URLRequest(url: URL(string: //"https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization")!)
-                "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!)
+            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization")!)
+//                "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!)
             request.httpMethod = "GET"
 
             let headers = [ // Build Auth Header

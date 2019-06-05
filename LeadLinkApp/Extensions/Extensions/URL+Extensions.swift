@@ -28,15 +28,15 @@ extension URLRequest {
     }
 }
 
-extension URL {
-    static func getResourceUrl<T: Decodable>(forType type: T.Type) -> URL? {
-        switch type {
-        case is Question.Type:
-            return URL.init(string: "https://9d07a6b1-15b1-40e1-aa73-729460aa72c8.mock.pstmn.io/questions")
-        case is Campaign.Type:
-            return URL.init(string: "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/campaigns")
-        default:
-            return nil
-        }
-    }
-}
+//extension URL {
+//    static func getResourceUrl<T: Decodable>(forType type: T.Type) -> URL? {
+//        switch type {
+//        case is Question.Type:
+//            return URL.init(string: "https://9d07a6b1-15b1-40e1-aa73-729460aa72c8.mock.pstmn.io/questions")
+//        case is Campaign.Type:
+//            return URL.init(string: "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/campaigns")
+//        default:
+//            return nil
+//        }
+//    }
+//}
