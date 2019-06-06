@@ -49,7 +49,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
         //addLogoutBtn()
         
-        observe(userSessionState: factory.sharedMainViewModel.viewSubjectObservable) // bind VC to listen for signedIn event (from mainViewModel):
+        observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         
         bindUI()
         

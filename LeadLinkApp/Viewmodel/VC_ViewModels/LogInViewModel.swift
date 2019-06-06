@@ -16,6 +16,8 @@ public class LogInViewModel {
     // MARK: - Properties
     let userSessionRepository: UserSessionRepository
     let signedInResponder: SignedInResponder
+    let sharedMainViewModel = AppDependencyContainer.init().sharedMainViewModel
+    private let bag = DisposeBag()
     
     // MARK: - Methods
     public init(userSessionRepository: UserSessionRepository,
@@ -23,10 +25,12 @@ public class LogInViewModel {
         self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
         loadInitialSession()
+        listenToLogoutEvent()
     }
-    
+
     public let emailInput = BehaviorSubject<String>(value: "")
     public let passwordInput = BehaviorSubject<Secret>(value: "")
+    
     
     public var errorMessages: Observable<ErrorMessage> {
         return errorMessagesSubject.asObserver()
@@ -105,10 +109,24 @@ public class LogInViewModel {
             .catch {_ in }
     }
     
+    private func listenToLogoutEvent() {
+        sharedMainViewModel.userSessionStateObservable
+            .subscribe(onNext: { [weak self] state in
+                if state == .signOut {
+                    self?.userLogedOut()
+                }
+            })
+            .disposed(by: bag)
+    }
+    
     func userLogedOut() {
         print("userLogedOut is called")
         emailInput.onNext("")
         passwordInput.onNext("")
+    }
+    
+    deinit {
+        print("deinit.LogInViewModel ")
     }
    
 }

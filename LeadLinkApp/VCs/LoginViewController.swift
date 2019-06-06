@@ -57,7 +57,7 @@ class LoginViewController: UIViewController, Storyboarded {
         
         bindActualSessionToCredentialFields()
         
-        observe(userSessionState: factory.sharedMainViewModel.viewSubjectObservable) // bind VC to listen for signedIn event (from mainViewModel):
+        observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         
         observeErrorMessages(viewmodel: logInViewModel)
         
@@ -86,12 +86,40 @@ class LoginViewController: UIViewController, Storyboarded {
         
         // bind viewmodel to UI:
         bindActivityIndicator()
-        bindViewModelToEmailField()
-        bindViewModelToPasswordField()
-        bindViewModelToLogInButton()
+        bindViewModelStateToControlsIsEnabledProperty()
         
     }
 
+    // MARK:- bind isEnabled
+    private func bindViewModelStateToControlsIsEnabledProperty() {
+        bindViewModelToEmailFieldIsEnabled()
+        bindViewModelToPasswordFieldIsEnabled()
+        bindViewModelToLogInButtonIsEnabled()
+    }
+    
+    private func bindViewModelToEmailFieldIsEnabled() {
+        logInViewModel
+            .emailInputEnabled
+            .asDriver(onErrorJustReturn: true)
+            .drive(emailField.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindViewModelToPasswordFieldIsEnabled() {
+        logInViewModel
+            .passwordInputEnabled
+            .asDriver(onErrorJustReturn: true)
+            .drive(passField.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindViewModelToLogInButtonIsEnabled() {
+        logInViewModel
+            .signInButtonEnabled
+            .asDriver(onErrorJustReturn: true)
+            .drive(logInBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
     
     private func bindEmailField() { // VC -> viewmodel
         emailField.rx.text
@@ -119,30 +147,6 @@ class LoginViewController: UIViewController, Storyboarded {
         activityDriver
             .map { return $0 ? "" : Constants.BtnTitles.logIn }
             .drive(logInBtn.rx.title(for: .normal))
-            .disposed(by: disposeBag)
-    }
-    
-    private func bindViewModelToEmailField() {
-        logInViewModel
-            .emailInputEnabled
-            .asDriver(onErrorJustReturn: true)
-            .drive(emailField.rx.isEnabled)
-            .disposed(by: disposeBag)
-    }
-    
-    private func bindViewModelToPasswordField() {
-        logInViewModel
-            .passwordInputEnabled
-            .asDriver(onErrorJustReturn: true)
-            .drive(passField.rx.isEnabled)
-            .disposed(by: disposeBag)
-    }
-    
-    private func bindViewModelToLogInButton() {
-        logInViewModel
-            .signInButtonEnabled
-            .asDriver(onErrorJustReturn: true)
-            .drive(logInBtn.rx.isEnabled)
             .disposed(by: disposeBag)
     }
     
