@@ -25,12 +25,12 @@ class LoginViewController: UIViewController, Storyboarded {
     @IBOutlet weak var emailField: UITextField! {
         didSet {
             //emailField.text = "test.tdasdasdasdae@mailinator.com" // hard-coded
-            emailField.text = "komita1981@gmail.com" // hard-coded
+            //emailField.text = "komita1981@gmail.com" // hard-coded
         }
     }
     @IBOutlet weak var passField: UITextField! {
         didSet {
-            passField.text = "test1234" // hard-coded
+            //passField.text = "test1234" // hard-coded
         }
     }
     @IBOutlet weak var logInBtn: UIButton!

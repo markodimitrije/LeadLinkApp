@@ -17,6 +17,9 @@ public class LogOutViewModel {
     let userSessionRepository: UserSessionRepository
     let notSignedInResponder: NotSignedInResponder
     
+    private let campaignsDataStore = AppDependencyContainer().sharedCampaignsRepository
+    private let realmCampaignsDataStore = RealmCampaignsDataStore.init()
+    
     // MARK: - Methods
     public init(userSessionRepository: UserSessionRepository,
                 notSignedInResponder: NotSignedInResponder) {
@@ -29,12 +32,16 @@ public class LogOutViewModel {
         
         userSessionRepository.readUserSession()
             .done { [weak self] session in guard let sSelf = self else {return}
-                print("imam pravu sesiju, email = \(session.remoteSession.email)")
+                print("logout.OK, email = \(session.remoteSession.email)")
                 let _ = sSelf.userSessionRepository
                     .signOut(userSession: session)
                     .ensure { [weak self] in guard let sSelf = self else {return}
-                        print("u ensure (ili gde treba) je obrisi - implement me")
                         sSelf.notSignedInResponder.notSignedIn()
+                        sSelf.campaignsDataStore.dataStore.readAllCampaigns()
+                            .get({ campaigns in
+                                sSelf.campaignsDataStore.dataStore.delete(campaigns: campaigns)
+                                sSelf.realmCampaignsDataStore.deleteCampaignsJsonString()
+                            })
             }
         }
     }

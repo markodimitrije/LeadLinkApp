@@ -154,4 +154,27 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
+    public func deleteCampaignsJsonString() -> Promise<Bool> {
+        
+        return Promise() { seal in
+            
+            guard let object = realm.objects(RealmJson.self).first else {
+                seal.fulfill(true) // realno je error...
+                return
+            }
+            
+            do {
+                try realm.write {
+                    realm.delete(object)
+                }
+                print("DELETE JSON za versioning za kampanje.... !")
+                seal.fulfill(true)
+            } catch {
+                seal.reject(CampaignError.cantSave)
+            }
+            
+        }
+        
+    }
+    
 }

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var factory =  AppDependencyContainer.init()
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
+    lazy var logOutViewModel = factory.makeLogoutViewModel()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -49,9 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topController.view.addSubview(centerView)
             
         topController.alert(alertInfo: AlertInfo.getInfo(type: .logout), sourceView: centerView)
-            .subscribe(onNext: { index in
+            .subscribe(onNext: { [weak self] index in
                 if index == 0 { // logout
-                    (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
+                    (self?.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
+                    self?.logOutViewModel.signOut()
                 } else { // cancel
                     topController.dismiss(animated: true)
                 }
