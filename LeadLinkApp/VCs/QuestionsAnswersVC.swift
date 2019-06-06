@@ -75,19 +75,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         oNewDelegate
             .subscribe(onNext: { result in
-                guard let delegate = result else {
-                    fatalError(); return
-                }
-                print("delegate = delegate, update your realm...")
+                guard let delegate = result else { return }
+                print("delegate = \(delegate)", "update your realm...")
             })
             .disposed(by: bag)
-        
-//        result.flatMap(RealmDelegatesPersister.shared.save)
-//            .subscribe(onNext: { [weak self] success in guard let sSelf = self else {return}
-//
-//                sSelf.downloadsState.newlyDownloaded.accept("delegates")
-//            })
-//            .disposed(by: self.bag)
         
     }
     
