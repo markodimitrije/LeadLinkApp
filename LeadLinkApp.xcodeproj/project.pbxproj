@@ -96,6 +96,15 @@
 		7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */; };
 		7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */; };
 		7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */; };
+		7CA998D822A9441100C226F1 /* LICENSE-2.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CA998D522A9441100C226F1 /* LICENSE-2.0.txt */; };
+		7CA998D922A9441100C226F1 /* CHANGELOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CA998D622A9441100C226F1 /* CHANGELOG.txt */; };
+		7CA998DA22A9441100C226F1 /* ScanditBarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998D722A9441100C226F1 /* ScanditBarcodeScanner.framework */; };
+		7CA998DC22A945C200C226F1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998DB22A945C200C226F1 /* MediaPlayer.framework */; };
+		7CA998DE22A945C900C226F1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998DD22A945C900C226F1 /* Accelerate.framework */; };
+		7CA998E022A945E300C226F1 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998DF22A945E300C226F1 /* libz.1.tbd */; };
+		7CA998E222A945EF00C226F1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E122A945EF00C226F1 /* libc++.tbd */; };
+		7CA998E422A945FB00C226F1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E322A945FA00C226F1 /* libiconv.tbd */; };
+		7CA998E922A95E5400C226F1 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998E822A95E5400C226F1 /* Countries.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -268,6 +277,15 @@
 		7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthSupplying.swift; sourceTree = "<group>"; };
+		7CA998D522A9441100C226F1 /* LICENSE-2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-2.0.txt"; sourceTree = "<group>"; };
+		7CA998D622A9441100C226F1 /* CHANGELOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
+		7CA998D722A9441100C226F1 /* ScanditBarcodeScanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScanditBarcodeScanner.framework; sourceTree = "<group>"; };
+		7CA998DB22A945C200C226F1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7CA998DD22A945C900C226F1 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7CA998DF22A945E300C226F1 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		7CA998E122A945EF00C226F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		7CA998E322A945FA00C226F1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/AnswersReporting/Model/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -360,7 +378,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA998E422A945FB00C226F1 /* libiconv.tbd in Frameworks */,
+				7CA998E222A945EF00C226F1 /* libc++.tbd in Frameworks */,
+				7CA998E022A945E300C226F1 /* libz.1.tbd in Frameworks */,
+				7CA998DE22A945C900C226F1 /* Accelerate.framework in Frameworks */,
+				7CA998DC22A945C200C226F1 /* MediaPlayer.framework in Frameworks */,
 				79B1EC37252D636B80384A09 /* Pods_LeadLinkApp.framework in Frameworks */,
+				7CA998DA22A9441100C226F1 /* ScanditBarcodeScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +758,24 @@
 			path = ConferenceApiKeyState;
 			sourceTree = "<group>";
 		};
+		7CA998D422A9441100C226F1 /* ScanditSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7CA998D522A9441100C226F1 /* LICENSE-2.0.txt */,
+				7CA998D622A9441100C226F1 /* CHANGELOG.txt */,
+				7CA998D722A9441100C226F1 /* ScanditBarcodeScanner.framework */,
+			);
+			path = ScanditSDK;
+			sourceTree = "<group>";
+		};
+		7CA998E522A95E2600C226F1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				7CA998E822A95E5400C226F1 /* Countries.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +818,7 @@
 		AD4F013921D8F61F00946CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7CA998E522A95E2600C226F1 /* New Group */,
 				7C98A6D9228971A500DA184E /* FetchingData */,
 				7C98A67A2289628600DA184E /* QAModel */,
 				ADB6A64121DF907D002224C0 /* Realm */,
@@ -862,6 +905,7 @@
 		ADAEE86E21D8F331000B3C52 = {
 			isa = PBXGroup;
 			children = (
+				7CA998D422A9441100C226F1 /* ScanditSDK */,
 				ADAEE87921D8F331000B3C52 /* LeadLinkApp */,
 				ADAEE87821D8F331000B3C52 /* Products */,
 				34FB1A58E047A32A96F61519 /* Pods */,
@@ -1127,6 +1171,11 @@
 		B4ED95125D27C37F754147FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CA998E322A945FA00C226F1 /* libiconv.tbd */,
+				7CA998E122A945EF00C226F1 /* libc++.tbd */,
+				7CA998DF22A945E300C226F1 /* libz.1.tbd */,
+				7CA998DD22A945C900C226F1 /* Accelerate.framework */,
+				7CA998DB22A945C200C226F1 /* MediaPlayer.framework */,
 				F9944ADD7597329722D2089E /* Pods_signInApp.framework */,
 				673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */,
 			);
@@ -1198,6 +1247,7 @@
 				7C0E5CBE228EE0B90011E0A2 /* mockWithTerms.json in Resources */,
 				7C98A69C2289689900DA184E /* LabelAndTextView.xib in Resources */,
 				ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */,
+				7CA998D822A9441100C226F1 /* LICENSE-2.0.txt in Resources */,
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
 				7C98A6A82289689900DA184E /* RadioBtnView.xib in Resources */,
 				7C98A6AA2289689900DA184E /* QuestionGroupFooterView.xib in Resources */,
@@ -1210,6 +1260,7 @@
 				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 				7C98A69F2289689900DA184E /* CheckboxView.xib in Resources */,
+				7CA998D922A9441100C226F1 /* CHANGELOG.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,6 +1356,7 @@
 				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
+				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
@@ -1577,6 +1629,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UHF84CM7Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ScanditSDK",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1597,6 +1653,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UHF84CM7Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ScanditSDK",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/LeadLinkApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -15,6 +15,7 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 import RealmSwift
+import ScanditBarcodeScanner
 
 class ScanningVC: UIViewController, Storyboarded {
 
@@ -32,7 +33,7 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
-    var avSessionViewModel = AVSessionViewModel()
+    //var avSessionViewModel = AVSessionViewModel() remove this class - native camera
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var viewModel: ScanningViewModel!
@@ -53,12 +54,12 @@ class ScanningVC: UIViewController, Storyboarded {
         loadKeyboardManager()
         bindUI()
         
+        setupScanner()
+        
     }
     
     private func bindQrAndBarScanCamera() {
         loadScannerView()
-        bindSessionUsingAVSessionViewModel()
-        bindCameraUsingAVSessionViewModel()
     }
     
     private func bindUI() {
@@ -115,42 +116,42 @@ class ScanningVC: UIViewController, Storyboarded {
     
     // camera session binding:
     
-    private func bindSessionUsingAVSessionViewModel() {
-        
-        avSessionViewModel.oSession
-            .subscribe(onNext: { [unowned self] (session) in
-                
-                let previewLayer = CameraPreviewLayer(session: session,
-                                                      bounds: self.scannerView.layer.bounds)
-                
-                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
-                
-                }, onError: { [unowned self] err in
-                    self.failed()
-            })
-            .disposed(by: disposeBag)
-    }
+//    private func bindSessionUsingAVSessionViewModel() {
+//
+//        avSessionViewModel.oSession
+//            .subscribe(onNext: { [unowned self] (session) in
+//
+//                let previewLayer = CameraPreviewLayer(session: session,
+//                                                      bounds: self.scannerView.layer.bounds)
+//
+//                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
+//
+//                }, onError: { [unowned self] err in
+//                    self.failed()
+//            })
+//            .disposed(by: disposeBag)
+//    }
     
-    private func bindCameraUsingAVSessionViewModel() {
-        
-        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (barCodeValue) in
-                guard let sSelf = self else {return}
-                print("scanner camera emituje barCodeValue \(barCodeValue)")
-                sSelf.found(code: barCodeValue)
-            })
-            .disposed(by: disposeBag)
-        
-    }
-    
+//    private func bindCameraUsingAVSessionViewModel() {
+//
+//        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
+//            .subscribe(onNext: { [weak self] (barCodeValue) in
+//                guard let sSelf = self else {return}
+//                print("scanner camera emituje barCodeValue \(barCodeValue)")
+//                sSelf.found(code: barCodeValue)
+//            })
+//            .disposed(by: disposeBag)
+//
+//    }
+//
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
-        
+
         if code != "" {
             codeSuccessfull(code: code)
         } else {
             failedDueToNoCodeDetected()
         }
-        
+
     }
     
     private func failed() { print("failed.....")
@@ -170,20 +171,62 @@ class ScanningVC: UIViewController, Storyboarded {
             }
             .disposed(by: disposeBag)
     }
-    
+
+    // AttendanceApp hard-coded - implement me....
+    func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
+
+        fatalError()
+//        if scanerViewModel.sessionId != -1 {
+//            scanditSuccessfull(code: code, picker: picker)
+//        } else {
+//            showAlertFailedDueToNoRoomOrSessionSettings()
+//            restartCameraForScaning(picker)
+//        }
+
+    }
+
     private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
         //print("codeSuccessfull.stopRunning()")
-        avSessionViewModel.captureSession.stopRunning()
-    
+        
         viewModel.codeInput.onNext(code)
         
         navigateToQuestionsScreen()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.avSessionViewModel.captureSession.startRunning()
+    // SCANDIT
+    
+    private func setupScanner() {
+        
+        // Create the scan settings and enabling some symbologies
+        let settings = SBSScanSettings.default()
+        let symbologies: Set<SBSSymbology> = [.aztec, .codabar, .code11, .code128, .code25, .code32, .code39, .code93, .datamatrix, .dotCode, .ean8, .ean13, .fiveDigitAddOn, .gs1Databar, .gs1DatabarExpanded, .gs1DatabarLimited, .itf, .kix, .lapa4sc, .maxiCode, .microPDF417, .microQR, .msiPlessey, .pdf417,.qr, .rm4scc, .twoDigitAddOn, .upc12, .upce]
+        for symbology in symbologies {
+            settings.setSymbology(symbology, enabled: true)
+        }
+        
+        //settings.cameraFacingPreference = .front//settings.cameraFacingPreference = .back
+        settings.cameraFacingPreference = getCameraDeviceDirection() ?? .back
+        
+        let symSettings = settings.settings(for: .code25)
+        symSettings.activeSymbolCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        
+        // Create the barcode picker with the settings just created
+        let barcodePicker = SBSBarcodePicker(settings:settings)
+        barcodePicker.view.frame = self.scannerView.bounds
+        
+        // Add the barcode picker as a child view controller
+        addChild(barcodePicker)
+        
+        self.scannerView.addSubview(barcodePicker.view)
+        barcodePicker.didMove(toParent: self)
+        
+        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
+        // default and is only shown here for completeness.
+        barcodePicker.allowedInterfaceOrientations = .all
+        // Set the delegate to receive scan event callbacks
+        barcodePicker.scanDelegate = self
+        barcodePicker.startScanning()
     }
     
     private let disposeBag = DisposeBag()
@@ -196,8 +239,36 @@ extension ScanningVC: UITextFieldDelegate {
         return true
     }
 }
+
+extension ScanningVC: SBSScanDelegate {
+    // This delegate method of the SBSScanDelegate protocol needs to be implemented by
+    // every app that uses the Scandit Barcode Scanner and this is where the custom application logic
+    // goes. In the example below, we are just showing an alert view with the result.
+    func barcodePicker(_ picker: SBSBarcodePicker, didScan session: SBSScanSession) {
+        
+        session.pauseScanning()
+        
+        let code = session.newlyRecognizedCodes[0]
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.found(code: code.data ?? "", picker: picker)
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
 // GDE OVO
 
 class DataAccess {
     static let shared = DataAccess.init()
 }
+

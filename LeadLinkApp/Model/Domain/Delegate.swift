@@ -38,17 +38,17 @@ public struct Delegate: Codable {
     var country_id: Int?
     var address1: String?
     
-//    init?(realmAnswer: RealmDelegate?) {
-//        guard let realmAnswer = realmAnswer else {
-//            return nil
-//        }
-//        self.id = realmAnswer.id
-//        self.questionId = realmAnswer.questionId
-//        self.code = realmAnswer.code
-//        self.content = Array(realmAnswer.content)
-//    }
 }
 
 public struct DelegatesStructure: Codable {
     var data = [Delegate]()
+}
+
+enum PersonalInfoKey: String {
+    case first_name = "first_name"
+    case last_name = "last_name"
+    case email = "email"
+    case zip = "zip"
+    case city = "city"
+    case address1 = "address1"
 }

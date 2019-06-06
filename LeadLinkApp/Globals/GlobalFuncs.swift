@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import ScanditBarcodeScanner
 
 enum DeviceType {
     case iPhone
@@ -89,4 +91,13 @@ func trimmedToSixCharactersCode(code: String) -> String {
     let trimToSixCharactersCode = NSString(string: code).substring(from: startPosition)
     //    print("trimed code = \(trimToSixCharactersCode), with code = \(code)")
     return trimToSixCharactersCode
+}
+
+func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
+    if UIDevice.current.userInterfaceIdiom == .phone {
+        return SBSCameraFacingDirection.back
+    } else if UIDevice.current.userInterfaceIdiom == .pad {
+        return SBSCameraFacingDirection.front
+    }
+    return nil
 }
