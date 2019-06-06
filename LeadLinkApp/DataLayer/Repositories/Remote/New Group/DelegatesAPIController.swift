@@ -32,7 +32,8 @@ public struct DelegatesRemoteAPI {
     public init() {}
     
     public func getDelegate(withCode code: String) -> Observable<Delegate?> {
-        let delegatesPath = "conferences/" + "\(7428)" + "/delegates" // hard-coded
+        let confId = confApiKeyState.conferenceId ?? 0 // fatal
+        let delegatesPath = "conferences/" + "\(confId)" + "/delegates" // hard-coded
         let escapedString = delegatesPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         return buildRequest(pathComponent: escapedString, //params: [])//,
             params: [("code", code)])

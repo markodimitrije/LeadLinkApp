@@ -39,8 +39,7 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
             .then(dataStore.save(userSession:))
             .get { userSession in
                 let bearerToken = "Bearer " + userSession.remoteSession.token
-                UserDefaults.standard.set(bearerToken,
-                                          forKey: UserDefaults.keyConferenceAuth)
+                confApiKeyState.authentication = bearerToken
             }
     }
     

@@ -24,7 +24,8 @@ class LoginViewController: UIViewController, Storyboarded {
     @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var emailField: UITextField! {
         didSet {
-            emailField.text = "test.tdasdasdasdae@mailinator.com" // hard-coded
+            //emailField.text = "test.tdasdasdasdae@mailinator.com" // hard-coded
+            emailField.text = "komita1981@gmail.com" // hard-coded
         }
     }
     @IBOutlet weak var passField: UITextField! {

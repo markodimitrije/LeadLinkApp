@@ -41,7 +41,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
             UserDefaults.standard.set("LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01", forKey: UserDefaults.keyConferenceApiKey)
         }
         if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) == nil {
-            UserDefaults.standard.set(7498, forKey: UserDefaults.keyConferenceId)
+            UserDefaults.standard.set(7520, forKey: UserDefaults.keyConferenceId)
         }
         
     }
