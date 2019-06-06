@@ -143,3 +143,11 @@ extension UITableView {
         return actualIndexPath.row + 1 <= countOfCellsInSection && actualIndexPath.row - 1 >= 0
     }
 }
+
+extension UserDefaults {
+    static let keyResourcesDownloaded = "resourcesDownloaded"
+    
+    static let keyConferenceApiKey = "keyConferenceApiKey"
+    static let keyConferenceId = "keyConferenceId"
+    static let keyConferenceAuth = "keyConferenceAuth"
+}

@@ -33,6 +33,7 @@ public class FileUserSessionDataStore: UserSessionDataStore {
             }
             let decoder = JSONDecoder()
             let userSession = try! decoder.decode(UserSession.self, from: jsonData)
+            
             seal.fulfill(userSession)
         }
     }
@@ -46,6 +47,7 @@ public class FileUserSessionDataStore: UserSessionDataStore {
                 seal.reject(LeadLinkKitError.any)
                 return
             }
+            
             try? jsonData.write(to: docsURL.appendingPathComponent("user_session.json"))
             seal.fulfill(userSession)
         }

@@ -15,9 +15,12 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
     
     // MARK:- Properties
     
-    //var apiKey = "0pCnX8hgOPYOsO42mRRBCPLBrXsDWInS" // ovo je const ali moguce da ce vratiti API i da treba da save negde kod sebe a posle prosledis ovde..
-    //var apiKey = "0pCnX8hgOPYOsO42mRRBCPLBrXsDWInS"
-    var apiKey = "LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01"
+    private var apiKey: String {
+        return confApiKeyState.apiKey ?? "error"
+    }
+    private var authorization: String {
+        return confApiKeyState.authentication ?? "error"
+    }
     
     // MARK: - Methods
     
@@ -98,7 +101,7 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
             
             let headers = [ // Build Auth Header
                 "Api-Key": apiKey,
-                "Authorization": "Bearer \(authToken)",
+                "Authorization": authorization,
                 "Content-Type": "application/x-www-form-urlencoded",
                 "cache-control": "no-cache"
             ]

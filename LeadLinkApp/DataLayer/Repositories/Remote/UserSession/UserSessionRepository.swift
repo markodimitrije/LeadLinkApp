@@ -33,15 +33,27 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
     }
     
     public func signIn(email: String, password: String) -> Promise<UserSession> {
+        
         let credentials = LoginCredentials.init(email: email, password: password)
         return remoteAPI.logIn(credentials: credentials)
             .then(dataStore.save(userSession:))
+            .get { userSession in
+                let bearerToken = "Bearer " + userSession.remoteSession.token
+                UserDefaults.standard.set(bearerToken,
+                                          forKey: UserDefaults.keyConferenceAuth)
+            }
     }
     
     public func signOut(userSession: UserSession) -> Promise<UserSession> {
         
         return remoteAPI.logOut(userSession: userSession)
             .then(dataStore.delete(userSession:))
+            .get { userSession in
+                UserDefaults.standard.set(nil, forKey: UserDefaults.keyConferenceAuth)
+        }
     }
     
 }
+
+
+

@@ -74,8 +74,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
         oNewDelegate
-            .subscribe(onNext: { results in
-                print("results = \(results), update-uj realm")
+            .subscribe(onNext: { result in
+                guard let delegate = result else {
+                    fatalError(); return
+                }
+                print("delegate = delegate, update your realm...")
             })
             .disposed(by: bag)
         

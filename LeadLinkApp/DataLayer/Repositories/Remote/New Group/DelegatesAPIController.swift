@@ -15,8 +15,12 @@ public struct DelegatesRemoteAPI {
     
     // MARK:- Properties
     
-    private let apiKey = "LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01"
-    private let authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlcnZpY2UuZS1tYXRlcmlhbHMuY29tL2FwaS9sb2dpbiIsImlhdCI6MTU0NDQ0Mjg3MSwiZXhwIjoxODU1NDgyODcxLCJuYmYiOjE1NDQ0NDI4NzEsImp0aSI6IkVlYkJxYkkwUVpzaHdBR0QiLCJzdWIiOjI2NTI5LCJwcnYiOiJjM2NjMjZhNDU3ODZlMTJlMjU2ZGIxZDIxMDE3M2ZjYjI3NDE1NDZkIiwicm9sZXMiOnsicG9ydGFsIjp7IjEiOlsic3BlYWtlciJdLCI3IjpbInNwZWFrZXIiXSwiMTciOlsic3BlYWtlciJdLCIyMCI6WyJzcGVha2VyIl19LCJvcmdhbml6YXRpb24iOnsiMTMyIjpbImFkbWluIl19LCJjb25mZXJlbmNlIjp7Ijc0ODAiOlsib3JnYW5pemVyIiwibGVhZF9saW5rX21hbmFnZXIiXX19LCJmaXJzdF9uYW1lIjoidGVzdCIsImxhc3RfbmFtZSI6InRlcyIsInRva2VuIjoiNWE5ZTdlY2NhNDExZSIsImxpbWl0ZWQiOjB9.srG1Qn0mBwze9udK6Tb1e1s5mooshFSz2jS9DmkvBMQ" // Authorization
+    private var apiKey: String {
+        return confApiKeyState.apiKey ?? "error"
+    }
+    private var authorization: String {
+        return confApiKeyState.authentication ?? "error"
+    }
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
@@ -28,10 +32,10 @@ public struct DelegatesRemoteAPI {
     public init() {}
     
     public func getDelegate(withCode code: String) -> Observable<Delegate?> {
-        let delegatesPath = "conferences/" + "\(7520)" + "/delegates" // hard-coded
+        let delegatesPath = "conferences/" + "\(7428)" + "/delegates" // hard-coded
         let escapedString = delegatesPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         return buildRequest(pathComponent: escapedString, //params: [])//,
-            params: [("code","000024")])
+            params: [("code", code)])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let delegates = try? decoder.decode(DelegatesStructure.self, from: json) else {
@@ -68,12 +72,11 @@ public struct DelegatesRemoteAPI {
         request.httpMethod = method
         
         let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        let auth = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlcnZpY2UuZS1tYXRlcmlhbHMuY29tL2FwaS9sb2dpbiIsImlhdCI6MTU1OTcyODc0MCwiZXhwIjoxODcwNzY4NzQwLCJuYmYiOjE1NTk3Mjg3NDAsImp0aSI6Imt1c3RvTHB5eTNaOWF5ZDUiLCJzdWIiOjIwNzc0LCJwcnYiOiJjM2NjMjZhNDU3ODZlMTJlMjU2ZGIxZDIxMDE3M2ZjYjI3NDE1NDZkIiwicm9sZXMiOnsiZGlhbG9nIjp7IjUwNSI6WyJleHBlcnQiLCJmb2xsb3dlciJdfSwiY29uZmVyZW5jZSI6eyI3NTIwIjpbImxlYWRfbGlua19tYW5hZ2VyIl19LCJvcmdhbml6YXRpb24iOnsiMiI6WyJhZG1pbiJdfX0sImZpcnN0X25hbWUiOiJNaWxhbm8iLCJsYXN0X25hbWUiOiJQb3BvdmljaSIsInRva2VuIjoiNTkzYWE2Y2YzOTVhNSIsImxpbWl0ZWQiOjB9.kPKl0689wZTtLvxaoWxXc_ZY4NXwPExlK-N9R4uVk4A" // hard-coded refactor !
         
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
                                        "device-id": deviceUdid,
                                        "Content-Type": "application/json",
-                                       "Authorization": auth]
+                                       "Authorization": authorization]
         
         let session = URLSession.shared
         
@@ -90,7 +93,7 @@ public struct DelegatesRemoteAPI {
                 print("buildRequest.ApiError.invalidKey")
                 throw ApiError.invalidKey
             } else if 400 ..< 500 ~= response.statusCode {
-                print("buildRequest.ApiError.cityNotFound")
+                print("buildRequest.ApiError.400..500")
                 throw ApiError.cityNotFound
             } else {
                 print("buildRequest.ApiError.serverFailure")
