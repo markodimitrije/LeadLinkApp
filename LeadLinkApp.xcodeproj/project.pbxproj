@@ -528,15 +528,6 @@
 			path = AnswersReporting;
 			sourceTree = "<group>";
 		};
-		7C622270229426D500717CA1 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
-			);
-			name = Services;
-			path = ../../../Desktop/Services;
-			sourceTree = "<group>";
-		};
 		7C622275229444BA00717CA1 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,7 +917,7 @@
 			children = (
 				7CA998CF22A908AC00C226F1 /* ConferenceApiKeyState */,
 				7C622275229444BA00717CA1 /* Persistance */,
-				7C622270229426D500717CA1 /* Services */,
+				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
 				7C6222692294227600717CA1 /* AnswersReporting */,
 				7C0E5CC3228F0AF40011E0A2 /* Validation */,
 				7C0E5CBC228EE0960011E0A2 /* Mock */,

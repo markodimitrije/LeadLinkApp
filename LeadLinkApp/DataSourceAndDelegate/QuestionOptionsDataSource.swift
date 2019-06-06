@@ -15,16 +15,18 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     lazy var observableAnswer = BehaviorRelay.init(value: answer)
     var observableSearch: ControlProperty<String?>! {
         didSet {
-            observableSearch.subscribe(onNext: { (search) in
+            observableSearch.subscribe(onNext: { [weak self] (search) in
+                guard let sSelf = self else {return}
+                let options = sSelf.countries.isEmpty ? sSelf.question.options : sSelf.countries
                 if search == "" {
-                    self.options.accept(self.question.options)
+                    sSelf.optionsToDisplay.accept(options)
                 } else {
-                    let contained = self.question.options.filter({ option -> Bool in
+                    let contained = options.filter({ option -> Bool in
                         return NSString.init(string: option.lowercased()).contains(search?.lowercased() ?? "")
                     })
-                    self.options.accept(contained)
+                    sSelf.optionsToDisplay.accept(contained)
                 }
-                self.tableView.reloadData()
+                sSelf.tableView.reloadData()
             }).disposed(by: bag)
         }
     }
@@ -32,12 +34,21 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     var question: PresentQuestion
     var tableView: UITableView!
     
-    private var options = BehaviorRelay<[String]>(value: [])
+    private var optionsToDisplay = BehaviorRelay<[String]>(value: [])
     private var answer: MyAnswer?
+    
+    private var countries = [String]()
     
     init(selectOptionTextViewModel: SelectOptionTextFieldViewModel) {
         self.question = selectOptionTextViewModel.question
         self.answer = selectOptionTextViewModel.answer
+        
+        if selectOptionTextViewModel.question.options.first == QuestionPersonalInfoKey.country_id.rawValue {
+            print("ubaci svoje drzave")
+            let countriesManager = CountriesManager()
+            self.countries = Array(countriesManager.countries.values)
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,12 +56,12 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.value.count
+        return optionsToDisplay.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath)
-        let text = options.value[indexPath.row]
+        let text = optionsToDisplay.value[indexPath.row]
         cell.textLabel?.text = text
         cell.accessoryType = .none
         if let answer = self.observableAnswer.value, answer.content.contains(text) {
@@ -65,7 +76,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
         
         var newAnswer = observableAnswer.value ?? answer ?? MyAnswer.emptyContent(question: question)
         
-        let option = options.value[indexPath.row]
+        let option = optionsToDisplay.value[indexPath.row]
         
         if question.multipleSelection {
             if let index = newAnswer.content.firstIndex(of: option) {

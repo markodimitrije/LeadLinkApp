@@ -3,18 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
          <PersistentStrings>
             <PersistentString
-               value = "surveyInfo.campaign">
+               value = "question.type">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
+         contextName = "closure #1 in QuestionsAnswersVC.setUpKeyboardBehavior():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "termsAnswer?.optionIds?.first">
+               value = "firstCellAbove">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scanerViewModel.sessionId">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -36,10 +44,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
+         contextName = "AnswersApiController.postRequest(base:pathComponent:reports:):AnswersAPIController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
          <PersistentStrings>
             <PersistentString
-               value = "popoverController.sourceRect">
+               value = "termsAnswer?.optionIds?.first">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -58,40 +69,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewmodel.question.options">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sSelf.navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.frame.midY">
-            </PersistentString>
-            <PersistentString
-               value = "cell.frame.origin.y">
-            </PersistentString>
-            <PersistentString
-               value = "self.frame.midY &gt; cell.frame.origin.y">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "questions">
+               value = "popoverController.sourceRect">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -107,40 +88,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AnswersApiController.postRequest(base:pathComponent:reports:):AnswersAPIController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "chooseOptionsVC">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems!.count">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in QuestionsAnswersVC.setUpKeyboardBehavior():QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "firstCellAbove">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "UITableView.getFirstCellAbove(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
@@ -148,6 +95,28 @@
             </PersistentString>
             <PersistentString
                value = "sectionIndex - 1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "self.frame.midY &gt; cell.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "self.frame.midY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "questions">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -166,29 +135,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         contextName = "TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
          <PersistentStrings>
             <PersistentString
-               value = "scanerViewModel.sessionId">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "question.type">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view as? UITextField">
-            </PersistentString>
-            <PersistentString
-               value = "view as? UITextView">
+               value = "viewmodel.question.options">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -197,6 +147,70 @@
          <PersistentStrings>
             <PersistentString
                value = "answers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionOptionsTableViewDataSourceAndDelegate.init(selectOptionTextViewModel:):QuestionOptionsDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectOptionTextViewModel.question.options.first">
+            </PersistentString>
+            <PersistentString
+               value = "PersonalInfoKey.country_id.rawValue">
+            </PersistentString>
+            <PersistentString
+               value = "countries">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "doneBtn">
+            </PersistentString>
+            <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "surveyInfo.campaign">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view as? UITextView">
+            </PersistentString>
+            <PersistentString
+               value = "view as? UITextField">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

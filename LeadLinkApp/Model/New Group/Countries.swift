@@ -8,7 +8,16 @@
 
 import Foundation
 
-let countries = ["1": "AFGHANISTAN",
-                 "2": "ALAND ISLANDS",
-                 "3": "ALBANIA",
-                 "4": "ALGERIA"]
+struct CountriesManager {
+    var countries = [String: String]()
+    init() {
+        countries = countriesDict
+    }
+    
+    private let countriesDict = ["1": "AFGHANISTAN",
+                                 "2": "ALAND ISLANDS",
+                                 "3": "ALBANIA",
+                                 "4": "ALGERIA"]
+}
+
+
