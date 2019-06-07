@@ -77,11 +77,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .subscribe(onNext: { [weak self] result in
                 guard let sSelf = self else {return}
                 guard let delegate = result else { return }
-                print("delegate = \(delegate)", "update your realm...")
                 
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
                 print("updatedSurvey = \(updatedSurvey)")
+                
+                // sSelf.surveyInfo = updatedSurvey
+                
             })
             .disposed(by: bag)
         

@@ -95,8 +95,7 @@ extension SurveyInfo {
         
         if delegate.email != nil,
             let _ = question(forKey: .email)?.id,
-            let answer = existingAnswer(forKey: .email),
-            answer.isEmpty { // we want answer not to exist (only pre-load)
+            shouldLoadAnswerWithDelegateData() { // we want answer not to exist (only pre-load)
  
             let preloadAnswer = makeAnswer(forKey: .email,
                                            delegate: delegate)
@@ -107,8 +106,16 @@ extension SurveyInfo {
             print("sto ne uhvati...")
         }
         
+        var updatedSurvey = self
+        updatedSurvey.answers = newAnswers
         
-        return self // hard-coded
+        return updatedSurvey
+    }
+    
+    private func shouldLoadAnswerWithDelegateData() -> Bool {
+        if existingAnswer(forKey: .email) == nil {return true}
+        let answer = existingAnswer(forKey: .email)!
+        return answer.isEmpty
     }
     
     private func question(forKey optionKey: QuestionPersonalInfoKey ) -> Question? { // ili PersonalInfoKey ?

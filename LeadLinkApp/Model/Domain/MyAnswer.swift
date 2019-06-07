@@ -27,7 +27,7 @@ struct MyAnswer: Answering {
     init(campaignId: Int, questionId: Int, code: String, content: [String], optionIds: [Int]?) {
         self.campaignId = campaignId
         self.questionId = questionId
-        self.code = ""
+        self.code = code
         self.id = "\(campaignId)" + "\(questionId)" + code
         self.content = content
         self.optionIds = optionIds
