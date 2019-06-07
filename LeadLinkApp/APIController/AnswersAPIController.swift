@@ -127,8 +127,6 @@ class AnswersApiController {
         
         return session.rx.response(request: request).map() { response, data in
 
-            print("da li je moguce da ne emituje nista ovde ???")
-            
             let success = (200...299).contains(response.statusCode)
             return (reports, success)
         }

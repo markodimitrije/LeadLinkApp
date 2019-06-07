@@ -169,20 +169,3 @@ extension String {
         }
     }
 }
-
-extension String {
-    var personalInfoKey: PersonalInfoKey? {
-        switch self {
-            case "email": return .email
-            case "first_name": return .first_name
-            case "last_name": return .last_name
-            case "city": return .city
-            case "zip": return .zip
-            case "address1": return .address1
-            case "country_id": return .country_id
-        default:
-            print("personalInfoKey = nil !!!!")
-            return nil
-        }
-    }
-}

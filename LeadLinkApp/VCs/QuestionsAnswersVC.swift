@@ -25,9 +25,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     var questions = [SingleQuestion]() {
         didSet {
-            if viewmodelFactory != nil {
-                 loadParentViewModel(questions: questions)
-            }
+//            if viewmodelFactory != nil {
+//                 loadParentViewModel(questions: questions)
+//            }
         }
     }
     
@@ -199,6 +199,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 _ = self?.parentViewmodel.childViewmodels.compactMap({ viewmodelDict in
                     
                     let viewmodel = viewmodelDict.value
+                    
+                    print("type of viewmodel is \(type(of: viewmodel))")
                     
                     if let viewmodel = viewmodel as? RadioViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code

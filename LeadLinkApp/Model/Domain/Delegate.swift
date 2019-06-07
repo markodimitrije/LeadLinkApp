@@ -67,16 +67,6 @@ public struct DelegatesStructure: Codable {
     var data = [Delegate]()
 }
 
-enum PersonalInfoKey: String {
-    case first_name = "first_name"
-    case last_name = "last_name"
-    case email = "email"
-    case country_id = "country_id"
-    case city = "city"
-    case zip = "zip"
-    case address1 = "address1"
-}
-
 enum QuestionPersonalInfoKey: String {
     case first_name = "first_name"
     case last_name = "last_name"
