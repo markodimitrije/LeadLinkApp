@@ -185,7 +185,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             allQuestionsViews[questionId] = singleQuestionStackerView
             questionIdsToViewSizes[questionId] = singleQuestionStackerView.bounds.size
             
-            
         })
         
     }

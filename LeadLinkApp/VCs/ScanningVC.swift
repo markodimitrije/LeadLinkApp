@@ -33,7 +33,6 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
-    //var avSessionViewModel = AVSessionViewModel() remove this class - native camera
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var viewModel: ScanningViewModel!
@@ -114,36 +113,6 @@ class ScanningVC: UIViewController, Storyboarded {
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
-    // camera session binding:
-    
-//    private func bindSessionUsingAVSessionViewModel() {
-//
-//        avSessionViewModel.oSession
-//            .subscribe(onNext: { [unowned self] (session) in
-//
-//                let previewLayer = CameraPreviewLayer(session: session,
-//                                                      bounds: self.scannerView.layer.bounds)
-//
-//                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
-//
-//                }, onError: { [unowned self] err in
-//                    self.failed()
-//            })
-//            .disposed(by: disposeBag)
-//    }
-    
-//    private func bindCameraUsingAVSessionViewModel() {
-//
-//        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] (barCodeValue) in
-//                guard let sSelf = self else {return}
-//                print("scanner camera emituje barCodeValue \(barCodeValue)")
-//                sSelf.found(code: barCodeValue)
-//            })
-//            .disposed(by: disposeBag)
-//
-//    }
-//
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
 
         if code != "" {
@@ -175,21 +144,24 @@ class ScanningVC: UIViewController, Storyboarded {
     // AttendanceApp hard-coded - implement me....
     func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
 
-        fatalError()
-//        if scanerViewModel.sessionId != -1 {
-//            scanditSuccessfull(code: code, picker: picker)
-//        } else {
-//            showAlertFailedDueToNoRoomOrSessionSettings()
-//            restartCameraForScaning(picker)
-//        }
-
+        restartCameraForScaning(picker)
+        codeSuccessfull(code: code)
+        
+    }
+    
+    
+    private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
+        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
+            DispatchQueue.main.async {
+                picker.resumeScanning()
+            }
+        }
     }
 
     private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
         //print("codeSuccessfull.stopRunning()")
         
         viewModel.codeInput.onNext(code)
-        
         navigateToQuestionsScreen()
         
     }
