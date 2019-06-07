@@ -13,7 +13,7 @@ import RealmSwift
 import Realm
 
 
-class AnswersReportsState { // ovo je trebalo da zoves viewModel-om !
+class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     
     private var reports: Results<AnswersReport>? {
         
@@ -47,7 +47,7 @@ class AnswersReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func bindInputWithOutput() { print("AnswersReportsState.bindInputWithOutput")
+    private func bindInputWithOutput() { print("AnswersReportsToWebState.bindInputWithOutput")
         
         report
             .asObservable()

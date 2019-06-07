@@ -23,7 +23,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak fileprivate var tableView: UITableView!
     
-    fileprivate var questions = [SingleQuestion]()
+    fileprivate var questions = [SingleQuestion]() {
+        didSet {
+            if viewmodelFactory != nil {
+                 loadParentViewModel(questions: questions)
+            }
+        }
+    }
     fileprivate var allQuestionsViews = [Int: UIView]()
     
     fileprivate var parentViewmodel: ParentViewModel!
@@ -31,7 +37,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     fileprivate var saveBtn: UIButton!
     fileprivate var bag = DisposeBag()
     
-    private let answersReporter = AnswersReportsState.init() // report to web (manage API and REALM if failed)
+    private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
     
     lazy private var myDataSourceAndDelegate = ViewControllerDataSourceAndDelegate.init(viewController: self)
     
@@ -42,7 +48,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         didSet {
             loadQuestions(surveyInfo: surveyInfo)
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-            fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+            self.tableView?.reloadData()
         }
     }
     
@@ -66,7 +72,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView.delegate = myDataSourceAndDelegate
         
         setUpKeyboardBehavior()
-
+        
+        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+    
     }
     
     private func fetchDelegateAndSaveToRealm(code: String) {
@@ -80,9 +88,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
-                print("updatedSurvey = \(updatedSurvey)")
                 DispatchQueue.main.async {
-                    sSelf.saveAnswersIfFormIsValid(strongSelf: sSelf, answers: updatedSurvey.answers)
+                    sSelf.saveAnswers(surveyInfo: updatedSurvey, answers: updatedSurvey.answers)
                 }
                 
             })
@@ -230,10 +237,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         //let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         let validator = Validation(questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         if validator.questionsFormIsValid {
-            strongSelf.surveyInfo.save(answers: answers)
-                .subscribe({ (saved) in
-                    print("answers saved to realm = \(saved)")
-                }).disposed(by: strongSelf.bag)
+            
+            saveAnswers(surveyInfo: surveyInfo, answers: answers)
             
             let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
             answersReporter.report.accept(newReport)
@@ -242,6 +247,15 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         } else {
             strongSelf.showAlertFormNotValid()
         }
+    }
+    
+    private func saveAnswers(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
+        surveyInfo.save(answers: answers)
+            .subscribe({ (saved) in
+                print("answers saved to realm = \(saved)")
+                self.surveyInfo = surveyInfo
+            })
+            .disposed(by: bag)
     }
     
     private func showAlertFormNotValid() {
@@ -398,7 +412,6 @@ extension ViewControllerDataSourceAndDelegate: UITextViewDelegate {
         } else {
             optionsVC.dismiss(animated: true, completion: nil)
         }
-        
     }
 }
 
