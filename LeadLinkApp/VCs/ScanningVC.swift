@@ -159,7 +159,6 @@ class ScanningVC: UIViewController, Storyboarded {
     }
 
     private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
-        //print("codeSuccessfull.stopRunning()")
         
         viewModel.codeInput.onNext(code)
         navigateToQuestionsScreen()
@@ -225,8 +224,7 @@ extension ScanningVC: SBSScanDelegate {
             self?.found(code: code.data ?? "", picker: picker)
         }
     }
-    
-    
+
 }
 
 
