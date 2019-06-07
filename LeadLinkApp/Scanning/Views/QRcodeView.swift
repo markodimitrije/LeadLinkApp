@@ -45,15 +45,6 @@ class QRcodeView: UIView {
         
     }
     
-    func attachCameraForScanning(previewLayer: AVCaptureVideoPreviewLayer) {
-//        self.qrCodeView?.layer.addSublayer(previewLayer)
-        self.layer.addSublayer(previewLayer)
-        let layer = previewLayer
-        layer.frame.origin = CGPoint.init(x: 0, y: 0)
-        self.cameraView?.layer.addSublayer(layer)
-        
-    }
-    
     static func getSizeForQrCodeView() -> CGSize {
         
         if UIDevice.current.userInterfaceIdiom == .pad {

@@ -177,7 +177,6 @@ class ScanningVC: UIViewController, Storyboarded {
             settings.setSymbology(symbology, enabled: true)
         }
         
-        //settings.cameraFacingPreference = .front//settings.cameraFacingPreference = .back
         settings.cameraFacingPreference = getCameraDeviceDirection() ?? .back
         
         let symSettings = settings.settings(for: .code25)
