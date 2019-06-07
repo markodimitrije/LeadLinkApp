@@ -47,9 +47,21 @@ class QRcodeView: UIView {
     
     func attachCameraForScanning(previewLayer: AVCaptureVideoPreviewLayer) {
 //        self.qrCodeView?.layer.addSublayer(previewLayer)
+        self.layer.addSublayer(previewLayer)
         let layer = previewLayer
         layer.frame.origin = CGPoint.init(x: 0, y: 0)
         self.cameraView?.layer.addSublayer(layer)
+        
+    }
+    
+    static func getSizeForQrCodeView() -> CGSize {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return getSizeForQrCodeViewOnIpad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone{
+            return getSizeForQrCodeViewOnIphone()
+        }
+        return CGSize.zero
         
     }
     
@@ -68,19 +80,8 @@ class QRcodeView: UIView {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         
-        return CGSize.init(width: 0.9*width, height: 0.9*height)
+        return CGSize.init(width: 0.4*width, height: 0.4*height)
         
-    }
-    
-    static func getSizeForQrCodeView() -> CGSize {
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return getSizeForQrCodeViewOnIpad()
-        } else if UIDevice.current.userInterfaceIdiom == .phone{
-            return getSizeForQrCodeViewOnIphone()
-        }
-        return CGSize.zero
-
     }
     
     static func getRectForQrCodeView(center: CGPoint) -> CGRect {

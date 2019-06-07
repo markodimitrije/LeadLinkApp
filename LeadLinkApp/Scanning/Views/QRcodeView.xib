@@ -22,6 +22,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU0-mi-AQ5">
                     <rect key="frame" x="300" y="12" width="48" height="30"/>
+                    <color key="backgroundColor" red="0.1703016802" green="1" blue="0.065275902050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Cancel"/>
                     <connections>
                         <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="eH1-GF-Wok"/>
@@ -31,7 +32,7 @@
                     <rect key="frame" x="16" y="50" width="328" height="294"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.66666668650000005" green="0.19494551460000001" blue="0.040468203199999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sU0-mi-AQ5" secondAttribute="trailing" constant="12" id="3MP-rx-wk6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8gv-OX-RwP" secondAttribute="bottom" constant="16" id="BPZ-hV-be0"/>
