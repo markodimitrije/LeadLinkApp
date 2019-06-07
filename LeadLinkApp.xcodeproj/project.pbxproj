@@ -109,6 +109,8 @@
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
 		7CE63AC622A80578008E477B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC522A80578008E477B /* Delegate.swift */; };
+		7CEFA5F222AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F122AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift */; };
+		7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -290,6 +292,8 @@
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		7CEFA5F122AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersDataSourceAndDelegate.swift; sourceTree = "<group>"; };
+		7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataSourceAndDelegateHelper.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1088,6 +1092,8 @@
 				7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */,
 				7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */,
 				7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */,
+				7CEFA5F122AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift */,
+				7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */,
 			);
 			path = DataSourceAndDelegate;
 			sourceTree = "<group>";
@@ -1367,6 +1373,7 @@
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
+				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
 				7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */,
@@ -1382,6 +1389,7 @@
 				7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */,
+				7CEFA5F222AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
