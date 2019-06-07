@@ -75,22 +75,19 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         oNewDelegate
             .subscribe(onNext: { [weak self] result in
-//                guard let sSelf = self else {return}
-//                guard let delegate = result else { return }
-//                print("delegate = \(delegate)", "update your realm...")
-//                if let firstName = delegate.first_name
-//                guard let answer = sSelf.surveyInfo.answers.first(where: { answer -> Bool in
-//                    let qID = answer.questionId
-//                    let question = try! Realm.init().objects(RealmQuestion.self).first(where: { rQuestion -> Bool in
-//                        rQuestion.id == qID
-//                    })
-//
-//                })
-                print("delegate.delegate.delegate.implement me!!!")
+                guard let sSelf = self else {return}
+                guard let delegate = result else { return }
+                print("delegate = \(delegate)", "update your realm...")
+                
+                let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
+                
+                print("updatedSurvey = \(updatedSurvey)")
             })
             .disposed(by: bag)
         
     }
+    
+    
     
     private func setUpKeyboardBehavior() {
         
@@ -486,4 +483,5 @@ enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
 }
+
 

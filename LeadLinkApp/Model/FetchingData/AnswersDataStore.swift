@@ -58,6 +58,20 @@ public class RealmAnswersDataStore: DataStoreAnswering {
         return result
     }
     
+    func answer(campaign_id: Int, questionId: Int, code: String) -> RealmAnswer? {
+        
+        guard let _ = try? Realm.init() else { return nil }
+        
+        let compositeId = "\(campaign_id)" + "\(questionId)" + code
+        
+        guard let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: compositeId) else {
+            print("nemam odgovor u bazi....")
+            return nil
+        }
+        print("imam odgovor u bazi....")
+        return result
+    }
+    
     func save(answers: [MyAnswer], forCode code: String) -> Promise<Bool> {
         
         return Promise() { seal in

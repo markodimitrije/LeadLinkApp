@@ -40,14 +40,18 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     private var countries = [String]()
     
     init(selectOptionTextViewModel: SelectOptionTextFieldViewModel) {
+        
+        func checkIfOptionsShouldBeCountries() {
+            if selectOptionTextViewModel.question.options.first == QuestionPersonalInfoKey.country_id.rawValue {
+                let countriesManager = CountriesManager()
+                self.countries = Array(countriesManager.countries.values)
+            }
+        }
+        
         self.question = selectOptionTextViewModel.question
         self.answer = selectOptionTextViewModel.answer
-        
-        if selectOptionTextViewModel.question.options.first == QuestionPersonalInfoKey.country_id.rawValue {
-            print("ubaci svoje drzave")
-            let countriesManager = CountriesManager()
-            self.countries = Array(countriesManager.countries.values)
-        }
+        super.init()
+        checkIfOptionsShouldBeCountries()
         
     }
     

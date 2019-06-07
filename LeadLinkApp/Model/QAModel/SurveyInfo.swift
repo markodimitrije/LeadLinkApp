@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import Realm
+import RealmSwift
 
 enum InternalError: Error {
     case viewmodelConversion
@@ -83,4 +85,64 @@ struct SurveyInfo {
         })
     }
     private let bag = DisposeBag()
+}
+
+extension SurveyInfo {
+    
+    func updated(withDelegate delegate: Delegate) -> SurveyInfo {
+        let actualAnswers = self.answers
+        var newAnswers = actualAnswers
+        
+        if delegate.email != nil,
+            let _ = question(forKey: .email)?.id,
+            let answer = existingAnswer(forKey: .email),
+            answer.isEmpty { // we want answer not to exist (only pre-load)
+ 
+            let preloadAnswer = makeAnswer(forKey: .email,
+                                           delegate: delegate)
+            
+            newAnswers.append(preloadAnswer)
+            
+        } else {
+            print("sto ne uhvati...")
+        }
+        
+        
+        return self // hard-coded
+    }
+    
+    private func question(forKey optionKey: QuestionPersonalInfoKey ) -> Question? { // ili PersonalInfoKey ?
+        guard let myQuestion = self.questions.first(where: { question -> Bool in
+            question.settings.options?.first == optionKey.rawValue
+        }) else {
+            return nil
+        }
+        
+        return myQuestion
+    }
+    
+    private func existingAnswer(forKey optionKey: QuestionPersonalInfoKey ) -> MyAnswer? { // ili PersonalInfoKey ?
+        
+        guard let myQuestion = question(forKey: optionKey) else {
+            return nil
+        }
+
+        let dataStore = RealmAnswersDataStore.init()
+        
+        let rAnswer = dataStore.answer(campaign_id: self.campaign.id,
+                                       questionId: myQuestion.id,
+                                       code: self.code)
+        
+        return MyAnswer.init(realmAnswer: rAnswer)
+        
+    }
+    
+    private func makeAnswer(forKey optionKey: QuestionPersonalInfoKey, delegate: Delegate) -> MyAnswer {
+        return MyAnswer.init(campaignId: self.campaign.id,
+                             questionId: self.question(forKey: optionKey)?.id ?? 0, // hard-coded
+                             code: self.code,
+                             content: [delegate.email ?? ""],
+                             optionIds: nil)
+    }
+    
 }

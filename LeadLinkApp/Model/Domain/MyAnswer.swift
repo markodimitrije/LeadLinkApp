@@ -16,6 +16,10 @@ struct MyAnswer: Answering {
     var content = [String]()
     var optionIds: [Int]?
     
+    var isEmpty: Bool {
+        return content.isEmpty || (content.first! == "")
+    }
+    
     var compositeId: String {
         return "\(campaignId)" + "\(questionId)" + code
     }

@@ -286,7 +286,7 @@
 		7CA998E122A945EF00C226F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7CA998E322A945FA00C226F1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
-		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/AnswersReporting/Model/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
+		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -759,12 +759,20 @@
 			path = ScanditSDK;
 			sourceTree = "<group>";
 		};
-		7CA998E522A95E2600C226F1 /* New Group */ = {
+		7CA998E522A95E2600C226F1 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
 				7CA998E822A95E5400C226F1 /* Countries.swift */,
 			);
-			path = "New Group";
+			path = Countries;
+			sourceTree = "<group>";
+		};
+		7CA998EC22A96E9900C226F1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
@@ -809,7 +817,7 @@
 		AD4F013921D8F61F00946CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7CA998E522A95E2600C226F1 /* New Group */,
+				7CA998E522A95E2600C226F1 /* Countries */,
 				7C98A6D9228971A500DA184E /* FetchingData */,
 				7C98A67A2289628600DA184E /* QAModel */,
 				ADB6A64121DF907D002224C0 /* Realm */,
@@ -915,9 +923,9 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CA998EC22A96E9900C226F1 /* Service */,
 				7CA998CF22A908AC00C226F1 /* ConferenceApiKeyState */,
 				7C622275229444BA00717CA1 /* Persistance */,
-				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
 				7C6222692294227600717CA1 /* AnswersReporting */,
 				7C0E5CC3228F0AF40011E0A2 /* Validation */,
 				7C0E5CBC228EE0960011E0A2 /* Mock */,

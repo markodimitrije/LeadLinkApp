@@ -44,6 +44,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MyAnswer.isEmpty.getter:MyAnswer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "content.isEmpty || (content.first! != &quot;&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AnswersApiController.postRequest(base:pathComponent:reports:):AnswersAPIController.swift">
       </ContextState>
       <ContextState
@@ -77,17 +85,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "codesView">
-            </PersistentString>
-            <PersistentString
-               value = "containerView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "UITableView.getFirstCellAbove(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
@@ -99,16 +96,35 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
+         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "codesView">
             </PersistentString>
+            <PersistentString
+               value = "containerView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SurveyInfo.updated(withDelegate:):SurveyInfo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "answer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
+         <PersistentStrings>
             <PersistentString
                value = "self.frame.midY &gt; cell.frame.origin.y">
             </PersistentString>
             <PersistentString
                value = "self.frame.midY">
+            </PersistentString>
+            <PersistentString
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -168,10 +184,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "count">
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "count">
             </PersistentString>
             <PersistentString
                value = "doneBtn">
@@ -181,9 +200,6 @@
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -199,10 +215,10 @@
          contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
          <PersistentStrings>
             <PersistentString
-               value = "view as? UITextView">
+               value = "view as? UITextField">
             </PersistentString>
             <PersistentString
-               value = "view as? UITextField">
+               value = "view as? UITextView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
