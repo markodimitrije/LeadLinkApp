@@ -80,7 +80,7 @@ class QRcodeView: UIView {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         
-        return CGSize.init(width: 0.4*width, height: 0.4*height)
+        return CGSize.init(width: 0.9*width, height: 0.9*height)
         
     }
     

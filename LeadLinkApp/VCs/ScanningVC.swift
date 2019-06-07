@@ -190,7 +190,7 @@ class ScanningVC: UIViewController, Storyboarded {
         // Add the barcode picker as a child view controller
         addChild(barcodePicker)
         
-        self.scannerView.addSubview(barcodePicker.view)
+        self.scannerView.cameraView.addSubview(barcodePicker.view)
         barcodePicker.didMove(toParent: self)
         
         // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
