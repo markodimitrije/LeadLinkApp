@@ -35,6 +35,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in QuestionsAnswersVC.listenToSaveEvent():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self?.parentViewmodel.childViewmodels">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MyAnswer.isEmpty.getter:MyAnswer.swift">
          <PersistentStrings>
             <PersistentString
@@ -142,14 +150,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in QuestionsAnswersVC.loadParentViewModel(questions:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewmodelFactory">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
          <PersistentStrings>
             <PersistentString
@@ -180,10 +180,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SurveyInfo.makeAnswer(forKey:delegate:):SurveyInfo.swift">
+         contextName = "closure #1 in QuestionsAnswersVC.listenToSaveEvent():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.code">
+               value = "parentViewmodel.childViewmodels">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

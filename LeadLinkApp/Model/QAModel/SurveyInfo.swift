@@ -93,17 +93,21 @@ extension SurveyInfo {
         let actualAnswers = self.answers
         var newAnswers = actualAnswers
         
-        if delegate.email != nil,
-            let _ = question(forKey: .email)?.id,
-            shouldLoadAnswerWithDelegateData() { // we want answer not to exist (only pre-load)
- 
-            let preloadAnswer = makeAnswer(forKey: .email,
-                                           delegate: delegate)
+        _ = delegate.myStringProperties.compactMap { property -> Void in
             
-            newAnswers.append(preloadAnswer)
-            
-        } else {
-            print("sto ne uhvati...")
+            if property != nil,
+                let personalKey = property!.questionPersonalInfoKey,
+                let _ = question(forKey: personalKey)?.id,
+                shouldLoadAnswerWithDelegateData(optionKey: personalKey) { // we want answer not to exist (only pre-load)
+                
+                let preloadAnswer = makeAnswer(forKey: personalKey,
+                                               delegate: delegate)
+                print("dodaj answer tipa = \(personalKey.rawValue)")
+                newAnswers.append(preloadAnswer)
+                
+            } else {
+                print("sto ne uhvati...")
+            }
         }
         
         var updatedSurvey = self
@@ -112,13 +116,14 @@ extension SurveyInfo {
         return updatedSurvey
     }
     
-    private func shouldLoadAnswerWithDelegateData() -> Bool {
-        if existingAnswer(forKey: .email) == nil {return true}
-        let answer = existingAnswer(forKey: .email)!
+    private func shouldLoadAnswerWithDelegateData(optionKey: QuestionPersonalInfoKey) -> Bool {
+        if existingAnswer(forKey: optionKey) == nil {return true}
+        let answer = existingAnswer(forKey: optionKey)!
+        print("shouldLoadAnswerWithDelegateData/za optionKey= \(optionKey) vracam answer.isEmpty = \(answer.isEmpty)")
         return answer.isEmpty
     }
     
-    private func question(forKey optionKey: QuestionPersonalInfoKey ) -> Question? { // ili PersonalInfoKey ?
+    private func question(forKey optionKey: QuestionPersonalInfoKey) -> Question? { // ili PersonalInfoKey ?
         guard let myQuestion = self.questions.first(where: { question -> Bool in
             question.settings.options?.first == optionKey.rawValue
         }) else {
@@ -148,7 +153,7 @@ extension SurveyInfo {
         return MyAnswer.init(campaignId: self.campaign.id,
                              questionId: self.question(forKey: optionKey)?.id ?? 0, // hard-coded
                              code: self.code,
-                             content: [delegate.email ?? ""],
+                             content: [delegate.value(optionKey: optionKey)],
                              optionIds: nil)
     }
     

@@ -38,6 +38,22 @@ public struct Delegate: Codable {
     var country_id: Int?
     var address1: String?
     
+    var myStringProperties: [String?] {
+        return ["first_name", "last_name", "email", "zip", "city", "address1"] // country_id
+    }
+    
+    func value(optionKey: QuestionPersonalInfoKey) -> String {
+        switch optionKey {
+            case .email: return email ?? ""
+            case .first_name: return first_name ?? ""
+            case .last_name: return last_name ?? ""
+            case .city: return city ?? ""
+            case .zip: return zip ?? ""
+            case .address1: return address1 ?? ""
+        default: return "0"
+        }
+    }
+    
 }
 
 public struct DelegatesStructure: Codable {

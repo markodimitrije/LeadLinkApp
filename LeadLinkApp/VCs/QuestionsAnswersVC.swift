@@ -90,7 +90,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
                 DispatchQueue.main.async {
-                    sSelf.saveAnswers(surveyInfo: updatedSurvey, answers: updatedSurvey.answers)
+                    sSelf.saveAnswers(surveyInfo: updatedSurvey, answers: updatedSurvey.answers) //redundant....
                 }
                 
             })
@@ -221,10 +221,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         answers.append(answer)
                     } else if let viewmodel = viewmodel as? SelectOptionTextFieldViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        print("prepoznao VM, LabelWithTextFieldViewModel.answer = \(String(describing: viewmodel.answer))")
+//                        print("prepoznao VM, LabelWithTextFieldViewModel.answer = \(String(describing: viewmodel.answer))")
                         answers.append(answer)
                     } else {
-                        print("o-o, unknown type of viewmodel ?!?!?!")
+                        print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")
                     }
                 })
                 

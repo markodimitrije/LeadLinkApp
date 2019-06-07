@@ -151,3 +151,35 @@ extension UserDefaults {
     static let keyConferenceId = "keyConferenceId"
     static let keyConferenceAuth = "keyConferenceAuth"
 }
+
+extension String {
+    var questionPersonalInfoKey: QuestionPersonalInfoKey? {
+        switch self {
+            case "email": return QuestionPersonalInfoKey.email
+            case "first_name": return QuestionPersonalInfoKey.first_name
+            case "last_name": return QuestionPersonalInfoKey.last_name
+            case "city": return QuestionPersonalInfoKey.city
+            case "zip": return QuestionPersonalInfoKey.zip
+            case "address1": return QuestionPersonalInfoKey.address1
+            
+        default:
+            return nil
+        }
+    }
+}
+
+extension String {
+    var personalInfoKey: PersonalInfoKey? {
+        switch self {
+        case "email": return .email
+        case "first_name": return .first_name
+        case "last_name": return .last_name
+        case "city": return .city
+        case "zip": return .zip
+        case "address1": return .address1
+            
+        default:
+            return nil
+        }
+    }
+}
