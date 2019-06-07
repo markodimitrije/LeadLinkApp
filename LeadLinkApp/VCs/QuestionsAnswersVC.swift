@@ -220,7 +220,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         answers.append(answer)
                     } else if let viewmodel = viewmodel as? SelectOptionTextFieldViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-//                        print("prepoznao VM, LabelWithTextFieldViewModel.answer = \(String(describing: viewmodel.answer))")
                         answers.append(answer)
                     } else {
                         print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")

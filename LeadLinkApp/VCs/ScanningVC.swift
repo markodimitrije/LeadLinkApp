@@ -149,7 +149,6 @@ class ScanningVC: UIViewController, Storyboarded {
         
     }
     
-    
     private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
         delay(1.0) { // ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async {
