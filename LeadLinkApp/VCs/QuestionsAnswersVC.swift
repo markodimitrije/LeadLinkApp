@@ -66,7 +66,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView.delegate = myDataSourceAndDelegate
         
         setUpKeyboardBehavior()
-        
+
     }
     
     private func fetchDelegateAndSaveToRealm(code: String) {
@@ -81,15 +81,14 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
                 print("updatedSurvey = \(updatedSurvey)")
-                
-                // sSelf.surveyInfo = updatedSurvey
+                DispatchQueue.main.async {
+                    sSelf.saveAnswersIfFormIsValid(strongSelf: sSelf, answers: updatedSurvey.answers)
+                }
                 
             })
             .disposed(by: bag)
         
     }
-    
-    
     
     private func setUpKeyboardBehavior() {
         
@@ -117,9 +116,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             
             if isCellBelowHalfOfTheScreen {
                 if verticalShift < 0 {
-//                    guard firstResponderIdexPath.row - 1 >= 0 else {
-//                        return
-//                    }
+//
                     if let firstCellAbove = self.tableView.getFirstCellAbove(cell: firstResponderCell),
                         let newIp = self.tableView.indexPath(for: firstCellAbove) {
                             self.tableView.scrollToRow(at: newIp, at: .top, animated: true)
@@ -127,10 +124,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         fatalError()
                     }
                     
-//                    else {
-//                        let newIp = IndexPath(row: firstResponderIdexPath.row - 1, section: firstResponderIdexPath.section)
-//                        self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.top, animated: true)
-//                    }
                 } else {
                     if firstResponderIdexPath.row + 1 < countOfCellsInSection {
                         let newIp = IndexPath(row: firstResponderIdexPath.row + 1, section: firstResponderIdexPath.section)
