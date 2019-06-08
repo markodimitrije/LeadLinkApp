@@ -6,10 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-//import UIKit
-//import RxSwift
-//import RxCocoa
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -39,6 +35,9 @@ class ScanningVC: UIViewController, Storyboarded {
     var keyboardManager: MovingKeyboardDelegate?
     
     private let factory = AppDependencyContainer()
+    private let disclaimerFactory = DisclaimerViewFactory()
+    
+    private var lastScanedCode: String = ""
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -150,19 +149,47 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
-        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
+        delay(1.0) { // this is not scanner.. when it should be restarted?
             DispatchQueue.main.async {
                 picker.resumeScanning()
             }
         }
     }
 
-    private func codeSuccessfull(code: String) { // print("prosledi code report za code = \(code)....")
+    private func codeSuccessfull(code: String) {
         
-        viewModel.codeInput.onNext(code)
-        navigateToQuestionsScreen()
+        self.lastScanedCode = code // save state
+        
+        if !disclaimerAlreadyOnScreen() {
+            showDisclaimer()
+        }
         
     }
+    
+    private func showDisclaimer() {
+        
+        if let disclaimerView = disclaimerFactory.makeDisclaimer() {
+            disclaimerView.delegate = self
+            disclaimerView.tag = 12
+            self.view.addSubview(disclaimerView)
+        }
+    }
+    
+    private func disclaimerAlreadyOnScreen() -> Bool {
+        if let _ = self.view.subviews.first(where: {$0.tag == 12}) {
+            return true
+        } else {
+            return false
+        }
+    }
+ 
+    fileprivate func notifyWorldAboutScaned(_ code: String) {
+        // print("prosledi code report za code = \(code)....")
+        viewModel.codeInput.onNext(code)
+        navigateToQuestionsScreen()
+    }
+    
+    
     
     // SCANDIT
     
@@ -226,7 +253,24 @@ extension ScanningVC: SBSScanDelegate {
 
 }
 
-
+extension ScanningVC: ConsentAproving {
+    func consent(aproved: Bool) {
+        if aproved {
+            print("set survey to consent true")
+            notifyWorldAboutScaned(self.lastScanedCode)
+        } else {
+            print("set survey to consent false")
+            notifyWorldAboutScaned(self.lastScanedCode)
+        }
+        removeDisclaimerView()
+    }
+    
+    private func removeDisclaimerView() {
+        if let disclaimerView = self.view.subviews.first(where: {$0.tag == 12}) {
+            disclaimerView.removeFromSuperview()
+        }
+    }
+}
 
 
 

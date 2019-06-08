@@ -11,8 +11,9 @@ import AVFoundation
 
 class DisclaimerView: UIView {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var textView: UIView!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var disagreeBtn: UIButton!
     @IBOutlet weak var agreeBtn: UIButton!
     
@@ -34,6 +35,8 @@ class DisclaimerView: UIView {
     
     convenience init(frame: CGRect, disclaimer: Disclaimer) {
         self.init(frame: frame)
+//        let frame = getRectForDisclaimerView(center: center)
+        loadDataFrom(disclaimer: disclaimer)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,15 +51,27 @@ class DisclaimerView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        formatBtns()
+        format()
         
         self.addSubview(view)
         
     }
     
-    private func formatBtns() {
+    private func loadDataFrom(disclaimer: Disclaimer) {
+        titleLbl.text = disclaimer.title
+        textView.text = disclaimer.text
+        disagreeBtn.setTitle(disclaimer.disagreeTitle, for: .normal)
+        agreeBtn.setTitle(disclaimer.agreeTitle, for: .normal)
+    }
+    
+    private func format() {
+        formatView()
         formatDisagree()
         formatAgree()
+    }
+    
+    private func formatView() {
+        holderView.layer.cornerRadius = 10.0
     }
     
     private func formatDisagree() {
@@ -69,7 +84,7 @@ class DisclaimerView: UIView {
         agreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
     }
     
-    static func getMySize() -> CGSize {
+    private func getMySize() -> CGSize {
 
         if UIDevice.current.userInterfaceIdiom == .pad {
             return getSizeOnIpad()
@@ -80,7 +95,7 @@ class DisclaimerView: UIView {
 
     }
     
-    private static func getSizeOnIpad() -> CGSize {
+    private func getSizeOnIpad() -> CGSize {
         
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
@@ -90,7 +105,7 @@ class DisclaimerView: UIView {
         
     }
     
-    private static func getSizeOnIphone() -> CGSize {
+    private func getSizeOnIphone() -> CGSize {
         
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
@@ -99,7 +114,7 @@ class DisclaimerView: UIView {
         
     }
     
-    static func getRectForDisclaimerView(center: CGPoint) -> CGRect {
+    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
         
         return CGRect.init(center: center, size: getMySize())
         
