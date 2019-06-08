@@ -173,7 +173,8 @@ public class AppDependencyContainer {
     
     // Questions and Answers
     
-    func makeQuestionsAnswersViewController(scanningViewModel viewModel: ScanningViewModel?) -> QuestionsAnswersVC {
+    func makeQuestionsAnswersViewController(scanningViewModel viewModel: ScanningViewModel?,
+                                            hasConsent consent: Bool = false) -> QuestionsAnswersVC {
         
         guard let code = try? viewModel!.codeInput.value() else {fatalError()}
         
@@ -185,7 +186,7 @@ public class AppDependencyContainer {
         
         guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
         
-        let surveyInfo = SurveyInfo.init(campaign: campaign , code: code)
+        let surveyInfo = SurveyInfo.init(campaign: campaign , code: code, hasConsent: consent)
         
         let vc = QuestionsAnswersVC.instantiate(using: sb)
 

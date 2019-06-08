@@ -17,16 +17,14 @@ class DisclaimerView: UIView {
     @IBOutlet weak var disagreeBtn: UIButton!
     @IBOutlet weak var agreeBtn: UIButton!
     
-    
     @IBAction func leftBtnTapped(_ sender: UIButton) {
-        delegate?.consent(aproved: false)
+        delegate?.consent(hasConsent: false)
     }
     @IBAction func rightBtnTapped(_ sender: UIButton) {
-        delegate?.consent(aproved: true)
+        delegate?.consent(hasConsent: true)
     }
     
     weak var delegate: ConsentAproving?
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,7 +75,7 @@ class DisclaimerView: UIView {
     private func formatDisagree() {
         disagreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
         disagreeBtn.layer.borderWidth = 1.0
-        disagreeBtn.layer.borderColor = UIColor.red.cgColor
+        disagreeBtn.layer.borderColor = UIColor.disclaimerBlue.cgColor
     }
     
     private func formatAgree() {
@@ -124,7 +122,7 @@ class DisclaimerView: UIView {
 
 
 protocol ConsentAproving: class {
-    func consent(aproved: Bool)
+    func consent(hasConsent consent: Bool)
 }
 
 struct Disclaimer {

@@ -38,6 +38,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private let disclaimerFactory = DisclaimerViewFactory()
     
     private var lastScanedCode: String = ""
+    private var hasConsent = false
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -108,7 +109,8 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func navigateToQuestionsScreen() {
-        let questionsVC = factory.makeQuestionsAnswersViewController(scanningViewModel: viewModel)
+        let questionsVC = factory.makeQuestionsAnswersViewController(scanningViewModel: viewModel,
+                                                                     hasConsent: self.hasConsent)
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
@@ -183,9 +185,9 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
  
-    fileprivate func notifyWorldAboutScaned(_ code: String) {
+    fileprivate func notifyWorldAboutScanedCode() {
         // print("prosledi code report za code = \(code)....")
-        viewModel.codeInput.onNext(code)
+        viewModel.codeInput.onNext(self.lastScanedCode)
         navigateToQuestionsScreen()
     }
     
@@ -254,14 +256,9 @@ extension ScanningVC: SBSScanDelegate {
 }
 
 extension ScanningVC: ConsentAproving {
-    func consent(aproved: Bool) {
-        if aproved {
-            print("set survey to consent true")
-            notifyWorldAboutScaned(self.lastScanedCode)
-        } else {
-            print("set survey to consent false")
-            notifyWorldAboutScaned(self.lastScanedCode)
-        }
+    func consent(hasConsent consent: Bool) {
+        self.hasConsent = consent
+        notifyWorldAboutScanedCode()
         removeDisclaimerView()
     }
     

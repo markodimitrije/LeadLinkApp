@@ -55,6 +55,7 @@ extension UIColor {
     static let barcodeTxtGray = UIColor.init(red: 140/255, green: 140/255, blue: 140/255, alpha: 1.0)
     static let fieldBorderGray = UIColor.init(red: 159/255, green: 159/255, blue: 159/255, alpha: 1.0)
     static let barcodeBackground = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+    static let disclaimerBlue = UIColor.init(red: 57/255, green: 89/255, blue: 121/255, alpha: 1.0)
 }
 
 extension UIViewController {

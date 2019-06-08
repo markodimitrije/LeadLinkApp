@@ -47,6 +47,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
+            print("hasConsent setovan na = \(surveyInfo.hasConsent)")
             loadQuestions(surveyInfo: surveyInfo)
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
             self.tableView?.reloadData()

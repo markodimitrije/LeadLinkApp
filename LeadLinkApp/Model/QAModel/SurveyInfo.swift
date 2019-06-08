@@ -20,6 +20,7 @@ struct SurveyInfo {
     var campaign: Campaign
     var code: String
     var dataStore: RealmAnswersDataStore
+    var hasConsent = false
     
     var oVcWillAppear = BehaviorSubject<Bool>.init(value: false)
     
@@ -49,9 +50,10 @@ struct SurveyInfo {
     
     var answers = [MyAnswer]()
     
-    init(campaign: Campaign, code: String, dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
+    init(campaign: Campaign, code: String, hasConsent: Bool = false, dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
         self.campaign = campaign
         self.code = code
+        self.hasConsent = hasConsent
         self.dataStore = dataStore
         
         answers = campaign.questions.compactMap { question -> MyAnswer? in//Answer? in
