@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DisclaimerView" customModule="LeadLinkApp" customModuleProvider="target">
+            <connections>
+                <outlet property="agreeBtn" destination="O78-OY-u1B" id="mNJ-qC-E0V"/>
+                <outlet property="disagreeBtn" destination="RSt-YI-S9e" id="o9l-uW-i0b"/>
+                <outlet property="textView" destination="lEF-4J-LR2" id="uxq-zg-1SN"/>
+                <outlet property="titleLbl" destination="5I8-dA-OcB" id="lLy-0b-B5S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="359"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Retrieval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I8-dA-OcB">
+                    <rect key="frame" x="107" y="16" width="106.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-4J-LR2">
+                    <rect key="frame" x="16" y="52.5" width="288" height="226.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary.
+ 
+For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                </textView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-71-pPD">
+                    <rect key="frame" x="53.5" y="295" width="213" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-YI-S9e">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="30"/>
+                            <state key="normal" title="I Disagree">
+                                <color key="titleColor" red="0.22352941179999999" green="0.34901960780000002" blue="0.47450980390000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="leftBtnTapped:" destination="-1" eventType="touchUpInside" id="wg8-en-ZXu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O78-OY-u1B">
+                            <rect key="frame" x="144" y="0.0" width="69" height="30"/>
+                            <color key="backgroundColor" red="0.22352941176470587" green="0.34901960784313724" blue="0.47450980392156861" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="I Agree">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="rightBtnTapped:" destination="-1" eventType="touchUpInside" id="ZZd-KU-c99"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="O78-OY-u1B" firstAttribute="width" secondItem="RSt-YI-S9e" secondAttribute="width" id="5XV-c4-ACM"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5I8-dA-OcB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="16c-oo-4wx"/>
+                <constraint firstItem="gkD-71-pPD" firstAttribute="top" secondItem="lEF-4J-LR2" secondAttribute="bottom" constant="16" id="Om8-3I-tfP"/>
+                <constraint firstItem="gkD-71-pPD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Pz8-nx-xVn"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="egf-n6-rJQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lEF-4J-LR2" secondAttribute="trailing" constant="16" id="khG-t2-bz0"/>
+                <constraint firstItem="5I8-dA-OcB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lVE-N4-0BN"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nI0-lP-Lbc"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="top" secondItem="5I8-dA-OcB" secondAttribute="bottom" constant="16" id="z5I-9X-poA"/>
+                <constraint firstItem="gkD-71-pPD" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="zD9-06-dgb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="69.565217391304358" y="117.52232142857142"/>
+        </view>
+    </objects>
+</document>

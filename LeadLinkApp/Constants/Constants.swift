@@ -49,4 +49,15 @@ extension Constants {
             static let msg = NSLocalizedString("AlertInfo.QuestionsAnswers.FormNotValid.msg", comment: "")
         }
     }
+    struct Disclaimer {
+        static let title = NSLocalizedString("Disclaimer.title", comment: "")
+        static let text = NSLocalizedString("Disclaimer.text", comment: "")
+        static let disagree = NSLocalizedString("Disclaimer.disagree", comment: "")
+        static let agree = NSLocalizedString("Disclaimer.agree", comment: "")
+    }
 }
+
+
+
+
+
