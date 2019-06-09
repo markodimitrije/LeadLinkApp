@@ -113,11 +113,11 @@ extension SurveyInfo {
                 
                 let preloadAnswer = makeAnswer(forKey: personalKey,
                                                delegate: delegate)
-                print("dodaj answer tipa = \(personalKey.rawValue)")
+//                print("dodaj answer tipa = \(personalKey.rawValue)")
                 newAnswers.append(preloadAnswer)
                 
             } else {
-                print("sto ne uhvati...")
+//                print("sto ne uhvati...")
             }
         }
         
@@ -130,7 +130,7 @@ extension SurveyInfo {
     private func shouldLoadAnswerWithDelegateData(optionKey: QuestionPersonalInfoKey) -> Bool {
         if existingAnswer(forKey: optionKey) == nil {return true}
         let answer = existingAnswer(forKey: optionKey)!
-        print("shouldLoadAnswerWithDelegateData/za optionKey= \(optionKey) vracam answer.isEmpty = \(answer.isEmpty)")
+//        print("shouldLoadAnswerWithDelegateData/za optionKey= \(optionKey) vracam answer.isEmpty = \(answer.isEmpty)")
         return answer.isEmpty
     }
     

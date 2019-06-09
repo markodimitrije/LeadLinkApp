@@ -62,3 +62,9 @@ struct MyAnswer: Answering {
     }
     
 }
+
+extension MyAnswer: Hashable {
+    var hashValue: Int {
+        return Int(self.compositeId) ?? 0
+    }
+}

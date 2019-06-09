@@ -101,3 +101,14 @@ func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
     }
     return nil
 }
+
+func getAnswersWithoutTermsSwitch(questions: [Question], answers: [MyAnswer]) -> [MyAnswer] {
+    
+    if let termsQuestionId = (questions.filter({$0.type == "termsSwitchBtn"}).first)?.id {
+        let newAnswers = answers.filter({$0.questionId != termsQuestionId})
+        return newAnswers
+    } else {
+        return answers
+    }
+    
+}

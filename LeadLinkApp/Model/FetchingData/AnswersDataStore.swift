@@ -51,10 +51,10 @@ public class RealmAnswersDataStore: DataStoreAnswering {
         let compositeId = "\(question.campaign_id)" + "\(question.id)" + code
         
         guard let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: compositeId) else {
-            print("nemam odgovor u bazi....")
+//            print("nemam odgovor u bazi....")
             return nil
         }
-        print("imam odgovor u bazi....")
+//        print("imam odgovor u bazi....")
         return result
     }
     
@@ -65,10 +65,10 @@ public class RealmAnswersDataStore: DataStoreAnswering {
         let compositeId = "\(campaign_id)" + "\(questionId)" + code
         
         guard let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: compositeId) else {
-            print("nemam odgovor u bazi....")
+//            print("nemam odgovor u bazi....")
             return nil
         }
-        print("imam odgovor u bazi....")
+//        print("imam odgovor u bazi....")
         return result
     }
     

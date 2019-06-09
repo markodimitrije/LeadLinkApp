@@ -203,8 +203,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-//                var answers = [MyAnswer]()
-                var answers = existingAnswers
+                var answers = [MyAnswer]()
+//                var answers = existingAnswers
+                
                 var answersIds = answers.map({$0.id})
                 
                 func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
@@ -221,8 +222,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 _ = self?.parentViewmodel.childViewmodels.compactMap({ viewmodelDict in
                     
                     let viewmodel = viewmodelDict.value
-                    
-                    print("type of viewmodel is \(type(of: viewmodel))")
                     
                     if let viewmodel = viewmodel as? RadioViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
@@ -258,7 +257,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
         //let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
-        let validator = Validation(questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+        let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         if validator.questionsFormIsValid {
             
             saveAnswers(surveyInfo: surveyInfo, answers: answers)

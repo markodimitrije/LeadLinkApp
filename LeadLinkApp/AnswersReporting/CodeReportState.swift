@@ -110,7 +110,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
         
         guard let report = report else {return Observable.empty()}
         
-        print("prijavi ovaj report = \(report)")
+//        print("prijavi ovaj report = \(report)")
         
         return AnswersApiController.shared.notifyWeb(withReports: [report]).map { (reports, success) -> (AnswersReport, Bool) in
             return (reports.first!, success)

@@ -22,14 +22,17 @@ struct Validation {
     private var termsAnswer: MyAnswer?
     
     private var hasValidEmail: Bool {
-        return emailAnswer != nil
+//        return emailAnswer != nil
+        return true // hard-coded
     }
     private var hasCheckedTermsAndConditions: Bool {
-        if termsAnswer == nil {return false}
+        if termsAnswer == nil {
+            return false
+        }
         return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
     }
     
-    init(questions: [SingleQuestion], answers: [MyAnswer]) {
+    init(surveyInfo: SurveyInfo, questions: [SingleQuestion], answers: [MyAnswer]) {
         self.emailAnswer = answers.first(where: { answer -> Bool in
             emailValidator.isValidEmail(testStr: answer.content.first)
         })
@@ -39,11 +42,17 @@ struct Validation {
         }
         
         if let terms = termsQuestion {
-            self.termsAnswer = answers.first(where: { answer -> Bool in
-                answer.questionId == terms.question.id
+            
+            let actualAnswer = answers.first(where: { answer -> Bool in
+                return answer.questionId == terms.question.id &&
+                    answer.code == surveyInfo.code
             })
+            
+            self.termsAnswer = actualAnswer ?? nil
+            
         }
         
+        print("termsAnswer.isOn = \(String(describing: termsAnswer))")
     }
     
 }

@@ -37,7 +37,7 @@ public class RealmReportsDataStore: ReportsDataStore {
         Observable.collection(from: realmReports)
             .subscribe(onNext: { [weak self] results in guard let sSelf = self else {return}
                 let reports = Array(results)
-                print("emitujem nove reports iz baze = \(reports)")
+//                print("emitujem nove reports iz baze = \(reports)")
                 sSelf.oReports.accept(reports)
             }).disposed(by: bag)
     }
