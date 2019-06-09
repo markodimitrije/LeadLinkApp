@@ -12,9 +12,8 @@ struct Validation {
     
     // API
     var questionsFormIsValid: Bool {
-//        return hasValidEmail && hasCheckedTermsAndConditions // hard-coded on
-//        return hasValidEmail
-        return true // hard-coded on
+        return hasValidEmail && hasCheckedTermsAndConditions // hard-coded on
+//        return true // hard-coded on
     }
     
     private let emailValidator = EmailValidator()
@@ -26,7 +25,7 @@ struct Validation {
         return emailAnswer != nil
     }
     private var hasCheckedTermsAndConditions: Bool {
-        if termsAnswer == nil {return true}
+        if termsAnswer == nil {return false}
         return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
     }
     
