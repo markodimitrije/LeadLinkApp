@@ -81,10 +81,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
-        if surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)  {
-            return
-        }
-        
+        guard shouldPrepopulateDelegateData(code: code) else { return }
+
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
         oNewDelegate
@@ -103,8 +101,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
     }
     
-    private func shouldPrepopulateDelegateData(code: String) {
-        //implement me....
+    private func shouldPrepopulateDelegateData(code: String) -> Bool {
+        let hasRealmAnswers = surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)
+        let hasConsent = surveyInfo.hasConsent
+        return !hasRealmAnswers && hasConsent
     }
     
     private func setUpKeyboardBehavior() {
