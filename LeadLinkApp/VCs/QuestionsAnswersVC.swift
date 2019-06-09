@@ -23,13 +23,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var tableView: UITableView!
     
-    var questions = [SingleQuestion]() {
-        didSet {
-//            if viewmodelFactory != nil {
-//                 loadParentViewModel(questions: questions)
-//            }
-        }
-    }
+    var questions = [SingleQuestion]()
     
     var parentViewmodel: ParentViewModel!
     var allQuestionsViews = [Int: UIView]()
@@ -47,14 +41,17 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
-            print("hasConsent setovan na = \(surveyInfo.hasConsent)")
-            loadQuestions(surveyInfo: surveyInfo)
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-            self.tableView?.reloadData()
+            configureQuestionForm()
         }
     }
     
-    override func viewDidLoad() { super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureQuestionForm()
+    }
+    
+    private func configureQuestionForm() {
         
         self.hideKeyboardWhenTappedAround()
         
@@ -62,11 +59,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         self.saveBtn = SaveButton()
         
+        loadQuestions(surveyInfo: surveyInfo)
+        
         loadParentViewModel(questions: questions)
         
         loadViewStackerAndComponentSizes()
         
-        listenToSaveEvent()
+        listenToSaveEvent(existingAnswers: surveyInfo.answers)
         
         myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
         
@@ -76,12 +75,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         setUpKeyboardBehavior()
         
         fetchDelegateAndSaveToRealm(code: surveyInfo.code)
-    
+        
+        tableView?.reloadData()
     }
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
-        if surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code) {
+        if surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)  {
             return
         }
         
@@ -101,6 +101,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
         
+    }
+    
+    private func shouldPrepopulateDelegateData(code: String) {
+        //implement me....
     }
     
     private func setUpKeyboardBehavior() {
@@ -194,12 +198,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
     }
     
-    private func listenToSaveEvent() {
+    private func listenToSaveEvent(existingAnswers:[MyAnswer] = []) {
         
         saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-                var answers = [MyAnswer]()
+//                var answers = [MyAnswer]()
+                var answers = existingAnswers
                 
                 _ = self?.parentViewmodel.childViewmodels.compactMap({ viewmodelDict in
                     
