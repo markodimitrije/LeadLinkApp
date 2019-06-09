@@ -205,6 +205,18 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
 //                var answers = [MyAnswer]()
                 var answers = existingAnswers
+                var answersIds = answers.map({$0.id})
+                
+                func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
+                    
+                    guard let content = answer.content.first, content != "" else {
+                        return
+                    }
+                    if let index = answersIds.index(of: answer.id) {
+                        answers.remove(at: index)
+                    }
+                    answers.append(answer)
+                }
                 
                 _ = self?.parentViewmodel.childViewmodels.compactMap({ viewmodelDict in
                     
@@ -214,25 +226,25 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                     
                     if let viewmodel = viewmodel as? RadioViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? RadioWithInputViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? CheckboxViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? CheckboxWithInputViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? SwitchBtnsViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? LabelWithTextFieldViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else if let viewmodel = viewmodel as? SelectOptionTextFieldViewModel, var answer = viewmodel.answer {
                         answer.code = strongSelf.surveyInfo.code
-                        answers.append(answer)
+                        addOrUpdateAnswers(withAnswer: answer)
                     } else {
                         print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")
                     }
