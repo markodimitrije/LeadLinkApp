@@ -34,9 +34,9 @@ class TermsVC: UIViewController, Storyboarded {
     
     private func bindTermsTxt() {
         termsTxt
-            .subscribe(onNext: { [weak self] termsTxt in
+            .subscribe(onNext: { [weak self] termsHTMLTxt in
                 guard let sSelf = self else {return}
-                    sSelf.textView.text = termsTxt
+                    sSelf.textView.attributedText = termsHTMLTxt.htmlToAttributedString
             }).disposed(by: bag)
     }
     

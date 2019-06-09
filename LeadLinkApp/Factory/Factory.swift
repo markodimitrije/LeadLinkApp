@@ -240,9 +240,9 @@ public class AppDependencyContainer {
         guard let navForTerms = NavForTermsVC.instantiate(using: sb) as? NavForTermsVC,
             let termsVC = navForTerms.viewControllers.first as? TermsVC else { fatalError() }
     
-        let text = termsTxt ?? termsString // backup je global var...
+        //let text = termsTxt ?? termsString // backup je global var...
         
-        termsVC.termsTxt.accept(text)
+        termsVC.termsTxt.accept(termsString)//text)
         
         return navForTerms
     }
