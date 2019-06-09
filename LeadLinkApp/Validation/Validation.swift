@@ -22,8 +22,8 @@ struct Validation {
     private var termsAnswer: MyAnswer?
     
     private var hasValidEmail: Bool {
-//        return emailAnswer != nil
-        return true // hard-coded
+        return emailAnswer != nil
+//        return true // hard-coded
     }
     private var hasCheckedTermsAndConditions: Bool {
         if termsAnswer == nil {

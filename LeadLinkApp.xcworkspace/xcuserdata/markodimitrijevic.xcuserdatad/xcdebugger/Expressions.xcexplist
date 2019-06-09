@@ -52,6 +52,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in QuestionsAnswersVC.listenToSaveEvent(existingAnswers:):QuestionsAnswersVC.swift">
+      </ContextState>
+      <ContextState
          contextName = "MyAnswer.isEmpty.getter:MyAnswer.swift">
          <PersistentStrings>
             <PersistentString
@@ -67,9 +70,6 @@
          <PersistentStrings>
             <PersistentString
                value = "termsAnswer?.optionIds?.first">
-            </PersistentString>
-            <PersistentString
-               value = "termsAnswer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -118,6 +118,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "addOrUpdateAnswers #1 (withAnswer:) in closure #1 in QuestionsAnswersVC.listenToSaveEvent(existingAnswers:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "index.hashValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SurveyInfo.updated(withDelegate:):SurveyInfo.swift">
          <PersistentStrings>
             <PersistentString
@@ -158,14 +166,6 @@
             </PersistentString>
             <PersistentString
                value = "type(of: self)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Validation.hasValidEmail.getter:Validation.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "emailAnswer != nil">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

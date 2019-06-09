@@ -42,7 +42,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-            configureQuestionForm()
+//            configureQuestionForm()
         }
     }
     
@@ -203,20 +203,28 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-                var answers = [MyAnswer]()
-//                var answers = existingAnswers
+//                print("existingAnswers.count = \(existingAnswers.count)")
                 
-                var answersIds = answers.map({$0.id})
+                var answers = [MyAnswer]()
+//                var answers = Set(existingAnswers)
+                
+                //var answersIds = answers.map({$0.id})
+                var existingAnswerIds = Set(existingAnswers.map({$0.id}))
+                
+                print("existingAnswerIds = \(existingAnswerIds)")
                 
                 func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
+                    
+//                    print("addOrUpdateAnswers.answer.id = \(answer.id)")
                     
                     guard let content = answer.content.first, content != "" else {
                         return
                     }
-                    if let index = answersIds.index(of: answer.id) {
-                        answers.remove(at: index)
-                    }
+//                    if let index = existingAnswerIds.index(of: answer.id) {
+//                        answers.remove(at: index)
+//                    }
                     answers.append(answer)
+                    
                 }
                 
                 _ = self?.parentViewmodel.childViewmodels.compactMap({ viewmodelDict in
@@ -248,7 +256,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")
                     }
                 })
-                
+//                print("saljem answers.count = \(answers.count)")
+                print("answersIds = \(answers.map({$0.id}))")
                 strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: answers)
                 
             })
