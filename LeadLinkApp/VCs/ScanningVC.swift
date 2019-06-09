@@ -173,6 +173,8 @@ class ScanningVC: UIViewController, Storyboarded {
         if let disclaimerView = disclaimerFactory.makeDisclaimer() {
             disclaimerView.delegate = self
             disclaimerView.tag = 12
+            disclaimerView.configureTxtViewWithHyperlinkText()
+            disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
             self.view.addSubview(disclaimerView)
         }
     }
@@ -269,6 +271,15 @@ extension ScanningVC: ConsentAproving {
     }
 }
 
+extension ScanningVC: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if (URL.absoluteString == Constants.PrivacyPolicy.navusUrl ||
+            URL.absoluteString == Constants.PrivacyPolicy.url) {
+            UIApplication.shared.open(URL)
+        }
+        return false
+    }
+}
 
 
 

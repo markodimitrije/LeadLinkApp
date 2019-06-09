@@ -11,6 +11,12 @@ import AVFoundation
 
 class DisclaimerView: UIView {
     
+//    private let privacyPolicyUrl = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
+//    private let navusPrivacyPolicyUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"
+//
+//    private let privacyPolicyHyperLinkText = "Privacy Policy"
+//    private let navusPrivacyPolicyHyperLinkText = "Navus Privacy Policy"
+    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -53,6 +59,16 @@ class DisclaimerView: UIView {
         
         self.addSubview(view)
         
+    }
+    
+    func configureTxtViewWithHyperlinkText() {
+        textView.isUserInteractionEnabled = true
+        textView.isEditable = false
+        textView.hyperLink(originalText: Constants.Disclaimer.text,
+                          hyperLinkFirst: Constants.PrivacyPolicy.hyperLinkPolicyText,
+                          urlStringFirst: Constants.PrivacyPolicy.url,
+                          hyperLinkSecond: Constants.PrivacyPolicy.navusHyperLinkPolicyText,
+                          urlStringSecond: Constants.PrivacyPolicy.navusUrl)
     }
     
     private func loadDataFrom(disclaimer: Disclaimer) {
@@ -121,6 +137,17 @@ class DisclaimerView: UIView {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 protocol ConsentAproving: class {
     func consent(hasConsent consent: Bool)
 }
@@ -137,3 +164,4 @@ struct Disclaimer {
         self.agreeTitle = Constants.Disclaimer.agree
     }
 }
+

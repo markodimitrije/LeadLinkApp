@@ -45,7 +45,6 @@
 For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
                         </textView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-71-pPD">
                             <rect key="frame" x="73.5" y="240" width="235" height="44"/>
