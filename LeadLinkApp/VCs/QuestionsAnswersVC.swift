@@ -81,6 +81,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
+        if surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code) {
+            return
+        }
+        
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
         oNewDelegate

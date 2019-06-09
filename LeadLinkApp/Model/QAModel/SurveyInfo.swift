@@ -86,6 +86,15 @@ struct SurveyInfo {
             return Disposables.create()
         })
     }
+    
+    func doesCodeSavedInRealmHasAnyAnswers(codeValue code: String) -> Bool {
+        guard let realm = try? Realm() else {
+            return false
+        }
+        let codeExists = realm.objects(RealmAnswer.self).filter("code == %@", code).first != nil
+        return codeExists
+    }
+    
     private let bag = DisposeBag()
 }
 
