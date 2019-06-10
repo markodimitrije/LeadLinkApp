@@ -78,7 +78,8 @@ class ReportsDumper {
         isRunning.asObservable()
             .debug("isRunning")
             .flatMapLatest {  isRunning in
-                isRunning ? Observable<Int>.interval(8, scheduler: MainScheduler.instance) : .empty()
+                isRunning ? Observable<Int>.interval(Constants.TimeInterval.reportUnsyncBarcodesEvery,
+                                                     scheduler: MainScheduler.instance) : .empty()
             }
             //.flatMapWithIndex { (int, index) in
         .enumerated().flatMap { (int, index) in

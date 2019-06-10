@@ -13,9 +13,19 @@ import RxCocoa
 class ViewFactory {
     
     var bounds: CGRect
+    var allowableWidth: CGFloat!
     
     init(bounds: CGRect) { // treba da je sa Questions...
         self.bounds = bounds
+        loadViewsWidth()
+    }
+    
+    private func loadViewsWidth() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.allowableWidth = (UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width) * 0.6
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            self.allowableWidth = UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width
+        }
     }
     
     func getStackedRadioBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
@@ -155,7 +165,8 @@ class ViewFactory {
         
         let height = getHeight(forComponents: components)
         
-        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: height))
+        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: allowableWidth,
+                                                                   height: height))
     }
     
     
@@ -217,16 +228,32 @@ class ViewFactory {
         
     }
     
+//    func getRect(forComponents components: [UIView], inOneRow: Int) -> CGRect {
+//
+//        let height = getHeight(forComponents: components, inOneRow: inOneRow)
+//
+//        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: height))
+//    }
+//
+//    func stackElementsInOneRow(components: [UIView], rowHeight: CGFloat) -> OneRowStacker {
+//
+//        let rect = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: rowHeight))
+//        return OneRowStacker.init(frame: rect, components: components)!
+//
+//    }
+    
     func getRect(forComponents components: [UIView], inOneRow: Int) -> CGRect {
         
         let height = getHeight(forComponents: components, inOneRow: inOneRow)
         
-        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: height))
+        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: allowableWidth,
+                                                                   height: height))
     }
     
     func stackElementsInOneRow(components: [UIView], rowHeight: CGFloat) -> OneRowStacker {
         
-        let rect = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: rowHeight))
+        let rect = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: allowableWidth,
+                                                                       height: rowHeight))
         return OneRowStacker.init(frame: rect, components: components)!
         
     }

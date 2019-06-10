@@ -14,6 +14,9 @@ struct Constants {
         static let logOut = NSLocalizedString("Strings.Logout.btn", comment: "")
         static let stats = NSLocalizedString("Strings.Stats.btn", comment: "")
     }
+    struct TimeInterval {
+        static let reportUnsyncBarcodesEvery = 60.0 * 5 // 5 min
+    }
 }
 
 extension Constants {
