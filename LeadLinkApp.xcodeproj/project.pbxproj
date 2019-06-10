@@ -24,6 +24,9 @@
 		7C3A3F7622ABE91B003C079E /* DisclaimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */; };
 		7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */; };
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
+		7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */; };
+		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
+		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
@@ -210,6 +213,9 @@
 		7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerView.xib; sourceTree = "<group>"; };
 		7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
+		7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsNoSwitchView.swift; sourceTree = "<group>"; };
+		7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsNoSwitchView.xib; sourceTree = "<group>"; };
+		7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponentsViewFactory.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
@@ -527,6 +533,15 @@
 			path = DividerView;
 			sourceTree = "<group>";
 		};
+		7C3A3FBB22AE8058003C079E /* TermsNoSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */,
+				7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */,
+			);
+			path = TermsNoSwitchView;
+			sourceTree = "<group>";
+		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +620,7 @@
 				7C98A66D228961D400DA184E /* ViewStackerFactory.swift */,
 				7C98A66E228961D400DA184E /* ViewFactory.swift */,
 				7C98A66F228961D400DA184E /* ViewmodelFactory.swift */,
+				7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */,
 			);
 			path = QuestionsAnswersFactory;
 			sourceTree = "<group>";
@@ -644,6 +660,7 @@
 		7C98A6842289689900DA184E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7C3A3FBB22AE8058003C079E /* TermsNoSwitchView */,
 				7C0E5CB7228ECD310011E0A2 /* TermsSwitch */,
 				7C1C1529229ED5E50050337B /* LabelAndTextField */,
 				7C1C1528229ED5CE0050337B /* LabelAndTextView */,
@@ -1261,6 +1278,7 @@
 				7C0E5CBE228EE0B90011E0A2 /* mockWithTerms.json in Resources */,
 				7C98A69C2289689900DA184E /* LabelAndTextView.xib in Resources */,
 				ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */,
+				7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */,
 				7CA998D822A9441100C226F1 /* LICENSE-2.0.txt in Resources */,
 				ADAEE88521D8F332000B3C52 /* LaunchScreen.storyboard in Resources */,
 				7C98A6A82289689900DA184E /* RadioBtnView.xib in Resources */,
@@ -1372,6 +1390,7 @@
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
+				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
@@ -1401,6 +1420,7 @@
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */,
 				7CEFA5F222AA7FD500BD2660 /* QuestionsAnswersDataSourceAndDelegate.swift in Sources */,
+				7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,

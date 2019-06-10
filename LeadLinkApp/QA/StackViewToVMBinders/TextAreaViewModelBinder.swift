@@ -25,22 +25,5 @@ class TextAreaViewModelBinder {
             .bind(to: viewmodel.rx.answer)
             .disposed(by: bag)
     }
-    
-//    func copyHookUp(view: ViewStacker, labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag) {
-//
-//        let inputCreator = LabelAndTextFieldFromModelInputCreator(viewmodel: viewmodel)
-//        let driver = inputCreator.createTxtDriver()
-//
-//        driver
-//            .bind(to: labelAndTextView.rx.titles)
-//            .disposed(by: bag)
-//
-//        labelAndTextView.textField.rx.text.asObservable()
-//            .bind(to: viewmodel.rx.answer)
-//            .disposed(by: bag)
-//
-//    }
-    
-    
-    
+
 }

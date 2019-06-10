@@ -58,6 +58,8 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
                 cell.addSubview(stackerView)
             }
         } else { // save btn
+            
+            
             saveBtn.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
             cell.addSubview(saveBtn)
         }

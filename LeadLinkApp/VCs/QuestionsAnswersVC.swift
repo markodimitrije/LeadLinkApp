@@ -20,6 +20,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
                                                                   delegate: myDataSourceAndDelegate)
+    private lazy var localComponentsViewFactory = LocalComponentsViewFactory()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,6 +30,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var allQuestionsViews = [Int: UIView]()
     var questionIdsToViewSizes = [Int: CGSize]()
     var saveBtn: UIButton!
+    var termsNoSwitchUp: TermsNoSwitchView!
+    var termsNoSwitchDown: TermsNoSwitchView!
     
     var bag = DisposeBag()
     
@@ -58,6 +61,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         self.saveBtn = SaveButton()
+        self.termsNoSwitchUp = localComponentsViewFactory.makeTermsNoSwitchView(tag: 0)
+        self.termsNoSwitchDown = localComponentsViewFactory.makeTermsNoSwitchView(tag: 1)
         
         loadQuestions(surveyInfo: surveyInfo)
         
