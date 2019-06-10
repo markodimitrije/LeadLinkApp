@@ -19,25 +19,12 @@ class TermsNoSwitchView: UIView {
     
     @IBOutlet weak var textView: UITextView!
     
-//    @IBAction func leftBtnTapped(_ sender: UIButton) {
-//        delegate?.consent(hasConsent: false)
-//    }
-//    @IBAction func rightBtnTapped(_ sender: UIButton) {
-//        delegate?.consent(hasConsent: true)
-//    }
-//
-//    weak var delegate: ConsentAproving?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib()
     }
     
-    convenience init(frame: CGRect, disclaimer: Disclaimer) {
-        self.init(frame: frame)
-        //        let frame = getRectForDisclaimerView(center: center)
-        loadDataFrom(disclaimer: disclaimer)
-    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -51,8 +38,6 @@ class TermsNoSwitchView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        format()
-        
         self.addSubview(view)
         
     }
@@ -61,76 +46,56 @@ class TermsNoSwitchView: UIView {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
         // hard-coded
-        let hyperlink = (tag == 0) ? Constants.PrivacyPolicy.hyperLinkPolicyText : Constants.PrivacyPolicy.hyperLinkPolicyText
-        let url = (tag == 0) ? Constants.PrivacyPolicy.url : Constants.PrivacyPolicy.url
+        let hyperlink = Constants.PrivacyPolicy.hyperLinkPolicyText
+        let url = (tag == 0) ? Constants.PrivacyPolicy.url : Constants.PrivacyPolicy.navusUrl
+        let originalText = (tag == 0) ? Constants.TermsNoSwitch.eraText : Constants.TermsNoSwitch.navusText
 
-
-        textView.hyperLink(originalText: Constants.Disclaimer.text,
+        textView.hyperLink(originalText: originalText,
                            hyperLinkFirst: hyperlink,
                            urlStringFirst: url)
             //hard-coded
     }
     
-    private func loadDataFrom(disclaimer: Disclaimer) {
-        
-        textView.text = disclaimer.text
-    }
-    
-    private func format() {
-//        formatView()
-//        formatDisagree()
-//        formatAgree()
-    }
-    
-//    private func formatView() {
-//        holderView.layer.cornerRadius = 10.0
+//    private func loadDataFrom(disclaimer: Disclaimer) {
+//
+//        textView.text = disclaimer.text
 //    }
     
-//    private func formatDisagree() {
-//        disagreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
-//        disagreeBtn.layer.borderWidth = 1.0
-//        disagreeBtn.layer.borderColor = UIColor.disclaimerBlue.cgColor
+//    private func getMySize() -> CGSize {
+//
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return getSizeOnIpad()
+//        } else if UIDevice.current.userInterfaceIdiom == .phone{
+//            return getSizeOnIphone()
+//        }
+//        return CGSize.zero
+//
 //    }
 //
-//    private func formatAgree() {
-//        agreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
+//    private func getSizeOnIpad() -> CGSize {
+//
+//        let width = UIScreen.main.bounds.width
+//        let height = UIScreen.main.bounds.height
+//
+//        let side = min(width, height)
+//        return CGSize.init(width: 0.75*side, height: 0.75*side)
+//
 //    }
-    
-    private func getMySize() -> CGSize {
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return getSizeOnIpad()
-        } else if UIDevice.current.userInterfaceIdiom == .phone{
-            return getSizeOnIphone()
-        }
-        return CGSize.zero
-        
-    }
-    
-    private func getSizeOnIpad() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height
-        
-        let side = min(width, height)
-        return CGSize.init(width: 0.75*side, height: 0.75*side)
-        
-    }
-    
-    private func getSizeOnIphone() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height
-        
-        return CGSize.init(width: 0.9*width, height: 0.9*height)
-        
-    }
-    
-    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
-        
-        return CGRect.init(center: center, size: getMySize())
-        
-    }
+//
+//    private func getSizeOnIphone() -> CGSize {
+//
+//        let width = UIScreen.main.bounds.width
+//        let height = UIScreen.main.bounds.height
+//
+//        return CGSize.init(width: 0.9*width, height: 0.9*height)
+//
+//    }
+//
+//    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
+//
+//        return CGRect.init(center: center, size: getMySize())
+//
+//    }
     
 }
 

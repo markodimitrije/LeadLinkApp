@@ -22,12 +22,12 @@
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-4J-LR2">
                     <rect key="frame" x="8" y="8" width="414" height="143"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">I have read and accept the Terms &amp; Conditions. For more information on how ERA-EDTA and Navus Consulting process and stores your data please read our Privacy Policy.</string>
+                    <string key="text"> I have read and accept the Terms &amp; Conditions. For more information on how ERA-EDTA and Navus Consulting process and stores your data please read our Privacy Policy.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="lEF-4J-LR2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="8" id="VEh-lJ-pG3"/>
                 <constraint firstItem="lEF-4J-LR2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="aUF-aP-PSt"/>

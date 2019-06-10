@@ -56,6 +56,11 @@ extension Constants {
         static let agree = NSLocalizedString("Disclaimer.agree", comment: "")
     }
     
+    struct TermsNoSwitch {
+        static let eraText = NSLocalizedString("TermsNoSwitch.era.text", comment: "")
+        static let navusText = NSLocalizedString("TermsNoSwitch.navus.text", comment: "")
+    }
+    
     struct PrivacyPolicy {
         static let url = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
         static let navusUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"
@@ -64,6 +69,3 @@ extension Constants {
         static let navusHyperLinkPolicyText = "Navus Privacy Policy"
     }
 }
-
-
-

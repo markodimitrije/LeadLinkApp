@@ -24,6 +24,8 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     private var questionIdsViewSizes: [Int: CGSize] {return viewController.questionIdsToViewSizes}
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
     private var saveBtn: UIButton {return viewController.saveBtn}
+    private var termsNoSwitchUp: TermsNoSwitchView {return viewController.termsNoSwitchUp}
+    private var termsNoSwitchDown: TermsNoSwitchView {return viewController.termsNoSwitchDown}
     
     init(viewController: QuestionsAnswersVC) {
         self.viewController = viewController
@@ -49,6 +51,8 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print("cellForRowAt.indexPath = \(indexPath)")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.removeAllSubviews()
         
@@ -59,9 +63,17 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
             }
         } else { // save btn
             
+            if indexPath.row == 0 {
+                termsNoSwitchUp.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
+                cell.addSubview(termsNoSwitchUp)
+            } else if indexPath.row == 1 {
+                termsNoSwitchDown.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
+                cell.addSubview(termsNoSwitchDown)
+            } else {
+                saveBtn.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
+                cell.addSubview(saveBtn)
+            }
             
-            saveBtn.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
-            cell.addSubview(saveBtn)
         }
         return cell
     }

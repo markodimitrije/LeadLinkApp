@@ -34,7 +34,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func questionsInGroupWith(index: Int) -> [PresentQuestion]? {
-        if index == orderedGroups.count - 1 {return nil} // last section nema questions, u njemu je SAVE BTN
+        if index == orderedGroups.count - 1 {return nil} // last section nema questions, u njemu je i SAVE BTN
         if orderedGroups[index] != SectionType.noGroupAssociated.rawValue {
             return questionsInGroup(withIndex: index)
         } else {
@@ -43,7 +43,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func itemsInGroupWith(index: Int) -> Int {
-        guard let questions = questionsInGroupWith(index: index) else {return 1} // ako nemas questions onda si SAVE BTN
+        guard let questions = questionsInGroupWith(index: index) else {return 3} // ako nemas questions onda si SAVE BTN
         return questions.count
     }
     

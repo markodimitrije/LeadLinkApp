@@ -32,6 +32,10 @@ AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms and conditions ar
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
 
 Disclaimer.title = "Data Retrieval";
-Disclaimer.text = "By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary. /n For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy and Navus Privacy Policy.";
+Disclaimer.text = "By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary. For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy and Navus Privacy Policy.";
 Disclaimer.disagree = "I Disagree";
 Disclaimer.agree = "I Agree";
+
+TermsNoSwitch.era.text = "I have read and accept the Terms & Conditions. For more information on how ERA-EDTA process and stores your data please read our Privacy Policy.";
+
+TermsNoSwitch.navus.text = "I have read and accept the Terms & Conditions. For more information on how Navus Consulting process and stores your data please read our Privacy Policy.";
