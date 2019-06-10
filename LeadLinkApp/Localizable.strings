@@ -36,6 +36,6 @@ Disclaimer.text = "By clicking “I Agree”, you agree that ERA-EDTA and its ve
 Disclaimer.disagree = "I Disagree";
 Disclaimer.agree = "I Agree";
 
-TermsNoSwitch.era.text = "I have read and accept the Terms & Conditions. For more information on how ERA-EDTA process and stores your data please read our Privacy Policy.";
+TermsNoSwitch.era.text = "For more information on how ERA-EDTA processes and stores your data please read our Privacy Policy.";
 
-TermsNoSwitch.navus.text = "I have read and accept the Terms & Conditions. For more information on how Navus Consulting process and stores your data please read our Privacy Policy.";
+TermsNoSwitch.navus.text = "For more information on how Navus Consulting processes and stores your data please read our Privacy Policy.";

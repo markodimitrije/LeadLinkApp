@@ -82,6 +82,8 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
         guard let questionId = dataSourceHelper.questionId(indexPath: indexPath) else {
             if indexPath.row == 2 {
                 return saveBtn.bounds.height
+            } else if indexPath.row == 0 || indexPath.row == 1 {
+                return 160.0
             } else {
                 return 100.0
             }

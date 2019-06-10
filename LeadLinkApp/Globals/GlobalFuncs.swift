@@ -94,12 +94,13 @@ func trimmedToSixCharactersCode(code: String) -> String {
 }
 
 func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
-    if UIDevice.current.userInterfaceIdiom == .phone {
-        return SBSCameraFacingDirection.back
-    } else if UIDevice.current.userInterfaceIdiom == .pad {
-        return SBSCameraFacingDirection.front
-    }
-    return nil
+//    if UIDevice.current.userInterfaceIdiom == .phone {
+//        return SBSCameraFacingDirection.back
+//    } else if UIDevice.current.userInterfaceIdiom == .pad {
+//        return SBSCameraFacingDirection.front
+//    }
+//    return nil
+    return .back
 }
 
 func getAnswersWithoutTermsSwitch(questions: [Question], answers: [MyAnswer]) -> [MyAnswer] {
