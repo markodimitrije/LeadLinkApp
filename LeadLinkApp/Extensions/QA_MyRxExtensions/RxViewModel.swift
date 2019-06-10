@@ -23,9 +23,10 @@ extension Reactive where Base: RadioViewModel {
             
             let question = viewmodel.question
             
-            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
+            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId, // refactor !!!
                                              questionId: question.id,
                                              code: viewmodel.code,
+                                             questionType: question.type.rawValue,
                                              content: newContent,
                                              optionIds: [selectedIndex])
             })
@@ -48,6 +49,7 @@ extension Reactive where Base: CheckboxViewModel {
             viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
                                              questionId: question.id,
                                              code: viewmodel.code,
+                                             questionType: question.type.rawValue,
                                              content: newContent,
                                              optionIds: indexes)
         })
@@ -63,6 +65,7 @@ extension Reactive where Base: RadioWithInputViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: [optionTxt],
                                           optionIds: [index])
             viewmodel.answer = newAnswer
@@ -77,6 +80,7 @@ extension Reactive where Base: RadioWithInputViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: [value],
                                           optionIds: [lastIndex])
             viewmodel.answer = newAnswer
@@ -93,6 +97,7 @@ extension Reactive where Base: CheckboxWithInputViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: [optionTxt],
                                           optionIds: [index])
             viewmodel.answer = newAnswer
@@ -107,6 +112,7 @@ extension Reactive where Base: CheckboxWithInputViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                         questionId: question.id,
                                         code: viewmodel.code,
+                                        questionType: question.type.rawValue,
                                         content: [value],
                                         optionIds: [lastIndex])
             viewmodel.answer = newAnswer
@@ -127,6 +133,7 @@ extension Reactive where Base: SwitchBtnsViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: newContent,
                                           optionIds: indexes)
             viewmodel.answer = newAnswer
@@ -143,6 +150,7 @@ extension Reactive where Base: LabelWithTextFieldViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: [text ?? ""],
                                           optionIds: nil)
                                                          
@@ -159,6 +167,7 @@ extension Reactive where Base: SelectOptionTextFieldViewModel {
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
+                                          questionType: question.type.rawValue,
                                           content: content,
                                           optionIds: [ ])
             

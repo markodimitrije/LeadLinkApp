@@ -38,6 +38,7 @@ public class RealmAnswer: Object {
     @objc dynamic var campaignId: Int = 0
     @objc dynamic var questionId: Int = 0
     @objc dynamic var code = ""
+    @objc dynamic var type = ""
     var optionIds = List<Int>()
     var content = List<String>()
     
@@ -55,6 +56,7 @@ public class RealmAnswer: Object {
         self.campaignId = answer.campaignId
         self.questionId = answer.questionId
         self.code = answer.code
+        self.type = answer.questionType
         
         if (answer.optionIds == nil) {
             self.optionIds.removeAll()

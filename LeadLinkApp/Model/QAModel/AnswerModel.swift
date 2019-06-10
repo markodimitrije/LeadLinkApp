@@ -17,6 +17,7 @@ protocol Answering {
     var id: String {get set}
     var content: [String] {get set}
     var optionIds: [Int]? {get set}
+    var questionType: String {get set}
 }
 
 struct RadioAnswer: Answering {
@@ -26,6 +27,7 @@ struct RadioAnswer: Answering {
     var id: String
     var content = [String]() // koji je text te opcije
     var optionIds: [Int]? // koju opciju je izabrao
+    var questionType = QuestionType.radioBtn.rawValue
     init(realmAnswer: RealmAnswer?) {
         self.questionId = realmAnswer?.questionId ?? 0
         self.campaignId = realmAnswer?.campaignId ?? 0
@@ -54,6 +56,7 @@ struct CheckboxAnswer: Answering {
     var id: String
     var content = [String]() // koji je text te opcije
     var optionIds: [Int]? // koju opciju je izabrao - moze imati vise checkboxIds
+    var questionType = QuestionType.checkbox.rawValue
     init(realmAnswer: RealmAnswer?) {
         self.campaignId = realmAnswer?.campaignId ?? 0
         self.questionId = realmAnswer?.questionId ?? 0
@@ -87,6 +90,7 @@ struct SwitchAnswer: Answering {
     var id: String
     var optionIds: [Int]? // koju opciju je izabrao - moze imati vise switchIds
     var content = [String]() // koji je text te opcije
+    var questionType = QuestionType.switchBtn.rawValue
     
     init(campaignId: Int, questionId: Int, code: String, optionIds: [Int], content: [String]) {
         self.campaignId = campaignId
@@ -126,6 +130,7 @@ struct OptionTextAnswer: Answering {
     var id: String
     var content = [String]() // koji je od opcija izabrao (;1 ili vise njih; ako je izabrao sa searchVC)
     var optionIds: [Int]?
+    var questionType = QuestionType.textArea.rawValue
     
     init(campaignId: Int, questionId: Int, code: String, content: [String], optionIds: [Int]? = nil) {
         self.campaignId = campaignId
@@ -144,6 +149,7 @@ struct TextAnswer: Answering {
     var id: String
     var content = [String]()
     var optionIds: [Int]? = nil
+    var questionType = QuestionType.textField.rawValue
     
     init(campaignId: Int, questionId: Int, code: String, content: [String], optionIds: [Int]? = nil) {
         self.campaignId = campaignId

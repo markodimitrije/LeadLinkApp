@@ -42,7 +42,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-//            configureQuestionForm()
+            configureQuestionForm()
         }
     }
     
@@ -205,25 +205,31 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
 //                print("existingAnswers.count = \(existingAnswers.count)")
                 
-                var answers = [MyAnswer]()
-//                var answers = Set(existingAnswers)
-                
-                //var answersIds = answers.map({$0.id})
-                var existingAnswerIds = Set(existingAnswers.map({$0.id}))
-                
+//                var answers = [MyAnswer]()
+                var answers = existingAnswers
+                var answerIds = answers.map({$0.id})
+                var existingAnswerIds = answers.map({$0.id})
+        
                 print("existingAnswerIds = \(existingAnswerIds)")
                 
                 func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
                     
-//                    print("addOrUpdateAnswers.answer.id = \(answer.id)")
-                    
-                    guard let content = answer.content.first, content != "" else {
-                        return
+                    func updateMyAnswers(newAnswer: MyAnswer) {
+                        if let index = answerIds.index(of: newAnswer.id) {
+                            answers.remove(at: index)
+                        }
+                        answers.append(newAnswer)
+                        answerIds = answers.map({$0.id})
                     }
-//                    if let index = existingAnswerIds.index(of: answer.id) {
-//                        answers.remove(at: index)
-//                    }
-                    answers.append(answer)
+                    
+                    if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
+                        
+                        updateMyAnswers(newAnswer: answer)
+                        
+                    } else if let content = answer.content.first, content != "" {
+                        
+                        updateMyAnswers(newAnswer: answer)
+                    }
                     
                 }
                 

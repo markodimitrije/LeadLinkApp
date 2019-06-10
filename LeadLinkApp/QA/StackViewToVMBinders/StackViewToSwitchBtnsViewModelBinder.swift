@@ -43,6 +43,7 @@ class StackViewToSwitchBtnsViewModelBinder: StackViewToViewModelBinder {
         let output = viewmodel.transform(input: input) // vratio sam identican input na output
         
         output.ids
+            .debug()
             .bind(to: viewmodel.rx.optionSelected)
             .disposed(by: bag)
         

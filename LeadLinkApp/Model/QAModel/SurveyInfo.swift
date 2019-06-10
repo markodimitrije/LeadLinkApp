@@ -161,9 +161,11 @@ extension SurveyInfo {
     }
     
     private func makeAnswer(forKey optionKey: QuestionPersonalInfoKey, delegate: Delegate) -> MyAnswer {
+        guard let question = self.question(forKey: optionKey) else {fatalError()}// hard-coded
         return MyAnswer.init(campaignId: self.campaign.id,
-                             questionId: self.question(forKey: optionKey)?.id ?? 0, // hard-coded
+                             questionId: question.id, // hard-coded
                              code: self.code,
+                             questionType: question.type,
                              content: [delegate.value(optionKey: optionKey)],
                              optionIds: nil)
     }

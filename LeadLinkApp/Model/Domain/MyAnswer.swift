@@ -15,6 +15,7 @@ struct MyAnswer: Answering {
     var id = ""
     var content = [String]()
     var optionIds: [Int]?
+    var questionType = ""
     
     var isEmpty: Bool {
         return content.isEmpty || (content.first! == "")
@@ -24,13 +25,14 @@ struct MyAnswer: Answering {
         return "\(campaignId)" + "\(questionId)" + code
     }
     
-    init(campaignId: Int, questionId: Int, code: String, content: [String], optionIds: [Int]?) {
+    init(campaignId: Int, questionId: Int, code: String, questionType: String, content: [String], optionIds: [Int]?) {
         self.campaignId = campaignId
         self.questionId = questionId
         self.code = code
         self.id = "\(campaignId)" + "\(questionId)" + code
         self.content = content
         self.optionIds = optionIds
+        self.questionType = questionType
     }
     
     init?(realmAnswer: RealmAnswer?) {
@@ -49,6 +51,7 @@ struct MyAnswer: Answering {
         return MyAnswer.init(campaignId: question.campaignId,
                              questionId: question.id,
                              code: "",
+                             questionType: question.type.rawValue,
                              content: [],
                              optionIds: [])
         
