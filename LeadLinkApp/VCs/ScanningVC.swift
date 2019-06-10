@@ -30,6 +30,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    private var picker: SBSBarcodePicker?
     
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
@@ -55,6 +56,13 @@ class ScanningVC: UIViewController, Storyboarded {
         
         setupScanner()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if picker != nil {
+            restartCameraForScaning(picker!)
+        }
     }
     
     private func bindQrAndBarScanCamera() {
@@ -145,17 +153,19 @@ class ScanningVC: UIViewController, Storyboarded {
     // AttendanceApp hard-coded - implement me....
     func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
 
-        restartCameraForScaning(picker)
+        self.picker = picker
+//        restartCameraForScaning(picker)
         codeSuccessfull(code: code)
         
     }
     
     private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
-        delay(1.0) { // this is not scanner.. when it should be restarted?
-            DispatchQueue.main.async {
-                picker.resumeScanning()
-            }
-        }
+//        delay(1.0) { // this is not scanner.. when it should be restarted?
+//            DispatchQueue.main.async {
+//                picker.resumeScanning()
+//            }
+//        }
+        picker.resumeScanning()
     }
 
     private func codeSuccessfull(code: String) {
