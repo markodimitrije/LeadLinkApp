@@ -11,12 +11,6 @@ import AVFoundation
 
 class TermsNoSwitchView: UIView {
     
-    //    private let privacyPolicyUrl = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
-    //    private let navusPrivacyPolicyUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"
-    //
-    //    private let privacyPolicyHyperLinkText = "Privacy Policy"
-    //    private let navusPrivacyPolicyHyperLinkText = "Navus Privacy Policy"
-    
     @IBOutlet weak var textView: UITextView!
     
     override init(frame: CGRect) {
@@ -24,7 +18,13 @@ class TermsNoSwitchView: UIView {
         loadViewFromNib()
     }
     
+    override func didMoveToSuperview() {
+        formatFontSize()
+    }
     
+    override func layoutSubviews() {
+        formatFontSize()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,6 +40,10 @@ class TermsNoSwitchView: UIView {
         
         self.addSubview(view)
         
+    }
+    
+    private func formatFontSize() {
+        self.textView.font = .systemFont(ofSize: 16)
     }
     
     func configureTxtViewWithHyperlinkText(tag: Int) {

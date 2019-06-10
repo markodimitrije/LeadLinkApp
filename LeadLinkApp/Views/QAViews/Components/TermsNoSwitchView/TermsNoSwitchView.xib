@@ -20,19 +20,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-4J-LR2">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="For more information on how ERA-EDTA and Navus Consulting process and stores your data please read our Privacy Policy." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-4J-LR2">
                     <rect key="frame" x="8" y="8" width="398" height="143"/>
-                    <string key="text"> I have read and accept the Terms &amp; Conditions. For more information on how ERA-EDTA and Navus Consulting process and stores your data please read our Privacy Policy.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" red="0.1703016802" green="1" blue="0.065275902050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lEF-4J-LR2" secondAttribute="trailing" constant="8" id="VEh-lJ-pG3"/>
-                <constraint firstItem="lEF-4J-LR2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="aUF-aP-PSt"/>
-                <constraint firstItem="lEF-4J-LR2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="oKH-6M-1FE"/>
-                <constraint firstAttribute="bottom" secondItem="lEF-4J-LR2" secondAttribute="bottom" constant="8" id="yC3-fQ-iIP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lEF-4J-LR2" secondAttribute="trailing" constant="8" id="HPi-xg-kOF"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="KLa-GE-Wqu"/>
+                <constraint firstAttribute="bottom" secondItem="lEF-4J-LR2" secondAttribute="bottom" constant="8" id="LdP-wg-vgi"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UEx-6w-bPb"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hUa-67-bti"/>
+                <constraint firstItem="lEF-4J-LR2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="npC-wN-H48"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

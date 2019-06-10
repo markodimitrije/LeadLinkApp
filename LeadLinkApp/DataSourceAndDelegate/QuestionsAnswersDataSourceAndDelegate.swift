@@ -83,9 +83,9 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
             if indexPath.row == 2 {
                 return saveBtn.bounds.height
             } else if indexPath.row == 0 || indexPath.row == 1 {
-                return 160.0
+                return LocalComponentsViewFactory.getComponentWidthAndHeight().1
             } else {
-                return 100.0
+                return 100.0 // hard-coded!
             }
             
         }

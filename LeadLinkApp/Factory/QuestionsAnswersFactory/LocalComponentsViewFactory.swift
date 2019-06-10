@@ -26,11 +26,11 @@ class LocalComponentsViewFactory {
         var width = CGFloat(0.0)
         var height = CGFloat(0.0)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            width = (UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width) / 2.0
-            height = 160.0
+            width = (UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width) * 0.6
+            height = 80
         } else if UIDevice.current.userInterfaceIdiom == .phone{
             width = UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width
-            height = 120
+            height = 100
         }
         return (width, height)
     }
