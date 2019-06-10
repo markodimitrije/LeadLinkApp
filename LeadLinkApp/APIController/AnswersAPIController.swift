@@ -116,6 +116,7 @@ class AnswersApiController {
                                        "Content-Type": "application/json"]
         
         let payload = reports.map {$0.payload}
+        print("AnswersAPIController.postRequest.payload = \(payload)")
         
         guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {
             fatalError()
