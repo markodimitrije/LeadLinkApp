@@ -25,11 +25,11 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func numberOfDifferentGroups() -> Int {
-        return orderedGroups.count
+        return orderedGroups.unique().count
     }
     
     mutating func groupNames() -> [String] {
-        //        print("groupNames.orderedGroups = \(orderedGroups)")
+//        print("groupNames.orderedGroups = \(orderedGroups)")
         return orderedGroups
     }
     
