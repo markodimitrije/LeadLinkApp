@@ -80,7 +80,12 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let questionId = dataSourceHelper.questionId(indexPath: indexPath) else {
-            return saveBtn.bounds.height
+            if indexPath.row == 2 {
+                return saveBtn.bounds.height
+            } else {
+                return 100.0
+            }
+            
         }
         
         let cellHeight = questionIdsViewSizes[questionId]?.height ?? CGFloat.init(0) // bolje neki backup... hard-coded

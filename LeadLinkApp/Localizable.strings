@@ -27,12 +27,12 @@ AlertInfo.Logout.title = "Are you sure you want to log out?";
 AlertInfo.Logout.btnTitle.logout = "Logout";
 
 AlertInfo.QuestionsAnswers.FormNotValid.title = "Form can't be saved";
-AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms and conditions are mandatory fields";
+AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms & Conditions are mandatory fields";
 
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
 
 Disclaimer.title = "Data Retrieval";
-Disclaimer.text = "By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary. For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy and Navus Privacy Policy.";
+Disclaimer.text = "By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary. For more information on how  ERA-EDTA processes and stores your data please read our Privacy Policy.";
 Disclaimer.disagree = "I Disagree";
 Disclaimer.agree = "I Agree";
 

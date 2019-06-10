@@ -11,12 +11,6 @@ import AVFoundation
 
 class DisclaimerView: UIView {
     
-//    private let privacyPolicyUrl = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
-//    private let navusPrivacyPolicyUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"
-//
-//    private let privacyPolicyHyperLinkText = "Privacy Policy"
-//    private let navusPrivacyPolicyHyperLinkText = "Navus Privacy Policy"
-    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -135,14 +129,6 @@ class DisclaimerView: UIView {
     }
     
 }
-
-
-
-
-
-
-
-
 
 
 
