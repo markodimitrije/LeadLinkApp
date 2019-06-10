@@ -14,6 +14,8 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var linkBtn: UIButton!
     
+    weak var delegate: UITextViewDelegate?
+    
     @IBAction func termsTapped(_ sender: UIButton) {
         termsBtnTapped()
     }
@@ -70,12 +72,16 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     }
     
     private func termsBtnTapped() { print("show terms screen....")
-        if let topVC = UIApplication.topViewController() {
-            let factory = AppDependencyContainer()
-            let termsVC = factory.makeTermsVC(termsTxt: self.termsTxt)
-            topVC.present(termsVC, animated: true, completion: nil)
+        if let url = URL.init(string: Constants.TermsAndConditions.url) {
+            UIApplication.shared.open(url) // hard-coded
+        } else {
+            if let topVC = UIApplication.topViewController() {
+                let factory = AppDependencyContainer()
+                let termsVC = factory.makeTermsVC(termsTxt: self.termsTxt)
+                topVC.present(termsVC, animated: true, completion: nil)
+            }
         }
+        
     }
     
 }
-

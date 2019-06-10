@@ -61,6 +61,10 @@ extension Constants {
         static let navusText = NSLocalizedString("TermsNoSwitch.navus.text", comment: "")
     }
     
+    struct TermsAndConditions {
+        static let url = "https://service.e-materials.com/storage/resources/era_edta/ter/terms_and_conditions_app.pdf"
+    }
+    
     struct PrivacyPolicy {
         static let url = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
         static let navusUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"

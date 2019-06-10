@@ -309,6 +309,18 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
 }
 
+//
+//extension QuestionsAnswersVC: UITextViewDelegate {
+//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+//        if (URL.absoluteString == Constants.PrivacyPolicy.navusUrl ||
+//            URL.absoluteString == Constants.PrivacyPolicy.url) {
+//            UIApplication.shared.open(URL)
+//        }
+//        return false
+//    }
+//}
+
+
 
 
 enum SectionType: String {
