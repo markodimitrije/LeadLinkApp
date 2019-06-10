@@ -224,6 +224,8 @@ class ScanningVC: UIViewController, Storyboarded {
         // Create the barcode picker with the settings just created
         let barcodePicker = SBSBarcodePicker(settings:settings)
         barcodePicker.view.frame = self.scannerView.bounds
+
+        barcodePicker.overlayController.drawViewfinder(false) // depricated...
         
         // Add the barcode picker as a child view controller
         addChild(barcodePicker)
