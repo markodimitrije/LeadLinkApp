@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 
 struct MyAnswer: Answering {
     var campaignId = 0

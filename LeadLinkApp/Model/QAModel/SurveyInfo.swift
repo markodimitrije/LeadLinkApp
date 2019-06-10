@@ -122,7 +122,7 @@ extension SurveyInfo {
         }
         
         var updatedSurvey = self
-        updatedSurvey.answers = newAnswers
+        updatedSurvey.answers = newAnswers + [barcodeAnswer()]
         
         return updatedSurvey
     }
@@ -168,6 +168,25 @@ extension SurveyInfo {
                              questionType: question.type,
                              content: [delegate.value(optionKey: optionKey)],
                              optionIds: nil)
+    }
+    
+    private func barcodeAnswer() -> MyAnswer {
+        return MyAnswer.init(campaignId: self.campaign.id,
+                             questionId: barcodeQuestion()?.id ?? 90, // hard-coded !!
+                             code: self.code,
+                             questionType: QuestionType.textField.rawValue,
+                             content: [self.code],
+                             optionIds: nil)
+    }
+    
+    private func barcodeQuestion() -> Question? { // ili PersonalInfoKey ?
+        guard let myQuestion = self.questions.first(where: { question -> Bool in
+            question.settings.options?.first == "barcode" || question.settings.options?.first == "Barcode"
+        }) else {
+            return nil
+        }
+        
+        return myQuestion
     }
     
 }

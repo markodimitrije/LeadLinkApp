@@ -205,8 +205,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
 //                print("existingAnswers.count = \(existingAnswers.count)")
                 
-//                var answers = [MyAnswer]()
-                var answers = existingAnswers
+                var answers = existingAnswers // contains barcode
                 var answerIds = answers.map({$0.id})
                 var existingAnswerIds = answers.map({$0.id})
         
@@ -222,8 +221,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         answerIds = answers.map({$0.id})
                     }
                     
+//                    if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
                     if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
-                        
+                    
                         updateMyAnswers(newAnswer: answer)
                         
                     } else if let content = answer.content.first, content != "" {

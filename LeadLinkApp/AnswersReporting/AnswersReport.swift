@@ -19,6 +19,7 @@ class AnswersReport: Object { // Realm Entity
     var date: Date = Date(timeIntervalSinceNow: 0)
     
     var payload: [[String: String]] {
+        print("code = \(code)")
         return answers.map { $0.toWebReportJson() }
     }
 
