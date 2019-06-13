@@ -111,6 +111,9 @@ class AnswersApiController {
         request.url = urlComponents.url!
         request.httpMethod = "POST"
         
+        print("Api-Key", apiKey)
+        print("Authorization", authorization)
+        
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
                                        "Authorization": authorization,
                                        "Content-Type": "application/json"]

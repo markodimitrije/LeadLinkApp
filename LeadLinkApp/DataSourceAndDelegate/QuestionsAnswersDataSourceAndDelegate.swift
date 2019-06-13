@@ -51,7 +51,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("cellForRowAt.indexPath = \(indexPath)")
+//        print("cellForRowAt.indexPath = \(indexPath)")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.removeAllSubviews()
