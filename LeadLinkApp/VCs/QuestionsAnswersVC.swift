@@ -226,7 +226,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         answerIds = answers.map({$0.id})
                     }
                     
-//                    if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
                     if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
                     
                         updateMyAnswers(newAnswer: answer)
