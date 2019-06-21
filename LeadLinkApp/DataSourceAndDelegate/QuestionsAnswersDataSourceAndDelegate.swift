@@ -55,28 +55,35 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
         cell.removeAllSubviews()
         
         if let questionId = dataSourceHelper.questionId(indexPath: indexPath) {
-            if let stackerView = allQuestionsStackerViews[questionId] {
-                stackerView.frame = cell.bounds
-                cell.addSubview(stackerView)
-            }
+            populateCellForWebQuestion(cell: cell, questionId: questionId)
         } else { // save btn
-            
-            cell.addSubview(localComponents.componentsInOrder[indexPath.row])
-            
+            populateCellForLocalQuestion(cell: cell, indexPath: indexPath)
         }
         return cell
     }
     
+    private func populateCellForWebQuestion(cell: UITableViewCell, questionId: Int) {
+        if let stackerView = allQuestionsStackerViews[questionId] {
+            stackerView.frame = cell.bounds
+            cell.addSubview(stackerView)
+        }
+    }
+    
+    private func populateCellForLocalQuestion(cell: UITableViewCell, indexPath: IndexPath) {
+        let view = localComponents.componentsInOrder[indexPath.row]
+        if !(type(of: view) is SaveButton.Type) {
+            view.frame = cell.bounds
+        }
+        view.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
+        cell.addSubview(view)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let questionId = dataSourceHelper.questionId(indexPath: indexPath) else {
-            if indexPath.row == 2 {
-                return localComponents.saveBtn.bounds.height
-            } else if indexPath.row == 0 || indexPath.row == 1 {
-                return LocalComponentsViewFactory.getComponentWidthAndHeight().1
-            } else {
-                return 100.0 // hard-coded!
-            }
-            
+            let localComponentsSize = LocalComponentsSize()
+            let view = localComponents.componentsInOrder[indexPath.row]
+            let (_, height) = localComponentsSize.getComponentWidthAndHeight(type: type(of: view))
+            return height
         }
         
         let cellHeight = questionIdsViewSizes[questionId]?.height ?? CGFloat.init(80)

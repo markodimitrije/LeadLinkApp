@@ -318,7 +318,7 @@ class LocalComponents {
         return componentsInOrder.last as! SaveButton
     }
     
-    private let localComponentsViewFactory = LocalComponentsViewFactory()
+    private let localComponentsViewFactory = LocalComponentsViewFactory(localComponentsSize: LocalComponentsSize())
     
     init() {
         self.componentsInOrder = [
