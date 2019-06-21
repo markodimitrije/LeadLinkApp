@@ -173,60 +173,7 @@ public class AppDependencyContainer {
     
     // Questions and Answers
     
-    func makeQuestionsAnswersViewController(scanningViewModel viewModel: ScanningViewModel?,
-                                            hasConsent consent: Bool = false) -> QuestionsAnswersVC {
-        
-        guard let code = try? viewModel!.codeInput.value() else {fatalError()}
-        
-        print ("makeQuestionsAnswersViewController.codeInput.value() = \(code)")
-        
-        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {fatalError("no campaign selected !?!")}
-        
-        // next vc should know about campaign and code (campaignId and code); campaignId -> Campaign.questions
-        
-        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
-        
-        let surveyInfo = SurveyInfo.init(campaign: campaign , code: code, hasConsent: consent)
-        
-        let vc = QuestionsAnswersVC.instantiate(using: sb)
-
-        vc.surveyInfo = surveyInfo
-        
-        return vc
-    }
     
-    func makeQuestionsAnswersViewController(code: Code) -> QuestionsAnswersVC {
-        
-        let codeValue = code.value
-        
-        //guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {fatalError("no campaign selected !?!")}
-        let campaignId = code.campaign_id
-        
-        // next vc should know about campaign and code (campaignId and code); campaignId -> Campaign.questions
-        
-        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
-        
-        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
-        
-        let vc = QuestionsAnswersVC.instantiate(using: sb)
-        
-        vc.surveyInfo = surveyInfo
-        
-        return vc
-    }
-    
-    func makeQuestionsAnswersViewController(codeValue: String, campaignId: Int) -> QuestionsAnswersVC {
-        
-        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
-        
-        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
-        
-        let vc = QuestionsAnswersVC.instantiate(using: sb)
-        
-        vc.surveyInfo = surveyInfo
-        
-        return vc
-    }
     
     //func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
     func makeFlatChooseOptionsVC() -> ChooseOptionsVC {

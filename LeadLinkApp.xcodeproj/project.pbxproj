@@ -25,6 +25,7 @@
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
 		7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */; };
+		7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */; };
 		7C3A3F7622ABE91B003C079E /* DisclaimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */; };
 		7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */; };
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
@@ -218,6 +219,7 @@
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerView.xib; sourceTree = "<group>"; };
 		7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 			children = (
 				7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */,
 				7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */,
+				7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactories;
 			sourceTree = "<group>";
@@ -1440,6 +1443,7 @@
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
+				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */,

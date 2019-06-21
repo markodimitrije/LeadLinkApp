@@ -14,7 +14,7 @@ class LoginViewControllerFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    func makeLoginViewController() -> LoginViewController {
+    func makeVC() -> LoginViewController {
         return LoginViewController.instantiate(using: appDependancyContainer.sb)
     }
 }

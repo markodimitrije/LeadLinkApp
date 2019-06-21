@@ -17,6 +17,8 @@ class ReportsVC: UIViewController, Storyboarded {
     }
     
     private var myReportsDumper: ReportsDumper? = reportsDumper
+    private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
+    private let bag = DisposeBag()
     
     var dataSource: ReportsDataSource?
     var delegate: ReportsDelegate?
@@ -40,8 +42,9 @@ class ReportsVC: UIViewController, Storyboarded {
                 let index = indexPath.row
                 guard let report = sSelf.dataSource?.data[index] else {return}
                 
-                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(codeValue: report.code,
-                                                                              campaignId: report.campaignId)
+                let nextVC = sSelf.questionsAnswersVcFactory.makeVC(codeValue: report.code,
+                                                                    campaignId: report.campaignId)
+                
                 guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
                 statsVC.navigationController?.pushViewController(nextVC, animated: true)
             }).disposed(by: bag)
@@ -69,6 +72,4 @@ class ReportsVC: UIViewController, Storyboarded {
 //
 //    }
     
-    private let factory = AppDependencyContainer()
-    let bag = DisposeBag()
 }

@@ -35,11 +35,12 @@ class ScanningVC: UIViewController, Storyboarded {
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
     
-    private let factory = AppDependencyContainer()
     private let disclaimerFactory = DisclaimerViewFactory()
     
     private var lastScanedCode: String = ""
     private var hasConsent = false
+    
+    private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -117,8 +118,8 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func navigateToQuestionsScreen() {
-        let questionsVC = factory.makeQuestionsAnswersViewController(scanningViewModel: viewModel,
-                                                                     hasConsent: self.hasConsent)
+        let questionsVC = questionsAnswersVcFactory.makeVC(scanningViewModel: viewModel,
+                                                           hasConsent: self.hasConsent)
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     

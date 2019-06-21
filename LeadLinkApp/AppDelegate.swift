@@ -108,9 +108,9 @@ class StartViewControllerProvider: StartViewControllerProviding {
     func getStartViewControllers() -> [UIViewController] {
         let userSession = factory.makeUserSessionRepository().readUserSession()
         let loginVcFactory = LoginViewControllerFactory.init(appDependancyContainer: factory)
-        let loginVC = loginVcFactory.makeLoginViewController()
+        let loginVC = loginVcFactory.makeVC()
         let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
-        let campaignsVC = campaignsVcFactory.makeCampaignsViewController()
+        let campaignsVC = campaignsVcFactory.makeVC()
         if let _ = userSession.value {
             return [loginVC, campaignsVC]
         } else {

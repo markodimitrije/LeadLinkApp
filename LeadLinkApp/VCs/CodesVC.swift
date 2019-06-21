@@ -16,7 +16,7 @@ class CodesVC: UIViewController, Storyboarded {
     var codesDataSource: CodesDataSource?
     var codesDelegate: CodesDelegate?
     
-    private let factory = AppDependencyContainer()
+    private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class CodesVC: UIViewController, Storyboarded {
             let index = indexPath.row
                 guard let code = sSelf.codesDataSource?.data[index] else {return}
                 print("selected code na CodesVC je: \(code.value)")
-                let nextVC = sSelf.factory.makeQuestionsAnswersViewController(code: code)
+                let nextVC = sSelf.questionsAnswersVcFactory.makeVC(code: code)
                 //sSelf.navigationController!.pushViewController(nextVC, animated: true)
                 guard let statsVC = sSelf.parent as? StatsVC else { fatalError() }
                 statsVC.navigationController?.pushViewController(nextVC, animated: true)
