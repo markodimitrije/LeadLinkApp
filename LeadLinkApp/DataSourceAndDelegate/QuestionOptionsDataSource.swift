@@ -44,7 +44,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
         func checkIfOptionsShouldBeCountries() {
             if selectOptionTextViewModel.question.options.first == QuestionPersonalInfoKey.country_id.rawValue {
                 let countriesManager = CountriesManager()
-                self.countries = Array(countriesManager.countries.values)
+                self.countries = Array(countriesManager.countries.values).sorted()
             }
         }
         
