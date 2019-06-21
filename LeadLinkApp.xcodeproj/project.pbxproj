@@ -23,6 +23,8 @@
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
+		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
+		7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */; };
 		7C3A3F7622ABE91B003C079E /* DisclaimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */; };
 		7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */; };
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
@@ -214,6 +216,8 @@
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
+		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerView.xib; sourceTree = "<group>"; };
 		7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
@@ -545,6 +549,15 @@
 			path = LocalComponents;
 			sourceTree = "<group>";
 		};
+		7C39F3A922BD578B0017A78C /* ViewControllerFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */,
+				7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */,
+			);
+			path = ViewControllerFactories;
+			sourceTree = "<group>";
+		};
 		7C3A3FBB22AE8058003C079E /* TermsNoSwitchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +862,7 @@
 		AD1739D121DE1E6E00218BE5 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				7C39F3A922BD578B0017A78C /* ViewControllerFactories */,
 				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
 				AD1739D221DE1E7900218BE5 /* Factory.swift */,
 				7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */,
@@ -1463,6 +1477,7 @@
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
+				7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */,
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
 				7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */,
 				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
@@ -1528,6 +1543,7 @@
 				7C98A67C228962D900DA184E /* SurveyInfo.swift in Sources */,
 				ADBB468C2242942300E1020F /* CodesVC.swift in Sources */,
 				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
+				7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */,
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */,
 				7C98A6BC22896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift in Sources */,

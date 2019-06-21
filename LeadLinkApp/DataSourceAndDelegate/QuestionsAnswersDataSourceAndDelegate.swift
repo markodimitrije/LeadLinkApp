@@ -14,7 +14,6 @@ import RealmSwift
 
 class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private let factory = AppDependencyContainer.init()
     private var viewController: QuestionsAnswersVC
     
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}

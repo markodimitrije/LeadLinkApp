@@ -17,7 +17,6 @@ let kScanditBarcodeScannerAppKey = "ASHdMpiBDE75BbkR4xSxe94Ezm55L9o9KH8QCJpnArp5
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var factory =  AppDependencyContainer.init()
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
     lazy var logOutViewModel = factory.makeLogoutViewModel()
@@ -108,8 +107,10 @@ class StartViewControllerProvider: StartViewControllerProviding {
     }
     func getStartViewControllers() -> [UIViewController] {
         let userSession = factory.makeUserSessionRepository().readUserSession()
-        let loginVC = factory.makeLoginViewController()
-        let campaignsVC = factory.makeCampaignsViewController()
+        let loginVcFactory = LoginViewControllerFactory.init(appDependancyContainer: factory)
+        let loginVC = loginVcFactory.makeLoginViewController()
+        let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
+        let campaignsVC = campaignsVcFactory.makeCampaignsViewController()
         if let _ = userSession.value {
             return [loginVC, campaignsVC]
         } else {

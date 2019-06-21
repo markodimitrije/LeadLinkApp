@@ -16,26 +16,18 @@ class LoginViewController: UIViewController, Storyboarded {
 
     let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
     var repository: LeadLinkUserSessionRepository!
-    //let responder = MainViewModel.init()
+    
     var logInViewModel: LogInViewModel!
-    let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
+    
     var keyboardManager: MovingKeyboardDelegate?
     
+    private let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
+    
     @IBOutlet weak var loginStackView: UIStackView!
-    @IBOutlet weak var emailField: UITextField! {
-        didSet {
-            //emailField.text = "test.tdasdasdasdae@mailinator.com" // hard-coded
-//            emailField.text = "komita1981@gmail.com" // hard-coded
-        }
-    }
-    @IBOutlet weak var passField: UITextField! {
-        didSet {
-//            passField.text = "test1234" // hard-coded
-        }
-    }
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var logInBtn: UIButton!
     @IBOutlet weak var loginStackViewYConstraint: NSLayoutConstraint!
-    
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -192,7 +184,7 @@ class LoginViewController: UIViewController, Storyboarded {
     
     private func presentSignedIn(userSession: UserSession) {
         
-        let campaignsVC = factory.makeCampaignsViewController()
+        let campaignsVC = campaignsVcFactory.makeCampaignsViewController()
         
         navigationController?.pushViewController(campaignsVC, animated: true)
     }
@@ -213,14 +205,3 @@ class LoginViewController: UIViewController, Storyboarded {
     private let disposeBag = DisposeBag.init()
 
 }
-
-//struct FakeSignedInResponder: SignedInResponder {
-//    func signedIn(to userSession: UserSession) {
-//        print("FakeSignedInResponder.signedIn imam token: \(userSession.remoteSession.token)")
-//        print("FakeSignedInResponder.signedIn implement me.....")
-//        print("skini kampanje, save ih na disk, itd....")
-//    }
-//
-//
-//}
-

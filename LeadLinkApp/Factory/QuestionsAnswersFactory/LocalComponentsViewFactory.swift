@@ -8,37 +8,6 @@
 
 import UIKit
 
-//class LocalComponentsViewFactory {
-//    func makeTermsNoSwitchView(tag: Int) -> TermsNoSwitchView {
-//
-//        let (width, height) = LocalComponentsViewFactory.getComponentWidthAndHeight()
-//
-//        let rect = CGRect.init(center: CGPoint.zero,
-//                               size: CGSize.init(width: width,
-//                                                 height: height))
-//        let view = TermsNoSwitchView.init(frame: rect)
-//        view.textView.tag = tag
-//        view.configureTxtViewWithHyperlinkText(tag: tag)
-//        return view
-//    }
-//
-//    static func getComponentWidthAndHeight() -> (CGFloat, CGFloat) {
-//        var width = CGFloat(0.0)
-//        var height = CGFloat(0.0)
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            width = (UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width) * 0.6
-//            height = 80
-//        } else if UIDevice.current.userInterfaceIdiom == .phone{
-//            width = UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width
-//            height = 100
-//        }
-//        return (width, height)
-//    }
-//
-//}
-
-import UIKit
-
 class LocalComponentsViewFactory {
     
     private var localComponentsSize: LocalComponentsSize

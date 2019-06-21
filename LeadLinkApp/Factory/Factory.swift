@@ -83,20 +83,20 @@ public class AppDependencyContainer {
     // Main
     // Factories needed to create a MainViewController.
     
-    func makeLoginViewController() -> LoginViewController {
-        
-        return LoginViewController.instantiate(using: sb)
-    }
+//    func makeLoginViewController() -> LoginViewController {
+//
+//        return LoginViewController.instantiate(using: sb)
+//    }
     
-    func makeCampaignsViewController() -> CampaignsVC {
-        
-        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-        //return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
-        let campaignsVC = CampaignsVC.instantiate(using: sb)
-        campaignsVC.campaignsViewModel = makeCampaignsViewModel()
-        campaignsVC.factory = self
-        return campaignsVC
-    }
+//    func makeCampaignsViewController() -> CampaignsVC {
+//        
+//        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
+//        //return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
+//        let campaignsVC = CampaignsVC.instantiate(using: sb)
+//        campaignsVC.campaignsViewModel = makeCampaignsViewModel()
+//        campaignsVC.factory = self
+//        return campaignsVC
+//    }
     
     func makeStatsViewController(campaignId id: Int) -> StatsVC {
         

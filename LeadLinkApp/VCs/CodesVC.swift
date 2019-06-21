@@ -16,6 +16,9 @@ class CodesVC: UIViewController, Storyboarded {
     var codesDataSource: CodesDataSource?
     var codesDelegate: CodesDelegate?
     
+    private let factory = AppDependencyContainer()
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         codesDataSource?.tableView = self.tableView
@@ -43,7 +46,5 @@ class CodesVC: UIViewController, Storyboarded {
         }).disposed(by: bag)
     }
     
-    private let factory = AppDependencyContainer()
-    private let bag = DisposeBag()
 }
 
