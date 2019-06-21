@@ -15,14 +15,14 @@ import RealmSwift
 class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private let factory = AppDependencyContainer.init()
-    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: viewController.questions)
-    
     private var viewController: QuestionsAnswersVC
     
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
     private var webQuestionViews: [Int: UIView] {return viewController.webQuestionViews}
     private var webQuestionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
     private var localComponents: LocalComponents {return viewController.localComponents}
+
+    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: viewController.questions, localComponents: viewController.localComponents)
     
     init(viewController: QuestionsAnswersVC) {
         self.viewController = viewController
