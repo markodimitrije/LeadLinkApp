@@ -23,9 +23,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     private var allQuestionsStackerViews: [Int: UIView] {return viewController.webQuestionViews}
     private var questionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
-    private var saveBtn: UIButton {return viewController.saveBtn}
-    private var termsNoSwitchUp: TermsNoSwitchView {return viewController.termsNoSwitchUp}
-    private var termsNoSwitchDown: TermsNoSwitchView {return viewController.termsNoSwitchDown}
+    private var localComponents: LocalComponents {return viewController.localComponents}
     
     init(viewController: QuestionsAnswersVC) {
         self.viewController = viewController
@@ -63,16 +61,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
             }
         } else { // save btn
             
-            if indexPath.row == 0 {
-                termsNoSwitchUp.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
-                cell.addSubview(termsNoSwitchUp)
-            } else if indexPath.row == 1 {
-                termsNoSwitchDown.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
-                cell.addSubview(termsNoSwitchDown)
-            } else {
-                saveBtn.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
-                cell.addSubview(saveBtn)
-            }
+            cell.addSubview(localComponents.componentsInOrder[indexPath.row])
             
         }
         return cell
@@ -81,7 +70,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let questionId = dataSourceHelper.questionId(indexPath: indexPath) else {
             if indexPath.row == 2 {
-                return saveBtn.bounds.height
+                return localComponents.saveBtn.bounds.height
             } else if indexPath.row == 0 || indexPath.row == 1 {
                 return LocalComponentsViewFactory.getComponentWidthAndHeight().1
             } else {
@@ -90,7 +79,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
             
         }
         
-        let cellHeight = questionIdsViewSizes[questionId]?.height ?? CGFloat.init(0) // bolje neki backup... hard-coded
+        let cellHeight = questionIdsViewSizes[questionId]?.height ?? CGFloat.init(80)
         
         return cellHeight
     }

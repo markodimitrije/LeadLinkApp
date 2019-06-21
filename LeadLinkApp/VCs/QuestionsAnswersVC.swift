@@ -20,7 +20,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
                                                                   delegate: myDataSourceAndDelegate)
-    private lazy var localComponentsViewFactory = LocalComponentsViewFactory()
+//    private lazy var localComponentsViewFactory = LocalComponentsViewFactory()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,9 +29,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var parentViewmodel: ParentViewModel!
     var webQuestionViews = [Int: UIView]()
     var webQuestionIdsToViewSizes = [Int: CGSize]()
-    var saveBtn: UIButton!
-    var termsNoSwitchUp: TermsNoSwitchView!
-    var termsNoSwitchDown: TermsNoSwitchView!
+    
+//    var saveBtn: UIButton!
+//    var termsNoSwitchUp: TermsNoSwitchView!
+//    var termsNoSwitchDown: TermsNoSwitchView!
+    
+    let localComponents = LocalComponents()
     
     var bag = DisposeBag()
     
@@ -60,9 +63,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
-        self.saveBtn = SaveButton()
-        self.termsNoSwitchUp = localComponentsViewFactory.makeTermsNoSwitchView(tag: 0)
-        self.termsNoSwitchDown = localComponentsViewFactory.makeTermsNoSwitchView(tag: 1)
+//        self.saveBtn = SaveButton()
+//        self.termsNoSwitchUp = localComponentsViewFactory.makeTermsNoSwitchView(tag: 0)
+//        self.termsNoSwitchDown = localComponentsViewFactory.makeTermsNoSwitchView(tag: 1)
         
         loadQuestions(surveyInfo: surveyInfo)
         
@@ -200,7 +203,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func listenToSaveEvent(existingAnswers:[MyAnswer] = []) {
         
-        saveBtn.rx.controlEvent(.touchUpInside)
+        localComponents.saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
 //                print("existingAnswers.count = \(existingAnswers.count)")
@@ -303,21 +306,25 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
 }
 
-//
-//extension QuestionsAnswersVC: UITextViewDelegate {
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-//        if (URL.absoluteString == Constants.PrivacyPolicy.navusUrl ||
-//            URL.absoluteString == Constants.PrivacyPolicy.url) {
-//            UIApplication.shared.open(URL)
-//        }
-//        return false
-//    }
-//}
-
-
-
-
 enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
+}
+
+class LocalComponents {
+    
+    var componentsInOrder = [UIView]()
+    var saveBtn: SaveButton {
+        return componentsInOrder.last as! SaveButton
+    }
+    
+    private let localComponentsViewFactory = LocalComponentsViewFactory()
+    
+    init() {
+        self.componentsInOrder = [
+            localComponentsViewFactory.makeTermsNoSwitchView(tag: 0),
+            localComponentsViewFactory.makeTermsNoSwitchView(tag: 1),
+            SaveButton()
+        ]
+    }
 }
