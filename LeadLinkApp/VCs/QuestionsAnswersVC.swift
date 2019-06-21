@@ -27,8 +27,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var questions = [SingleQuestion]()
     
     var parentViewmodel: ParentViewModel!
-    var allQuestionsViews = [Int: UIView]()
-    var questionIdsToViewSizes = [Int: CGSize]()
+    var webQuestionViews = [Int: UIView]()
+    var webQuestionIdsToViewSizes = [Int: CGSize]()
     var saveBtn: UIButton!
     var termsNoSwitchUp: TermsNoSwitchView!
     var termsNoSwitchDown: TermsNoSwitchView!
@@ -86,7 +86,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
-        guard shouldPrepopulateDelegateData(code: code) else { return }
+        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo, codeToCheck: code)
+        guard decisioner.shouldPrepopulateDelegateData() else { return }
 
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
@@ -104,12 +105,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
         
-    }
-    
-    private func shouldPrepopulateDelegateData(code: String) -> Bool {
-        let hasRealmAnswers = surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)
-        let hasConsent = surveyInfo.hasConsent
-        return !hasRealmAnswers && hasConsent
     }
     
     private func setUpKeyboardBehavior() {
@@ -196,8 +191,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
             let singleQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [singleQuestion],
                                                                              viewmodel: viewmodel)
-            allQuestionsViews[questionId] = singleQuestionStackerView
-            questionIdsToViewSizes[questionId] = singleQuestionStackerView.bounds.size
+            webQuestionViews[questionId] = singleQuestionStackerView
+            webQuestionIdsToViewSizes[questionId] = singleQuestionStackerView.bounds.size
             
         })
         
@@ -326,5 +321,3 @@ enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
 }
-
-

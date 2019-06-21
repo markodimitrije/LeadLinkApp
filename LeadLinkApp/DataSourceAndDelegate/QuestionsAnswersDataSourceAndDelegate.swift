@@ -20,8 +20,8 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     private var viewController: QuestionsAnswersVC
     
     private var questions: [SingleQuestion] {return viewController.questions}
-    private var allQuestionsStackerViews: [Int: UIView] {return viewController.allQuestionsViews}
-    private var questionIdsViewSizes: [Int: CGSize] {return viewController.questionIdsToViewSizes}
+    private var allQuestionsStackerViews: [Int: UIView] {return viewController.webQuestionViews}
+    private var questionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
     private var saveBtn: UIButton {return viewController.saveBtn}
     private var termsNoSwitchUp: TermsNoSwitchView {return viewController.termsNoSwitchUp}
@@ -167,7 +167,7 @@ extension QuestionsAnswersDataSourceAndDelegate: UITextViewDelegate {
             
             (textView as? OptionsTextView)?.formatLayout(accordingToOptions: newContent)
             
-            selfRef.questionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
+            selfRef.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
             selfRef.tableView.reloadData()
         }
         
