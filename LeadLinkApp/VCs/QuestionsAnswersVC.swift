@@ -63,10 +63,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
-//        self.saveBtn = SaveButton()
-//        self.termsNoSwitchUp = localComponentsViewFactory.makeTermsNoSwitchView(tag: 0)
-//        self.termsNoSwitchDown = localComponentsViewFactory.makeTermsNoSwitchView(tag: 1)
-        
         loadQuestions(surveyInfo: surveyInfo)
         
         loadParentViewModel(questions: questions)
@@ -309,22 +305,4 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
-}
-
-class LocalComponents {
-    
-    var componentsInOrder = [UIView]()
-    var saveBtn: SaveButton {
-        return componentsInOrder.last as! SaveButton
-    }
-    
-    private let localComponentsViewFactory = LocalComponentsViewFactory(localComponentsSize: LocalComponentsSize())
-    
-    init() {
-        self.componentsInOrder = [
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 0),
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 1),
-            SaveButton()
-        ]
-    }
 }

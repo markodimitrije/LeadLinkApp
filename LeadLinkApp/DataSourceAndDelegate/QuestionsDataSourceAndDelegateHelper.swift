@@ -29,7 +29,6 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func groupNames() -> [String] {
-//        print("groupNames.orderedGroups = \(orderedGroups)")
         return orderedGroups
     }
     
@@ -63,7 +62,6 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     private func itemHasNoGroup(question: PresentQuestion) -> Bool {
-        //        print("itemHasNoGroup = \(question.group == nil || question.group == ""), za qId = \(question.id)")
         return question.group == nil || question.group == ""
     }
     

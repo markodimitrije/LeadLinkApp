@@ -15,14 +15,13 @@ import RealmSwift
 class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private let factory = AppDependencyContainer.init()
-    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: questions)
+    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: viewController.questions)
     
     private var viewController: QuestionsAnswersVC
     
-    private var questions: [SingleQuestion] {return viewController.questions}
-    private var allQuestionsStackerViews: [Int: UIView] {return viewController.webQuestionViews}
-    private var questionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
     private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
+    private var webQuestionViews: [Int: UIView] {return viewController.webQuestionViews}
+    private var webQuestionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
     private var localComponents: LocalComponents {return viewController.localComponents}
     
     init(viewController: QuestionsAnswersVC) {
@@ -49,21 +48,19 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        print("cellForRowAt.indexPath = \(indexPath)")
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.removeAllSubviews()
         
         if let questionId = dataSourceHelper.questionId(indexPath: indexPath) {
             populateCellForWebQuestion(cell: cell, questionId: questionId)
-        } else { // save btn
+        } else {
             populateCellForLocalQuestion(cell: cell, indexPath: indexPath)
         }
         return cell
     }
     
     private func populateCellForWebQuestion(cell: UITableViewCell, questionId: Int) {
-        if let stackerView = allQuestionsStackerViews[questionId] {
+        if let stackerView = webQuestionViews[questionId] {
             stackerView.frame = cell.bounds
             cell.addSubview(stackerView)
         }
@@ -72,7 +69,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
     private func populateCellForLocalQuestion(cell: UITableViewCell, indexPath: IndexPath) {
         let view = localComponents.componentsInOrder[indexPath.row]
         if !(type(of: view) is SaveButton.Type) {
-            view.frame = cell.bounds
+            //view.frame = cell.bounds
         }
         view.center = CGPoint.init(x: cell.bounds.midX, y: cell.bounds.midY)
         cell.addSubview(view)
@@ -86,7 +83,7 @@ class QuestionsAnswersDataSourceAndDelegate: NSObject, UITableViewDataSource, UI
             return height
         }
         
-        let cellHeight = questionIdsViewSizes[questionId]?.height ?? CGFloat.init(80)
+        let cellHeight = webQuestionIdsViewSizes[questionId]?.height ?? CGFloat.init(80)
         
         return cellHeight
     }

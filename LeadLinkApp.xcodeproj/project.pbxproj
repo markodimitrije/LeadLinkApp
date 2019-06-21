@@ -22,6 +22,7 @@
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
+		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C3A3F7622ABE91B003C079E /* DisclaimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */; };
 		7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */; };
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
@@ -212,6 +213,7 @@
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
+		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerView.xib; sourceTree = "<group>"; };
 		7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
@@ -535,6 +537,14 @@
 			path = DividerView;
 			sourceTree = "<group>";
 		};
+		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
+			isa = PBXGroup;
+			children = (
+				7C39F3A722BD40F80017A78C /* LocalComponents.swift */,
+			);
+			path = LocalComponents;
+			sourceTree = "<group>";
+		};
 		7C3A3FBB22AE8058003C079E /* TermsNoSwitchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,6 +707,7 @@
 		7C98A6B322896CE100DA184E /* QA */ = {
 			isa = PBXGroup;
 			children = (
+				7C39F3A622BD40DB0017A78C /* LocalComponents */,
 				7C98A6C322896ED500DA184E /* InputCreators */,
 				7C98A6B422896D4700DA184E /* StackViewToVMBinders */,
 			);
@@ -1435,6 +1446,7 @@
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
+				7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */,
 				7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
