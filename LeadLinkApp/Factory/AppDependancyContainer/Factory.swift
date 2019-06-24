@@ -77,69 +77,14 @@ public class AppDependencyContainer {
         self.sharedCampaignsRepository = makeCampaignsRepository()
 
     }
-
-    // Scanning
     
-    func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
-        
-        //let scanningVC = sb.instantiateViewController(withIdentifier: "ScanningVC") as! ScanningVC
-        let scanningVC = ScanningVC.instantiate(using: sb)
-        if let viewModel = viewModel {
-            scanningVC.viewModel = viewModel
-        }
-        return scanningVC
-    }
-    
-    private func getViewControllerTypes() -> [UIViewController.Type] {
+    func getViewControllerTypes() -> [UIViewController.Type] {
         return [LoginViewController.self,
                 CampaignsVC.self,
                 ScanningVC.self,
 //                QuestionsAnswersVC.self,
 //                ChooseOptionsVC.self
             ]
-    }
-
-    //MARK:- Make viewmodels
-    
-    func makeNavigationViewModel() -> NavigationViewModel {
-        let items = [NavBarItem.stats, NavBarItem.logout]
-        let viewmodel = NavigationViewModel.init(navBarItems: items,
-                                                 viewControllerTypes: getViewControllerTypes(),
-                                                 campaignsViewModel: makeCampaignsViewModel(),
-                                                 logOutViewModel: makeLogoutViewModel())
-        return viewmodel
-    }
-    
-    func makeLoginViewModel() -> LogInViewModel {
-        let viewmodel = LogInViewModel.init(userSessionRepository: sharedUserSessionRepository,
-                                            signedInResponder: self.sharedMainViewModel)
-        return viewmodel
-    }
-    
-    func makeLogoutViewModel() -> LogOutViewModel {
-        
-        let viewmodel = LogOutViewModel.init(userSessionRepository: sharedUserSessionRepository,
-                                             notSignedInResponder: self.sharedMainViewModel)
-        return viewmodel
-    }
-    
-    func makeQuestionsViewModel(scanningViewmodel: ScanningViewModel) -> QuestionsViewmodel {
-        let viewmodel = QuestionsViewmodel.init(scanningViewmodel: scanningViewmodel)
-        return viewmodel
-    }
-    
-    func makeScanningViewModel(campaign: Campaign, codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
-        
-        let dataStoreFactory = CodesDataStoreFactory(appDependancyContainer: self)
-        let codesDataStore = dataStoreFactory.makeCodeDataStore()
-        
-        let scanningViewmodel = ScanningViewModel.init(campaign: campaign, codesDataStore: codesDataStore)
-        
-        return scanningViewmodel
-    }
-    
-    func makeCampaignsViewModel() -> CampaignsViewModel {
-        return CampaignsViewModel.init(campaignsRepository: sharedCampaignsRepository)
     }
     
     // MARK:- Make repositories

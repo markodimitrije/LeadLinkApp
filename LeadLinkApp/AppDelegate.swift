@@ -19,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
-    lazy var logOutViewModel = factory.makeLogoutViewModel()
+    lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         startVCProvider = StartViewControllerProvider(factory: factory)
         
-        navigationViewModel = factory.makeNavigationViewModel()
+        let navigationViewModelFactory = NavigationViewModelFactory(appDependancyContainer: factory)
+        
+        navigationViewModel = navigationViewModelFactory.makeViewModel()
         
         downloadCampaignsQuestionsAndLogos()
         
@@ -41,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         SBSLicense.setAppKey(kScanditBarcodeScannerAppKey)
-        
-        //navVC?.pushViewController(startingVC, animated: false)
         
         return true
     }

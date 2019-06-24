@@ -15,8 +15,12 @@ class CampaignsViewControllerFactory {
     }
     
     func makeVC() -> CampaignsVC {
+        
+        let campaignsViewModelFactory = CampaignsViewModelFactory(appDependancyContainer: appDependancyContainer)
+        let campaignsViewModel = campaignsViewModelFactory.makeViewModel()
+        
         let campaignsVC = CampaignsVC.instantiate(using: appDependancyContainer.sb)
-        campaignsVC.campaignsViewModel = appDependancyContainer.makeCampaignsViewModel()
+        campaignsVC.campaignsViewModel = campaignsViewModel
         campaignsVC.factory = appDependancyContainer
         return campaignsVC
     }

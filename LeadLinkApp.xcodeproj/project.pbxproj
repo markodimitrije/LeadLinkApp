@@ -40,6 +40,12 @@
 		7C51086622C0D59C005EE58B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086522C0D59C005EE58B /* Storyboarded.swift */; };
 		7C51086922C0D6CB005EE58B /* CodesDataStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086822C0D6CB005EE58B /* CodesDataStoreFactory.swift */; };
 		7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086A22C0D710005EE58B /* ReportsDataStoreFactory.swift */; };
+		7C51086E22C0D84D005EE58B /* LoginViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086D22C0D84D005EE58B /* LoginViewModelFactory.swift */; };
+		7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086F22C0D912005EE58B /* LogoutViewModelFactory.swift */; };
+		7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087122C0DAE8005EE58B /* ScaningViewModelFactory.swift */; };
+		7C51087422C0DC62005EE58B /* ScaningViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087322C0DC62005EE58B /* ScaningViewControllerFactory.swift */; };
+		7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */; };
+		7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
@@ -242,6 +248,12 @@
 		7C51086522C0D59C005EE58B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		7C51086822C0D6CB005EE58B /* CodesDataStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataStoreFactory.swift; sourceTree = "<group>"; };
 		7C51086A22C0D710005EE58B /* ReportsDataStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataStoreFactory.swift; sourceTree = "<group>"; };
+		7C51086D22C0D84D005EE58B /* LoginViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelFactory.swift; sourceTree = "<group>"; };
+		7C51086F22C0D912005EE58B /* LogoutViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModelFactory.swift; sourceTree = "<group>"; };
+		7C51087122C0DAE8005EE58B /* ScaningViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaningViewModelFactory.swift; sourceTree = "<group>"; };
+		7C51087322C0DC62005EE58B /* ScaningViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaningViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModelFactory.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
@@ -578,6 +590,7 @@
 				7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */,
 				7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */,
 				7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */,
+				7C51087322C0DC62005EE58B /* ScaningViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactories;
 			sourceTree = "<group>";
@@ -606,6 +619,18 @@
 				7C51086A22C0D710005EE58B /* ReportsDataStoreFactory.swift */,
 			);
 			path = DataStoreFactories;
+			sourceTree = "<group>";
+		};
+		7C51086C22C0D825005EE58B /* ViewModelFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C51086D22C0D84D005EE58B /* LoginViewModelFactory.swift */,
+				7C51086F22C0D912005EE58B /* LogoutViewModelFactory.swift */,
+				7C51087122C0DAE8005EE58B /* ScaningViewModelFactory.swift */,
+				7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */,
+				7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */,
+			);
+			path = ViewModelFactories;
 			sourceTree = "<group>";
 		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
@@ -903,6 +928,7 @@
 		AD1739D121DE1E6E00218BE5 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				7C51086C22C0D825005EE58B /* ViewModelFactories */,
 				7C51086722C0D6B9005EE58B /* DataStoreFactories */,
 				7C51086422C0D3DD005EE58B /* AppDependancyContainer */,
 				7C39F3A922BD578B0017A78C /* ViewControllerFactories */,
@@ -1439,6 +1465,7 @@
 				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
+				7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */,
 				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
 				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
@@ -1463,6 +1490,7 @@
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
+				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
@@ -1491,6 +1519,7 @@
 				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
+				7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */,
 				7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */,
 				7C98A69B2289689900DA184E /* LabelAndTextField.swift in Sources */,
 				7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */,
@@ -1575,9 +1604,12 @@
 				7C98A6CE22896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */,
+				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,
 				7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
+				7C51087422C0DC62005EE58B /* ScaningViewControllerFactory.swift in Sources */,
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
+				7C51086E22C0D84D005EE58B /* LoginViewModelFactory.swift in Sources */,
 				7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */,
