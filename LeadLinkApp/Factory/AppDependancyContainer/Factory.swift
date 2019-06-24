@@ -77,88 +77,7 @@ public class AppDependencyContainer {
         self.sharedCampaignsRepository = makeCampaignsRepository()
 
     }
-    
-    //MARK:- Make Viewmodels
-    
-    // Main
-    // Factories needed to create a MainViewController.
-    
-//    func makeLoginViewController() -> LoginViewController {
-//
-//        return LoginViewController.instantiate(using: sb)
-//    }
-    
-//    func makeCampaignsViewController() -> CampaignsVC {
-//        
-//        // ovde mozes da mu property inject recimo viewmodel, ili fabriku ili sta treba:
-//        //return sb.instantiateViewController(withIdentifier: "CampaignsVC") as! CampaignsVC
-//        let campaignsVC = CampaignsVC.instantiate(using: sb)
-//        campaignsVC.campaignsViewModel = makeCampaignsViewModel()
-//        campaignsVC.factory = self
-//        return campaignsVC
-//    }
-    
-    func makeStatsViewController(campaignId id: Int) -> StatsVC {
-        
-        //let statsVC = sb.instantiateViewController(withIdentifier: "StatsVC") as! StatsVC
-        let statsVC = StatsVC.instantiate(using: sb)
-        //statsVC.codesVC = makeCodesViewController(campaignId: id)
-        statsVC.reportsVC = makeReportsViewController(campaignId: id)
-        statsVC.chartVC = makeChartViewController(campaignId: id)
-        
-        return statsVC
-        
-    }
 
-    func makeCodesViewController(campaignId id: Int) -> CodesVC {
-        
-        let codesDataSource = CodesDataSource.init(campaignId: id,
-                                                       codesDataStore: makeCodeDataStore(),
-                                                       cellId: "CodeCell")
-        let codesDelegate = CodesDelegate()
-
-        let codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
-
-        codesVC.codesDataSource = codesDataSource
-        codesVC.codesDelegate = codesDelegate
-        
-        return codesVC
-        
-    }
-    
-    func makeReportsViewController(campaignId id: Int) -> ReportsVC {
-        
-        let dataSource = ReportsDataSource.init(campaignId: id,
-                                                reportsDataStore: makeReportsDataStore(),
-                                                cellId: "ReportsTVC")
-        
-        let delegate = ReportsDelegate()
-        
-        let reportsVC = sb.instantiateViewController(withIdentifier: "ReportsVC") as! ReportsVC
-        
-        reportsVC.dataSource = dataSource
-        reportsVC.delegate = delegate
-        
-        return reportsVC
-        
-    }
-    
-    
-    
-    func makeChartViewController(campaignId id: Int) -> UIViewController {
-        
-//        let codesVC = sb.instantiateViewController(withIdentifier: "CodesVC") as! CodesVC
-//
-//        codesVC.codesDataSource = CodesDataSource.init(campaignId: id,
-//                                                       codesDataStore: makeCodeDataStore(),
-//                                                       cellId: "CodesCell")
-//        codesVC.codesDelegate = CodesDelegate()
-        
-//        return codesVC
-        return UIViewController.init()
-        
-    }
-    
     // Scanning
     
     func makeScanningViewController(viewModel: ScanningViewModel?) -> ScanningVC {
@@ -169,29 +88,6 @@ public class AppDependencyContainer {
             scanningVC.viewModel = viewModel
         }
         return scanningVC
-    }
-    
-    // Questions and Answers
-    
-    
-    
-    //func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
-    func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
-        let chooseOptionsVC = ChooseOptionsVC.instantiate(using: sb)
-//        let sb = UIStoryboard.init(name: "Main_iphone", bundle: nil)
-//        let chooseOptionsVC = sb.instantiateViewController(withIdentifier: "ChooseOptionsVC") as! ChooseOptionsVC
-        return chooseOptionsVC
-    }
-    
-    func makeTermsVC(termsTxt: String? = nil) -> UINavigationController {
-        guard let navForTerms = NavForTermsVC.instantiate(using: sb) as? NavForTermsVC,
-            let termsVC = navForTerms.viewControllers.first as? TermsVC else { fatalError() }
-    
-        //let text = termsTxt ?? termsString // backup je global var...
-        
-        termsVC.termsTxt.accept(termsString)//text)
-        
-        return navForTerms
     }
     
     private func getViewControllerTypes() -> [UIViewController.Type] {
@@ -278,5 +174,25 @@ extension Storyboarded where Self: UIViewController {
         let sb = sb ?? UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let name = String(describing: self)
         return sb.instantiateViewController(withIdentifier: name) as! Self
+    }
+}
+
+
+class DataStoreFactory {
+    
+    var appDependancyContainer: AppDependencyContainer
+    
+    init(appDependancyContainer: AppDependencyContainer) {
+        self.appDependancyContainer = appDependancyContainer
+    }
+    
+    func makeCodeDataStore() -> CodesDataStore {
+        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
+        return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
+    }
+    
+    func makeReportsDataStore() -> ReportsDataStore {
+        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
+        return RealmReportsDataStore.init(campaignsDataStore: realmCampaignsDataStore)
     }
 }

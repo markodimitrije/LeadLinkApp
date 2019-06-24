@@ -9,7 +9,9 @@
 import Foundation
 
 class LoginViewControllerFactory {
+    
     var appDependancyContainer: AppDependencyContainer
+    
     init(appDependancyContainer: AppDependencyContainer) {
         self.appDependancyContainer = appDependancyContainer
     }

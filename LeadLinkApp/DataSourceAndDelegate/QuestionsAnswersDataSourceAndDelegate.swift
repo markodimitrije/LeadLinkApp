@@ -102,7 +102,9 @@ extension QuestionsAnswersDataSourceAndDelegate: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        let chooseOptionsVC = factory.makeFlatChooseOptionsVC()
+        let chooseOptionsVcFactory = ChooseOptionsViewControllerFactory(appDependancyContainer: factory)
+        
+        let chooseOptionsVC = chooseOptionsVcFactory.makeFlatChooseOptionsVC()
         
         guard let childViewmodel = parentViewmodel.childViewmodels[textView.tag] as? SelectOptionTextFieldViewModel else {
             return

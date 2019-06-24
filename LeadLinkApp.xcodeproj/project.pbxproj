@@ -32,6 +32,11 @@
 		7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */; };
 		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
+		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
+		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
+		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
+		7C51086122C0D001005EE58B /* TermsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086022C0D001005EE58B /* TermsViewControllerFactory.swift */; };
+		7C51086322C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51086222C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
@@ -226,6 +231,11 @@
 		7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsNoSwitchView.swift; sourceTree = "<group>"; };
 		7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsNoSwitchView.xib; sourceTree = "<group>"; };
 		7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponentsViewFactory.swift; sourceTree = "<group>"; };
+		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C51086022C0D001005EE58B /* TermsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C51086222C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOptionsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
@@ -555,8 +565,13 @@
 			isa = PBXGroup;
 			children = (
 				7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */,
+				7C51086222C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift */,
+				7C51086022C0D001005EE58B /* TermsViewControllerFactory.swift */,
+				7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */,
+				7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */,
 				7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */,
 				7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */,
+				7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactories;
 			sourceTree = "<group>";
@@ -568,6 +583,14 @@
 				7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */,
 			);
 			path = TermsNoSwitchView;
+			sourceTree = "<group>";
+		};
+		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				AD1739D221DE1E7900218BE5 /* Factory.swift */,
+			);
+			path = AppDependancyContainer;
 			sourceTree = "<group>";
 		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
@@ -865,9 +888,9 @@
 		AD1739D121DE1E6E00218BE5 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				7C51086422C0D3DD005EE58B /* AppDependancyContainer */,
 				7C39F3A922BD578B0017A78C /* ViewControllerFactories */,
 				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
-				AD1739D221DE1E7900218BE5 /* Factory.swift */,
 				7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */,
 			);
 			path = Factory;
@@ -1408,6 +1431,7 @@
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */,
 				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
+				7C51086122C0D001005EE58B /* TermsViewControllerFactory.swift in Sources */,
 				7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */,
 				7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
@@ -1433,6 +1457,7 @@
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
+				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
@@ -1442,6 +1467,7 @@
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
+				7C51086322C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
 				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
 				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
@@ -1477,6 +1503,7 @@
 				7C98A6BF22896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift in Sources */,
 				7C1C1531229EDA5E0050337B /* TextAreaViewModelBinder.swift in Sources */,
 				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
+				7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */,
 				7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */,
@@ -1494,6 +1521,7 @@
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
+				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */,
 				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,

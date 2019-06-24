@@ -181,7 +181,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func showDisclaimer() {
         
-        if let disclaimerView = disclaimerFactory.makeDisclaimer() {
+        if let disclaimerView = disclaimerFactory.create() {
             disclaimerView.delegate = self
             disclaimerView.tag = 12
             disclaimerView.configureTxtViewWithHyperlinkText()
