@@ -30,10 +30,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var webQuestionViews = [Int: UIView]()
     var webQuestionIdsToViewSizes = [Int: CGSize]()
     
-//    var saveBtn: UIButton!
-//    var termsNoSwitchUp: TermsNoSwitchView!
-//    var termsNoSwitchDown: TermsNoSwitchView!
-    
     let localComponents = LocalComponents()
     
     var bag = DisposeBag()
@@ -52,11 +48,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureQuestionForm()
-    }
-    
     private func configureQuestionForm() {
         
         self.hideKeyboardWhenTappedAround()
@@ -69,7 +60,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         loadViewStackerAndComponentSizes()
         
-        listenToSaveEvent(existingAnswers: surveyInfo.answers)
+        listenToSaveEvent()
         
         myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
         
@@ -98,7 +89,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
                 DispatchQueue.main.async {
-                    sSelf.saveAnswers(surveyInfo: updatedSurvey, answers: updatedSurvey.answers) //redundant....
+                    sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
+                                                                answers: updatedSurvey.answers) //redundant....
                 }
                 
             })
@@ -197,19 +189,15 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
     }
     
-    private func listenToSaveEvent(existingAnswers:[MyAnswer] = []) {
+    private func listenToSaveEvent() {
         
         localComponents.saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-//                print("existingAnswers.count = \(existingAnswers.count)")
-                
-                var answers = existingAnswers // contains barcode
+                var answers = strongSelf.surveyInfo.answers // contains barcode
                 var answerIds = answers.map({$0.id})
                 var existingAnswerIds = answers.map({$0.id})
         
-                print("existingAnswerIds = \(existingAnswerIds)")
-                
                 func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
                     
                     func updateMyAnswers(newAnswer: MyAnswer) {
@@ -273,7 +261,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         if validator.questionsFormIsValid {
             
-            saveAnswers(surveyInfo: surveyInfo, answers: answers)
+            saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: surveyInfo, answers: answers)
             
             let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
             answersReporter.report.accept(newReport)
@@ -284,7 +272,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    private func saveAnswers(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
+    private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
         surveyInfo.save(answers: answers)
             .subscribe({ (saved) in
                 print("answers saved to realm = \(saved)")
