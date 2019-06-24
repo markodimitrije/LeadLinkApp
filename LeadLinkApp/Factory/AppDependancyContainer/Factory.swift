@@ -111,13 +111,15 @@ public class AppDependencyContainer {
     }
     
     func makeLoginViewModel() -> LogInViewModel {
-        let viewmodel = LogInViewModel.init(userSessionRepository: sharedUserSessionRepository, signedInResponder: self.sharedMainViewModel)
+        let viewmodel = LogInViewModel.init(userSessionRepository: sharedUserSessionRepository,
+                                            signedInResponder: self.sharedMainViewModel)
         return viewmodel
     }
     
     func makeLogoutViewModel() -> LogOutViewModel {
         
-        let viewmodel = LogOutViewModel.init(userSessionRepository: sharedUserSessionRepository, notSignedInResponder: self.sharedMainViewModel)
+        let viewmodel = LogOutViewModel.init(userSessionRepository: sharedUserSessionRepository,
+                                             notSignedInResponder: self.sharedMainViewModel)
         return viewmodel
     }
     
@@ -128,26 +130,16 @@ public class AppDependencyContainer {
     
     func makeScanningViewModel(campaign: Campaign, codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
         
-        let dataStore = codesDataStore ?? makeCodeDataStore()
-        let scanningViewmodel = ScanningViewModel.init(campaign: campaign, codesDataStore: dataStore)
+        let dataStoreFactory = CodesDataStoreFactory(appDependancyContainer: self)
+        let codesDataStore = dataStoreFactory.makeCodeDataStore()
+        
+        let scanningViewmodel = ScanningViewModel.init(campaign: campaign, codesDataStore: codesDataStore)
         
         return scanningViewmodel
     }
     
     func makeCampaignsViewModel() -> CampaignsViewModel {
         return CampaignsViewModel.init(campaignsRepository: sharedCampaignsRepository)
-    }
-    
-    //MARK:- Make datastore
-    
-    private func makeCodeDataStore() -> CodesDataStore {
-        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
-    }
-    
-    private func makeReportsDataStore() -> ReportsDataStore {
-        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmReportsDataStore.init(campaignsDataStore: realmCampaignsDataStore)
     }
     
     // MARK:- Make repositories
@@ -163,36 +155,4 @@ public class AppDependencyContainer {
 enum NavBarItem {
     case logout
     case stats
-}
-
-protocol Storyboarded: class {
-    static func instantiate(using sb: UIStoryboard?) -> Self
-}
-
-extension Storyboarded where Self: UIViewController {
-    static func instantiate(using sb: UIStoryboard? = nil) -> Self {
-        let sb = sb ?? UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let name = String(describing: self)
-        return sb.instantiateViewController(withIdentifier: name) as! Self
-    }
-}
-
-
-class DataStoreFactory {
-    
-    var appDependancyContainer: AppDependencyContainer
-    
-    init(appDependancyContainer: AppDependencyContainer) {
-        self.appDependancyContainer = appDependancyContainer
-    }
-    
-    func makeCodeDataStore() -> CodesDataStore {
-        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
-    }
-    
-    func makeReportsDataStore() -> ReportsDataStore {
-        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmReportsDataStore.init(campaignsDataStore: realmCampaignsDataStore)
-    }
 }

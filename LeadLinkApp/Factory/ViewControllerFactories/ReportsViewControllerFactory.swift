@@ -17,7 +17,7 @@ class ReportsViewControllerFactory {
     
     func makeVC(campaignId id: Int) -> ReportsVC {
         
-        let reportsDataStoreFactory = DataStoreFactory.init(appDependancyContainer: appDependancyContainer)
+        let reportsDataStoreFactory = ReportsDataStoreFactory(appDependancyContainer: appDependancyContainer)
         let reportsDataStore = reportsDataStoreFactory.makeReportsDataStore()
         
         let dataSource = ReportsDataSource.init(campaignId: id,
