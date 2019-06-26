@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SingleQuestion { // rename u ovako nesto: SurveyQuestion
+class SurveyQuestion {
     
     var question: PresentQuestion
     //var answer: Answering?

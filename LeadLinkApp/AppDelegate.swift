@@ -17,16 +17,17 @@ let kScanditBarcodeScannerAppKey = "ASHdMpiBDE75BbkR4xSxe94Ezm55L9o9KH8QCJpnArp5
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var factory =  AppDependencyContainer.init()
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
-    lazy var logOutViewModel = factory.makeLogoutViewModel()
+    lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         startVCProvider = StartViewControllerProvider(factory: factory)
         
-        navigationViewModel = factory.makeNavigationViewModel()
+        let navigationViewModelFactory = NavigationViewModelFactory(appDependancyContainer: factory)
+        
+        navigationViewModel = navigationViewModelFactory.makeViewModel()
         
         downloadCampaignsQuestionsAndLogos()
         
@@ -42,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         SBSLicense.setAppKey(kScanditBarcodeScannerAppKey)
-        
-        //navVC?.pushViewController(startingVC, animated: false)
         
         return true
     }
@@ -70,7 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let info = notification.userInfo, let id = info["campaignId"] as? Int else {
             fatalError("no campaignId sent from statsBtn")
         }
-        let statsVC = factory.makeStatsViewController(campaignId: id)
+        let statsVcFactory = StatsViewControllerFactory.init(appDependancyContainer: factory)
+        let statsVC = statsVcFactory.makeVC(campaignId: id)
+        
         (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)
     }
     
@@ -108,8 +109,10 @@ class StartViewControllerProvider: StartViewControllerProviding {
     }
     func getStartViewControllers() -> [UIViewController] {
         let userSession = factory.makeUserSessionRepository().readUserSession()
-        let loginVC = factory.makeLoginViewController()
-        let campaignsVC = factory.makeCampaignsViewController()
+        let loginVcFactory = LoginViewControllerFactory.init(appDependancyContainer: factory)
+        let loginVC = loginVcFactory.makeVC()
+        let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
+        let campaignsVC = campaignsVcFactory.makeVC()
         if let _ = userSession.value {
             return [loginVC, campaignsVC]
         } else {

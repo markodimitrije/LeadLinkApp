@@ -19,25 +19,25 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
-                                                                  delegate: myDataSourceAndDelegate)
-    private lazy var localComponentsViewFactory = LocalComponentsViewFactory()
+                                                                  delegate: questionOptionsFromTextViewDelegate)
     
     @IBOutlet weak var tableView: UITableView!
     
-    var questions = [SingleQuestion]()
+    var questions = [SurveyQuestion]()
     
     var parentViewmodel: ParentViewModel!
-    var allQuestionsViews = [Int: UIView]()
-    var questionIdsToViewSizes = [Int: CGSize]()
-    var saveBtn: UIButton!
-    var termsNoSwitchUp: TermsNoSwitchView!
-    var termsNoSwitchDown: TermsNoSwitchView!
+    var webQuestionViews = [Int: UIView]()
+    var webQuestionIdsToViewSizes = [Int: CGSize]()
+    
+    let localComponents = LocalComponents()
     
     var bag = DisposeBag()
     
     private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
-    
-    lazy private var myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
+
+    lazy private var myDataSource = QuestionsAnswersDataSource.init(viewController: self)
+    lazy private var myDelegate = QuestionsAnswersDelegate.init(viewController: self)
+    lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self)
     
     private var keyboardDelegate: MovingKeyboardDelegate?
     
@@ -49,20 +49,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureQuestionForm()
-    }
-    
-    private func configureQuestionForm() {
+    private func configureQuestionForm() { print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         self.hideKeyboardWhenTappedAround()
-        
-        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        
-        self.saveBtn = SaveButton()
-        self.termsNoSwitchUp = localComponentsViewFactory.makeTermsNoSwitchView(tag: 0)
-        self.termsNoSwitchDown = localComponentsViewFactory.makeTermsNoSwitchView(tag: 1)
         
         loadQuestions(surveyInfo: surveyInfo)
         
@@ -70,12 +59,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         loadViewStackerAndComponentSizes()
         
-        listenToSaveEvent(existingAnswers: surveyInfo.answers)
+        listenToSaveEvent()
         
-        myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
-        
-        self.tableView.dataSource = myDataSourceAndDelegate
-        self.tableView.delegate = myDataSourceAndDelegate
+        self.tableView.dataSource = myDataSource
+        self.tableView.delegate = myDelegate
         
         setUpKeyboardBehavior()
         
@@ -86,7 +73,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
-        guard shouldPrepopulateDelegateData(code: code) else { return }
+        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo, codeToCheck: code)
+        guard decisioner.shouldPrepopulateDelegateData() else { return }
 
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
@@ -98,18 +86,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
                 
                 DispatchQueue.main.async {
-                    sSelf.saveAnswers(surveyInfo: updatedSurvey, answers: updatedSurvey.answers) //redundant....
+                    sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
+                                                                answers: updatedSurvey.answers) //redundant....
                 }
                 
             })
             .disposed(by: bag)
         
-    }
-    
-    private func shouldPrepopulateDelegateData(code: String) -> Bool {
-        let hasRealmAnswers = surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)
-        let hasConsent = surveyInfo.hasConsent
-        return !hasRealmAnswers && hasConsent
     }
     
     private func setUpKeyboardBehavior() {
@@ -138,7 +121,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             
             if isCellBelowHalfOfTheScreen {
                 if verticalShift < 0 {
-//
+
                     if let firstCellAbove = self.tableView.getFirstCellAbove(cell: firstResponderCell),
                         let newIp = self.tableView.indexPath(for: firstCellAbove) {
                             self.tableView.scrollToRow(at: newIp, at: .top, animated: true)
@@ -174,48 +157,44 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             return rAnswer
         }
         
-        self.questions = questions.map { question -> SingleQuestion in
+        self.questions = questions.map { question -> SurveyQuestion in
             let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
-            return SingleQuestion.init(question: question, realmAnswer: rAnswer)
+            return SurveyQuestion.init(question: question, realmAnswer: rAnswer)
         }
         
     }
     
-    private func loadParentViewModel(questions: [SingleQuestion]) {
+    private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-        let childViewmodels = questions.compactMap { singleQuestion -> Questanable? in
-            return viewmodelFactory.makeViewmodel(singleQuestion: singleQuestion) as? Questanable
+        let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
+            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion) as? Questanable
         }
         parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
     }
     
     private func loadViewStackerAndComponentSizes() {
         
-        _ = questions.map({ singleQuestion -> Void in
-            let questionId = singleQuestion.question.id
+        _ = questions.map({ surveyQuestion -> Void in
+            let questionId = surveyQuestion.question.id
             guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
-            let singleQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [singleQuestion],
+            let surveyQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [surveyQuestion],
                                                                              viewmodel: viewmodel)
-            allQuestionsViews[questionId] = singleQuestionStackerView
-            questionIdsToViewSizes[questionId] = singleQuestionStackerView.bounds.size
+            webQuestionViews[questionId] = surveyQuestionStackerView
+            webQuestionIdsToViewSizes[questionId] = surveyQuestionStackerView.bounds.size
             
         })
         
     }
     
-    private func listenToSaveEvent(existingAnswers:[MyAnswer] = []) {
+    private func listenToSaveEvent() {
         
-        saveBtn.rx.controlEvent(.touchUpInside)
+        localComponents.saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-//                print("existingAnswers.count = \(existingAnswers.count)")
-                
-                var answers = existingAnswers // contains barcode
+                var answers = strongSelf.surveyInfo.answers // contains barcode
                 var answerIds = answers.map({$0.id})
                 var existingAnswerIds = answers.map({$0.id})
         
-                print("existingAnswerIds = \(existingAnswerIds)")
-                
                 func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
                     
                     func updateMyAnswers(newAnswer: MyAnswer) {
@@ -266,8 +245,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")
                     }
                 })
-//                print("saljem answers.count = \(answers.count)")
-                print("answersIds = \(answers.map({$0.id}))")
+//                print("answersIds = \(answers.map({$0.id}))")
                 strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: answers)
                 
             })
@@ -279,7 +257,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         if validator.questionsFormIsValid {
             
-            saveAnswers(surveyInfo: surveyInfo, answers: answers)
+            saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: surveyInfo, answers: answers)
             
             let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
             answersReporter.report.accept(newReport)
@@ -290,7 +268,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    private func saveAnswers(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
+    private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
         surveyInfo.save(answers: answers)
             .subscribe({ (saved) in
                 print("answers saved to realm = \(saved)")
@@ -308,23 +286,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
 }
 
-//
-//extension QuestionsAnswersVC: UITextViewDelegate {
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-//        if (URL.absoluteString == Constants.PrivacyPolicy.navusUrl ||
-//            URL.absoluteString == Constants.PrivacyPolicy.url) {
-//            UIApplication.shared.open(URL)
-//        }
-//        return false
-//    }
-//}
-
-
-
-
 enum SectionType: String {
     case noGroupAssociated = " "
     case saveBtn = "  "
 }
-
-

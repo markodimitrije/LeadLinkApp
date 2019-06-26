@@ -44,10 +44,8 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         tableView.delegate = self
         
         repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
-        logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
-        //campaignsViewModel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
         
-        //addLogoutBtn()
+        logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
         
         observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         
@@ -89,11 +87,6 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
     }
     
-//    private func addLogoutBtn() {
-//        let logoutBtn = UIBarButtonItem.init(title: "Logout", style: .plain, target: self, action: #selector(CampaignsVC.logoutBtnTapped(_:)))
-//        self.navigationItem.rightBarButtonItem = logoutBtn
-//    }
-    
     @objc private func logoutBtnTapped(_ sender: UIButton) { //Do your stuff here
         logOutViewModel.signOut()
     }
@@ -112,14 +105,25 @@ extension CampaignsVC: UITableViewDelegate {
         
         campaignsViewModel.selectedTableIndex.onNext(indexPath.item)
         
-        let scanningViewModel = factory.makeScanningViewModel(campaign: Campaign.init(realmCampaign: selectedCampaign))
-        
-        let scanningVC = factory.makeScanningViewController(viewModel: scanningViewModel)
-        
         UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
+        
+        let scanningVC = createScaningVC(campaign: selectedCampaign)
         
         navigationController?.pushViewController(scanningVC, animated: true)
         
+    }
+    
+    private func createScaningVC(campaign: RealmCampaign) -> ScanningVC {
+     
+        let scaningViewModelFactory = ScaningViewModelFactory(appDependancyContainer: factory)
+        
+        let scanningViewModel = scaningViewModelFactory.makeViewModel(campaign: Campaign.init(realmCampaign: campaign))
+        
+        let scaningVcFactory = ScaningViewControllerFactory(appDependancyContainer: factory)
+        
+        let scanningVC = scaningVcFactory.makeVC(viewModel: scanningViewModel)
+        
+        return scanningVC
     }
 }
 

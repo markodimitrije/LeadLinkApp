@@ -11,6 +11,7 @@ import UIKit
 struct QuestionsDataSourceAndDelegateHelper {
     
     private var orderedQuestions = [PresentQuestion]()
+    private var localComponents: LocalComponents
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
         if itemHasNoGroup(question: question) {
@@ -20,8 +21,9 @@ struct QuestionsDataSourceAndDelegateHelper {
         }
         }.unique() + [SectionType.saveBtn.rawValue]
     
-    init(questions: [SingleQuestion]) {
+    init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
+        self.localComponents = localComponents
     }
     
     mutating func numberOfDifferentGroups() -> Int {
@@ -29,7 +31,6 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func groupNames() -> [String] {
-//        print("groupNames.orderedGroups = \(orderedGroups)")
         return orderedGroups
     }
     
@@ -43,7 +44,9 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     mutating func itemsInGroupWith(index: Int) -> Int {
-        guard let questions = questionsInGroupWith(index: index) else {return 3} // ako nemas questions onda si SAVE BTN
+        guard let questions = questionsInGroupWith(index: index) else {
+            return localComponents.componentsInOrder.count
+        }
         return questions.count
     }
     
@@ -63,7 +66,6 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     private func itemHasNoGroup(question: PresentQuestion) -> Bool {
-        //        print("itemHasNoGroup = \(question.group == nil || question.group == ""), za qId = \(question.id)")
         return question.group == nil || question.group == ""
     }
     

@@ -16,6 +16,8 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     
     weak var delegate: UITextViewDelegate?
     
+    private let termsVcFactory = TermsViewControllerFactory.init(appDependancyContainer: factory)
+    
     @IBAction func termsTapped(_ sender: UIButton) {
         termsBtnTapped()
     }
@@ -76,8 +78,7 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
             UIApplication.shared.open(url) // hard-coded
         } else {
             if let topVC = UIApplication.topViewController() {
-                let factory = AppDependencyContainer()
-                let termsVC = factory.makeTermsVC(termsTxt: self.termsTxt)
+                let termsVC = termsVcFactory.makeVC(termsTxt: self.termsTxt)
                 topVC.present(termsVC, animated: true, completion: nil)
             }
         }

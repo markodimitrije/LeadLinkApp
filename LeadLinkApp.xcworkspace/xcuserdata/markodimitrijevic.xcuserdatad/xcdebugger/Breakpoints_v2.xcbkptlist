@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/Model/QAModel/OptionsTextView.swift"
-            timestampString = "581355638.013652"
+            timestampString = "582805947.154909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/APIController/APIController.swift"
-            timestampString = "581528731.174464"
+            timestampString = "583081690.915388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -105,22 +105,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/VCs/LoginViewController.swift"
-            timestampString = "581855804.440235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "observe(userSessionState:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/Scanning/Viewmodel/AVSessionViewModel.swift"
             timestampString = "581614949.515053"
             startingColumnNumber = "9223372036854775807"
@@ -138,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/Validation/Validation.swift"
-            timestampString = "581975665.824728"
+            timestampString = "583238009.3632751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -176,22 +160,6 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "buildRequest(base:method:pathComponent:params:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataSourceAndDelegate/QuestionsAnswersDataSourceAndDelegate.swift"
-            timestampString = "582139426.593055"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/APIController/AnswersAPIController.swift"
-            timestampString = "581956003.305076"
+            filePath = "LeadLinkApp/AnswersReporting/CodeReportState.swift"
+            timestampString = "583076563.878927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "postRequest(base:pathComponent:reports:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "reportImidiatelly(report:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -281,13 +249,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/APIController/AnswersAPIController.swift"
-            timestampString = "581956003.3051291"
+            filePath = "LeadLinkApp/Factory/Factory.swift"
+            timestampString = "583081286.523811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "postRequest(base:pathComponent:reports:)"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "makeQuestionsAnswersViewController(code:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/Factory/Factory.swift"
+            timestampString = "583081286.523882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "makeQuestionsAnswersViewController(codeValue:campaignId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

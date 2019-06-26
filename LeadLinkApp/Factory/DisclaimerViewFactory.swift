@@ -10,7 +10,7 @@ import UIKit
 
 class DisclaimerViewFactory {
     
-    func makeDisclaimer() -> DisclaimerView? {
+    func create() -> DisclaimerView? {
         guard let topVC = UIApplication.topViewController() else {
             return nil
         }

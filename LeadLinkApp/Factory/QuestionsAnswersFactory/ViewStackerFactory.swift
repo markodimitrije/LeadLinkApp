@@ -32,27 +32,27 @@ class ViewStackerFactory {
         self.delegate = delegate
     }
     
-    func drawStackView(questionsOfSameType questions: [SingleQuestion], viewmodel: Questanable) -> UIView {
+    func drawStackView(questionsOfSameType questions: [SurveyQuestion], viewmodel: Questanable) -> UIView {
         
         guard questions.count > 0 else {fatalError()}
 
-        let singleQuestion = questions.first!
+        let surveyQuestion = questions.first!
         
-        let height = tableRowHeightCalculator.getOneRowHeightRegardingDevice(componentType: singleQuestion.question.type)
+        let height = tableRowHeightCalculator.getOneRowHeightRegardingDevice(componentType: surveyQuestion.question.type)
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: viewFactory.bounds.width, height: height))
         
         var finalView: UIView!
         var btnViews: [UIView]
         
-        switch singleQuestion.question.type {
+        switch surveyQuestion.question.type {
         
         case .textField:
-            let res = self.getLabelAndTextField(question: singleQuestion.question,
-                                                answer: singleQuestion.answer,
+            let res = self.getLabelAndTextField(question: surveyQuestion.question,
+                                                answer: surveyQuestion.answer,
                                                 frame: fr)
             let stackerView = res.0; btnViews = res.1
             
-            let selector = (singleQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
+            let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
             
             _ = btnViews.map { (btnView) -> () in
                 txtFieldToViewModelBinder.hookUp(view: stackerView,
@@ -66,8 +66,8 @@ class ViewStackerFactory {
             
         case .textArea:
             
-            let res = self.getLabelAndTextView(question: singleQuestion.question,
-                                               answer: singleQuestion.answer,
+            let res = self.getLabelAndTextView(question: surveyQuestion.question,
+                                               answer: surveyQuestion.answer,
                                                frame: fr)
             let stackerView = res.0; btnViews = res.1
             
@@ -84,8 +84,8 @@ class ViewStackerFactory {
             finalView = stackerView
             
         case .dropdown:
-            let res = self.getLabelAndTextView(question: singleQuestion.question,
-                                               answer: singleQuestion.answer,
+            let res = self.getLabelAndTextView(question: surveyQuestion.question,
+                                               answer: surveyQuestion.answer,
                                                frame: fr)
             let stackerView = res.0; btnViews = res.1
             
@@ -102,8 +102,8 @@ class ViewStackerFactory {
             
         case .radioBtn:
             
-            let res = self.getRadioBtnsView(question: singleQuestion.question,
-                                            answer: singleQuestion.answer,
+            let res = self.getRadioBtnsView(question: surveyQuestion.question,
+                                            answer: surveyQuestion.answer,
                                             frame: fr)
             
             finalView = res.0; btnViews = res.1
@@ -114,8 +114,8 @@ class ViewStackerFactory {
                                             bag: bag)
             
         case .checkbox:
-            let res = self.getCheckboxBtnsView(question: singleQuestion.question,
-                                               answer: singleQuestion.answer,
+            let res = self.getCheckboxBtnsView(question: surveyQuestion.question,
+                                               answer: surveyQuestion.answer,
                                                frame: fr)
             finalView = res.0; btnViews = res.1
             
@@ -125,8 +125,8 @@ class ViewStackerFactory {
                                                bag: bag)
             
         case .radioBtnWithInput:
-            let res = self.getRadioBtnsWithInputView(question: singleQuestion.question,
-                                                     answer: singleQuestion.answer,
+            let res = self.getRadioBtnsWithInputView(question: surveyQuestion.question,
+                                                     answer: surveyQuestion.answer,
                                                      frame: fr)
             finalView = res.0; btnViews = res.1
             
@@ -136,8 +136,8 @@ class ViewStackerFactory {
                                                      bag: bag)
             
         case .checkboxWithInput:
-            let res = self.getCheckboxBtnsWithInputView(question: singleQuestion.question,
-                                                        answer: singleQuestion.answer,
+            let res = self.getCheckboxBtnsWithInputView(question: surveyQuestion.question,
+                                                        answer: surveyQuestion.answer,
                                                         frame: fr)
             finalView = res.0; btnViews = res.1
             
@@ -147,8 +147,8 @@ class ViewStackerFactory {
                                                         bag: bag)
             
         case .switchBtn:
-            let res = self.getSwitchBtnsView(question: singleQuestion.question,
-                                             answer: singleQuestion.answer,
+            let res = self.getSwitchBtnsView(question: surveyQuestion.question,
+                                             answer: surveyQuestion.answer,
                                              frame: fr)
             finalView = res.0; btnViews = res.1
             
@@ -158,8 +158,8 @@ class ViewStackerFactory {
                                              bag: bag)
             
         case .termsSwitchBtn:
-            let res = self.getTermsSwitchBtnsView(question: singleQuestion.question,
-                                                  answer: singleQuestion.answer,
+            let res = self.getTermsSwitchBtnsView(question: surveyQuestion.question,
+                                                  answer: surveyQuestion.answer,
                                                   frame: fr)
             finalView = res.0; btnViews = res.1
             
@@ -168,7 +168,6 @@ class ViewStackerFactory {
                                                   viewmodel: viewmodel as! SwitchBtnsViewModel,
                                                   bag: bag)
             
-        default: break
         }
         
         return finalView

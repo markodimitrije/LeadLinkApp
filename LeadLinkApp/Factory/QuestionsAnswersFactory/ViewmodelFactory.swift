@@ -17,12 +17,12 @@ class ViewmodelFactory {
         self.code = code
     }
     
-    func makeViewmodel(singleQuestion: SingleQuestion) -> Any {
+    func makeViewmodel(surveyQuestion: SurveyQuestion) -> Any {
         
-        let question = singleQuestion.question
-        let answer = singleQuestion.answer
+        let question = surveyQuestion.question
+        let answer = surveyQuestion.answer
         
-        switch singleQuestion.question.type {
+        switch surveyQuestion.question.type {
         case .textField:
             return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)// as? TextAnswer)
         case .radioBtn:
@@ -41,8 +41,6 @@ class ViewmodelFactory {
             return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)
         case .termsSwitchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
-        default:
-            fatalError("ViewmodelFactory/makeViewmodel/no supported type")
         }
 
     }
