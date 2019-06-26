@@ -19,7 +19,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
-                                                                  delegate: myDataSourceAndDelegate)
+                                                                  delegate: questionOptionsFromTextViewDelegate)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,8 +34,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var bag = DisposeBag()
     
     private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
-    
-    lazy private var myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
+
+    lazy private var myDataSource = QuestionsAnswersDataSource.init(viewController: self)
+    lazy private var myDelegate = QuestionsAnswersDelegate.init(viewController: self)
+    lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self)
     
     private var keyboardDelegate: MovingKeyboardDelegate?
     
@@ -61,10 +63,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         listenToSaveEvent()
         
-        myDataSourceAndDelegate = QuestionsAnswersDataSourceAndDelegate.init(viewController: self)
-        
-        self.tableView.dataSource = myDataSourceAndDelegate
-        self.tableView.delegate = myDataSourceAndDelegate
+        self.tableView.dataSource = myDataSource
+        self.tableView.delegate = myDelegate
         
         setUpKeyboardBehavior()
         
