@@ -79,23 +79,3 @@ struct CheckboxOption {
     var isOn = false
     var text = ""
 }
-
-
-extension Reactive where Base: CheckboxView {
-    
-    var btnOnImg: UIImage? {
-        return UIImage.init(named: "checkbox_ON")
-    }
-    
-    var btnOffImg: UIImage?  {
-        return UIImage.init(named: "checkbox_OFF")
-    }
-    
-    var isOn: Binder<Bool> {
-        return Binder.init(self.base, binding: { (view, value) in
-            let image = value ? self.btnOnImg : self.btnOffImg
-            view.checkboxImageBtn.setBackgroundImage(image, for: .normal)
-        })
-    }
-    
-}

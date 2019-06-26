@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/Views/QAViews/Components/TermsSwitch/TermsLabelBtnSwitchView.swift"
-            timestampString = "583244184.991526"
+            timestampString = "583252083.756757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"

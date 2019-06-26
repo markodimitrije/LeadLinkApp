@@ -22,12 +22,6 @@ class RadioBtnView: UIView, RowsStackedEqually { // RowsStackedEqually hocu da s
         //delegate?.radioBtnTapped(index: sender.tag)
     }
     
-    var counter: Int = 0
-    
-    // ovde moze da se zakaci listener // mnogo je bolje sa observables...
-    
-    //weak var delegate: RadioBtnListener?
-    
     var headlineText: String? {
         get {
             return headlineLbl.text
@@ -40,8 +34,8 @@ class RadioBtnView: UIView, RowsStackedEqually { // RowsStackedEqually hocu da s
     private var id = 0
     private var _isOn: Bool = false
     
-    var radioBtnOnImg = UIImage.init(named: "radioBtn_ON")
-    var radioBtnOffImg = UIImage.init(named: "radioBtn_OFF")
+    var radioBtnOnImg = RadioImage.init().onImage
+    var radioBtnOffImg = RadioImage.init().offImage
     
     var isOn: Bool {
         get {
@@ -49,7 +43,7 @@ class RadioBtnView: UIView, RowsStackedEqually { // RowsStackedEqually hocu da s
         }
         set {
             _isOn = newValue
-            let img = _isOn ? radioBtnOnImg : radioBtnOffImg
+            let img = _isOn ? RadioImage().onImage : RadioImage().offImage
             radioImageBtn.setBackgroundImage(img, for: .normal)
         }
     }
@@ -98,91 +92,73 @@ struct RadioBtnOption {
     var text = ""
 }
 
-//protocol RadioBtnListener: class { // ovo ukloni, koristim RX !
-//    func radioBtnTapped(index: Int)
-//}
-
-extension Reactive where Base: RadioBtnView {
-
-    var radioBtnOnImg: UIImage? {
-        return UIImage.init(named: "radioBtn_ON")
+class RadioImage {
+    
+    var onImage: UIImage!
+    var offImage: UIImage!
+    
+    private var outerView: UIView!
+    private var innerOnView: UIView!
+    private var innerOffView: UIView!
+    
+    init() {
+        loadImageView()
     }
     
-    var radioBtnOffImg: UIImage?  {
-        return UIImage.init(named: "radioBtn_OFF")
+    private func loadImageView() {
+        makeOuterCircle()
+        makeInnerViewOn()
+        makeInnerViewOff()
+        composeImageViewFromOuterAndInnerCircle()
     }
     
-    var isOn: Binder<Bool> {
-        return Binder.init(self.base, binding: { (view, value) in
-            let image = value ? self.radioBtnOnImg : self.radioBtnOffImg
-            view.radioImageBtn.setBackgroundImage(image, for: .normal)
-        })
+    private func makeOuterCircle() {
+        let outerRect = CGRect.init(origin: .zero, size: CGSize.init(width: 50.0, height: 50.0))
+        self.outerView = UIView.init(frame: outerRect)
+        formatOuterCircle()
     }
     
-    var optionTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.headlineText = value
-        })
-    }
-
-}
-
-extension Reactive where Base: LabelBtnSwitchView {
-    
-    var optionTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.labelText = value
-        })
+    private func makeInnerViewOn() {
+        let innerRect = CGRect.init(origin: .zero, size: CGSize.init(width: 40.0, height: 40.0))
+        self.innerOnView = UIView.init(frame: innerRect)
+        formatInnerViewOn()
     }
     
-}
-
-extension Reactive where Base: TermsLabelBtnSwitchView {
-    
-    var optionTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.labelText = value
-        })
+    private func makeInnerViewOff() {
+        let innerRect = CGRect.init(origin: .zero, size: CGSize.init(width: 40.0, height: 40.0))
+        self.innerOffView = UIView.init(frame: innerRect)
+        formatInnerViewOff()
     }
     
-    var labelTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.labelText = value
-        })
+    private func composeImageViewFromOuterAndInnerCircle() {
+        
+        innerOnView.center = outerView.center
+        innerOffView.center = outerView.center
+        guard let finalView = outerView else {fatalError()}
+        
+        finalView.addSubview(innerOnView)
+        self.onImage = UIImage(view: finalView)
+        
+        finalView.removeAllSubviews()
+        finalView.addSubview(innerOffView)
+        self.offImage = UIImage(view: finalView)
+        
     }
     
-    var linkBtnTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.linkBtnText = value
-        })
+    private func formatOuterCircle() {
+        outerView.layer.borderWidth = 1.0
+        outerView.layer.cornerRadius = self.outerView.bounds.width/2
+        outerView.layer.borderColor = UIColor.leadLinkColor.cgColor
     }
     
-    var termsTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.termsTxt = value
-        })
+    private func formatInnerViewOn() {
+        innerOnView.layer.cornerRadius = 0.5
+        innerOnView.layer.cornerRadius = self.innerOnView.bounds.width/2
+        innerOnView.layer.backgroundColor = UIColor.leadLinkColor.cgColor
     }
-    
-}
-
-extension Reactive where Base: LabelAndTextField {
-    
-    var headlineTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.headlineTxt = value
-        })
+    private func formatInnerViewOff() {
+        innerOffView.layer.cornerRadius = 0.5
+        innerOffView.layer.cornerRadius = self.innerOnView.bounds.width/2
+        innerOffView.layer.backgroundColor = UIColor.white.cgColor
     }
-
-    var inputTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.inputTxt = value
-        })
-    }
-    
-    var update: Binder<(headline: String, text: String)> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.update(headlineText: value.headline, inputTxt: value.text)
-        })
-    }
-    
 }
