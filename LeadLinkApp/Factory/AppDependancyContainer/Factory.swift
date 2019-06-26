@@ -51,7 +51,7 @@ public class AppDependencyContainer {
             return MainViewModel()
         }
         
-        // campaigns
+        // campaignsRepository
         
         func makeCampaignsRepository() -> CampaignsRepository {
             

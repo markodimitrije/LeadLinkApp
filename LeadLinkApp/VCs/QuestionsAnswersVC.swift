@@ -20,7 +20,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
                                                                   bag: bag,
                                                                   delegate: myDataSourceAndDelegate)
-//    private lazy var localComponentsViewFactory = LocalComponentsViewFactory()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -124,7 +123,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             
             if isCellBelowHalfOfTheScreen {
                 if verticalShift < 0 {
-//
+
                     if let firstCellAbove = self.tableView.getFirstCellAbove(cell: firstResponderCell),
                         let newIp = self.tableView.indexPath(for: firstCellAbove) {
                             self.tableView.scrollToRow(at: newIp, at: .top, animated: true)
@@ -248,8 +247,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                         print("o-o, unknown type of viewmodel ?!?!?!, viewmodel = \(viewmodel)")
                     }
                 })
-//                print("saljem answers.count = \(answers.count)")
-                print("answersIds = \(answers.map({$0.id}))")
+//                print("answersIds = \(answers.map({$0.id}))")
                 strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: answers)
                 
             })
