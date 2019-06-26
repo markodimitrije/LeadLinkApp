@@ -29,13 +29,17 @@ class CheckboxView: UIView, RowsStackedEqually {
     private var id = 0
     private var _isOn: Bool = false
     
+    private var onImg = CheckboxBtnImage().onImage
+    private var offImg = CheckboxBtnImage().offImage
+    
     var isOn: Bool {
         get {
             return _isOn
         }
         set {
             _isOn = newValue
-            let img = _isOn ? UIImage.init(named: "checkbox_ON") : UIImage.init(named: "checkbox_OFF")
+            //let img = _isOn ? UIImage.init(named: "checkbox_ON") : UIImage.init(named: "checkbox_OFF")
+            let img = _isOn ? onImg : offImg
             checkboxImageBtn.setBackgroundImage(img, for: .normal)
         }
     }
@@ -63,6 +67,8 @@ class CheckboxView: UIView, RowsStackedEqually {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.addSubview(view)
+        
+        isOn = false // draw radioBtns with empty (only outer circle)
         
     }
     

@@ -12,8 +12,8 @@ struct Validation {
     
     // API
     var questionsFormIsValid: Bool {
-        return hasValidEmail && hasCheckedTermsAndConditions // hard-coded on
-//        return true // hard-coded on
+//        return hasValidEmail && hasCheckedTermsAndConditions // hard-coded on
+        return true // hard-coded on
     }
     
     private let emailValidator = EmailValidator()
