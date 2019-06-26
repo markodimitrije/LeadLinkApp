@@ -32,7 +32,7 @@ struct Validation {
         return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
     }
     
-    init(surveyInfo: SurveyInfo, questions: [SingleQuestion], answers: [MyAnswer]) {
+    init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswer]) {
         self.emailAnswer = answers.first(where: { answer -> Bool in
             emailValidator.isValidEmail(testStr: answer.content.first)
         })

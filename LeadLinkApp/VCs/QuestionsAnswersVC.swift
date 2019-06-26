@@ -23,7 +23,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var tableView: UITableView!
     
-    var questions = [SingleQuestion]()
+    var questions = [SurveyQuestion]()
     
     var parentViewmodel: ParentViewModel!
     var webQuestionViews = [Int: UIView]()
@@ -49,11 +49,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    private func configureQuestionForm() {
+    private func configureQuestionForm() { print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         self.hideKeyboardWhenTappedAround()
-        
-        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         loadQuestions(surveyInfo: surveyInfo)
         
@@ -159,30 +157,30 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             return rAnswer
         }
         
-        self.questions = questions.map { question -> SingleQuestion in
+        self.questions = questions.map { question -> SurveyQuestion in
             let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
-            return SingleQuestion.init(question: question, realmAnswer: rAnswer)
+            return SurveyQuestion.init(question: question, realmAnswer: rAnswer)
         }
         
     }
     
-    private func loadParentViewModel(questions: [SingleQuestion]) {
+    private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-        let childViewmodels = questions.compactMap { singleQuestion -> Questanable? in
-            return viewmodelFactory.makeViewmodel(singleQuestion: singleQuestion) as? Questanable
+        let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
+            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion) as? Questanable
         }
         parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
     }
     
     private func loadViewStackerAndComponentSizes() {
         
-        _ = questions.map({ singleQuestion -> Void in
-            let questionId = singleQuestion.question.id
+        _ = questions.map({ surveyQuestion -> Void in
+            let questionId = surveyQuestion.question.id
             guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
-            let singleQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [singleQuestion],
+            let surveyQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [surveyQuestion],
                                                                              viewmodel: viewmodel)
-            webQuestionViews[questionId] = singleQuestionStackerView
-            webQuestionIdsToViewSizes[questionId] = singleQuestionStackerView.bounds.size
+            webQuestionViews[questionId] = surveyQuestionStackerView
+            webQuestionIdsToViewSizes[questionId] = surveyQuestionStackerView.bounds.size
             
         })
         

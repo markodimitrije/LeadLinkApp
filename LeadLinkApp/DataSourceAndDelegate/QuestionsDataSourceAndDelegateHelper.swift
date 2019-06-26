@@ -21,7 +21,7 @@ struct QuestionsDataSourceAndDelegateHelper {
         }
         }.unique() + [SectionType.saveBtn.rawValue]
     
-    init(questions: [SingleQuestion], localComponents: LocalComponents) {
+    init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
         self.localComponents = localComponents
     }

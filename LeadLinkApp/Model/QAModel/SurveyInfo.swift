@@ -24,30 +24,10 @@ struct SurveyInfo {
     
     var oVcWillAppear = BehaviorSubject<Bool>.init(value: false)
     
-    //var dataStore: RealmAnswersDataStore?// = RealmAnswersDataStore.init()
     private let realmAnswersDataStore = RealmAnswersDataStore.init()
     
-    var singleQuestions = [SingleQuestion]() {
-        didSet {
-            _ = singleQuestions.map { singleQuestion -> () in
-                print("singleQuestions.answer = \(String(describing: singleQuestion.answer))")
-            }
-            
-        }
-    }
-    
-    mutating func loadAnswers(code: String) { // implement me
-        
-        singleQuestions = campaign.questions.map { question -> SingleQuestion in
-            let realmAnswer = realmAnswersDataStore.answer(question: question, code: code)
-            return SingleQuestion.init(question: question, realmAnswer: realmAnswer)
-        }
-    }
-    
-    var questions: [Question] {
-        return campaign.questions
-    }
-    
+    var surveyQuestions = [SurveyQuestion]()
+    var questions: [Question] { return campaign.questions }
     var answers = [MyAnswer]()
     
     init(campaign: Campaign, code: String, hasConsent: Bool = false, dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
@@ -65,12 +45,6 @@ struct SurveyInfo {
             return nil
         }
         
-        oVcWillAppear
-            .subscribe(onNext: { happened in
-                if happened {
-                    print("reload items")
-                }
-            }).disposed(by: bag)
     }
     
     func save(answers: [MyAnswer]) -> Observable<Bool> {
@@ -116,8 +90,6 @@ extension SurveyInfo {
 //                print("dodaj answer tipa = \(personalKey.rawValue)")
                 newAnswers.append(preloadAnswer)
                 
-            } else {
-//                print("sto ne uhvati...")
             }
         }
         
