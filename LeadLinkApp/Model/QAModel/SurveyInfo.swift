@@ -30,12 +30,16 @@ struct SurveyInfo {
     var questions: [Question] { return campaign.questions }
     var answers = [MyAnswer]()
     
-    init(campaign: Campaign, code: String, hasConsent: Bool = false, dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
+    init(campaign: Campaign,
+         code: String,
+         hasConsent: Bool = false,
+         dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
+        
         self.campaign = campaign
         self.code = code
         self.hasConsent = hasConsent
         self.dataStore = dataStore
-        
+    
         answers = campaign.questions.compactMap { question -> MyAnswer? in//Answer? in
             let answerIdentifier = AnswerIdentifer.init(campaignId: campaign.id, questionId: question.id, code: code)
             if let realmAnswer = dataStore.readAnswer(answerIdentifier: answerIdentifier).value,
