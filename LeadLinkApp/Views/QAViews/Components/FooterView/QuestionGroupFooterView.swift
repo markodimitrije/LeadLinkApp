@@ -14,11 +14,16 @@ class QuestionGroupFooterView: UIView {
     
     var color: UIColor? {
         get {
-            return barView.backgroundColor
+            return barView?.backgroundColor
         }
         set {
-            barView.backgroundColor = newValue
+            barView?.backgroundColor = newValue
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        update(color: UIColor.leadLinkColor)
     }
     
     override init(frame: CGRect) {

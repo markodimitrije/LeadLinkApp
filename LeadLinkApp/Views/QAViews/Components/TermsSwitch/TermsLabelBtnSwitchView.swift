@@ -52,6 +52,10 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     
     var termsTxt: String? // zapamti state koji ti je neko poslao
     
+    override func layoutSubviews() {
+        updateSwitch(color: UIColor.leadLinkColor)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib() // ne zaboravi OVO !
@@ -83,6 +87,10 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
             }
         }
         
+    }
+    
+    private func updateSwitch(color: UIColor?) {
+        switcher.onTintColor = color
     }
     
 }

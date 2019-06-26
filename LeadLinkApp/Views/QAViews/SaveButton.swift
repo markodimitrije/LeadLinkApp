@@ -24,7 +24,7 @@ class SaveButton: UIButton {
     }
     
     private func setColorAndText() {
-        self.backgroundColor = UIColor.init(red: 108/255, green: 49/255, blue: 195/255, alpha: 1.0)
+        self.backgroundColor = UIColor.leadLinkColor
         self.setTitle("Save", for: .normal)
     }
 }
