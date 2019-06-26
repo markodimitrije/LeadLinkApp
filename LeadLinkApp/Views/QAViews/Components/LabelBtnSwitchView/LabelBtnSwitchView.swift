@@ -33,6 +33,10 @@ class LabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     
     var desc: String? // zapamti state koji ti je neko poslao
     
+    override func layoutSubviews() {
+        updateSwitch(color: UIColor.leadLinkColor)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib() // ne zaboravi OVO !
@@ -63,6 +67,10 @@ class LabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         self.labelText = switchInfo.text
         self.switchIsOn = switchInfo.switchIsOn
         self.desc = switchInfo.desc
+    }
+    
+    private func updateSwitch(color: UIColor?) {
+        switcher.onTintColor = color
     }
     
 }
