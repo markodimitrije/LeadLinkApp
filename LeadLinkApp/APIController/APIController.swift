@@ -24,10 +24,6 @@ class ApiController {
     /// The shared instance
     static var shared = ApiController()
     
-    /// The api key to communicate with LeadLink
-//    private let apiKey = "LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01" // Api-Key 5.6.2019 era-edta
-//    private let authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlcnZpY2UuZS1tYXRlcmlhbHMuY29tL2FwaS9sb2dpbiIsImlhdCI6MTU0NDQ0Mjg3MSwiZXhwIjoxODU1NDgyODcxLCJuYmYiOjE1NDQ0NDI4NzEsImp0aSI6IkVlYkJxYkkwUVpzaHdBR0QiLCJzdWIiOjI2NTI5LCJwcnYiOiJjM2NjMjZhNDU3ODZlMTJlMjU2ZGIxZDIxMDE3M2ZjYjI3NDE1NDZkIiwicm9sZXMiOnsicG9ydGFsIjp7IjEiOlsic3BlYWtlciJdLCI3IjpbInNwZWFrZXIiXSwiMTciOlsic3BlYWtlciJdLCIyMCI6WyJzcGVha2VyIl19LCJvcmdhbml6YXRpb24iOnsiMTMyIjpbImFkbWluIl19LCJjb25mZXJlbmNlIjp7Ijc0ODAiOlsib3JnYW5pemVyIiwibGVhZF9saW5rX21hbmFnZXIiXX19LCJmaXJzdF9uYW1lIjoidGVzdCIsImxhc3RfbmFtZSI6InRlcyIsInRva2VuIjoiNWE5ZTdlY2NhNDExZSIsImxpbWl0ZWQiOjB9.srG1Qn0mBwze9udK6Tb1e1s5mooshFSz2jS9DmkvBMQ" // Authorization
-
     private var apiKey: String {
         return confApiKeyState.apiKey ?? "error"
     }

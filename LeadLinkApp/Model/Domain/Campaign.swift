@@ -40,7 +40,7 @@ public struct Campaign: Codable {
         self.organization_id = campaign.organization_id
         self.created_at = campaign.created_at
         self.primary_color = campaign.primary_color
-        self.color = campaign.color
+        self.color = campaign.color ?? "#b4b4b4" // hard-coded
         self.logo = campaign.logo
         self.imgData = campaign.imgData
         

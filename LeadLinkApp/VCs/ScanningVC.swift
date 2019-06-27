@@ -293,15 +293,3 @@ extension ScanningVC: UITextViewDelegate {
         return false
     }
 }
-
-
-
-
-
-
-// GDE OVO
-
-class DataAccess {
-    static let shared = DataAccess.init()
-}
-
