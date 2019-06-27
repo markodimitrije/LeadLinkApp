@@ -21,7 +21,7 @@ public protocol CodesDataStore {
 
 protocol ReportsDataStore {
     /// Read
-//    func getReports(campaignId: Int) -> [Report]
+    var campaignId: Int {get set}
     var oReports: BehaviorRelay<[RealmWebReportedAnswers]> {get set}
 }
 

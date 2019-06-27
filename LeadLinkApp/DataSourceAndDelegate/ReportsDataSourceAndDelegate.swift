@@ -31,7 +31,9 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
         super.init()
         reportsDataStore.oReports
             .subscribe(onNext: { [weak self] realmReports in guard let sSelf = self else {return}
+                
                 sSelf.data = realmReports.map(Report.init)
+                
             }).disposed(by: bag)
     }
     

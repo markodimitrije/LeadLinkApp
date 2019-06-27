@@ -11,6 +11,8 @@ import RxSwift
 
 let factory = AppDependencyContainer.init()
 
+var surveyInfo: SurveyInfo?
+
 var tableRowHeightCalculator = QuestionsAnswersTableRowHeightCalculator()
 
 var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web

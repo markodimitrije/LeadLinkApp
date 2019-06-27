@@ -32,7 +32,7 @@ class QuestionsAnswersViewControllerFactory {
             fatalError("no campaign value !?!")
         }
         
-        let surveyInfo = SurveyInfo.init(campaign: campaign , code: code, hasConsent: consent)
+        surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
@@ -49,7 +49,7 @@ class QuestionsAnswersViewControllerFactory {
         
         guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
         
-        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
@@ -64,7 +64,7 @@ class QuestionsAnswersViewControllerFactory {
             fatalError("no campaign value !?!")
         }
         
-        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         

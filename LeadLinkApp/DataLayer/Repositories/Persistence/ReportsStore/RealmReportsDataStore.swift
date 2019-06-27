@@ -19,11 +19,13 @@ public class RealmReportsDataStore: ReportsDataStore {
     
     private var realm = try! Realm.init()
     private var campaignsDataStore: CampaignsDataStore
+    internal var campaignId: Int
     
     // output:
     var oReports = BehaviorRelay<[RealmWebReportedAnswers]>.init(value: [])
     
-    init(campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
+    init(campaignId: Int, campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
+        self.campaignId = campaignId
         self.campaignsDataStore = campaignsDataStore
         if let realm = realm {
             self.realm = realm
@@ -34,16 +36,15 @@ public class RealmReportsDataStore: ReportsDataStore {
     private func hookUpOutput() {
         guard let realm = try? Realm.init() else {return}
         let realmReports = realm.objects(RealmWebReportedAnswers.self)
+                                .filter("campaignId == %@", "\(campaignId)")
+        
         Observable.collection(from: realmReports)
             .subscribe(onNext: { [weak self] results in guard let sSelf = self else {return}
                 let reports = Array(results)
-//                print("emitujem nove reports iz baze = \(reports)")
+                
                 sSelf.oReports.accept(reports)
+                
             }).disposed(by: bag)
-    }
-    
-    deinit {
-        print("o-o, RealmReportsDataStore is deinit!!!")
     }
     
     private let bag = DisposeBag()

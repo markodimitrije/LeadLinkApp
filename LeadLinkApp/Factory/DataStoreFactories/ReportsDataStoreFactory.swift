@@ -18,6 +18,10 @@ class ReportsDataStoreFactory {
     
     func makeReportsDataStore() -> ReportsDataStore {
         let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmReportsDataStore.init(campaignsDataStore: realmCampaignsDataStore)
+        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+            fatalError("no campaign id ?!?")
+        }
+        return RealmReportsDataStore.init(campaignId: campaignId,
+                                          campaignsDataStore: realmCampaignsDataStore)
     }
 }

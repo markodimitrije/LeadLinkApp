@@ -13,7 +13,6 @@ import RxCocoa
 class StatsVC: UIViewController, Storyboarded {
     
     var chartVC: UIViewController? = nil
-    //var codesVC: CodesVC? = nil
     var reportsVC: ReportsVC? = nil
     
     @IBOutlet weak var statisticsView: UIView?
@@ -27,7 +26,7 @@ class StatsVC: UIViewController, Storyboarded {
     }
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
-        loadCodesVC()
+        loadReportsVC()
         loadChartVC()
     }
     
@@ -48,20 +47,21 @@ class StatsVC: UIViewController, Storyboarded {
         }).disposed(by: disposeBag)
     }
     
+    private func loadReportsVC() {
+        _ = codesView?.subviews.map {$0.removeFromSuperview()}
+        
+        guard let reportsVC = reportsVC else {return}
+
+        reportsVC.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
+
+        codesView?.addSubview(reportsVC.view)
+
+        self.addChild(reportsVC)
+    }
+    
     private func loadChartVC() {
         chartVC = storyboard!.instantiateViewController(withIdentifier: "ChartVC")
         chartVC?.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
-    }
-    private func loadCodesVC() {
-        _ = codesView?.subviews.map {$0.removeFromSuperview()}
-        //guard let codesVC = codesVC else {return}
-        guard let reportsVC = reportsVC else {return}
-        //codesVC.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
-        reportsVC.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
-        //codesView?.addSubview(codesVC.view)
-        codesView?.addSubview(reportsVC.view)
-        //self.addChild(codesVC)
-        self.addChild(reportsVC)
     }
     
     private let disposeBag = DisposeBag()

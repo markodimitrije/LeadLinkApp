@@ -28,7 +28,9 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
             }
             
             guard let result = realm.object(ofType: RealmCampaign.self, forPrimaryKey: id) else {
-                fatalError("asking for not existing code in database!")
+                //fatalError("asking for not existing code in database!")
+                seal.reject(CampaignError.unknown)
+                return
             }
             
             seal.fulfill(Campaign.init(realmCampaign: result))
