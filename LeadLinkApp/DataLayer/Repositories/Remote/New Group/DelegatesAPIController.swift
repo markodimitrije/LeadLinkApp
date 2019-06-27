@@ -15,12 +15,7 @@ public struct DelegatesRemoteAPI {
     
     // MARK:- Properties
     
-    private var apiKey: String {
-        return confApiKeyState.apiKey ?? "error"
-    }
-    private var authorization: String {
-        return confApiKeyState.authentication ?? "error"
-    }
+    private let headerFieldsCreator = CampaignDelegateHeaderFieldsCreator()
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
@@ -72,18 +67,11 @@ public struct DelegatesRemoteAPI {
         request.url = urlComponents.url!
         request.httpMethod = method
         
-        let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        
-        request.allHTTPHeaderFields = ["Api-Key": apiKey,
-                                       "device-id": deviceUdid,
-                                       "Content-Type": "application/json",
-                                       "Authorization": authorization]
+        request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
         let session = URLSession.shared
         
         return session.rx.response(request: request).map() { response, data in
-            
-            //            print("response.statusCode = \(response.statusCode)")
             
             if 201 == response.statusCode {
                 return try! JSONSerialization.data(withJSONObject:  ["created": 201])

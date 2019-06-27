@@ -24,131 +24,53 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         return confApiKeyState.authentication ?? "error"
     }
     
+    private var headerParams: [String: String] {
+        return ["Api-Key": apiKey,
+                "Authorization": authorization,
+                "cache-control": "no-cache"]
+    }
+    
     // MARK: - Methods
     
     public init() {}
     
-    public func getCampaigns(userSession: UserSession) -> Promise<[Campaign]> {
+    public func getCampaignsWithQuestions(userSession: UserSession) -> Promise<CampaignResults> {
         
-        let authToken = userSession.remoteSession.token
-        
-        return Promise<[Campaign]> { seal in
-            // Build Request
-            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns")!)
-            request.httpMethod = "GET"
-            
-            let headers = [ // Build Auth Header
-                "Api-Key": apiKey,
-                "Authorization": authorization,
-                //"Content-Type": "application/x-www-form-urlencoded",
-                "cache-control": "no-cache"
-            ]
-            
-            request.allHTTPHeaderFields = headers
-            
-            // Send Data Task
-            let session = URLSession.shared
-            session.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    seal.reject(error)
-                    return
-                }
-                guard let httpResponse = response as? HTTPURLResponse, let data = data else {
-                    seal.reject(RemoteAPIError.unknown)
-                    return
-                }
-                
-                guard 200..<300 ~= httpResponse.statusCode else {
-                    seal.reject(RemoteAPIError.httpError)
-                    return
-                }
-                
-                do {
-                    let decoder = JSONDecoder()
-                    let payload = try decoder.decode(Campaigns.self, from: data)
-                    
-                    print("getCampaigns. PROSAO SAM DECODE: ALL GOOD....")
-                    
-                    seal.fulfill(payload.data)
-                } catch {
-                    seal.reject(error)
-                }
-                }.resume()
-        }
-    }
-    
-    public func getQuestions(campaignId id: Int) -> Promise<[Question]> {
-        
-        let oQuestions = ApiController.shared.getQuestions(campaignId: id)
-        
-        return Promise<[Question]> { seal in
-            
-            oQuestions
-                .subscribe(onNext: { questions in
-                    seal.fulfill(questions)
-                }, onError: { err in
-                    seal.reject(err)
-                })
-                .disposed(by: bag)
-
-        }
-        
-    }
-    
-    public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<CampaignResults> {
-        
-        let authToken = userSession.remoteSession.token
-
         return Promise<CampaignResults> { seal in
-            // Build Request
-            var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization")!)
+            
+            let urlRequestBase = URLRequest.campaignsWithQuestions
+            let request = MyUrlRequestWithHeadersGet(request: urlRequestBase,
+                                                     headerParams: self.headerParams)
 //                "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!)
-            request.httpMethod = "GET"
-
-            let headers = [ // Build Auth Header
-                "Api-Key": apiKey,
-                "Authorization": authorization,
-                "cache-control": "no-cache"
-            ]
-
-            request.allHTTPHeaderFields = headers
-
+            
             // Send Data Task
             let session = URLSession.shared
-            session.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    seal.reject(error)
-                    return
+            session.dataTask(with: request.me) { (data, response, error) in
+                
+                let dataErrorFromUrlResponse = DataErrorFromUrlResponse(data: data, response: response, error: error)
+                
+                if !dataErrorFromUrlResponse.answerOk {
+                    seal.reject(dataErrorFromUrlResponse.error!)
+                } else {
+                    do {
+                        let decoder = JSONDecoder()
+                        let payload = try decoder.decode(Campaigns.self, from: data!)
+                        
+                        let jsonString = String.init(data: data!, encoding: String.Encoding.utf8) // versioning
+                        
+                        let campaigns = payload.data
+                        let questions = campaigns.map {$0.questions}
+                        
+                        let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
+                        
+                        let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
+                        
+                        seal.fulfill(campaignResults)
+                    } catch {
+                        seal.reject(error)
+                    }
                 }
-                guard let httpResponse = response as? HTTPURLResponse, let data = data else {
-                    seal.reject(RemoteAPIError.unknown)
-                    return
-                }
-
-                guard 200..<300 ~= httpResponse.statusCode else {
-                    seal.reject(RemoteAPIError.httpError)
-                    return
-                }
-
-                do {
-                    let decoder = JSONDecoder()
-                    let payload = try decoder.decode(Campaigns.self, from: data)
-
-//                    print("getCampaignsAndQuestions. PROSAO SAM DECODE: ALL GOOD....")
-
-                    let jsonString = String.init(data: data, encoding: String.Encoding.utf8) // versioning
-
-                    let campaigns = payload.data
-                    let questions = campaigns.map {$0.questions}
-
-                    let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
-
-                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
-
-                    seal.fulfill(campaignResults)
-                } catch {
-                    seal.reject(error)
-                }
+                
             }.resume()
         }
     }
@@ -168,22 +90,14 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
             let session = URLSession.shared
             
             session.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    seal.reject(error)
-                    return
-                }
-                guard let httpResponse = response as? HTTPURLResponse, let data = data else {
-                    seal.reject(RemoteAPIError.unknown)
-                    return
-                }
+
+                let dataErrorFromUrlResponse = DataErrorFromUrlResponse(data: data, response: response, error: error)
                 
-                guard 200..<300 ~= httpResponse.statusCode else {
-                    seal.reject(RemoteAPIError.httpError)
-                    return
+                if dataErrorFromUrlResponse.answerOk {
+                    seal.fulfill(dataErrorFromUrlResponse.data!)
+                } else {
+                    seal.reject(dataErrorFromUrlResponse.error!)
                 }
-                
-//                print("getImage. imam logo, nisam proverio ispravnost data....")
-                seal.fulfill(data)
                 
             }.resume()
             

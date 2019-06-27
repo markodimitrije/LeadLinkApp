@@ -10,11 +10,7 @@ import Foundation
 import PromiseKit
 
 public protocol CampaignsRemoteAPI {
-    //func getCampaigns(userSession: UserSession) -> Promise<[Campaign]>
-    //func getQuestions(campaignId id: Int) -> Promise<[Question]>
-    //func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]>
-    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<CampaignResults>
-    
+    func getCampaignsWithQuestions(userSession: UserSession) -> Promise<CampaignResults>
     func getImage(url: String) -> Promise<Data?>
 }
 

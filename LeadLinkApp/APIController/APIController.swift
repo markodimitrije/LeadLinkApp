@@ -24,12 +24,7 @@ class ApiController {
     /// The shared instance
     static var shared = ApiController()
     
-    private var apiKey: String {
-        return confApiKeyState.apiKey ?? "error"
-    }
-    private var authorization: String {
-        return confApiKeyState.authentication ?? "error"
-    }
+    private let headerFieldsCreator = CampaignsWithQuestionsHeaderFieldsCreator()
     
     init() {
         Logging.URLRequests = { request in // iz RxCocoa
@@ -80,10 +75,7 @@ class ApiController {
         request.url = urlComponents.url!
         request.httpMethod = method
         
-        request.allHTTPHeaderFields = ["Api-Key": apiKey,
-                                       "Authorization": authorization]
-        
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
         let session = URLSession.shared
         

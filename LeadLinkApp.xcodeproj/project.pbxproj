@@ -21,6 +21,10 @@
 		7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */; };
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
+		7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */; };
+		7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */; };
+		7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */; };
+		7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
@@ -233,6 +237,10 @@
 		7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToTermsViewModelBinder.swift; sourceTree = "<group>"; };
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndURLRequestExtensions.swift; sourceTree = "<group>"; };
+		7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataErrorFromUrlResponse.swift; sourceTree = "<group>"; };
+		7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUrlRequest.swift; sourceTree = "<group>"; };
+		7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFieldsCreator.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -577,6 +585,31 @@
 				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
 			);
 			path = DividerView;
+			sourceTree = "<group>";
+		};
+		7C38086422C5105800BB62C5 /* CampaignsWithQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */,
+			);
+			path = CampaignsWithQuestions;
+			sourceTree = "<group>";
+		};
+		7C38086722C5112600BB62C5 /* URLResponse */ = {
+			isa = PBXGroup;
+			children = (
+				7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */,
+			);
+			path = URLResponse;
+			sourceTree = "<group>";
+		};
+		7C38086A22C5117800BB62C5 /* MyURLRequest */ = {
+			isa = PBXGroup;
+			children = (
+				7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */,
+				7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */,
+			);
+			path = MyURLRequest;
 			sourceTree = "<group>";
 		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
@@ -1016,6 +1049,9 @@
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				7C38086A22C5117800BB62C5 /* MyURLRequest */,
+				7C38086722C5112600BB62C5 /* URLResponse */,
+				7C38086422C5105800BB62C5 /* CampaignsWithQuestions */,
 				ADABCC4921E4AA6A00B43427 /* APIController.swift */,
 				7C6222732294345E00717CA1 /* AnswersAPIController.swift */,
 				7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */,
@@ -1492,6 +1528,7 @@
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
+				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */,
@@ -1534,6 +1571,7 @@
 				7C75405D229FC44100FFF5B9 /* RadioWithInputViewModel.swift in Sources */,
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
+				7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
 				7C51086322C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
@@ -1586,10 +1624,12 @@
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
+				7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C8CC9DA22C370F1009A410E /* QuestionsAnswersDelegate.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */,
+				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,

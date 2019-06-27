@@ -27,8 +27,6 @@ public class CampaignsRepository: UserCampaignsRepository {
     let questionsDataStore: QuestionsDataStore
     let campaignsVersionChecker: CampaignsVersionChecker
     
-    
-    
     // MARK: - Methods
     public init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
         self.userSessionRepository = userSessionRepository
@@ -41,10 +39,8 @@ public class CampaignsRepository: UserCampaignsRepository {
     //public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
         
-        //let s = when(fulfilled: [remoteAPI.getCampaignsAndQuestions(userSession: userSession)]
-        
-        
-        let update = when(fulfilled: [remoteAPI.getCampaignsAndQuestions(userSession: userSession)])
+        let update =
+            when(fulfilled: [remoteAPI.getCampaignsWithQuestions(userSession: userSession)])
             .then { results -> Promise<(Bool, CampaignResults)> in
                 
                 let promise = self.campaignsVersionChecker.needsUpdate(newCampaignData: (results.first!).jsonString)
@@ -76,7 +72,7 @@ public class CampaignsRepository: UserCampaignsRepository {
                 let quests = campaignsWithQuestions.map {$0.1}
                 let savedQuestions = quests.map { questions -> Bool in
                     return self.questionsDataStore.save(questions: questions).isFulfilled
-//                    when(fulfilled: self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}),              self.questionsDataStore.save(questions: questions)).isFulfilled
+
                 }
 
                 allQuestionsSaved = !savedQuestions.contains(false)
