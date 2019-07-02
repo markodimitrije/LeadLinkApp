@@ -51,13 +51,15 @@ class ScanningVC: UIViewController, Storyboarded {
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
         
-        bindQrAndBarScanCamera()
+        bindQrAndBarScanScanditCamera() // ovde treba provera da li postoji scanditKey - hard-coded
         loadKeyboardManager()
         bindUI()
         
         setupScanner()
         
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -66,8 +68,14 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
     
-    private func bindQrAndBarScanCamera() {
+    private func bindQrAndBarScanScanditCamera() {
         loadScannerView()
+    }
+    
+    private func bindQrAndBarScanNativeCamera() {
+        loadScannerView()
+        bindSessionUsingAVSessionViewModel()
+        bindCameraUsingAVSessionViewModel()
     }
     
     private func bindUI() {
