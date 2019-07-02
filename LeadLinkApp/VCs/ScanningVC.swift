@@ -32,6 +32,8 @@ class ScanningVC: UIViewController, Storyboarded {
     var previewLayer: AVCaptureVideoPreviewLayer!
     private var picker: SBSBarcodePicker?
     
+    private let avSessionViewModel = AVSessionViewModel()
+    
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
     
@@ -76,6 +78,36 @@ class ScanningVC: UIViewController, Storyboarded {
         loadScannerView()
         bindSessionUsingAVSessionViewModel()
         bindCameraUsingAVSessionViewModel()
+    }
+    
+    // camera session binding:
+    
+    private func bindSessionUsingAVSessionViewModel() {
+        
+        avSessionViewModel.oSession
+            .subscribe(onNext: { [unowned self] (session) in
+                
+                let previewLayer = CameraPreviewLayer(session: session,
+                                                      bounds: self.scannerView.layer.bounds)
+                
+                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
+                
+                }, onError: { [unowned self] err in
+                    self.failed()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindCameraUsingAVSessionViewModel() {
+        
+        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (barCodeValue) in
+                guard let sSelf = self else {return}
+                print("scanner camera emituje barCodeValue \(barCodeValue)")
+                sSelf.found(code: barCodeValue)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     private func bindUI() {
