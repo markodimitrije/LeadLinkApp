@@ -26,6 +26,7 @@ class RealmCampaign: Object {
     @objc dynamic var color: String? // oprez - ne vidim iz response koji je ovo type
     @objc dynamic var logo: String? = "" // url
     @objc dynamic var imgData: Data?
+    @objc dynamic var useScanditScanner: Bool = false
     
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
@@ -44,6 +45,7 @@ class RealmCampaign: Object {
         self.color = campaign.color
         self.logo = campaign.logo
         self.imgData = campaign.imgData
+        self.useScanditScanner = campaign.use_scandit_scanner ?? false
         
         let org = RealmOrganization(); org.update(with: campaign.organization)
         self.organization = org

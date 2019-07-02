@@ -26,8 +26,9 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
             //let urlRequestBase = URLRequest.campaignsWithQuestions
             let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
             let headersCreator = CampaignsWithQuestionsHeaderFieldsCreator()
-            let request = MyUrlRequestWithHeadersGet(request: urlRequestBase,
-                                                     headerParams: headersCreator.allHeaderFields)
+            let request = MyUrlRequestWithHeadersGetNoCache(
+                    request: urlRequestBase,
+                    headerParams: headersCreator.allHeaderFields)
             // Send Data Task
             let session = URLSession.shared
             session.dataTask(with: request.me) { (data, response, error) in

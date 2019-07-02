@@ -26,6 +26,7 @@ public struct Campaign: Codable {
     var logo: String? // url
     // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
     var imgData: Data? = nil
+    var use_scandit_scanner: Bool?
     
     var questions: [Question]
     var codes: [Code]?
@@ -43,6 +44,7 @@ public struct Campaign: Codable {
         self.color = campaign.color ?? "#ee9c00" // hard-coded
         self.logo = campaign.logo
         self.imgData = campaign.imgData
+        self.use_scandit_scanner = campaign.useScanditScanner
         
         self.organization = Organization.init(realmOrganization: campaign.organization)
         

@@ -20,6 +20,7 @@ class MyUrlRequestWithHeadersGet: MyUrlRequestWithHeaders {
     override init(request: URLRequest, headerParams: [String : String]) {
         super.init(request: request, headerParams: headerParams)
         self.me.httpMethod = "GET"
+        self.me.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     }
 }
 
@@ -34,5 +35,12 @@ class MyUrlRequestWithHeadersPut: MyUrlRequestWithHeaders {
     override init(request: URLRequest, headerParams: [String : String]) {
         super.init(request: request, headerParams: headerParams)
         self.me.httpMethod = "PUT"
+    }
+}
+
+class MyUrlRequestWithHeadersGetNoCache: MyUrlRequestWithHeadersGet {
+    override init(request: URLRequest, headerParams: [String : String]) {
+        super.init(request: request, headerParams: headerParams)
+        self.me.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     }
 }
