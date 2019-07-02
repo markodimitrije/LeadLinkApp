@@ -44,6 +44,8 @@ class ScanningVC: UIViewController, Storyboarded {
         super.viewWillTransition(to: size, with: coordinator)
     }
     
+    // MARK: - Life cycle
+    
     override func viewDidLoad() { super.viewDidLoad()
         
         barCodeTxtField.delegate = self
@@ -68,6 +70,8 @@ class ScanningVC: UIViewController, Storyboarded {
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
         stopCameraIfNoScanditLicense()
     }
+    
+    // MARK: - Scandit or Native camera support
     
     private func startCameraIfNoScanditLicense() {
         if kScanditBarcodeScannerAppKey == nil {
@@ -119,7 +123,7 @@ class ScanningVC: UIViewController, Storyboarded {
         barcodePicker.startScanning()
     }
     
-    // camera session binding:
+    // native camera session binding:
     
     private func bindSessionUsingAVSessionViewModel() {
         
@@ -149,6 +153,8 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
         
     }
+    
+    
     
     private func bindUI() {
         

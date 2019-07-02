@@ -32,7 +32,6 @@ public class CampaignsRepository: UserCampaignsRepository {
         self.campaignsVersionChecker = campaignsVersionChecker
     }
 
-    //public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]> {
     public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
         
         let update =

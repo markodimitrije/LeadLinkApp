@@ -23,12 +23,11 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
         
         return Promise<CampaignResults> { seal in
             
-            let urlRequestBase = URLRequest.campaignsWithQuestions
+            //let urlRequestBase = URLRequest.campaignsWithQuestions
+            let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
             let headersCreator = CampaignsWithQuestionsHeaderFieldsCreator()
             let request = MyUrlRequestWithHeadersGet(request: urlRequestBase,
                                                      headerParams: headersCreator.allHeaderFields)
-//                "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!)
-            
             // Send Data Task
             let session = URLSession.shared
             session.dataTask(with: request.me) { (data, response, error) in
