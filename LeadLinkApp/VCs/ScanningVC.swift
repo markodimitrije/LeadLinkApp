@@ -53,15 +53,20 @@ class ScanningVC: UIViewController, Storyboarded {
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
         
-        bindQrAndBarScanScanditCamera() // ovde treba provera da li postoji scanditKey - hard-coded
+        hookUpCameraAccordingToScanditPermission()
+        
         loadKeyboardManager()
         bindUI()
         
-        setupScanner()
-        
     }
     
-    
+    private func hookUpCameraAccordingToScanditPermission() {
+        if kScanditBarcodeScannerAppKey != nil {
+            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
+        } else {
+            bindQrAndBarScanCameraNative()
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -70,11 +75,12 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
     
-    private func bindQrAndBarScanScanditCamera() {
+    private func bindQrAndBarScanCameraScandit() {
         loadScannerView()
+        setupScanditScanner()
     }
     
-    private func bindQrAndBarScanNativeCamera() {
+    private func bindQrAndBarScanCameraNative() {
         loadScannerView()
         bindSessionUsingAVSessionViewModel()
         bindCameraUsingAVSessionViewModel()
@@ -239,7 +245,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     // SCANDIT
     
-    private func setupScanner() {
+    private func setupScanditScanner() {
         
         // Create the scan settings and enabling some symbologies
         let settings = SBSScanSettings.default()
