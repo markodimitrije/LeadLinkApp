@@ -60,6 +60,27 @@ class ScanningVC: UIViewController, Storyboarded {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
+        startCameraIfNoScanditLicense()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
+        stopCameraIfNoScanditLicense()
+    }
+    
+    private func startCameraIfNoScanditLicense() {
+        if kScanditBarcodeScannerAppKey == nil {
+            self.avSessionViewModel.captureSession.startRunning()
+        }
+    }
+    
+    private func stopCameraIfNoScanditLicense() {
+        if kScanditBarcodeScannerAppKey == nil {
+            self.avSessionViewModel.captureSession.stopRunning()
+        }
+    }
+    
+    
     private func hookUpCameraAccordingToScanditPermission() {
         if kScanditBarcodeScannerAppKey != nil {
             bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
@@ -106,7 +127,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func bindCameraUsingAVSessionViewModel() {
         
-        avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
+        //avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
+        avSessionViewModel.oCode
             .subscribe(onNext: { [weak self] (barCodeValue) in
                 guard let sSelf = self else {return}
                 print("scanner camera emituje barCodeValue \(barCodeValue)")
