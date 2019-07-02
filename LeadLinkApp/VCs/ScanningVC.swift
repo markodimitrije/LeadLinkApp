@@ -19,11 +19,7 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var contentViewToBottomSafeAreaConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var barCodeTxtField: UITextField! {
-        didSet {
-            barCodeTxtField.textColor = .black
-        }
-    }
+    @IBOutlet weak var barCodeTxtField: UITextField! { didSet { barCodeTxtField.textColor = .black } }
     
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     @IBOutlet weak var orLabel: UILabel!
@@ -153,36 +149,32 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func loadScannerView() {
-
-        let frame = QRcodeView.getRectForQrCodeView(center: self.view.center)
-        
-        let qrCodeView = QRcodeView.init(frame: frame, btnTapHandler: {
-                self.scannerView.isHidden = true
-            })
-        
-        self.scannerView = qrCodeView
+    private func hideScaningView() {
         self.scannerView.isHidden = true
-        
-        self.view.addSubview(self.scannerView)
     }
     
+    private func loadScannerView() {
+        let scannerViewFactory = ScannerViewFactory()
+        let cameraView = scannerViewFactory.createCameraView(inScannerView: self.view,
+                                                             handler: hideScaningView)
+        self.scannerView = cameraView
+        self.scannerView.isHidden = true
+        self.view.addSubview(cameraView)
+    }
+  
     private func loadKeyboardManager() {
-        keyboardManager = MovingKeyboardDelegate.init(keyboardChangeHandler: { (halfKeyboardHeight) in
-            var verticalShift: CGFloat = 0
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                verticalShift = 2*halfKeyboardHeight
-            } else if UIDevice.current.userInterfaceIdiom == .pad {
-                verticalShift = halfKeyboardHeight
-            }
-
-            self.contentViewToTopSafeAreaConstraint!.constant += verticalShift
-            self.contentViewToBottomSafeAreaConstraint!.constant -= verticalShift
-            
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-            }
-        })
+        let movingKeyboardDelegateFactory = MovingKeyboardDelegateFactory.init()
+        keyboardManager = movingKeyboardDelegateFactory.create { [weak self] verticalShift in
+            self?.updateConstraintsDueTo(keyboardVerticalShift: verticalShift)
+        }
+    }
+    
+    private func updateConstraintsDueTo(keyboardVerticalShift verticalShift: CGFloat) {
+        self.contentViewToTopSafeAreaConstraint!.constant += verticalShift
+        self.contentViewToBottomSafeAreaConstraint!.constant -= verticalShift
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func navigateToQuestionsScreen() {
@@ -199,6 +191,27 @@ class ScanningVC: UIViewController, Storyboarded {
             failedDueToNoCodeDetected()
         }
 
+    }
+    
+    private func codeSuccessfull(code: String) {
+        
+        self.lastScanedCode = code // save state
+        
+        if !disclaimerAlreadyOnScreen() {
+            showDisclaimer()
+        }
+        
+    }
+    
+    private func showDisclaimer() {
+        
+        if let disclaimerView = disclaimerFactory.create() {
+            disclaimerView.delegate = self
+            disclaimerView.tag = 12
+            disclaimerView.configureTxtViewWithHyperlinkText()
+            disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
+            self.view.addSubview(disclaimerView)
+        }
     }
     
     private func failed() { print("failed.....")
@@ -230,26 +243,7 @@ class ScanningVC: UIViewController, Storyboarded {
         picker.resumeScanning()
     }
 
-    private func codeSuccessfull(code: String) {
-        
-        self.lastScanedCode = code // save state
-        
-        if !disclaimerAlreadyOnScreen() {
-            showDisclaimer()
-        }
-        
-    }
-    
-    private func showDisclaimer() {
-        
-        if let disclaimerView = disclaimerFactory.create() {
-            disclaimerView.delegate = self
-            disclaimerView.tag = 12
-            disclaimerView.configureTxtViewWithHyperlinkText()
-            disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
-            self.view.addSubview(disclaimerView)
-        }
-    }
+   
     
     private func disclaimerAlreadyOnScreen() -> Bool {
         if let _ = self.view.subviews.first(where: {$0.tag == 12}) {

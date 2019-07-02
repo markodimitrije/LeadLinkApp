@@ -38,6 +38,7 @@
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
+		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -267,6 +268,7 @@
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
+		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -1022,6 +1024,7 @@
 				7C39F3A922BD578B0017A78C /* ViewControllerFactories */,
 				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
 				7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */,
+				7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -1641,6 +1644,7 @@
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
+				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
