@@ -39,6 +39,7 @@
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
+		7C410FDA22CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD922CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -269,6 +270,7 @@
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
+		7C410FD922CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditBarcodePickerFactory.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -683,6 +685,14 @@
 				7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */,
 			);
 			path = ResponseToDataParser;
+			sourceTree = "<group>";
+		};
+		7C410FD822CB9BD8009F7CC0 /* ScanditBarcodePickerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C410FD922CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift */,
+			);
+			path = ScanditBarcodePickerFactory;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -1182,6 +1192,7 @@
 		ADAFED7C22395C92004C4AC1 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				7C410FD822CB9BD8009F7CC0 /* ScanditBarcodePickerFactory */,
 				ADB305E3223BB0BD0069FACB /* Utilities */,
 				ADAFED8122395CB3004C4AC1 /* Viewmodel */,
 				ADAFED7D22395CB2004C4AC1 /* Views */,
@@ -1711,6 +1722,7 @@
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C8CC9DA22C370F1009A410E /* QuestionsAnswersDelegate.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */,
+				7C410FDA22CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift in Sources */,
 				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,

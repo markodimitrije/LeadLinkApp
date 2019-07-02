@@ -56,6 +56,11 @@ class ScanningVC: UIViewController, Storyboarded {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        restartCameraForScaning(picker)
+    }
+    
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         startCameraIfNoScanditLicense()
     }
@@ -76,8 +81,8 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
     
-    
     private func hookUpCameraAccordingToScanditPermission() {
+        loadScannerView()
         if kScanditBarcodeScannerAppKey != nil {
             bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
         } else {
@@ -85,22 +90,33 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if picker != nil {
-            restartCameraForScaning(picker!)
-        }
-    }
-    
     private func bindQrAndBarScanCameraScandit() {
-        loadScannerView()
         setupScanditScanner()
     }
     
     private func bindQrAndBarScanCameraNative() {
-        loadScannerView()
         bindSessionUsingAVSessionViewModel()
         bindCameraUsingAVSessionViewModel()
+    }
+    
+    // SCANDIT
+    
+    private func setupScanditScanner() {
+        
+        // create
+        let barcodePickerFactory = ScanditBarcodePickerFactory()
+        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
+        
+        // Add the barcode picker as a child view controller
+        addChild(barcodePicker)
+        self.scannerView.cameraView.addSubview(barcodePicker.view)
+        barcodePicker.didMove(toParent: self)
+        
+        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
+        barcodePicker.allowedInterfaceOrientations = .all
+        // Set the delegate to receive scan event callbacks
+        barcodePicker.scanDelegate = self
+        barcodePicker.startScanning()
     }
     
     // camera session binding:
@@ -183,8 +199,10 @@ class ScanningVC: UIViewController, Storyboarded {
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
-    func found(code: String) { // ovo mozes da report VM-u kao append novi code
+    func found(code: String, picker: SBSBarcodePicker? = nil) { // ovo mozes da report VM-u kao append novi code
 
+        self.picker = picker
+        
         if code != "" {
             codeSuccessfull(code: code)
         } else {
@@ -197,7 +215,7 @@ class ScanningVC: UIViewController, Storyboarded {
         
         self.lastScanedCode = code // save state
         
-        if !disclaimerAlreadyOnScreen() {
+        if !disclaimerIsAlreadyOnScreen() {
             showDisclaimer()
         }
         
@@ -232,67 +250,17 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
 
-    func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
-
-        self.picker = picker
-        codeSuccessfull(code: code)
-        
-    }
-    
-    private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
-        picker.resumeScanning()
-    }
-
-   
-    
-    private func disclaimerAlreadyOnScreen() -> Bool {
-        if let _ = self.view.subviews.first(where: {$0.tag == 12}) {
-            return true
-        } else {
-            return false
-        }
+    private func restartCameraForScaning(_ picker: SBSBarcodePicker?) {
+        picker?.resumeScanning()
     }
  
-    fileprivate func notifyWorldAboutScanedCode() {
-        // print("prosledi code report za code = \(code)....")
+    private func disclaimerIsAlreadyOnScreen() -> Bool {
+        return self.view.subviews.first(where: {$0.tag == 12}) != nil
+    }
+ 
+    fileprivate func notifyWorldAboutScanedCode() { // print("prosledi code report za code = \(code)....")
         viewModel.codeInput.onNext(self.lastScanedCode)
         navigateToQuestionsScreen()
-    }
-    
-    // SCANDIT
-    
-    private func setupScanditScanner() {
-        
-        // Create the scan settings and enabling some symbologies
-        let settings = SBSScanSettings.default()
-        let symbologies: Set<SBSSymbology> = [.aztec, .codabar, .code11, .code128, .code25, .code32, .code39, .code93, .datamatrix, .dotCode, .ean8, .ean13, .fiveDigitAddOn, .gs1Databar, .gs1DatabarExpanded, .gs1DatabarLimited, .itf, .kix, .lapa4sc, .maxiCode, .microPDF417, .microQR, .msiPlessey, .pdf417,.qr, .rm4scc, .twoDigitAddOn, .upc12, .upce]
-        for symbology in symbologies {
-            settings.setSymbology(symbology, enabled: true)
-        }
-        
-        settings.cameraFacingPreference = getCameraDeviceDirection() ?? .back
-        
-        let symSettings = settings.settings(for: .code25)
-        symSettings.activeSymbolCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-        
-        // Create the barcode picker with the settings just created
-        let barcodePicker = SBSBarcodePicker(settings:settings)
-        barcodePicker.view.frame = self.scannerView.bounds
-
-        barcodePicker.overlayController.drawViewfinder(false) // depricated...
-        
-        // Add the barcode picker as a child view controller
-        addChild(barcodePicker)
-        
-        self.scannerView.cameraView.addSubview(barcodePicker.view)
-        barcodePicker.didMove(toParent: self)
-        
-        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
-        // default and is only shown here for completeness.
-        barcodePicker.allowedInterfaceOrientations = .all
-        // Set the delegate to receive scan event callbacks
-        barcodePicker.scanDelegate = self
-        barcodePicker.startScanning()
     }
     
     private let disposeBag = DisposeBag()
