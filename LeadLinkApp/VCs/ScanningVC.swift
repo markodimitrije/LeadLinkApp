@@ -151,21 +151,14 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
 
-    // AttendanceApp hard-coded - implement me....
     func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
 
         self.picker = picker
-//        restartCameraForScaning(picker)
         codeSuccessfull(code: code)
         
     }
     
     private func restartCameraForScaning(_ picker: SBSBarcodePicker) {
-//        delay(1.0) { // this is not scanner.. when it should be restarted?
-//            DispatchQueue.main.async {
-//                picker.resumeScanning()
-//            }
-//        }
         picker.resumeScanning()
     }
 
@@ -203,8 +196,6 @@ class ScanningVC: UIViewController, Storyboarded {
         viewModel.codeInput.onNext(self.lastScanedCode)
         navigateToQuestionsScreen()
     }
-    
-    
     
     // SCANDIT
     
