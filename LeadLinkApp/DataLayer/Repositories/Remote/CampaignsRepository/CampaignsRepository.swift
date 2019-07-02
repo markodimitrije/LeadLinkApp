@@ -11,10 +11,6 @@ import PromiseKit
 import RxSwift
 
 public protocol UserCampaignsRepository {
-    
-    //func readCampaigns(userSession: UserSession) -> Promise<[Campaign]>
-    //func readQuestions(userSession: UserSession) -> Promise<[Question]> // imas u main proj..
-    //func getCampaignsAndQuestions(userSession: UserSession) -> Promise<[(Campaign, [Question])]>
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool>
 }
 

@@ -36,6 +36,8 @@
 		7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */; };
 		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
+		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
+		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -166,7 +168,6 @@
 		ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D96223AAE8B00450625 /* StatsVC.swift */; };
 		ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D99223AAFB500450625 /* Constants.swift */; };
 		ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D9B223AB56200450625 /* AlertWithRx.swift */; };
-		ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4921E4AA6A00B43427 /* APIController.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
 		ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC5121E4E23500B43427 /* QuestionsDataStore.swift */; };
@@ -221,6 +222,16 @@
 		ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9553021D91A4E00B86052 /* LogInViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7C3BF65522CA38A4001EA1E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAEE86F21D8F331000B3C52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADAEE87621D8F331000B3C52;
+			remoteInfo = LeadLinkApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeadLinkApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeadLinkApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +263,10 @@
 		7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsNoSwitchView.swift; sourceTree = "<group>"; };
 		7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsNoSwitchView.xib; sourceTree = "<group>"; };
 		7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponentsViewFactory.swift; sourceTree = "<group>"; };
+		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
+		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -382,7 +397,6 @@
 		ADAB3D96223AAE8B00450625 /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
 		ADAB3D99223AAFB500450625 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADAB3D9B223AB56200450625 /* AlertWithRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWithRx.swift; sourceTree = "<group>"; };
-		ADABCC4921E4AA6A00B43427 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
 		ADABCC5121E4E23500B43427 /* QuestionsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataStore.swift; sourceTree = "<group>"; };
@@ -444,6 +458,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7C3BF64D22CA38A3001EA1E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAEE87421D8F331000B3C52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,6 +664,23 @@
 				7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */,
 			);
 			path = TermsNoSwitchView;
+			sourceTree = "<group>";
+		};
+		7C3BF65122CA38A3001EA1E6 /* LeadLinkAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */,
+				7C3BF65422CA38A3001EA1E6 /* Info.plist */,
+			);
+			path = LeadLinkAppTests;
+			sourceTree = "<group>";
+		};
+		7C40D4ED22C6169D009CD01E /* ResponseToDataParser */ = {
+			isa = PBXGroup;
+			children = (
+				7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */,
+			);
+			path = ResponseToDataParser;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -1049,10 +1087,10 @@
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				7C40D4ED22C6169D009CD01E /* ResponseToDataParser */,
 				7C38086A22C5117800BB62C5 /* MyURLRequest */,
 				7C38086722C5112600BB62C5 /* URLResponse */,
 				7C38086422C5105800BB62C5 /* CampaignsWithQuestions */,
-				ADABCC4921E4AA6A00B43427 /* APIController.swift */,
 				7C6222732294345E00717CA1 /* AnswersAPIController.swift */,
 				7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */,
 			);
@@ -1085,6 +1123,7 @@
 			children = (
 				7CA998D422A9441100C226F1 /* ScanditSDK */,
 				ADAEE87921D8F331000B3C52 /* LeadLinkApp */,
+				7C3BF65122CA38A3001EA1E6 /* LeadLinkAppTests */,
 				ADAEE87821D8F331000B3C52 /* Products */,
 				34FB1A58E047A32A96F61519 /* Pods */,
 				B4ED95125D27C37F754147FA /* Frameworks */,
@@ -1095,6 +1134,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */,
+				7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1369,6 +1409,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7C3BF64F22CA38A3001EA1E6 /* LeadLinkAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C3BF65922CA38A4001EA1E6 /* Build configuration list for PBXNativeTarget "LeadLinkAppTests" */;
+			buildPhases = (
+				7C3BF64C22CA38A3001EA1E6 /* Sources */,
+				7C3BF64D22CA38A3001EA1E6 /* Frameworks */,
+				7C3BF64E22CA38A3001EA1E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C3BF65622CA38A4001EA1E6 /* PBXTargetDependency */,
+			);
+			name = LeadLinkAppTests;
+			productName = LeadLinkAppTests;
+			productReference = 7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ADAEE87621D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADAEE88921D8F332000B3C52 /* Build configuration list for PBXNativeTarget "LeadLinkApp" */;
@@ -1394,10 +1452,14 @@
 		ADAEE86F21D8F331000B3C52 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Marko Dimitrijevic";
 				TargetAttributes = {
+					7C3BF64F22CA38A3001EA1E6 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = ADAEE87621D8F331000B3C52;
+					};
 					ADAEE87621D8F331000B3C52 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -1417,11 +1479,19 @@
 			projectRoot = "";
 			targets = (
 				ADAEE87621D8F331000B3C52 /* LeadLinkApp */,
+				7C3BF64F22CA38A3001EA1E6 /* LeadLinkAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7C3BF64E22CA38A3001EA1E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAEE87521D8F331000B3C52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1512,6 +1582,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7C3BF64C22CA38A3001EA1E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAEE87321D8F331000B3C52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1529,6 +1607,7 @@
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
 				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
+				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				7C98A6A62289689900DA184E /* QuestionGroupFooterView.swift in Sources */,
@@ -1577,7 +1656,6 @@
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
 				7C8CC9D822C370B3009A410E /* QuestionsAnswersDataSource.swift in Sources */,
 				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
-				ADABCC4A21E4AA6A00B43427 /* APIController.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */,
 				7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */,
@@ -1705,6 +1783,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7C3BF65622CA38A4001EA1E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADAEE87621D8F331000B3C52 /* LeadLinkApp */;
+			targetProxy = 7C3BF65522CA38A4001EA1E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		ADAEE87E21D8F331000B3C52 /* Main_ipad.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1725,6 +1811,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7C3BF65722CA38A4001EA1E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJZMY6T4V6;
+				INFOPLIST_FILE = LeadLinkAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeadLinkApp.app/LeadLinkApp";
+			};
+			name = Debug;
+		};
+		7C3BF65822CA38A4001EA1E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJZMY6T4V6;
+				INFOPLIST_FILE = LeadLinkAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeadLinkApp.app/LeadLinkApp";
+			};
+			name = Release;
+		};
 		ADAEE88721D8F332000B3C52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1892,6 +2020,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7C3BF65922CA38A4001EA1E6 /* Build configuration list for PBXNativeTarget "LeadLinkAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C3BF65722CA38A4001EA1E6 /* Debug */,
+				7C3BF65822CA38A4001EA1E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ADAEE87221D8F331000B3C52 /* Build configuration list for PBXProject "LeadLinkApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

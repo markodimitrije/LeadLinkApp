@@ -27,8 +27,6 @@ class AnswersApiController {
         
     }
     
-    // MARK:- Private
-    
     private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
         
         let url = base.appendingPathComponent(pathComponent)

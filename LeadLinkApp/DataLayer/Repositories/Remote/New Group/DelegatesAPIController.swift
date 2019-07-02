@@ -11,11 +11,12 @@ import RxSwift
 
 public struct DelegatesRemoteAPI {
     
-    static let shared = DelegatesRemoteAPI()
+    static var shared = DelegatesRemoteAPI()
     
     // MARK:- Properties
     
     private let headerFieldsCreator = CampaignDelegateHeaderFieldsCreator()
+    private var responseToDataParser: ResponseToDataParser!
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
@@ -26,7 +27,7 @@ public struct DelegatesRemoteAPI {
     
     public init() {}
     
-    public func getDelegate(withCode code: String) -> Observable<Delegate?> {
+    public mutating func getDelegate(withCode code: String) -> Observable<Delegate?> {
         let confId = confApiKeyState.conferenceId ?? 0 // fatal
         let delegatesPath = "conferences/" + "\(confId)" + "/delegates" // hard-coded
         let escapedString = delegatesPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -41,7 +42,7 @@ public struct DelegatesRemoteAPI {
         }
     }
     
-    func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
+    mutating func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
 
         let url = base.appendingPathComponent(pathComponent)
         //        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
@@ -66,29 +67,12 @@ public struct DelegatesRemoteAPI {
         
         request.url = urlComponents.url!
         request.httpMethod = method
-        
         request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
         let session = URLSession.shared
+        responseToDataParser = ResponseToDataParser(session: session, request: request)
         
-        return session.rx.response(request: request).map() { response, data in
-            
-            if 201 == response.statusCode {
-                return try! JSONSerialization.data(withJSONObject:  ["created": 201])
-            } else if 200 ..< 300 ~= response.statusCode {
-                print("buildRequest.imam data... all good, data = \(data)")
-                return data
-            } else if response.statusCode == 401 {
-                print("buildRequest.ApiError.invalidKey")
-                throw ApiError.invalidKey
-            } else if 400 ..< 500 ~= response.statusCode {
-                print("buildRequest.ApiError.400..500")
-                throw ApiError.cityNotFound
-            } else {
-                print("buildRequest.ApiError.serverFailure")
-                throw ApiError.serverFailure
-            }
-        }
+        return responseToDataParser.oData
     }
     
 }

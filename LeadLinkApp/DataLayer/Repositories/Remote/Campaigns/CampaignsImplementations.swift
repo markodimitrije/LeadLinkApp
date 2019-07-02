@@ -10,25 +10,10 @@ import Foundation
 import PromiseKit
 import RxSwift
 
-public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
+public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
     
-    static let shared = LeadLinkCampaignsRemoteAPI()
+    static let shared = CampaignsWithQuestionsRemoteAPI()
     private let bag = DisposeBag()
-    
-    // MARK:- Properties
-    
-    private var apiKey: String {
-        return confApiKeyState.apiKey ?? "error"
-    }
-    private var authorization: String {
-        return confApiKeyState.authentication ?? "error"
-    }
-    
-    private var headerParams: [String: String] {
-        return ["Api-Key": apiKey,
-                "Authorization": authorization,
-                "cache-control": "no-cache"]
-    }
     
     // MARK: - Methods
     
@@ -39,8 +24,9 @@ public struct LeadLinkCampaignsRemoteAPI: CampaignsRemoteAPI {
         return Promise<CampaignResults> { seal in
             
             let urlRequestBase = URLRequest.campaignsWithQuestions
+            let headersCreator = CampaignsWithQuestionsHeaderFieldsCreator()
             let request = MyUrlRequestWithHeadersGet(request: urlRequestBase,
-                                                     headerParams: self.headerParams)
+                                                     headerParams: headersCreator.allHeaderFields)
 //                "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!)
             
             // Send Data Task
