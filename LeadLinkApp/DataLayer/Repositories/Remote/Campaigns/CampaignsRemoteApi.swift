@@ -11,6 +11,9 @@ import PromiseKit
 
 public protocol CampaignsRemoteAPI {
     func getCampaignsWithQuestions(userSession: UserSession) -> Promise<CampaignResults>
+}
+
+public protocol DownloadImageAPI {
     func getImage(url: String) -> Promise<Data?>
 }
 

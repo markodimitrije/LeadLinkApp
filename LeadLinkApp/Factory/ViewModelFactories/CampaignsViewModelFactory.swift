@@ -19,8 +19,10 @@ class CampaignsViewModelFactory {
     func makeViewModel() -> CampaignsViewModel {
         
         let campaignsRepo = appDependancyContainer.sharedCampaignsRepository
+        let downloadImageAPI = appDependancyContainer.downloadImageAPI
         
-        return CampaignsViewModel.init(campaignsRepository: campaignsRepo)
+        return CampaignsViewModel.init(campaignsRepository: campaignsRepo,
+                                       downloadImageAPI: downloadImageAPI)
     }
     
 }

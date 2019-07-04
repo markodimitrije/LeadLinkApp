@@ -62,6 +62,9 @@
 		7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersAPIController.swift */; };
 		7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622276229444BA00717CA1 /* RealmDataPersister.swift */; };
 		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
+		7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AA22CDFBE10077464C /* DownloadImage.swift */; };
+		7C6528AD22CDFF290077464C /* AVCaptureSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */; };
+		7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */; };
 		7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */; };
 		7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */; };
 		7C75405D229FC44100FFF5B9 /* RadioWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */; };
@@ -293,6 +296,9 @@
 		7C6222732294345E00717CA1 /* AnswersAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersAPIController.swift; sourceTree = "<group>"; };
 		7C622276229444BA00717CA1 /* RealmDataPersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
 		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
+		7C6528AA22CDFBE10077464C /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
+		7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionError.swift; sourceTree = "<group>"; };
+		7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDeviceExtension.swift; sourceTree = "<group>"; };
 		7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
 		7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxViewModel.swift; sourceTree = "<group>"; };
 		7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWithInputViewModel.swift; sourceTree = "<group>"; };
@@ -751,6 +757,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7C6528A922CDFBC30077464C /* DownloadImage */ = {
+			isa = PBXGroup;
+			children = (
+				7C6528AA22CDFBE10077464C /* DownloadImage.swift */,
+			);
+			path = DownloadImage;
+			sourceTree = "<group>";
+		};
 		7C754059229FC3F900FFF5B9 /* ChildrenViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +962,7 @@
 				7C98A6E5228972F700DA184E /* Extensions.swift */,
 				7C98A6E6228972F700DA184E /* URL+Extensions.swift */,
 				7C98A6EA2289733200DA184E /* SequenceExtensions.swift */,
+				7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1100,6 +1115,7 @@
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				7C6528A922CDFBC30077464C /* DownloadImage */,
 				7C40D4ED22C6169D009CD01E /* ResponseToDataParser */,
 				7C38086A22C5117800BB62C5 /* MyURLRequest */,
 				7C38086722C5112600BB62C5 /* URLResponse */,
@@ -1303,6 +1319,7 @@
 				AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */,
 				ADBB468022425C5F00E1020F /* TokenAndCredentials.swift */,
 				AD1739C021DD398200218BE5 /* SignInErrorPayload.swift */,
+				7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */,
 			);
 			path = "Error and Payload";
 			sourceTree = "<group>";
@@ -1735,6 +1752,7 @@
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */,
+				7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
 				7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
@@ -1754,6 +1772,7 @@
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C8CC9E122C3C1BC009A410E /* CheckboxBtnImage.swift in Sources */,
+				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPI.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
@@ -1769,6 +1788,7 @@
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
 				7C51086E22C0D84D005EE58B /* LoginViewModelFactory.swift in Sources */,
 				7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */,
+				7C6528AD22CDFF290077464C /* AVCaptureSessionError.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,

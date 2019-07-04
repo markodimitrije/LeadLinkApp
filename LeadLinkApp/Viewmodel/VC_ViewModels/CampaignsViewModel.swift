@@ -21,10 +21,12 @@ public class CampaignsViewModel {
     
     // MARK: - Properties
     let campaignsRepository: CampaignsRepository
+    let downloadImageAPI: DownloadImageAPI
     
     // MARK: - Methods
-    public init(campaignsRepository: CampaignsRepository) {
+    public init(campaignsRepository: CampaignsRepository, downloadImageAPI: DownloadImageAPI) {
         self.campaignsRepository = campaignsRepository
+        self.downloadImageAPI = downloadImageAPI
         bindOutput()
     }
     
@@ -51,7 +53,7 @@ public class CampaignsViewModel {
             
         }.thenMap { logoInfo -> Promise<LogoInfo> in
 
-            let dataPromise = self.campaignsRepository.remoteAPI.getImage(url: logoInfo.url ?? "")
+            let dataPromise = self.downloadImageAPI.getImage(url: logoInfo.url ?? "")
 
             return dataPromise.map { (data) -> LogoInfo in
 

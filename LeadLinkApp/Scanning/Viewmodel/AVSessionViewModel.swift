@@ -116,22 +116,3 @@ class AVSessionViewModel {
     }
     
 }
-
-enum AVCaptureSessionError: Error {
-    case noVideoCaptureDevice
-    case noVideoInput
-    case cantAddInputToSession
-    case cantAddOutputToSession
-    case cantDetermineCameraPosition
-}
-
-extension AVCaptureDevice {
-    static func cameraPosition() -> AVCaptureDevice.Position? {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return .front
-        } else if UIDevice.current.userInterfaceIdiom == .phone {
-            return .back
-        }
-        return nil
-    }
-}

@@ -37,8 +37,6 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     
     init() {
         // medibeacon LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01
-        
-        
         // reata LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS04
         if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) == nil {
             UserDefaults.standard.set("LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS03", forKey: UserDefaults.keyConferenceApiKey)

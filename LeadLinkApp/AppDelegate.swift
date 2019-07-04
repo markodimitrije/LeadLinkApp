@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func downloadCampaignsQuestionsAndLogos() {
         
-        let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository)
+        let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository, downloadImageAPI: factory.downloadImageAPI)
         
         campaignsViewmodel.getCampaignsFromWeb()
         
