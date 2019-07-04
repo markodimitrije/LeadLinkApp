@@ -19,6 +19,7 @@ public struct Campaign: Codable {
     var description: String
     var user_id: Int
     var conference_id: Int
+    var api_key: String
     var organization_id: Int
     var created_at: String // (Date)
     var primary_color: String? // oprez - ne vidim iz response koji je ovo type
@@ -38,6 +39,7 @@ public struct Campaign: Codable {
         self.description = campaign.desc
         self.user_id = campaign.user_id
         self.conference_id = campaign.conference_id
+        self.api_key = campaign.api_key
         self.organization_id = campaign.organization_id
         self.created_at = campaign.created_at
         self.primary_color = campaign.primary_color

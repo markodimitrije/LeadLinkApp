@@ -50,8 +50,7 @@ class AnswersHeaderFieldsCreator: HeaderFieldsCreator {
 
 class CampaignsWithQuestionsHeaderFieldsCreator: HeaderFieldsCreator {
     init() {
-        super.init(apiKey: confApiKeyState.apiKey,
-                   authorization: confApiKeyState.authentication,
+        super.init(authorization: confApiKeyState.authentication,
                    contentType: "application/json")
     }
 }
