@@ -20,4 +20,19 @@ var tableRowHeightCalculator = QuestionsAnswersTableRowHeightCalculator()
 
 var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
-let confApiKeyState = ConferenceApiKeyState()
+//var confApiKeyState = ConferenceApiKeyState()
+var confApiKeyState: ConferenceApiKeyState = {
+    
+    let authToken = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceAuth) as? String ?? ""
+    var selectedCampaign: Campaign?
+    
+    if let campaignId = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) as? Int {
+        let sharedCampaignsRepository = factory.sharedCampaignsRepository
+        sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
+            .done { campaign in
+                selectedCampaign = campaign
+        }
+    }
+    return ConferenceApiKeyState(authToken: authToken, selectedCampaign: selectedCampaign)
+}()
+

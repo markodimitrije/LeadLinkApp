@@ -20,7 +20,6 @@ class RealmCampaign: Object {
     @objc dynamic var desc: String = ""
     @objc dynamic var user_id: Int = 0
     @objc dynamic var conference_id: Int = 0
-    @objc dynamic var api_key: String = ""
     @objc dynamic var organization_id: Int = 0
     @objc dynamic var created_at: String = ""// (Date)
     @objc dynamic var primary_color: String? // oprez - ne vidim iz response koji je ovo types
@@ -29,11 +28,12 @@ class RealmCampaign: Object {
     @objc dynamic var imgData: Data?
     @objc dynamic var useScanditScanner: Bool = false
     
-    
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
     public var questions = List<RealmQuestion>()
     public var codes = List<RealmCode>()
+    
+     @objc dynamic var application: RealmApplication!
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
@@ -41,7 +41,6 @@ class RealmCampaign: Object {
         self.desc = campaign.description
         self.user_id = campaign.user_id
         self.conference_id = campaign.conference_id
-        self.api_key = campaign.api_key
         self.organization_id = campaign.organization_id
         self.created_at = campaign.created_at
         self.primary_color = campaign.primary_color
@@ -52,6 +51,10 @@ class RealmCampaign: Object {
         
         let org = RealmOrganization(); org.update(with: campaign.organization)
         self.organization = org
+        
+        let realmApp = RealmApplication()
+        realmApp.updateWith(application: campaign.application)
+        self.application = realmApp
         
         let realmQuestions = campaign.questions.map { question -> RealmQuestion in
             let rQuestion = RealmQuestion()

@@ -37,9 +37,9 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
         let credentials = LoginCredentials.init(email: email, password: password)
         return remoteAPI.logIn(credentials: credentials)
             .then(dataStore.save(userSession:))
-            .get { userSession in
+            .get { [weak self] userSession in
                 let bearerToken = "Bearer " + userSession.remoteSession.token
-                confApiKeyState.authentication = bearerToken
+                self?.updateDataModelWith(authToken: bearerToken)
             }
     }
     
@@ -52,6 +52,17 @@ public class LeadLinkUserSessionRepository: UserSessionRepository {
         }
     }
     
+    private func updateDataModelWith(authToken: String?) {
+        
+        if let authToken = authToken {
+            UserDefaults.standard.set(authToken, forKey: UserDefaults.keyConferenceAuth)
+            confApiKeyState = ConferenceApiKeyState(authToken: authToken)
+        } else {
+            UserDefaults.standard.set(nil, forKey: UserDefaults.keyConferenceAuth)
+            //confApiKeyState = nil hard-coded
+        }
+        
+    }
 }
 
 

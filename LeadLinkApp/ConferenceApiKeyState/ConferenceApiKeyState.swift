@@ -7,44 +7,50 @@
 //
 
 import Foundation
+import Realm
 
 class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     
+    private var authToken = ""
+    private var selectedCampaign: Campaign!
+    
     var conferenceId: Int? {
         get {
-            return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) as? Int
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.keyConferenceId)
+            return selectedCampaign.conference_id
         }
     }
     var apiKey: String? {
         get {
-            return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.keyConferenceApiKey)
+            return selectedCampaign.application.api_key
         }
     }
     var authentication: String? {
         get {
-            return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceAuth) as? String
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.keyConferenceAuth)
+            return authToken
         }
     }
     
+    init(authToken: String, selectedCampaign: Campaign? = nil) {
+        self.authToken = authToken
+        self.selectedCampaign = selectedCampaign
+    }
+    
     init() {
-        // medibeacon LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS01
-        // reata LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS04
-        if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) == nil {
-            UserDefaults.standard.set("LLNOQ8IBXTbKnSSGZ6YZOIFA1Qk4lS03", forKey: UserDefaults.keyConferenceApiKey)
-        }
-        if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) == nil {
-            UserDefaults.standard.set(7520, forKey: UserDefaults.keyConferenceId)
-        }
         
+        self.authToken = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceAuth) as? String ?? ""
+        
+        if let campaignId = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) as? Int {
+            let sharedCampaignsRepository = factory.sharedCampaignsRepository
+            sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
+                .done { campaign in
+                    self.selectedCampaign = campaign
+            }
+        }
+    }
+    
+    // API:
+    func updateWith(selectedCampaign campaign: Campaign) {
+        self.selectedCampaign = campaign
     }
     
 }

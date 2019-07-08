@@ -8,8 +8,14 @@
 
 import Foundation
 
+//protocol ConfIdApiKeyAuthSupplying {
+//    var conferenceId: Int? {get set}
+//    var apiKey: String? {get set}
+//    var authentication: String? {get set}
+//}
+
 protocol ConfIdApiKeyAuthSupplying {
-    var conferenceId: Int? {get set}
-    var apiKey: String? {get set}
-    var authentication: String? {get set}
+    var conferenceId: Int? {get}
+    var apiKey: String? {get}
+    var authentication: String? {get}
 }

@@ -110,7 +110,7 @@ public class LogInViewModel {
     }
     
     private func listenToLogoutEvent() {
-        sharedMainViewModel.userSessionStateObservable
+        sharedMainViewModel.userSessionStateObservable.skip(1) // tamo je init sa signOut....
             .subscribe(onNext: { [weak self] state in
                 if state == .signOut {
                     self?.userLogedOut()
@@ -119,14 +119,11 @@ public class LogInViewModel {
             .disposed(by: bag)
     }
     
-    func userLogedOut() {
-        print("userLogedOut is called")
+    func userLogedOut() { print("userLogedOut is called")
         emailInput.onNext("")
         passwordInput.onNext("")
     }
     
-    deinit {
-        print("deinit.LogInViewModel ")
-    }
+    deinit { print("deinit.LogInViewModel ") }
    
 }

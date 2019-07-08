@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationViewModel = navigationViewModelFactory.makeViewModel()
         
-        downloadCampaignsQuestionsAndLogos()
+        //downloadCampaignsQuestionsAndLogos() hard-coded off
         
         let navVC = window?.rootViewController as? UINavigationController
         
@@ -76,6 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func downloadCampaignsQuestionsAndLogos() {
+        
+        guard confApiKeyState != nil else {return}
         
         let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository, downloadImageAPI: factory.downloadImageAPI)
         

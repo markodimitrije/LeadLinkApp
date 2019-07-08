@@ -37,13 +37,18 @@ public class LogOutViewModel {
                     .signOut(userSession: session)
                     .ensure { [weak self] in guard let sSelf = self else {return}
                         sSelf.notSignedInResponder.notSignedIn()
-                        sSelf.campaignsDataStore.dataStore.readAllCampaigns()
-                            .get({ campaigns in
-                                sSelf.campaignsDataStore.dataStore.delete(campaigns: campaigns)
-                                sSelf.realmCampaignsDataStore.deleteCampaignsJsonString()
-                            })
-            }
+                        sSelf.deleteCampaignRelatedData()
+                }
         }
     }
-
+    
+    private func deleteCampaignRelatedData() {
+        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
+                                                             RealmOrganization.self,
+                                                             RealmSetting.self,
+                                                             RealmQuestion.self,
+                                                             RealmApplication.self,
+                                                             RealmJson.self])
+    }
+    
 }

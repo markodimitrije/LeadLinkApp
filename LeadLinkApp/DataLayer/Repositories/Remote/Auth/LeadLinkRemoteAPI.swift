@@ -15,9 +15,6 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
     
     // MARK:- Properties
     
-    private var apiKey: String {
-        return confApiKeyState.apiKey ?? "error"
-    }
     private var authorization: String {
         return confApiKeyState.authentication ?? "error"
     }
@@ -34,7 +31,6 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
             request.httpMethod = "POST"
             
             let headers = [ // Build Auth Header
-                "Api-Key": apiKey,
                 "Accept": "application/json",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "cache-control": "no-cache"
@@ -100,7 +96,6 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
             request.httpMethod = "POST"
             
             let headers = [ // Build Auth Header
-                "Api-Key": apiKey,
                 "Authorization": authorization,
                 "Content-Type": "application/x-www-form-urlencoded",
                 "cache-control": "no-cache"

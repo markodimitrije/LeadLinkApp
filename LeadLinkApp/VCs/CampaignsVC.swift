@@ -107,6 +107,10 @@ extension CampaignsVC: UITableViewDelegate {
         
         UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
         
+        let campaign = Campaign(realmCampaign: selectedCampaign)
+        
+        confApiKeyState.updateWith(selectedCampaign: campaign)
+        
         let scanningVC = createScaningVC(campaign: selectedCampaign)
         
         navigationController?.pushViewController(scanningVC, animated: true)
