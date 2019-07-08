@@ -37,6 +37,8 @@
 		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
+		7C3D473E22D358880096EA75 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */; };
+		7C3D474022D35EA40096EA75 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
 		7C410FDA22CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD922CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift */; };
@@ -273,6 +275,8 @@
 		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
+		7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
 		7C410FD922CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditBarcodePickerFactory.swift; sourceTree = "<group>"; };
@@ -687,6 +691,23 @@
 				7C3BF65422CA38A3001EA1E6 /* Info.plist */,
 			);
 			path = LeadLinkAppTests;
+			sourceTree = "<group>";
+		};
+		7C3D473B22D358370096EA75 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				7C3D473C22D3585F0096EA75 /* nameMe */,
+				7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */,
+				7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		7C3D473C22D3585F0096EA75 /* nameMe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = nameMe;
 			sourceTree = "<group>";
 		};
 		7C40D4ED22C6169D009CD01E /* ResponseToDataParser */ = {
@@ -1175,6 +1196,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C3D473B22D358370096EA75 /* Chart */,
 				7CA998EC22A96E9900C226F1 /* Service */,
 				7CA998CF22A908AC00C226F1 /* ConferenceApiKeyState */,
 				7C622275229444BA00717CA1 /* Persistance */,
@@ -1653,6 +1675,7 @@
 				7C51086122C0D001005EE58B /* TermsViewControllerFactory.swift in Sources */,
 				7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */,
 				7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */,
+				7C3D474022D35EA40096EA75 /* ChartViewModel.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
@@ -1664,6 +1687,7 @@
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
+				7C3D473E22D358880096EA75 /* CompartmentProtocols.swift in Sources */,
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,

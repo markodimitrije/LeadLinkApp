@@ -69,7 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let info = notification.userInfo, let id = info["campaignId"] as? Int else {
             fatalError("no campaignId sent from statsBtn")
         }
+        
         let statsVcFactory = StatsViewControllerFactory.init(appDependancyContainer: factory)
+        
         let statsVC = statsVcFactory.makeVC(campaignId: id)
         
         (window?.rootViewController as? UINavigationController)?.pushViewController(statsVC, animated: true)

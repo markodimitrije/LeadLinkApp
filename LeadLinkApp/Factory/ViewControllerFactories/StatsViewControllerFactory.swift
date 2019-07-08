@@ -17,7 +17,7 @@ class StatsViewControllerFactory {
     }
     
     func makeVC(campaignId id: Int) -> StatsVC {
-        
+//
         let chartVcFactory = ChartViewControllerFactory.init(appDependancyContainer: appDependancyContainer)
         let reportsVcFactory = ReportsViewControllerFactory.init(appDependancyContainer: appDependancyContainer)
         

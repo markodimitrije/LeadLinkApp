@@ -123,13 +123,30 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in ChartViewModel.hookUpWebReportsToChartOrBarData():ChartViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "webReports.toArray()">
+            </PersistentString>
+            <PersistentString
+               value = "barOrChartData">
+            </PersistentString>
+            <PersistentString
+               value = "sSelf.campaign">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
+               value = "chooseOptionsVC">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "count">
@@ -139,9 +156,6 @@
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -188,13 +202,13 @@
          contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame.origin.y">
-            </PersistentString>
-            <PersistentString
                value = "self.frame.midY &gt; cell.frame.origin.y">
             </PersistentString>
             <PersistentString
                value = "self.frame.midY">
+            </PersistentString>
+            <PersistentString
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -224,10 +238,10 @@
          contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
          <PersistentStrings>
             <PersistentString
-               value = "view as? UITextView">
+               value = "view as? UITextField">
             </PersistentString>
             <PersistentString
-               value = "view as? UITextField">
+               value = "view as? UITextView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -236,6 +250,14 @@
          <PersistentStrings>
             <PersistentString
                value = "question.type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChartViewControllerFactory.makeVC(campaignId:):ChartViewControllerFactory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_otherDevicesSyncedCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

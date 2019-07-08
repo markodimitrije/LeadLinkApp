@@ -24,7 +24,7 @@ class StatsVC: UIViewController, Storyboarded {
     override func viewDidLoad() { super.viewDidLoad()
         bindTabControl()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         loadReportsVC()
         loadChartVC()
@@ -38,7 +38,6 @@ class StatsVC: UIViewController, Storyboarded {
         tabControl?.rx.selectedSegmentIndex.subscribe(onNext: { index in
             _ = self.containerView.subviews.map {$0.removeFromSuperview()}
             switch index {
-            //case 0: self.containerView.addSubview(self.codesVC!.view)
             case 0: self.containerView.addSubview(self.reportsVC!.view)
             case 1: self.containerView.addSubview(self.chartVC!.view)
             default: break
@@ -49,7 +48,7 @@ class StatsVC: UIViewController, Storyboarded {
     
     private func loadReportsVC() {
         _ = codesView?.subviews.map {$0.removeFromSuperview()}
-        
+
         guard let reportsVC = reportsVC else {return}
 
         reportsVC.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
@@ -60,8 +59,13 @@ class StatsVC: UIViewController, Storyboarded {
     }
     
     private func loadChartVC() {
-        chartVC = storyboard!.instantiateViewController(withIdentifier: "ChartVC")
+
+        //        _ = codesView?.subviews.map {$0.removeFromSuperview()}
+        
         chartVC?.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
+        
+        statisticsView?.addSubview(chartVC!.view)
+        
     }
     
     private let disposeBag = DisposeBag()

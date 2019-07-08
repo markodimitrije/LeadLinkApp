@@ -456,9 +456,6 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8Z-zb-Biw">
                                         <rect key="frame" x="0.0" y="0.0" width="659" height="984"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="KdU-82-MbN" kind="embed" id="Bsd-cL-VZY"/>
-                                        </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2p-wy-rb9">
                                         <rect key="frame" x="667" y="0.0" width="659" height="984"/>
@@ -490,16 +487,16 @@
             <objects>
                 <viewController storyboardIdentifier="ChartVC" id="KdU-82-MbN" customClass="ChartVC" customModule="LeadLinkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZp-lu-eBF">
-                        <rect key="frame" x="0.0" y="0.0" width="659" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-UV-aIp">
-                                <rect key="frame" x="20" y="20" width="619" height="583"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="20" width="1326" height="623"/>
+                                <color key="backgroundColor" red="0.22030957100000001" green="0.62498580420000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZg-CQ-oJM">
-                                <rect key="frame" x="20" y="611" width="619" height="353"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="651" width="1326" height="353"/>
+                                <color key="backgroundColor" red="0.1703016802" green="1" blue="0.065275902050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="353" id="7Wn-Fy-2cH"/>
                                 </constraints>
@@ -518,10 +515,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c8L-8c-YQn"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="1510"/>
+            <point key="canvasLocation" x="2186" y="1447"/>
         </scene>
         <!--CodesVC-->
         <scene sceneID="2rk-wX-QdK">

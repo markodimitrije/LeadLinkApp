@@ -55,6 +55,5 @@ public struct Campaign: Codable {
         self.codes = campaign.codes.toArray().map(Code.init)
         
         self.application = Application(realmApplication: campaign.application)
-        
     }
 }
