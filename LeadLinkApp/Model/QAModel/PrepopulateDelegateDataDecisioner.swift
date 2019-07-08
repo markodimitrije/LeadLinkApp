@@ -8,23 +8,6 @@
 
 import Foundation
 
-//class PrepopulateDelegateDataDecisioner {
-//
-//    private var surveyInfo: SurveyInfo
-//    private var code: String
-//
-//    init(surveyInfo: SurveyInfo, codeToCheck code: String) {
-//        self.surveyInfo = surveyInfo
-//        self.code = code
-//    }
-//
-//    func shouldPrepopulateDelegateData() -> Bool {
-//        let hasRealmAnswers = surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)
-//        let hasConsent = surveyInfo.hasConsent
-//        return !hasRealmAnswers && hasConsent
-//    }
-//}
-
 class PrepopulateDelegateDataDecisioner {
     
     private var surveyInfo: SurveyInfo
@@ -36,7 +19,7 @@ class PrepopulateDelegateDataDecisioner {
     }
     
     func shouldPrepopulateDelegateData() -> Bool {
-        let hasRealmAnswers = surveyInfo.doesCodeSavedInRealmHasAnyAnswers(codeValue: code)
+        let hasRealmAnswers = surveyInfo.realmCampaignHasAnswersFor(codeValue: code)
         let hasConsent = surveyInfo.hasConsent
         return !hasRealmAnswers && hasConsent
     }
