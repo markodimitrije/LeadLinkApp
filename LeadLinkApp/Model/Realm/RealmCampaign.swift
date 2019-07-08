@@ -27,6 +27,7 @@ class RealmCampaign: Object {
     @objc dynamic var logo: String? = "" // url
     @objc dynamic var imgData: Data?
     @objc dynamic var useScanditScanner: Bool = false
+    @objc dynamic var number_of_responses: Int = 0
     
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
@@ -48,6 +49,7 @@ class RealmCampaign: Object {
         self.logo = campaign.logo
         self.imgData = campaign.imgData
         self.useScanditScanner = campaign.use_scandit_scanner ?? false
+        self.number_of_responses = campaign.number_of_responses
         
         let org = RealmOrganization(); org.update(with: campaign.organization)
         self.organization = org

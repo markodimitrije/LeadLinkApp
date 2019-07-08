@@ -27,6 +27,7 @@ public struct Campaign: Codable {
     // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
     var imgData: Data? = nil
     var use_scandit_scanner: Bool?
+    var number_of_responses: Int
     var application: Application
     
     var questions: [Question]
@@ -46,6 +47,7 @@ public struct Campaign: Codable {
         self.logo = campaign.logo
         self.imgData = campaign.imgData
         self.use_scandit_scanner = campaign.useScanditScanner
+        self.number_of_responses = campaign.number_of_responses
         
         self.organization = Organization(realmOrganization: campaign.organization)
         
