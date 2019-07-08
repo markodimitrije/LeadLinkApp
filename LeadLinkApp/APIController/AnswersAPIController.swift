@@ -18,10 +18,13 @@ class AnswersApiController {
     
     static var shared = AnswersApiController()
     
-    private let headerFieldsCreator = AnswersHeaderFieldsCreator()
+    //private let headerFieldsCreator = AnswersHeaderFieldsCreator()
+    private var headerFieldsCreator: AnswersHeaderFieldsCreator!
     
     //MARK: - API Calls
     func notifyWeb(withReports reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
+        
+        headerFieldsCreator = AnswersHeaderFieldsCreator()
         
         return postRequest(base: Domain.baseLeadLinkURL, pathComponent: "answers", reports: reports)
         
