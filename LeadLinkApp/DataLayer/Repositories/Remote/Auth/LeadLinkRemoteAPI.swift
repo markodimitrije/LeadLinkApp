@@ -16,7 +16,7 @@ public struct LeadLinkRemoteAPI: AuthRemoteAPI {
     // MARK:- Properties
     
     private var authorization: String {
-        return confApiKeyState.authentication ?? "error"
+        return confApiKeyState!.authentication ?? "error"
     }
     
     // MARK: - Methods

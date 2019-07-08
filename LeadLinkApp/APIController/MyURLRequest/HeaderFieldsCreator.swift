@@ -33,8 +33,8 @@ class HeaderFieldsCreator {
 
 class CampaignDelegateHeaderFieldsCreator: HeaderFieldsCreator {
     init() {
-        super.init(apiKey: confApiKeyState.apiKey,
-                   authorization: confApiKeyState.authentication,
+        super.init(apiKey: confApiKeyState!.apiKey,
+                   authorization: confApiKeyState!.authentication,
                    deviceUdid: UIDevice.current.identifierForVendor?.uuidString,
                    contentType: "application/json")
     }
@@ -42,15 +42,15 @@ class CampaignDelegateHeaderFieldsCreator: HeaderFieldsCreator {
 
 class AnswersHeaderFieldsCreator: HeaderFieldsCreator {
     init() {
-        super.init(apiKey: confApiKeyState.apiKey,
-                   authorization: confApiKeyState.authentication,
+        super.init(apiKey: confApiKeyState!.apiKey,
+                   authorization: confApiKeyState!.authentication,
                    contentType: "application/json")
     }
 }
 
 class CampaignsWithQuestionsHeaderFieldsCreator: HeaderFieldsCreator {
     init() {
-        super.init(authorization: confApiKeyState.authentication,
+        super.init(authorization: confApiKeyState!.authentication,
                    contentType: "application/json")
     }
 }

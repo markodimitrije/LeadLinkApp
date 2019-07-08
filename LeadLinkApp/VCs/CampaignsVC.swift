@@ -109,7 +109,7 @@ extension CampaignsVC: UITableViewDelegate {
         
         let campaign = Campaign(realmCampaign: selectedCampaign)
         
-        confApiKeyState.updateWith(selectedCampaign: campaign)
+        confApiKeyState!.updateWith(selectedCampaign: campaign)
         
         let scanningVC = createScaningVC(campaign: selectedCampaign)
         

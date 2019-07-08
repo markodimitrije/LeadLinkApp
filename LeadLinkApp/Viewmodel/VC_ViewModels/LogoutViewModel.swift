@@ -38,6 +38,7 @@ public class LogOutViewModel {
                     .ensure { [weak self] in guard let sSelf = self else {return}
                         sSelf.notSignedInResponder.notSignedIn()
                         sSelf.deleteCampaignRelatedData()
+                        sSelf.deleteConfApiKeyStateAndAuthorization()
                 }
         }
     }
@@ -49,6 +50,11 @@ public class LogOutViewModel {
                                                              RealmQuestion.self,
                                                              RealmApplication.self,
                                                              RealmJson.self])
+    }
+    
+    private func deleteConfApiKeyStateAndAuthorization() {
+        UserDefaults.standard.setValue(nil, forKey: UserDefaults.keyConferenceAuth)
+        confApiKeyState = nil
     }
     
 }

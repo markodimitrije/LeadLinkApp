@@ -15,7 +15,8 @@ public struct DelegatesRemoteAPI {
     
     // MARK:- Properties
     
-    private let headerFieldsCreator = CampaignDelegateHeaderFieldsCreator()
+    //private let headerFieldsCreator = CampaignDelegateHeaderFieldsCreator()
+    private var headerFieldsCreator: CampaignDelegateHeaderFieldsCreator!
     private var responseToDataParser: ResponseToDataParser!
     
     struct Domain {
@@ -28,7 +29,10 @@ public struct DelegatesRemoteAPI {
     public init() {}
     
     public mutating func getDelegate(withCode code: String) -> Observable<Delegate?> {
-        let confId = confApiKeyState.conferenceId ?? 0 // fatal
+        
+        headerFieldsCreator = CampaignDelegateHeaderFieldsCreator()
+        
+        let confId = confApiKeyState?.conferenceId ?? 0 // fatal
         let delegatesPath = "conferences/" + "\(confId)" + "/delegates" // hard-coded
         let escapedString = delegatesPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         return buildRequest(pathComponent: escapedString, //params: [])//,

@@ -53,4 +53,6 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
         self.selectedCampaign = campaign
     }
     
+    
+    
 }

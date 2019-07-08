@@ -21,7 +21,7 @@ var tableRowHeightCalculator = QuestionsAnswersTableRowHeightCalculator()
 var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
 //var confApiKeyState = ConferenceApiKeyState()
-var confApiKeyState: ConferenceApiKeyState = {
+var confApiKeyState: ConferenceApiKeyState? = {
     
     let authToken = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceAuth) as? String ?? ""
     var selectedCampaign: Campaign?
