@@ -65,11 +65,16 @@ struct SurveyInfo {
         })
     }
     
-    func doesCodeSavedInRealmHasAnyAnswers(codeValue code: String) -> Bool {
-        guard let realm = try? Realm() else {
-            return false
-        }
-        let codeExists = realm.objects(RealmAnswer.self).filter("code == %@", code).first != nil
+//    func doesCodeSavedInRealmHasAnyAnswers(codeValue code: String) -> Bool {
+//        guard let realm = try? Realm() else {
+//            return false
+//        }
+//        let codeExists = realm.objects(RealmAnswer.self).filter("code == %@", code).first != nil
+//        return codeExists
+//    }
+    func doesCodeSavedInRealmHasAnyAnswers(codeValue code: String) -> Bool { // rename
+        guard let realm = try? Realm() else { return false } // treba exception!
+        let codeExists = realm.objects(RealmAnswer.self).filter("code == %@ && campaignId == %i", code, self.campaign.id).first != nil
         return codeExists
     }
     

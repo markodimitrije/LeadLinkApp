@@ -74,7 +74,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private func fetchDelegateAndSaveToRealm(code: String) {
         
         let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo, codeToCheck: code)
-        guard decisioner.shouldPrepopulateDelegateData() else { return }
+        guard decisioner.shouldPrepopulateDelegateData() else {
+            return
+        }
 
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
