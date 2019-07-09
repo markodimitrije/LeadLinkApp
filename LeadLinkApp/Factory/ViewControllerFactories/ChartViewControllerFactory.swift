@@ -24,8 +24,8 @@ class ChartViewControllerFactory {
 
         let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.readCampaign(id: id)
         
-        let viewmodel = ChartViewModel(campaign: campaign.value!,
-                                       webReports: RealmDataPersister.shared.getRealmWebReportedAnswers())
+        let viewmodel = GridViewModel(campaign: campaign.value!,
+                                      webReports: RealmDataPersister.shared.getRealmWebReportedAnswers())
 
         chartVC.chartViewModel = viewmodel
 

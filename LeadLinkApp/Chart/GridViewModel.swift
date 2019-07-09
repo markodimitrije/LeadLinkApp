@@ -10,13 +10,16 @@ import Foundation
 import RxSwift
 import RealmSwift
 
-class ChartViewModel {
+protocol GridViewModeling {
+    var output: ReplaySubject<UIStackView> {get set}
+}
+
+class GridViewModel: GridViewModeling {
     
     private var campaign: Campaign
     private var webReports: Observable<Results<RealmWebReportedAnswers>>
     
-    //let output = ReplaySubject<BarOrChartInfo>.create(bufferSize: 10) // output
-    let output = ReplaySubject<UIStackView>.create(bufferSize: 10) // output
+    var output = ReplaySubject<UIStackView>.create(bufferSize: 10) // output
 
     init(campaign: Campaign, webReports: Observable<Results<RealmWebReportedAnswers>>) {
         self.campaign = campaign
@@ -29,7 +32,6 @@ class ChartViewModel {
             .subscribe(onNext: { [weak self] webReports in
                 guard let sSelf = self else {return}
                 let barOrChartData = BarOrChartData(campaign: sSelf.campaign, webReports: webReports.toArray())
-                //sSelf.output.onNext(barOrChartData)
                 let gridView = sSelf.createGridView(barOrChartInfo: barOrChartData)
                 sSelf.output.onNext(gridView)
             })

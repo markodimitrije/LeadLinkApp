@@ -16,17 +16,17 @@ class ChartVC: UIViewController, Storyboarded {
     
     private let bag = DisposeBag()
     
-    var chartViewModel: ChartViewModel! // nek ti ubaci odg. Factory....
+    var chartViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
     
     override func viewDidLoad() { super.viewDidLoad()
-        hookUpChartDataFromYourViewModel()
+        hookUpGridViewFromYourViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
-        hookUpChartDataFromYourViewModel()
+        hookUpGridViewFromYourViewModel()
     }
     
-    private func hookUpChartDataFromYourViewModel() {
+    private func hookUpGridViewFromYourViewModel() {
         chartViewModel.output
             .subscribe(onNext: { [weak self] gridView in
                 
