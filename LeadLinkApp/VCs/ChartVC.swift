@@ -15,11 +15,6 @@ class ChartVC: UIViewController, Storyboarded {
     @IBOutlet weak var gridView: UIView!
     
     private let bag = DisposeBag()
-    private var barOrChartInfo: BarOrChartInfo? { // imam ref ovde jer ce mi trebati za dijagram
-        didSet {
-            loadCompartmentsInGridView()
-        }
-    }
     
     var chartViewModel: ChartViewModel! // nek ti ubaci odg. Factory....
     
@@ -28,42 +23,36 @@ class ChartVC: UIViewController, Storyboarded {
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
-        loadCompartmentsInGridView()
+        hookUpChartDataFromYourViewModel()
     }
     
     private func hookUpChartDataFromYourViewModel() {
         chartViewModel.output
-            .subscribe(onNext: { [weak self] barOrChartInfo in
+            .subscribe(onNext: { [weak self] gridView in
                 
                 guard let sSelf = self else {return}
-                sSelf.barOrChartInfo = barOrChartInfo
+                sSelf.gridViewIsReady(gridView)
                 
             })
             .disposed(by: bag)
     }
     
-    private func loadCompartmentsInGridView() {
-        
-        guard let barOrChartInfo = self.barOrChartInfo else {return}
-
-        resizeGridViewIfPresent()
-        
-        addGridView(barOrChartInfo: barOrChartInfo)
-        
+    private func gridViewIsReady(_ gridView: UIStackView) {
+        removeGridViewIfPresent()
+        addFormattedGridView(gridTableView: gridView)
     }
     
-    private func resizeGridViewIfPresent() {
+    private func removeGridViewIfPresent() {
         if let childView = self.gridView.subviews.first as? UIStackView {
-            childView.frame = self.gridView.bounds
-            return
+            childView.removeFromSuperview()
         }
     }
     
-    private func addGridView(barOrChartInfo: BarOrChartInfo) {
-        let gridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartInfo)
-        let gridTableView = gridViewFactory.gridView
-        
+    private func addFormattedGridView(gridTableView: UIStackView) {
         gridTableView.frame = gridView.bounds
         self.gridView.addSubview(gridTableView)
     }
+    
 }
+
+
