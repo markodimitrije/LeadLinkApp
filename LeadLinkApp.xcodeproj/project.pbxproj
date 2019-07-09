@@ -30,6 +30,8 @@
 		7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */; };
 		7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */; };
 		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
+		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
+		7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
@@ -271,6 +273,8 @@
 		7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewFactory.swift; sourceTree = "<group>"; };
 		7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
+		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
+		7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataImplementations.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -685,6 +689,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */,
+				7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */,
+			);
+			path = BarOrChartInfo;
+			sourceTree = "<group>";
+		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +743,7 @@
 		7C3D473B22D358370096EA75 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */,
 				7C3D473D22D358880096EA75 /* ChartProtocols.swift */,
 				7C3D473C22D3585F0096EA75 /* Compartment */,
 				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
@@ -1788,6 +1802,7 @@
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
 				7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */,
 				7C98A670228961D400DA184E /* ViewStackerFactory.swift in Sources */,
+				7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */,
 				7C98A6A92289689900DA184E /* LabelAndTextView.swift in Sources */,
 				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
 				7C98A6D122896ED500DA184E /* RadioViewmodelInputCreator.swift in Sources */,
@@ -1816,6 +1831,7 @@
 				7C0E5CC5228F0B030011E0A2 /* Validation.swift in Sources */,
 				7C410FDA22CB9BF0009F7CC0 /* ScanditBarcodePickerFactory.swift in Sources */,
 				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
+				7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
