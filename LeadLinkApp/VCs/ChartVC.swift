@@ -45,17 +45,25 @@ class ChartVC: UIViewController, Storyboarded {
     private func loadCompartmentsInGridView() {
         
         guard let barOrChartInfo = self.barOrChartInfo else {return}
+
+        resizeGridViewIfPresent()
         
-        if let childView = self.gridView.subviews.first as? UIStackView {
-            childView.frame = self.gridView.bounds
-        } else {
-            let gridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartInfo)
-            let gridTableView = gridViewFactory.gridView
-            
-            gridTableView.frame = gridView.bounds
-            self.gridView.addSubview(gridTableView)
-        }
+        addGridView(barOrChartInfo: barOrChartInfo)
         
     }
     
+    private func resizeGridViewIfPresent() {
+        if let childView = self.gridView.subviews.first as? UIStackView {
+            childView.frame = self.gridView.bounds
+            return
+        }
+    }
+    
+    private func addGridView(barOrChartInfo: BarOrChartInfo) {
+        let gridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartInfo)
+        let gridTableView = gridViewFactory.gridView
+        
+        gridTableView.frame = gridView.bounds
+        self.gridView.addSubview(gridTableView)
+    }
 }
