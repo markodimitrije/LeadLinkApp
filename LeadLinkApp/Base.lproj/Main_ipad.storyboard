@@ -516,6 +516,10 @@
                         <viewLayoutGuide key="safeArea" id="c8L-8c-YQn"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="chartView" destination="Ine-UV-aIp" id="RT5-QU-7N7"/>
+                        <outlet property="gridTableView" destination="AZg-CQ-oJM" id="yLL-2o-2OF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
