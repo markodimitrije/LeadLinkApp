@@ -35,16 +35,10 @@ class SingleRowGridTableView: UIView {
         
     }
     
-//    func update(color: UIColor, desc: String, value: Int) {
-//        colorView.backgroundColor = color
-//        descLabel.text = desc
-//        valueLabel.text = "\(value)"
-//    }
-    
-    func update(singleCompartmentInfo: SingleCompartment) {
-        colorView.backgroundColor = singleCompartmentInfo.color
-        descLabel.text = singleCompartmentInfo.name
-        valueLabel.text = "\(singleCompartmentInfo.value)"
+    func update(compartment: SingleCompartment) {
+        colorView.backgroundColor = compartment.color
+        descLabel.text = compartment.name
+        valueLabel.text = "\(compartment.value)"
     }
     
 }

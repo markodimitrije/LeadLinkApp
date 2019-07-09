@@ -28,6 +28,8 @@
 		7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */; };
 		7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */; };
 		7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */; };
+		7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */; };
+		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
@@ -40,7 +42,7 @@
 		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
-		7C3D473E22D358880096EA75 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */; };
+		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
@@ -267,6 +269,8 @@
 		7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleRowGridTableView.xib; sourceTree = "<group>"; };
 		7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRowGridTableView.swift; sourceTree = "<group>"; };
 		7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewFactory.swift; sourceTree = "<group>"; };
+		7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
+		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -281,7 +285,7 @@
 		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
+		7C3D473D22D358880096EA75 /* ChartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartProtocols.swift; sourceTree = "<group>"; };
 		7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
@@ -657,21 +661,28 @@
 			path = MyURLRequest;
 			sourceTree = "<group>";
 		};
-		7C38D49C22D4869D0044AFC5 /* GridTableView */ = {
+		7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */ = {
 			isa = PBXGroup;
 			children = (
 				7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */,
 				7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */,
 			);
-			path = GridTableView;
+			path = SingleRowGridTableView;
 			sourceTree = "<group>";
 		};
-		7C38D49D22D48BE70044AFC5 /* ViewFactory */ = {
+		7C38D49D22D48BE70044AFC5 /* ViewFactories */ = {
 			isa = PBXGroup;
 			children = (
 				7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */,
 			);
-			path = ViewFactory;
+			path = ViewFactories;
+			sourceTree = "<group>";
+		};
+		7C38D4A022D4A0B80044AFC5 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
@@ -719,20 +730,23 @@
 		7C3D473B22D358370096EA75 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D49D22D48BE70044AFC5 /* ViewFactory */,
-				7C3D473C22D3585F0096EA75 /* Views */,
-				7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */,
+				7C3D473D22D358880096EA75 /* ChartProtocols.swift */,
+				7C3D473C22D3585F0096EA75 /* Compartment */,
+				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
+				7C38D49D22D48BE70044AFC5 /* ViewFactories */,
+				7C38D4A022D4A0B80044AFC5 /* New Group */,
 				7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		7C3D473C22D3585F0096EA75 /* Views */ = {
+		7C3D473C22D3585F0096EA75 /* Compartment */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D49C22D4869D0044AFC5 /* GridTableView */,
+				7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */,
+				7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */,
 			);
-			path = Views;
+			path = Compartment;
 			sourceTree = "<group>";
 		};
 		7C40D4ED22C6169D009CD01E /* ResponseToDataParser */ = {
@@ -1714,8 +1728,10 @@
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
-				7C3D473E22D358880096EA75 /* CompartmentProtocols.swift in Sources */,
+				7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */,
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
+				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
+				7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,

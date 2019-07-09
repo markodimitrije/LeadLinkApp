@@ -44,6 +44,7 @@ class ChartVC: UIViewController, Storyboarded {
         
         let chartViewFactory = ChartViewFactory(barOrChartInfo: barOrChartInfo)
         let chartTableView = chartViewFactory.gridView
+        
         chartTableView.frame = gridTableView.bounds
         self.gridTableView.addSubview(chartTableView)
     }

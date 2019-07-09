@@ -1,8 +1,8 @@
 //
-//  SingleBar.swift
+//  CompartmentProtocols.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 08/07/2019.
+//  Created by Marko Dimitrijevic on 09/07/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
@@ -23,12 +23,3 @@ protocol SingleCompartmentValue {
 }
 
 protocol SingleCompartment: SingleCompartmentColor, SingleCompartmentName, SingleCompartmentValue {}
-
-protocol BarOrChartTable {
-    var compartments: [SingleCompartment] {get set}
-    var date: Date {get set}
-}
-
-protocol BarOrChartDiagram {
-    var compartments: [SingleCompartment] {get set}
-}
