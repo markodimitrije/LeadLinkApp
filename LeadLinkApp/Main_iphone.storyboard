@@ -508,7 +508,7 @@ barcode number manually</string>
                     </view>
                     <connections>
                         <outlet property="chartView" destination="S8u-fU-5fj" id="aB8-86-nyw"/>
-                        <outlet property="gridTableView" destination="dDJ-j9-xCA" id="q8r-Jv-gPt"/>
+                        <outlet property="gridView" destination="dDJ-j9-xCA" id="9Qs-Do-Krv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY0-qS-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

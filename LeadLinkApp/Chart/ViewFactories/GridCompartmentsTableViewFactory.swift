@@ -1,5 +1,5 @@
 //
-//  ChartViewFactory.swift
+//  CompartmentsInGridViewFactory.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 09/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChartViewFactory {
+class CompartmentsInGridViewFactory {
     
     private var barOrChartInfo: BarOrChartInfo
     private var compartments = [SingleCompartment]()
@@ -33,15 +33,15 @@ class ChartViewFactory {
     
     private func loadCompartments() {
         
-        let totalOtherDevicesCompartmentInfo = TotalOtherDevicesCompartmentInfo(value:barOrChartInfo.otherDevicesSyncedCount)
+        let totalOtherDevicesCompartmentInfo = TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
         
-        let syncedThisDeviceCompartmentInfo = SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.thisDeviceSyncedCount)
+        let syncedThisDeviceCompartmentInfo = SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
         
-        let notSyncedThisDeviceCompartmentInfo = NotSyncedThisDeviceCompartmentInfo(value:barOrChartInfo.thisDeviceNotSyncedCount)
+        let notSyncedThisDeviceCompartmentInfo = NotSyncedThisDeviceCompartmentInfo(value:barOrChartInfo.compartmentValues[2])
         
-        self.compartments =  [totalOtherDevicesCompartmentInfo,
-                              syncedThisDeviceCompartmentInfo,
-                              notSyncedThisDeviceCompartmentInfo]
+        self.compartments = [totalOtherDevicesCompartmentInfo,
+                             syncedThisDeviceCompartmentInfo,
+                             notSyncedThisDeviceCompartmentInfo]
     }
     
     private func loadCompartmentViews() {

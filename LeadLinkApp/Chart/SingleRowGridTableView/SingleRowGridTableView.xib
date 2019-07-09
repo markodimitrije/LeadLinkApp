@@ -26,13 +26,24 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-rE-Fm1">
                     <rect key="frame" x="8" y="8" width="464" height="96"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXE-eV-yoi" userLabel="colorView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxl-oJ-Mh2" userLabel="colorPlaceholderView">
                             <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
-                            <color key="backgroundColor" red="0.12796694610000001" green="0.38214941540000003" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXE-eV-yoi" userLabel="colorView">
+                                    <rect key="frame" x="38" y="38" width="20" height="20"/>
+                                    <color key="backgroundColor" red="0.12796694610000001" green="0.38214941540000003" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="L8o-CB-sro"/>
+                                        <constraint firstAttribute="width" constant="20" id="i2m-80-Md7"/>
+                                        <constraint firstAttribute="width" secondItem="WXE-eV-yoi" secondAttribute="height" id="xPN-gd-3rw"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="96" id="j7k-hJ-vsj"/>
-                                <constraint firstAttribute="width" constant="96" id="pSx-es-YzJ"/>
-                                <constraint firstAttribute="width" secondItem="WXE-eV-yoi" secondAttribute="height" id="xPN-gd-3rw"/>
+                                <constraint firstItem="WXE-eV-yoi" firstAttribute="centerY" secondItem="Qxl-oJ-Mh2" secondAttribute="centerY" id="762-gl-jm6"/>
+                                <constraint firstItem="WXE-eV-yoi" firstAttribute="centerX" secondItem="Qxl-oJ-Mh2" secondAttribute="centerX" id="BSz-VB-NiL"/>
+                                <constraint firstAttribute="width" secondItem="Qxl-oJ-Mh2" secondAttribute="height" id="LuY-sP-mIs"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsj-AR-gEM" userLabel="descLabel">
@@ -48,10 +59,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="Hli-4j-SBh" firstAttribute="centerY" secondItem="WXE-eV-yoi" secondAttribute="centerY" id="6bC-xh-UP7"/>
-                        <constraint firstItem="dsj-AR-gEM" firstAttribute="centerY" secondItem="WXE-eV-yoi" secondAttribute="centerY" id="zn2-UV-zX7"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

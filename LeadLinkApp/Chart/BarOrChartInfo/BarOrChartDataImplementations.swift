@@ -13,31 +13,17 @@ struct BarOrChartData: BarOrChartInfo {
     private var campaign: Campaign
     private var webReports: [RealmWebReportedAnswers]
     
-    var otherDevicesSyncedCount = 0
-    var thisDeviceSyncedCount = 0
-    var thisDeviceNotSyncedCount = 0
+    var compartmentValues = [Int]()
     
     init(campaign: Campaign, webReports: [RealmWebReportedAnswers]) {
         self.campaign = campaign
         self.webReports = webReports
-        self.populateMyVars()
+        self.loadCompartmentValues()
     }
     
-    private mutating func populateMyVars() {
-        loadOtherDevicesSyncedCount()
-        loadThisDeviceSyncedCount()
-        loadThisDeviceNotSyncedCount()
-    }
-    
-    private mutating func loadOtherDevicesSyncedCount() {
-        otherDevicesSyncedCount = campaign.number_of_responses
-    }
-    
-    private mutating func loadThisDeviceSyncedCount() {
-        thisDeviceSyncedCount = webReports.filter {$0.success}.count
-    }
-    
-    private mutating func loadThisDeviceNotSyncedCount() {
-        thisDeviceNotSyncedCount = webReports.filter {!$0.success}.count
+    private mutating func loadCompartmentValues() {
+        compartmentValues.append(campaign.number_of_responses)
+        compartmentValues.append(webReports.filter {$0.success}.count)
+        compartmentValues.append(webReports.filter {!$0.success}.count)
     }
 }

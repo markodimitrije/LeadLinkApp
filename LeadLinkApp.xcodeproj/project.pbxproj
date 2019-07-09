@@ -27,7 +27,7 @@
 		7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */; };
 		7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */; };
 		7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */; };
-		7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */; };
+		7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */; };
 		7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */; };
 		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
 		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
@@ -270,7 +270,7 @@
 		7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFieldsCreator.swift; sourceTree = "<group>"; };
 		7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleRowGridTableView.xib; sourceTree = "<group>"; };
 		7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRowGridTableView.swift; sourceTree = "<group>"; };
-		7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewFactory.swift; sourceTree = "<group>"; };
+		7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCompartmentsTableViewFactory.swift; sourceTree = "<group>"; };
 		7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
 		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
@@ -677,7 +677,7 @@
 		7C38D49D22D48BE70044AFC5 /* ViewFactories */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */,
+				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -1786,7 +1786,7 @@
 				7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
-				7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */,
+				7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
 				7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */,

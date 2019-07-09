@@ -9,8 +9,5 @@
 import Foundation
 
 protocol BarOrChartInfo {
-    //init(campaign: Campaign, webReports: [RealmWebReportedAnswers])
-    var otherDevicesSyncedCount: Int {get set}
-    var thisDeviceSyncedCount: Int {get set}
-    var thisDeviceNotSyncedCount: Int {get set}
+    var compartmentValues: [Int] {get set}
 }

@@ -12,41 +12,50 @@ import RxSwift
 class ChartVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var chartView: UIView!
-    @IBOutlet weak var gridTableView: UIView!
+    @IBOutlet weak var gridView: UIView!
     
     private let bag = DisposeBag()
     private var barOrChartInfo: BarOrChartInfo? { // imam ref ovde jer ce mi trebati za dijagram
         didSet {
-            loadGridTableView()
+            loadCompartmentsInGridView()
         }
     }
     
     var chartViewModel: ChartViewModel! // nek ti ubaci odg. Factory....
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad() { super.viewDidLoad()
         hookUpChartDataFromYourViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
+        loadCompartmentsInGridView()
     }
     
     private func hookUpChartDataFromYourViewModel() {
         chartViewModel.output
-            .subscribe(onNext: { barOrChartInfo in print("create your views and display them....")
+            .subscribe(onNext: { [weak self] barOrChartInfo in
                 
-                self.barOrChartInfo = barOrChartInfo
+                guard let sSelf = self else {return}
+                sSelf.barOrChartInfo = barOrChartInfo
                 
             })
             .disposed(by: bag)
     }
     
-    private func loadGridTableView() {
+    private func loadCompartmentsInGridView() {
         
         guard let barOrChartInfo = self.barOrChartInfo else {return}
         
-        let chartViewFactory = ChartViewFactory(barOrChartInfo: barOrChartInfo)
-        let chartTableView = chartViewFactory.gridView
+        if let childView = self.gridView.subviews.first as? UIStackView {
+            childView.frame = self.gridView.bounds
+        } else {
+            let gridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartInfo)
+            let gridTableView = gridViewFactory.gridView
+            
+            gridTableView.frame = gridView.bounds
+            self.gridView.addSubview(gridTableView)
+        }
         
-        chartTableView.frame = gridTableView.bounds
-        self.gridTableView.addSubview(chartTableView)
     }
     
 }
