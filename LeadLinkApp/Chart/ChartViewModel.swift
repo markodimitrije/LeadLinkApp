@@ -37,7 +37,10 @@ class ChartViewModel {
 }
 
 protocol BarOrChartInfo {
-    init(campaign: Campaign, webReports: [RealmWebReportedAnswers])
+    //init(campaign: Campaign, webReports: [RealmWebReportedAnswers])
+    var otherDevicesSyncedCount: Int {get set}
+    var thisDeviceSyncedCount: Int {get set}
+    var thisDeviceNotSyncedCount: Int {get set}
 }
 
 struct BarOrChartData: BarOrChartInfo {
@@ -45,9 +48,9 @@ struct BarOrChartData: BarOrChartInfo {
     private var campaign: Campaign
     private var webReports: [RealmWebReportedAnswers]
     
-    private var _otherDevicesSyncedCount = 0
-    private var _thisDeviceSyncedCount = 0
-    private var _thisDeviceNotSyncedCount = 0
+    var otherDevicesSyncedCount = 0
+    var thisDeviceSyncedCount = 0
+    var thisDeviceNotSyncedCount = 0
     
     init(campaign: Campaign, webReports: [RealmWebReportedAnswers]) {
         self.campaign = campaign

@@ -11,18 +11,20 @@ import RxSwift
 
 class ChartVC: UIViewController, Storyboarded {
     
+    
+    
     var chartViewModel: ChartViewModel! // nek ti ubaci odg. Factory....
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hookUpInputsFromViewModel()
+        hookUpChartDataFromYourViewModel()
     }
     
-    private func hookUpInputsFromViewModel() {
+    private func hookUpChartDataFromYourViewModel() {
         chartViewModel.output
-            .subscribe(onNext: { barOrChartInfo in
-                print("barOrChartInfo = \(barOrChartInfo), create your views and display them....")
+            .subscribe(onNext: { barOrChartInfo in print("create your views and display them....")
+                print("barOrChartInfo = \(barOrChartInfo.otherDevicesSyncedCount)")
             })
             .disposed(by: bag)
     }
