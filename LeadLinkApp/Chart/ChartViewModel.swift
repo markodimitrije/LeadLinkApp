@@ -65,14 +65,14 @@ struct BarOrChartData: BarOrChartInfo {
     }
     
     private mutating func loadOtherDevicesSyncedCount() {
-        _otherDevicesSyncedCount = campaign.number_of_responses
+        otherDevicesSyncedCount = campaign.number_of_responses
     }
     
     private mutating func loadThisDeviceSyncedCount() {
-        _thisDeviceSyncedCount = webReports.filter {$0.success}.count
+        thisDeviceSyncedCount = webReports.filter {$0.success}.count
     }
     
     private mutating func loadThisDeviceNotSyncedCount() {
-        _thisDeviceNotSyncedCount = webReports.filter {!$0.success}.count
+        thisDeviceNotSyncedCount = webReports.filter {!$0.success}.count
     }
 }

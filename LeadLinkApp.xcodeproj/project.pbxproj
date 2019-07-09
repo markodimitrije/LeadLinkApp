@@ -25,6 +25,9 @@
 		7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */; };
 		7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */; };
 		7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */; };
+		7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */; };
+		7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */; };
+		7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
@@ -261,6 +264,9 @@
 		7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataErrorFromUrlResponse.swift; sourceTree = "<group>"; };
 		7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUrlRequest.swift; sourceTree = "<group>"; };
 		7C38086D22C5144600BB62C5 /* HeaderFieldsCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFieldsCreator.swift; sourceTree = "<group>"; };
+		7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleRowGridTableView.xib; sourceTree = "<group>"; };
+		7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRowGridTableView.swift; sourceTree = "<group>"; };
+		7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewFactory.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -651,6 +657,23 @@
 			path = MyURLRequest;
 			sourceTree = "<group>";
 		};
+		7C38D49C22D4869D0044AFC5 /* GridTableView */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */,
+				7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */,
+			);
+			path = GridTableView;
+			sourceTree = "<group>";
+		};
+		7C38D49D22D48BE70044AFC5 /* ViewFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D49E22D48BFA0044AFC5 /* ChartViewFactory.swift */,
+			);
+			path = ViewFactory;
+			sourceTree = "<group>";
+		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,18 +719,20 @@
 		7C3D473B22D358370096EA75 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				7C3D473C22D3585F0096EA75 /* nameMe */,
+				7C38D49D22D48BE70044AFC5 /* ViewFactory */,
+				7C3D473C22D3585F0096EA75 /* Views */,
 				7C3D473D22D358880096EA75 /* CompartmentProtocols.swift */,
 				7C3D473F22D35EA40096EA75 /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		7C3D473C22D3585F0096EA75 /* nameMe */ = {
+		7C3D473C22D3585F0096EA75 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C38D49C22D4869D0044AFC5 /* GridTableView */,
 			);
-			path = nameMe;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7C40D4ED22C6169D009CD01E /* ResponseToDataParser */ = {
@@ -1570,6 +1595,7 @@
 				7C0E5CBA228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib in Resources */,
 				7C98A6AC2289689900DA184E /* ViewStacker.xib in Resources */,
 				ADAEE88221D8F332000B3C52 /* Assets.xcassets in Resources */,
+				7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */,
 				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
 				7C98A6A72289689900DA184E /* OneRowStacker.xib in Resources */,
 				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
@@ -1664,6 +1690,7 @@
 				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
+				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
 				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
 				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,
@@ -1729,6 +1756,7 @@
 				7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
+				7C38D49F22D48BFA0044AFC5 /* ChartViewFactory.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
 				7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */,
