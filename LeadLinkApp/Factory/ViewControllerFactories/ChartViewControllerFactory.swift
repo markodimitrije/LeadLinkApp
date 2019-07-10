@@ -9,27 +9,29 @@
 import UIKit
 
 class ChartViewControllerFactory {
-    
+
     private var appDependancyContainer: AppDependencyContainer
-    
+
     init(appDependancyContainer: AppDependencyContainer) {
         self.appDependancyContainer = appDependancyContainer
     }
-    
-    func makeVC(campaignId id: Int) -> ChartVC {
-        
-        print("ChartViewControllerFactory pravi ChartViewController")
-        
-        let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
 
-        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.readCampaign(id: id)
-        
-        let viewmodel = GridViewModel(campaign: campaign.value!,
-                                      webReports: RealmDataPersister.shared.getRealmWebReportedAnswers())
+    func makeVC(campaignId id: Int) -> ChartVC {
+
+        print("ChartViewControllerFactory pravi ChartViewController")
+
+        let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
+    
+        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.readMyCampaign(id: id)
+        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+
+        let viewmodel = GridViewModel(campaign: campaign,
+                                      webReports: webReports)
 
         chartVC.chartViewModel = viewmodel
 
         return chartVC
-        
+
     }
 }
+

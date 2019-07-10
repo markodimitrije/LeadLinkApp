@@ -10,7 +10,7 @@ import Foundation
 
 extension URL {
     static var campaignsWithQuestions = URL.init(string: "https://service.e-materials.com/api/leadlink/campaigns?include=questions,organization,application")!
-    static var campaignsWithQuestionsMOCK = URL.init(string: "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/9/questions")!
+    static var campaignsWithQuestionsMOCK = URL.init(string: "https://ee0a4cff-6754-453d-a736-412c0085a44b.mock.pstmn.io/api/leadlink/campaigns/questions,application")!
 }
 
 extension URLRequest {

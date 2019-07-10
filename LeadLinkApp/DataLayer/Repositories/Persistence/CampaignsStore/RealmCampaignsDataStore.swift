@@ -10,6 +10,8 @@ import Foundation
 import PromiseKit
 import Realm
 import RealmSwift
+import RxSwift
+import RxRealm
 
 public class RealmCampaignsDataStore: CampaignsDataStore {
     
@@ -37,6 +39,19 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
             
         }
         
+    }
+    
+    public func readMyCampaign(id: Int) -> Observable<Campaign> {
+
+        let realm = try! Realm()
+        let realmCampaigns = realm.objects(RealmCampaign.self)
+        
+        return Observable.collection(from: realmCampaigns)
+                         .map {
+                            realmCampaigns in
+                            let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
+                            return Campaign(realmCampaign: realmCampaign!)
+                         }
     }
     
     public func readAllCampaigns() -> Promise<[Campaign]> {

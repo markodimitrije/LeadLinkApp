@@ -24,8 +24,16 @@ class LoginViewController: UIViewController, Storyboarded {
     private let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
     
     @IBOutlet weak var loginStackView: UIStackView!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var emailField: UITextField! {
+        didSet {
+            emailField.text = "sanofi@mailinator.com"
+        }
+    }
+    @IBOutlet weak var passField: UITextField! {
+        didSet {
+            passField.text = "ERAEDTA2019"
+        }
+    }
     @IBOutlet weak var logInBtn: UIButton!
     @IBOutlet weak var loginStackViewYConstraint: NSLayoutConstraint!
     

@@ -30,6 +30,7 @@ public class LogInViewModel {
 
     public let emailInput = BehaviorSubject<String>(value: "")
     public let passwordInput = BehaviorSubject<Secret>(value: "")
+    //Medibeacon
     
     
     public var errorMessages: Observable<ErrorMessage> {

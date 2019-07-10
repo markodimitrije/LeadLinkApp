@@ -53,7 +53,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
             .asObservable()
             .subscribe(onNext: { [weak self] report in
                 guard let sSelf = self, let report = report else {return}
-                
+
                 let obs = sSelf.reportImidiatelly(report: sSelf.report.value)
                 obs
                     .subscribe(onNext: { arg in

@@ -33,9 +33,11 @@ class CompartmentsInGridViewFactory {
     
     private func loadCompartments() {
         
-        let totalOtherDevicesCompartmentInfo = TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
+        let totalOtherDevicesCompartmentInfo =
+            TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
         
-        let syncedThisDeviceCompartmentInfo = SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
+        let syncedThisDeviceCompartmentInfo =
+            SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
         
         let notSyncedThisDeviceCompartmentInfo = NotSyncedThisDeviceCompartmentInfo(value:barOrChartInfo.compartmentValues[2])
         

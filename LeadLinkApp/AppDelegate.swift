@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationViewModel = navigationViewModelFactory.makeViewModel()
         
-        //downloadCampaignsQuestionsAndLogos() hard-coded off
+        downloadCampaignsQuestionsAndLogos()
         
         let navVC = window?.rootViewController as? UINavigationController
         

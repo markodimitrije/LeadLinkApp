@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import RxSwift
 
 public protocol CampaignsDataStoreBase {
     
@@ -22,4 +23,6 @@ public protocol CampaignsDataStore: CampaignsDataStoreBase {
     func readAllCampaignLogoInfos() -> Promise<[LogoInfo]>
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>
+    
+    func readMyCampaign(id: Int) -> Observable<Campaign>
 }
