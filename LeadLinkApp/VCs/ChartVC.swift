@@ -16,7 +16,7 @@ class ChartVC: UIViewController, Storyboarded {
     
     private let bag = DisposeBag()
     
-    var chartViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
+    var gridViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
     
     override func viewDidLoad() { super.viewDidLoad()
         hookUpGridViewFromYourViewModel()
@@ -27,7 +27,7 @@ class ChartVC: UIViewController, Storyboarded {
     }
     
     private func hookUpGridViewFromYourViewModel() {
-        chartViewModel.output
+        gridViewModel.output
             .subscribe(onNext: { [weak self] gridView in
                 
                 guard let sSelf = self else {return}

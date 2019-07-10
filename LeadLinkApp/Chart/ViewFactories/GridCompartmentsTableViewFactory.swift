@@ -14,7 +14,7 @@ class CompartmentsInGridViewFactory {
     private var compartments = [SingleCompartment]()
     private var compartmentViews = [SingleRowGridTableView]()
     
-    var gridView = UIStackView(arrangedSubviews: [])
+    var outputView = UIStackView(arrangedSubviews: [])
     
     init(barOrChartInfo: BarOrChartInfo) {
         self.barOrChartInfo = barOrChartInfo
@@ -60,14 +60,14 @@ class CompartmentsInGridViewFactory {
     private func insertCompartmentsIntoGridTableView() {
         
         _ = compartmentViews.map { view in
-            gridView.addArrangedSubview(view)
+            outputView.addArrangedSubview(view)
         }
         
     }
     
     private func formatGridView() {
-        gridView.axis = .vertical // format...
-        gridView.distribution = UIStackView.Distribution.fillEqually
+        outputView.axis = .vertical // format...
+        outputView.distribution = UIStackView.Distribution.fillEqually
     }
     
 }

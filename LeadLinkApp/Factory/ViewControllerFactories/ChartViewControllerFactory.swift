@@ -18,22 +18,26 @@ class ChartViewControllerFactory {
         self.appDependancyContainer = appDependancyContainer
     }
 
-    func makeVC(campaignId id: Int) -> ChartVC {
-
-        print("ChartViewControllerFactory pravi ChartViewController")
+    func makeVC(campaignId id: Int) -> ChartVC { print("ChartViewControllerFactory pravi ChartViewController")
 
         let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
-    
-        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
-        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
-    
-        let viewmodel = GridViewModel(campaign: campaign,
-                                      webReports: webReports)
 
-        chartVC.chartViewModel = viewmodel
+        let gridViewModel = self.createGridViewModel(campaignId: id)
+
+        chartVC.gridViewModel = gridViewModel
 
         return chartVC
 
     }
+    
+    private func createGridViewModel(campaignId id: Int) -> GridViewModel {
+        
+        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
+        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+        
+        return GridViewModel(campaign: campaign,
+                             webReports: webReports)
+    }
+    
 }
 

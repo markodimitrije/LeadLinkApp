@@ -157,6 +157,7 @@
 		7CA998E222A945EF00C226F1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E122A945EF00C226F1 /* libc++.tbd */; };
 		7CA998E422A945FB00C226F1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E322A945FA00C226F1 /* libiconv.tbd */; };
 		7CA998E922A95E5400C226F1 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998E822A95E5400C226F1 /* Countries.swift */; };
+		7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -402,6 +403,7 @@
 		7CA998E122A945EF00C226F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7CA998E322A945FA00C226F1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRefreshDateCalculator.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -682,13 +684,6 @@
 			path = ViewFactories;
 			sourceTree = "<group>";
 		};
-		7C38D4A022D4A0B80044AFC5 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,13 +738,13 @@
 		7C3D473B22D358370096EA75 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */,
 				7C3D473D22D358880096EA75 /* ChartProtocols.swift */,
+				7CBDC26C22D620AD00B7D43F /* ViewModels */,
+				7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */,
+				7C5636F722D6203500DB3C9E /* Calculators_Helpers */,
 				7C3D473C22D3585F0096EA75 /* Compartment */,
 				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
 				7C38D49D22D48BE70044AFC5 /* ViewFactories */,
-				7C38D4A022D4A0B80044AFC5 /* New Group */,
-				7C3D473F22D35EA40096EA75 /* GridViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -806,6 +801,14 @@
 				7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */,
 			);
 			path = ViewModelFactories;
+			sourceTree = "<group>";
+		};
+		7C5636F722D6203500DB3C9E /* Calculators_Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */,
+			);
+			path = Calculators_Helpers;
 			sourceTree = "<group>";
 		};
 		7C6222692294227600717CA1 /* AnswersReporting */ = {
@@ -1086,6 +1089,14 @@
 				7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7CBDC26C22D620AD00B7D43F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7C3D473F22D35EA40096EA75 /* GridViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
@@ -1739,6 +1750,7 @@
 				7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */,
 				7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */,
 				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
+				7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */,
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,

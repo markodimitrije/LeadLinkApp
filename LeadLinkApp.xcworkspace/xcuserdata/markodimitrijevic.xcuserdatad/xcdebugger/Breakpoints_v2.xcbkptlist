@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/DataLayer/Repositories/Persistence/CampaignsStore/RealmCampaignsDataStore.swift"
-            timestampString = "584457294.293909"
+            timestampString = "584458194.063854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
