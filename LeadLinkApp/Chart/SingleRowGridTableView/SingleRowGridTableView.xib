@@ -39,7 +39,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="WXE-eV-yoi" firstAttribute="centerY" secondItem="Qxl-oJ-Mh2" secondAttribute="centerY" id="762-gl-jm6"/>
                                 <constraint firstItem="WXE-eV-yoi" firstAttribute="centerX" secondItem="Qxl-oJ-Mh2" secondAttribute="centerX" id="BSz-VB-NiL"/>
@@ -61,7 +61,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Ig0-rE-Fm1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="1w8-dq-nW4"/>
                 <constraint firstAttribute="bottom" secondItem="Ig0-rE-Fm1" secondAttribute="bottom" constant="8" id="9h8-V0-41f"/>

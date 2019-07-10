@@ -484,20 +484,20 @@ barcode number manually</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-fU-5fj">
-                                <rect key="frame" x="16" y="28" width="288" height="341"/>
+                                <rect key="frame" x="16" y="28" width="288" height="426"/>
                                 <color key="backgroundColor" red="0.93724346160888672" green="0.93724900484085083" blue="0.93726325035095215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
-                                <rect key="frame" x="16" y="372.5" width="288" height="187.5"/>
+                                <rect key="frame" x="16" y="462" width="288" height="98"/>
                                 <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="height" secondItem="B6A-DY-6gI" secondAttribute="height" multiplier="0.33" id="4Wl-xM-mLK"/>
                             <constraint firstItem="S8u-fU-5fj" firstAttribute="trailing" secondItem="B6A-DY-6gI" secondAttribute="trailingMargin" id="5gh-7p-OUd"/>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="leading" secondItem="B6A-DY-6gI" secondAttribute="leadingMargin" id="BvQ-SF-7of"/>
-                            <constraint firstItem="S8u-fU-5fj" firstAttribute="height" secondItem="B6A-DY-6gI" secondAttribute="height" multiplier="0.6" id="Qls-0P-dKA"/>
+                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="top" secondItem="S8u-fU-5fj" secondAttribute="bottom" constant="8" id="C37-f1-Juq"/>
+                            <constraint firstItem="S8u-fU-5fj" firstAttribute="height" secondItem="B6A-DY-6gI" secondAttribute="height" multiplier="0.75" id="Qls-0P-dKA"/>
                             <constraint firstItem="S8u-fU-5fj" firstAttribute="top" secondItem="EHN-qL-WUt" secondAttribute="top" constant="8" id="S3Y-iY-WmW"/>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="trailing" secondItem="B6A-DY-6gI" secondAttribute="trailingMargin" id="dZv-6G-WW3"/>
                             <constraint firstItem="S8u-fU-5fj" firstAttribute="leading" secondItem="B6A-DY-6gI" secondAttribute="leadingMargin" id="fwy-Qm-I2r"/>
@@ -513,7 +513,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY0-qS-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="1540"/>
+            <point key="canvasLocation" x="2985" y="1539.0845070422536"/>
         </scene>
         <!--CodesVC-->
         <scene sceneID="j0r-j2-AdL">

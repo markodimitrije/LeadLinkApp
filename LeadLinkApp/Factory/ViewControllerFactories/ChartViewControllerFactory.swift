@@ -34,9 +34,11 @@ class ChartViewControllerFactory {
         
         let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
         let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+        let viewFactory: ChartGridViewBuilding = ChartGridViewFactory()
         
         return GridViewModel(campaign: campaign,
-                             webReports: webReports)
+                             webReports: webReports,
+                             viewFactory: viewFactory)
     }
     
 }

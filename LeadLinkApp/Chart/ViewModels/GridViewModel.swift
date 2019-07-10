@@ -18,6 +18,7 @@ class GridViewModel: GridViewModeling {
     
     private var campaign: Observable<Campaign>
     private var webReports: Observable<Results<RealmWebReportedAnswers>>
+    private var viewFactory: ChartGridViewBuilding
     private let bag = DisposeBag()
     
     private var newWebReports = [RealmWebReportedAnswers]()
@@ -25,9 +26,14 @@ class GridViewModel: GridViewModeling {
     
     var output = ReplaySubject<UIStackView>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<Campaign>, webReports: Observable<Results<RealmWebReportedAnswers>>) {
+    init(campaign: Observable<Campaign>,
+         webReports: Observable<Results<RealmWebReportedAnswers>>,
+         viewFactory: ChartGridViewBuilding) {
+        
         self.campaign = campaign
         self.webReports = webReports
+        self.viewFactory = viewFactory
+        
         self.listenUpdatesOnCampaignAndWebReports()
         self.getNewestCampaignData()
     }
@@ -61,8 +67,8 @@ class GridViewModel: GridViewModeling {
     
     private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
         
-        let compartmentsGridView: UIStackView = ChartGridViewFactory(webReports: webReports,
-                                                                     campaign: campaign).outputView
+        let compartmentsGridView: UIStackView = viewFactory.makeOutput(webReports: webReports,
+                                                                       campaign: campaign)
         output.onNext(compartmentsGridView)
     }
     
@@ -81,37 +87,39 @@ class GridViewModel: GridViewModeling {
 
 
 
-protocol ChartGridViewInitializing {
-    init(webReports: [RealmWebReportedAnswers], campaign: Campaign)
-}
-
 protocol ChartGridViewOutputing {
     var outputView: UIStackView! {get set}
+    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIStackView
 }
 
-protocol ChartGridViewBuilding: ChartGridViewInitializing, ChartGridViewOutputing {}
+protocol ChartGridViewBuilding: ChartGridViewOutputing {}
 
 class ChartGridViewFactory: ChartGridViewBuilding {
     
-    private var barOrChartData: BarOrChartData
-    private var compartmentsInGridViewFactory: CompartmentsInGridViewFactory // treba DI! ChartGridViewBuilding
-    private var lastDateSyncViewFactory: LastDateSyncViewFactory // treba DI! LastRefreshChartViewBuilding
-    
     var outputView: UIStackView!
     
-    required init(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
+    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIStackView {
         
-        // load my vars
-        self.barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
-        self.compartmentsInGridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartData)
+        let compartmentsGridView = createGridView(webReports: webReports, campaign: campaign)
+        let dateView = createDateView(webReports: webReports, campaign: campaign)
+
+        let stackView = UIStackView(arrangedSubviews: [compartmentsGridView, dateView])
+        stackView.axis = .vertical // format...
+        
+        return stackView
+        
+    }
+    
+    private func createGridView(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView {
+        let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
+        let compartmentsInGridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartData)
+        return compartmentsInGridViewFactory.outputView
+    }
+    
+    private func createDateView(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView {
         let chartLastSyncedAt = ChartRefreshDateCalculator(webReports: webReports, campaign: campaign).date
-        self.lastDateSyncViewFactory = LastDateSyncViewFactory(date: chartLastSyncedAt)
-        
-        outputView = compartmentsInGridViewFactory.outputView
-        let syncedDateView = self.lastDateSyncViewFactory.outputView
-        
-        outputView.addArrangedSubview(syncedDateView!)
-        
+        let lastDateSyncViewFactory = LastDateSyncViewFactory(date: chartLastSyncedAt)
+        return lastDateSyncViewFactory.outputView
     }
     
 }
@@ -138,7 +146,7 @@ class LastDateSyncViewFactory: LastRefreshChartViewBuilding {
     var outputView: UIView!
     
     required init(date: Date) {
-        outputView = UIView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 200, height: 60)))
+        outputView = UIView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 200, height: 20)))
         outputView.backgroundColor = .red
     }
     
