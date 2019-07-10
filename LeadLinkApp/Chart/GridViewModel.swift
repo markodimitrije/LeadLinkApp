@@ -60,13 +60,24 @@ class GridViewModel: GridViewModeling {
     }
     
     private func newEventIsCatchedUpdateView(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
+        
+        let lastChartSyncDate = getLatestChartSyncDate(webReports: webReports, campaign: campaign)
+        print("lastChartSyncDate = \(lastChartSyncDate)")
+        
         let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
-        let gridView = createGridView(barOrChartInfo: barOrChartData)
-        print("emituj update-ovani gridView !!!")
-        output.onNext(gridView)
+        let compartmentsGridView = createCompartmentsGridView(barOrChartInfo: barOrChartData)
+        print("emituj update-ovani compartmentsGridView !!!")
+        output.onNext(compartmentsGridView)
     }
     
-    private func createGridView(barOrChartInfo: BarOrChartInfo) -> UIStackView {
+    private func getLatestChartSyncDate(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> Date {
+        if webReports.isEmpty {return campaign.dateReadAt!}
+        let lastWebReportDate = (webReports.compactMap {$0.date}).max()!
+        let lastCampaignDate = campaign.dateReadAt // rename !!!
+        return max(lastWebReportDate, lastCampaignDate!)
+    }
+    
+    private func createCompartmentsGridView(barOrChartInfo: BarOrChartInfo) -> UIStackView {
         
         let gridViewFactory = CompartmentsInGridViewFactory(barOrChartInfo: barOrChartInfo)
         let gridTableView = gridViewFactory.gridView

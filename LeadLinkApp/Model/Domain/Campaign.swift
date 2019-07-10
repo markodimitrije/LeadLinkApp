@@ -28,11 +28,13 @@ public struct Campaign: Codable {
     var imgData: Data? = nil
     var use_scandit_scanner: Bool?
     var number_of_responses: Int
-    var application: Application
     
     var questions: [Question]
     var codes: [Code]?
     var organization: Organization
+    var application: Application
+    
+    var dateReadAt: Date?
     
     init(realmCampaign campaign: RealmCampaign) {
         self.id = campaign.id
@@ -55,5 +57,7 @@ public struct Campaign: Codable {
         self.codes = campaign.codes.toArray().map(Code.init)
         
         self.application = Application(realmApplication: campaign.application)
+        
+        self.dateReadAt = campaign.dateReadAt
     }
 }

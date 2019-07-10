@@ -34,7 +34,9 @@ class RealmCampaign: Object {
     public var questions = List<RealmQuestion>()
     public var codes = List<RealmCode>()
     
-     @objc dynamic var application: RealmApplication!
+    @objc dynamic var application: RealmApplication!
+    
+    @objc dynamic var dateReadAt: Date?
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
@@ -51,19 +53,24 @@ class RealmCampaign: Object {
         self.useScanditScanner = campaign.use_scandit_scanner ?? false
         self.number_of_responses = campaign.number_of_responses
         
-        let org = RealmOrganization(); org.update(with: campaign.organization)
+        let org = RealmOrganization()
+        org.update(with: campaign.organization)
         self.organization = org
         
         let realmApp = RealmApplication()
         realmApp.updateWith(application: campaign.application)
         self.application = realmApp
         
+        self.dateReadAt = Date.now
+        
+        // prepare realmQuestions
         let realmQuestions = campaign.questions.map { question -> RealmQuestion in
             let rQuestion = RealmQuestion()
             rQuestion.updateWith(question: question)
             return rQuestion
         }
         
+        // prepare realmCodes
         var realmCodes = [RealmCode]()
         if let codes = campaign.codes {
             realmCodes = codes.map { code -> RealmCode in
@@ -73,7 +80,7 @@ class RealmCampaign: Object {
             }
         }
         
-//        print("appendujem questions.count = \(realmQuestions.count) i realmCodes.count = \(realmCodes.count)")
+        // update questoins and codes
         try? Realm.init().write {
             questions.append(objectsIn: realmQuestions)
             codes.append(objectsIn: realmCodes)
