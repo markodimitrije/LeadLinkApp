@@ -41,7 +41,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    public func readMyCampaign(id: Int) -> Observable<Campaign> {
+    public func observableCampaign(id: Int) -> Observable<Campaign> {
 
         let realm = try! Realm()
         let realmCampaigns = realm.objects(RealmCampaign.self)
@@ -50,7 +50,8 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                          .map {
                             realmCampaigns in
                             let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
-                            return Campaign(realmCampaign: realmCampaign!)
+                            let campaign = Campaign(realmCampaign: realmCampaign!)
+                            return campaign
                          }
     }
     

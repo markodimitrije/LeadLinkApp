@@ -23,7 +23,8 @@ struct RealmDataPersister {
         
         let results = realm.objects(RealmWebReportedAnswers.self)
         
-        return Observable.collection(from: results) // this is live source !!
+        return Observable
+                .collection(from: results) // this is live source !!
         
     }
 

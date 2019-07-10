@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RealmSwift
 
 class ChartViewControllerFactory {
 
@@ -22,9 +24,9 @@ class ChartViewControllerFactory {
 
         let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
     
-        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.readMyCampaign(id: id)
+        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
         let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
-
+    
         let viewmodel = GridViewModel(campaign: campaign,
                                       webReports: webReports)
 

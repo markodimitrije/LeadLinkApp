@@ -24,5 +24,5 @@ public protocol CampaignsDataStore: CampaignsDataStoreBase {
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>
     
-    func readMyCampaign(id: Int) -> Observable<Campaign>
+    func observableCampaign(id: Int) -> Observable<Campaign>
 }
