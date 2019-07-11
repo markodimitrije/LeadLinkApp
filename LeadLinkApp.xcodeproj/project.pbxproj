@@ -161,6 +161,7 @@
 		7CBDC27122D72F5800B7D43F /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC26F22D72F5800B7D43F /* DateView.xib */; };
 		7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27022D72F5800B7D43F /* DateView.swift */; };
 		7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */; };
+		7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -410,6 +411,7 @@
 		7CBDC26F22D72F5800B7D43F /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
 		7CBDC27022D72F5800B7D43F /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
+		7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewFactory.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -687,6 +689,7 @@
 			isa = PBXGroup;
 			children = (
 				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
+				7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -1851,6 +1854,7 @@
 				ADAD040621E65E8D006463A2 /* UIKit_Extensions.swift in Sources */,
 				7C98A6BF22896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift in Sources */,
 				7C1C1531229EDA5E0050337B /* TextAreaViewModelBinder.swift in Sources */,
+				7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */,
 				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
 				7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */,
 				7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */,

@@ -11,3 +11,7 @@ import Foundation
 protocol BarOrChartInfo {
     var compartmentValues: [Int] {get set}
 }
+
+protocol BarOrChartCompartmentsInfo {
+    var compartments: [SingleCompartment] {get set}
+}

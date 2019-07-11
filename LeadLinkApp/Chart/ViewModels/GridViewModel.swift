@@ -11,7 +11,7 @@ import RxSwift
 import RealmSwift
 
 protocol GridViewModeling {
-    var output: ReplaySubject<UIStackView> {get set}
+    var output: ReplaySubject<UIView> {get set}
 }
 
 class GridViewModel: GridViewModeling {
@@ -24,7 +24,7 @@ class GridViewModel: GridViewModeling {
     private var newWebReports = [RealmWebReportedAnswers]()
     private var newCampaign: Campaign!
     
-    var output = ReplaySubject<UIStackView>.create(bufferSize: 10) // output
+    var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
     init(campaign: Observable<Campaign>,
          webReports: Observable<Results<RealmWebReportedAnswers>>,

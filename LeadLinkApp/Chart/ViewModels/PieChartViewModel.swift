@@ -80,33 +80,3 @@ class PieChartViewModel: PieChartViewModeling {
     }
     
 }
-
-
-
-
-
-
-protocol PieChartViewOutputing {
-    var outputView: UIView! {get set}
-    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView
-}
-
-protocol PieChartViewBuilding: PieChartViewOutputing {}
-
-class PieChartViewFactory: PieChartViewBuilding {
-    
-    var outputView: UIView!
-    
-    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView {
-        
-//        let compartmentsGridView = createGridView(webReports: webReports, campaign: campaign)
-//        let dateView = createDateView(webReports: webReports, campaign: campaign)
-
-        let view = UIView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 300, height: 200)))
-        view.backgroundColor = .red
-        
-        return view
-        
-    }
-    
-}

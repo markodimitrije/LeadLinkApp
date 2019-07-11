@@ -20,73 +20,51 @@ class ChartVC: UIViewController, Storyboarded {
     var gridViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
     
     override func viewDidLoad() { super.viewDidLoad()
-        hookUpGridViewFromYourViewModel()
         hookUpPieChartViewFromYourViewModel()
+        hookUpGridViewFromYourViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
-        hookUpGridViewFromYourViewModel()
         hookUpPieChartViewFromYourViewModel()
+        hookUpGridViewFromYourViewModel()
+    }
+    
+    private func hookUpPieChartViewFromYourViewModel() {
+        pieChartViewModel.output
+            .subscribe(onNext: { [weak self] pieChartView in
+                guard let sSelf = self else {return}
+                
+                sSelf.viewIsReady(pieChartView, forDestinationView: sSelf.upperView)
+                
+            })
+            .disposed(by: bag)
     }
     
     private func hookUpGridViewFromYourViewModel() {
         gridViewModel.output
             .subscribe(onNext: { [weak self] gridView in
-                
                 guard let sSelf = self else {return}
-                sSelf.gridViewIsReady(gridView)
+                
+                sSelf.viewIsReady(gridView, forDestinationView: sSelf.lowerView)
                 
             })
             .disposed(by: bag)
     }
     
-    private func hookUpPieChartViewFromYourViewModel() {
-        pieChartViewModel.output
-            .subscribe(onNext: { [weak self] view in
-                
-                guard let sSelf = self else {return}
-                sSelf.pieChartViewIsReady(view)
-                
-            })
-            .disposed(by: bag)
+    private func viewIsReady(_ view: UIView, forDestinationView destView: UIView) {
+        removeViewIfPresent(inDestView: destView)
+        addFormattedView(view: view, toDestView: destView)
     }
     
-    // LOSE, ne zanima me da li je stack view ili view.. .. . .
-    
-    private func pieChartViewIsReady(_ view: UIView) {
-        removePieChartViewIfPresent()
-        addFormattedPieChartView(view: view)
-    }
-    
-    private func removePieChartViewIfPresent() {
-        if let childView = self.upperView.subviews.first {
+    private func removeViewIfPresent(inDestView destView: UIView) {
+        if let childView = destView.subviews.first {
             childView.removeFromSuperview()
         }
     }
     
-    private func addFormattedPieChartView(view: UIView) {
-        view.frame = upperView.bounds
-        self.upperView.addSubview(view)
-    }
-    
-    
-    
-    
-    
-    private func gridViewIsReady(_ gridView: UIStackView) {
-        removeGridViewIfPresent()
-        addFormattedGridView(gridTableView: gridView)
-    }
-    
-    private func removeGridViewIfPresent() {
-        if let childView = self.lowerView.subviews.first as? UIStackView {
-            childView.removeFromSuperview()
-        }
-    }
-    
-    private func addFormattedGridView(gridTableView: UIStackView) {
-        gridTableView.frame = lowerView.bounds
-        self.lowerView.addSubview(gridTableView)
+    private func addFormattedView(view: UIView, toDestView destView: UIView) {
+        view.frame = destView.bounds
+        destView.addSubview(view)
     }
     
 }
