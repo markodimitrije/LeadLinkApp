@@ -165,6 +165,7 @@
 		7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */; };
 		7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC27A22D773D600B7D43F /* PieChartView.xib */; };
 		7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27B22D773D600B7D43F /* PieChartView.swift */; };
+		7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -418,6 +419,7 @@
 		7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentBuilder.swift; sourceTree = "<group>"; };
 		7CBDC27A22D773D600B7D43F /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		7CBDC27B22D773D600B7D43F /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCompartmentsOrderer.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */,
+				7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */,
 				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
 				7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */,
 			);
@@ -1800,6 +1803,7 @@
 				7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */,
 				7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */,
 				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
+				7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */,
 				7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */,
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,

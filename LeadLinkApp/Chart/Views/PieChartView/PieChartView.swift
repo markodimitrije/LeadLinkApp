@@ -13,8 +13,7 @@ class PieChartView: UIView {
     
     @IBOutlet var pieChart: PieChart!
     
-    var pieChartCompartmentsOrderer: PieChartCompartmentsOrderer!
-    
+    var pieChartCompartmentsOrderer: PieChartCompartmentsOrderer! // due to sort + clockwise direction
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib()
@@ -39,18 +38,19 @@ class PieChartView: UIView {
     }
     
     private func formatPieChart() {
-        setChartIntoCenter()
-        setRadiuses()
+        setChartIntoCenter() // ne radi ?!?
+        setChartInnerAndOuterRadius()
         setChartBackgroundColor()
         setGapBetweenPies()
         setReferenceAngle()
+        setAnimationDuration()
     }
     
     private func setChartIntoCenter() { // ne radi ?!?
         pieChart.center = CGPoint.init(x: bounds.midX, y: bounds.midY)
     }
     
-    private func setRadiuses() {
+    private func setChartInnerAndOuterRadius() {
         pieChart.innerRadius = 0.25 * bounds.width
         pieChart.outerRadius = 0.50 * bounds.width
     }
@@ -68,6 +68,10 @@ class PieChartView: UIView {
         pieChart.referenceAngle = 270.0
     }
     
+    private func setAnimationDuration() {
+        pieChart.animDuration = 0.01
+    }
+    
     func update(compartments: [SingleCompartment]) {
         
         let compartments = pieChartCompartmentsOrderer.compartments
@@ -78,22 +82,4 @@ class PieChartView: UIView {
         
     }
     
-}
-
-class PieChartCompartmentsOrderer {
-    
-    var compartments: [SingleCompartment]
-    
-    init(compartments: [SingleCompartment]) {
-        
-        var myOrderCompartments = [SingleCompartment?]()
-        
-        myOrderCompartments.append(compartments.first(where: {$0 is SyncedThisDeviceCompartmentInfo}))
-        myOrderCompartments.append(compartments.first(where: {$0 is NotSyncedThisDeviceCompartmentInfo}))
-        myOrderCompartments.append(compartments.first(where: {$0 is TotalOtherDevicesCompartmentInfo}))
-        
-        self.compartments = myOrderCompartments.compactMap({ $0 })
-        
-    }
-
 }

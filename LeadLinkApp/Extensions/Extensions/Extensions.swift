@@ -56,12 +56,11 @@ extension UIColor {
     static let fieldBorderGray = UIColor.init(red: 159/255, green: 159/255, blue: 159/255, alpha: 1.0)
     static let barcodeBackground = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
     static let disclaimerBlue = UIColor.init(red: 57/255, green: 89/255, blue: 121/255, alpha: 1.0)
-    //static let leadLinkColor = UIColor.blue
     static var leadLinkColor: UIColor {
         let hexName = surveyInfo?.campaign.color ?? "#672edf"
         return UIColor(hexString: hexName)
     }
-    
+    static let notSyncedWebReports = UIColor.init(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0)
 }
 
 extension UIColor {

@@ -20,7 +20,8 @@ class CompartmentBuilder: BarOrChartCompartmentsInfo {
         let syncedThisDeviceCompartmentInfo =
             SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
         
-        let notSyncedThisDeviceCompartmentInfo = NotSyncedThisDeviceCompartmentInfo(value:barOrChartInfo.compartmentValues[2])
+        let notSyncedThisDeviceCompartmentInfo =
+            NotSyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[2])
         
         self.compartments = [totalOtherDevicesCompartmentInfo,
                              syncedThisDeviceCompartmentInfo,
