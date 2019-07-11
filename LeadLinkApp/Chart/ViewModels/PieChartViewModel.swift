@@ -67,7 +67,10 @@ class PieChartViewModel: PieChartViewModeling {
     
     private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
         
-        let view = viewFactory.makeOutput(webReports: webReports, campaign: campaign)
+        let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
+        let compartmentBuilder = CompartmentBuilder(barOrChartInfo: barOrChartData)
+        
+        let view = viewFactory.makeOutput(compartmentBuilder: compartmentBuilder)
         output.onNext(view)
     }
     

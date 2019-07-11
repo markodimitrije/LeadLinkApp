@@ -10,40 +10,24 @@ import UIKit
 
 class CompartmentsInGridViewFactory {
     
-    private var barOrChartInfo: BarOrChartInfo
     private var compartments = [SingleCompartment]()
     private var compartmentViews = [SingleRowGridTableView]()
     
     var outputView = UIStackView(arrangedSubviews: [])
     
-    init(barOrChartInfo: BarOrChartInfo) {
-        self.barOrChartInfo = barOrChartInfo
+    init(compartmentBuilder: BarOrChartCompartmentsInfo) {
+        self.compartments = compartmentBuilder.compartments
         self.loadGridView()
     }
     
     private func loadGridView() {
         
-        loadCompartments()
         loadCompartmentViews()
+        
         insertCompartmentsIntoGridTableView()
         
         formatGridView()
     
-    }
-    
-    private func loadCompartments() {
-        
-        let totalOtherDevicesCompartmentInfo =
-            TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
-        
-        let syncedThisDeviceCompartmentInfo =
-            SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
-        
-        let notSyncedThisDeviceCompartmentInfo = NotSyncedThisDeviceCompartmentInfo(value:barOrChartInfo.compartmentValues[2])
-        
-        self.compartments = [totalOtherDevicesCompartmentInfo,
-                             syncedThisDeviceCompartmentInfo,
-                             notSyncedThisDeviceCompartmentInfo]
     }
     
     private func loadCompartmentViews() {

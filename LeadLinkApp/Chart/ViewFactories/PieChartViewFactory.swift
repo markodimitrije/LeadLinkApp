@@ -11,7 +11,7 @@ import PieCharts
 
 protocol PieChartViewOutputing {
     var outputView: UIView! {get set}
-    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView
+    func makeOutput(compartmentBuilder: BarOrChartCompartmentsInfo) -> UIView // ne treba u ouputing nego Making !
 }
 
 protocol PieChartViewBuilding: PieChartViewOutputing {}
@@ -20,26 +20,26 @@ class PieChartViewFactory: PieChartViewBuilding {
     
     var outputView: UIView!
     
-    func makeOutput(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView {
+    func makeOutput(compartmentBuilder: BarOrChartCompartmentsInfo) -> UIView {
         
-        let view = createPieChartView(webReports: webReports, campaign: campaign)
-        
+        let compartments = compartmentBuilder.compartments
+        let view = createPieChartView(compartments: compartments)
         return view
         
     }
     
-    private func createPieChartView(webReports: [RealmWebReportedAnswers], campaign: Campaign) -> UIView {
-        let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
-        let view = makePieChartView(barOrChartData: barOrChartData)
+    private func createPieChartView(compartments: [SingleCompartment]) -> UIView {
+        let view = makePieChartView(compartments: compartments)
         return view
     }
     
-    private func makePieChartView(barOrChartData: BarOrChartData) -> UIView {
+    private func makePieChartView(compartments: [SingleCompartment]) -> UIView {
         
-        let pieChartView = PieChart.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 300, height: 500)))
+        let pieChartView = PieChart.init(frame: CGRect.init(origin: CGPoint.zero,
+                                                            size: CGSize.init(width: 300, height: 500)))
         
-        pieChartView.models = barOrChartData.compartmentValues.map { value -> PieSliceModel in
-            return PieSliceModel.init(value: Double(value), color: .red)
+        pieChartView.models = compartments.map { compartment -> PieSliceModel in
+            return PieSliceModel.init(value: Double(compartment.value), color: compartment.color)
         }
         
         self.format(pieChartView: pieChartView)

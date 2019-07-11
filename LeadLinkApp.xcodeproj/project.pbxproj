@@ -162,6 +162,7 @@
 		7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27022D72F5800B7D43F /* DateView.swift */; };
 		7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */; };
 		7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */; };
+		7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -412,6 +413,7 @@
 		7CBDC27022D72F5800B7D43F /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
 		7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewFactory.swift; sourceTree = "<group>"; };
+		7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentBuilder.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -688,6 +690,7 @@
 		7C38D49D22D48BE70044AFC5 /* ViewFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */,
 				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
 				7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */,
 			);
@@ -1886,6 +1889,7 @@
 				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
 				7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */,
+				7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,

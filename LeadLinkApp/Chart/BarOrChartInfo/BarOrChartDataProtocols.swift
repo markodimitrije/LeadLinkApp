@@ -15,3 +15,5 @@ protocol BarOrChartInfo {
 protocol BarOrChartCompartmentsInfo {
     var compartments: [SingleCompartment] {get set}
 }
+
+protocol BarOrChartSuperInfo: BarOrChartInfo, BarOrChartCompartmentsInfo {} // naming !!
