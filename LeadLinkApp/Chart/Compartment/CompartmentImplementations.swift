@@ -25,7 +25,7 @@ struct TotalOtherDevicesCompartmentInfo: SingleCompartment {
     var value: Int
     init(value: Int) {
         self.color = UIColor.blue
-        self.name = "total (other devices)"
+        self.name = NSLocalizedString("Strings.Chart.Grid.TotalOtherDevices.text", comment: "")
         self.value = value
     }
 }
@@ -36,7 +36,7 @@ struct SyncedThisDeviceCompartmentInfo: SingleCompartment {
     var value: Int
     init(value: Int) {
         self.color = UIColor.green
-        self.name = "synced (this device)"
+        self.name = NSLocalizedString("Strings.Chart.Grid.SyncedThisDevice.text", comment: "")
         self.value = value
     }
 }
@@ -47,7 +47,7 @@ struct NotSyncedThisDeviceCompartmentInfo: SingleCompartment {
     var value: Int
     init(value: Int) {
         self.color = UIColor.red
-        self.name = "not synced (this device)"
+        self.name = NSLocalizedString("Strings.Chart.Grid.NotSyncedThisDevice.text", comment: "")
         self.value = value
     }
 }

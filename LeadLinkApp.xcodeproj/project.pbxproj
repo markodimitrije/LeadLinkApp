@@ -158,6 +158,8 @@
 		7CA998E422A945FB00C226F1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E322A945FA00C226F1 /* libiconv.tbd */; };
 		7CA998E922A95E5400C226F1 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998E822A95E5400C226F1 /* Countries.swift */; };
 		7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */; };
+		7CBDC27122D72F5800B7D43F /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC26F22D72F5800B7D43F /* DateView.xib */; };
+		7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27022D72F5800B7D43F /* DateView.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -404,6 +406,8 @@
 		7CA998E322A945FA00C226F1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRefreshDateCalculator.swift; sourceTree = "<group>"; };
+		7CBDC26F22D72F5800B7D43F /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		7CBDC27022D72F5800B7D43F /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -673,7 +677,8 @@
 				7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */,
 				7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */,
 			);
-			path = SingleRowGridTableView;
+			name = SingleRowGridTableView;
+			path = ../SingleRowGridTableView;
 			sourceTree = "<group>";
 		};
 		7C38D49D22D48BE70044AFC5 /* ViewFactories */ = {
@@ -743,7 +748,7 @@
 				7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */,
 				7C5636F722D6203500DB3C9E /* Calculators_Helpers */,
 				7C3D473C22D3585F0096EA75 /* Compartment */,
-				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
+				7CBDC26D22D72EE000B7D43F /* Views */,
 				7C38D49D22D48BE70044AFC5 /* ViewFactories */,
 			);
 			path = Chart;
@@ -1097,6 +1102,24 @@
 				7C3D473F22D35EA40096EA75 /* GridViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7CBDC26D22D72EE000B7D43F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC26E22D72F0B00B7D43F /* DateView */,
+				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7CBDC26E22D72F0B00B7D43F /* DateView */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC27022D72F5800B7D43F /* DateView.swift */,
+				7CBDC26F22D72F5800B7D43F /* DateView.xib */,
+			);
+			path = DateView;
 			sourceTree = "<group>";
 		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
@@ -1623,6 +1646,7 @@
 				7C98A6A32289689900DA184E /* LabelAndTextField.xib in Resources */,
 				7C0E5CBE228EE0B90011E0A2 /* mockWithTerms.json in Resources */,
 				7C98A69C2289689900DA184E /* LabelAndTextView.xib in Resources */,
+				7CBDC27122D72F5800B7D43F /* DateView.xib in Resources */,
 				ADA9B1CA22384C5400B7D74F /* DividerView.xib in Resources */,
 				7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */,
 				7CA998D822A9441100C226F1 /* LICENSE-2.0.txt in Resources */,
@@ -1835,6 +1859,7 @@
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
+				7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
 				7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,

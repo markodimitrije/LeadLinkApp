@@ -195,3 +195,27 @@ extension String {
         }
     }
 }
+
+// Date to String
+
+extension Date {
+    var defaultDateFormat: String {
+        return "yyyy-MM-dd HH:mm:ss"
+    }
+}
+
+// String to Date
+
+extension String {
+    
+    func toDate(withFormat format: String = "yyyy-MM-dd HH:mm:ss") -> Date?{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+        
+        return date
+        
+    }
+}
