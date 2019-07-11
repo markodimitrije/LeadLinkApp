@@ -485,11 +485,10 @@ barcode number manually</string>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-fU-5fj">
                                 <rect key="frame" x="16" y="28" width="288" height="426"/>
-                                <color key="backgroundColor" red="0.93724346160888672" green="0.93724900484085083" blue="0.93726325035095215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.66666668650000005" green="0.66370729750000002" blue="0.1147340125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
                                 <rect key="frame" x="16" y="462" width="288" height="98"/>
-                                <color key="backgroundColor" red="0.87784830729999996" green="1" blue="0.60875108509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

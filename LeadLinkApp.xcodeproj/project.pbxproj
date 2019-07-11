@@ -163,6 +163,8 @@
 		7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */; };
 		7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */; };
 		7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */; };
+		7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC27A22D773D600B7D43F /* PieChartView.xib */; };
+		7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27B22D773D600B7D43F /* PieChartView.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
@@ -414,6 +416,8 @@
 		7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
 		7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewFactory.swift; sourceTree = "<group>"; };
 		7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentBuilder.swift; sourceTree = "<group>"; };
+		7CBDC27A22D773D600B7D43F /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
+		7CBDC27B22D773D600B7D43F /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
@@ -1116,6 +1120,7 @@
 		7CBDC26D22D72EE000B7D43F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CBDC27922D7732F00B7D43F /* PieChartView */,
 				7CBDC26E22D72F0B00B7D43F /* DateView */,
 				7C38D49C22D4869D0044AFC5 /* SingleRowGridTableView */,
 			);
@@ -1129,6 +1134,15 @@
 				7CBDC26F22D72F5800B7D43F /* DateView.xib */,
 			);
 			path = DateView;
+			sourceTree = "<group>";
+		};
+		7CBDC27922D7732F00B7D43F /* PieChartView */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC27B22D773D600B7D43F /* PieChartView.swift */,
+				7CBDC27A22D773D600B7D43F /* PieChartView.xib */,
+			);
+			path = PieChartView;
 			sourceTree = "<group>";
 		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
@@ -1671,6 +1685,7 @@
 				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
 				7C98A6A72289689900DA184E /* OneRowStacker.xib in Resources */,
 				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
+				7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 				7C98A69F2289689900DA184E /* CheckboxView.xib in Resources */,
 				7CA998D922A9441100C226F1 /* CHANGELOG.txt in Resources */,
@@ -1884,6 +1899,7 @@
 				7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
+				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */,
 				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,

@@ -17,15 +17,13 @@ class CompartmentsInGridViewFactory {
     
     init(compartmentBuilder: BarOrChartCompartmentsInfo) {
         self.compartments = compartmentBuilder.compartments
-        self.loadGridView()
+        self.createOutput()
     }
     
-    private func loadGridView() {
+    private func createOutput() {
         
         loadCompartmentViews()
-        
         insertCompartmentsIntoGridTableView()
-        
         formatGridView()
     
     }

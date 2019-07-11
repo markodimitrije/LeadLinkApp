@@ -9,12 +9,17 @@
 import UIKit
 import PieCharts
 
+// MARK:- Protocols
+
 protocol PieChartViewOutputing {
     var outputView: UIView! {get set}
-    func makeOutput(compartmentBuilder: BarOrChartCompartmentsInfo) -> UIView // ne treba u ouputing nego Making !
 }
+protocol PieChartMaking {
+    func makeOutput(compartmentBuilder: BarOrChartCompartmentsInfo) -> UIView
+}
+protocol PieChartViewBuilding: PieChartViewOutputing, PieChartMaking {}
 
-protocol PieChartViewBuilding: PieChartViewOutputing {}
+// MARK:- Implementation
 
 class PieChartViewFactory: PieChartViewBuilding {
     
@@ -35,22 +40,16 @@ class PieChartViewFactory: PieChartViewBuilding {
     
     private func makePieChartView(compartments: [SingleCompartment]) -> UIView {
         
-        let pieChartView = PieChart.init(frame: CGRect.init(origin: CGPoint.zero,
-                                                            size: CGSize.init(width: 300, height: 500)))
+        let frame = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 300, height: 600))
         
-        pieChartView.models = compartments.map { compartment -> PieSliceModel in
-            return PieSliceModel.init(value: Double(compartment.value), color: compartment.color)
-        }
+        let pieChartView = PieChartView.init(frame: frame)
         
-        self.format(pieChartView: pieChartView)
+        pieChartView.pieChartCompartmentsOrderer = PieChartCompartmentsOrderer(compartments: compartments)
+        
+        pieChartView.update(compartments: compartments)
         
         return pieChartView
         
     }
-    
-    private func format(pieChartView: PieChart) {
-        pieChartView.backgroundColor = .yellow
-    }
-
     
 }
