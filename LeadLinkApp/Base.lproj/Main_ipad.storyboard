@@ -517,8 +517,8 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="chartView" destination="Ine-UV-aIp" id="RT5-QU-7N7"/>
-                        <outlet property="gridView" destination="AZg-CQ-oJM" id="O6G-bY-pQv"/>
+                        <outlet property="lowerView" destination="AZg-CQ-oJM" id="O6G-bY-pQv"/>
+                        <outlet property="upperView" destination="Ine-UV-aIp" id="RT5-QU-7N7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>

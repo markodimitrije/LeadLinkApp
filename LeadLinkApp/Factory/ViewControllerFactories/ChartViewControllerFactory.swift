@@ -23,9 +23,11 @@ class ChartViewControllerFactory {
         let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
 
         let gridViewModel = self.createGridViewModel(campaignId: id)
-
         chartVC.gridViewModel = gridViewModel
-
+        
+        let pieChartViewModel = self.createPieChartViewModel(campaignId: id)
+        chartVC.pieChartViewModel = pieChartViewModel
+        
         return chartVC
 
     }
@@ -39,6 +41,17 @@ class ChartViewControllerFactory {
         return GridViewModel(campaign: campaign,
                              webReports: webReports,
                              viewFactory: viewFactory)
+    }
+    
+    private func createPieChartViewModel(campaignId id: Int) -> PieChartViewModel {
+        
+        let campaign = appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
+        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+        let viewFactory: PieChartViewBuilding = PieChartViewFactory()
+        
+        return PieChartViewModel(campaign: campaign,
+                                 webReports: webReports,
+                                 viewFactory: viewFactory)
     }
     
 }

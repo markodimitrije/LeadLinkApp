@@ -507,8 +507,8 @@ barcode number manually</string>
                         <viewLayoutGuide key="safeArea" id="EHN-qL-WUt"/>
                     </view>
                     <connections>
-                        <outlet property="chartView" destination="S8u-fU-5fj" id="aB8-86-nyw"/>
-                        <outlet property="gridView" destination="dDJ-j9-xCA" id="9Qs-Do-Krv"/>
+                        <outlet property="lowerView" destination="dDJ-j9-xCA" id="9Qs-Do-Krv"/>
+                        <outlet property="upperView" destination="S8u-fU-5fj" id="aB8-86-nyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY0-qS-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

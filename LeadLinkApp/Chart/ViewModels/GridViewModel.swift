@@ -146,8 +146,7 @@ class LastDateSyncViewFactory: LastRefreshChartViewBuilding {
     var outputView: UIView!
     
     required init(date: Date) {
-//        outputView = UIView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 200, height: 20)))
-//        outputView.backgroundColor = .red
+
         let frame = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 200, height: 20))
         let dateView = DateView(frame: frame)
         dateView.update(descText: "Last updated at: ",

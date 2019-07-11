@@ -13,6 +13,7 @@ target 'LeadLinkApp' do
     pod 'RxDataSources'
     pod 'ReachabilitySwift'
     pod "PromiseKit", "~> 6.0"
+    pod 'PieCharts'
 
   # Pods for tryLeadLinkModularComponent
 

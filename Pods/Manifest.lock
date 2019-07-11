@@ -1,5 +1,6 @@
 PODS:
   - Differentiator (3.1.0)
+  - PieCharts (0.0.7)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
     - PromiseKit/Foundation (= 6.8.4)
@@ -33,6 +34,7 @@ PODS:
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - PieCharts
   - PromiseKit (~> 6.0)
   - ReachabilitySwift
   - RealmSwift
@@ -45,6 +47,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Differentiator
+    - PieCharts
     - PromiseKit
     - ReachabilitySwift
     - Realm
@@ -58,6 +61,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
@@ -69,6 +73,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: aa843b4f8ff6a3a914b943f3f32bcdd77b3a0ba1
+PODFILE CHECKSUM: 87e6e2eda515656ecde61bfdcd950925f52d7c40
 
 COCOAPODS: 1.6.1
