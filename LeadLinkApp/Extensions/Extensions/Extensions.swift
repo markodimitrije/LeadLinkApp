@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 // MARK:- Always extensions // ok to be in Pods
 
@@ -57,9 +58,18 @@ extension UIColor {
     static let barcodeBackground = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
     static let disclaimerBlue = UIColor.init(red: 57/255, green: 89/255, blue: 121/255, alpha: 1.0)
     static var leadLinkColor: UIColor {
-        let hexName = surveyInfo?.campaign.color ?? "#672edf"
-        return UIColor(hexString: hexName)
+//        let hexName = surveyInfo?.campaign.color ?? "#672edf"
+//        return UIColor(hexString: hexName)
+        
+        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+            return UIColor(hexString: "#672edf")
+        }
+        guard let colorName = factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value?.color else {
+            return UIColor(hexString: "#672edf")
+        }
+        return UIColor(hexString: colorName)
     }
+    
     static let notSyncedWebReports = UIColor.init(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0)
 }
 
