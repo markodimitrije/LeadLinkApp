@@ -13,13 +13,23 @@ class CompartmentBuilder: BarOrChartCompartmentsInfo {
     var compartments: [SingleCompartment]
     
     init(barOrChartInfo: BarOrChartInfo) {
+
+        // MOCK
+//        let totalOtherDevicesCompartmentInfo =
+//            TotalOtherDevicesCompartmentInfo(value: 100)
+//
+//        let syncedThisDeviceCompartmentInfo =
+//            SyncedThisDeviceCompartmentInfo(value: 25)
+//
+//        let notSyncedThisDeviceCompartmentInfo =
+//            NotSyncedThisDeviceCompartmentInfo(value: 0)
         
         let totalOtherDevicesCompartmentInfo =
             TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
-        
+
         let syncedThisDeviceCompartmentInfo =
             SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
-        
+
         let notSyncedThisDeviceCompartmentInfo =
             NotSyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[2])
         

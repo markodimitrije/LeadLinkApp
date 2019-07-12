@@ -14,7 +14,7 @@ struct TotalOtherDevicesCompartmentInfo: SingleCompartment {
     var value: Int
     init(value: Int) {
         self.color = UIColor.leadLinkColor
-        self.name = NSLocalizedString("Strings.Chart.Grid.TotalOtherDevices.text", comment: "")
+        self.name = NSLocalizedString("Strings.Chart.Grid.TotalAllDevices.text", comment: "")
         self.value = value
     }
 }
@@ -24,7 +24,7 @@ struct SyncedThisDeviceCompartmentInfo: SingleCompartment {
     var name: String
     var value: Int
     init(value: Int) {
-        self.color = UIColor.leadLinkColor.withAlphaComponent(0.5)
+        self.color = UIColor.leadLinkColor.withAlphaComponent(0.7)
         self.name = NSLocalizedString("Strings.Chart.Grid.SyncedThisDevice.text", comment: "")
         self.value = value
     }

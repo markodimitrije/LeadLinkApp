@@ -40,7 +40,7 @@ TermsNoSwitch.era.text = "For more information on how ERA-EDTA processes and sto
 
 TermsNoSwitch.navus.text = "For more information on how Navus Consulting processes and stores your data please read our Privacy Policy.";
 
-Strings.Chart.Grid.TotalOtherDevices.text = "Total (other devices): ";
+Strings.Chart.Grid.TotalAllDevices.text = "Total (all devices): ";
 Strings.Chart.Grid.SyncedThisDevice.text = "Synced (this device): ";
 Strings.Chart.Grid.NotSyncedThisDevice.text = "Not synced (this device): ";
 

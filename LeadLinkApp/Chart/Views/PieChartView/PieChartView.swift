@@ -72,11 +72,35 @@ class PieChartView: UIView {
         pieChart.animDuration = 0.01
     }
     
+    // ova crta compartments kakve si poslao, svaki value za sebe
+//    func update(compartments: [SingleCompartment]) {
+//
+//        let compartments = pieChartCompartmentsOrderer.compartments
+//
+//        pieChart.models = compartments.map { compartment -> PieSliceModel in
+//            return PieSliceModel.init(value: Double(compartment.value), color: compartment.color)
+//        }
+//
+//    }
+    
+    // ova crta tweak compartments jer imamo zahtev u vezi sa total + color
     func update(compartments: [SingleCompartment]) {
         
         let compartments = pieChartCompartmentsOrderer.compartments
         
-        pieChart.models = compartments.map { compartment -> PieSliceModel in
+        var tweakCompartments = compartments
+        
+        let total = tweakCompartments.first(where: {$0 is TotalOtherDevicesCompartmentInfo})!.value
+        let synced = tweakCompartments.first(where: {$0 is SyncedThisDeviceCompartmentInfo})!.value
+        let notSynced = tweakCompartments.first(where: {$0 is NotSyncedThisDeviceCompartmentInfo})!.value
+        
+        let modifiedTotal = total - (synced + notSynced)
+        
+        if let index = tweakCompartments.lastIndex(where: {$0 is TotalOtherDevicesCompartmentInfo}) {
+            tweakCompartments[index].value = modifiedTotal
+        }
+        
+        pieChart.models = tweakCompartments.map { compartment -> PieSliceModel in
             return PieSliceModel.init(value: Double(compartment.value), color: compartment.color)
         }
         
