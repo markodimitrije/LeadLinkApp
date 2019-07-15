@@ -957,6 +957,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2019- Scandit</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>ScanditBarcodeCapture</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2019- Scandit</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>ScanditCaptureCore</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2017 Ruoyu Fu
