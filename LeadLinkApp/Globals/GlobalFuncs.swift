@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ScanditBarcodeScanner
+import ScanditBarcodeCapture
 
 enum DeviceType {
     case iPhone
@@ -93,14 +94,23 @@ func trimmedToSixCharactersCode(code: String) -> String {
     return trimToSixCharactersCode
 }
 
-func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
-//    if UIDevice.current.userInterfaceIdiom == .phone {
-//        return SBSCameraFacingDirection.back
-//    } else if UIDevice.current.userInterfaceIdiom == .pad {
-//        return SBSCameraFacingDirection.front
-//    }
-//    return nil
-    return .back
+//func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
+////    if UIDevice.current.userInterfaceIdiom == .phone {
+////        return SBSCameraFacingDirection.back
+////    } else if UIDevice.current.userInterfaceIdiom == .pad {
+////        return SBSCameraFacingDirection.front
+////    }
+////    return nil
+//    return .back
+//}
+
+func getCameraDeviceDirection() -> CameraPosition? {
+    if UIDevice.current.userInterfaceIdiom == .phone {
+        return CameraPosition.worldFacing
+    } else if UIDevice.current.userInterfaceIdiom == .pad {
+        return CameraPosition.userFacing
+    }
+    return nil
 }
 
 func getAnswersWithoutTermsSwitch(questions: [Question], answers: [MyAnswer]) -> [MyAnswer] {

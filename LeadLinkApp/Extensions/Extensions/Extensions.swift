@@ -74,7 +74,7 @@ extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
-        Scanner(string: hex).scanHexInt32(&int)
+        //Scanner(string: hex).scanHexInt32(&int)// hard-coded, odakle ovo ovde ???
         let a, r, g, b: UInt32
         switch hex.count {
         case 3: // RGB (12-bit)

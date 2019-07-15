@@ -28,6 +28,8 @@ class ScanningVC: UIViewController, Storyboarded {
     var previewLayer: AVCaptureVideoPreviewLayer!
     private var picker: SBSBarcodePicker?
     
+    private var scanner: Scanning!
+    
     private let avSessionViewModel = AVSessionViewModel()
     
     var viewModel: ScanningViewModel!
@@ -108,19 +110,30 @@ class ScanningVC: UIViewController, Storyboarded {
     private func setupScanditScanner() {
         
         // create
-        let barcodePickerFactory = ScanditBarcodePickerFactory()
-        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
+//        let barcodePickerFactory = ScanditBarcodePickerFactory()
+//        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
+//        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
         
-        // Add the barcode picker as a child view controller
-        addChild(barcodePicker)
-        self.scannerView.cameraView.addSubview(barcodePicker.view)
-        barcodePicker.didMove(toParent: self)
+////         Add the barcode picker as a child view controller
+//        addChild(barcodePicker)
+//        self.scannerView.cameraView.addSubview(barcodePicker.view)
+//        barcodePicker.didMove(toParent: self)
+//
+//        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
+//        barcodePicker.allowedInterfaceOrientations = .all
+//        // Set the delegate to receive scan event callbacks
+//        barcodePicker.scanDelegate = self
+//        barcodePicker.startScanning()
         
-        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
-        barcodePicker.allowedInterfaceOrientations = .all
-        // Set the delegate to receive scan event callbacks
-        barcodePicker.scanDelegate = self
-        barcodePicker.startScanning()
+        scanner = Scanner(frame: self.scannerView.bounds, barcodeListener: self)
+        self.scannerView.addSubview(scanner.captureView)
+        
+        
+        
+        
+        
+        
+        
     }
     
     // native camera session binding:
@@ -153,8 +166,6 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
         
     }
-    
-    
     
     private func bindUI() {
         
@@ -319,4 +330,12 @@ extension ScanningVC: UITextViewDelegate {
         }
         return false
     }
+}
+
+extension ScanningVC: BarcodeListening {
+    func found(code: String) {
+        fatalError("implement me")
+    }
+    
+    
 }

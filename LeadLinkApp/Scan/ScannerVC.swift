@@ -15,6 +15,7 @@ import RealmSwift
 import ScanditCaptureCore
 import ScanditBarcodeCapture
 
+/*
 class ScannerVC: UIViewController {
 
     @IBOutlet weak var scannerView: UIView!
@@ -203,3 +204,4 @@ extension ScannerVC: BarcodeListening {
         
     }
 }
+*/
