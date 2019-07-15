@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import ScanditBarcodeScanner
 import ScanditBarcodeCapture
 
 enum DeviceType {
@@ -93,16 +92,6 @@ func trimmedToSixCharactersCode(code: String) -> String {
     //    print("trimed code = \(trimToSixCharactersCode), with code = \(code)")
     return trimToSixCharactersCode
 }
-
-//func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
-////    if UIDevice.current.userInterfaceIdiom == .phone {
-////        return SBSCameraFacingDirection.back
-////    } else if UIDevice.current.userInterfaceIdiom == .pad {
-////        return SBSCameraFacingDirection.front
-////    }
-////    return nil
-//    return .back
-//}
 
 func getCameraDeviceDirection() -> CameraPosition? {
     if UIDevice.current.userInterfaceIdiom == .phone {

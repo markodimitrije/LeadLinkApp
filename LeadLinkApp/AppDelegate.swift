@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ScanditBarcodeScanner
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = startingVCs.map { vc -> Void in
             navVC?.pushViewController(vc, animated: false)
-        }
-        
-        if let scanditLicenseKey = kScanditBarcodeScannerAppKey {
-             SBSLicense.setAppKey(scanditLicenseKey)
         }
         
         return true

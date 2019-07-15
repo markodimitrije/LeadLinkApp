@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 import RealmSwift
-import ScanditBarcodeScanner
 
 class ScanningVC: UIViewController, Storyboarded {
 
