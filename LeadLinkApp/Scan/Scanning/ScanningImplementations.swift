@@ -12,7 +12,7 @@ import ScanditBarcodeCapture
 
 // MARK:- Scan Implementations
 
-class Scanner: NSObject, Scanning {
+class ScanditScanner: NSObject, Scanning {
     
     internal var barcodeListener: BarcodeListening
     var captureView: UIView
@@ -57,7 +57,7 @@ class Scanner: NSObject, Scanning {
     }
 }
 
-extension Scanner: BarcodeCaptureListener {
+extension ScanditScanner: BarcodeCaptureListener {
     func barcodeCapture(_ barcodeCapture: BarcodeCapture,
                         didScanIn session: BarcodeCaptureSession,
                         frameData: FrameData) {

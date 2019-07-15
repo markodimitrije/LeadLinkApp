@@ -49,7 +49,6 @@ class QRcodeView: UIView {
         let layer = previewLayer
         layer.frame.origin = CGPoint.init(x: 0, y: 0)
         self.cameraView?.layer.addSublayer(layer)
-        
     }
     
     static func getSizeForQrCodeView() -> CGSize {

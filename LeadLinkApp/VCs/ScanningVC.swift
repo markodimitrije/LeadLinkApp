@@ -26,7 +26,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    private var picker: SBSBarcodePicker?
+//    private var picker: SBSBarcodePicker?
     
     private var scanner: Scanning!
     
@@ -62,11 +62,13 @@ class ScanningVC: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        restartCameraForScaning(picker)
+        //restartCameraForScaning(picker)
+//        restartCameraForScaning()
     }
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         startCameraIfNoScanditLicense()
+        restartCameraForScaning()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
@@ -89,11 +91,15 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func hookUpCameraAccordingToScanditPermission() {
         loadScannerView()
-        if kScanditBarcodeScannerAppKey != nil {
-            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
-        } else {
-            bindQrAndBarScanCameraNative()
-        }
+        
+        bindQrAndBarScanCameraNative()
+        
+        // hard-coded off
+//        if kScanditBarcodeScannerAppKey != nil {
+//            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
+//        } else {
+//            bindQrAndBarScanCameraNative()
+//        }
     }
     
     private func bindQrAndBarScanCameraScandit() {
@@ -125,14 +131,8 @@ class ScanningVC: UIViewController, Storyboarded {
 //        barcodePicker.scanDelegate = self
 //        barcodePicker.startScanning()
         
-        scanner = Scanner(frame: self.scannerView.bounds, barcodeListener: self)
+        scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
         self.scannerView.addSubview(scanner.captureView)
-        
-        
-        
-        
-        
-        
         
     }
     
@@ -216,18 +216,6 @@ class ScanningVC: UIViewController, Storyboarded {
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
-    func found(code: String, picker: SBSBarcodePicker? = nil) { // ovo mozes da report VM-u kao append novi code
-
-        self.picker = picker
-        
-        if code != "" {
-            codeSuccessfull(code: code)
-        } else {
-            failedDueToNoCodeDetected()
-        }
-
-    }
-    
     private func codeSuccessfull(code: String) {
         
         self.lastScanedCode = code // save state
@@ -266,11 +254,15 @@ class ScanningVC: UIViewController, Storyboarded {
             }
             .disposed(by: disposeBag)
     }
-
-    private func restartCameraForScaning(_ picker: SBSBarcodePicker?) {
-        picker?.resumeScanning()
+//
+//    private func restartCameraForScaning(_ picker: SBSBarcodePicker?) {
+//        picker?.resumeScanning()
+//    }
+    
+    private func restartCameraForScaning() {
+        scanner?.startScanning()
     }
- 
+    
     private func disclaimerIsAlreadyOnScreen() -> Bool {
         return self.view.subviews.first(where: {$0.tag == 12}) != nil
     }
@@ -289,23 +281,6 @@ extension ScanningVC: UITextFieldDelegate {
         found(code: textField.text ?? "")
         return true
     }
-}
-
-extension ScanningVC: SBSScanDelegate {
-    // This delegate method of the SBSScanDelegate protocol needs to be implemented by
-    // every app that uses the Scandit Barcode Scanner and this is where the custom application logic
-    // goes. In the example below, we are just showing an alert view with the result.
-    func barcodePicker(_ picker: SBSBarcodePicker, didScan session: SBSScanSession) {
-        
-        session.pauseScanning()
-        
-        let code = session.newlyRecognizedCodes[0]
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.found(code: code.data ?? "", picker: picker)
-        }
-    }
-
 }
 
 extension ScanningVC: ConsentAproving {
@@ -333,9 +308,13 @@ extension ScanningVC: UITextViewDelegate {
 }
 
 extension ScanningVC: BarcodeListening {
+    
     func found(code: String) {
-        fatalError("implement me")
+        
+        scanner.stopScanning()
+        
+        codeSuccessfull(code: code)
+        
     }
-    
-    
+
 }
