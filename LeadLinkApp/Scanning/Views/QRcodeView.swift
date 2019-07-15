@@ -45,7 +45,8 @@ class QRcodeView: UIView {
         
     }
     
-    func attachCameraForScanning(previewLayer: AVCaptureVideoPreviewLayer) {
+    //func attachCameraForScanning(previewLayer: AVCaptureVideoPreviewLayer) {
+    func attachCameraForScanning(previewLayer: CALayer) {
         let layer = previewLayer
         layer.frame.origin = CGPoint.init(x: 0, y: 0)
         self.cameraView?.layer.addSublayer(layer)

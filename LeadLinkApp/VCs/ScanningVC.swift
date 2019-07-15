@@ -96,8 +96,8 @@ class ScanningVC: UIViewController, Storyboarded {
         loadScannerView()
         
         // hard-coded off
-        if scanditAllownessValidator.canUseScandit() {//kScanditBarcodeScannerAppKey != nil {
-            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
+        if scanditAllownessValidator.canUseScandit() {
+            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey
         } else {
             bindQrAndBarScanCameraNative()
         }
@@ -117,7 +117,8 @@ class ScanningVC: UIViewController, Storyboarded {
     private func setupScanditScanner() {
         
         scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
-        self.scannerView.addSubview(scanner.captureView)
+        let captureView = scanner.captureView
+        self.scannerView.cameraView.addSubview(captureView)
         
     }
     
