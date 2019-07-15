@@ -26,9 +26,14 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     var previewLayer: AVCaptureVideoPreviewLayer!
-//    private var picker: SBSBarcodePicker?
     
     private var scanner: Scanning!
+    private let scanditAllownessValidator: ScanditAllownessValidator = {
+        let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
+        let campaign = factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
+        let validation = ScanditAllownessValidator(campaign: campaign.value)
+        return validation
+    }()
     
     private let avSessionViewModel = AVSessionViewModel()
     
@@ -60,15 +65,9 @@ class ScanningVC: UIViewController, Storyboarded {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //restartCameraForScaning(picker)
-//        restartCameraForScaning()
-    }
-    
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         startCameraIfNoScanditLicense()
-        restartCameraForScaning()
+        restartScanditCameraForScaning()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
@@ -78,28 +77,31 @@ class ScanningVC: UIViewController, Storyboarded {
     // MARK: - Scandit or Native camera support
     
     private func startCameraIfNoScanditLicense() {
-        if kScanditBarcodeScannerAppKey == nil {
+        //self.avSessionViewModel.captureSession.startRunning()
+        if !scanditAllownessValidator.canUseScandit() {
             self.avSessionViewModel.captureSession.startRunning()
         }
     }
     
     private func stopCameraIfNoScanditLicense() {
-        if kScanditBarcodeScannerAppKey == nil {
+        if !scanditAllownessValidator.canUseScandit() {
             self.avSessionViewModel.captureSession.stopRunning()
         }
+    }
+    
+    private func stopScanditCamera() {
+        scanner?.stopScanning()
     }
     
     private func hookUpCameraAccordingToScanditPermission() {
         loadScannerView()
         
-        bindQrAndBarScanCameraNative()
-        
         // hard-coded off
-//        if kScanditBarcodeScannerAppKey != nil {
-//            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
-//        } else {
-//            bindQrAndBarScanCameraNative()
-//        }
+        if scanditAllownessValidator.canUseScandit() {//kScanditBarcodeScannerAppKey != nil {
+            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey - hard-coded
+        } else {
+            bindQrAndBarScanCameraNative()
+        }
     }
     
     private func bindQrAndBarScanCameraScandit() {
@@ -114,22 +116,6 @@ class ScanningVC: UIViewController, Storyboarded {
     // SCANDIT
     
     private func setupScanditScanner() {
-        
-        // create
-//        let barcodePickerFactory = ScanditBarcodePickerFactory()
-//        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
-//        let barcodePicker = barcodePickerFactory.createPicker(inRect: self.scannerView.cameraView.bounds)
-        
-////         Add the barcode picker as a child view controller
-//        addChild(barcodePicker)
-//        self.scannerView.cameraView.addSubview(barcodePicker.view)
-//        barcodePicker.didMove(toParent: self)
-//
-//        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
-//        barcodePicker.allowedInterfaceOrientations = .all
-//        // Set the delegate to receive scan event callbacks
-//        barcodePicker.scanDelegate = self
-//        barcodePicker.startScanning()
         
         scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
         self.scannerView.addSubview(scanner.captureView)
@@ -254,12 +240,8 @@ class ScanningVC: UIViewController, Storyboarded {
             }
             .disposed(by: disposeBag)
     }
-//
-//    private func restartCameraForScaning(_ picker: SBSBarcodePicker?) {
-//        picker?.resumeScanning()
-//    }
     
-    private func restartCameraForScaning() {
+    private func restartScanditCameraForScaning() {
         scanner?.startScanning()
     }
     
@@ -311,7 +293,8 @@ extension ScanningVC: BarcodeListening {
     
     func found(code: String) {
         
-        scanner.stopScanning()
+        scanner?.stopScanning()
+        stopCameraIfNoScanditLicense()
         
         codeSuccessfull(code: code)
         

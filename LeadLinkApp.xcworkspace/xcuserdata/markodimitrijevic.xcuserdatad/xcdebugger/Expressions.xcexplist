@@ -3,18 +3,24 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AnswersReport.payload.getter:AnswersReport.swift">
+         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
          <PersistentStrings>
             <PersistentString
-               value = "answers">
+               value = "question.type">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in QuestionsAnswersVC.listenToSaveEvent():QuestionsAnswersVC.swift">
+         contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self?.parentViewmodel.childViewmodels">
+               value = "campaignsViewModel">
+            </PersistentString>
+            <PersistentString
+               value = "campaignsViewModel.selectedCampaign">
+            </PersistentString>
+            <PersistentString
+               value = "campaignsViewModel.selectedCampaign.value()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,23 +33,51 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in QuestionsAnswersVC.listenToSaveEvent():QuestionsAnswersVC.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "parentViewmodel.childViewmodels">
+               value = "popoverController.sourceRect">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in DelegatesRemoteAPI.getDelegate(withCode:):DelegatesAPIController.swift">
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "confApiKeyState">
+               value = "surveyInfo.campaign">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AnswersApiController.postRequest(base:pathComponent:reports:):AnswersAPIController.swift">
+         contextName = "ScanditScanner.init(frame:barcodeListener:):ScanningImplementations.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "camera">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "doneBtn">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
@@ -63,223 +97,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ConferenceApiKeyState.updateWith(selectedCampaign:):ConferenceApiKeyState.swift">
-      </ContextState>
-      <ContextState
-         contextName = "SurveyInfo.updated(withDelegate:):SurveyInfo.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "answer">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MyAnswer.isEmpty.getter:MyAnswer.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "content.isEmpty || (content.first! != &quot;&quot;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "sSelf.navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "codesView">
-            </PersistentString>
-            <PersistentString
-               value = "containerView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionOptionsTableViewDataSourceAndDelegate.init(selectOptionTextViewModel:):QuestionOptionsDataSource.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "selectOptionTextViewModel.question.options.first">
-            </PersistentString>
-            <PersistentString
-               value = "PersonalInfoKey.country_id.rawValue">
-            </PersistentString>
-            <PersistentString
-               value = "countries">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ConferenceApiKeyState.apiKey.getter:ConferenceApiKeyState.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "selectedCampaign">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in ChartViewModel.hookUpWebReportsToChartOrBarData():ChartViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "barOrChartData">
-            </PersistentString>
-            <PersistentString
-               value = "webReports.toArray()">
-            </PersistentString>
-            <PersistentString
-               value = "sSelf.campaign">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "doneBtn">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems!.count">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
-            </PersistentString>
-            <PersistentString
-               value = "count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QRcodeView.attachCameraForScanning(previewLayer:):QRcodeView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cameraView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DelegatesRemoteAPI.buildRequest(base:method:pathComponent:params:):DelegatesAPIController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "headerFieldsCreator">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in QuestionsAnswersVC.listenToSaveEvent(existingAnswers:):QuestionsAnswersVC.swift">
-      </ContextState>
-      <ContextState
-         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "campaign.organization">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.color">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.id">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.application">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.name">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "addOrUpdateAnswers #1 (withAnswer:) in closure #1 in QuestionsAnswersVC.listenToSaveEvent(existingAnswers:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "index.hashValue">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UITableView.isCellBelowBottomHalfOfTheScreen(cell:):Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.frame.origin.y">
-            </PersistentString>
-            <PersistentString
-               value = "self.frame.midY &gt; cell.frame.origin.y">
-            </PersistentString>
-            <PersistentString
-               value = "self.frame.midY">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewmodel.question.options">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RealmCampaign.update(with:):RealmCampaign.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "campaign.color">
-            </PersistentString>
-            <PersistentString
-               value = "campaign.name">
-            </PersistentString>
-            <PersistentString
-               value = "self.application">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "KeyboardDismisser.mountToolbarForDismissingKeyboard():TextFieldViewModelBinder.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view as? UITextField">
-            </PersistentString>
-            <PersistentString
-               value = "view as? UITextView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "question.type">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PieChartView.setChartIntoCenter():PieChartView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "bounds.center">
-            </PersistentString>
-            <PersistentString
-               value = "bounds">
-            </PersistentString>
-            <PersistentString
-               value = "pieChart.center">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ChartViewControllerFactory.makeVC(campaignId:):ChartViewControllerFactory.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_otherDevicesSyncedCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -292,81 +113,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NavigationViewModel.navBtnTapped(_:):NavigationViewModel.swift">
+         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "campaignsViewModel">
+               value = "codesView">
             </PersistentString>
             <PersistentString
-               value = "campaignsViewModel.selectedCampaign">
-            </PersistentString>
-            <PersistentString
-               value = "campaignsViewModel.selectedCampaign.value()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "popoverController.sourceRect">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Validation.hasCheckedTermsAndConditions.getter:Validation.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "termsAnswer?.optionIds?.first">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UIView.locateClosestChild&lt;A&gt;(ofType:):Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.subviews.count">
-            </PersistentString>
-            <PersistentString
-               value = "type(of: self) is UITextField">
-            </PersistentString>
-            <PersistentString
-               value = "type(of: self)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RealmApplication.updateWith(application:):RealmApplication.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.api_key">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in QuestionsAnswersVC.setUpKeyboardBehavior():QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "firstCellAbove">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "surveyInfo.campaign">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UITableView.getFirstCellAbove(cell:):Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "actualIndexPath.section - 1">
-            </PersistentString>
-            <PersistentString
-               value = "sectionIndex - 1">
+               value = "containerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

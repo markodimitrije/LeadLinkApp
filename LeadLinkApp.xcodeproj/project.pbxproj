@@ -161,6 +161,7 @@
 		7CA998E222A945EF00C226F1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E122A945EF00C226F1 /* libc++.tbd */; };
 		7CA998E422A945FB00C226F1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998E322A945FA00C226F1 /* libiconv.tbd */; };
 		7CA998E922A95E5400C226F1 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998E822A95E5400C226F1 /* Countries.swift */; };
+		7CB4D3DE22DCAEB100D6987E /* ScanditAllowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4D3DD22DCAEB100D6987E /* ScanditAllowable.swift */; };
 		7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */; };
 		7CBDC27122D72F5800B7D43F /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC26F22D72F5800B7D43F /* DateView.xib */; };
 		7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27022D72F5800B7D43F /* DateView.swift */; };
@@ -419,6 +420,7 @@
 		7CA998E122A945EF00C226F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7CA998E322A945FA00C226F1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		7CB4D3DD22DCAEB100D6987E /* ScanditAllowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditAllowable.swift; sourceTree = "<group>"; };
 		7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRefreshDateCalculator.swift; sourceTree = "<group>"; };
 		7CBDC26F22D72F5800B7D43F /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
 		7CBDC27022D72F5800B7D43F /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0E5CC4228F0B030011E0A2 /* Validation.swift */,
+				7CB4D3DD22DCAEB100D6987E /* ScanditAllowable.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -1859,6 +1862,7 @@
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
+				7CB4D3DE22DCAEB100D6987E /* ScanditAllowable.swift in Sources */,
 				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
