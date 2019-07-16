@@ -20,7 +20,7 @@ class ChartViewControllerFactory {
         self.selectedCampaign = selectedCampaign
     }
 
-    func makeVC(campaignId id: Int) -> ChartVC { print("ChartViewControllerFactory pravi ChartViewController")
+    func makeVC(campaignId id: Int) -> ChartVC {
 
         let chartVC = ChartVC.instantiate(using: appDependancyContainer.sb)
 
@@ -36,7 +36,7 @@ class ChartViewControllerFactory {
     
     private func createGridViewModel(campaignId id: Int) -> GridViewModel {
         
-        let campaign = selectedCampaign.selectedCampaign() //appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
+        let campaign = selectedCampaign.selectedCampaign()
         let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
         let viewFactory: ChartGridViewBuilding = ChartGridViewFactory()
         
@@ -47,7 +47,7 @@ class ChartViewControllerFactory {
     
     private func createPieChartViewModel(campaignId id: Int) -> PieChartViewModel {
         
-        let campaign = selectedCampaign.selectedCampaign() //appDependancyContainer.sharedCampaignsRepository.dataStore.observableCampaign(id: id)
+        let campaign = selectedCampaign.selectedCampaign()
         let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
         let viewFactory: PieChartViewBuilding = PieChartViewFactory()
         
