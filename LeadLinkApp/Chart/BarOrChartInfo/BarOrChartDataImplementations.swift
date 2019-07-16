@@ -23,7 +23,9 @@ struct BarOrChartData: BarOrChartInfo {
     
     private mutating func loadCompartmentValues() {
         compartmentValues.append(campaign.number_of_responses)
-        compartmentValues.append(webReports.filter {$0.success}.count)
-        compartmentValues.append(webReports.filter {!$0.success}.count)
+        let webReportsForSelectedCampaign = webReports.filter { $0.campaignId == "\(self.campaign.id)" }
+            //campaignId
+        compartmentValues.append(webReportsForSelectedCampaign.filter {$0.success}.count)
+        compartmentValues.append(webReportsForSelectedCampaign.filter {!$0.success}.count)
     }
 }

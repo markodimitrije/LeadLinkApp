@@ -41,19 +41,19 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    public func observableCampaign(id: Int) -> Observable<Campaign> {
-
-        let realm = try! Realm()
-        let realmCampaigns = realm.objects(RealmCampaign.self)
-        
-        return Observable.collection(from: realmCampaigns)
-                         .map {
-                            realmCampaigns in
-                            let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
-                            let campaign = Campaign(realmCampaign: realmCampaign!)
-                            return campaign
-                         }
-    }
+//    public func observableCampaign(id: Int) -> Observable<Campaign> {
+//
+//        let realm = try! Realm()
+//        let realmCampaigns = realm.objects(RealmCampaign.self)
+//
+//        return Observable.collection(from: realmCampaigns)
+//                         .map {
+//                            realmCampaigns in
+//                            let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
+//                            let campaign = Campaign(realmCampaign: realmCampaign!)
+//                            return campaign
+//                         }
+//    }
     
     public func readAllCampaigns() -> Promise<[Campaign]> {
         
@@ -195,4 +195,58 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
+}
+
+
+
+
+
+
+
+
+
+public protocol SelectedCampaignObserving {
+    func selectedCampaign() -> Observable<Campaign?> // treba da zivi na userSession dok je login
+}
+
+struct RealmSelectedCampaign: SelectedCampaignObserving {
+    
+    var campaignsDataStore: CampaignsDataStore
+    
+    init(campaignsDataStore: CampaignsDataStore) {
+        self.campaignsDataStore = campaignsDataStore
+    }
+    
+    func selectedCampaign() -> Observable<Campaign?> {
+        guard let id = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+            fatalError() // bolje vrati error...
+        }
+        
+        let realm = try! Realm()
+        let realmCampaigns = realm.objects(RealmCampaign.self)
+        
+//        let obs: Observable<Campaign> = Observable.collection(from: realmCampaigns)
+//            .map {
+//                realmCampaigns in
+//                let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
+//                let campaign = Campaign(realmCampaign: realmCampaign!)
+//                return campaign
+//        }
+//
+//        return obs
+        let obs: Observable<RealmCampaign?> = Observable.collection(from: realmCampaigns)
+            .map {
+                realmCampaigns in
+                let realmCampaign = realmCampaigns.toArray().first(where: {$0.id == id})
+                return realmCampaign
+        }
+        
+        return obs.map { realmCampaign -> Campaign? in
+            if let realmCampaign = realmCampaign {
+                return Campaign(realmCampaign: realmCampaign)
+            } else {
+                return nil
+            }
+        }
+    }
 }

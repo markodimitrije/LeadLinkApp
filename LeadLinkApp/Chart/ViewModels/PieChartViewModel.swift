@@ -16,7 +16,7 @@ protocol PieChartViewModeling {
 
 class PieChartViewModel: PieChartViewModeling {
     
-    private var campaign: Observable<Campaign>
+    private var campaign: Observable<Campaign?>
     private var webReports: Observable<Results<RealmWebReportedAnswers>>
     private var viewFactory: PieChartViewBuilding
     private let bag = DisposeBag()
@@ -26,7 +26,7 @@ class PieChartViewModel: PieChartViewModeling {
     
     var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<Campaign>,
+    init(campaign: Observable<Campaign?>,
          webReports: Observable<Results<RealmWebReportedAnswers>>,
          viewFactory: PieChartViewBuilding) {
         
@@ -59,6 +59,7 @@ class PieChartViewModel: PieChartViewModeling {
         campaign
             .subscribe(onNext: { [weak self] campaign in
                 guard let sSelf = self else {return}
+                guard let campaign = campaign else {return}
                 sSelf.newCampaign = campaign
                 sSelf.newEventIsCatchedEmitUpdatedView(webReports: sSelf.newWebReports,
                                                        campaign: sSelf.newCampaign)

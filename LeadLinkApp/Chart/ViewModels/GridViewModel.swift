@@ -16,7 +16,7 @@ protocol GridViewModeling {
 
 class GridViewModel: GridViewModeling {
     
-    private var campaign: Observable<Campaign>
+    private var campaign: Observable<Campaign?>
     private var webReports: Observable<Results<RealmWebReportedAnswers>>
     private var viewFactory: ChartGridViewBuilding
     private let bag = DisposeBag()
@@ -26,7 +26,7 @@ class GridViewModel: GridViewModeling {
     
     var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<Campaign>,
+    init(campaign: Observable<Campaign?>,
          webReports: Observable<Results<RealmWebReportedAnswers>>,
          viewFactory: ChartGridViewBuilding) {
         
@@ -59,6 +59,7 @@ class GridViewModel: GridViewModeling {
         campaign
             .subscribe(onNext: { [weak self] campaign in
                 guard let sSelf = self else {return}
+                guard let campaign = campaign else {return}
                 sSelf.newCampaign = campaign
                 sSelf.newEventIsCatchedEmitUpdatedView(webReports: sSelf.newWebReports,
                                                        campaign: sSelf.newCampaign)

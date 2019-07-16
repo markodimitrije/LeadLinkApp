@@ -18,7 +18,10 @@ class StatsViewControllerFactory {
     
     func makeVC(campaignId id: Int) -> StatsVC {
 //
-        let chartVcFactory = ChartViewControllerFactory.init(appDependancyContainer: appDependancyContainer)
+        let chartVcFactory =
+            ChartViewControllerFactory.init(
+                appDependancyContainer: appDependancyContainer,
+                selectedCampaign: RealmSelectedCampaign.init(campaignsDataStore: appDependancyContainer.sharedCampaignsRepository.dataStore))
         let reportsVcFactory = ReportsViewControllerFactory.init(appDependancyContainer: appDependancyContainer)
         
         let statsVC = StatsVC.instantiate(using: appDependancyContainer.sb)
