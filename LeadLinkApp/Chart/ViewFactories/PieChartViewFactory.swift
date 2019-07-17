@@ -40,13 +40,9 @@ class PieChartViewFactory: PieChartViewBuilding {
     
     private func makePieChartView(compartments: [SingleCompartment]) -> UIView {
         
-        let frame = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 300, height: 400))
+        let frame = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 600, height: 600))
         
         let pieChartView = PieChartView.init(frame: frame)
-        
-        pieChartView.pieChartCompartmentsOrderer = PieChartCompartmentsOrderer(compartments: compartments)
-        
-        pieChartView.update(compartments: compartments)
         
         return pieChartView
         

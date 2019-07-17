@@ -12,34 +12,38 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PieChartView" customModule="LeadLinkApp" customModuleProvider="target">
             <connections>
-                <outlet property="pieChart" destination="iN0-l3-epB" id="9Rn-oL-Ce0"/>
+                <outlet property="pieChart" destination="6wm-dn-7rm" id="Y0S-db-R8h"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PieChart" customModule="PieCharts">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <view contentMode="scaleToFill" id="SBT-Vt-G26">
+            <rect key="frame" x="0.0" y="0.0" width="705" height="705"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wm-dn-7rm" customClass="PieChart" customModule="PieCharts">
+                    <rect key="frame" x="16" y="16" width="673" height="673"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
+                            <real key="value" value="200"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="outerRadius">
+                            <real key="value" value="300"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="uMK-ui-qBB" firstAttribute="trailing" secondItem="6wm-dn-7rm" secondAttribute="trailing" constant="16" id="2BZ-Rq-z0A"/>
+                <constraint firstItem="6wm-dn-7rm" firstAttribute="leading" secondItem="uMK-ui-qBB" secondAttribute="leading" constant="16" id="PLV-8k-ncY"/>
+                <constraint firstItem="6wm-dn-7rm" firstAttribute="top" secondItem="SBT-Vt-G26" secondAttribute="top" constant="16" id="Zna-CV-msN"/>
+                <constraint firstAttribute="bottom" secondItem="6wm-dn-7rm" secondAttribute="bottom" constant="16" id="rN6-a8-rBA"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
-                    <real key="value" value="80"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="number" keyPath="outerRadius">
-                    <real key="value" value="140"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
-                    <real key="value" value="0.0"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="number" keyPath="selectedOffset">
-                    <real key="value" value="0.0"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="number" keyPath="animDuration">
-                    <real key="value" value="1"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="117.39130434782609" y="93.080357142857139"/>
+            <viewLayoutGuide key="safeArea" id="uMK-ui-qBB"/>
+            <point key="canvasLocation" x="419.56521739130437" y="201.89732142857142"/>
         </view>
     </objects>
 </document>

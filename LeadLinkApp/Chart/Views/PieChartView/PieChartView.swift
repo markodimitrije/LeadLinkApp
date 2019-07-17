@@ -51,8 +51,8 @@ class PieChartView: UIView {
     }
     
     private func setChartInnerAndOuterRadius() {
-        pieChart.innerRadius = 0.25 * bounds.width
-        pieChart.outerRadius = 0.50 * bounds.width
+        pieChart.innerRadius = 0.25 * self.bounds.width
+        pieChart.outerRadius = 0.50 * self.bounds.width
     }
     
     private func setChartBackgroundColor() {
@@ -71,7 +71,7 @@ class PieChartView: UIView {
     private func setAnimationDuration() {
         pieChart.animDuration = 0.01
     }
-    
+   
     // ova crta compartments kakve si poslao, svaki value za sebe
 //    func update(compartments: [SingleCompartment]) {
 //
@@ -106,4 +106,37 @@ class PieChartView: UIView {
         
     }
     
+}
+
+class PieSliceModelCreator {
+    
+    private var compartments: [SingleCompartment]
+    var models = [PieSliceModel]()
+    
+    init(chartData: BarOrChartData) {
+        let compartmentBuilder = CompartmentBuilder(barOrChartInfo: chartData)
+        let pieChartCompartmentsOrderer = PieChartCompartmentsOrderer(compartments: compartmentBuilder.compartments)
+        self.compartments = pieChartCompartmentsOrderer.compartments
+        
+        self.makePieSliceModels()
+    }
+    private func makePieSliceModels() {
+        
+        var tweakCompartments = self.compartments
+        
+        let total = tweakCompartments.first(where: {$0 is TotalOtherDevicesCompartmentInfo})!.value
+        let synced = tweakCompartments.first(where: {$0 is SyncedThisDeviceCompartmentInfo})!.value
+        let notSynced = tweakCompartments.first(where: {$0 is NotSyncedThisDeviceCompartmentInfo})!.value
+        
+        let modifiedTotal = total - (synced + notSynced)
+        
+        if let index = tweakCompartments.lastIndex(where: {$0 is TotalOtherDevicesCompartmentInfo}) {
+            tweakCompartments[index].value = modifiedTotal
+        }
+        
+        self.models = tweakCompartments.map { compartment -> PieSliceModel in
+            return PieSliceModel.init(value: Double(compartment.value), color: compartment.color)
+        }
+        
+    }
 }

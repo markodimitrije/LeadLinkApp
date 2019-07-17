@@ -8,10 +8,11 @@
 
 import UIKit
 import RxSwift
+import PieCharts
 
 class ChartVC: UIViewController, Storyboarded {
     
-    @IBOutlet weak var upperView: UIView!
+    @IBOutlet weak var upperView: PieChart!
     @IBOutlet weak var lowerView: UIView!
     
     private let bag = DisposeBag()
@@ -20,8 +21,8 @@ class ChartVC: UIViewController, Storyboarded {
     var gridViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
     
     override func viewDidLoad() { super.viewDidLoad()
-        hookUpPieChartViewFromYourViewModel()
-        hookUpGridViewFromYourViewModel()
+//        hookUpPieChartViewFromYourViewModel()
+//        hookUpGridViewFromYourViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
@@ -31,13 +32,20 @@ class ChartVC: UIViewController, Storyboarded {
     
     private func hookUpPieChartViewFromYourViewModel() {
         pieChartViewModel.output
-            .subscribe(onNext: { [weak self] pieChartView in
+            .subscribe(onNext: { [weak self] chartData in
                 guard let sSelf = self else {return}
                 
-                sSelf.viewIsReady(pieChartView, forDestinationView: sSelf.upperView)
+                sSelf.chartDataReady(chartData)
                 
             })
             .disposed(by: bag)
+    }
+    
+    private func chartDataReady(_ chartData: BarOrChartData) {
+
+        let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
+        upperView.models = pieSliceModelCreator.models
+        
     }
     
     private func hookUpGridViewFromYourViewModel() {
@@ -67,6 +75,51 @@ class ChartVC: UIViewController, Storyboarded {
         destView.addSubview(view)
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // REFACTOR FROM HERE !
+//
+//    private func formatPieChart() {
+//        setChartInnerAndOuterRadius()
+//        setChartBackgroundColor()
+//        setGapBetweenPies()
+//        setReferenceAngle()
+//        setAnimationDuration()
+//    }
+//
+//    private func setChartInnerAndOuterRadius() {
+//        upperView.innerRadius = 0.25 * upperView.bounds.width
+//        upperView.outerRadius = 0.50 * upperView.bounds.width
+//    }
+//
+//    private func setChartBackgroundColor() {
+//        upperView.backgroundColor = .yellow
+//    }
+//
+//    private func setGapBetweenPies() {
+//        upperView.strokeWidth = 10.0
+//        upperView.strokeColor = .white
+//    }
+//
+//    private func setReferenceAngle() {
+//        upperView.referenceAngle = 270.0
+//    }
+//
+//    private func setAnimationDuration() {
+//        upperView.animDuration = 0.01
+//    }
+    
 }
-
 

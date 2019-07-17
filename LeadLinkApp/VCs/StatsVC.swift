@@ -57,16 +57,6 @@ class StatsVC: UIViewController, Storyboarded {
 
         self.addChild(reportsVC)
     }
-    
-//    private func loadChartVC() {
-//
-//        _ = statisticsView?.subviews.map {$0.removeFromSuperview()}
-//
-//        chartVC?.view.frame = containerView?.bounds ?? statisticsView?.bounds ?? CGRect.zero
-//
-//        statisticsView?.addSubview(chartVC!.view)
-//
-//    }
 
     private func loadChartVC() {
         

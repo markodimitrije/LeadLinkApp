@@ -11,7 +11,7 @@ import RxSwift
 import RealmSwift
 
 protocol PieChartViewModeling {
-    var output: ReplaySubject<UIView> {get set}
+    var output: ReplaySubject<BarOrChartData> {get set}
 }
 
 class PieChartViewModel: PieChartViewModeling {
@@ -24,11 +24,7 @@ class PieChartViewModel: PieChartViewModeling {
     private var newWebReports = [RealmWebReportedAnswers]()
     private var newCampaign: Campaign!
     
-    var barOrChartData: BarOrChartData {
-        return BarOrChartData(campaign: newCampaign, webReports: newWebReports)
-    }
-    
-    var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
+    var output = ReplaySubject<BarOrChartData>.create(bufferSize: 10) // output
     
     init(campaign: Observable<Campaign?>,
          webReports: Observable<Results<RealmWebReportedAnswers>>,
@@ -75,8 +71,10 @@ class PieChartViewModel: PieChartViewModeling {
         let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
         let compartmentBuilder = CompartmentBuilder(barOrChartInfo: barOrChartData)
         
-        let view = viewFactory.makeOutput(compartmentBuilder: compartmentBuilder)
-        output.onNext(view)
+//        let view = viewFactory.makeOutput(compartmentBuilder: compartmentBuilder)
+//        output.onNext(view)
+        let chartData = BarOrChartData(campaign: newCampaign, webReports: newWebReports)
+        output.onNext(chartData)
     }
     
     private func getNewestCampaignData() {
