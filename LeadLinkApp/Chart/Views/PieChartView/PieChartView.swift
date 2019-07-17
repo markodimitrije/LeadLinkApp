@@ -56,7 +56,7 @@ class PieChartView: UIView {
     }
     
     private func setChartBackgroundColor() {
-        pieChart.backgroundColor = .white
+        pieChart.backgroundColor = .yellow
     }
     
     private func setGapBetweenPies() {

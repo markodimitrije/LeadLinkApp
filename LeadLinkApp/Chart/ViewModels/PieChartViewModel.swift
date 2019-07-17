@@ -24,6 +24,10 @@ class PieChartViewModel: PieChartViewModeling {
     private var newWebReports = [RealmWebReportedAnswers]()
     private var newCampaign: Campaign!
     
+    var barOrChartData: BarOrChartData {
+        return BarOrChartData(campaign: newCampaign, webReports: newWebReports)
+    }
+    
     var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
     init(campaign: Observable<Campaign?>,

@@ -27,7 +27,7 @@ class StatsVC: UIViewController, Storyboarded {
 
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         loadReportsVC()
-        loadChartVC()
+//        loadChartVC()
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
@@ -58,11 +58,21 @@ class StatsVC: UIViewController, Storyboarded {
         self.addChild(reportsVC)
     }
     
-    private func loadChartVC() {
+//    private func loadChartVC() {
+//
+//        _ = statisticsView?.subviews.map {$0.removeFromSuperview()}
+//
+//        chartVC?.view.frame = containerView?.bounds ?? statisticsView?.bounds ?? CGRect.zero
+//
+//        statisticsView?.addSubview(chartVC!.view)
+//
+//    }
 
-        //        _ = codesView?.subviews.map {$0.removeFromSuperview()}
+    private func loadChartVC() {
         
-        chartVC?.view.frame = containerView?.bounds ?? codesView?.bounds ?? CGRect.zero
+        _ = statisticsView?.subviews.map {$0.removeFromSuperview()}
+        
+        chartVC?.view.frame = containerView?.bounds ?? statisticsView?.bounds ?? CGRect.zero
         
         statisticsView?.addSubview(chartVC!.view)
         
