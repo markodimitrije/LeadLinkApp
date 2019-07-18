@@ -259,12 +259,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
         if validator.questionsFormIsValid {
             
+            strongSelf.navigationController?.popViewController(animated: true)
+            
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: surveyInfo, answers: answers)
             
             let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
             answersReporter.report.accept(newReport)
             
-            strongSelf.navigationController?.popViewController(animated: true)
         } else {
             strongSelf.showAlertFormNotValid()
         }
