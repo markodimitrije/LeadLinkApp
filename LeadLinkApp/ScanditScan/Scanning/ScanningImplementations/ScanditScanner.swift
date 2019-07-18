@@ -10,9 +10,10 @@ import UIKit
 import ScanditCaptureCore
 import ScanditBarcodeCapture
 
-// MARK:- Scan Implementations
+// MARK:- ScanningProtocols Implementations
 
-class ScanditScanner: NSObject, Scanning {
+//class ScanditScanner: NSObject, Scanning {
+class ScanditScanner: NSObject, MinimumScanning, ScanViewProviding {
     
     internal var barcodeListener: BarcodeListening
     var captureView: UIView
@@ -31,8 +32,6 @@ class ScanditScanner: NSObject, Scanning {
         
         camera = Camera.init(position: cameraPosition)
         context.setFrameSource(camera, completionHandler: nil)
-        
-        //camera.switch(toDesiredState: .on)
         
         let captureView = DataCaptureView(for: context, frame: frame)
         

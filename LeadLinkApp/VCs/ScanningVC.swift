@@ -26,7 +26,7 @@ class ScanningVC: UIViewController, Storyboarded {
     var scannerView: QRcodeView!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
-    private var scanner: Scanning!
+    private var scanner: MinimumScanning!
     private let scanditAllownessValidator: ScanditAllownessValidator = {
         let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
         let campaign = factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
@@ -57,7 +57,7 @@ class ScanningVC: UIViewController, Storyboarded {
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
         
-        hookUpCameraAccordingToScanditPermission()
+        hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
         loadKeyboardManager()
         bindUI()
@@ -65,92 +65,58 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
-        startCameraIfNoScanditLicense()
-        restartScanditCameraForScaning()
+        startCamera()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
-        stopCameraIfNoScanditLicense()
+        stopCamera()
     }
     
-    // MARK: - Scandit or Native camera support
-    
-    private func startCameraIfNoScanditLicense() {
-        //self.avSessionViewModel.captureSession.startRunning()
-        if !scanditAllownessValidator.canUseScandit() {
-            self.avSessionViewModel.captureSession.startRunning()
-        }
+    private func startCamera() {
+        scanner.startScanning()
     }
     
-    private func stopCameraIfNoScanditLicense() {
-        if !scanditAllownessValidator.canUseScandit() {
-            self.avSessionViewModel.captureSession.stopRunning()
-        }
-    }
-    
-    private func stopScanditCamera() {
-        scanner?.stopScanning()
+    private func stopCamera() {
+        scanner.stopScanning()
     }
     
     private func hookUpCameraAccordingToScanditPermission() {
-        loadScannerView()
         
+        loadScannerView()
+//        loadScanditScanner() //for testing scandit
         // hard-coded off
         if scanditAllownessValidator.canUseScandit() {
-            bindQrAndBarScanCameraScandit() // ovde treba provera da li postoji scanditKey
+            loadScanditScanner()
         } else {
-            bindQrAndBarScanCameraNative()
+            loadCameraScanner()
         }
     }
     
-    private func bindQrAndBarScanCameraScandit() {
-        setupScanditScanner()
-    }
-    
-    private func bindQrAndBarScanCameraNative() {
-        bindSessionUsingAVSessionViewModel()
-        bindCameraUsingAVSessionViewModel()
+    private func loadScannerView() { // QRCodeView
+        let scannerViewFactory = ScannerViewFactory()
+        self.scannerView = scannerViewFactory.createScannerView(inView: self.view,
+                                                                handler: hideScaningView)
+        self.scannerView.isHidden = true
+        self.view.addSubview(self.scannerView)
     }
     
     // SCANDIT
     
-    private func setupScanditScanner() {
+    private func loadScanditScanner() {
         
-        scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
-        let captureView = scanner.captureView
+        let myScanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
+        
+        scanner = myScanner //as! MinimumScanning
+        let captureView = myScanner.captureView
         self.scannerView.cameraView.addSubview(captureView)
         
     }
     
-    // native camera session binding:
-    
-    private func bindSessionUsingAVSessionViewModel() {
+    private func loadCameraScanner() {
         
-        avSessionViewModel.oSession
-            .subscribe(onNext: { [unowned self] (session) in
-                
-                let previewLayer = CameraPreviewLayer(session: session,
-                                                      bounds: self.scannerView.layer.bounds)
-                
-                self.scannerView.attachCameraForScanning(previewLayer: previewLayer)
-                
-                }, onError: { [unowned self] err in
-                    self.failed()
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func bindCameraUsingAVSessionViewModel() {
-        
-        //avSessionViewModel.oCode.throttle(1.9, scheduler: MainScheduler.instance)
-        avSessionViewModel.oCode
-            .subscribe(onNext: { [weak self] (barCodeValue) in
-                guard let sSelf = self else {return}
-                print("scanner camera emituje barCodeValue \(barCodeValue)")
-                sSelf.found(code: barCodeValue)
-            })
-            .disposed(by: disposeBag)
-        
+        scanner = NativeScanner(avSessionViewModel: AVSessionViewModel(),
+                                scannerView: self.scannerView,
+                                barcodeListener: self)
     }
     
     private func bindUI() {
@@ -172,15 +138,6 @@ class ScanningVC: UIViewController, Storyboarded {
         self.scannerView.isHidden = true
     }
     
-    private func loadScannerView() {
-        let scannerViewFactory = ScannerViewFactory()
-        let cameraView = scannerViewFactory.createCameraView(inScannerView: self.view,
-                                                             handler: hideScaningView)
-        self.scannerView = cameraView
-        self.scannerView.isHidden = true
-        self.view.addSubview(cameraView)
-    }
-  
     private func loadKeyboardManager() {
         let movingKeyboardDelegateFactory = MovingKeyboardDelegateFactory.init()
         keyboardManager = movingKeyboardDelegateFactory.create { [weak self] verticalShift in
@@ -223,7 +180,7 @@ class ScanningVC: UIViewController, Storyboarded {
         }
     }
     
-    private func failed() { print("failed.....")
+    private func failed() { //print("failed.....")
         
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
             .subscribe {
@@ -232,17 +189,13 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func failedDueToNoCodeDetected() { print("failedDueToNoCodeDetected. prikazi alert....")
+    private func failedDueToNoCodeDetected() { //print("failedDueToNoCodeDetected. prikazi alert....")
         
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCodeDetected), sourceView: orLabel)
             .subscribe {
                 self.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
-    }
-    
-    private func restartScanditCameraForScaning() {
-        scanner?.startScanning()
     }
     
     private func disclaimerIsAlreadyOnScreen() -> Bool {
@@ -294,8 +247,6 @@ extension ScanningVC: BarcodeListening {
     func found(code: String) {
         
         scanner?.stopScanning()
-        stopCameraIfNoScanditLicense()
-        
         codeSuccessfull(code: code)
         
     }

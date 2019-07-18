@@ -63,7 +63,7 @@ For more information on how  ERA-EDTA processes and stores your data please read
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O78-OY-u1B">
                                     <rect key="frame" x="155" y="0.0" width="80" height="44"/>
-                                    <color key="backgroundColor" red="0.22352941176470587" green="0.34901960784313724" blue="0.47450980392156861" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.41568627450980389" green="0.50980392156862742" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="gfw-yc-x2A"/>
                                     </constraints>

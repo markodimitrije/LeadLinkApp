@@ -47,6 +47,7 @@
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* GridViewModel.swift */; };
+		7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970822E0AA1500C8A797 /* NativeScanner.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
@@ -64,7 +65,7 @@
 		7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */; };
 		7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */; };
 		7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */; };
-		7C62068922DC7C63001D7D86 /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068522DC7C63001D7D86 /* ScanningImplementations.swift */; };
+		7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068522DC7C63001D7D86 /* ScanditScanner.swift */; };
 		7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068622DC7C63001D7D86 /* ScanditSettings.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
@@ -302,6 +303,7 @@
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3D473D22D358880096EA75 /* ChartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartProtocols.swift; sourceTree = "<group>"; };
 		7C3D473F22D35EA40096EA75 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		7C3F970822E0AA1500C8A797 /* NativeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeScanner.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -319,7 +321,7 @@
 		7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModelFactory.swift; sourceTree = "<group>"; };
 		7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
-		7C62068522DC7C63001D7D86 /* ScanningImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
+		7C62068522DC7C63001D7D86 /* ScanditScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditScanner.swift; sourceTree = "<group>"; };
 		7C62068622DC7C63001D7D86 /* ScanditSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditSettings.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
@@ -780,6 +782,15 @@
 			path = Compartment;
 			sourceTree = "<group>";
 		};
+		7C3F970722E0A9DC00C8A797 /* ScanningImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				7C62068522DC7C63001D7D86 /* ScanditScanner.swift */,
+				7C3F970822E0AA1500C8A797 /* NativeScanner.swift */,
+			);
+			path = ScanningImplementations;
+			sourceTree = "<group>";
+		};
 		7C40D4ED22C6169D009CD01E /* ResponseToDataParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,8 +848,8 @@
 		7C62068322DC7C63001D7D86 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				7C3F970722E0A9DC00C8A797 /* ScanningImplementations */,
 				7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */,
-				7C62068522DC7C63001D7D86 /* ScanningImplementations.swift */,
 			);
 			path = Scanning;
 			sourceTree = "<group>";
@@ -1826,7 +1837,7 @@
 				7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */,
 				7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
-				7C62068922DC7C63001D7D86 /* ScanningImplementations.swift in Sources */,
+				7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */,
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
@@ -1979,6 +1990,7 @@
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */,
 				7C98A6BC22896D4700DA184E /* StackViewToCheckboxBtnsViewModelBinder.swift in Sources */,
+				7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */,
 				7C75405F229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ScanditCaptureCore
-import ScanditBarcodeCapture
+//import ScanditCaptureCore
+//import ScanditBarcodeCapture
 
 protocol BarcodeListening {
     func found(code: String)
@@ -23,11 +23,10 @@ protocol ScanTrafficking {
 protocol ScanedBarcodeForwarding {
     var barcodeListener: BarcodeListening {get set}
 }
-protocol ScanInitializing {
-    init(frame: CGRect, barcodeListener: BarcodeListening)
-}
 protocol ScanViewProviding {
     var captureView: UIView {get set} // view to be added to VCs placeholder view
 }
 
-protocol Scanning: ScanTrafficking, ScanedBarcodeForwarding, ScanInitializing, ScanViewProviding {}
+protocol Scanning: ScanTrafficking, ScanedBarcodeForwarding, ScanViewProviding {}
+
+protocol MinimumScanning: ScanTrafficking, ScanedBarcodeForwarding {}

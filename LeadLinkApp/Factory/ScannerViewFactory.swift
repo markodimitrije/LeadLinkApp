@@ -10,9 +10,9 @@ import UIKit
 
 class ScannerViewFactory {
     
-    func createCameraView(inScannerView scannerView: UIView, handler: @escaping () -> ()) -> QRcodeView {
+    func createScannerView(inView view: UIView, handler: @escaping () -> ()) -> QRcodeView {
         
-        var loadedScannerView = scannerView
+        var loadedScannerView = view
         
         let frame = QRcodeView.getRectForQrCodeView(center: loadedScannerView.center)
         
