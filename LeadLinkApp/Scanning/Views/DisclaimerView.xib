@@ -29,7 +29,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q95-UM-iZj" userLabel="discView">
-                    <rect key="frame" x="16" y="298" width="382" height="300"/>
+                    <rect key="frame" x="16" y="288" width="382" height="320"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Retrieval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I8-dA-OcB">
                             <rect key="frame" x="138" y="16" width="106.5" height="20.5"/>
@@ -38,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-4J-LR2">
-                            <rect key="frame" x="16" y="52.5" width="350" height="171.5"/>
+                            <rect key="frame" x="16" y="52.5" width="350" height="191.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <string key="text">By clicking “I Agree”, you agree that ERA-EDTA and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the ERA-EDTA registration database and display this data on this screen. Your consent is completely voluntary.
  
@@ -47,7 +47,7 @@ For more information on how  ERA-EDTA processes and stores your data please read
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-71-pPD">
-                            <rect key="frame" x="73.5" y="240" width="235" height="44"/>
+                            <rect key="frame" x="73.5" y="260" width="235" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-YI-S9e">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
@@ -83,11 +83,12 @@ For more information on how  ERA-EDTA processes and stores your data please read
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="lEF-4J-LR2" firstAttribute="leading" secondItem="q95-UM-iZj" secondAttribute="leading" constant="16" id="9sr-sG-zCw"/>
-                        <constraint firstAttribute="height" constant="300" id="DWa-aI-aSJ"/>
+                        <constraint firstAttribute="height" constant="320" id="DWa-aI-aSJ"/>
                         <constraint firstAttribute="bottom" secondItem="gkD-71-pPD" secondAttribute="bottom" constant="16" id="FsC-Fy-jxl"/>
                         <constraint firstItem="gkD-71-pPD" firstAttribute="centerX" secondItem="q95-UM-iZj" secondAttribute="centerX" id="KpA-TF-jBH"/>
                         <constraint firstItem="lEF-4J-LR2" firstAttribute="top" secondItem="5I8-dA-OcB" secondAttribute="bottom" constant="16" id="Ysk-PC-Ql3"/>
                         <constraint firstAttribute="trailing" secondItem="lEF-4J-LR2" secondAttribute="trailing" constant="16" id="c98-ZG-VGi"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="q95-UM-iZj" secondAttribute="height" multiplier="191:160" id="dDe-pb-Npl"/>
                         <constraint firstItem="5I8-dA-OcB" firstAttribute="top" secondItem="q95-UM-iZj" secondAttribute="top" constant="16" id="oGg-UR-xUW"/>
                         <constraint firstItem="gkD-71-pPD" firstAttribute="top" secondItem="lEF-4J-LR2" secondAttribute="bottom" constant="16" id="qJe-yS-U9Q"/>
                         <constraint firstItem="5I8-dA-OcB" firstAttribute="centerX" secondItem="q95-UM-iZj" secondAttribute="centerX" id="xM5-Ea-Weh"/>
@@ -96,8 +97,8 @@ For more information on how  ERA-EDTA processes and stores your data please read
             </subviews>
             <constraints>
                 <constraint firstItem="q95-UM-iZj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3dU-cY-u4q"/>
-                <constraint firstItem="q95-UM-iZj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="8cU-tI-g4d"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q95-UM-iZj" secondAttribute="trailing" constant="16" id="A9d-cW-88q"/>
+                <constraint firstItem="q95-UM-iZj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="8cU-tI-g4d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q95-UM-iZj" secondAttribute="trailing" constant="16" id="A9d-cW-88q"/>
                 <constraint firstItem="utp-Y0-fr8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MRj-Cr-beM"/>
                 <constraint firstItem="utp-Y0-fr8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Pwq-h2-vfq"/>
                 <constraint firstAttribute="bottom" secondItem="utp-Y0-fr8" secondAttribute="bottom" id="i7h-fN-qBt"/>
