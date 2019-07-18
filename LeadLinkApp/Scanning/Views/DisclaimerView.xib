@@ -46,14 +46,12 @@ For more information on how  ERA-EDTA processes and stores your data please read
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-71-pPD">
-                            <rect key="frame" x="73.5" y="260" width="235" height="44"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gkD-71-pPD">
+                            <rect key="frame" x="54.5" y="260" width="273" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-YI-S9e">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="80" id="JHY-bS-Ekf"/>
-                                    </constraints>
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="44"/>
+                                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                     <state key="normal" title="I Disagree">
                                         <color key="titleColor" red="0.22352941179999999" green="0.34901960780000002" blue="0.47450980390000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     </state>
@@ -62,11 +60,12 @@ For more information on how  ERA-EDTA processes and stores your data please read
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O78-OY-u1B">
-                                    <rect key="frame" x="155" y="0.0" width="80" height="44"/>
+                                    <rect key="frame" x="184" y="0.0" width="89" height="44"/>
                                     <color key="backgroundColor" red="0.41568627450980389" green="0.50980392156862742" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="gfw-yc-x2A"/>
                                     </constraints>
+                                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                     <state key="normal" title="I Agree">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -75,9 +74,6 @@ For more information on how  ERA-EDTA processes and stores your data please read
                                     </connections>
                                 </button>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="RSt-YI-S9e" firstAttribute="width" secondItem="O78-OY-u1B" secondAttribute="width" id="QcO-Hg-00m"/>
-                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
