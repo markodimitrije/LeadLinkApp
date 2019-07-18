@@ -32,7 +32,10 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
         reportsDataStore.oReports
             .subscribe(onNext: { [weak self] realmReports in guard let sSelf = self else {return}
                 
-                sSelf.data = realmReports.map(Report.init)
+                //sSelf.data = realmReports.map(Report.init)
+                sSelf.data = realmReports.map(Report.init).sorted(by: { (rCode1, rCode2) -> Bool in
+                    return (rCode1.date ?? Date.now) > (rCode2.date ?? Date.now)
+                })
                 
             }).disposed(by: bag)
     }
