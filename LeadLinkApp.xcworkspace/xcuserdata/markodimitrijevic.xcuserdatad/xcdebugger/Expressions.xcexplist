@@ -79,10 +79,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "count">
@@ -93,8 +96,13 @@
             <PersistentString
                value = "doneBtn">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SaveButton.setColorAndText():SaveButton.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem">
+               value = "self.backgroundColor">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

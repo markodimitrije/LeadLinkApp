@@ -11,21 +11,33 @@ import UIKit
 class SaveButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setColorAndText()
+        formatButton()
     }
     
     convenience init() {
-        self.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 240, height: 44)))
+        self.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 250, height: 50)))
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        formatButton()
+    }
+    
+    private func formatButton() {
         setColorAndText()
+        roundBtn()
     }
     
     private func setColorAndText() {
         self.backgroundColor = UIColor.leadLinkColor
         self.setTitle("Save", for: .normal)
     }
+    
+    private func roundBtn() {
+        self.layer.cornerRadius = 10.0
+    }
+    
 }
+
+
 

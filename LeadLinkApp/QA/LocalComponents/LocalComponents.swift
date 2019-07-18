@@ -22,8 +22,6 @@ class LocalComponents {
             localComponentsViewFactory.makeTermsNoSwitchView(tag: 0),
             localComponentsViewFactory.makeTermsNoSwitchView(tag: 1),
             localComponentsViewFactory.makeTermsNoSwitchView(tag: 2),
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 3),
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 4),
             SaveButton()
         ]
     }
