@@ -77,7 +77,8 @@ struct QuestionsDataSourceAndDelegateHelper {
     
     private func footerViewSize(sectionIndex: Int, tableView: UITableView) -> CGSize {
         return CGSize.init(width: tableView.bounds.width,
-                           height: tableRowHeightCalculator.getFooterHeightForDeviceType())
+                           height: tableRowHeightCalculator.getFooterHeightForDeviceType()
+        )
     }
     
 }

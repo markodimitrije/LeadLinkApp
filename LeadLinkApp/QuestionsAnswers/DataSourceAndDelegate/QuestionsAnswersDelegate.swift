@@ -34,13 +34,30 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
         return cellHeight
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if sectionIsFirstInTable(section: section) {
+            return 0.0
+        }
+        return tableRowHeightCalculator.getHeadlineHeightForDeviceType()
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section != (tableView.numberOfSections - 1) else {return nil}
         return dataSourceHelper.footerView(sectionIndex: section, tableView: tableView)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if sectionIsLastInTable(section: section) {
+            return 0.0
+        }
         return tableRowHeightCalculator.getFooterHeightForDeviceType()
     }
     
+    private func sectionIsLastInTable(section: Int) -> Bool {
+        return dataSourceHelper.numberOfDifferentGroups() - 1 == section // - 1 cause of ("" and nil) groups
+    }
+    
+    private func sectionIsFirstInTable(section: Int) -> Bool {
+        return section == 0
+    }
 }

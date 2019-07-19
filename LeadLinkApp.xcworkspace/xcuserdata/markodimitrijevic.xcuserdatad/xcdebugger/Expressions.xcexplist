@@ -79,10 +79,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem">
+               value = "doneBtn">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
@@ -92,9 +95,6 @@
             </PersistentString>
             <PersistentString
                value = "chooseOptionsVC">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -144,6 +144,14 @@
             </PersistentString>
             <PersistentString
                value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersDelegate.sectionIsLastFooterInTable(section:):QuestionsAnswersDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dataSourceHelper.numberOfDifferentGroups()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
