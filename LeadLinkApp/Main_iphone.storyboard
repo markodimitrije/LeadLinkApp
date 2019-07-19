@@ -156,6 +156,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taU-cJ-OSS" userLabel="separatorView">
+                                                    <rect key="frame" x="0.0" y="75" width="288" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="dvB-mw-bbO"/>
+                                                    </constraints>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-TN-a7X" userLabel="ContentStackView">
                                                     <rect key="frame" x="0.0" y="8" width="288" height="60"/>
                                                     <subviews>
@@ -186,10 +193,13 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="taU-cJ-OSS" secondAttribute="bottom" id="Mi6-4t-3cF"/>
                                                 <constraint firstAttribute="bottom" secondItem="7b7-TN-a7X" secondAttribute="bottom" constant="8" id="Sio-jJ-sQQ"/>
                                                 <constraint firstItem="7b7-TN-a7X" firstAttribute="leading" secondItem="CUm-cu-gta" secondAttribute="leading" id="SsT-6f-tzv"/>
                                                 <constraint firstAttribute="trailing" secondItem="7b7-TN-a7X" secondAttribute="trailing" id="Uza-Oc-stu"/>
+                                                <constraint firstItem="taU-cJ-OSS" firstAttribute="leading" secondItem="CUm-cu-gta" secondAttribute="leading" id="Yf3-rY-z05"/>
                                                 <constraint firstItem="7b7-TN-a7X" firstAttribute="top" secondItem="CUm-cu-gta" secondAttribute="top" constant="8" id="a8d-hV-0ST"/>
+                                                <constraint firstAttribute="trailing" secondItem="taU-cJ-OSS" secondAttribute="trailing" id="al8-qj-IEu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -227,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVC-em-zAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="54"/>
+            <point key="canvasLocation" x="1385.625" y="53.87323943661972"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAq-dM-Cgz">

@@ -156,6 +156,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="512" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKI-Fw-2cv" userLabel="separatorView">
+                                                    <rect key="frame" x="0.0" y="115" width="512" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="PsP-XT-5Ab"/>
+                                                    </constraints>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="2ge-Hv-EEp">
                                                     <rect key="frame" x="0.0" y="8" width="512" height="100"/>
                                                     <subviews>
@@ -186,10 +193,13 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="KKI-Fw-2cv" secondAttribute="bottom" id="6kt-UP-APC"/>
                                                 <constraint firstAttribute="bottom" secondItem="2ge-Hv-EEp" secondAttribute="bottom" constant="8" id="AYo-X7-bHl"/>
                                                 <constraint firstAttribute="trailing" secondItem="2ge-Hv-EEp" secondAttribute="trailing" id="Dog-BM-a4V"/>
                                                 <constraint firstItem="2ge-Hv-EEp" firstAttribute="leading" secondItem="Xtc-EQ-7Dp" secondAttribute="leading" id="YiN-Hz-BRl"/>
                                                 <constraint firstItem="2ge-Hv-EEp" firstAttribute="top" secondItem="Xtc-EQ-7Dp" secondAttribute="top" constant="8" id="ZAx-PK-n8y"/>
+                                                <constraint firstItem="KKI-Fw-2cv" firstAttribute="leading" secondItem="Xtc-EQ-7Dp" secondAttribute="leading" id="ZkU-U4-NAM"/>
+                                                <constraint firstAttribute="trailing" secondItem="KKI-Fw-2cv" secondAttribute="trailing" id="u0B-XJ-plN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -226,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuY-h3-dSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189" y="54"/>
+            <point key="canvasLocation" x="1188.8671875" y="53.90625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mWB-Yf-7t9">
