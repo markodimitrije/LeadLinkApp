@@ -15,11 +15,11 @@ struct QuestionsDataSourceAndDelegateHelper {
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
             if itemHasNoGroup(question: question) {
-                return SectionType.noGroupAssociated.rawValue
+                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
             } else {
                 return question.group!
             }
-        }.unique() + [SectionType.localComponentsGroupName.rawValue]
+        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
     
     init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
@@ -37,7 +37,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     
     mutating func questionsInGroupWith(index: Int) -> [PresentQuestion]? {
         if index == orderedGroups.count - 1 {return nil} // last section nema questions, u njemu je i SAVE BTN
-        if orderedGroups[index] != SectionType.noGroupAssociated.rawValue {
+        if orderedGroups[index] != QuestionsAnswersSectionType.noGroupAssociated.rawValue {
             return questionsInGroup(withIndex: index)
         } else {
             return questionsWithNoGroup()

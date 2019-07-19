@@ -129,7 +129,8 @@ extension UITableView {
     
     func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
         let contentOffsetVertical = self.contentOffset.y
-        let distFromCellToTableCenter = cell.frame.origin.y - contentOffsetVertical
+        let distFromCellToTableCenter = cell.frame.origin.y + 200.0 - contentOffsetVertical
+        
         return distFromCellToTableCenter > self.frame.midY
     }
     

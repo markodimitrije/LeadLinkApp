@@ -109,36 +109,19 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 return textControl.isFirstResponder
             })
             
-            guard let firstResponderCell = firstResponder,
-                 let firstResponderIdexPath = self.tableView.indexPath(for: firstResponderCell) else {
-                    return
-            }
-            
-            var countOfCellsInSection = 0
-            if let sectionIndex = self.tableView.indexPath(for: firstResponderCell)?.section {
-                countOfCellsInSection = self.tableView.numberOfRows(inSection: sectionIndex)
-            }
+            guard let firstResponderCell = firstResponder else { return }
             
             let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
             
             if isCellBelowHalfOfTheScreen {
+                
                 if verticalShift < 0 {
 
-                    if let firstCellAbove = self.tableView.getFirstCellAbove(cell: firstResponderCell),
-                        let newIp = self.tableView.indexPath(for: firstCellAbove) {
-                            self.tableView.scrollToRow(at: newIp, at: .top, animated: true)
-                    } else {
-                        fatalError()
-                    }
+                    let ip = self.tableView.indexPath(for: firstResponderCell)!
+                    self.tableView.scrollToRow(at: ip, at: .top, animated: true)
                     
-                } else {
-                    if firstResponderIdexPath.row + 1 < countOfCellsInSection {
-                        let newIp = IndexPath(row: firstResponderIdexPath.row + 1, section: firstResponderIdexPath.section)
-                        self.tableView.scrollToRow(at: newIp, at: UITableView.ScrollPosition.bottom, animated: true)
-                    } else {
-                        print("scroll to next section!")
-                    }
                 }
+                
             }
             
         })
@@ -289,7 +272,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
 }
 
-enum SectionType: String {
+enum QuestionsAnswersSectionType: String {
     case noGroupAssociated = " "
     case localComponentsGroupName = "Privacy Policy"
 }

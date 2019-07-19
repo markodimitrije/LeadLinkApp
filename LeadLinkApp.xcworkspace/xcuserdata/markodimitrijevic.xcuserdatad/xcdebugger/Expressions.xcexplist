@@ -11,14 +11,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsDataSourceAndDelegateHelper.groupNames():QuestionsDataSourceAndDelegateHelper.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "orderedGroups">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -107,7 +99,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsAnswersDataSource.tableView(_:titleForHeaderInSection:):QuestionsAnswersDataSource.swift">
+         contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.frame.midY">
+            </PersistentString>
+            <PersistentString
+               value = "cell.frame.origin.y">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "SaveButton.setColorAndText():SaveButton.swift">
@@ -155,14 +155,6 @@
             </PersistentString>
             <PersistentString
                value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionsAnswersDelegate.sectionIsLastFooterInTable(section:):QuestionsAnswersDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dataSourceHelper.numberOfDifferentGroups()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
