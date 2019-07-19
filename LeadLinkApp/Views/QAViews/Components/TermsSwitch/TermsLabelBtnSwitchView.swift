@@ -10,6 +10,8 @@ import UIKit
 
 class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
 
+    @IBOutlet weak var stackView: UIStackView!
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var linkBtn: UIButton!
@@ -73,8 +75,20 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        formatStackDueToDeviceType()
+        
         self.addSubview(view)
         
+    }
+    
+    private func formatStackDueToDeviceType() {
+        if getDeviceType() == .iPad {
+            stackView.axis = .horizontal
+            stackView.spacing = 8.0
+        } else if getDeviceType() == .iPhone {
+            stackView.axis = .vertical
+            stackView.spacing = -32.0
+        }
     }
     
     private func termsBtnTapped() { print("show terms screen....")

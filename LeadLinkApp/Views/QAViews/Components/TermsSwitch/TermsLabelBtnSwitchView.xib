@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="label" destination="pMT-AM-trd" id="IBn-Wq-U0r"/>
                 <outlet property="linkBtn" destination="p8q-a4-xjd" id="yAr-Lc-FMw"/>
+                <outlet property="stackView" destination="ruh-gA-AcD" id="8Ec-H3-6cm"/>
                 <outlet property="switcher" destination="ATm-yX-Fdz" id="Mao-8J-nnL"/>
             </connections>
         </placeholder>
