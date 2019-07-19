@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "QuestionsDataSourceAndDelegateHelper.groupNames():QuestionsDataSourceAndDelegateHelper.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "orderedGroups">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -97,6 +105,9 @@
                value = "chooseOptionsVC">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersDataSource.tableView(_:titleForHeaderInSection:):QuestionsAnswersDataSource.swift">
       </ContextState>
       <ContextState
          contextName = "SaveButton.setColorAndText():SaveButton.swift">

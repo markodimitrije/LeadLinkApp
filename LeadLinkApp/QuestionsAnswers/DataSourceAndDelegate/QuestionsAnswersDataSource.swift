@@ -34,11 +34,14 @@ class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let groupNames = dataSourceHelper.groupNames()
-        if section == groupNames.count {
-            return SectionType.saveBtn.rawValue
-        } else {
-            return dataSourceHelper.groupNames()[section]
-        }
+        print("titleForHeaderInSection.section = \(section), name = \(groupNames[section])")
+        
+//        if section == groupNames.count {
+//            return SectionType.saveBtn.rawValue
+//        } else {
+//            return dataSourceHelper.groupNames()[section]
+//        }
+        return dataSourceHelper.groupNames()[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

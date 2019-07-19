@@ -14,12 +14,12 @@ struct QuestionsDataSourceAndDelegateHelper {
     private var localComponents: LocalComponents
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
-        if itemHasNoGroup(question: question) {
-            return SectionType.noGroupAssociated.rawValue
-        } else {
-            return question.group!
-        }
-        }.unique() + [SectionType.saveBtn.rawValue]
+            if itemHasNoGroup(question: question) {
+                return SectionType.noGroupAssociated.rawValue
+            } else {
+                return question.group!
+            }
+        }.unique() + [SectionType.localComponentsGroupName.rawValue]
     
     init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
@@ -32,6 +32,7 @@ struct QuestionsDataSourceAndDelegateHelper {
     
     mutating func groupNames() -> [String] {
         return orderedGroups
+
     }
     
     mutating func questionsInGroupWith(index: Int) -> [PresentQuestion]? {

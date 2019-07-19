@@ -291,5 +291,5 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 
 enum SectionType: String {
     case noGroupAssociated = " "
-    case saveBtn = "  "
+    case localComponentsGroupName = "Privacy Policy"
 }
