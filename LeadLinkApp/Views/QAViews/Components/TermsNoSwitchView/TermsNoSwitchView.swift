@@ -57,7 +57,6 @@ class TermsNoSwitchView: UIView {
         textView.hyperLink(originalText: originalText,
                            hyperLinkFirst: hyperlink,
                            urlStringFirst: url)
-            //hard-coded
     }
     
 }
