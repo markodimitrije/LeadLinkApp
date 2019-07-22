@@ -99,33 +99,70 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func setUpKeyboardBehavior() {
         
-        keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: { (verticalShift) in
+        keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
+        
+    }
+    
+    private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
+        
+        let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
+            let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
+            guard let textControl = textControlObject else {
+                return false
+            }
+            return textControl.isFirstResponder
+        })
+        
+        guard let firstResponderCell = firstResponder else { return }
+        
+        let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
+        
+        if isCellBelowHalfOfTheScreen {
             
-            let firstResponder: UITableViewCell? = self.tableView.visibleCells.first(where: { cell -> Bool in
-                let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
-                guard let textControl = textControlObject else {
-                    return false
-                }
-                return textControl.isFirstResponder
-            })
-            
-            guard let firstResponderCell = firstResponder else { return }
-            
-            let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
-            
-            if isCellBelowHalfOfTheScreen {
+            if verticalShift < 0 {
                 
-                if verticalShift < 0 {
-
-                    let ip = self.tableView.indexPath(for: firstResponderCell)!
-                    self.tableView.scrollToRow(at: ip, at: .top, animated: true)
-                    
-                }
+                let ip = self.tableView.indexPath(for: firstResponderCell)!
+                self.tableView.scrollToRow(at: ip, at: .top, animated: true)
                 
             }
             
-        })
+        }
+        
     }
+    
+    /*
+    private func scrollInvalidFieldToTopOfTableView(verticalShift: CGFloat) {
+        
+//        let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
+//            let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
+//            guard let textControl = textControlObject else {
+//                return false
+//            }
+//            return textControl.isFirstResponder
+//        })
+//
+//        guard let firstResponderCell = firstResponder else { return }
+//
+//        let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
+//
+//        if isCellBelowHalfOfTheScreen {
+//
+//            if verticalShift < 0 {
+//
+//                let ip = self.tableView.indexPath(for: firstResponderCell)!
+//                self.tableView.scrollToRow(at: ip, at: .top, animated: true)
+//
+//            }
+//
+//        }
+        UIView.animate(withDuration: 2.0, animations: { [weak self] in
+            self?.tableView.contentOffset.y = 0
+        }) { success in
+            print("success = \(success)")
+        }
+        
+    }
+    */
     
     @objc func doneWithOptionsIsTapped() {
         self.navigationController?.popToRootViewController(animated: true)
@@ -235,6 +272,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
             })
             .disposed(by: bag)
+
     }
     
     private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
@@ -250,6 +288,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             answersReporter.report.accept(newReport)
             
         } else {
+            keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: scrollInvalidFieldToTopOfTableView)
             strongSelf.showAlertFormNotValid()
         }
     }
@@ -267,6 +306,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
         self.alert(alertInfo: alertInfo, preferredStyle: .alert)
             .subscribe(onNext: { _ in
+                print("implement me, odskroluj gde treba...")
             }).disposed(by: bag)
     }
     
