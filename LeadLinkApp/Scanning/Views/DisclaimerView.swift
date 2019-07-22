@@ -129,24 +129,3 @@ class DisclaimerView: UIView {
     
 }
 
-
-
-
-
-protocol ConsentAproving: class {
-    func consent(hasConsent consent: Bool)
-}
-
-struct DisclaimerInfo {
-    var title: String = ""
-    var text: String = ""
-    var disagreeTitle: String = ""
-    var agreeTitle: String = ""
-    init() {
-        self.title = Constants.Disclaimer.title
-        self.text = Constants.Disclaimer.text
-        self.disagreeTitle = Constants.Disclaimer.disagree
-        self.agreeTitle = Constants.Disclaimer.agree
-    }
-}
-
