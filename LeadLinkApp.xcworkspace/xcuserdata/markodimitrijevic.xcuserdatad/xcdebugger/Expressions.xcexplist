@@ -110,10 +110,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CampaignsVersionChecker.needsUpdate(newCampaignData:):CampaignsRemoteApi.swift">
+         contextName = "LoginViewController.init(coder:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "realmString.value != json">
+               value = "factory">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

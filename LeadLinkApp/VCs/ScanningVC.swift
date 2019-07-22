@@ -27,14 +27,17 @@ class ScanningVC: UIViewController, Storyboarded {
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var scanner: MinimumScanning!
-    private let scanditAllownessValidator: ScanditAllownessValidator = {
+    private let avSessionViewModel = AVSessionViewModel()
+    
+    private let campaign: Campaign? = {
         let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
-        let campaign = factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
-        let validation = ScanditAllownessValidator(campaign: campaign.value)
-        return validation
+        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
     }()
     
-    private let avSessionViewModel = AVSessionViewModel()
+    private lazy var scanditAllownessValidator: ScanditAllownessValidator = {
+        let validation = ScanditAllownessValidator(campaign: self.campaign)//campaign.value)
+        return validation
+    }()
     
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
@@ -171,10 +174,12 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func showDisclaimer() {
         
+        let disclaimerUrl = campaign?.personalInfoDisclaimer
+        
         if let disclaimerView = disclaimerFactory.create() {
             disclaimerView.delegate = self
             disclaimerView.tag = 12
-            disclaimerView.configureTxtViewWithHyperlinkText()
+            disclaimerView.configureTxtViewWithHyperlinkText(disclaimerUrl)
             disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
             self.view.addSubview(disclaimerView)
         }
@@ -235,7 +240,7 @@ extension ScanningVC: ConsentAproving {
 extension ScanningVC: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         if (URL.absoluteString == Constants.PrivacyPolicy.navusUrl ||
-            URL.absoluteString == Constants.PrivacyPolicy.url) {
+            URL.absoluteString != "") {
             UIApplication.shared.open(URL)
         }
         return false

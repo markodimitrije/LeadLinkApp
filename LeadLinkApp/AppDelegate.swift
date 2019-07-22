@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
-    lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
+    private lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
+
         let dataBaseMigrator: DataBaseMigrating = RealmSchemaMigrator.init(newVersion: 1)
         dataBaseMigrator.migrate()
-        
+
         return true
     }
     

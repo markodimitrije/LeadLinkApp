@@ -55,12 +55,12 @@ class DisclaimerView: UIView {
         
     }
     
-    func configureTxtViewWithHyperlinkText() {
+    func configureTxtViewWithHyperlinkText(_ disclaimerUrl: String?) {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
         textView.hyperLink(originalText: Constants.Disclaimer.text,
                           hyperLinkFirst: Constants.PrivacyPolicy.hyperLinkPolicyText,
-                          urlStringFirst: Constants.PrivacyPolicy.url,
+                          urlStringFirst: disclaimerUrl ?? "",
                           hyperLinkSecond: Constants.PrivacyPolicy.navusHyperLinkPolicyText,
                           urlStringSecond: Constants.PrivacyPolicy.navusUrl)
     }
