@@ -24,16 +24,15 @@ public struct Campaign: Codable {
     var primary_color: String? // oprez - ne vidim iz response koji je ovo type
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
-    // uklonio sam Settings... ( ne znam sta je unutra osim da je tipa {} )
     var imgData: Data? = nil
     var use_scandit_scanner: Bool?
     var number_of_responses: Int
-    var personalInfoDisclaimer: String? // url
     
     var questions: [Question]
     var codes: [Code]?
     var organization: Organization
     var application: Application
+    var settings: Settings
     
     var dateReadAt: Date?
     
@@ -51,7 +50,6 @@ public struct Campaign: Codable {
         self.imgData = campaign.imgData
         self.use_scandit_scanner = campaign.useScanditScanner
         self.number_of_responses = campaign.number_of_responses
-        self.personalInfoDisclaimer = campaign.personalInfoDisclaimer
         
         self.organization = Organization(realmOrganization: campaign.organization)
         
@@ -59,6 +57,8 @@ public struct Campaign: Codable {
         self.codes = campaign.codes.toArray().map(Code.init)
         
         self.application = Application(realmApplication: campaign.application)
+        
+        self.settings = Settings(realmSettings: campaign.settings)
         
         self.dateReadAt = campaign.dateReadAt
     }

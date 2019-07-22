@@ -15,7 +15,7 @@ class LocalComponentsViewFactory {
         self.localComponentsSize = localComponentsSize
     }
     
-    func makeTermsNoSwitchView(tag: Int) -> TermsNoSwitchView {
+    func makeTermsNoSwitchView(tag: Int, optIn: OptIn?) -> TermsNoSwitchView {
         
         let (width, height) = localComponentsSize.getComponentWidthAndHeight(type: TermsNoSwitchView.self)
         
@@ -24,7 +24,7 @@ class LocalComponentsViewFactory {
                                                  height: height))
         let view = TermsNoSwitchView.init(frame: rect)
         view.textView.tag = tag
-        view.configureTxtViewWithHyperlinkText(tag: tag)
+        view.configureTxtViewWithHyperlinkText(tag: tag, optIn: optIn)
         return view
     }
     

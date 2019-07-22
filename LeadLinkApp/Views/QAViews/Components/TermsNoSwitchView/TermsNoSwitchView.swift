@@ -46,13 +46,13 @@ class TermsNoSwitchView: UIView {
         self.textView.font = .systemFont(ofSize: 16)
     }
     
-    func configureTxtViewWithHyperlinkText(tag: Int) {
+    func configureTxtViewWithHyperlinkText(tag: Int, optIn: OptIn?) {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
-        // hard-coded
+        
         let hyperlink = Constants.PrivacyPolicy.hyperLinkPolicyText
-        let url = (tag == 0) ? Constants.PrivacyPolicy.url : Constants.PrivacyPolicy.navusUrl
-        let originalText = (tag == 0) ? Constants.TermsNoSwitch.eraText : Constants.TermsNoSwitch.navusText
+        let url = optIn?.url ?? Constants.PrivacyPolicy.navusUrl
+        let originalText = optIn?.text ?? Constants.TermsNoSwitch.navusText
 
         textView.hyperLink(originalText: originalText,
                            hyperLinkFirst: hyperlink,

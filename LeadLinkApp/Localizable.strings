@@ -32,13 +32,13 @@ AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms & Conditions are 
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
 
 Disclaimer.title = "Data Retrieval";
-Disclaimer.text = "By clicking “I Agree”, you agree that Sanofi Genzyme - ERA-EDTA 2019 Congress and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the Sanofi Genzyme - ERA-EDTA 2019 Congress registration database and display this data on this screen. Your consent is completely voluntary. For more information on how  Sanofi Genzyme - ERA-EDTA 2019 Congress processes and stores your data please read our Privacy Policy.";
+Disclaimer.text = "By clicking “I Agree”, you agree that Sanofi Genzyme - ERA-EDTA 2019 Congress and its vendor Navus retrieve your personal data (first name, last name, email address, country) as it is currently stored on the Sanofi Genzyme - ERA-EDTA 2019 Congress registration database and display this data on this screen. Your consent is completely voluntary. For more information on how  Sanofi Genzyme - ERA-EDTA 2019 Congress processes and stores your data please read our Privacy Policy."; // depricated....
 Disclaimer.disagree = "I Disagree";
 Disclaimer.agree = "I Agree";
 
 TermsNoSwitch.era.text = "For more information on how ERA-EDTA processes and stores your data please read our Privacy Policy.";
 
-TermsNoSwitch.navus.text = "For more information on how Navus Consulting processes and stores your data please read our Privacy Policy.";
+TermsNoSwitch.navus.text = "For more information on how Navus AG processes and stores your data please read our Privacy Policy.";
 
 Strings.Chart.Grid.TotalAllDevices.text = "Total (all devices): ";
 Strings.Chart.Grid.SyncedThisDevice.text = "Synced (this device): ";

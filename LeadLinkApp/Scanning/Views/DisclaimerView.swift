@@ -31,7 +31,7 @@ class DisclaimerView: UIView {
         loadViewFromNib()
     }
     
-    convenience init(frame: CGRect, disclaimer: Disclaimer) {
+    convenience init(frame: CGRect, disclaimer: DisclaimerInfo) {
         self.init(frame: frame)
 //        let frame = getRectForDisclaimerView(center: center)
         loadDataFrom(disclaimer: disclaimer)
@@ -55,17 +55,17 @@ class DisclaimerView: UIView {
         
     }
     
-    func configureTxtViewWithHyperlinkText(_ disclaimerUrl: String?) {
+    func configureTxtView(withText text: String, url: String) {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
-        textView.hyperLink(originalText: Constants.Disclaimer.text,
+        textView.hyperLink(originalText: text,
                           hyperLinkFirst: Constants.PrivacyPolicy.hyperLinkPolicyText,
-                          urlStringFirst: disclaimerUrl ?? "",
+                          urlStringFirst: url,
                           hyperLinkSecond: Constants.PrivacyPolicy.navusHyperLinkPolicyText,
                           urlStringSecond: Constants.PrivacyPolicy.navusUrl)
     }
     
-    private func loadDataFrom(disclaimer: Disclaimer) {
+    private func loadDataFrom(disclaimer: DisclaimerInfo) {
         titleLbl.text = disclaimer.title
         textView.text = disclaimer.text
         disagreeBtn.setTitle(disclaimer.disagreeTitle, for: .normal)
@@ -138,7 +138,7 @@ protocol ConsentAproving: class {
     func consent(hasConsent consent: Bool)
 }
 
-struct Disclaimer {
+struct DisclaimerInfo {
     var title: String = ""
     var text: String = ""
     var disagreeTitle: String = ""

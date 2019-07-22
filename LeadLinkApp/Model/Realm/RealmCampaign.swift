@@ -28,7 +28,6 @@ class RealmCampaign: Object {
     @objc dynamic var imgData: Data?
     @objc dynamic var useScanditScanner: Bool = false
     @objc dynamic var number_of_responses: Int = 0
-    @objc dynamic var personalInfoDisclaimer: String = ""
     
     @objc dynamic var organization: RealmOrganization? = RealmOrganization()
     
@@ -36,6 +35,8 @@ class RealmCampaign: Object {
     public var codes = List<RealmCode>()
     
     @objc dynamic var application: RealmApplication!
+    
+    @objc dynamic var settings: RealmSettings!
     
     @objc dynamic var dateReadAt: Date?
 
@@ -53,7 +54,6 @@ class RealmCampaign: Object {
         self.imgData = campaign.imgData
         self.useScanditScanner = campaign.use_scandit_scanner ?? false
         self.number_of_responses = campaign.number_of_responses
-        self.personalInfoDisclaimer = campaign.personalInfoDisclaimer ?? ""
         
         let org = RealmOrganization()
         org.update(with: campaign.organization)
@@ -62,6 +62,10 @@ class RealmCampaign: Object {
         let realmApp = RealmApplication()
         realmApp.updateWith(application: campaign.application)
         self.application = realmApp
+        
+        let realmSettings = RealmSettings()
+        realmSettings.update(with: campaign.settings, forCampaignId: campaign.id)
+        self.settings = realmSettings
         
         self.dateReadAt = Date.now
         

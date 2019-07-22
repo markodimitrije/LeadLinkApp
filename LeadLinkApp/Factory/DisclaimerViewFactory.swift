@@ -15,7 +15,7 @@ class DisclaimerViewFactory {
             return nil
         }
         
-        let disclaimer = Disclaimer()
-        return DisclaimerView.init(frame: topVC.view.frame, disclaimer: disclaimer)
+        let disclaimerInfo = DisclaimerInfo()
+        return DisclaimerView.init(frame: topVC.view.frame, disclaimer:  disclaimerInfo)
     }
 }
