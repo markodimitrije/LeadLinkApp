@@ -79,10 +79,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "doneBtn">
+               value = "chooseOptionsVC">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "doneBtn">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem">
@@ -93,19 +96,24 @@
             <PersistentString
                value = "count">
             </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CampaignsVersionChecker.needsUpdate(newCampaignData:):CampaignsRemoteApi.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "realmString.value != json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

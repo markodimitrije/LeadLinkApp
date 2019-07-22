@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
     lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        let dataBaseMigrator: DataBaseMigrating = RealmSchemaMigrator.init(newVersion: 1)
+        dataBaseMigrator.migrate()
+        
+        return true
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

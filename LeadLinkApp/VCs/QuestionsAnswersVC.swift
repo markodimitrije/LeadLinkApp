@@ -288,7 +288,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             answersReporter.report.accept(newReport)
             
         } else {
-            keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: scrollInvalidFieldToTopOfTableView)
+//            keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: scrollInvalidFieldToTopOfTableView) // to do...
             strongSelf.showAlertFormNotValid()
         }
     }

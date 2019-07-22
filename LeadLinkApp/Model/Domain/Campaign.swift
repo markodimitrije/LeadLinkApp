@@ -28,6 +28,7 @@ public struct Campaign: Codable {
     var imgData: Data? = nil
     var use_scandit_scanner: Bool?
     var number_of_responses: Int
+    var personalInfoDisclaimer: String? // url
     
     var questions: [Question]
     var codes: [Code]?
@@ -50,6 +51,7 @@ public struct Campaign: Codable {
         self.imgData = campaign.imgData
         self.use_scandit_scanner = campaign.useScanditScanner
         self.number_of_responses = campaign.number_of_responses
+        self.personalInfoDisclaimer = campaign.personalInfoDisclaimer
         
         self.organization = Organization(realmOrganization: campaign.organization)
         

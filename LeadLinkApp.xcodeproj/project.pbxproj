@@ -47,6 +47,9 @@
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* GridViewModel.swift */; };
+		7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55822E5B82400EDDD70 /* DatabaseMigrationFactory.swift */; };
+		7C3ED55B22E5B84F00EDDD70 /* DataBaseMigrating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55A22E5B84F00EDDD70 /* DataBaseMigrating.swift */; };
+		7C3ED55D22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55C22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift */; };
 		7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970822E0AA1500C8A797 /* NativeScanner.swift */; };
 		7C3F970C22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
@@ -304,6 +307,9 @@
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3D473D22D358880096EA75 /* ChartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartProtocols.swift; sourceTree = "<group>"; };
 		7C3D473F22D35EA40096EA75 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		7C3ED55822E5B82400EDDD70 /* DatabaseMigrationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMigrationFactory.swift; sourceTree = "<group>"; };
+		7C3ED55A22E5B84F00EDDD70 /* DataBaseMigrating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseMigrating.swift; sourceTree = "<group>"; };
+		7C3ED55C22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMigratingImplementations.swift; sourceTree = "<group>"; };
 		7C3F970822E0AA1500C8A797 /* NativeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeScanner.swift; sourceTree = "<group>"; };
 		7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableRowHeightCalculator.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
@@ -782,6 +788,16 @@
 				7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */,
 			);
 			path = Compartment;
+			sourceTree = "<group>";
+		};
+		7C3ED55722E5B7CD00EDDD70 /* DatabaseMigration */ = {
+			isa = PBXGroup;
+			children = (
+				7C3ED55A22E5B84F00EDDD70 /* DataBaseMigrating.swift */,
+				7C3ED55C22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift */,
+				7C3ED55822E5B82400EDDD70 /* DatabaseMigrationFactory.swift */,
+			);
+			path = DatabaseMigration;
 			sourceTree = "<group>";
 		};
 		7C3F970722E0A9DC00C8A797 /* ScanningImplementations */ = {
@@ -1578,6 +1594,7 @@
 		ADE9552821D9170A00B86052 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				7C3ED55722E5B7CD00EDDD70 /* DatabaseMigration */,
 				7C1A45F122968F150032C860 /* ReportsStore */,
 				ADBB468222425EF800E1020F /* CodesStore */,
 				ADABCC5021E4E22900B43427 /* QuestionsStore */,
@@ -1853,6 +1870,7 @@
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
 				7C98A6B222896AB200DA184E /* DataProvider.swift in Sources */,
+				7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */,
 				7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */,
 				7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
@@ -1886,6 +1904,7 @@
 				7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */,
+				7C3ED55D22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift in Sources */,
 				7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
@@ -1997,6 +2016,7 @@
 				AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */,
 				7C98A6772289625200DA184E /* Protocols.swift in Sources */,
 				7C98A6CD22896ED500DA184E /* CheckboxViewmodelInputCreator.swift in Sources */,
+				7C3ED55B22E5B84F00EDDD70 /* DataBaseMigrating.swift in Sources */,
 				7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */,
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
