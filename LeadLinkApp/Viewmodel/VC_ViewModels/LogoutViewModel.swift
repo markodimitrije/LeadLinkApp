@@ -49,6 +49,9 @@ public class LogOutViewModel {
                                                              RealmSetting.self,
                                                              RealmQuestion.self,
                                                              RealmApplication.self,
+                                                             RealmSettings.self,
+                                                             RealmDisclaimer.self,
+                                                             RealmOptIn.self,
                                                              RealmJson.self])
     }
     
