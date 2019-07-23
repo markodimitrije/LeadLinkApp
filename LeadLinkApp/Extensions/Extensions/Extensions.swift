@@ -227,3 +227,28 @@ extension String {
         
     }
 }
+
+//extension UIView {
+//
+//    class func getAllSubviews<T: UIView>(from parenView: UIView) -> [T] {
+//        return parenView.subviews.flatMap { subView -> [T] in
+//            var result = getAllSubviews(from: subView) as [T]
+//            if let view = subView as? T { result.append(view) }
+//            return result
+//        }
+//    }
+//
+//    func getAllSubviews<T: UIView>() -> [T] {
+//        return UIView.getAllSubviews(from: self) as [T]
+//    }
+//}
+
+extension UIView {
+    func findViews<T: UIView>(subclassOf: T.Type) -> [T] {
+        return recursiveSubviews.compactMap { $0 as? T }
+    }
+    
+    var recursiveSubviews: [UIView] {
+        return subviews + subviews.flatMap { $0.recursiveSubviews }
+    }
+}

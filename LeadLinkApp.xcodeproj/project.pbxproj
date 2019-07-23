@@ -44,6 +44,8 @@
 		7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */; };
 		7C3A3FBD22AE8073003C079E /* TermsNoSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */; };
 		7C3A3FBF22AE853C003C079E /* LocalComponentsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */; };
+		7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689A22E75974007E9240 /* ScrollingToField.swift */; };
+		7C3A689D22E75C11007E9240 /* PayingAttentionToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* GridViewModel.swift */; };
@@ -306,6 +308,8 @@
 		7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsNoSwitchView.swift; sourceTree = "<group>"; };
 		7C3A3FBC22AE8073003C079E /* TermsNoSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsNoSwitchView.xib; sourceTree = "<group>"; };
 		7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponentsViewFactory.swift; sourceTree = "<group>"; };
+		7C3A689A22E75974007E9240 /* ScrollingToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingToField.swift; sourceTree = "<group>"; };
+		7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingAttentionToField.swift; sourceTree = "<group>"; };
 		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -764,6 +768,15 @@
 				7C3A3FB922AE8002003C079E /* TermsNoSwitchView.swift */,
 			);
 			path = TermsNoSwitchView;
+			sourceTree = "<group>";
+		};
+		7C3A689922E75943007E9240 /* ScrollTableViewAndPayAttention */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A689A22E75974007E9240 /* ScrollingToField.swift */,
+				7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */,
+			);
+			path = ScrollTableViewAndPayAttention;
 			sourceTree = "<group>";
 		};
 		7C3BF65122CA38A3001EA1E6 /* LeadLinkAppTests */ = {
@@ -1375,6 +1388,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C3A689922E75943007E9240 /* ScrollTableViewAndPayAttention */,
 				7C3ED56222E6069400EDDD70 /* Disclaimer */,
 				7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */,
 				7C62068222DC7C63001D7D86 /* ScanditScan */,
@@ -1865,6 +1879,7 @@
 				7C51086122C0D001005EE58B /* TermsViewControllerFactory.swift in Sources */,
 				7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */,
 				7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */,
+				7C3A689D22E75C11007E9240 /* PayingAttentionToField.swift in Sources */,
 				7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADAF73462241161300A1F6D2 /* QuestionsViewmodel.swift in Sources */,
@@ -1991,6 +2006,7 @@
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
+				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
 				7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */,
 				7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,

@@ -162,7 +162,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func loadViewStackerAndComponentSizes() {
         
-        _ = questions.map({ surveyQuestion -> Void in
+        let orderedQuestions = questions.sorted(by: {first, second in
+            first.question.order < second.question.order
+        })
+        
+        _ = orderedQuestions.map({ surveyQuestion -> Void in
             let questionId = surveyQuestion.question.id
             guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
             let surveyQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [surveyQuestion],
@@ -283,7 +287,16 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 let scroller = TableViewScroller(tableView: self.tableView,
                                                  questions: self.questions.map({$0.question}),
                                                  helper: helper)
+                
                 scroller.scrollTo(question: question)
+                
+                let attentioner = TableViewPayingAttentioner(tableView: self.tableView,
+                                                             questions: self.questions.map({$0.question}),
+                                                             helper: helper)
+                
+                delay(0.5, closure: {
+                    attentioner.payAttentionTo(question: question)
+                })
                 
             }).disposed(by: bag)
     }
@@ -293,30 +306,4 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 enum QuestionsAnswersSectionType: String {
     case noGroupAssociated = " "
     case localComponentsGroupName = "Privacy Policy"
-}
-
-protocol ScrollingToField {
-    func scrollTo(question: PresentQuestion)
-}
-
-class TableViewScroller: ScrollingToField {
-    
-    private var tableView: UITableView
-    private var questions: [PresentQuestion]
-    private var helper: QuestionsDataSourceAndDelegateHelper
-    
-    init(tableView: UITableView, questions: [PresentQuestion], helper: QuestionsDataSourceAndDelegateHelper) {
-        self.tableView = tableView
-        self.questions = questions
-        self.helper = helper
-    }
-    func scrollTo(question: PresentQuestion) {
-        //                    self.tableView.setContentOffset(.zero, animated: true)
-        
-        let ip = helper.getIndexPath(forQuestion: question)
-        
-        //let ip = IndexPath.init(item: 2, section: 1)
-        self.tableView.scrollToRow(at: ip, at: .top, animated: true)
-        
-    }
 }

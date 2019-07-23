@@ -13,13 +13,25 @@ struct QuestionsDataSourceAndDelegateHelper {
     private var orderedQuestions = [PresentQuestion]()
     private var localComponents: LocalComponents
     
-    lazy private var orderedGroups = orderedQuestions.map { question -> String in
+//    lazy private var orderedGroups = orderedQuestions.map { question -> String in
+//            if itemHasNoGroup(question: question) {
+//                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
+//            } else {
+//                return question.group!
+//            }
+//        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
+    
+    lazy private var orderedGroups = [QuestionsAnswersSectionType.localComponentsGroupName.rawValue] +
+
+        orderedQuestions.map { question -> String in
+
             if itemHasNoGroup(question: question) {
                 return QuestionsAnswersSectionType.noGroupAssociated.rawValue
             } else {
                 return question.group!
             }
-        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
+
+        }.unique()
     
     init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
