@@ -272,7 +272,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.alert(alertInfo: alertInfo, preferredStyle: .alert)
             .subscribe(onNext: { _ in
                 
-                self.tableView.setContentOffset(.zero, animated: true)
+                UIView.animate(withDuration: 2.0, animations: {
+//                    self.tableView.setContentOffset(.zero, animated: true)
+                    let ip = IndexPath.init(item: 2, section: 1)
+                    self.tableView.scrollToRow(at: ip, at: .top, animated: true)
+                })
                 
             }).disposed(by: bag)
     }
