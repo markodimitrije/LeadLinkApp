@@ -10,11 +10,30 @@ import Foundation
 
 struct Validation {
     
-    // API
+    private var surveyInfo: SurveyInfo
+    private var questions: [SurveyQuestion]
+    private var answers: [MyAnswer]
+    
+    // MARK:- API
     var questionsFormIsValid: Bool {
-        return hasValidEmail && hasCheckedTermsAndConditions // hard-coded on
+        return hasValidEmail && hasCheckedTermsAndConditions
         //return true // hard-coded on
     }
+    
+    var invalidFieldQuestion: PresentQuestion? {
+        if !hasValidEmail {
+            return questions.first(where: { question -> Bool in
+                question.question.options.first == "email"
+            })?.question
+        } else if !hasCheckedTermsAndConditions {
+            return questions.first(where: { question -> Bool in
+                question.question.type == .termsSwitchBtn
+            })?.question
+        }
+        return nil
+    }
+    
+    // MARK:- Private
     
     private let emailValidator = EmailValidator()
     
@@ -33,26 +52,34 @@ struct Validation {
     }
     
     init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswer]) {
-        self.emailAnswer = answers.first(where: { answer -> Bool in
-            emailValidator.isValidEmail(testStr: answer.content.first)
-        })
         
-        let termsQuestion = questions.first { question -> Bool in
-            question.question.type == .termsSwitchBtn
-        }
+        self.surveyInfo = surveyInfo
+        self.questions = questions
+        self.answers = answers
         
-        if let terms = termsQuestion {
-            
-            let actualAnswer = answers.first(where: { answer -> Bool in
-                return answer.questionId == terms.question.id &&
-                    answer.code == surveyInfo.code
+        func loadEmailAndTermsAnswers() {
+            self.emailAnswer = answers.first(where: { answer -> Bool in
+                emailValidator.isValidEmail(testStr: answer.content.first)
             })
             
-            self.termsAnswer = actualAnswer ?? nil
+            let termsQuestion = questions.first { question -> Bool in
+                question.question.type == .termsSwitchBtn
+            }
             
+            if let terms = termsQuestion {
+                
+                let actualAnswer = answers.first(where: { answer -> Bool in
+                    return answer.questionId == terms.question.id &&
+                        answer.code == surveyInfo.code
+                })
+                
+                self.termsAnswer = actualAnswer ?? nil
+                
+            }
         }
         
-        print("termsAnswer.isOn = \(String(describing: termsAnswer))")
+        loadEmailAndTermsAnswers()
+        
     }
     
 }

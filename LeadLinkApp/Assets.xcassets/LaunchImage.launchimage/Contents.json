@@ -89,12 +89,6 @@
       "scale" : "2x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "extent" : "to-status-bar",
-      "scale" : "1x"
-    },
-    {
       "orientation" : "landscape",
       "idiom" : "ipad",
       "extent" : "to-status-bar",
@@ -105,12 +99,6 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "scale" : "1x"
-    },
-    {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "extent" : "to-status-bar",
-      "scale" : "2x"
     },
     {
       "orientation" : "landscape",

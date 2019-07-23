@@ -254,7 +254,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             answersReporter.report.accept(newReport)
             
         } else {
-            strongSelf.showAlertFormNotValid()
+            print("nije validan field sa QuestionId = \(validator.invalidFieldQuestion!.id)")
+            strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
         }
     }
     
@@ -267,16 +268,22 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .disposed(by: bag)
     }
     
-    private func showAlertFormNotValid() {
+    private func showAlertFormNotValid(forQuestion question: PresentQuestion?) {
+        
         let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
+        
         self.alert(alertInfo: alertInfo, preferredStyle: .alert)
             .subscribe(onNext: { _ in
                 
-                UIView.animate(withDuration: 2.0, animations: {
-//                    self.tableView.setContentOffset(.zero, animated: true)
-                    let ip = IndexPath.init(item: 2, section: 1)
-                    self.tableView.scrollToRow(at: ip, at: .top, animated: true)
-                })
+                guard let question = question else { return }
+                
+                let helper = QuestionsDataSourceAndDelegateHelper(questions: self.questions,
+                                                                  localComponents: self.localComponents)
+                
+                let scroller = TableViewScroller(tableView: self.tableView,
+                                                 questions: self.questions.map({$0.question}),
+                                                 helper: helper)
+                scroller.scrollTo(question: question)
                 
             }).disposed(by: bag)
     }
@@ -289,17 +296,27 @@ enum QuestionsAnswersSectionType: String {
 }
 
 protocol ScrollingToField {
-    func scrollToField(name: String)
+    func scrollTo(question: PresentQuestion)
 }
 
 class TableViewScroller: ScrollingToField {
+    
     private var tableView: UITableView
-    init(tableView: UITableView) {
+    private var questions: [PresentQuestion]
+    private var helper: QuestionsDataSourceAndDelegateHelper
+    
+    init(tableView: UITableView, questions: [PresentQuestion], helper: QuestionsDataSourceAndDelegateHelper) {
         self.tableView = tableView
+        self.questions = questions
+        self.helper = helper
     }
-    func scrollToField(name: String) {
-        if name == "email" { // izvuci order za question koji ima 
-            
-        }
+    func scrollTo(question: PresentQuestion) {
+        //                    self.tableView.setContentOffset(.zero, animated: true)
+        
+        let ip = helper.getIndexPath(forQuestion: question)
+        
+        //let ip = IndexPath.init(item: 2, section: 1)
+        self.tableView.scrollToRow(at: ip, at: .top, animated: true)
+        
     }
 }
