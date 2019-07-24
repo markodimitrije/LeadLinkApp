@@ -26,7 +26,7 @@ class TableViewScroller: ScrollingToField {
     
     func scrollTo(question: PresentQuestion) {
         
-        let ip = helper.getIndexPath(forQuestion: question)
+        guard let ip = helper.getIndexPath(forQuestion: question) else {return}
         self.tableView.scrollToRow(at: ip, at: .top, animated: true)
         
     }

@@ -26,7 +26,7 @@ class TableViewPayingAttentioner: PayingAttentionToField {
     
     func payAttentionTo(question: PresentQuestion) {
         
-        let ip = helper.getIndexPath(forQuestion: question)
+        guard let ip = helper.getIndexPath(forQuestion: question) else {return}
         
         if question.type == .textField {
             activateTextField(ip: ip)

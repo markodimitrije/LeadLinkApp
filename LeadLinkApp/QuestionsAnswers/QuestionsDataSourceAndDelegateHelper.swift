@@ -13,25 +13,26 @@ struct QuestionsDataSourceAndDelegateHelper {
     private var orderedQuestions = [PresentQuestion]()
     private var localComponents: LocalComponents
     
-//    lazy private var orderedGroups = orderedQuestions.map { question -> String in
-//            if itemHasNoGroup(question: question) {
-//                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
-//            } else {
-//                return question.group!
-//            }
-//        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
-    
-    lazy private var orderedGroups = [QuestionsAnswersSectionType.localComponentsGroupName.rawValue] +
-
-        orderedQuestions.map { question -> String in
-
+    lazy private var orderedGroups = orderedQuestions.map { question -> String in
             if itemHasNoGroup(question: question) {
                 return QuestionsAnswersSectionType.noGroupAssociated.rawValue
             } else {
                 return question.group!
             }
+        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
 
-        }.unique()
+    // to test group reordering:
+//    lazy private var orderedGroups = [QuestionsAnswersSectionType.localComponentsGroupName.rawValue] +
+//
+//        orderedQuestions.map { question -> String in
+//
+//            if itemHasNoGroup(question: question) {
+//                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
+//            } else {
+//                return question.group!
+//            }
+//
+//        }.unique()
     
     init(questions: [SurveyQuestion], localComponents: LocalComponents) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
@@ -95,13 +96,12 @@ struct QuestionsDataSourceAndDelegateHelper {
     }
     
     // MARK:- New API
-    mutating func getIndexPath(forQuestion question: PresentQuestion) -> IndexPath {
-        guard let groupName = question.group else {fatalError()}//hard-coded
-        let groupOrder = groupNames().index(of: groupName)
-        let groupIndex: Int = groupOrder!
-        let questionsInGroup = questionsInGroupWith(index: groupIndex)
-        let orders = questionsInGroup?.compactMap {$0.order}
-        let orderInGroup: Int = orders!.index(of: question.order)!
+    mutating func getIndexPath(forQuestion question: PresentQuestion) -> IndexPath? {
+        guard let groupName = question.group else {return nil}
+        guard let groupIndex = groupNames().index(of: groupName) else {return nil}
+        guard let questionsInGroup = questionsInGroupWith(index: groupIndex) else {return nil}
+        let orders = questionsInGroup.compactMap {$0.order}
+        guard let orderInGroup: Int = orders.index(of: question.order) else {return nil}
         return IndexPath(row: orderInGroup, section: groupIndex)
     }
     
