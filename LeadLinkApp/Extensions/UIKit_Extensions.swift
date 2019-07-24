@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
     
-    static let campaignPlaceholder = UIImage.init(named: "campaign_placeholder.png")
+    static let campaignPlaceholder = UIImage.init(named: "navusLogo.png")
     
     static func imageFromData(data: Data?) -> UIImage? {
         guard let data = data else {return nil}

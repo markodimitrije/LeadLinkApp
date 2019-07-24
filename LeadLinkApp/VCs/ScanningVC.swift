@@ -86,8 +86,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private func hookUpCameraAccordingToScanditPermission() {
         
         loadScannerView()
-//        loadScanditScanner() //for testing scandit
-        // hard-coded off
+        
         if scanditAllownessValidator.canUseScandit() {
             loadScanditScanner()
         } else {
