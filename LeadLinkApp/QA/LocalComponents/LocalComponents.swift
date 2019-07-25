@@ -25,7 +25,6 @@ class LocalComponents {
     init() {
         self.componentsInOrder = [
             localComponentsViewFactory.makeTermsNoSwitchView(tag: 0, optIn: campaign?.settings.optIn),
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 1, optIn: campaign?.settings.optIn),
             SaveButton()
         ]
     }
