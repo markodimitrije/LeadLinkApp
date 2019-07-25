@@ -38,7 +38,7 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
         if sectionIsFirstInTable(section: section) {
             return 0.0
         }
-        return tableRowHeightCalculator.getHeadlineHeightForDeviceType()
+        return tableHeaderFooterCalculator.getHeaderHeight()
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -50,7 +50,7 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
         if sectionIsLastInTable(section: section) {
             return 0.0
         }
-        return tableRowHeightCalculator.getFooterHeightForDeviceType()
+        return tableHeaderFooterCalculator.getFooterHeight()
     }
     
     private func sectionIsLastInTable(section: Int) -> Bool {

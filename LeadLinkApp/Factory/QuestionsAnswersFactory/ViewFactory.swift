@@ -216,7 +216,7 @@ class ViewFactory {
             compType = .textField
         }
         
-        let rowHeight = tableRowHeightCalculator.getOneRowHeightRegardingDevice(componentType: compType)
+        let rowHeight = tableRowHeightCalculator.getOneRowHeight(componentType: compType)
         
         var components = [UIView]()
         for _ in 1...inOneRow {

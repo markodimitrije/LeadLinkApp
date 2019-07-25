@@ -69,3 +69,77 @@ class QuestionsAnswersTableRowHeightCalculator {
         return CGFloat(0)
     }
 }
+
+
+
+
+//
+
+protocol QuestionsAnswersTableRowHeightCalculating {
+    func getOneRowHeight(componentType type: QuestionType) -> CGFloat
+}
+
+class IphoneQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHeightCalculating {
+    
+    func getOneRowHeight(componentType type: QuestionType) -> CGFloat {
+        switch type {
+        case .textField:
+            return CGFloat.init(80)
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
+            return CGFloat.init(50)
+        case .termsSwitchBtn:
+            return CGFloat.init(30)
+        default:
+            return 0.0
+        }
+    }
+    
+}
+
+class IpadQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHeightCalculating {
+    
+    func getOneRowHeight(componentType type: QuestionType) -> CGFloat {
+        switch type {
+        case .textField:
+            return CGFloat.init(90)
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
+            return CGFloat.init(60)
+        case .termsSwitchBtn:
+            return CGFloat.init(30)
+        default:
+            return 0.0
+        }
+    }
+    
+}
+
+
+protocol QuestionsAnswersTableViewHeaderFooterCalculating {
+    func getHeaderHeight() -> CGFloat
+    func getFooterHeight() -> CGFloat
+}
+
+class IphoneQuestionsAnswersTableViewHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
+    
+    func getHeaderHeight() -> CGFloat {
+        return CGFloat.init(44)
+    }
+    
+    func getFooterHeight() -> CGFloat {
+        return CGFloat.init(60)
+    }
+}
+
+class IpadQuestionsAnswersTableViewHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
+    
+    func getHeaderHeight() -> CGFloat {
+        return CGFloat.init(60)
+    }
+    
+    func getFooterHeight() -> CGFloat {
+        return CGFloat.init(80)
+    }
+}
+
+
+

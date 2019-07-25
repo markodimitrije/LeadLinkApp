@@ -38,7 +38,7 @@ class ViewStackerFactory {
 
         let surveyQuestion = questions.first!
         
-        let height = tableRowHeightCalculator.getOneRowHeightRegardingDevice(componentType: surveyQuestion.question.type)
+        let height = tableRowHeightCalculator.getOneRowHeight(componentType: surveyQuestion.question.type)
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: viewFactory.bounds.width, height: height))
         
         var finalView: UIView!
@@ -335,7 +335,7 @@ class ViewStackerFactory {
     private func getHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UILabel {
         let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
                                                          size: CGSize.init(width: stackerView.bounds.width,
-                                                                           height: tableRowHeightCalculator.getHeadlineHeightForDeviceType())))
+                                                                           height: tableHeaderFooterCalculator.getHeaderHeight())))
 
         titleLabel.numberOfLines = 0
         titleLabel.text = "  " + question.headlineText

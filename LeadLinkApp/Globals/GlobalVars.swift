@@ -18,7 +18,25 @@ let factory: AppDependencyContainer = AppDependencyContainer.init()
 
 var surveyInfo: SurveyInfo?
 
-var tableRowHeightCalculator = QuestionsAnswersTableRowHeightCalculator()
+var tableRowHeightCalculator: QuestionsAnswersTableRowHeightCalculating = {
+
+    guard let deviceType = getDeviceType() else { fatalError("cant determine device type!?!") }
+    
+    switch deviceType {
+    case DeviceType.iPhone: return IphoneQuestionsAnswersTableRowHeightCalculator()
+    case DeviceType.iPad: return IpadQuestionsAnswersTableRowHeightCalculator()
+    }
+}()
+
+var tableHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
+    
+    guard let deviceType = getDeviceType() else { fatalError("cant determine device type!?!") }
+    
+    switch deviceType {
+    case DeviceType.iPhone: return IphoneQuestionsAnswersTableViewHeaderFooterCalculator()
+    case DeviceType.iPad: return IpadQuestionsAnswersTableViewHeaderFooterCalculator()
+    }
+}
 
 var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
