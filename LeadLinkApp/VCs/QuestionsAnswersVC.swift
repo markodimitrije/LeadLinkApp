@@ -41,6 +41,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private var keyboardDelegate: MovingKeyboardDelegate?
     
+    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
+                                                                           parentViewmodel: parentViewmodel)
+    
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
@@ -183,42 +186,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         localComponents.saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
-                var answers = strongSelf.surveyInfo.answers // contains barcode
-                var answerIds = answers.map({$0.id})
-                var existingAnswerIds = answers.map({$0.id})
-        
-                func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
-                    
-                    func updateMyAnswers(newAnswer: MyAnswer) {
-                        if let index = answerIds.index(of: newAnswer.id) {
-                            answers.remove(at: index)
-                        }
-                        answers.append(newAnswer)
-                        answerIds = answers.map({$0.id})
-                    }
-                    
-                    if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
-                    
-                        updateMyAnswers(newAnswer: answer)
-                        
-                    } else if let content = answer.content.first, content != "" {
-                        
-                        updateMyAnswers(newAnswer: answer)
-                    }
-                    
-                }
-                
-                _ = self?.parentViewmodel.childViewmodels.compactMap { viewmodelDict in
-                    
-                    if let viewmodel = viewmodelDict.value as? Answerable, var answer = viewmodel.answer {
-                        
-                        answer.code = strongSelf.surveyInfo.code
-                        addOrUpdateAnswers(withAnswer: answer)
-                    }
-                    
-                }
-//                print("answersIds = \(answers.map({$0.id}))")
-                strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: answers)
+                let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
+                strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
                 
             })
             .disposed(by: bag)
@@ -226,8 +195,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
-        //let validator = Validation(answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
-        let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers) // hard-coded, ne obraca paznju da li je email u email txt !
+        
+        let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
+
         if validator.questionsFormIsValid {
             
             strongSelf.navigationController?.popViewController(animated: true)
@@ -238,7 +208,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             answersReporter.report.accept(newReport)
             
         } else {
-            print("nije validan field sa QuestionId = \(validator.invalidFieldQuestion!.id)")
             strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
         }
     }
@@ -287,3 +256,4 @@ enum QuestionsAnswersSectionType: String {
     case noGroupAssociated = " "
     case localComponentsGroupName = "Privacy Policy"
 }
+
