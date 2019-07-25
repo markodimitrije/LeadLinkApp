@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneRowStacker" customModule="tryLeadLinkModularComponent" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneRowStacker" customModule="LeadLinkApp" customModuleProvider="target">
             <connections>
                 <outlet property="stackView" destination="Vmh-DZ-qz9" id="DAf-Pu-z5V"/>
             </connections>
@@ -25,6 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                 </stackView>
             </subviews>
+            <color key="backgroundColor" red="0.1703016802" green="1" blue="0.065275902050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="Vmh-DZ-qz9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3PJ-xL-gsX"/>
                 <constraint firstItem="Vmh-DZ-qz9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="5wT-zW-JN6"/>

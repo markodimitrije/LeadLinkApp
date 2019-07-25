@@ -88,7 +88,9 @@ class ViewFactory {
     
     func getStackedSwitchBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
-        return createStackWithSameComponents(ofType: LabelBtnSwitchView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        return createStackWithSameComponents(ofType: LabelBtnSwitchView.self,
+                                             componentsTotalCount: question.options.count,
+                                             inOneRow: 1)!
         
     }
     
@@ -112,13 +114,14 @@ class ViewFactory {
     
     func getStackedLblAndTextView(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
-        var contentHeight = CGFloat.init(80)
+        //var contentHeight = CGFloat.init(80)
+        var contentHeight = frame.height
         
         let contentCounts = questionWithAnswers.map {$0.1?.content.count ?? 0}
         let maxContentCount = contentCounts.sorted(by: >).first
         
         if let maxContentCount = maxContentCount, maxContentCount > 1 {
-            contentHeight = CGFloat(maxContentCount * 22)
+            contentHeight = CGFloat(maxContentCount * 22) // sta je ovo ??!?!? hard-coded ??
         }
         
         let viewStacker = createStackWithSameComponents(ofType: LabelAndTextView.self, componentsTotalCount: questionWithAnswers.count, inOneRow: 1)!

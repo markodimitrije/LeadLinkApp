@@ -46,6 +46,7 @@
                     <rect key="frame" x="459" y="7" width="51" height="31"/>
                 </switch>
             </subviews>
+            <color key="backgroundColor" red="0.66666668650000005" green="0.66370729750000002" blue="0.1147340125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="ATm-yX-Fdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ruh-gA-AcD" secondAttribute="trailing" constant="8" id="BMn-3R-NBQ"/>
                 <constraint firstItem="ruh-gA-AcD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="BjI-W1-HtX"/>

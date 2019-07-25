@@ -47,6 +47,7 @@
 		7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689A22E75974007E9240 /* ScrollingToField.swift */; };
 		7C3A689D22E75C11007E9240 /* PayingAttentionToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */; };
 		7C3B20A822E9E60200791C11 /* AnswersUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B20A722E9E60200791C11 /* AnswersUpdater.swift */; };
+		7C3B20AA22E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B20A922E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* GridViewModel.swift */; };
@@ -312,6 +313,7 @@
 		7C3A689A22E75974007E9240 /* ScrollingToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingToField.swift; sourceTree = "<group>"; };
 		7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingAttentionToField.swift; sourceTree = "<group>"; };
 		7C3B20A722E9E60200791C11 /* AnswersUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersUpdater.swift; sourceTree = "<group>"; };
+		7C3B20A922E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableHeaderFooterCalculator.swift; sourceTree = "<group>"; };
 		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 			children = (
 				7C3F970D22E1D87B00C8A797 /* DataSourceAndDelegate */,
 				7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */,
+				7C3B20A922E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift */,
 				7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */,
 			);
 			path = QuestionsAnswers;
@@ -1987,6 +1990,7 @@
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
+				7C3B20AA22E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift in Sources */,
 				7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */,
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
 				7C98A6D722896F9300DA184E /* MyRxExtensions.swift in Sources */,

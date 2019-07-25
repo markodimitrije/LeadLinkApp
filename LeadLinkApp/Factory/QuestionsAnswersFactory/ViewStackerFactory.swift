@@ -78,7 +78,7 @@ class ViewStackerFactory {
             
             let resized = CGRect.init(origin: stackerView.frame.origin,
                                       size: CGSize.init(width: stackerView.bounds.width,
-                                                        height: CGFloat.init(integerLiteral: 200)))
+                                                        height: fr.height))
             stackerView.frame = resized
             
             finalView = stackerView
@@ -300,7 +300,8 @@ class ViewStackerFactory {
     private func getLabelAndTextView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndTextView]) {
         
         //let stackerView = viewFactory.getStackedLblAndTextView(question: question, answer: answer, frame: frame)
-        let stackerView = viewFactory.getStackedLblAndTextView(questionWithAnswers: [(question, answer)], frame: frame)
+        let stackerView = viewFactory.getStackedLblAndTextView(questionWithAnswers: [(question, answer)],
+                                                               frame: frame)
         
         let views = stackerView.components.flatMap { view -> [LabelAndTextView] in
             return (view as? OneRowStacker)?.components as? [LabelAndTextView] ?? [ ]
