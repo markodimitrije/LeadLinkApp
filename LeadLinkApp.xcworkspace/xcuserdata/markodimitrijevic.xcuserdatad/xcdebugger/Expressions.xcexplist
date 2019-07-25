@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ReportsTVC.update(report:):ReportsTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "report.code.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
@@ -65,10 +73,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScanningVC.setupScanditScanner():ScanningVC.swift">
+         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "captureView.layer">
+               value = "codesView">
+            </PersistentString>
+            <PersistentString
+               value = "containerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -76,10 +87,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "count">
@@ -90,19 +104,16 @@
             <PersistentString
                value = "chooseOptionsVC">
             </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
             </PersistentString>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -115,13 +126,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
+         contextName = "ScanningVC.setupScanditScanner():ScanningVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "codesView">
-            </PersistentString>
-            <PersistentString
-               value = "containerView">
+               value = "captureView.layer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
