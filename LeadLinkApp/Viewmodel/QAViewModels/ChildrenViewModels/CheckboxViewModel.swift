@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class CheckboxViewModel: NSObject, ViewModelType, Questanable {
+class CheckboxViewModel: NSObject, ViewModelType, Questanable, Answerable {
     
     var question: PresentQuestion
     var answer: MyAnswer?

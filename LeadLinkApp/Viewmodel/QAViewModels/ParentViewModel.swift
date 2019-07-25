@@ -26,3 +26,7 @@ protocol Questanable {
     var question: PresentQuestion {get set}
     var code: String {get set}
 }
+
+protocol Answerable {
+    var answer: MyAnswer? {get set}
+}

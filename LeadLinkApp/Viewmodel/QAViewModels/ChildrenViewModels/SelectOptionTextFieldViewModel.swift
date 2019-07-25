@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable {
+class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable, Answerable {
     
     var question: PresentQuestion
     var answer: MyAnswer?

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LabelWithTextFieldViewModel: NSObject, ViewModelType, Questanable {
+class LabelWithTextFieldViewModel: NSObject, ViewModelType, Questanable, Answerable {
     
     var question: PresentQuestion
     var answer: MyAnswer?
