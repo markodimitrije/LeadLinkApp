@@ -23,13 +23,12 @@ class NavusLicenseBarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProvidin
         
         self.settings = BarcodeCaptureSettings()
         
-        loadSimbologiesAvailableByLicense()
-        
-        expandBarcodeCharactersDefaultRange()
+        self.enableSimbologiesAvailableByLicense()
+        self.expandBarcodeCharactersDefaultRange()
         
     }
     
-    private func loadSimbologiesAvailableByLicense() {
+    private func enableSimbologiesAvailableByLicense() {
         
         _ = self.symbologies.map {
             self.settings.set(symbology: $0, enabled: true)
