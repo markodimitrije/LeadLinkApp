@@ -23,8 +23,12 @@ class SelectOptionTextViewModelInputCreator {
         let headline = viewmodel.question.headlineText
         let textOptions = viewmodel.answer?.content ?? [ ]
         let text = textOptions.reduce("", {$0 + "\n" + $1})
+        let desc = viewmodel.question.description ?? ""
         
-        let multipleStringOptions = MultipleStringOptions.init(headline: headline, textOptions: textOptions, displayText: text)
+        let multipleStringOptions = MultipleStringOptions.init(headline: headline,
+                                                               textOptions: textOptions,
+                                                               displayText: text,
+                                                               placeholderText: desc)
         
         return Observable.from([multipleStringOptions])
         

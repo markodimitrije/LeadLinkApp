@@ -62,18 +62,19 @@ extension Reactive where Base: UISwitch {
         })
     }
 }
-
+//labelAndTextView
 extension Reactive where Base: LabelAndTextField {
-    var titles: Binder<(String, String)> {
+    var titles: Binder<(String, String, String)> {
         return Binder.init(self.base, binding: { (view, value) in
             view.update(headlineText: value.0,
-                        inputTxt: value.1)
+                        inputTxt: value.1,
+                        placeholderTxt: value.2)
         })
     }
 }
 
 extension Reactive where Base: LabelAndTextView {
-    var texts: Binder<(String, String)> {
+    var texts: Binder<(String, String, String)> {
         return Binder.init(self.base, binding: { (view, value) in
             view.update(headlineText: value.0,
                         inputTxt: value.1)

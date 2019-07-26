@@ -18,6 +18,7 @@ struct PresentQuestion {
     var inputTxt = ""
     var options = [String]()
     var multipleSelection = false
+    var description: String = ""
     init(question: Question) {
         let type = QuestionType(rawValue: question.type)!
         self.id = question.id
@@ -26,8 +27,9 @@ struct PresentQuestion {
         self.headlineText = question.title
         self.group = question.group
         self.order = question.order
-        self.inputTxt = question.description
+        self.inputTxt = question.description ?? ""
         self.options = question.settings.options ?? [ ]
+        self.description = question.description ?? ""
         if (type == .dropdown) { // we actualy need two types: textOptionsSingleChoice and textOptionsMultipleChoice
             self.multipleSelection = false
 //            self.multipleSelection = true

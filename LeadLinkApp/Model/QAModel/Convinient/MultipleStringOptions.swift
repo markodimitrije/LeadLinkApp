@@ -12,4 +12,5 @@ struct MultipleStringOptions {
     var headline: String
     var textOptions: [String]
     var displayText: String
+    var placeholderText: String
 }

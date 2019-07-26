@@ -33,6 +33,15 @@ class LabelAndTextField: UIView {
         }
     }
     
+    var placeholderTxt: String? {
+        get {
+            return textField?.placeholder
+        }
+        set {
+            textField?.placeholder = newValue ?? ""
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib() // ne zaboravi OVO !
@@ -68,9 +77,10 @@ class LabelAndTextField: UIView {
     
     // MARK:- API
     
-    func update(headlineText: String?, inputTxt: String?) {
+    func update(headlineText: String?, inputTxt: String?, placeholderTxt: String?) {
         self.headlineTxt = headlineText
         self.inputTxt = inputTxt
+        self.placeholderTxt = placeholderTxt
     }
     
 }

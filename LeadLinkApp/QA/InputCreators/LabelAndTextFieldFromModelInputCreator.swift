@@ -18,19 +18,21 @@ class LabelAndTextFieldFromModelInputCreator {
         self.viewmodel = viewmodel
     }
     
-    func createTxtDriver() -> Observable<(String, String)> {
+    func createTxtDriver() -> Observable<(String, String, String)> {
         
         let headline = viewmodel.question.headlineText
         let text = (viewmodel.answer?.content ?? [ ]).reduce("", {$0 + "\n" + $1}).trimmingCharacters(in: CharacterSet.init(charactersIn: "\n")) // remove enter on start end end
-        return Observable.from([(headline, text)])
+        let placeholderTxt = viewmodel.question.description ?? ""
+        return Observable.from([(headline, text, placeholderTxt)])
         
     }
     
-    func createBarcodeTxtDriver() -> Observable<(String, String)> {
+    func createBarcodeTxtDriver() -> Observable<(String, String, String)> {
         
         let headline = viewmodel.question.headlineText
         let text = viewmodel.code
-        return Observable.from([(headline, text)])
+        let placeholderTxt = ""
+        return Observable.from([(headline, text, placeholderTxt)])
         
     }
     

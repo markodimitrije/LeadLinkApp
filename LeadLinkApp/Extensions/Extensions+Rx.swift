@@ -124,9 +124,11 @@ extension Reactive where Base: LabelAndTextField {
         })
     }
     
-    var update: Binder<(headline: String, text: String)> {
+    var update: Binder<(headline: String, text: String, placeholderTxt: String)> {
         return Binder.init(self.base, binding: { (view, value) in
-            view.update(headlineText: value.headline, inputTxt: value.text)
+            view.update(headlineText: value.headline,
+                        inputTxt: value.text,
+                        placeholderTxt: value.placeholderTxt)
         })
     }
     

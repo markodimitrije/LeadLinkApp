@@ -19,7 +19,7 @@ public struct Question: Codable {
     var type: String
     var group: String?
     var required: Bool
-    var description: String
+    var description: String?
     var order: Int
     var element_id: Int?
     var settings: Setting

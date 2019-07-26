@@ -31,7 +31,7 @@ public class RealmQuestion: Object {
         self.type = question.type
         self.group = question.group
         self.required = question.required
-        self.desc = question.description
+        self.desc = question.description ?? ""
         self.order = question.order
         self.element_id = question.element_id
         
