@@ -39,8 +39,8 @@ class ViewStackerFactory {
         let surveyQuestion = questions.first!
         
         let height = tableRowHeightCalculator.getOneRowHeight(componentType: surveyQuestion.question.type)
-        let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: viewFactory.bounds.width, height: height))
-        
+        let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: viewFactory.allowableWidth,
+                                                                     height: height))
         var finalView: UIView!
         var btnViews: [UIView]
         

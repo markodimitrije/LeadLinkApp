@@ -12,40 +12,30 @@ import RxCocoa
 
 class ViewFactory {
     
-    var bounds: CGRect
     var allowableWidth: CGFloat!
     
-    init(bounds: CGRect) { // treba da je sa Questions...
-        self.bounds = bounds
-        loadViewsWidth()
-    }
-    
-    private func loadViewsWidth() {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            self.allowableWidth = (UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width) * 0.6
-        } else if UIDevice.current.userInterfaceIdiom == .phone {
-            self.allowableWidth = UIApplication.topViewController()?.view.frame.width ?? UIScreen.main.bounds.width
-        }
+    init(questionsWidthProvider: QuestionsAnswersTableWidthCalculating) { // treba da je sa Questions...
+        self.allowableWidth = questionsWidthProvider.getWidth()
     }
     
     func getStackedRadioBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
-        //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!
-        return createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
+        return createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         
     }
     
     func getStackedCheckboxBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
-        //return produceStackWithSameComponents(ofType: CheckboxView.self, count: question.options.count, inOneRow: 3)!
-        return createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        //return produceStackWithSameComponents(ofType: CheckboxView.self, count: question.options.count, elementsInOneRow: 3)!
+        return createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         
     }
     
     func getStackedRadioBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
-        //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!
-        let stacker = createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
+        let stacker = createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         
         guard let lastRow = stacker.components.last as? OneRowStacker,
             let lastElement = lastRow.components.last else {  return stacker }
@@ -66,8 +56,8 @@ class ViewFactory {
     
     func getStackedCheckboxBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
-        //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!
-        let stacker = createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, inOneRow: 1)!
+        //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
+        let stacker = createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         
         guard let lastRow = stacker.components.last as? OneRowStacker,
             let lastElement = lastRow.components.last else {  return stacker }
@@ -90,7 +80,7 @@ class ViewFactory {
         
         return createStackWithSameComponents(ofType: LabelBtnSwitchView.self,
                                              componentsTotalCount: question.options.count,
-                                             inOneRow: 1)!
+                                             elementsInOneRow: 1)!
         
     }
     
@@ -98,7 +88,7 @@ class ViewFactory {
         
         return createStackWithSameComponents(ofType: TermsLabelBtnSwitchView.self,
                                              componentsTotalCount: 1,
-                                             inOneRow: 1)!
+                                             elementsInOneRow: 1)!
     }
     
     func getStackedLblAndTextField(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
@@ -107,9 +97,9 @@ class ViewFactory {
         return createStackWithSameComponents(ofType: LabelAndTextField.self,
                                              //componentsTotalCount: questionWithAnswers.count,
                                             //componentsTotalCount: 2,
-                                             //inOneRow: 2)!
+                                             //elementsInOneRow: 2)!
                                             componentsTotalCount: 1,
-                                            inOneRow: 1)!
+                                            elementsInOneRow: 1)!
     }
     
     func getStackedLblAndTextView(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
@@ -124,20 +114,20 @@ class ViewFactory {
             contentHeight = CGFloat(maxContentCount * 22) // sta je ovo ??!?!? hard-coded ??
         }
         
-        let viewStacker = createStackWithSameComponents(ofType: LabelAndTextView.self, componentsTotalCount: questionWithAnswers.count, inOneRow: 1)!
+        let viewStacker = createStackWithSameComponents(ofType: LabelAndTextView.self, componentsTotalCount: questionWithAnswers.count, elementsInOneRow: 1)!
         viewStacker.frame.size.height = contentHeight
         
         return viewStacker
         
     }
     
-    private func createStackWithSameComponents(ofType type: UIView.Type, componentsTotalCount: Int, inOneRow: Int) -> ViewStacker? {
+    private func createStackWithSameComponents(ofType type: UIView.Type, componentsTotalCount: Int, elementsInOneRow: Int) -> ViewStacker? {
         
-        guard inOneRow <= 3 else {return nil}
+        guard elementsInOneRow <= 3 else {return nil}
         
-        var numOfRows = componentsTotalCount / inOneRow
+        var numOfRows = componentsTotalCount / elementsInOneRow
         var isOdd = false
-        let residue = componentsTotalCount % inOneRow
+        let residue = componentsTotalCount % elementsInOneRow
         
         if residue != 0 {
             numOfRows += 1
@@ -148,9 +138,9 @@ class ViewFactory {
         
         for index in 1...numOfRows {
             if index == numOfRows && isOdd {
-                components.append(produceOneRowInVerticalStack(ofType: type, inOneRow: residue))
+                components.append(produceOneRowInVerticalStack(ofType: type, elementsInOneRow: residue))
             } else {
-                components.append(produceOneRowInVerticalStack(ofType: type, inOneRow: inOneRow))
+                components.append(produceOneRowInVerticalStack(ofType: type, elementsInOneRow: elementsInOneRow))
             }
             
         }
@@ -185,28 +175,28 @@ class ViewFactory {
     
     
     
-    private func getHeight(forComponents components: [UIView], inOneRow: Int) -> CGFloat {
+    private func getHeight(forComponents components: [UIView], elementsInOneRow: Int) -> CGFloat {
         var height = CGFloat.init(0)
         guard let first = components.first else {return 0.0}
-        for _ in 1...getNumberOfRows(components: components, inOneRow: inOneRow) {
+        for _ in 1...getNumberOfRows(components: components, elementsInOneRow: elementsInOneRow) {
             height += first.bounds.height + CGFloat.init(8)
         }
         return height
     }
     
     
-    private func getNumberOfRows(components: [UIView], inOneRow: Int) -> Int {
+    private func getNumberOfRows(components: [UIView], elementsInOneRow: Int) -> Int {
         
-        var numOfRows = components.count / inOneRow
+        var numOfRows = components.count / elementsInOneRow
         
-        if components.count % inOneRow != 0 {
+        if components.count % elementsInOneRow != 0 {
             numOfRows += 1
         }
         
         return numOfRows
     }
     
-    private func produceOneRowInVerticalStack(ofType type: UIView.Type, inOneRow: Int) -> OneRowStacker {
+    private func produceOneRowInVerticalStack(ofType type: UIView.Type, elementsInOneRow: Int) -> OneRowStacker {
         
         var compType = QuestionType.textField
         if type is RadioBtnView.Type {
@@ -224,7 +214,7 @@ class ViewFactory {
         let rowHeight = tableRowHeightCalculator.getOneRowHeight(componentType: compType)
         
         var components = [UIView]()
-        for _ in 1...inOneRow {
+        for _ in 1...elementsInOneRow {
             let v = type.init()
             components.append(v)
         }
@@ -233,9 +223,9 @@ class ViewFactory {
         
     }
     
-//    func getRect(forComponents components: [UIView], inOneRow: Int) -> CGRect {
+//    func getRect(forComponents components: [UIView], elementsInOneRow: Int) -> CGRect {
 //
-//        let height = getHeight(forComponents: components, inOneRow: inOneRow)
+//        let height = getHeight(forComponents: components, elementsInOneRow: elementsInOneRow)
 //
 //        return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: bounds.width, height: height))
 //    }
@@ -247,9 +237,9 @@ class ViewFactory {
 //
 //    }
     
-    func getRect(forComponents components: [UIView], inOneRow: Int) -> CGRect {
+    func getRect(forComponents components: [UIView], elementsInOneRow: Int) -> CGRect {
         
-        let height = getHeight(forComponents: components, inOneRow: inOneRow)
+        let height = getHeight(forComponents: components, elementsInOneRow: elementsInOneRow)
         
         return CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: allowableWidth,
                                                                    height: height))

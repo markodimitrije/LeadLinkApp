@@ -14,7 +14,8 @@ import RealmSwift
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {//}, RadioBtnListener {
     
-    private lazy var viewFactory = ViewFactory.init(bounds: self.view.bounds)
+    private var questionsWidthProvider = QuestionsAnswersTableWidthCalculatorFactory().makeWidthCalculator()
+    private lazy var viewFactory = ViewFactory.init(questionsWidthProvider: questionsWidthProvider)
     private var viewmodelFactory: ViewmodelFactory!
     
     private lazy var viewStackerFactory = ViewStackerFactory.init(viewFactory: viewFactory,
