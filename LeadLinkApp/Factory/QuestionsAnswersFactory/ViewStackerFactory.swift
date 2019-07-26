@@ -152,7 +152,7 @@ class ViewStackerFactory {
                                              frame: fr)
             finalView = res.0; btnViews = res.1
             
-            switchBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+            switchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
                                              btnViews: btnViews as! [LabelBtnSwitchView],
                                              viewmodel: viewmodel as! SwitchBtnsViewModel,
                                              bag: bag)
@@ -163,7 +163,7 @@ class ViewStackerFactory {
                                                   frame: fr)
             finalView = res.0; btnViews = res.1
             
-            termsSwitchBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+            termsSwitchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
                                                   btnViews: btnViews as! [TermsLabelBtnSwitchView],
                                                   viewmodel: viewmodel as! SwitchBtnsViewModel,
                                                   bag: bag)
@@ -259,14 +259,14 @@ class ViewStackerFactory {
         
         _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
         
-        //let finalView = questionViewWithHeadlineLabelForSwitchView(question: question, aboveStackerView: stackerView)
-        
-        let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
+        let finalView = (question.headlineText == "") ? stackerView : questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView).subviews.last as! ViewStacker
         
         return (finalView, btnViews)
     }
     
-    private func getTermsSwitchBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
+    private func getTermsSwitchBtnsView(question: PresentQuestion,
+                                        answer: Answering?,
+                                        frame: CGRect) -> (UIView, [UIView]) {
         
         let stackerView = viewFactory.getTermsSwitchBtn(question: question, answer: answer, frame: frame)
         
@@ -276,7 +276,7 @@ class ViewStackerFactory {
         
         _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
         
-        let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
+        let finalView = question.headlineText != "" ? questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView).subviews.last as! ViewStacker : stackerView
         
         return (finalView, btnViews)
     }
@@ -341,11 +341,11 @@ class ViewStackerFactory {
         titleLabel.numberOfLines = 0
         titleLabel.text = "  " + question.headlineText
         
-        if question.headlineText == "" {
-            titleLabel.frame = CGRect.init(origin: titleLabel.frame.origin,
-                                           size: CGSize.init(width: titleLabel.bounds.width,
-                                                             height: CGFloat(0)))
-        }
+//        if question.headlineText == "" {
+//            titleLabel.frame = CGRect.init(origin: titleLabel.frame.origin,
+//                                           size: CGSize.init(width: titleLabel.bounds.width,
+//                                                             height: CGFloat(0)))
+//        }
         
         return titleLabel
     }

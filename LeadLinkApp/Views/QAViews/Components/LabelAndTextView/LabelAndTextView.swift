@@ -68,6 +68,7 @@ class LabelAndTextView: UIView {
     private func format() {
         textView.layer.borderColor = UIColor.fieldBorderGray.cgColor
         textView.layer.borderWidth = CGFloat.init(integerLiteral: 1)
+        textView.layer.cornerRadius = 5.0
     }
     
 }

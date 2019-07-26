@@ -13,7 +13,7 @@ class LabelAndTextField: UIView {
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var headlineLbl: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: UITextField! {didSet { formatBorder()}}
     
     var headlineTxt: String? {
         get {
@@ -59,6 +59,14 @@ class LabelAndTextField: UIView {
         self.addSubview(view)
         
     }
+    
+    private func formatBorder() {
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 5.0
+        textField.layer.borderColor = UIColor.fieldBorderGray.cgColor
+    }
+    
+    // MARK:- API
     
     func update(headlineText: String?, inputTxt: String?) {
         self.headlineTxt = headlineText

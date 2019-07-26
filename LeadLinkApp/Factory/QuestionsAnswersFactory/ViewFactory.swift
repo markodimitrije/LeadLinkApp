@@ -215,6 +215,8 @@ class ViewFactory {
             compType = .checkbox
         } else if type is LabelBtnSwitchView.Type {
             compType = .switchBtn
+        } else if type is TermsLabelBtnSwitchView.Type {
+            compType = .termsSwitchBtn
         } else if type is LabelAndTextField.Type {
             compType = .textField
         }

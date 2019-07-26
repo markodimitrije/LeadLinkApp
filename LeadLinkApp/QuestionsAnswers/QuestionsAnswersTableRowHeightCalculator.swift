@@ -19,11 +19,13 @@ class IphoneQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHe
         case .textField:
             return CGFloat.init(80)
         case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
-            return CGFloat.init(50)
+            return CGFloat.init(80)
         case .termsSwitchBtn:
-            return CGFloat.init(30)
-        case .textArea, .dropdown :
-            return CGFloat.init(160)
+            return CGFloat.init(80)
+        case .textArea:
+            return 200.0
+        case .dropdown:
+            return 80.0
         }
     }
     
@@ -38,7 +40,7 @@ class IpadQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHeig
         case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
             return 60.0
         case .termsSwitchBtn:
-            return 40.0
+            return 60.0
         case .textArea:
             return 200.0
         case .dropdown:

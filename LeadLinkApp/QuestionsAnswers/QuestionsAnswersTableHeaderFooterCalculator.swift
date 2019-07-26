@@ -20,7 +20,7 @@ class IphoneQuestionsAnswersTableViewHeaderFooterCalculator: QuestionsAnswersTab
     }
     
     func getFooterHeight() -> CGFloat {
-        return CGFloat.init(60)
+        return CGFloat.init(30)
     }
 }
 
@@ -31,6 +31,6 @@ class IpadQuestionsAnswersTableViewHeaderFooterCalculator: QuestionsAnswersTable
     }
     
     func getFooterHeight() -> CGFloat {
-        return CGFloat.init(80)
+        return CGFloat.init(30)
     }
 }
