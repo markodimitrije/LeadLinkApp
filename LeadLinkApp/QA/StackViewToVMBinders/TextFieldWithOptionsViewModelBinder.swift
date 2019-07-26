@@ -29,7 +29,7 @@ class TextViewToDropdownViewModelBinder {
         let textDriver = inputCreator.createTxtDriver()
         
         textDriver
-            .map {($0.headline, $0.displayText, $0.placeholderText)}
+            .map {[$0.headline, $0.displayText, $0.placeholderText]}
             .bind(to: labelAndTextView.rx.texts)
             .disposed(by: bag)
         

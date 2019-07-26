@@ -60,9 +60,9 @@ class LabelAndTextView: UIView {
         
     }
     
-    func update(headlineText: String?, inputTxt: String?) {
+    func update(headlineText: String?, inputTxt: String?, placeholderTxt: String?) {
         self.headlineTxt = headlineText
-        self.inputTxt = inputTxt
+        self.inputTxt = (inputTxt == nil || inputTxt == "") ? placeholderTxt : inputTxt
     }
     
     private func format() {
