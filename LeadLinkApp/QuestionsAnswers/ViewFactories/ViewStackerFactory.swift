@@ -99,42 +99,11 @@ class ViewStackerFactory {
         
         case .textField:
 
-            let res = labelWithTxtFieldFactory.getLabelAndTextField(question: surveyQuestion.question,
-                                                                    answer: surveyQuestion.answer,
-                                                                    frame: fr)
-            let stackerView = res.0; btnViews = res.1
-            
-            let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
-            
-            _ = btnViews.map { (btnView) -> () in
-                txtFieldToViewModelBinder.hookUp(view: stackerView,
-                                                 labelAndTextView: btnView as! LabelAndTextField,
-                                                 viewmodel: viewmodel as! LabelWithTextFieldViewModel,
-                                                 bag: bag,
-                                                 selector: selector)
-            }
-
-            finalView = stackerView
+            return makeFinalViewForTextField(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .textArea:
 
-            let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
-                                                                  answer: surveyQuestion.answer,
-                                                                  frame: fr)
-            
-            let stackerView = res.0; btnViews = res.1
-
-            textAreaViewModelBinder.hookUp(view: stackerView,
-                                           labelAndTextView: btnViews.first as! LabelAndTextView,
-                                           viewmodel: viewmodel as! LabelWithTextFieldViewModel,
-                                           bag: bag)
-            
-            let resized = CGRect.init(origin: stackerView.frame.origin,
-                                      size: CGSize.init(width: stackerView.bounds.width,
-                                                        height: fr.height))
-            stackerView.frame = resized
-
-            finalView = stackerView
+            return makeFinalViewForTextArea(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .dropdown:
 
@@ -180,7 +149,7 @@ class ViewStackerFactory {
                                                bag: bag)
             
         case .radioBtnWithInput:
-//          done
+
             let res = radioBtnsWithInputViewFactory
                 .getRadioBtnsWithInputView(question: surveyQuestion.question,
                                                      answer: surveyQuestion.answer,
@@ -233,6 +202,51 @@ class ViewStackerFactory {
         
         return finalView
         
+    }
+    
+    private func makeFinalViewForTextField(surveyQuestion: SurveyQuestion,
+                                           viewmodel: Questanable,
+                                           frame: CGRect) -> UIView {
+        
+        let res = labelWithTxtFieldFactory.getLabelAndTextField(question: surveyQuestion.question,
+                                                                answer: surveyQuestion.answer,
+                                                                frame: frame)
+        let stackerView = res.0; let btnViews = res.1
+        
+        let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
+        
+        _ = btnViews.map { (btnView) -> () in
+            txtFieldToViewModelBinder.hookUp(view: stackerView,
+                                             labelAndTextView: btnView,
+                                             viewmodel: viewmodel as! LabelWithTextFieldViewModel,
+                                             bag: bag,
+                                             selector: selector)
+        }
+        
+        return stackerView
+    }
+    
+    private func makeFinalViewForTextArea(surveyQuestion: SurveyQuestion,
+                                          viewmodel: Questanable,
+                                          frame: CGRect) -> UIView {
+        
+        let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
+                                                              answer: surveyQuestion.answer,
+                                                              frame: frame)
+
+        let stackerView = res.0; let btnViews = res.1
+
+        textAreaViewModelBinder.hookUp(view: stackerView,
+                                       labelAndTextView: btnViews.first!,
+                                       viewmodel: viewmodel as! LabelWithTextFieldViewModel,
+                                       bag: bag)
+
+        let resized = CGRect.init(origin: stackerView.frame.origin,
+                                  size: CGSize.init(width: stackerView.bounds.width,
+                                                    height: frame.height))
+        stackerView.frame = resized
+
+        return stackerView
     }
     
     @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {

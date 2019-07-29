@@ -11,10 +11,13 @@ import RxSwift
 import RxCocoa
 
 class SameComponentsFactory {
+    
     var allowableWidth: CGFloat
+    
     init(questionsWidthProvider: QuestionsAnswersTableWidthCalculating) {
         self.allowableWidth = questionsWidthProvider.getWidth()
     }
+    
     func createStackWithSameComponents(ofType type: UIView.Type, componentsTotalCount: Int, elementsInOneRow: Int) -> ViewStacker? {
         
         guard elementsInOneRow <= 3 else {return nil}
@@ -73,7 +76,7 @@ class SameComponentsFactory {
         
     }
     
-    func getRect(forComponents components: [UIView]) -> CGRect {
+    private func getRect(forComponents components: [UIView]) -> CGRect {
         
         let height = getHeight(forComponents: components)
         
@@ -81,7 +84,7 @@ class SameComponentsFactory {
                                                                    height: height))
     }
     
-    func stackElementsInOneRow(components: [UIView], rowHeight: CGFloat) -> OneRowStacker {
+    private func stackElementsInOneRow(components: [UIView], rowHeight: CGFloat) -> OneRowStacker {
         
         let rect = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: allowableWidth,
                                                                        height: rowHeight))
