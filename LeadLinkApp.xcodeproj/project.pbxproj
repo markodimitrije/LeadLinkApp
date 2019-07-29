@@ -877,6 +877,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAB84BD22EF29F500CE91AA /* Calculating */,
+				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
 				7CAB84B622EB333900CE91AA /* ViewFactories */,
 				7C3F970D22E1D87B00C8A797 /* DataSourceAndDelegate */,
 				7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */,
@@ -1048,8 +1049,6 @@
 		7C98A66C228961D400DA184E /* QuestionsAnswersFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7C98A66D228961D400DA184E /* ViewStackerFactory.swift */,
-				7C98A66E228961D400DA184E /* SameComponentsFactory.swift */,
 				7C98A66F228961D400DA184E /* ViewmodelFactory.swift */,
 				7C3A3FBE22AE853C003C079E /* LocalComponentsViewFactory.swift */,
 			);
@@ -1229,15 +1228,10 @@
 		7CAB84B622EB333900CE91AA /* ViewFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7C98A66D228961D400DA184E /* ViewStackerFactory.swift */,
+				7C98A66E228961D400DA184E /* SameComponentsFactory.swift */,
 				7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */,
-				7CAB84B922EF290500CE91AA /* RadioBtnsViewFactory.swift */,
-				7CAB84BE22EF2DD000CE91AA /* RadioBtnsWithInputViewFactory.swift */,
-				7CAB84C022EF2E6200CE91AA /* CheckboxBtnsViewFactory.swift */,
-				7CAB84C222EF307000CE91AA /* CheckboxBtnsWithInputViewFactory.swift */,
-				7CAB84C422EF352E00CE91AA /* SwitchBtnsViewFactory.swift */,
-				7CAB84C622EF38F700CE91AA /* TermsSwitchBtnsViewFactory.swift */,
-				7CAB84C822EF395F00CE91AA /* LabelWithTxtFieldFactory.swift */,
-				7CAB84CA22EF3E3900CE91AA /* LabelWithTxtViewFactory.swift */,
+				7CAB84CC22EF447800CE91AA /* QuestionViewFactory */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -1251,6 +1245,21 @@
 				7CAB84B722EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift */,
 			);
 			path = Calculating;
+			sourceTree = "<group>";
+		};
+		7CAB84CC22EF447800CE91AA /* QuestionViewFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB84B922EF290500CE91AA /* RadioBtnsViewFactory.swift */,
+				7CAB84BE22EF2DD000CE91AA /* RadioBtnsWithInputViewFactory.swift */,
+				7CAB84C022EF2E6200CE91AA /* CheckboxBtnsViewFactory.swift */,
+				7CAB84C222EF307000CE91AA /* CheckboxBtnsWithInputViewFactory.swift */,
+				7CAB84C422EF352E00CE91AA /* SwitchBtnsViewFactory.swift */,
+				7CAB84C622EF38F700CE91AA /* TermsSwitchBtnsViewFactory.swift */,
+				7CAB84C822EF395F00CE91AA /* LabelWithTxtFieldFactory.swift */,
+				7CAB84CA22EF3E3900CE91AA /* LabelWithTxtViewFactory.swift */,
+			);
+			path = QuestionViewFactory;
 			sourceTree = "<group>";
 		};
 		7CBDC26C22D620AD00B7D43F /* ViewModels */ = {
@@ -1327,7 +1336,6 @@
 				7C51086722C0D6B9005EE58B /* DataStoreFactories */,
 				7C51086422C0D3DD005EE58B /* AppDependancyContainer */,
 				7C39F3A922BD578B0017A78C /* ViewControllerFactories */,
-				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
 				7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */,
 				7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */,
 			);
