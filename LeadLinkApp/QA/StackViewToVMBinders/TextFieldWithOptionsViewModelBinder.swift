@@ -30,6 +30,7 @@ class TextViewToDropdownViewModelBinder {
         
         textDriver
             .map {[$0.headline, $0.displayText, $0.placeholderText]}
+            .debug()
             .bind(to: labelAndTextView.rx.texts)
             .disposed(by: bag)
         

@@ -51,6 +51,8 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             showOptionsAsPopover(vc: chooseOptionsVC, fromSourceRect: textView)
         }
         
+        textView.textColor = .black
+        
         textView.resignFirstResponder()
     }
     

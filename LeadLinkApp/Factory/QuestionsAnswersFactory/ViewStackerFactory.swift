@@ -76,6 +76,8 @@ class ViewStackerFactory {
                                            viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                            bag: bag)
 
+            //(btnViews.first as! LabelAndTextView).textView.delegate = delegate
+            
             let resized = CGRect.init(origin: stackerView.frame.origin,
                                       size: CGSize.init(width: stackerView.bounds.width,
                                                         height: fr.height))
@@ -366,3 +368,5 @@ class ViewStackerFactory {
  self.view.endEditing(true)
  }
 */
+
+

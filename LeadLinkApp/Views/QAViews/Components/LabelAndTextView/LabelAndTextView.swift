@@ -13,7 +13,7 @@ class LabelAndTextView: UIView {
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var headlineLbl: UILabel!
-    @IBOutlet weak var textView: UITextView! {didSet { format()}}
+    @IBOutlet weak var textView: UITextView! {didSet { formatTextView()}}
     
     var headlineTxt: String? {
         get {
@@ -56,6 +56,8 @@ class LabelAndTextView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        textView.delegate = self
+        
         self.addSubview(view)
         
     }
@@ -65,10 +67,23 @@ class LabelAndTextView: UIView {
         self.inputTxt = (inputTxt == nil || inputTxt == "") ? placeholderTxt : inputTxt
     }
     
-    private func format() {
+    private func formatTextView() {
         textView.layer.borderColor = UIColor.fieldBorderGray.cgColor
         textView.layer.borderWidth = CGFloat.init(integerLiteral: 1)
         textView.layer.cornerRadius = 5.0
+        textView.textColor = .lightGray
     }
     
+}
+
+extension LabelAndTextView: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
+    }
+    private func deletePlaceholderAndSetTxtColorToBlack(textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
 }
