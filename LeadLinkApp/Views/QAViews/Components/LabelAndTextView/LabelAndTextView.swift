@@ -33,6 +33,8 @@ class LabelAndTextView: UIView {
         }
     }
     
+    var placeholderTxt: String?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib() // ne zaboravi OVO !
@@ -43,9 +45,10 @@ class LabelAndTextView: UIView {
         loadViewFromNib()
     }
     
-    convenience init(frame: CGRect, headlineText: String?, inputTxt: String?) {
+    convenience init(frame: CGRect, headlineText: String?, inputTxt: String?, placeholderTxt: String?) {
         self.init(frame: frame)
         self.headlineTxt = headlineText // prerano za postavljanje outlet-a !!
+        self.placeholderTxt = placeholderTxt
         self.inputTxt = inputTxt // prerano za postavljanje outlet-a !!
     }
     
@@ -64,14 +67,16 @@ class LabelAndTextView: UIView {
     
     func update(headlineText: String?, inputTxt: String?, placeholderTxt: String?) {
         self.headlineTxt = headlineText
+        self.placeholderTxt = placeholderTxt
         self.inputTxt = (inputTxt == nil || inputTxt == "") ? placeholderTxt : inputTxt
+        formatTextView()
     }
     
     private func formatTextView() {
         textView.layer.borderColor = UIColor.fieldBorderGray.cgColor
         textView.layer.borderWidth = CGFloat.init(integerLiteral: 1)
         textView.layer.cornerRadius = 5.0
-        textView.textColor = .lightGray
+        textView.textColor = (placeholderTxt != inputTxt) ? .black : .lightGray
     }
     
 }
