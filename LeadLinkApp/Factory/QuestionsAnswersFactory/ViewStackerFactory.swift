@@ -12,7 +12,7 @@ import RxCocoa
 
 class ViewStackerFactory {
     
-    private var viewFactory: ViewFactory
+    private var questionsWidthProvider: QuestionsAnswersTableWidthCalculating
     private var bag: DisposeBag
     private var delegate: UITextViewDelegate?
     
@@ -26,8 +26,59 @@ class ViewStackerFactory {
     private let termsSwitchBtnsViewModelBinder = StackViewToTermsViewModelBinder()
     private let textAreaViewModelBinder = TextAreaViewModelBinder()
     
-    init(viewFactory: ViewFactory, bag: DisposeBag, delegate: UITextViewDelegate?) {
-        self.viewFactory = viewFactory
+    lazy var radioBtnsViewFactory = RadioBtnsViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var radioBtnsWithInputViewFactory = RadioBtnsWithInputViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var checkboxBtnsViewFactory = CheckboxBtnsViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var checkboxBtnsWithInputViewFactory = CheckboxBtnsWithInputViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var switchBtnsViewFactory = SwitchBtnsViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var termsSwitchBtnsViewFactory = TermsSwitchBtnsViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var labelWithTxtFieldFactory = LabelWithTxtFieldFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    lazy var labelWithTxtViewFactory = LabelWithTxtViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate!)
+    
+    
+    
+    
+    init(questionsWidthProvider: QuestionsAnswersTableWidthCalculating, bag: DisposeBag, delegate: UITextViewDelegate?) {
+        self.questionsWidthProvider = questionsWidthProvider
         self.bag = bag
         self.delegate = delegate
     }
@@ -39,7 +90,7 @@ class ViewStackerFactory {
         let surveyQuestion = questions.first!
         
         let height = tableRowHeightCalculator.getOneRowHeight(componentType: surveyQuestion.question.type)
-        let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: viewFactory.allowableWidth,
+        let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: questionsWidthProvider.getWidth(),
                                                                      height: height))
         var finalView: UIView!
         var btnViews: [UIView]
@@ -47,9 +98,10 @@ class ViewStackerFactory {
         switch surveyQuestion.question.type {
         
         case .textField:
-            let res = self.getLabelAndTextField(question: surveyQuestion.question,
-                                                answer: surveyQuestion.answer,
-                                                frame: fr)
+
+            let res = labelWithTxtFieldFactory.getLabelAndTextField(question: surveyQuestion.question,
+                                                                    answer: surveyQuestion.answer,
+                                                                    frame: fr)
             let stackerView = res.0; btnViews = res.1
             
             let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
@@ -66,17 +118,16 @@ class ViewStackerFactory {
             
         case .textArea:
 
-            let res = self.getLabelAndTextView(question: surveyQuestion.question,
-                                               answer: surveyQuestion.answer,
-                                               frame: fr)
+            let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
+                                                                  answer: surveyQuestion.answer,
+                                                                  frame: fr)
+            
             let stackerView = res.0; btnViews = res.1
 
             textAreaViewModelBinder.hookUp(view: stackerView,
                                            labelAndTextView: btnViews.first as! LabelAndTextView,
                                            viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                            bag: bag)
-
-            //(btnViews.first as! LabelAndTextView).textView.delegate = delegate
             
             let resized = CGRect.init(origin: stackerView.frame.origin,
                                       size: CGSize.init(width: stackerView.bounds.width,
@@ -86,9 +137,10 @@ class ViewStackerFactory {
             finalView = stackerView
             
         case .dropdown:
-            let res = self.getLabelAndTextView(question: surveyQuestion.question,
-                                               answer: surveyQuestion.answer,
-                                               frame: fr)
+
+            let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
+                                                                  answer: surveyQuestion.answer,
+                                                                  frame: fr)
             let stackerView = res.0; btnViews = res.1
             
             txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
@@ -103,10 +155,10 @@ class ViewStackerFactory {
             finalView = stackerView
             
         case .radioBtn:
-            
-            let res = self.getRadioBtnsView(question: surveyQuestion.question,
-                                            answer: surveyQuestion.answer,
-                                            frame: fr)
+
+            let res = radioBtnsViewFactory.getRadioBtnsView(question: surveyQuestion.question,
+                                                            answer: surveyQuestion.answer,
+                                                            frame: fr)
             
             finalView = res.0; btnViews = res.1
             
@@ -116,9 +168,10 @@ class ViewStackerFactory {
                                             bag: bag)
             
         case .checkbox:
-            let res = self.getCheckboxBtnsView(question: surveyQuestion.question,
-                                               answer: surveyQuestion.answer,
-                                               frame: fr)
+
+            let res = checkboxBtnsViewFactory.getCheckboxBtnsView(question: surveyQuestion.question,
+                                                                  answer: surveyQuestion.answer,
+                                                                  frame: fr)
             finalView = res.0; btnViews = res.1
             
             checkboxBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
@@ -127,7 +180,9 @@ class ViewStackerFactory {
                                                bag: bag)
             
         case .radioBtnWithInput:
-            let res = self.getRadioBtnsWithInputView(question: surveyQuestion.question,
+//          done
+            let res = radioBtnsWithInputViewFactory
+                .getRadioBtnsWithInputView(question: surveyQuestion.question,
                                                      answer: surveyQuestion.answer,
                                                      frame: fr)
             finalView = res.0; btnViews = res.1
@@ -138,9 +193,12 @@ class ViewStackerFactory {
                                                      bag: bag)
             
         case .checkboxWithInput:
-            let res = self.getCheckboxBtnsWithInputView(question: surveyQuestion.question,
-                                                        answer: surveyQuestion.answer,
-                                                        frame: fr)
+
+            let res = checkboxBtnsWithInputViewFactory.getCheckboxBtnsWithInputView(
+                question: surveyQuestion.question,
+                answer: surveyQuestion.answer,
+                frame: fr)
+            
             finalView = res.0; btnViews = res.1
             
             checkboxBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
@@ -149,9 +207,10 @@ class ViewStackerFactory {
                                                         bag: bag)
             
         case .switchBtn:
-            let res = self.getSwitchBtnsView(question: surveyQuestion.question,
-                                             answer: surveyQuestion.answer,
-                                             frame: fr)
+
+            let res = switchBtnsViewFactory.getSwitchBtnsView(question: surveyQuestion.question,
+                                                              answer: surveyQuestion.answer,
+                                                              frame: fr)
             finalView = res.0; btnViews = res.1
             
             switchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
@@ -160,196 +219,20 @@ class ViewStackerFactory {
                                              bag: bag)
             
         case .termsSwitchBtn:
-            let res = self.getTermsSwitchBtnsView(question: surveyQuestion.question,
-                                                  answer: surveyQuestion.answer,
-                                                  frame: fr)
+
+            let res = termsSwitchBtnsViewFactory.getTermsSwitchBtnsView(question: surveyQuestion.question,
+                                                                        answer: surveyQuestion.answer,
+                                                                        frame: fr)
             finalView = res.0; btnViews = res.1
             
             termsSwitchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
                                                   btnViews: btnViews as! [TermsLabelBtnSwitchView],
                                                   viewmodel: viewmodel as! SwitchBtnsViewModel,
                                                   bag: bag)
-            
         }
         
         return finalView
         
-    }
-    
-    private func getRadioBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [RadioBtnView]) {
-        
-        let stackerView = viewFactory.getStackedRadioBtns(question: question, answer: answer, frame: frame)
-        
-        let btnViews = stackerView.components.flatMap { view -> [RadioBtnView] in
-            return (view as? OneRowStacker)?.components as? [RadioBtnView] ?? [ ]
-        }
-        
-        _ = btnViews.enumerated().map { $0.element.radioBtn.tag = $0.offset } // dodeli svakome unique TAG
-        
-        let finalView = self.questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
-        
-        return (finalView, btnViews)
-        
-    }
-    
-    private func getCheckboxBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [CheckboxView]) {
-    
-        let stackerView = viewFactory.getStackedCheckboxBtns(question: question, answer: answer, frame: frame)
-        
-        let btnViews = stackerView.components.flatMap { view -> [CheckboxView] in
-            return (view as? OneRowStacker)?.components as? [CheckboxView] ?? [ ]
-        }
-        
-        _ = btnViews.enumerated().map { $0.element.radioBtn.tag = $0.offset } // dodeli svakome unique TAG
-        
-        let finalView = self.questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
-        
-        return (finalView, btnViews)
-        
-    }
-    
-    private func getRadioBtnsWithInputView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
-        
-        let stackerView = viewFactory.getStackedRadioBtnsWithInput(question: question, answer: answer, frame: frame)
-        
-        let elements = stackerView.components.flatMap { view -> [UIView] in
-            return (view as? OneRowStacker)?.components ?? [ ]
-        }
-        
-        _ = elements.enumerated().map {
-            if $0.offset == elements.count - 1 {
-                $0.element.tag = $0.offset
-            } else if let btnView = $0.element as? RadioBtnView  {
-                btnView.radioBtn.tag = $0.offset
-            }
-        } // dodeli svakome unique TAG
-        
-        let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
-        
-        return (finalView, elements)
-        
-    }
-    
-    private func getCheckboxBtnsWithInputView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
-        
-        let stackerView = viewFactory.getStackedCheckboxBtnsWithInput(question: question, answer: answer, frame: frame)
-        
-        let elements = stackerView.components.flatMap { view -> [UIView] in
-            return (view as? OneRowStacker)?.components ?? [ ]
-        }
-        
-        _ = elements.enumerated().map {
-            if $0.offset == elements.count - 1 {
-                $0.element.tag = $0.offset
-            } else if let btnView = $0.element as? CheckboxView  {
-                btnView.radioBtn.tag = $0.offset
-            }
-        } // dodeli svakome unique TAG
-        
-        let finalView = questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
-        
-        return (finalView, elements)
-    }
-    
-    private func getSwitchBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
-        
-        let stackerView = viewFactory.getStackedSwitchBtns(question: question, answer: answer, frame: frame)
-        
-        let btnViews = stackerView.components.flatMap { view -> [LabelBtnSwitchView] in
-            return (view as? OneRowStacker)?.components as? [LabelBtnSwitchView] ?? [ ]
-        }
-        
-        _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
-        
-        let finalView = (question.headlineText == "") ? stackerView : questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView).subviews.last as! ViewStacker
-        
-        return (finalView, btnViews)
-    }
-    
-    private func getTermsSwitchBtnsView(question: PresentQuestion,
-                                        answer: Answering?,
-                                        frame: CGRect) -> (UIView, [UIView]) {
-        
-        let stackerView = viewFactory.getTermsSwitchBtn(question: question, answer: answer, frame: frame)
-        
-        let btnViews = stackerView.components.flatMap { view -> [TermsLabelBtnSwitchView] in
-            return (view as? OneRowStacker)?.components as? [TermsLabelBtnSwitchView] ?? [ ]
-        }
-        
-        _ = btnViews.enumerated().map { $0.element.switcher.tag = $0.offset } // dodeli svakome unique TAG
-        
-        let finalView = question.headlineText != "" ? questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView).subviews.last as! ViewStacker : stackerView
-        
-        return (finalView, btnViews)
-    }
-    
-    private func getLabelAndTextField(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndTextField]) {
-        
-        //let stackerView = viewFactory.getStackedLblAndTextField(questionWithAnswers: question, frame: frame)
-        let stackerView = viewFactory.getStackedLblAndTextField(questionWithAnswers: [(question, answer)], frame: frame)
-        
-        let views = stackerView.components.flatMap { view -> [LabelAndTextField] in
-            return (view as? OneRowStacker)?.components as? [LabelAndTextField] ?? [ ]
-        }
-        
-        _ = views.enumerated().map { $0.element.textField.tag = $0.offset } // dodeli svakome unique TAG
-        
-        return (stackerView, views)
-        
-    }
-    
-    // refactor ovo, mora biti samo 1 !!!
-    private func getLabelAndTextView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndTextView]) {
-        
-        //let stackerView = viewFactory.getStackedLblAndTextView(question: question, answer: answer, frame: frame)
-        let stackerView = viewFactory.getStackedLblAndTextView(questionWithAnswers: [(question, answer)],
-                                                               frame: frame)
-        
-        let views = stackerView.components.flatMap { view -> [LabelAndTextView] in
-            return (view as? OneRowStacker)?.components as? [LabelAndTextView] ?? [ ]
-        }
-        
-        _ = views.enumerated().map { $0.element.textView.tag = question.id } // dodeli mu unique TAG kakav je questionId !!
-        
-        return (stackerView, views)
-        
-    }
-
-    private func questionViewWithHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UIView {
-        
-        return headlinedQuestionView(question: question, aboveStackerView: stackerView) // refactor u podfunc
-        
-    }
-    
-    private func headlinedQuestionView(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UIView {
-        
-        let titleLabel = getHeadlineLabel(question: question, aboveStackerView: stackerView)
-        
-        let finalView = UIView()
-        finalView.addSubview(titleLabel)
-        finalView.frame = CGRect.init(origin: stackerView.frame.origin, size: CGSize.init(width: stackerView.bounds.width, height: stackerView.bounds.height + titleLabel.bounds.height))
-        let stackerShifted = stackerView
-        stackerShifted.frame.origin.y += titleLabel.bounds.height
-        finalView.insertSubview(stackerShifted, at: 1)
-        
-        return finalView
-    }
-    
-    private func getHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UILabel {
-        let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
-                                                         size: CGSize.init(width: stackerView.bounds.width,
-                                                                           height: tableHeaderFooterCalculator.getHeaderHeight())))
-
-        titleLabel.numberOfLines = 0
-        titleLabel.text = "  " + question.headlineText
-        
-//        if question.headlineText == "" {
-//            titleLabel.frame = CGRect.init(origin: titleLabel.frame.origin,
-//                                           size: CGSize.init(width: titleLabel.bounds.width,
-//                                                             height: CGFloat(0)))
-//        }
-        
-        return titleLabel
     }
     
     @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {
@@ -357,16 +240,3 @@ class ViewStackerFactory {
     }
     
 }
-
-
-
-
-/*
- let selector = #selector(doneButtonAction)
- 
- @objc func doneButtonAction(_ barButtonItem: UIBarButtonItem) {
- self.view.endEditing(true)
- }
-*/
-
-
