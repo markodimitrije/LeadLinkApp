@@ -75,8 +75,6 @@ class ViewStackerFactory {
         delegate: delegate!)
     
     
-    
-    
     init(questionsWidthProvider: QuestionsAnswersTableWidthCalculating, bag: DisposeBag, delegate: UITextViewDelegate?) {
         self.questionsWidthProvider = questionsWidthProvider
         self.bag = bag
@@ -92,9 +90,6 @@ class ViewStackerFactory {
         let height = tableRowHeightCalculator.getOneRowHeight(componentType: surveyQuestion.question.type)
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: questionsWidthProvider.getWidth(),
                                                                      height: height))
-        var finalView: UIView!
-        var btnViews: [UIView]
-        
         switch surveyQuestion.question.type {
         
         case .textField:
@@ -107,100 +102,33 @@ class ViewStackerFactory {
             
         case .dropdown:
 
-            let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
-                                                                  answer: surveyQuestion.answer,
-                                                                  frame: fr)
-            let stackerView = res.0; btnViews = res.1
-            
-            txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
-                                                    labelAndTextView: btnViews.first as! LabelAndTextView,
-                                                    viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
-                                                    bag: bag)
-            
-            stackerView.resizeHeight(by: 20)
-            
-            (btnViews.first as! LabelAndTextView).textView.delegate = delegate
-            
-            finalView = stackerView
+            return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .radioBtn:
 
-            let res = radioBtnsViewFactory.getRadioBtnsView(question: surveyQuestion.question,
-                                                            answer: surveyQuestion.answer,
-                                                            frame: fr)
-            
-            finalView = res.0; btnViews = res.1
-            
-            radioBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                            btnViews: btnViews as! [RadioBtnView],
-                                            viewmodel: viewmodel as! RadioViewModel,
-                                            bag: bag)
+            return makeFinalViewForRadio(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .checkbox:
 
-            let res = checkboxBtnsViewFactory.getCheckboxBtnsView(question: surveyQuestion.question,
-                                                                  answer: surveyQuestion.answer,
-                                                                  frame: fr)
-            finalView = res.0; btnViews = res.1
-            
-            checkboxBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                               btnViews: btnViews as! [CheckboxView],
-                                               viewmodel: viewmodel as! CheckboxViewModel,
-                                               bag: bag)
+            return makeFinalViewForCheckbox(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .radioBtnWithInput:
 
-            let res = radioBtnsWithInputViewFactory
-                .getRadioBtnsWithInputView(question: surveyQuestion.question,
-                                                     answer: surveyQuestion.answer,
-                                                     frame: fr)
-            finalView = res.0; btnViews = res.1
-            
-            radioBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                                     btnViews: btnViews as! [RadioBtnView],
-                                                     viewmodel: viewmodel as! RadioWithInputViewModel,
-                                                     bag: bag)
+            return makeFinalViewForRadioWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .checkboxWithInput:
 
-            let res = checkboxBtnsWithInputViewFactory.getCheckboxBtnsWithInputView(
-                question: surveyQuestion.question,
-                answer: surveyQuestion.answer,
-                frame: fr)
-            
-            finalView = res.0; btnViews = res.1
-            
-            checkboxBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                                        btnViews: btnViews as! [CheckboxView],
-                                                        viewmodel: viewmodel as! CheckboxWithInputViewModel,
-                                                        bag: bag)
+            return makeFinalViewForCheckboxWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .switchBtn:
 
-            let res = switchBtnsViewFactory.getSwitchBtnsView(question: surveyQuestion.question,
-                                                              answer: surveyQuestion.answer,
-                                                              frame: fr)
-            finalView = res.0; btnViews = res.1
-            
-            switchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
-                                             btnViews: btnViews as! [LabelBtnSwitchView],
-                                             viewmodel: viewmodel as! SwitchBtnsViewModel,
-                                             bag: bag)
+            return makeFinalViewForSwitch(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .termsSwitchBtn:
 
-            let res = termsSwitchBtnsViewFactory.getTermsSwitchBtnsView(question: surveyQuestion.question,
-                                                                        answer: surveyQuestion.answer,
-                                                                        frame: fr)
-            finalView = res.0; btnViews = res.1
+            return makeFinalViewForTermsSwitch(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
-            termsSwitchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
-                                                  btnViews: btnViews as! [TermsLabelBtnSwitchView],
-                                                  viewmodel: viewmodel as! SwitchBtnsViewModel,
-                                                  bag: bag)
         }
-        
-        return finalView
         
     }
     
@@ -248,6 +176,129 @@ class ViewStackerFactory {
 
         return stackerView
     }
+    
+    private func makeFinalViewForDropdown(surveyQuestion: SurveyQuestion,
+                                          viewmodel: Questanable,
+                                          frame: CGRect) -> UIView {
+        
+        let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
+                                                              answer: surveyQuestion.answer,
+                                                              frame: frame)
+        let stackerView = res.0; let btnViews = res.1
+        
+        txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
+                                                labelAndTextView: btnViews.first!,
+                                                viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
+                                                bag: bag)
+        
+        stackerView.resizeHeight(by: 20)
+        
+        btnViews.first?.textView.delegate = delegate
+        
+        return stackerView
+    }
+    
+    private func makeFinalViewForRadio(surveyQuestion: SurveyQuestion,
+                                       viewmodel: Questanable,
+                                       frame: CGRect) -> UIView {
+        
+        let res = radioBtnsViewFactory.getRadioBtnsView(question: surveyQuestion.question,
+                                                        answer: surveyQuestion.answer,
+                                                        frame: frame)
+        let stackerView = res.0; let btnViews = res.1
+        
+        radioBtnsViewModelBinder.hookUp(view: stackerView.subviews.last as! ViewStacker,
+                                        btnViews: btnViews,
+                                        viewmodel: viewmodel as! RadioViewModel,
+                                        bag: bag)
+        return stackerView
+    }
+    
+    private func makeFinalViewForCheckbox(surveyQuestion: SurveyQuestion,
+                                  viewmodel: Questanable,
+                                  frame: CGRect) -> UIView  {
+        
+        let res = checkboxBtnsViewFactory.getCheckboxBtnsView(question: surveyQuestion.question,
+                                                              answer: surveyQuestion.answer,
+                                                              frame: frame)
+        let finalView = res.0; let btnViews = res.1
+        
+        checkboxBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+                                           btnViews: btnViews,
+                                           viewmodel: viewmodel as! CheckboxViewModel,
+                                           bag: bag)
+        return finalView
+    }
+    
+    private func makeFinalViewForRadioWithInput(surveyQuestion: SurveyQuestion,
+                                           viewmodel: Questanable,
+                                           frame: CGRect) -> UIView  {
+        
+        let res = radioBtnsWithInputViewFactory.getRadioBtnsWithInputView(question: surveyQuestion.question,
+                                                                          answer: surveyQuestion.answer,
+                                                                          frame: frame)
+        let finalView = res.0; let btnViews = res.1
+        
+        radioBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+                                                 btnViews: btnViews as! [RadioBtnView],
+                                                 viewmodel: viewmodel as! RadioWithInputViewModel,
+                                                 bag: bag)
+        
+        return finalView
+    }
+    
+    private func makeFinalViewForCheckboxWithInput(surveyQuestion: SurveyQuestion,
+                                           viewmodel: Questanable,
+                                           frame: CGRect) -> UIView  {
+        
+        let res = checkboxBtnsWithInputViewFactory.getCheckboxBtnsWithInputView(
+            question: surveyQuestion.question,
+            answer: surveyQuestion.answer,
+            frame: frame)
+        
+        let finalView = res.0; let btnViews = res.1
+        
+        checkboxBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
+                                                    btnViews: btnViews as! [CheckboxView],
+                                                    viewmodel: viewmodel as! CheckboxWithInputViewModel,
+                                                    bag: bag)
+        
+        return finalView
+    }
+    
+    private func makeFinalViewForSwitch(surveyQuestion: SurveyQuestion,
+                                viewmodel: Questanable,
+                                frame: CGRect) -> UIView  {
+        
+        let res = switchBtnsViewFactory.getSwitchBtnsView(question: surveyQuestion.question,
+                                                          answer: surveyQuestion.answer,
+                                                          frame: frame)
+        let finalView = res.0; let btnViews = res.1
+        
+        switchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
+                                         btnViews: btnViews as! [LabelBtnSwitchView],
+                                         viewmodel: viewmodel as! SwitchBtnsViewModel,
+                                         bag: bag)
+        return finalView
+    }
+    
+    private func makeFinalViewForTermsSwitch(surveyQuestion: SurveyQuestion,
+                                     viewmodel: Questanable,
+                                     frame: CGRect) -> UIView  {
+        
+        let res = termsSwitchBtnsViewFactory.getTermsSwitchBtnsView(question: surveyQuestion.question,
+                                                                    answer: surveyQuestion.answer,
+                                                                    frame: frame)
+        let finalView = res.0; let btnViews = res.1
+        
+        termsSwitchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
+                                              btnViews: btnViews as! [TermsLabelBtnSwitchView],
+                                              viewmodel: viewmodel as! SwitchBtnsViewModel,
+                                              bag: bag)
+        return finalView
+        
+    }
+    
     
     @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {
         labelAndTextView.textField.endEditing(true)
