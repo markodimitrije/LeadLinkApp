@@ -136,6 +136,8 @@ extension Reactive where Base: SwitchBtnsViewModel {
                                           questionType: question.type.rawValue,
                                           content: newContent,
                                           optionIds: indexes)
+            print("extension Reactive where Base: SwitchBtnsViewModel")
+            print("newAnswer = \(newAnswer)")
             viewmodel.answer = newAnswer
         })
     }

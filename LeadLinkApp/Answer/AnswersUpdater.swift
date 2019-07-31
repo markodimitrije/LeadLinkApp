@@ -38,15 +38,17 @@ class AnswersUpdater: AnswersUpdating {
                 answerIds = answers.map({$0.id})
             }
             
+            /*
             if answer.questionType == QuestionType.termsSwitchBtn.rawValue {
                 
                 updateMyAnswers(newAnswer: answer)
                 
-            } else if let content = answer.content.first, content != "" {
-                
+            //} else if let content = answer.content.first, content != "" {
+            } else {
                 updateMyAnswers(newAnswer: answer)
             }
-            
+            */
+            updateMyAnswers(newAnswer: answer)
         }
         
         _ = self.parentViewmodel.childViewmodels.compactMap { viewmodelDict in

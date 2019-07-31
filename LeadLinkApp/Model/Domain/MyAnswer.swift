@@ -61,8 +61,16 @@ struct MyAnswer: Answering {
     func toWebReportJson() -> [String: String] {
         var res = [String: String]()
         res["question_id"] = "\(self.questionId)"
-        res["content"] = self.content.first ?? "" // hard-coded (concatanate multiple) !
+        res["content"] = concatanateIfMultipleOptionsIn(content: content)//self.content.first ?? "" // hard-coded (concatanate multiple) !
         return res
+    }
+    
+    private func concatanateIfMultipleOptionsIn(content: [String]) -> String {
+        if content.count == 1 {
+            return content.first!
+        } else {
+            return content.joined(separator: ", ")
+        }
     }
     
 }

@@ -16,17 +16,11 @@ class ViewStackerFactory {
     private var bag: DisposeBag
     private var delegate: UITextViewDelegate?
     
-    lazy var questionViewFactory: MyQuestionViewFactory = MyQuestionViewFactory(
-        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
-        questionViewHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
-        bag: bag,
-        delegate: delegate)
-    
     private let radioBtnsViewModelBinder = StackViewToRadioBtnsViewModelBinder()
     private let radioBtnsWithInputViewModelBinder = StackViewToRadioBtnsWithInputViewModelBinder()
     private let checkboxBtnsViewModelBinder = StackViewToCheckboxBtnsViewModelBinder()
     private let checkboxBtnsWithInputViewModelBinder = StackViewToCheckboxBtnsWithInputViewModelBinder()
-    private let switchBtnsViewModelBinder = StackViewToSwitchBtnsViewModelBinder()
+    //private let switchBtnsViewModelBinder = StackViewToSwitchBtnsViewModelBinder()
     private let txtFieldToViewModelBinder = TextFieldToViewModelBinder()
     private let txtViewToDropdownViewModelBinder = TextViewToDropdownViewModelBinder()
     private let termsSwitchBtnsViewModelBinder = StackViewToTermsViewModelBinder()
@@ -122,6 +116,9 @@ class ViewStackerFactory {
 //            return makeFinalViewForCheckboxWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
         
+        case .switchBtn: // OK
+            
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
             
             
@@ -142,12 +139,6 @@ class ViewStackerFactory {
         case .dropdown:
 
             return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
-            
-        
-            
-        case .switchBtn:
-
-            return makeFinalViewForSwitch(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
         case .termsSwitchBtn:
 
@@ -251,21 +242,6 @@ class ViewStackerFactory {
                                                     viewmodel: viewmodel as! CheckboxWithInputViewModel,
                                                     bag: bag)
         
-        return finalView
-    }
-    
-    private func makeFinalViewForSwitch(surveyQuestion: SurveyQuestion,
-                                viewmodel: Questanable,
-                                frame: CGRect) -> UIView  {
-        
-        let res = switchBtnsViewFactory.getSwitchBtnsView(question: surveyQuestion.question,
-                                                          answer: surveyQuestion.answer,
-                                                          frame: frame)
-        let finalView = res.0; let btnViews = res.1
-        
-        switchBtnsViewModelBinder.hookUp(btnViews: btnViews as! [LabelBtnSwitchView],
-                                         viewmodel: viewmodel as! SwitchBtnsViewModel,
-                                         bag: bag)
         return finalView
     }
     

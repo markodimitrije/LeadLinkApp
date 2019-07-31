@@ -22,10 +22,6 @@ class AnswersReport: Object { // Realm Entity
         print("code = \(code)")
         return answers.map { $0.toWebReportJson() }
     }
-
-//    var payload: [[[String: String]]] {
-//        return [answers.map { $0.toWebReportJson() }]
-//    }
     
     init(surveyInfo: SurveyInfo, answers: [MyAnswer], date: Date? = nil, success: Bool) {
         self.answers = answers

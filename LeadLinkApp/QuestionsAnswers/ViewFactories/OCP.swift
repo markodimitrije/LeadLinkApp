@@ -82,7 +82,7 @@ class MyQuestionViewFactory: QuestionViewCreating {
             
             return ViewStackerForCheckboxWithInputQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
-        case .switchBtn:
+        case .switchBtn: // OK
             return ViewStackerForSwitchQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
         default: break
