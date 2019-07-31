@@ -59,7 +59,3 @@ enum QuestionType: String {
     case dropdown = "dropdown"// case textWithOptions = "textWithOptions"
     case termsSwitchBtn = "termsSwitchBtn"
 }
-
-protocol QuestionViewMaking: ViewStackerViewsToViewModelBinder {
-    init(questionViewFactory: QuestionViewFactory)
-}
