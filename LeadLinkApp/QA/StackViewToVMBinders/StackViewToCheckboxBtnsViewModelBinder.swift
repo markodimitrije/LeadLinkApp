@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class StackViewToCheckboxBtnsViewModelBinder: StackViewToViewModelBinder {
+class StackViewToCheckboxBtnsViewModelBinder: ViewStackerViewsToViewModelBinder {
     
-    func hookUp(view: ViewStacker, btnViews: [CheckboxView], viewmodel: CheckboxViewModel, bag: DisposeBag) {
+    func hookUp(btnViews: [CheckboxView], viewmodel: CheckboxViewModel, bag: DisposeBag, selector: Selector? = nil) {
         
         let inputCreator = CheckboxViewmodelInputCreator(viewmodel: viewmodel)
         

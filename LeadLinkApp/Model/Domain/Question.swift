@@ -60,4 +60,6 @@ enum QuestionType: String {
     case termsSwitchBtn = "termsSwitchBtn"
 }
 
-
+protocol QuestionViewMaking: ViewStackerViewsToViewModelBinder {
+    init(questionViewFactory: QuestionViewFactory)
+}

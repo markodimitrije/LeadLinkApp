@@ -29,7 +29,7 @@ class LabelWithTxtFieldFactory {
     
     func getLabelAndTextField(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndTextField]) {
 
-        let stackerView = self.getStackedLblAndTextField(questionWithAnswers: [(question, answer)], frame: frame)
+        let stackerView = self.viewStackerWithLblAndTextField(questionWithAnswers: [(question, answer)], frame: frame)
 
         let views = stackerView.components.flatMap { view -> [LabelAndTextField] in
             return (view as? OneRowStacker)?.components as? [LabelAndTextField] ?? [ ]
@@ -41,7 +41,7 @@ class LabelWithTxtFieldFactory {
 
     }
     
-    private func getStackedLblAndTextField(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
+    private func viewStackerWithLblAndTextField(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
         //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!
         return sameComponentsFactory.createStackWithSameComponents(ofType: LabelAndTextField.self,

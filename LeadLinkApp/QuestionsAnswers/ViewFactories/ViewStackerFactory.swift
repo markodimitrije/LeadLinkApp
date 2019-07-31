@@ -16,6 +16,12 @@ class ViewStackerFactory {
     private var bag: DisposeBag
     private var delegate: UITextViewDelegate?
     
+    lazy var questionViewFactory: MyQuestionViewFactory = MyQuestionViewFactory(
+        sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+        questionViewHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+        bag: bag,
+        delegate: delegate)
+    
     private let radioBtnsViewModelBinder = StackViewToRadioBtnsViewModelBinder()
     private let radioBtnsWithInputViewModelBinder = StackViewToRadioBtnsWithInputViewModelBinder()
     private let checkboxBtnsViewModelBinder = StackViewToCheckboxBtnsViewModelBinder()
@@ -83,6 +89,12 @@ class ViewStackerFactory {
     
     func drawStackView(questionsOfSameType questions: [SurveyQuestion], viewmodel: Questanable) -> UIView {
         
+        let questionViewFactory: MyQuestionViewFactory = MyQuestionViewFactory(
+            sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
+            questionViewHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
+            bag: bag,
+            delegate: delegate)
+        
         guard questions.count > 0 else {fatalError()}
 
         let surveyQuestion = questions.first!
@@ -110,7 +122,7 @@ class ViewStackerFactory {
             
         case .checkbox:
 
-            return makeFinalViewForCheckbox(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
         case .radioBtnWithInput:
 
@@ -144,8 +156,7 @@ class ViewStackerFactory {
         let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
         
         _ = btnViews.map { (btnView) -> () in
-            txtFieldToViewModelBinder.hookUp(view: stackerView,
-                                             labelAndTextView: btnView,
+            txtFieldToViewModelBinder.hookUp(labelAndTextView: btnView,
                                              viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                              bag: bag,
                                              selector: selector)
@@ -164,8 +175,7 @@ class ViewStackerFactory {
 
         let stackerView = res.0; let btnViews = res.1
 
-        textAreaViewModelBinder.hookUp(view: stackerView,
-                                       labelAndTextView: btnViews.first!,
+        textAreaViewModelBinder.hookUp(labelAndTextView: btnViews.first!,
                                        viewmodel: viewmodel as! LabelWithTextFieldViewModel,
                                        bag: bag)
 
@@ -186,8 +196,7 @@ class ViewStackerFactory {
                                                               frame: frame)
         let stackerView = res.0; let btnViews = res.1
         
-        txtViewToDropdownViewModelBinder.hookUp(view: stackerView,
-                                                labelAndTextView: btnViews.first!,
+        txtViewToDropdownViewModelBinder.hookUp(labelAndTextView: btnViews.first!,
                                                 viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
                                                 bag: bag)
         
@@ -207,27 +216,10 @@ class ViewStackerFactory {
                                                         frame: frame)
         let stackerView = res.0; let btnViews = res.1
         
-        radioBtnsViewModelBinder.hookUp(view: stackerView.subviews.last as! ViewStacker,
-                                        btnViews: btnViews,
+        radioBtnsViewModelBinder.hookUp(btnViews: btnViews,
                                         viewmodel: viewmodel as! RadioViewModel,
                                         bag: bag)
         return stackerView
-    }
-    
-    private func makeFinalViewForCheckbox(surveyQuestion: SurveyQuestion,
-                                  viewmodel: Questanable,
-                                  frame: CGRect) -> UIView  {
-        
-        let res = checkboxBtnsViewFactory.getCheckboxBtnsView(question: surveyQuestion.question,
-                                                              answer: surveyQuestion.answer,
-                                                              frame: frame)
-        let finalView = res.0; let btnViews = res.1
-        
-        checkboxBtnsViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                           btnViews: btnViews,
-                                           viewmodel: viewmodel as! CheckboxViewModel,
-                                           bag: bag)
-        return finalView
     }
     
     private func makeFinalViewForRadioWithInput(surveyQuestion: SurveyQuestion,
@@ -239,8 +231,7 @@ class ViewStackerFactory {
                                                                           frame: frame)
         let finalView = res.0; let btnViews = res.1
         
-        radioBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                                 btnViews: btnViews as! [RadioBtnView],
+        radioBtnsWithInputViewModelBinder.hookUp(btnViews: btnViews as! [RadioBtnView],
                                                  viewmodel: viewmodel as! RadioWithInputViewModel,
                                                  bag: bag)
         
@@ -258,8 +249,7 @@ class ViewStackerFactory {
         
         let finalView = res.0; let btnViews = res.1
         
-        checkboxBtnsWithInputViewModelBinder.hookUp(view: finalView.subviews.last as! ViewStacker,
-                                                    btnViews: btnViews as! [CheckboxView],
+        checkboxBtnsWithInputViewModelBinder.hookUp(btnViews: btnViews as! [CheckboxView],
                                                     viewmodel: viewmodel as! CheckboxWithInputViewModel,
                                                     bag: bag)
         
@@ -275,8 +265,7 @@ class ViewStackerFactory {
                                                           frame: frame)
         let finalView = res.0; let btnViews = res.1
         
-        switchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
-                                         btnViews: btnViews as! [LabelBtnSwitchView],
+        switchBtnsViewModelBinder.hookUp(btnViews: btnViews as! [LabelBtnSwitchView],
                                          viewmodel: viewmodel as! SwitchBtnsViewModel,
                                          bag: bag)
         return finalView
@@ -291,8 +280,7 @@ class ViewStackerFactory {
                                                                     frame: frame)
         let finalView = res.0; let btnViews = res.1
         
-        termsSwitchBtnsViewModelBinder.hookUp(view: finalView as! ViewStacker,
-                                              btnViews: btnViews as! [TermsLabelBtnSwitchView],
+        termsSwitchBtnsViewModelBinder.hookUp(btnViews: btnViews as! [TermsLabelBtnSwitchView],
                                               viewmodel: viewmodel as! SwitchBtnsViewModel,
                                               bag: bag)
         return finalView

@@ -13,14 +13,12 @@ import RxCocoa
 // your inputs is content: [String]
 class TextViewToDropdownViewModelBinder {
     
-    private var bag: DisposeBag!
-    private var view: ViewStacker!
     private var labelAndTextView: LabelAndTextView!
     private var viewmodel: SelectOptionTextFieldViewModel!
+    private var bag: DisposeBag!
     
-    func hookUp(view: ViewStacker, labelAndTextView: LabelAndTextView, viewmodel: SelectOptionTextFieldViewModel, bag: DisposeBag) {
+    func hookUp(labelAndTextView: LabelAndTextView, viewmodel: SelectOptionTextFieldViewModel, bag: DisposeBag) {
         
-        self.view = view
         self.labelAndTextView = labelAndTextView
         self.viewmodel = viewmodel
         self.bag = bag

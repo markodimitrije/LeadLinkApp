@@ -13,7 +13,6 @@ import RxCocoa
 // regular textField...
 class TextFieldToViewModelBinder {
     
-    private var view: ViewStacker!
     private var labelAndTextView: LabelAndTextField!
     private var viewmodel: LabelWithTextFieldViewModel!
     private var bag: DisposeBag!
@@ -23,9 +22,8 @@ class TextFieldToViewModelBinder {
     private var isEmailTxtField: Bool { return viewmodel.question.options.contains("email") }
     private var isPhoneTxtField: Bool { return viewmodel.question.options.contains("phone") }
     
-    func hookUp(view: ViewStacker, labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag, selector: Selector? = nil) {
+    func hookUp(labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag, selector: Selector? = nil) {
         
-        self.view = view
         self.labelAndTextView = labelAndTextView
         self.viewmodel = viewmodel
         self.bag = bag

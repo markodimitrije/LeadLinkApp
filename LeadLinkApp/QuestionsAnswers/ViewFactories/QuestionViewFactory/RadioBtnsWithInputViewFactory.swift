@@ -14,12 +14,12 @@ class RadioBtnsWithInputViewFactory {
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
     var bag: DisposeBag
-    var delegate: UITextViewDelegate
+    var delegate: UITextViewDelegate?
     
     init(sameComponentsFactory: SameComponentsFactory,
          questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory,
          bag: DisposeBag,
-         delegate: UITextViewDelegate) {
+         delegate: UITextViewDelegate?) {
         
         self.sameComponentsFactory = sameComponentsFactory
         self.questionViewWithHeadlineLabelFactory = questionViewWithHeadlineLabelFactory
@@ -29,7 +29,9 @@ class RadioBtnsWithInputViewFactory {
     
     func getRadioBtnsWithInputView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
         
-        let stackerView = self.getStackedRadioBtnsWithInput(question: question, answer: answer, frame: frame)
+        let stackerView = self.viewStackerWithRadioBtnsWithInput(question: question,
+                                                                 answer: answer,
+                                                                 frame: frame)
         
         let elements = stackerView.components.flatMap { view -> [UIView] in
             return (view as? OneRowStacker)?.components ?? [ ]
@@ -49,7 +51,7 @@ class RadioBtnsWithInputViewFactory {
         
     }
     
-    func getStackedRadioBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
+    private func viewStackerWithRadioBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
         //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         let stacker = sameComponentsFactory.createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!

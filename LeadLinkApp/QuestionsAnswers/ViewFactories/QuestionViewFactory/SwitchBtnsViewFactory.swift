@@ -29,7 +29,7 @@ class SwitchBtnsViewFactory {
     
     func getSwitchBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
         
-        let stackerView = self.getStackedSwitchBtns(question: question, answer: answer, frame: frame)
+        let stackerView = self.viewStackerWithSwitchBtns(question: question, answer: answer, frame: frame)
         
         let btnViews = stackerView.components.flatMap { view -> [LabelBtnSwitchView] in
             return (view as? OneRowStacker)?.components as? [LabelBtnSwitchView] ?? [ ]
@@ -42,7 +42,7 @@ class SwitchBtnsViewFactory {
         return (finalView, btnViews)
     }
     
-    func getStackedSwitchBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
+    private func viewStackerWithSwitchBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
         return sameComponentsFactory.createStackWithSameComponents(
             ofType: LabelBtnSwitchView.self,

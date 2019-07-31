@@ -10,8 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class StackViewToSwitchBtnsViewModelBinder: StackViewToViewModelBinder {
-    func hookUp(view: ViewStacker, btnViews: [LabelBtnSwitchView], viewmodel: SwitchBtnsViewModel, bag: DisposeBag) {
+class StackViewToSwitchBtnsViewModelBinder: ViewStackerViewsToViewModelBinder {
+    func hookUp(btnViews: [LabelBtnSwitchView], viewmodel: SwitchBtnsViewModel, bag: DisposeBag, selector: Selector? = nil) {
         
         let inputCreator = SwitchBtnsViewmodelInputCreator(viewmodel: viewmodel)
         

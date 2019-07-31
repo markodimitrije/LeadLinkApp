@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class StackViewToCheckboxBtnsWithInputViewModelBinder: StackViewToViewModelBinder {
+class StackViewToCheckboxBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelBinder {
     
-    func hookUp(view: ViewStacker, btnViews: [UIView], viewmodel: CheckboxWithInputViewModel, bag: DisposeBag) {
+    func hookUp(btnViews: [UIView], viewmodel: CheckboxWithInputViewModel, bag: DisposeBag, selector: Selector? = nil) {
         
         var allViews = btnViews
         guard let txtField = allViews.popLast() as? UITextField else {return}

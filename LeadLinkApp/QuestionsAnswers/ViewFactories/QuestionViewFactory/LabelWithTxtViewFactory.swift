@@ -29,8 +29,8 @@ class LabelWithTxtViewFactory {
     
     func getLabelAndTextView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndTextView]) {
         
-        let stackerView = self.getStackedLblAndTextView(questionWithAnswers: [(question, answer)],
-                                                        frame: frame)
+        let stackerView = self.viewStackerWithLblAndTextView(questionWithAnswers: [(question, answer)],
+                                                             frame: frame)
         
         let views = stackerView.components.flatMap { view -> [LabelAndTextView] in
             return (view as? OneRowStacker)?.components as? [LabelAndTextView] ?? [ ]
@@ -42,7 +42,7 @@ class LabelWithTxtViewFactory {
         
     }
     
-    private func getStackedLblAndTextView(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
+    private func viewStackerWithLblAndTextView(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
         //var contentHeight = CGFloat.init(80)
         var contentHeight = frame.height

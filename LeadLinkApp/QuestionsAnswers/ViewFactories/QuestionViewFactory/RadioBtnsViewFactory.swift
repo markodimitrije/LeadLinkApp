@@ -11,15 +11,15 @@ import RxSwift
 
 class RadioBtnsViewFactory {
     
-    var sameComponentsFactory: SameComponentsFactory
-    var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
-    var bag: DisposeBag
-    var delegate: UITextViewDelegate
+    private var sameComponentsFactory: SameComponentsFactory
+    private var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
+    private var bag: DisposeBag
+    private var delegate: UITextViewDelegate?
     
     init(sameComponentsFactory: SameComponentsFactory,
          questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory,
          bag: DisposeBag,
-         delegate: UITextViewDelegate) {
+         delegate: UITextViewDelegate?) {
         
         self.sameComponentsFactory = sameComponentsFactory
         self.questionViewWithHeadlineLabelFactory = questionViewWithHeadlineLabelFactory
@@ -29,7 +29,7 @@ class RadioBtnsViewFactory {
     
     func getRadioBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [RadioBtnView]) {
         
-        let stackerView = self.getStackedRadioBtns(question: question, answer: answer, frame: frame)
+        let stackerView = self.viewStackerWithRadioBtns(question: question, answer: answer, frame: frame)
         
         let btnViews = stackerView.components.flatMap { view -> [RadioBtnView] in
             return (view as? OneRowStacker)?.components as? [RadioBtnView] ?? [ ]
@@ -43,7 +43,7 @@ class RadioBtnsViewFactory {
         
     }
     
-    func getStackedRadioBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
+    private func viewStackerWithRadioBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
         //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         return sameComponentsFactory.createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!

@@ -14,12 +14,12 @@ class CheckboxBtnsWithInputViewFactory {
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
     var bag: DisposeBag
-    var delegate: UITextViewDelegate
+    var delegate: UITextViewDelegate?
     
     init(sameComponentsFactory: SameComponentsFactory,
          questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory,
          bag: DisposeBag,
-         delegate: UITextViewDelegate) {
+         delegate: UITextViewDelegate?) {
         
         self.sameComponentsFactory = sameComponentsFactory
         self.questionViewWithHeadlineLabelFactory = questionViewWithHeadlineLabelFactory
@@ -29,7 +29,7 @@ class CheckboxBtnsWithInputViewFactory {
     
     func getCheckboxBtnsWithInputView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
         
-        let stackerView = self.getStackedCheckboxBtnsWithInput(question: question, answer: answer, frame: frame)
+        let stackerView = self.viewStackerWithCheckboxBtnsWithInput(question: question, answer: answer, frame: frame)
         
         let elements = stackerView.components.flatMap { view -> [UIView] in
             return (view as? OneRowStacker)?.components ?? [ ]
@@ -48,7 +48,7 @@ class CheckboxBtnsWithInputViewFactory {
         return (finalView, elements)
     }
     
-    private func getStackedCheckboxBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
+    private func viewStackerWithCheckboxBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
         
         //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         let stacker = sameComponentsFactory.createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!

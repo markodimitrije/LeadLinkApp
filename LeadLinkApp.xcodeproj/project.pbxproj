@@ -62,6 +62,7 @@
 		7C3F970C22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
+		7C4276CB22F052A6000C24DF /* OCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4276CA22F052A6000C24DF /* OCP.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -341,6 +342,7 @@
 		7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableRowHeightCalculator.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
+		7C4276CA22F052A6000C24DF /* OCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCP.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -1232,6 +1234,7 @@
 				7C98A66E228961D400DA184E /* SameComponentsFactory.swift */,
 				7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */,
 				7CAB84CC22EF447800CE91AA /* QuestionViewFactory */,
+				7C4276CA22F052A6000C24DF /* OCP.swift */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -2076,6 +2079,7 @@
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
 				7CAB84BA22EF290500CE91AA /* RadioBtnsViewFactory.swift in Sources */,
+				7C4276CB22F052A6000C24DF /* OCP.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
 				7CAB84B822EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift in Sources */,

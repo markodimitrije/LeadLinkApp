@@ -23,8 +23,9 @@ protocol ViewModelType: Hashable {
     var code: String {get set}
 }
 
-protocol StackViewToViewModelBinder {
+protocol ViewStackerViewsToViewModelBinder {
     associatedtype ViewModel: ViewModelType
     associatedtype View: UIView
-    func hookUp(view: ViewStacker, btnViews: [View], viewmodel: ViewModel, bag: DisposeBag)
+    //func hookUp(view: ViewStacker, btnViews: [View], viewmodel: ViewModel, bag: DisposeBag)
+    func hookUp(btnViews: [View], viewmodel: ViewModel, bag: DisposeBag, selector: Selector?)
 }

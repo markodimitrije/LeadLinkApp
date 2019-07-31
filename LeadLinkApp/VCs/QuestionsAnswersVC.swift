@@ -17,9 +17,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private var questionsWidthProvider = QuestionsAnswersTableWidthCalculatorFactory().makeWidthCalculator()
     private var viewmodelFactory: ViewmodelFactory!
     
-    private lazy var viewStackerFactory = ViewStackerFactory.init(questionsWidthProvider: questionsWidthProvider,
-                                                                  bag: bag,
-                                                                  delegate: questionOptionsFromTextViewDelegate)
+    private lazy var viewStackerFactory = ViewStackerFactory.init(
+        questionsWidthProvider: questionsWidthProvider,
+        bag: bag,
+        delegate: questionOptionsFromTextViewDelegate
+    )
     
     @IBOutlet weak var tableView: UITableView!
     

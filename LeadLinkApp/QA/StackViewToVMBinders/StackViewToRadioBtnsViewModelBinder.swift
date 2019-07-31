@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class StackViewToRadioBtnsViewModelBinder: StackViewToViewModelBinder {
+class StackViewToRadioBtnsViewModelBinder: ViewStackerViewsToViewModelBinder {
     
-    func hookUp(view: ViewStacker, btnViews: [RadioBtnView], viewmodel: RadioViewModel, bag: DisposeBag) {
+    func hookUp(btnViews: [RadioBtnView], viewmodel: RadioViewModel, bag: DisposeBag, selector: Selector? = nil) {
         
         let inputCreator = RadioViewmodelInputCreator(viewmodel: viewmodel)
         
@@ -48,3 +48,5 @@ class StackViewToRadioBtnsViewModelBinder: StackViewToViewModelBinder {
         }).disposed(by: bag)
     }
 }
+
+

@@ -12,7 +12,7 @@ import RxCocoa
 
 class TextAreaViewModelBinder {
     
-    func hookUp(view: ViewStacker, labelAndTextView: LabelAndTextView, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag) {
+    func hookUp(labelAndTextView: LabelAndTextView, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag) {
         
         let inputCreator = LabelAndTextFieldFromModelInputCreator(viewmodel: viewmodel)
         let driver = inputCreator.createTxtDriver()
