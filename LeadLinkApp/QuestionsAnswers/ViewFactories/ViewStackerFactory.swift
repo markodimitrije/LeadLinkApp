@@ -103,7 +103,34 @@ class ViewStackerFactory {
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: questionsWidthProvider.getWidth(),
                                                                      height: height))
         switch surveyQuestion.question.type {
+            
+        case .radioBtn:
+            
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+            
+        case .checkbox:
+            
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+            
+        case .radioBtnWithInput:
+            
+//            return makeFinalViewForRadioWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+            
+        case .checkboxWithInput:
+            
+//            return makeFinalViewForCheckboxWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
         
+            
+            
+            
+            
+            
+            
+            
+            
+            
         case .textField:
 
             return makeFinalViewForTextField(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
@@ -116,21 +143,7 @@ class ViewStackerFactory {
 
             return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             
-        case .radioBtn:
-
-            return makeFinalViewForRadio(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
-            
-        case .checkbox:
-
-            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
-            
-        case .radioBtnWithInput:
-
-            return makeFinalViewForRadioWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
-            
-        case .checkboxWithInput:
-
-            return makeFinalViewForCheckboxWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+        
             
         case .switchBtn:
 
@@ -204,21 +217,6 @@ class ViewStackerFactory {
         
         btnViews.first?.textView.delegate = delegate
         
-        return stackerView
-    }
-    
-    private func makeFinalViewForRadio(surveyQuestion: SurveyQuestion,
-                                       viewmodel: Questanable,
-                                       frame: CGRect) -> UIView {
-        
-        let res = radioBtnsViewFactory.getRadioBtnsView(question: surveyQuestion.question,
-                                                        answer: surveyQuestion.answer,
-                                                        frame: frame)
-        let stackerView = res.0; let btnViews = res.1
-        
-        radioBtnsViewModelBinder.hookUp(btnViews: btnViews,
-                                        viewmodel: viewmodel as! RadioViewModel,
-                                        bag: bag)
         return stackerView
     }
     

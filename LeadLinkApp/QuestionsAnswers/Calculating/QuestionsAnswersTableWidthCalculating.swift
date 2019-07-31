@@ -15,7 +15,7 @@ protocol QuestionsAnswersTableWidthCalculating {
 class IphoneQuestionsAnswersTableWidthCalculator: QuestionsAnswersTableWidthCalculating {
     
     func getWidth() -> CGFloat {
-        return UIScreen.main.bounds.width * 0.6
+        return UIScreen.main.bounds.width
     }
     
 }
@@ -23,7 +23,7 @@ class IphoneQuestionsAnswersTableWidthCalculator: QuestionsAnswersTableWidthCalc
 class IpadQuestionsAnswersTableWidthCalculator: QuestionsAnswersTableWidthCalculating {
     
     func getWidth() -> CGFloat {
-        return UIScreen.main.bounds.width
+        return UIScreen.main.bounds.width * 0.6
     }
     
 }

@@ -65,27 +65,24 @@ class MyQuestionViewFactory: QuestionViewCreating {
         switch questionType {
         case .radioBtn:
 
-            return ViewStackerForRadioQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame).resultView
+            return ViewStackerForRadioQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
 
         case .radioBtnWithInput:
             
-            return viewStackerForRadioWithInputQuestion(question: question,
-                                                        answer: answer,
-                                                        frame: frame)
+//            return viewStackerForRadioWithInputQuestion(question: question,
+//                                                        answer: answer,
+//                                                        frame: frame)
+            return ViewStackerForRadioWithInputQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
         case .checkbox:
             
             return ViewStackerForCheckboxQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
-            //return viewStackerForCheckboxQuestion(question: question,
-//                                                  answer: answer,
-//                                                  frame: frame)
-            
         case .checkboxWithInput:
             
-            return viewStackerForCheckboxWithInputQuestion(question: question,
-                                                           answer: answer,
-                                                           frame: frame)
+            return ViewStackerForCheckboxWithInputQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
+            
         default: break
         }
         return nil
@@ -118,31 +115,6 @@ class MyQuestionViewFactory: QuestionViewCreating {
         
     }
     
-    private func viewStackerForCheckboxQuestion(question: PresentQuestion,
-                                                answer: Answering?,
-                                                frame: CGRect) -> UIView {
-        
-        let checkboxFactory = CheckboxBtnsViewFactory.init(sameComponentsFactory: sameComponentsFactory, questionViewWithHeadlineLabelFactory: questionViewWithHeadlineLabelFactory, bag: bag, delegate: delegate)
-        let result: (UIView, [CheckboxView]) = checkboxFactory.getCheckboxBtnsView(question: question, answer: answer, frame: frame)
-        let binder = StackViewToCheckboxBtnsViewModelBinder.init()
-        let vm = CheckboxViewModel(question: question, answer: answer as? MyAnswer, code: "bak") // hard-coded
-        binder.hookUp(btnViews: result.1, viewmodel: vm, bag: bag)
-        return result.0
-        
-    }
-    
-    private func viewStackerForCheckboxWithInputQuestion(question: PresentQuestion,
-                                                         answer: Answering?,
-                                                         frame: CGRect) -> UIView {
-        
-        let checkboxFactory = CheckboxBtnsWithInputViewFactory.init(sameComponentsFactory: sameComponentsFactory, questionViewWithHeadlineLabelFactory: questionViewWithHeadlineLabelFactory, bag: bag, delegate: delegate)
-        let result: (UIView, [UIView]) = checkboxFactory.getCheckboxBtnsWithInputView(question: question, answer: answer, frame: frame)
-        let binder = StackViewToCheckboxBtnsWithInputViewModelBinder.init()
-        let vm = CheckboxWithInputViewModel(question: question, answer: answer as? MyAnswer, code: "123") // hard-coded
-        binder.hookUp(btnViews: result.1, viewmodel: vm, bag: bag)
-        return result.0
-        
-    }
 }
 
 protocol QuestionViewProviding {
@@ -154,7 +126,7 @@ class ViewStackerForRadioQuestion: QuestionViewProviding {
     private var helperFactories: HelperFactories
     var resultView: UIView
     
-    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect) {
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
     
         self.helperFactories = helperFactories
         
@@ -165,11 +137,17 @@ class ViewStackerForRadioQuestion: QuestionViewProviding {
             delegate: helperFactories.delegate)
         
         let result: (UIView, [RadioBtnView]) = radioFactory.getRadioBtnsView(question: question, answer: answer, frame: frame)
+        
         let binder = StackViewToRadioBtnsViewModelBinder.init()
-        let vm = RadioViewModel(question: question, answer: answer as? MyAnswer, code: "bak") // hard-coded
-        binder.hookUp(btnViews: result.1, viewmodel: vm, bag: helperFactories.bag)
+        binder.hookUp(btnViews: result.1,
+                      viewmodel: viewmodel as! RadioViewModel,
+                      bag: helperFactories.bag)
         
         self.resultView = result.0
+        
+        
+        
+        
     }
 }
 
@@ -197,16 +175,91 @@ class ViewStackerForCheckboxQuestion: QuestionViewProviding {
         
         self.resultView = result.0
         
+    }
+}
+
+
+
+
+
+
+
+
+
+class ViewStackerForRadioWithInputQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
         
+        self.helperFactories = helperFactories
         
+        let factory = RadioBtnsWithInputViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
         
+//        let result: (UIView, [UIView]) = factory.getRadioBtnsWithInputView(question: question, answer: answer, frame: frame)
+        let result: (UIView, [UIView]) = factory.getRadioBtnsWithInputView(question: question, answer: answer, frame: frame)
         
+        let binder = StackViewToRadioBtnsWithInputViewModelBinder.init()
+        binder.hookUp(btnViews: result.1 as! [RadioBtnView],
+                      viewmodel: viewmodel as! RadioWithInputViewModel,
+                      bag: self.helperFactories.bag)
         
+        self.resultView = result.0
         
+    }
+    
+}
+
+
+
+
+
+
+class ViewStackerForCheckboxWithInputQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
         
+        self.helperFactories = helperFactories
+        
+        let factory = CheckboxBtnsWithInputViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (UIView, [UIView]) = factory.getCheckboxBtnsWithInputView(question: question, answer: answer, frame: frame)
+        let binder = StackViewToCheckboxBtnsWithInputViewModelBinder.init()
+        
+        binder.hookUp(btnViews: result.1,
+                      viewmodel: viewmodel as! CheckboxWithInputViewModel,
+                      bag: helperFactories.bag)
+        
+        self.resultView = result.0
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class HelperFactories {
     var sameComponentsFactory: SameComponentsFactory
