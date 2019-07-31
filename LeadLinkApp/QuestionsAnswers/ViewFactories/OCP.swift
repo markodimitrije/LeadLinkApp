@@ -97,10 +97,12 @@ class MyQuestionViewFactory: QuestionViewCreating {
             
             return ViewStackerForDropdownQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
+        case .termsSwitchBtn:
             
-        default: break
+            return ViewStackerForTermsSwitchQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
         }
-        return nil
+        
     }
     
     private func viewStackerForRadioQuestion(question: PresentQuestion,
@@ -396,29 +398,35 @@ class ViewStackerForDropdownQuestion: QuestionViewProviding {
         
     }
     
-//    private func makeFinalViewForDropdown(surveyQuestion: SurveyQuestion,
-//                                          viewmodel: Questanable,
-//                                          frame: CGRect) -> UIView {
-//
-//        let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
-//                                                              answer: surveyQuestion.answer,
-//                                                              frame: frame)
-//        let stackerView = res.0; let btnViews = res.1
-//
-//        txtViewToDropdownViewModelBinder.hookUp(labelAndTextView: btnViews.first!,
-//                                                viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
-//                                                bag: bag)
-//
-//        stackerView.resizeHeight(by: 20)
-//
-//        btnViews.first?.textView.delegate = delegate
-//
-//        return stackerView
-//    }
-    
 }
 
-
+class ViewStackerForTermsSwitchQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+        
+        self.helperFactories = helperFactories
+        
+        let factory = TermsSwitchBtnsViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (UIView, [UIView]) = factory.getTermsSwitchBtnsView(question: question, answer: answer, frame: frame)
+        let binder = StackViewToTermsViewModelBinder.init()
+        
+        binder.hookUp(btnViews: result.1 as! [TermsLabelBtnSwitchView],
+                      viewmodel: viewmodel as! SwitchBtnsViewModel,
+                      bag: helperFactories.bag)
+        
+        self.resultView = result.0
+        
+    }
+    
+}
 
 
 

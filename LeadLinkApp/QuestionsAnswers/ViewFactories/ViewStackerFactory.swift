@@ -106,7 +106,7 @@ class ViewStackerFactory {
             
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-        case .radioBtnWithInput:
+        case .radioBtnWithInput: // ERROR, BUG...
             
 //            return makeFinalViewForRadioWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
@@ -123,25 +123,18 @@ class ViewStackerFactory {
 
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-            
-            
-        case .textArea:
+        case .textArea: // OK
 
-            //return makeFinalViewForTextArea(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
-            
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-            
-            
-            
-        case .dropdown:
+        case .dropdown: // OK
 
-            //return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
         case .termsSwitchBtn:
 
-            return makeFinalViewForTermsSwitch(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            //return makeFinalViewForTermsSwitch(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
         }
         
@@ -166,26 +159,6 @@ class ViewStackerFactory {
                                                     height: frame.height))
         stackerView.frame = resized
 
-        return stackerView
-    }
-    
-    private func makeFinalViewForDropdown(surveyQuestion: SurveyQuestion,
-                                          viewmodel: Questanable,
-                                          frame: CGRect) -> UIView {
-        
-        let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
-                                                              answer: surveyQuestion.answer,
-                                                              frame: frame)
-        let stackerView = res.0; let btnViews = res.1
-        
-        txtViewToDropdownViewModelBinder.hookUp(labelAndTextView: btnViews.first!,
-                                                viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
-                                                bag: bag)
-        
-        stackerView.resizeHeight(by: 20)
-        
-        btnViews.first?.textView.delegate = delegate
-        
         return stackerView
     }
     
@@ -219,11 +192,6 @@ class ViewStackerFactory {
                                               bag: bag)
         return finalView
         
-    }
-    
-    
-    @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {
-        labelAndTextView.textField.endEditing(true)
     }
     
 }
