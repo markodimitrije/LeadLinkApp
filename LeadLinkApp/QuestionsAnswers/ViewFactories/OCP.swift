@@ -63,25 +63,27 @@ class MyQuestionViewFactory: QuestionViewCreating {
         let question = question.question
 
         switch questionType {
-        case .radioBtn:
+        case .radioBtn: // OK
 
             return ViewStackerForRadioQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
 
-        case .radioBtnWithInput:
+        case .radioBtnWithInput:  // ERROR !!! BUG
             
 //            return viewStackerForRadioWithInputQuestion(question: question,
 //                                                        answer: answer,
 //                                                        frame: frame)
             return ViewStackerForRadioWithInputQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
-        case .checkbox:
+        case .checkbox: // OK
             
             return ViewStackerForCheckboxQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
-        case .checkboxWithInput:
+        case .checkboxWithInput: // OK
             
             return ViewStackerForCheckboxWithInputQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
+        case .switchBtn:
+            return ViewStackerForSwitchQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
         default: break
         }
@@ -247,7 +249,32 @@ class ViewStackerForCheckboxWithInputQuestion: QuestionViewProviding {
     }
 }
 
-
+class ViewStackerForSwitchQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+        
+        self.helperFactories = helperFactories
+        
+        let factory = SwitchBtnsViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (UIView, [UIView]) = factory.getSwitchBtnsView(question: question, answer: answer, frame: frame)
+        let binder = StackViewToSwitchBtnsViewModelBinder.init()
+        
+        binder.hookUp(btnViews: result.1 as! [LabelBtnSwitchView],
+                      viewmodel: viewmodel as! SwitchBtnsViewModel,
+                      bag: helperFactories.bag)
+        
+        self.resultView = result.0
+        
+    }
+}
 
 
 
