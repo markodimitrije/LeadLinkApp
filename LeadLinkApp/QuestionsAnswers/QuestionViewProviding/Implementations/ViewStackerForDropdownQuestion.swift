@@ -33,7 +33,11 @@ class ViewStackerForDropdownQuestion: QuestionViewProviding {
         
         let stackerView = result.0
         
-        stackerView.resizeHeight(by: 20)
+        if (answer?.content.count ?? 0) < 10 {
+            stackerView.resizeHeight(by: 50)
+        }
+        
+        (result.1.first?.textView as! OptionsTextView).formatLayout(accordingToOptions: answer!.content)
         
         result.1.first?.textView.delegate = helperFactories.delegate
         

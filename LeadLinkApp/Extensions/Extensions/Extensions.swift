@@ -34,15 +34,15 @@ extension UIView {
         let new = CGRect.init(origin: actualFrame.origin, size: CGSize.init(width: actualFrame.width, height: actualFrame.height + amount))
         self.frame = new
     }
-    func resizeWidth(by amount: CGFloat) {
-        let actualFrame = self.frame
-        let new = CGRect.init(origin: actualFrame.origin, size: CGSize.init(width: actualFrame.width + amount, height: actualFrame.height))
-        self.frame = new
-    }
-    func resize(byWidth width: CGFloat, byHeight height: CGFloat) {
-        self.resizeWidth(by: width)
-        self.resizeHeight(by: height)
-    }
+//    func resizeWidth(by amount: CGFloat) {
+//        let actualFrame = self.frame
+//        let new = CGRect.init(origin: actualFrame.origin, size: CGSize.init(width: actualFrame.width + amount, height: actualFrame.height))
+//        self.frame = new
+//    }
+//    func resize(byWidth width: CGFloat, byHeight height: CGFloat) {
+//        self.resizeWidth(by: width)
+//        self.resizeHeight(by: height)
+//    }
 }
 
 extension Sequence where Iterator.Element: Hashable {
