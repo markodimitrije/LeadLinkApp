@@ -14,12 +14,12 @@ class LabelWithTxtFieldFactory {
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
     var bag: DisposeBag
-    var delegate: UITextViewDelegate
+    var delegate: UITextViewDelegate?
     
     init(sameComponentsFactory: SameComponentsFactory,
          questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory,
          bag: DisposeBag,
-         delegate: UITextViewDelegate) {
+         delegate: UITextViewDelegate?) {
         
         self.sameComponentsFactory = sameComponentsFactory
         self.questionViewWithHeadlineLabelFactory = questionViewWithHeadlineLabelFactory

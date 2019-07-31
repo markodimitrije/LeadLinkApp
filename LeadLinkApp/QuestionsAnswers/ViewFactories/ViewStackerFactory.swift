@@ -98,11 +98,11 @@ class ViewStackerFactory {
                                                                      height: height))
         switch surveyQuestion.question.type {
             
-        case .radioBtn:
+        case .radioBtn: // OK
             
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-        case .checkbox:
+        case .checkbox: // OK
             
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
@@ -111,34 +111,33 @@ class ViewStackerFactory {
 //            return makeFinalViewForRadioWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-        case .checkboxWithInput:
+        case .checkboxWithInput: // OK
             
-//            return makeFinalViewForCheckboxWithInput(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
         
         case .switchBtn: // OK
             
             return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
-            
-            
-            
-            
-            
-            
-            
-            
-        case .textField:
+        case .textField: // OK
 
-            return makeFinalViewForTextField(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+            
+            
             
         case .textArea:
 
-            return makeFinalViewForTextArea(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            //return makeFinalViewForTextArea(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+            
+            
+            
             
         case .dropdown:
 
-            return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            //return makeFinalViewForDropdown(surveyQuestion: surveyQuestion, viewmodel: viewmodel, frame: fr)
+            return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
             
         case .termsSwitchBtn:
 
@@ -146,27 +145,6 @@ class ViewStackerFactory {
             
         }
         
-    }
-    
-    private func makeFinalViewForTextField(surveyQuestion: SurveyQuestion,
-                                           viewmodel: Questanable,
-                                           frame: CGRect) -> UIView {
-        
-        let res = labelWithTxtFieldFactory.getLabelAndTextField(question: surveyQuestion.question,
-                                                                answer: surveyQuestion.answer,
-                                                                frame: frame)
-        let stackerView = res.0; let btnViews = res.1
-        
-        let selector = (surveyQuestion.question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
-        
-        _ = btnViews.map { (btnView) -> () in
-            txtFieldToViewModelBinder.hookUp(labelAndTextView: btnView,
-                                             viewmodel: viewmodel as! LabelWithTextFieldViewModel,
-                                             bag: bag,
-                                             selector: selector)
-        }
-        
-        return stackerView
     }
     
     private func makeFinalViewForTextArea(surveyQuestion: SurveyQuestion,
@@ -223,24 +201,6 @@ class ViewStackerFactory {
         radioBtnsWithInputViewModelBinder.hookUp(btnViews: btnViews as! [RadioBtnView],
                                                  viewmodel: viewmodel as! RadioWithInputViewModel,
                                                  bag: bag)
-        
-        return finalView
-    }
-    
-    private func makeFinalViewForCheckboxWithInput(surveyQuestion: SurveyQuestion,
-                                           viewmodel: Questanable,
-                                           frame: CGRect) -> UIView  {
-        
-        let res = checkboxBtnsWithInputViewFactory.getCheckboxBtnsWithInputView(
-            question: surveyQuestion.question,
-            answer: surveyQuestion.answer,
-            frame: frame)
-        
-        let finalView = res.0; let btnViews = res.1
-        
-        checkboxBtnsWithInputViewModelBinder.hookUp(btnViews: btnViews as! [CheckboxView],
-                                                    viewmodel: viewmodel as! CheckboxWithInputViewModel,
-                                                    bag: bag)
         
         return finalView
     }

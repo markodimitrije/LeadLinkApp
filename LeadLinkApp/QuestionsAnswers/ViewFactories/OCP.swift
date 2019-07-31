@@ -85,6 +85,19 @@ class MyQuestionViewFactory: QuestionViewCreating {
         case .switchBtn: // OK
             return ViewStackerForSwitchQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
+        case .textField: // OK
+            
+            return ViewStackerForTextFieldQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
+        case .textArea:
+            
+            return ViewStackerForTextAreaQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
+        case .dropdown:
+            
+            return ViewStackerForDropdownQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
+            
         default: break
         }
         return nil
@@ -275,6 +288,136 @@ class ViewStackerForSwitchQuestion: QuestionViewProviding {
         
     }
 }
+
+class ViewStackerForTextFieldQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+        
+        self.helperFactories = helperFactories
+        
+        let factory = LabelWithTxtFieldFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (ViewStacker, [LabelAndTextField]) = factory.getLabelAndTextField(question: question, answer: answer, frame: frame)
+        let binder = TextFieldToViewModelBinder.init()
+        
+        let selector = (question.options.first == "phone") ? #selector(doneButtonAction(_:)) : nil;
+        
+        binder.hookUp(labelAndTextView: result.1.first!,
+                      viewmodel: viewmodel as! LabelWithTextFieldViewModel,
+                      bag: helperFactories.bag,
+                      selector: selector)
+        
+        
+        
+        
+        
+        self.resultView = result.0
+        
+    }
+    
+    @objc func doneButtonAction(_ labelAndTextView: LabelAndTextField) {
+        labelAndTextView.textField.endEditing(true)
+    }
+   
+}
+
+
+class ViewStackerForTextAreaQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+        
+        self.helperFactories = helperFactories
+        
+        let factory = LabelWithTxtViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (ViewStacker, [LabelAndTextView]) = factory.getLabelAndTextView(question: question, answer: answer, frame: frame)
+        let binder = TextAreaViewModelBinder.init()
+        
+        binder.hookUp(labelAndTextView: result.1.first!,
+                      viewmodel: viewmodel as! LabelWithTextFieldViewModel,
+                      bag: helperFactories.bag)
+        
+        let stackerView = result.0
+        
+//        let resized = CGRect.init(origin: stackerView.frame.origin,
+//                                  size: CGSize.init(width: stackerView.bounds.width,
+//                                                    height: frame.height))
+//        stackerView.frame = resized
+        
+        self.resultView = stackerView
+        
+    }
+    
+}
+
+class ViewStackerForDropdownQuestion: QuestionViewProviding {
+    
+    private var helperFactories: HelperFactories
+    var resultView: UIView
+    
+    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+        
+        self.helperFactories = helperFactories
+        
+        let factory = LabelWithTxtViewFactory.init(
+            sameComponentsFactory: helperFactories.sameComponentsFactory,
+            questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
+            bag: helperFactories.bag,
+            delegate: helperFactories.delegate)
+        
+        let result: (ViewStacker, [LabelAndTextView]) = factory.getLabelAndTextView(question: question, answer: answer, frame: frame)
+        let binder = TextViewToDropdownViewModelBinder.init()
+        
+        binder.hookUp(labelAndTextView: result.1.first!,
+                      viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
+                      bag: helperFactories.bag)
+        
+        let stackerView = result.0
+        
+        stackerView.resizeHeight(by: 20)
+        
+        result.1.first?.textView.delegate = helperFactories.delegate
+        
+        self.resultView = stackerView
+        
+    }
+    
+//    private func makeFinalViewForDropdown(surveyQuestion: SurveyQuestion,
+//                                          viewmodel: Questanable,
+//                                          frame: CGRect) -> UIView {
+//
+//        let res = labelWithTxtViewFactory.getLabelAndTextView(question: surveyQuestion.question,
+//                                                              answer: surveyQuestion.answer,
+//                                                              frame: frame)
+//        let stackerView = res.0; let btnViews = res.1
+//
+//        txtViewToDropdownViewModelBinder.hookUp(labelAndTextView: btnViews.first!,
+//                                                viewmodel: viewmodel as! SelectOptionTextFieldViewModel,
+//                                                bag: bag)
+//
+//        stackerView.resizeHeight(by: 20)
+//
+//        btnViews.first?.textView.delegate = delegate
+//
+//        return stackerView
+//    }
+    
+}
+
 
 
 
