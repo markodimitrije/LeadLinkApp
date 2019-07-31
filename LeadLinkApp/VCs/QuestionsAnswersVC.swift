@@ -171,15 +171,17 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             first.question.order < second.question.order
         })
         
-        _ = orderedQuestions.map({ surveyQuestion -> Void in
+        _ = orderedQuestions.map { surveyQuestion -> Void in
             let questionId = surveyQuestion.question.id
             guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
-            let surveyQuestionStackerView = viewStackerFactory.drawStackView(questionsOfSameType: [surveyQuestion],
-                                                                             viewmodel: viewmodel)
-            webQuestionViews[questionId] = surveyQuestionStackerView
-            webQuestionIdsToViewSizes[questionId] = surveyQuestionStackerView.bounds.size
             
-        })
+            let questionView = viewStackerFactory.getStackerView(surveyQuestion: surveyQuestion,
+                                                                 viewmodel: viewmodel)
+            
+            webQuestionViews[questionId] = questionView
+            webQuestionIdsToViewSizes[questionId] = questionView.bounds.size
+            
+        }
         
     }
     
