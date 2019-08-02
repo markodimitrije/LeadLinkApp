@@ -50,32 +50,21 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     private func bindInputWithOutput() { print("AnswersReportsToWebState.bindInputWithOutput")
         
         report
+            .skipWhile {$0 == nil}
             .asObservable()
             .subscribe(onNext: { [weak self] report in
                 guard let sSelf = self, let report = report else {return}
 
-                delay(3.0, closure: {
-                    let obs = sSelf.reportImidiatelly(report: sSelf.report.value)
-                    obs
-                        .subscribe(onNext: { arg in
-                            let (report, success) = (arg.0, arg.1)
-                            sSelf.reportedToWeb(report: report, with: success)
-                        }, onError: { err in
-                            sSelf.reportedToWeb(report: report, with: false)
-                        }).disposed(by: sSelf.bag)
-                })
-                
-//                let obs = sSelf.reportImidiatelly(report: sSelf.report.value)
-//                obs
-//                    .subscribe(onNext: { arg in
-//                        let (report, success) = (arg.0, arg.1)
-//                        sSelf.reportedToWeb(report: report, with: success)
-//                    }, onError: { err in
-//                        sSelf.reportedToWeb(report: report, with: false)
-//                    }).disposed(by: sSelf.bag)
+            let obs = sSelf.reportImidiatelly(report: sSelf.report.value)
+            obs
+                .subscribe(onNext: { arg in
+                    let (report, success) = (arg.0, arg.1)
+                    sSelf.reportedToWeb(report: report, with: success)
+                }, onError: { err in
+                    sSelf.reportedToWeb(report: report, with: false)
+                }).disposed(by: sSelf.bag)
             })
             .disposed(by: bag)
-        
     }
     
     private func reportedToWeb(report: AnswersReport, with success: Bool) {
