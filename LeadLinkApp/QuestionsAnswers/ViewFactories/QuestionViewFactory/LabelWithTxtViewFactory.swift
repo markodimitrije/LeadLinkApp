@@ -44,7 +44,6 @@ class LabelWithTxtViewFactory {
     
     private func viewStackerWithLblAndTextView(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
-        //var contentHeight = CGFloat.init(80)
         var contentHeight = frame.height
         
         let contentCounts = questionWithAnswers.map {$0.1?.content.count ?? 0}

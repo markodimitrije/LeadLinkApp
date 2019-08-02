@@ -27,11 +27,9 @@ class RadioBtnsWithInputViewFactory {
         self.delegate = delegate
     }
     
-    func getRadioBtnsWithInputView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [UIView]) {
+    func getRadioBtnsWithInputView(surveyQuestion: SurveyQuestion) -> (UIView, [UIView]) {
         
-        let stackerView = self.viewStackerWithRadioBtnsWithInput(question: question,
-                                                                 answer: answer,
-                                                                 frame: frame)
+        let stackerView = self.viewStackerWithRadioBtnsWithInput(surveyQuestion: surveyQuestion)
         
         let elements = stackerView.components.flatMap { view -> [UIView] in
             return (view as? OneRowStacker)?.components ?? [ ]
@@ -45,14 +43,14 @@ class RadioBtnsWithInputViewFactory {
             }
         } // dodeli svakome unique TAG
         
-        let finalView = questionViewWithHeadlineLabelFactory.questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
+        let finalView = questionViewWithHeadlineLabelFactory.questionViewWithHeadlineLabel(question: surveyQuestion.question, aboveStackerView: stackerView)
         
         return (finalView, elements)
         
     }
     
-    private func viewStackerWithRadioBtnsWithInput(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
-        
+    private func viewStackerWithRadioBtnsWithInput(surveyQuestion: SurveyQuestion) -> ViewStacker {
+        let question = surveyQuestion.question
         //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         let stacker = sameComponentsFactory.createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         

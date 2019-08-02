@@ -14,7 +14,7 @@ class ViewStackerForRadioWithInputQuestion: QuestionViewProviding {
     private var helperFactories: HelperFactories
     var resultView: UIView
     
-    init(helperFactories: HelperFactories, question: PresentQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) {
+    init(helperFactories: HelperFactories, surveyQuestion: SurveyQuestion, viewmodel: Questanable) {
         
         self.helperFactories = helperFactories
         
@@ -24,7 +24,7 @@ class ViewStackerForRadioWithInputQuestion: QuestionViewProviding {
             bag: helperFactories.bag,
             delegate: helperFactories.delegate)
         
-        let result: (UIView, [UIView]) = factory.getRadioBtnsWithInputView(question: question, answer: answer, frame: frame)
+        let result: (UIView, [UIView]) = factory.getRadioBtnsWithInputView(surveyQuestion: surveyQuestion)
         
         let binder = StackViewToRadioBtnsWithInputViewModelBinder.init()
         binder.hookUp(btnViews: result.1 as! [RadioBtnView],

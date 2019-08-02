@@ -27,9 +27,9 @@ class RadioBtnsViewFactory {
         self.delegate = delegate
     }
     
-    func getRadioBtnsView(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (UIView, [RadioBtnView]) {
+    func getRadioBtnsView(surveyQuestion: SurveyQuestion) -> (UIView, [RadioBtnView]) {
         
-        let stackerView = self.viewStackerWithRadioBtns(question: question, answer: answer, frame: frame)
+        let stackerView = self.viewStackerWithRadioBtns(surveyQuestion: surveyQuestion)
         
         let btnViews = stackerView.components.flatMap { view -> [RadioBtnView] in
             return (view as? OneRowStacker)?.components as? [RadioBtnView] ?? [ ]
@@ -37,14 +37,14 @@ class RadioBtnsViewFactory {
         
         _ = btnViews.enumerated().map { $0.element.radioBtn.tag = $0.offset } // dodeli svakome unique TAG
         
-        let finalView = questionViewWithHeadlineLabelFactory.questionViewWithHeadlineLabel(question: question, aboveStackerView: stackerView)
+        let finalView = questionViewWithHeadlineLabelFactory.questionViewWithHeadlineLabel(question: surveyQuestion.question, aboveStackerView: stackerView)
         
         return (finalView, btnViews)
         
     }
     
-    private func viewStackerWithRadioBtns(question: PresentQuestion, answer: Answering?, frame: CGRect) -> ViewStacker {
-        
+    private func viewStackerWithRadioBtns(surveyQuestion: SurveyQuestion) -> ViewStacker {
+        let question: PresentQuestion = surveyQuestion.question
         //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         return sameComponentsFactory.createStackWithSameComponents(ofType: RadioBtnView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         

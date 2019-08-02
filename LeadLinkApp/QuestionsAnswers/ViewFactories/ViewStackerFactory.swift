@@ -34,7 +34,7 @@ class ViewStackerFactory {
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: questionsWidthProvider.getWidth(),
                                                                      height: height))
         
-        return questionViewFactory.makeViewStacker(question: surveyQuestion, answer: surveyQuestion.answer, frame: fr, viewmodel: viewmodel)!
+        return questionViewFactory.makeViewStacker(surveyQuestion: surveyQuestion, frame: fr, viewmodel: viewmodel)!
         
     }
     

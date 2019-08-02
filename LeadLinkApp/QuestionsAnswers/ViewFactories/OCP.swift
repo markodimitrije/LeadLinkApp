@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 protocol QuestionViewCreating {
-    func makeViewStacker(question: SurveyQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) -> UIView?
+    func makeViewStacker(surveyQuestion: SurveyQuestion, frame: CGRect, viewmodel: Questanable) -> UIView?
 }
 
 class MyQuestionViewFactory: QuestionViewCreating {
@@ -30,19 +30,21 @@ class MyQuestionViewFactory: QuestionViewCreating {
         helperFactories = HelperFactories(sameComponentsFactory: sameComponentsFactory, questionViewWithHeadlineLabelFactory: questionViewWithHeadlineLabelFactory, bag: bag, delegate: delegate)
         
     }
-    func makeViewStacker(question: SurveyQuestion, answer: Answering?, frame: CGRect, viewmodel: Questanable) -> UIView? {
+    func makeViewStacker(surveyQuestion: SurveyQuestion, frame: CGRect, viewmodel: Questanable) -> UIView? {
         
-        let questionType = question.question.type
-        let question = question.question
+        let questionType = surveyQuestion.question.type
+        let answer = surveyQuestion.answer
+        let question = surveyQuestion.question
+        
 
         switch questionType {
         case .radioBtn: // OK
 
-            return ViewStackerForRadioQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            return ViewStackerForRadioQuestion(helperFactories: helperFactories, surveyQuestion: surveyQuestion, viewmodel: viewmodel).resultView
 
         case .radioBtnWithInput:  // ERROR !!! BUG
             
-            return ViewStackerForRadioWithInputQuestion(helperFactories: helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            return ViewStackerForRadioWithInputQuestion(helperFactories: helperFactories, surveyQuestion: surveyQuestion, viewmodel: viewmodel).resultView
             
         case .checkbox: // OK
             
