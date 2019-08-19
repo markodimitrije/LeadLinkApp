@@ -51,31 +51,32 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
             configureQuestionForm()
+            if oldValue == nil {
+                subscribeListeningToSaveEvent()
+            }
         }
     }
     
     private func configureQuestionForm() { print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
-        self.hideKeyboardWhenTappedAround()
-        
         loadQuestions(surveyInfo: surveyInfo)
-        
         loadParentViewModel(questions: questions)
-        
         loadViewStackerAndComponentSizes()
         
-        listenToSaveEvent()
+        self.hideKeyboardWhenTappedAround()
+        self.setUpKeyboardBehavior()
+        
+        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+        tableView?.reloadData()
         
         self.tableView.dataSource = myDataSource
         self.tableView.delegate = myDelegate
-        
-        setUpKeyboardBehavior()
-        
-        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
-        
-        tableView?.reloadData()
     }
     
+    private func subscribeListeningToSaveEvent() {
+        self.listenToSaveEvent()
+    }
+
     private func fetchDelegateAndSaveToRealm(code: String) {
         
         let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo, codeToCheck: code)
