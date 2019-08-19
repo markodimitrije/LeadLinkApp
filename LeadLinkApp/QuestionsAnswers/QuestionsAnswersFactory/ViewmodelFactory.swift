@@ -13,11 +13,11 @@ class ViewmodelFactory {
     var code: String
     
     init(code: String) {
-        print("ViewmodelFactory.imam barcode = \(code)")
+        //print("ViewmodelFactory.imam barcode = \(code)")
         self.code = code
     }
     
-    func makeViewmodel(surveyQuestion: SurveyQuestion) -> Any {
+    func makeViewmodel(surveyQuestion: SurveyQuestion) -> Questanable {
         
         let question = surveyQuestion.question
         let answer = surveyQuestion.answer

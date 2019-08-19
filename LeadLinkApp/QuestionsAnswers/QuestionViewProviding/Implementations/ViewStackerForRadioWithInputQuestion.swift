@@ -27,6 +27,7 @@ class ViewStackerForRadioWithInputQuestion: QuestionViewProviding {
         let result: (UIView, [UIView]) = factory.getRadioBtnsWithInputView(surveyQuestion: surveyQuestion)
         
         let binder = StackViewToRadioBtnsWithInputViewModelBinder.init()
+        
         binder.hookUp(btnViews: result.1 as! [RadioBtnView],
                       viewmodel: viewmodel as! RadioWithInputViewModel,
                       bag: self.helperFactories.bag)

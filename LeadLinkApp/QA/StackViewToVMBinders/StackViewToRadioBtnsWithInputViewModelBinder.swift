@@ -99,23 +99,26 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
     private func updateAllUIControlsDueToRadioBtnSelection() {
         // drive UI
          output.id
-            .subscribe(onNext: { [weak self] val in
-                guard let sSelf = self else {return}
-                let active = sSelf.buttons.first(where: { $0.tag == val })
-                var inactive = sSelf.buttons
+            .subscribe(onNext: { /*[weak self]*/ val in
+                print("updateAllUIControlsDueToRadioBtnSelection.val = \(val)")
+//                guard let sSelf = self else {
+//                    return
+//                }
+                let active = self.buttons.first(where: { $0.tag == val })
+                var inactive = self.buttons
                 inactive.remove(at: val) // jer znam da su indexed redom..
                 _ = inactive.map {
-                    sSelf.radioBtnViews[$0.tag].isOn = false
+                    self.radioBtnViews[$0.tag].isOn = false
                 }
                 _ = active.map {
-                    if $0.tag < sSelf.radioBtnViews.count-1 {
-                        sSelf.txtField.text = ""
-                        sSelf.txtField.resignFirstResponder()
+                    if $0.tag < self.radioBtnViews.count-1 {
+                        self.txtField.text = ""
+                        self.txtField.resignFirstResponder()
                         
                     } else {
-                        sSelf.txtField.becomeFirstResponder()
+                        self.txtField.becomeFirstResponder()
                     }
-                    sSelf.radioBtnViews[$0.tag].isOn = true
+                    self.radioBtnViews[$0.tag].isOn = true
                 }
             }).disposed(by: bag)
     }

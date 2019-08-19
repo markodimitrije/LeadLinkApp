@@ -160,7 +160,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
         let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
-            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion) as? Questanable
+            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion)
         }
         parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
     }
