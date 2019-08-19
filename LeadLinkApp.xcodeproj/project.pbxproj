@@ -898,6 +898,7 @@
 		7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */ = {
 			isa = PBXGroup;
 			children = (
+				AD4F013E21D8F72600946CBA /* Viewmodel */,
 				7C44EFEC22F1C673002D3571 /* QuestionViewProviding */,
 				7CAB84BD22EF29F500CE91AA /* Calculating */,
 				7C98A66C228961D400DA184E /* QuestionsAnswersFactory */,
@@ -1408,7 +1409,6 @@
 			isa = PBXGroup;
 			children = (
 				7C98A6732289625200DA184E /* QAViewModels */,
-				7C754066229FC4E000FFF5B9 /* VC_ViewModels */,
 			);
 			path = Viewmodel;
 			sourceTree = "<group>";
@@ -1527,13 +1527,13 @@
 				7C98A6B022896AB200DA184E /* DataProvider */,
 				ADBECCE22237CB5500C846F8 /* VCs */,
 				ADAD040721E65EB7006463A2 /* Views */,
+				7C754066229FC4E000FFF5B9 /* VC_ViewModels */,
 				ADABCC4821E4A30D00B43427 /* APIController */,
 				AD1739D121DE1E6E00218BE5 /* Factory */,
 				AD1739CC21DE1B7700218BE5 /* UILayer */,
 				AD1739C221DD4D1A00218BE5 /* Extensions */,
 				AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */,
 				AD4F014121D8F7BF00946CBA /* DataLayer */,
-				AD4F013E21D8F72600946CBA /* Viewmodel */,
 				7C98A6B322896CE100DA184E /* QA */,
 				AD4F013921D8F61F00946CBA /* Model */,
 				ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */,

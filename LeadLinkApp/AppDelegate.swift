@@ -51,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        downloadCampaignsQuestionsAndLogos()
+    }
+    
     @objc func logoutBtnTapped() {
         
         guard let topController = UIApplication.topViewController() else { fatalError() }
@@ -86,6 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard confApiKeyState != nil else {return}
         
         let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository, downloadImageAPI: factory.downloadImageAPI)
+        
+        print("downloadCampaignsQuestionsAndLogos.calling getCampaignsFromWeb.... .... ....")
         
         campaignsViewmodel.getCampaignsFromWeb()
         
