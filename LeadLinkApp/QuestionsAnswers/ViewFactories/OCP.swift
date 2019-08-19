@@ -14,20 +14,22 @@ protocol QuestionViewCreating {
 }
 
 class MyQuestionViewFactory: QuestionViewCreating {
-    var sameComponentsFactory: SameComponentsFactory
-    var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
-    var bag: DisposeBag
-    var delegate: UITextViewDelegate?
+    
+    private var sameComponentsFactory: SameComponentsFactory
+    private var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
+    private var bag: DisposeBag
+    private var delegate: UITextViewDelegate?
     
     private var helperFactories: HelperFactories
     
     init(sameComponentsFactory: SameComponentsFactory, questionViewHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory, bag: DisposeBag, delegate: UITextViewDelegate?) {
+        
         self.sameComponentsFactory = sameComponentsFactory
         self.questionViewWithHeadlineLabelFactory = questionViewHeadlineLabelFactory
         self.bag = bag
         self.delegate = delegate
         
-        helperFactories = HelperFactories(sameComponentsFactory: sameComponentsFactory, questionViewWithHeadlineLabelFactory: questionViewWithHeadlineLabelFactory, bag: bag, delegate: delegate)
+        self.helperFactories = HelperFactories(sameComponentsFactory: sameComponentsFactory, questionViewWithHeadlineLabelFactory: questionViewWithHeadlineLabelFactory, bag: bag, delegate: delegate)
         
     }
     func makeViewStacker(surveyQuestion: SurveyQuestion, frame: CGRect, viewmodel: Questanable) -> UIView? {
@@ -35,7 +37,6 @@ class MyQuestionViewFactory: QuestionViewCreating {
         let questionType = surveyQuestion.question.type
         let answer = surveyQuestion.answer
         let question = surveyQuestion.question
-        
 
         switch questionType {
         case .radioBtn: // OK
