@@ -55,7 +55,7 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
 
         userIsTypingManageRadioBtnSelection()
 
-        updateAnswerInViewModels()
+        updateAnswerInViewModel()
     }
     
     private func userIsTypingManageRadioBtnSelection() {
@@ -100,10 +100,7 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
         // drive UI
          output.id
             .subscribe(onNext: { /*[weak self]*/ val in
-                print("updateAllUIControlsDueToRadioBtnSelection.val = \(val)")
-//                guard let sSelf = self else {
-//                    return
-//                }
+
                 let active = self.buttons.first(where: { $0.tag == val })
                 var inactive = self.buttons
                 inactive.remove(at: val) // jer znam da su indexed redom..
@@ -134,7 +131,7 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
         }
     }
 
-    private func updateAnswerInViewModels() { // bind to viewmodel, to update MODEL
+    private func updateAnswerInViewModel() { // bind to viewmodel, to update MODEL
         
         output.id
             .bind(to: viewmodel.rx.optionSelected)
