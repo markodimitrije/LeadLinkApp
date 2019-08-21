@@ -12,7 +12,7 @@ import RxCocoa
 import Realm
 import RealmSwift
 
-class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {//}, RadioBtnListener {
+class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {
     
     private var questionsWidthProvider = QuestionsAnswersTableWidthCalculatorFactory().makeWidthCalculator()
     private var viewmodelFactory: ViewmodelFactory!
@@ -25,27 +25,24 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var tableView: UITableView!
     
-    var questions = [SurveyQuestion]()
+    private var questions = [SurveyQuestion]()
+    private var parentViewmodel: ParentViewModel!
     
-    var parentViewmodel: ParentViewModel!
-    var webQuestionViews = [Int: UIView]()
-    var webQuestionIdsToViewSizes = [Int: CGSize]()
-    
+    var webViewsAndViewSizesProvider: WebViewsAndViewSizesProvider!
     let localComponents = LocalComponents()
     
     var bag = DisposeBag()
     
     private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
 
-    lazy private var myDataSource = QuestionsAnswersDataSource.init(viewController: self)
-    lazy private var myDelegate = QuestionsAnswersDelegate.init(viewController: self)
-    lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self)
+    private var myDataSource: QuestionsAnswersDataSource!
+    private var myDelegate: QuestionsAnswersDelegate!
     
+    lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self, parentViewmodel: parentViewmodel)
     private var keyboardDelegate: MovingKeyboardDelegate?
     
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
                                                                            parentViewmodel: parentViewmodel)
-    
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
@@ -59,9 +56,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func configureQuestionForm() { print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         
-        loadQuestions(surveyInfo: surveyInfo)
+        questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
         loadParentViewModel(questions: questions)
-        loadViewStackerAndComponentSizes()
+        
+        webViewsAndViewSizesProvider = WebViewsAndViewSizesProvider(questions: questions,
+                                                                    viewmodels: parentViewmodel.childViewmodels,
+                                                                    viewStackerFactory: viewStackerFactory)
         
         self.hideKeyboardWhenTappedAround()
         self.setUpKeyboardBehavior()
@@ -69,8 +69,16 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         fetchDelegateAndSaveToRealm(code: surveyInfo.code)
         tableView?.reloadData()
         
-        self.tableView.dataSource = myDataSource
-        self.tableView.delegate = myDelegate
+        loadTableViewDataSourceAndDelegate()
+    }
+    
+    private func loadTableViewDataSourceAndDelegate() {
+        
+        myDataSource = QuestionsAnswersDataSource.init(viewController: self, questions: questions, webViewsAndViewSizesProvider: webViewsAndViewSizesProvider)
+        myDelegate = QuestionsAnswersDelegate.init(viewController: self, questions: questions, webViewsAndViewSizesProvider: webViewsAndViewSizesProvider)
+        
+        self.tableView?.dataSource = myDataSource
+        self.tableView?.delegate = myDelegate
     }
     
     private func subscribeListeningToSaveEvent() {
@@ -140,50 +148,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func loadQuestions(surveyInfo: SurveyInfo?) {
-        
-        guard let surveyInfo = surveyInfo else {return}
-        
-        let questions = surveyInfo.campaign.questions
-        let rAnswers = surveyInfo.answers.map { myAnswer -> RealmAnswer in
-            let rAnswer = RealmAnswer()
-            rAnswer.updateWith(answer: myAnswer)
-            return rAnswer
-        }
-        
-        self.questions = questions.map { question -> SurveyQuestion in
-            let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
-            return SurveyQuestion.init(question: question, realmAnswer: rAnswer)
-        }
-        
-    }
-    
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
         let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
             return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion)
         }
         parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
-    }
-    
-    private func loadViewStackerAndComponentSizes() {
-        
-        let orderedQuestions = questions.sorted(by: {first, second in
-            first.question.order < second.question.order
-        })
-        
-        _ = orderedQuestions.map { surveyQuestion -> Void in
-            let questionId = surveyQuestion.question.id
-            guard let viewmodel = parentViewmodel.childViewmodels[questionId] else {return}
-            
-            let questionView = viewStackerFactory.getStackerView(surveyQuestion: surveyQuestion,
-                                                                 viewmodel: viewmodel)
-            
-            webQuestionViews[questionId] = questionView
-            webQuestionIdsToViewSizes[questionId] = questionView.bounds.size
-            
-        }
-        
     }
     
     private func listenToSaveEvent() {
@@ -261,4 +231,3 @@ enum QuestionsAnswersSectionType: String {
     case noGroupAssociated = " "
     case localComponentsGroupName = "Privacy Policy"
 }
-

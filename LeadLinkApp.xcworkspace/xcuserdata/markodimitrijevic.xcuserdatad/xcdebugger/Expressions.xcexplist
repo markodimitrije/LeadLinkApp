@@ -52,6 +52,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "QuestionsAnswersVC.configureQuestionForm():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "webViewsAndViewSizesProvider">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ReportsTVC.update(report:):ReportsTVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -96,10 +104,10 @@
          contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
             </PersistentString>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -169,7 +177,7 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "chooseOptionsVC">
+               value = "doneBtn">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
@@ -178,13 +186,13 @@
                value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+            <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "count">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

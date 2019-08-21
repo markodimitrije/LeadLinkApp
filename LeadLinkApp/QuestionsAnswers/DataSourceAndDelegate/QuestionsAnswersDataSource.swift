@@ -11,16 +11,23 @@ import UIKit
 class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     
     private var viewController: QuestionsAnswersVC
+    private var questions: [SurveyQuestion]
+    private var webViewsAndViewSizesProvider: WebViewProviding
     
-    private var parentViewmodel: ParentViewModel {return viewController.parentViewmodel}
-    private var webQuestionViews: [Int: UIView] {return viewController.webQuestionViews}
-    private var webQuestionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
+    private var webQuestionViews: [Int: UIView] {
+        return webViewsAndViewSizesProvider.webQuestionViews
+    }
+    private var webQuestionIdsViewSizes: [Int: CGSize] {
+        return webViewsAndViewSizesProvider.webQuestionIdsToViewSizes
+    }
     private var localComponents: LocalComponents {return viewController.localComponents}
     
-    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: viewController.questions, localComponents: viewController.localComponents)
+    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     
-    init(viewController: QuestionsAnswersVC) {
+    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebViewProviding) {
         self.viewController = viewController
+        self.questions = questions
+        self.webViewsAndViewSizesProvider = webViewsAndViewSizesProvider
     }
     
     func numberOfSections(in tableView: UITableView) -> Int { // koliko imas different groups ?

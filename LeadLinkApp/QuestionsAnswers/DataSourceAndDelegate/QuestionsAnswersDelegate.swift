@@ -11,14 +11,20 @@ import UIKit
 class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelegate {
     
     private var viewController: QuestionsAnswersVC
+    private var questions: [SurveyQuestion]
+    private var webViewsAndViewSizesProvider: WebViewProviding
     
-    private var webQuestionIdsViewSizes: [Int: CGSize] {return viewController.webQuestionIdsToViewSizes}
+    private var webQuestionIdsViewSizes: [Int: CGSize] {
+        return self.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes
+    }
     private var localComponents: LocalComponents {return viewController.localComponents}
     
-    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: viewController.questions, localComponents: viewController.localComponents)
+    lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     
-    init(viewController: QuestionsAnswersVC) {
+    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebViewProviding) {
         self.viewController = viewController
+        self.questions = questions
+        self.webViewsAndViewSizesProvider = webViewsAndViewSizesProvider
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

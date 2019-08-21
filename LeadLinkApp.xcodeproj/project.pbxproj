@@ -111,6 +111,8 @@
 		7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */; };
 		7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754064229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift */; };
 		7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */; };
+		7C8BCE21230AD5710011A125 /* SurveyQuestionsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8BCE20230AD5710011A125 /* SurveyQuestionsLoader.swift */; };
+		7C8BCE23230AD5A10011A125 /* WebViewProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8BCE22230AD5A10011A125 /* WebViewProviding.swift */; };
 		7C8CC9D822C370B3009A410E /* QuestionsAnswersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */; };
 		7C8CC9DA22C370F1009A410E /* QuestionsAnswersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */; };
 		7C8CC9DC22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9DB22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift */; };
@@ -401,6 +403,8 @@
 		7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithTextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C754064229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOptionTextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsSyncBtn.swift; sourceTree = "<group>"; };
+		7C8BCE20230AD5710011A125 /* SurveyQuestionsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionsLoader.swift; sourceTree = "<group>"; };
+		7C8BCE22230AD5A10011A125 /* WebViewProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProviding.swift; sourceTree = "<group>"; };
 		7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersDataSource.swift; sourceTree = "<group>"; };
 		7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersDelegate.swift; sourceTree = "<group>"; };
 		7C8CC9DB22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionOptionsFromTextViewDelegate.swift; sourceTree = "<group>"; };
@@ -898,6 +902,7 @@
 		7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */ = {
 			isa = PBXGroup;
 			children = (
+				7C8BCE1F230AD5360011A125 /* PropertyLoaders */,
 				AD4F013E21D8F72600946CBA /* Viewmodel */,
 				7C44EFEC22F1C673002D3571 /* QuestionViewProviding */,
 				7CAB84BD22EF29F500CE91AA /* Calculating */,
@@ -1075,6 +1080,15 @@
 				7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */,
 			);
 			path = Btns;
+			sourceTree = "<group>";
+		};
+		7C8BCE1F230AD5360011A125 /* PropertyLoaders */ = {
+			isa = PBXGroup;
+			children = (
+				7C8BCE20230AD5710011A125 /* SurveyQuestionsLoader.swift */,
+				7C8BCE22230AD5A10011A125 /* WebViewProviding.swift */,
+			);
+			path = PropertyLoaders;
 			sourceTree = "<group>";
 		};
 		7C8CC9DD22C3BEFF009A410E /* PredifinedColorViews */ = {
@@ -2082,6 +2096,7 @@
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
 				7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */,
+				7C8BCE21230AD5710011A125 /* SurveyQuestionsLoader.swift in Sources */,
 				7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
@@ -2217,6 +2232,7 @@
 				7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */,
 				7C75405F229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
+				7C8BCE23230AD5A10011A125 /* WebViewProviding.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
 				7C98A6AE2289699C00DA184E /* MyAnswer.swift in Sources */,

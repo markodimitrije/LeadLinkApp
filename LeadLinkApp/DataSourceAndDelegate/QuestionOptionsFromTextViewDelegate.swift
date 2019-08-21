@@ -11,12 +11,11 @@ import UIKit
 class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
     
     private var viewController: QuestionsAnswersVC
-    private var parentViewmodel: ParentViewModel {
-        return viewController.parentViewmodel
-    }
+    private var parentViewmodel: ParentViewModel
     
-    init(viewController: QuestionsAnswersVC) {
+    init(viewController: QuestionsAnswersVC, parentViewmodel: ParentViewModel) {
         self.viewController = viewController
+        self.parentViewmodel = parentViewmodel
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -82,7 +81,8 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             
             (textView as? OptionsTextView)?.formatLayout(accordingToOptions: newContent)
             
-            selfRef.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
+            //selfRef.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
+            selfRef.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
             selfRef.tableView.reloadData()
         }
         
