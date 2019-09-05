@@ -428,7 +428,6 @@ barcode number manually</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.66666668650000005" green="0.66370729750000002" blue="0.1147340125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Xn3-dL-1K9" firstAttribute="trailing" secondItem="BMq-Yc-a3T" secondAttribute="trailing" id="18c-T9-9Y4"/>
                             <constraint firstItem="BMq-Yc-a3T" firstAttribute="bottom" secondItem="Xn3-dL-1K9" secondAttribute="bottom" id="S5M-EN-y5r"/>

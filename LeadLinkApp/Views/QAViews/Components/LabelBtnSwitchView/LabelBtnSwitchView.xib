@@ -31,7 +31,6 @@
                     <rect key="frame" x="459" y="6.5" width="51" height="31"/>
                 </switch>
             </subviews>
-            <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="pMT-AM-trd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7lT-x6-G26"/>
                 <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="16" id="EKO-Ee-Z6T"/>
