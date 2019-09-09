@@ -121,11 +121,11 @@ class DisclaimerView: UIView {
         
     }
     
-    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
-        
-        return CGRect.init(center: center, size: getMySize())
-        
-    }
+//    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
+//
+//        return CGRect.init(center: center, size: getMySize())
+//
+//    }
     
 }
 

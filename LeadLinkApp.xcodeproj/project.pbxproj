@@ -209,6 +209,8 @@
 		7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */; };
 		7CE63AC622A80578008E477B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC522A80578008E477B /* Delegate.swift */; };
 		7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */; };
+		7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225DB2326913A004E023C /* RealmOptIn.swift */; };
+		7CF225DE23269162004E023C /* RealmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225DD23269162004E023C /* RealmSettings.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -501,6 +503,8 @@
 		7CE63AC322A7F83E008E477B /* DelegatesAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesAPIController.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesAPIController.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataSourceAndDelegateHelper.swift; sourceTree = "<group>"; };
+		7CF225DB2326913A004E023C /* RealmOptIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOptIn.swift; sourceTree = "<group>"; };
+		7CF225DD23269162004E023C /* RealmSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSettings.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1648,6 +1652,8 @@
 				ADAD041021E782EA006463A2 /* RealmOrganization.swift */,
 				7C6528B422CE43990077464C /* RealmApplication.swift */,
 				7C3ED56022E5E3CD00EDDD70 /* RealmDisclaimer.swift */,
+				7CF225DB2326913A004E023C /* RealmOptIn.swift */,
+				7CF225DD23269162004E023C /* RealmSettings.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2006,6 +2012,7 @@
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
+				7CF225DE23269162004E023C /* RealmSettings.swift in Sources */,
 				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
 				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
@@ -2036,6 +2043,7 @@
 				7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */,
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
+				7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */,
 				7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
