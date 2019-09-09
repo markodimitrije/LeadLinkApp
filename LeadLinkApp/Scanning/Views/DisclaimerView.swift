@@ -91,35 +91,35 @@ class DisclaimerView: UIView {
         agreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
     }
     
-    private func getMySize() -> CGSize {
-
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return getSizeOnIpad()
-        } else if UIDevice.current.userInterfaceIdiom == .phone{
-            return getSizeOnIphone()
-        }
-        return CGSize.zero
-
-    }
-    
-    private func getSizeOnIpad() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height
-        
-        let side = min(width, height)
-        return CGSize.init(width: 0.75*side, height: 0.75*side)
-        
-    }
-    
-    private func getSizeOnIphone() -> CGSize {
-        
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height
-        
-        return CGSize.init(width: 0.9*width, height: 0.9*height)
-        
-    }
+//    private func getMySize() -> CGSize {
+//
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return getSizeOnIpad()
+//        } else if UIDevice.current.userInterfaceIdiom == .phone{
+//            return getSizeOnIphone()
+//        }
+//        return CGSize.zero
+//
+//    }
+//
+//    private func getSizeOnIpad() -> CGSize {
+//
+//        let width = UIScreen.main.bounds.width
+//        let height = UIScreen.main.bounds.height
+//
+//        let side = min(width, height)
+//        return CGSize.init(width: 0.75*side, height: 0.75*side)
+//
+//    }
+//
+//    private func getSizeOnIphone() -> CGSize {
+//
+//        let width = UIScreen.main.bounds.width
+//        let height = UIScreen.main.bounds.height
+//
+//        return CGSize.init(width: 0.9*width, height: 0.9*height)
+//
+//    }
     
 //    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
 //
