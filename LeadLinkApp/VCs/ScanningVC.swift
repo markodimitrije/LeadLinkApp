@@ -164,6 +164,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private func codeSuccessfull(code: String) {
         
         self.lastScanedCode = code // save state
+        self.hideScaningView()
         
         if !disclaimerIsAlreadyOnScreen() {
             showDisclaimer()
