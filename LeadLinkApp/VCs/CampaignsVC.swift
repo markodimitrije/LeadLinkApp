@@ -20,7 +20,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
     @IBOutlet weak var tableView: UITableView!
     
     let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
-    var repository: LeadLinkUserSessionRepository!
+    var repository: UserSessionRepository!
     //let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
     var factory: AppDependencyContainer!
     
@@ -43,7 +43,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
         tableView.delegate = self
         
-        repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
+        repository = UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
         
         logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
         

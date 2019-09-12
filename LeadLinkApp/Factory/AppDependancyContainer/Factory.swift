@@ -35,7 +35,7 @@ public class AppDependencyContainer {
         func makeUserSessionRepository() -> UserSessionRepository {
             let dataStore = makeUserSessionDataStore()
             let remoteAPI = makeAuthRemoteAPI()
-            return LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: remoteAPI)
+            return UserSessionRepository.init(dataStore: dataStore, remoteAPI: remoteAPI)
         }
 
         func makeUserSessionDataStore() -> UserSessionDataStore {
@@ -44,8 +44,8 @@ public class AppDependencyContainer {
 
         }
 
-        func makeAuthRemoteAPI() -> AuthRemoteAPI {
-            return LeadLinkRemoteAPI.init()
+        func makeAuthRemoteAPI() -> AuthRemoteAPIProtocol {
+            return AuthRemoteAPI.init()
         }
 
         func makeMainViewModel() -> MainViewModel {
@@ -91,9 +91,9 @@ public class AppDependencyContainer {
     
     // MARK:- Make repositories
     
-    func makeUserSessionRepository() -> LeadLinkUserSessionRepository {
+    func makeUserSessionRepository() -> UserSessionRepository {
         let dataStore = FileUserSessionDataStore()
-        return LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
+        return UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
     }
     
 }

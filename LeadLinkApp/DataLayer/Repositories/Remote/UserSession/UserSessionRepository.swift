@@ -9,21 +9,21 @@
 import Foundation
 import PromiseKit
 
-public protocol UserSessionRepository {
+public protocol UserSessionRepositoryProtocol {
     
     func readUserSession() -> Promise<UserSession>
     func signIn(email: String, password: String) -> Promise<UserSession>
     func signOut(userSession: UserSession) -> Promise<UserSession>
 }
 
-public class LeadLinkUserSessionRepository: UserSessionRepository {
+public class UserSessionRepository: UserSessionRepositoryProtocol {
     
     // MARK: - Properties
     let dataStore: UserSessionDataStore
-    let remoteAPI: AuthRemoteAPI
+    let remoteAPI: AuthRemoteAPIProtocol
     
     // MARK: - Methods
-    public init(dataStore: UserSessionDataStore, remoteAPI: AuthRemoteAPI) {
+    public init(dataStore: UserSessionDataStore, remoteAPI: AuthRemoteAPIProtocol) {
         self.dataStore = dataStore
         self.remoteAPI = remoteAPI
     }

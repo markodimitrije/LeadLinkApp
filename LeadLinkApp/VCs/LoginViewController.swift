@@ -15,7 +15,7 @@ import RealmSwift
 class LoginViewController: UIViewController, Storyboarded {
 
     let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
-    var repository: LeadLinkUserSessionRepository!
+    var repository: UserSessionRepository!
     
     var logInViewModel: LogInViewModel!
     
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, Storyboarded {
     }
     
     override func awakeFromNib() {
-        repository = LeadLinkUserSessionRepository.init(dataStore: dataStore, remoteAPI: LeadLinkRemoteAPI.shared)
+        repository = UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
         logInViewModel = LogInViewModel.init(userSessionRepository: factory.sharedUserSessionRepository,
                                              signedInResponder: factory.sharedMainViewModel)
     }
