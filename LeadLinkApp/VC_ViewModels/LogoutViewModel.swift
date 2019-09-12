@@ -53,9 +53,7 @@ public class LogOutViewModel {
                                                              RealmSettings.self,
                                                              RealmDisclaimer.self,
                                                              RealmOptIn.self,
-                                                             RealmJson.self,
-                                                             RealmDisclaimer.self,
-                                                             RealmOptIn.self])
+                                                             RealmJson.self])
     }
     
     private func deleteConfApiKeyStateAndAuthorization() {
