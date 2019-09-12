@@ -22,7 +22,7 @@ public class RealmQuestion: Object {
     
     @objc dynamic var group: String?
     var element_id: Int?
-    @objc dynamic var setting: RealmSetting? = RealmSetting.init()
+    @objc dynamic var settings: RealmQuestionSettings? = RealmQuestionSettings.init()
     
     func updateWith(question: Question) {
         self.id = question.id
@@ -35,7 +35,7 @@ public class RealmQuestion: Object {
         self.order = question.order
         self.element_id = question.element_id
         
-        self.setting?.updateWith(setting: question.settings)
+        self.settings?.updateWith(settings: question.settings)
     }
     
     override public static func primaryKey() -> String? {
@@ -44,13 +44,13 @@ public class RealmQuestion: Object {
     
 }
 
-public class RealmSetting: Object {
+public class RealmQuestionSettings: Object {
     
     var options = List<String>() // ZAPAMTI OVO ! + nije "@objc dynamic" // ovde mi treba neki Pr !
     //var options = List<Object>()
     
-    func updateWith(setting: Setting) {
-        let options = setting.options ?? [ ]
+    func updateWith(settings: QuestionSettings) {
+        let options = settings.options ?? [ ]
         self.options.append(objectsIn: options)
     }
     

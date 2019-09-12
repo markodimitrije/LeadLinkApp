@@ -47,7 +47,7 @@ public class LogOutViewModel {
     private func deleteCampaignRelatedData() {
         RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
                                                              RealmOrganization.self,
-                                                             RealmSetting.self,
+                                                             RealmQuestionSettings.self,
                                                              RealmQuestion.self,
                                                              RealmApplication.self,
                                                              RealmSettings.self,

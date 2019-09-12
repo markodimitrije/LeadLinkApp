@@ -22,7 +22,7 @@ public struct Question: Codable {
     var description: String?
     var order: Int
     var element_id: Int?
-    var settings: Setting
+    var settings: QuestionSettings
     
     init(realmQuestion: RealmQuestion) {
         self.id = realmQuestion.id
@@ -36,14 +36,14 @@ public struct Question: Codable {
         self.order = realmQuestion.order
         self.element_id = realmQuestion.element_id
         
-        self.settings = Setting.init(realmSetting: realmQuestion.setting!)
+        self.settings = QuestionSettings.init(realmSetting: realmQuestion.settings!)
     }
 }
 
-public struct Setting: Codable {
+public struct QuestionSettings: Codable {
     var options: [String]?
     
-    init(realmSetting: RealmSetting) {
+    init(realmSetting: RealmQuestionSettings) {
         self.options = realmSetting.options.sorted()
     }
 }
