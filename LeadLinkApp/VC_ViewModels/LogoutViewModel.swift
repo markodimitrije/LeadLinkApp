@@ -17,7 +17,7 @@ public class LogOutViewModel {
     let userSessionRepository: UserSessionRepository
     let notSignedInResponder: NotSignedInResponder
     
-    private let campaignsDataStore = AppDependencyContainer().sharedCampaignsRepository
+    private let campaignsDataStore = factory.sharedCampaignsRepository
     private let realmCampaignsDataStore = RealmCampaignsDataStore.init()
     
     // MARK: - Methods
@@ -43,6 +43,7 @@ public class LogOutViewModel {
         }
     }
     
+    // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
     private func deleteCampaignRelatedData() {
         RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
                                                              RealmOrganization.self,
@@ -52,7 +53,10 @@ public class LogOutViewModel {
                                                              RealmSettings.self,
                                                              RealmDisclaimer.self,
                                                              RealmOptIn.self,
-                                                             RealmJson.self])
+                                                             RealmJson.self,
+                                                             RealmDisclaimer.self,
+                                                             RealmSetting.self,
+                                                             RealmOptIn.self])
     }
     
     private func deleteConfApiKeyStateAndAuthorization() {

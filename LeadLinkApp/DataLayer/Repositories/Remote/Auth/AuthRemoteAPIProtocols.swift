@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AuthRemoteAPIProtocol.swift
 //  signInApp
 //
 //  Created by Marko Dimitrijevic on 30/12/2018.
@@ -9,7 +9,12 @@
 import Foundation
 import PromiseKit
 
-public protocol AuthRemoteAPIProtocol {
+public protocol LoginRemoteAPIProtocol {
     func logIn(credentials: LoginCredentials) -> Promise<UserSession>
+}
+
+public protocol LogoutRemoteAPIProtocol {
     func logOut(userSession: UserSession) -> Promise<UserSession>
 }
+
+public protocol AuthRemoteAPIProtocol: LoginRemoteAPIProtocol, LogoutRemoteAPIProtocol {}

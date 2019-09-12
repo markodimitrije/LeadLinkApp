@@ -45,7 +45,7 @@ public class AppDependencyContainer {
         }
 
         func makeAuthRemoteAPI() -> AuthRemoteAPIProtocol {
-            return AuthRemoteAPI.init()
+            return AuthRemoteAPI.shared
         }
 
         func makeMainViewModel() -> MainViewModel {
@@ -91,9 +91,8 @@ public class AppDependencyContainer {
     
     // MARK:- Make repositories
     
-    func makeUserSessionRepository() -> UserSessionRepository {
-        let dataStore = FileUserSessionDataStore()
-        return UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
+    private func makeUserSessionRepository() -> UserSessionRepository {
+        return self.sharedUserSessionRepository
     }
     
 }

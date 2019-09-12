@@ -43,9 +43,9 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
         tableView.delegate = self
         
-        repository = UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
+        self.repository = factory.sharedUserSessionRepository
         
-        logOutViewModel = LogOutViewModel.init(userSessionRepository: repository, notSignedInResponder: notSignedInResponder)
+        logOutViewModel = LogOutViewModel.init(userSessionRepository: self.repository, notSignedInResponder: notSignedInResponder)
         
         observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         

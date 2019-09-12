@@ -211,6 +211,8 @@
 		7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */; };
 		7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225DB2326913A004E023C /* RealmOptIn.swift */; };
 		7CF225DE23269162004E023C /* RealmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225DD23269162004E023C /* RealmSettings.swift */; };
+		7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E1232A513B004E023C /* LoginAuthRemoteAPI.swift */; };
+		7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -277,7 +279,7 @@
 		ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */; };
 		ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */; };
 		ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551C21D8FAE900B86052 /* UserSession.swift */; };
-		ADE9552021D9005300B86052 /* AuthRemoteAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocol.swift */; };
+		ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocols.swift */; };
 		ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9552121D9008200B86052 /* AuthRemoteAPI.swift */; };
 		ADE9552521D900E400B86052 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9552421D900E400B86052 /* File.swift */; };
 		ADE9552721D9016C00B86052 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9552621D9016C00B86052 /* Campaign.swift */; };
@@ -505,6 +507,8 @@
 		7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataSourceAndDelegateHelper.swift; sourceTree = "<group>"; };
 		7CF225DB2326913A004E023C /* RealmOptIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOptIn.swift; sourceTree = "<group>"; };
 		7CF225DD23269162004E023C /* RealmSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSettings.swift; sourceTree = "<group>"; };
+		7CF225E1232A513B004E023C /* LoginAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAuthRemoteAPI.swift; sourceTree = "<group>"; };
+		7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -573,7 +577,7 @@
 		ADBECCEE2237EBD000C846F8 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		ADE9551921D8F9BB00B86052 /* RemoteUserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		ADE9551C21D8FAE900B86052 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
-		ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPIProtocol.swift; sourceTree = "<group>"; };
+		ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPIProtocols.swift; sourceTree = "<group>"; };
 		ADE9552121D9008200B86052 /* AuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPI.swift; sourceTree = "<group>"; };
 		ADE9552421D900E400B86052 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ADE9552621D9016C00B86052 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -1751,7 +1755,9 @@
 		ADE9551E21D9004C00B86052 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocol.swift */,
+				ADE9551F21D9005300B86052 /* AuthRemoteAPIProtocols.swift */,
+				7CF225E1232A513B004E023C /* LoginAuthRemoteAPI.swift */,
+				7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */,
 				ADE9552121D9008200B86052 /* AuthRemoteAPI.swift */,
 			);
 			path = Auth;
@@ -2046,6 +2052,7 @@
 				7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */,
 				7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
+				7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */,
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
@@ -2159,6 +2166,7 @@
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
 				7CAB84B822EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift in Sources */,
+				7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */,
 				7C98A6E9228972F700DA184E /* URL+Extensions.swift in Sources */,
 				7C98A6E8228972F700DA184E /* Extensions.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
@@ -2193,7 +2201,7 @@
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C8CC9E122C3C1BC009A410E /* CheckboxBtnImage.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
-				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocol.swift in Sources */,
+				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
 				7C8CC9DC22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift in Sources */,

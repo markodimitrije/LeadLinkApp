@@ -122,7 +122,7 @@ class StartViewControllerProvider: StartViewControllerProviding {
         self.factory = factory
     }
     func getStartViewControllers() -> [UIViewController] {
-        let userSession = factory.makeUserSessionRepository().readUserSession()
+        let userSession = factory.sharedUserSessionRepository.readUserSession()
         let loginVcFactory = LoginViewControllerFactory.init(appDependancyContainer: factory)
         let loginVC = loginVcFactory.makeVC()
         let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)

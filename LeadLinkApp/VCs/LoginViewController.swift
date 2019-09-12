@@ -48,8 +48,8 @@ class LoginViewController: UIViewController, Storyboarded {
     }
     
     override func awakeFromNib() {
-        repository = UserSessionRepository.init(dataStore: dataStore, remoteAPI: AuthRemoteAPI.shared)
-        logInViewModel = LogInViewModel.init(userSessionRepository: factory.sharedUserSessionRepository,
+        self.repository = factory.sharedUserSessionRepository
+        logInViewModel = LogInViewModel.init(userSessionRepository: self.repository,
                                              signedInResponder: factory.sharedMainViewModel)
     }
     
