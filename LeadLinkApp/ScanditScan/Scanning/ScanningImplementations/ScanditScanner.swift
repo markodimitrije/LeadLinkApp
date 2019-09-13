@@ -24,7 +24,7 @@ class ScanditScanner: NSObject, MinimumScanning, ScanViewProviding {
         
         self.barcodeListener = barcodeListener
         
-        let context = DataCaptureContext(licenseKey: kScanditBarcodeScannerAppKey) // hard-coded, ne mora da bude !
+        let context = DataCaptureContext(licenseKey: kScanditBarcodeScannerAppKey)
         let settings = NavusLicenseBarcodeCaptureSettingsProvider().settings
         let barcodeCapture = BarcodeCapture(context: context, settings: settings)
         

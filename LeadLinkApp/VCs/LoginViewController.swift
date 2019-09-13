@@ -14,12 +14,9 @@ import RealmSwift
 
 class LoginViewController: UIViewController, Storyboarded {
 
-    let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
-    var repository: UserSessionRepository!
+    var logInViewModel: LogInViewModel! // injected by LoginViewControllerFactory
     
-    var logInViewModel: LogInViewModel!
-    
-    var keyboardManager: MovingKeyboardDelegate?
+    private var keyboardManager: MovingKeyboardDelegate?
     
     private let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
     
@@ -45,12 +42,6 @@ class LoginViewController: UIViewController, Storyboarded {
        
         logInViewModel.signIn() // uzima ono sto je u txtBoxes... (viewmodel prati state na vc.view)
         
-    }
-    
-    override func awakeFromNib() {
-        self.repository = factory.sharedUserSessionRepository
-        logInViewModel = LogInViewModel.init(userSessionRepository: self.repository,
-                                             signedInResponder: factory.sharedMainViewModel)
     }
     
     override func viewDidLoad() { super.viewDidLoad()
@@ -152,7 +143,7 @@ class LoginViewController: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func bindActualSessionToCredentialFields() { // ako nije logout, prikazi mu
+    private func bindActualSessionToCredentialFields() { // viewmodel -> VC
         
         logInViewModel.emailInput
             .asDriver(onErrorJustReturn: "")
@@ -184,15 +175,15 @@ class LoginViewController: UIViewController, Storyboarded {
                 guard let sSelf = self else {return}
                 switch state {
                 case .signedIn(let userSession):
-                    sSelf.presentSignedIn(userSession: userSession)
+                    sSelf.onSignedInNavigateToCampaignsVC(userSession: userSession)
                     sSelf.downloadCampaigns()
                 case .signOut:
-                    sSelf.logInViewModel.userLogedOut()
+                    sSelf.logInViewModel.userIsLogedOut()
                 }
             }).disposed(by: disposeBag)
     }
     
-    private func presentSignedIn(userSession: UserSession) {
+    private func onSignedInNavigateToCampaignsVC(userSession: UserSession) {
         let campaignsVC = campaignsVcFactory.makeVC()
         navigationController?.pushViewController(campaignsVC, animated: true)
     }

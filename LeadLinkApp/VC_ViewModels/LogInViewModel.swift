@@ -120,7 +120,7 @@ public class LogInViewModel {
             .disposed(by: bag)
     }
     
-    func userLogedOut() { print("userLogedOut is called")
+    func userIsLogedOut() { print("userLogedOut is called")
         emailInput.onNext("")
         passwordInput.onNext("")
     }

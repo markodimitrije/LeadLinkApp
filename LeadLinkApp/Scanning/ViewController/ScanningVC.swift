@@ -24,7 +24,6 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var orLabel: UILabel!
     
     var scannerView: QRcodeView!
-    var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var scanner: MinimumScanning!
     private let avSessionViewModel = AVSessionViewModel()
@@ -90,7 +89,7 @@ class ScanningVC: UIViewController, Storyboarded {
         if scanditAllownessValidator.canUseScandit() {
             loadScanditScanner()
         } else {
-            loadCameraScanner()
+            loadNativeScanner()
         }
     }
     
@@ -114,7 +113,7 @@ class ScanningVC: UIViewController, Storyboarded {
         
     }
     
-    private func loadCameraScanner() {
+    private func loadNativeScanner() {
         
         scanner = NativeScanner(avSessionViewModel: AVSessionViewModel(),
                                 scannerView: self.scannerView,
@@ -215,6 +214,17 @@ extension ScanningVC: UITextFieldDelegate {
     }
 }
 
+extension ScanningVC: BarcodeListening {
+    
+    func found(code: String) {
+        
+        scanner?.stopScanning()
+        codeSuccessfull(code: code)
+        
+    }
+    
+}
+
 extension ScanningVC: ConsentAproving {
     func consent(hasConsent consent: Bool) {
         self.hasConsent = consent
@@ -237,15 +247,4 @@ extension ScanningVC: UITextViewDelegate {
         }
         return false
     }
-}
-
-extension ScanningVC: BarcodeListening {
-    
-    func found(code: String) {
-        
-        scanner?.stopScanning()
-        codeSuccessfull(code: code)
-        
-    }
-
 }

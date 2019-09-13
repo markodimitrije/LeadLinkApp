@@ -215,6 +215,7 @@
 		7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */; };
 		7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */; };
 		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
+		7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225EE232BA25E004E023C /* ScannerFactory.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -513,6 +514,7 @@
 		7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigatingProtocol.swift; sourceTree = "<group>"; };
 		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
+		7CF225EE232BA25E004E023C /* ScannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFactory.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1384,6 +1386,22 @@
 			path = PageNavigating;
 			sourceTree = "<group>";
 		};
+		7CF225EA232B9F3F004E023C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7CF225ED232BA248004E023C /* ScannerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7CF225EE232BA25E004E023C /* ScannerFactory.swift */,
+			);
+			path = ScannerFactory;
+			sourceTree = "<group>";
+		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1586,7 +1604,9 @@
 		ADAFED7C22395C92004C4AC1 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				7CF225ED232BA248004E023C /* ScannerFactory */,
 				ADB305E3223BB0BD0069FACB /* Utilities */,
+				7CF225EA232B9F3F004E023C /* ViewController */,
 				ADAFED8122395CB3004C4AC1 /* Viewmodel */,
 				ADAFED7D22395CB2004C4AC1 /* Views */,
 			);
@@ -1735,7 +1755,6 @@
 				ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */,
 				7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */,
 				AD1739C821DE14B900218BE5 /* CampaignsVC.swift */,
-				ADBECCE32237CB7B00C846F8 /* ScanningVC.swift */,
 				ADAB3D96223AAE8B00450625 /* StatsVC.swift */,
 				ADBB468B2242942300E1020F /* CodesVC.swift */,
 				7CCFEACC2269C968004F4838 /* ChartVC.swift */,
@@ -2239,6 +2258,7 @@
 				7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
+				7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */,
 				AD1739D021DE1BDA00218BE5 /* MainViewState.swift in Sources */,
 				7C98A6772289625200DA184E /* Protocols.swift in Sources */,
 				7C98A6CD22896ED500DA184E /* CheckboxViewmodelInputCreator.swift in Sources */,
