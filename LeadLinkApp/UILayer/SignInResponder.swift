@@ -16,14 +16,3 @@ public protocol NotSignedInResponder {
     
     func notSignedIn()
 }
-
-
-
-
-// CAPMPAIGN
-
-public protocol CampaignsReadyResponder {
-    
-    func campaignsReady()
-    //func questionsReady()
-}
