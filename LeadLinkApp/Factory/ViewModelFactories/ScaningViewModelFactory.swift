@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ScaningViewModelFactory {
+class ScanningViewModelFactory {
     
     var appDependancyContainer: AppDependencyContainer
     

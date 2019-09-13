@@ -1604,8 +1604,8 @@
 		ADAFED7C22395C92004C4AC1 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
-				7CF225ED232BA248004E023C /* ScannerFactory */,
 				ADB305E3223BB0BD0069FACB /* Utilities */,
+				7CF225ED232BA248004E023C /* ScannerFactory */,
 				7CF225EA232B9F3F004E023C /* ViewController */,
 				ADAFED8122395CB3004C4AC1 /* Viewmodel */,
 				ADAFED7D22395CB2004C4AC1 /* Views */,
@@ -2498,7 +2498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.navus.Self-Scanning";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2523,7 +2523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.navus.Self-Scanning";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

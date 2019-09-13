@@ -25,18 +25,18 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     
+    var scannerFactory: ScannerFactoryProtocol!
     private var scanner: MinimumScanning!
-    private let avSessionViewModel = AVSessionViewModel()
     
-    private let campaign: Campaign? = {
-        let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
-        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
-    }()
-    
-    private lazy var scanditAllownessValidator: ScanditAllownessValidator = {
-        let validation = ScanditAllownessValidator(campaign: self.campaign)//campaign.value)
-        return validation
-    }()
+//    private let campaign: Campaign? = {
+//        let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
+//        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
+//    }()
+//
+//    private lazy var scanditAllownessValidator: ScanditAllownessValidator = {
+//        let validation = ScanditAllownessValidator(campaign: self.campaign)//campaign.value)
+//        return validation
+//    }()
     
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
@@ -59,7 +59,7 @@ class ScanningVC: UIViewController, Storyboarded {
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
         
-        hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
+//        hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
         loadKeyboardManager()
         bindUI()
@@ -82,16 +82,18 @@ class ScanningVC: UIViewController, Storyboarded {
         scanner.stopScanning()
     }
     
-    private func hookUpCameraAccordingToScanditPermission() {
-        
-        loadScannerView()
-        
-        if scanditAllownessValidator.canUseScandit() {
-            loadScanditScanner()
-        } else {
-            loadNativeScanner()
-        }
-    }
+//    private func hookUpCameraAccordingToScanditPermission() {
+//
+//        loadScannerView()
+//        let scannerFactory = ScannerFactory(scannerVC: self, scanditAllownesValidator: scanditAllownessValidator)
+//
+//        self.scanner = scannerFactory.scanner
+//        if scanditAllownessValidator.canUseScandit() {
+//            loadScanditScanner()
+//        } else {
+//            loadNativeScanner()
+//        }
+//    }
     
     private func loadScannerView() { // QRCodeView
         let scannerViewFactory = ScannerViewFactory()
@@ -99,25 +101,6 @@ class ScanningVC: UIViewController, Storyboarded {
                                                                 handler: hideScaningView)
         self.scannerView.isHidden = true
         self.view.addSubview(self.scannerView)
-    }
-    
-    // SCANDIT
-    
-    private func loadScanditScanner() {
-        
-        let myScanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
-        
-        scanner = myScanner
-        let captureView = myScanner.captureView
-        self.scannerView.cameraView.addSubview(captureView)
-        
-    }
-    
-    private func loadNativeScanner() {
-        
-        scanner = NativeScanner(avSessionViewModel: AVSessionViewModel(),
-                                scannerView: self.scannerView,
-                                barcodeListener: self)
     }
     
     private func bindUI() {

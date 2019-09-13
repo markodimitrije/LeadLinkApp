@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ScaningViewControllerFactory {
+class ScanningViewControllerFactory {
     
     var appDependancyContainer: AppDependencyContainer
     

@@ -114,7 +114,7 @@ public class LogInViewModel {
         sharedMainViewModel.userSessionStateObservable.skip(1) // tamo je init sa signOut....
             .subscribe(onNext: { [weak self] state in
                 if state == .signOut {
-                    self?.userLogedOut()
+                    self?.userIsLogedOut()
                 }
             })
             .disposed(by: bag)

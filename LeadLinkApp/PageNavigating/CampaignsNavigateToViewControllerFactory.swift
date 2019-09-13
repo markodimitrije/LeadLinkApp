@@ -11,7 +11,7 @@ import UIKit
 struct CampaignsNavigateToViewControllerFactory: PageNavigatingProtocol {
     
     let campaignsRepo = factory.sharedCampaignsRepository
-    let scaningViewModelFactory = ScaningViewModelFactory(appDependancyContainer: factory)
+    let scanningViewModelFactory = ScanningViewModelFactory(appDependancyContainer: factory)
     
     func getNavigationDestination(dict: [String: Any]) -> UIViewController? {
         
@@ -20,9 +20,9 @@ struct CampaignsNavigateToViewControllerFactory: PageNavigatingProtocol {
                 return nil
         }
         
-        let scanningViewModel = self.scaningViewModelFactory.makeViewModel(campaign: campaign)
-        let scaningVcFactory = ScaningViewControllerFactory(appDependancyContainer: factory)
-        let scanningVC = scaningVcFactory.makeVC(viewModel: scanningViewModel)
+        let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaign: campaign)
+        let scanningVcFactory = ScanningViewControllerFactory(appDependancyContainer: factory)
+        let scanningVC = scanningVcFactory.makeVC(viewModel: scanningViewModel)
         
         return scanningVC
     }

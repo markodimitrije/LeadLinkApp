@@ -10,18 +10,17 @@ import Foundation
 import UIKit
 
 protocol ScannerFactoryProtocol {
-    var scanner: MinimumScanning {get set}
+    var scanner: MinimumScanning! {get set}
 }
 
-/*
-struct ScannerFactory: ScannerFactoryProtocol {
+class ScannerFactory: ScannerFactoryProtocol {
     
-    var scanner: MinimumScanning
-    var scannerView: QRcodeView
+    var scanner: MinimumScanning!
+    var scannerVC: ScanningVC
     
-    init(scannerView: QRcodeView, scanditAllownesValidator: ScanditAllownessValidator) {
+    init(scannerVC: ScanningVC, scanditAllownesValidator: ScanditAllowable) {
         
-        self.scannerView = scannerView
+        self.scannerVC = scannerVC
         
         if scanditAllownesValidator.canUseScandit() {
             loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView()
@@ -32,19 +31,19 @@ struct ScannerFactory: ScannerFactoryProtocol {
     
     private func loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView() {
         
-//        let myScanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
-//
-//        scanner = myScanner
-//        let captureView = myScanner.captureView
-//        self.scannerView.cameraView.addSubview(captureView)
-        
+        let myScanner = ScanditScanner(frame: self.scannerVC.scannerView.bounds, barcodeListener: self.scannerVC)
+
+        self.scanner = myScanner
+        let captureView = myScanner.captureView
+        self.scannerVC.scannerView.cameraView.addSubview(captureView)
+ 
     }
     
     private func loadNativeScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView() {
         
-//        scanner = NativeScanner(avSessionViewModel: AVSessionViewModel(),
-//                                scannerView: self.scannerView,
-//                                barcodeListener: self)
+        self.scanner = NativeScanner(avSessionViewModel: AVSessionViewModel(),
+                                scannerView: self.scannerVC.scannerView,
+                                barcodeListener: self.scannerVC)
     }
 }
-*/
+
