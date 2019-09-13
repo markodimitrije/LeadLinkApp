@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import PromiseKit
-import RxCocoa
 import RxSwift
 import RxRealm
 import RxRealmDataSources
@@ -23,10 +21,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
     var repository: UserSessionRepository!
     var notSignedInResponder: NotSignedInResponder!
     // MARK:- campaigns outputs
-    fileprivate let selRealmCampaign = PublishSubject<RealmCampaign>()
-    var selectedRealmCampaign: Observable<RealmCampaign> { // exposed selectedRealmCampaign
-        return selRealmCampaign.asObservable()
-    }
+    // UserDefaults.standard -> trebalo je da neki dependancy....
     
     override func viewDidLoad() { super.viewDidLoad()
         
@@ -80,10 +75,6 @@ extension CampaignsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedCampaign = campaignsViewModel.getCampaign(forSelectedTableIndex: indexPath.item)
-        
-        selRealmCampaign.onNext(selectedCampaign)
-        
-        campaignsViewModel.selectedTableIndex.onNext(indexPath.item)
         
         UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
         
