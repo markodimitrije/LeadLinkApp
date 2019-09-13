@@ -22,6 +22,8 @@ class ScanningViewControllerFactory {
         if let viewModel = viewModel {
             scanningVC.viewModel = viewModel
         }
+        
         return scanningVC
     }
+    
 }

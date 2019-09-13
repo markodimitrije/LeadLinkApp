@@ -11,10 +11,19 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sSelf.navigationController">
+               value = "type(of: UIApplication.topViewController())">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -95,10 +104,10 @@
          contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
             </PersistentString>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -146,6 +155,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.scannerVC.scannerView">
+            </PersistentString>
+            <PersistentString
+               value = "self.scannerVC">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in TableViewPayingAttentioner.activateTextField(ip:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -176,10 +196,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "count">
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "count">
             </PersistentString>
             <PersistentString
                value = "doneBtn">
@@ -189,9 +212,6 @@
             </PersistentString>
             <PersistentString
                value = "chooseOptionsVC">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -204,19 +224,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "type(of: UIApplication.topViewController())">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
