@@ -108,7 +108,7 @@ class ScanningVC: UIViewController, Storyboarded {
         
         let myScanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
         
-        scanner = myScanner //as! MinimumScanning
+        scanner = myScanner
         let captureView = myScanner.captureView
         self.scannerView.cameraView.addSubview(captureView)
         
@@ -189,15 +189,6 @@ class ScanningVC: UIViewController, Storyboarded {
     private func failed() { //print("failed.....")
         
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
-            .subscribe {
-                self.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
-    }
-    
-    private func failedDueToNoCodeDetected() { //print("failedDueToNoCodeDetected. prikazi alert....")
-        
-        self.alert(alertInfo: AlertInfo.getInfo(type: .noCodeDetected), sourceView: orLabel)
             .subscribe {
                 self.dismiss(animated: true)
             }
