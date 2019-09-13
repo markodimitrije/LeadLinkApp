@@ -91,6 +91,9 @@ public class CampaignsRepository: UserCampaignsRepository {
         
     }
 
+    public func getCampaign(_ campaignId: Int) -> Campaign? {
+        return self.dataStore.readCampaign(id: campaignId).value
+    }
 }
 
 

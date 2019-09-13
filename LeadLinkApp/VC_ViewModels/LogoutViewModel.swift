@@ -11,7 +11,11 @@ import RxSwift
 
 import PromiseKit
 
-public class LogOutViewModel {
+protocol Logoutable {
+    func signOut()
+}
+
+public class LogOutViewModel: Logoutable {
     
     // MARK: - Properties
     let userSessionRepository: UserSessionRepository

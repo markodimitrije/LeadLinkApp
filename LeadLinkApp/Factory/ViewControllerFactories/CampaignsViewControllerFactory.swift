@@ -15,13 +15,19 @@ class CampaignsViewControllerFactory {
     }
     
     func makeVC() -> CampaignsVC {
+        let campaignsVC = CampaignsVC.instantiate(using: appDependancyContainer.sb)
+        loadDependencies(campaignsVC: campaignsVC)
+        return campaignsVC
+    }
+    
+    private func loadDependencies(campaignsVC: CampaignsVC) {
         
         let campaignsViewModelFactory = CampaignsViewModelFactory(appDependancyContainer: appDependancyContainer)
         let campaignsViewModel = campaignsViewModelFactory.makeViewModel()
-        
-        let campaignsVC = CampaignsVC.instantiate(using: appDependancyContainer.sb)
         campaignsVC.campaignsViewModel = campaignsViewModel
-        campaignsVC.factory = appDependancyContainer
-        return campaignsVC
+        
+        campaignsVC.logOutViewModel = LogoutViewModelFactory(appDependancyContainer: appDependancyContainer).makeViewModel()
+        campaignsVC.repository = factory.sharedUserSessionRepository
+        campaignsVC.notSignedInResponder = factory.sharedMainViewModel
     }
 }

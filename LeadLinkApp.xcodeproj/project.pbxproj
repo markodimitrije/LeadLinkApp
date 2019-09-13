@@ -54,7 +54,7 @@
 		7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55822E5B82400EDDD70 /* DatabaseMigrationFactory.swift */; };
 		7C3ED55B22E5B84F00EDDD70 /* DataBaseMigrating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55A22E5B84F00EDDD70 /* DataBaseMigrating.swift */; };
 		7C3ED55D22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55C22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift */; };
-		7C3ED55F22E5E2E500EDDD70 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55E22E5E2E500EDDD70 /* Settings.swift */; };
+		7C3ED55F22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED55E22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift */; };
 		7C3ED56122E5E3CD00EDDD70 /* RealmDisclaimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED56022E5E3CD00EDDD70 /* RealmDisclaimer.swift */; };
 		7C3ED56422E606D200EDDD70 /* DisclaimerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED56322E606D200EDDD70 /* DisclaimerInfo.swift */; };
 		7C3ED56622E606FE00EDDD70 /* ConsentApproving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3ED56522E606FE00EDDD70 /* ConsentApproving.swift */; };
@@ -213,6 +213,8 @@
 		7CF225DE23269162004E023C /* RealmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225DD23269162004E023C /* RealmSettings.swift */; };
 		7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E1232A513B004E023C /* LoginAuthRemoteAPI.swift */; };
 		7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */; };
+		7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */; };
+		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -350,7 +352,7 @@
 		7C3ED55822E5B82400EDDD70 /* DatabaseMigrationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMigrationFactory.swift; sourceTree = "<group>"; };
 		7C3ED55A22E5B84F00EDDD70 /* DataBaseMigrating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseMigrating.swift; sourceTree = "<group>"; };
 		7C3ED55C22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMigratingImplementations.swift; sourceTree = "<group>"; };
-		7C3ED55E22E5E2E500EDDD70 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7C3ED55E22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+Disclaimer+OptIn.swift"; sourceTree = "<group>"; };
 		7C3ED56022E5E3CD00EDDD70 /* RealmDisclaimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDisclaimer.swift; sourceTree = "<group>"; };
 		7C3ED56322E606D200EDDD70 /* DisclaimerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerInfo.swift; sourceTree = "<group>"; };
 		7C3ED56522E606FE00EDDD70 /* ConsentApproving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentApproving.swift; sourceTree = "<group>"; };
@@ -509,6 +511,8 @@
 		7CF225DD23269162004E023C /* RealmSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSettings.swift; sourceTree = "<group>"; };
 		7CF225E1232A513B004E023C /* LoginAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAuthRemoteAPI.swift; sourceTree = "<group>"; };
 		7CF225E3232A51A6004E023C /* LogoutAuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthRemoteAPI.swift; sourceTree = "<group>"; };
+		7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigatingProtocol.swift; sourceTree = "<group>"; };
+		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1371,6 +1375,15 @@
 			path = PieChartView;
 			sourceTree = "<group>";
 		};
+		7CF225E5232A8F2E004E023C /* PageNavigating */ = {
+			isa = PBXGroup;
+			children = (
+				7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */,
+				7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */,
+			);
+			path = PageNavigating;
+			sourceTree = "<group>";
+		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1529,6 +1542,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CF225E5232A8F2E004E023C /* PageNavigating */,
 				7C3B20A622E9E46700791C11 /* Answer */,
 				7C3A689922E75943007E9240 /* ScrollTableViewAndPayAttention */,
 				7C3ED56222E6069400EDDD70 /* Disclaimer */,
@@ -1669,7 +1683,7 @@
 				7C6528B222CE42ED0077464C /* Application.swift */,
 				7CE63AC522A80578008E477B /* Delegate.swift */,
 				ADAD040E21E7826E006463A2 /* Organization.swift */,
-				7C3ED55E22E5E2E500EDDD70 /* Settings.swift */,
+				7C3ED55E22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift */,
 				ADAD040A21E73F29006463A2 /* LogoInfo.swift */,
 				ADE9552621D9016C00B86052 /* Campaign.swift */,
 				ADBB467C22425BB200E1020F /* Code.swift */,
@@ -2080,6 +2094,7 @@
 				7C98A671228961D400DA184E /* SameComponentsFactory.swift in Sources */,
 				7C75405D229FC44100FFF5B9 /* RadioWithInputViewModel.swift in Sources */,
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
+				7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */,
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
 				7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
@@ -2217,8 +2232,9 @@
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
 				7C51086E22C0D84D005EE58B /* LoginViewModelFactory.swift in Sources */,
 				7C98A6C122896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift in Sources */,
-				7C3ED55F22E5E2E500EDDD70 /* Settings.swift in Sources */,
+				7C3ED55F22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift in Sources */,
 				7C6528AD22CDFF290077464C /* AVCaptureSessionError.swift in Sources */,
+				7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */,
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				7C6222742294345E00717CA1 /* AnswersAPIController.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,

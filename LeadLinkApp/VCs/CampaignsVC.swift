@@ -7,34 +7,23 @@
 //
 
 import UIKit
-import PromiseKit
+//import PromiseKit
 import RxCocoa
 import RxSwift
 import RxRealm
 import RxRealmDataSources
-import NotificationCenter
-import UserNotifications
 
 class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a logout funkcionalnost izmesti negde drugde (popUp sa show-hide logout i stats)
     
     @IBOutlet weak var tableView: UITableView!
     
-    let dataStore = FileUserSessionDataStore.init() // oprez - cuvas u fajlu umesto u keychain-u ili negde gde je secure...
-    var repository: UserSessionRepository!
-    //let factory = AppDependencyContainer.init() // ima ref na MainViewModel (responder za signIn signOut state)
-    var factory: AppDependencyContainer!
-    
-    var logOutViewModel: LogOutViewModel!
+    // MARK:- injected by factory
+    var logOutViewModel: Logoutable!
     var campaignsViewModel: CampaignsViewModel!
-    
-    var notSignedInResponder: NotSignedInResponder { // ultra stupid ....
-        return factory.sharedMainViewModel
-    }
-    
-    // MARK: - campaigns outputs
-    
+    var repository: UserSessionRepository!
+    var notSignedInResponder: NotSignedInResponder!
+    // MARK:- campaigns outputs
     fileprivate let selRealmCampaign = PublishSubject<RealmCampaign>()
-    
     var selectedRealmCampaign: Observable<RealmCampaign> { // exposed selectedRealmCampaign
         return selRealmCampaign.asObservable()
     }
@@ -43,14 +32,8 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
         tableView.delegate = self
         
-        self.repository = factory.sharedUserSessionRepository
-        
-        logOutViewModel = LogOutViewModel.init(userSessionRepository: self.repository, notSignedInResponder: notSignedInResponder)
-        
         observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
-        
         bindUI()
-        
     }
     
     private func observe(userSessionState: Observable<MainViewState>) { // navigation...
@@ -66,8 +49,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
             }).disposed(by: disposeBag)
     }
     
-    private func navigateToRootVC() {
-        print("navigateToRootVC is called !!!")
+    private func navigateToRootVC() { //print("navigateToRootVC is called !!!")
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -78,13 +60,11 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
             
             let campaign = Campaign.init(realmCampaign: rCampaign)
             cell.update(campaign: campaign) // ovo nije Rx, za to ti treba viewmodel: [cellViewmodel**] i na svakom ** Driver<Campaign>
-            
         }
         
         campaignsViewModel.oCampaigns
             .bind(to: tableView.rx.realmChanges(dataSource))
             .disposed(by: disposeBag)
-        
     }
     
     @objc private func logoutBtnTapped(_ sender: UIButton) { //Do your stuff here
@@ -111,23 +91,10 @@ extension CampaignsVC: UITableViewDelegate {
         
         confApiKeyState!.updateWith(selectedCampaign: campaign)
         
-        let scanningVC = createScaningVC(campaign: selectedCampaign)
+        let navigateToFactory = CampaignsNavigateToViewControllerFactory()
         
-        navigationController?.pushViewController(scanningVC, animated: true)
-        
-    }
-    
-    private func createScaningVC(campaign: RealmCampaign) -> ScanningVC {
-     
-        let scaningViewModelFactory = ScaningViewModelFactory(appDependancyContainer: factory)
-        
-        let scanningViewModel = scaningViewModelFactory.makeViewModel(campaign: Campaign.init(realmCampaign: campaign))
-        
-        let scaningVcFactory = ScaningViewControllerFactory(appDependancyContainer: factory)
-        
-        let scanningVC = scaningVcFactory.makeVC(viewModel: scanningViewModel)
-        
-        return scanningVC
+        if let scanningVC = navigateToFactory.getNavigationDestination(dict: ["campaignId": campaign.id]) {
+            navigationController?.pushViewController(scanningVC, animated: true)
+        }
     }
 }
-
