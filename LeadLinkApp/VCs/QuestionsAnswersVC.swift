@@ -106,10 +106,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                     sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
                                                                 answers: updatedSurvey.answers) //redundant....
                 }
-                
             })
             .disposed(by: bag)
-        
     }
     
     private func setUpKeyboardBehavior() {
@@ -231,26 +229,4 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 enum QuestionsAnswersSectionType: String {
     case noGroupAssociated = " "
     case localComponentsGroupName = "Privacy Policy"
-}
-
-class FetchDelegateDataObserver {
-    
-    var code: String
-    let bag: DisposeBag
-    //var oNewDelegate = BehaviorSubject<Delegate?>.init(value: nil).skip(1)
-    var oNewDelegate = PublishSubject<Delegate?>.init()
-    
-    init(code: String, bag: DisposeBag) {
-        self.code = code
-        self.bag = bag
-        loadResult()
-    }
-    
-    func loadResult() {
-        DelegatesRemoteAPI.shared.getDelegate(withCode: code)
-            .subscribe(onNext:
-                { delegate in
-                self.oNewDelegate.onNext(delegate)
-            }).disposed(by: bag)
-    }
 }

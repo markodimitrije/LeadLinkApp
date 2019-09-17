@@ -139,31 +139,32 @@ class ScanningVC: UIViewController, Storyboarded {
         self.lastScanedCode = code // save state
         self.hideScaningView()
         
-        let newDelegateObserver = FetchDelegateDataObserver(code: code, bag: disposeBag)
-        newDelegateObserver.oNewDelegate
-            .subscribe(onNext: { delegate in
+        DelegatesRemoteAPI.shared.getDelegate(withCode: code)
+            .subscribe(onNext: { [weak self] delegate in
+                guard let sSelf = self else {return}
                 DispatchQueue.main.async {
-                    if let _ = delegate {
-                        self.showDisclaimer()
+                    let diclaimerValidator = ShowDisclaimerValidator(code: code,
+                                                                     delegate: delegate,
+                                                                     campaign: sSelf.campaign)
+                    if diclaimerValidator.shouldShowDisclaimer(disclaimerAlreadyOnScreen: sSelf.isDisclaimerAlreadyOnScreen()) {
+                        sSelf.showDisclaimer()
                     } else {
-                        self.consent(hasConsent: true)
+                        sSelf.consent(hasConsent: true)
                     }
                 }
             }).disposed(by: disposeBag)
     }
     
     private func showDisclaimer() {
-        if !self.disclaimerIsAlreadyOnScreen() {
-            let disclaimerUrl = campaign?.settings.disclaimer.url ?? ""
-            let disclaimerTxt = campaign?.settings.disclaimer.text ?? ""
-            
-            if let disclaimerView = disclaimerFactory.create() {
-                disclaimerView.delegate = self
-                disclaimerView.tag = 12
-                disclaimerView.configureTxtView(withText: disclaimerTxt, url: disclaimerUrl)
-                disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
-                self.view.addSubview(disclaimerView)
-            }
+        let disclaimerUrl = campaign?.settings.disclaimer.url ?? ""
+        let disclaimerTxt = campaign?.settings.disclaimer.text ?? ""
+        
+        if let disclaimerView = disclaimerFactory.create() {
+            disclaimerView.delegate = self
+            disclaimerView.tag = 12
+            disclaimerView.configureTxtView(withText: disclaimerTxt, url: disclaimerUrl)
+            disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
+            self.view.addSubview(disclaimerView)
         }
     }
     
@@ -176,7 +177,7 @@ class ScanningVC: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
-    private func disclaimerIsAlreadyOnScreen() -> Bool {
+    private func isDisclaimerAlreadyOnScreen() -> Bool {
         return self.view.subviews.first(where: {$0.tag == 12}) != nil
     }
  
