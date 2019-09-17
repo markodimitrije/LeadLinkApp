@@ -139,23 +139,31 @@ class ScanningVC: UIViewController, Storyboarded {
         self.lastScanedCode = code // save state
         self.hideScaningView()
         
-        if !disclaimerIsAlreadyOnScreen() {
-            showDisclaimer()
-        }
-        
+        let newDelegateObserver = FetchDelegateDataObserver(code: code, bag: disposeBag)
+        newDelegateObserver.oNewDelegate
+            .subscribe(onNext: { delegate in
+                DispatchQueue.main.async {
+                    if let _ = delegate {
+                        self.showDisclaimer()
+                    } else {
+                        self.consent(hasConsent: true)
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func showDisclaimer() {
-        
-        let disclaimerUrl = campaign?.settings.disclaimer.url ?? ""
-        let disclaimerTxt = campaign?.settings.disclaimer.text ?? ""
-        
-        if let disclaimerView = disclaimerFactory.create() {
-            disclaimerView.delegate = self
-            disclaimerView.tag = 12
-            disclaimerView.configureTxtView(withText: disclaimerTxt, url: disclaimerUrl)
-            disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
-            self.view.addSubview(disclaimerView)
+        if !self.disclaimerIsAlreadyOnScreen() {
+            let disclaimerUrl = campaign?.settings.disclaimer.url ?? ""
+            let disclaimerTxt = campaign?.settings.disclaimer.text ?? ""
+            
+            if let disclaimerView = disclaimerFactory.create() {
+                disclaimerView.delegate = self
+                disclaimerView.tag = 12
+                disclaimerView.configureTxtView(withText: disclaimerTxt, url: disclaimerUrl)
+                disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
+                self.view.addSubview(disclaimerView)
+            }
         }
     }
     
