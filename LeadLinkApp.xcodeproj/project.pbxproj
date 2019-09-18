@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		79B1EC37252D636B80384A09 /* Pods_LeadLinkApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */; };
+		7C023A5B23326BFA007D22A5 /* RealmQuestionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C023A5A23326BFA007D22A5 /* RealmQuestionSettings.swift */; };
 		7C0E5CBA228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0E5CB8228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib */; };
 		7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CB9228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift */; };
 		7C0E5CBE228EE0B90011E0A2 /* mockWithTerms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C0E5CBD228EE0B90011E0A2 /* mockWithTerms.json */; };
@@ -306,6 +307,7 @@
 /* Begin PBXFileReference section */
 		673AC31CE958A48CB88FAE62 /* Pods_LeadLinkApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeadLinkApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7550EB93CC52BF04D5143B44 /* Pods-LeadLinkApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeadLinkApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeadLinkApp/Pods-LeadLinkApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7C023A5A23326BFA007D22A5 /* RealmQuestionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestionSettings.swift; sourceTree = "<group>"; };
 		7C0E5CB8228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsLabelBtnSwitchView.xib; sourceTree = "<group>"; };
 		7C0E5CB9228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsLabelBtnSwitchView.swift; sourceTree = "<group>"; };
 		7C0E5CBD228EE0B90011E0A2 /* mockWithTerms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockWithTerms.json; sourceTree = "<group>"; };
@@ -1688,6 +1690,7 @@
 				ADB6A64221DF9089002224C0 /* RealmCampaign.swift */,
 				ADBB468922426C3C00E1020F /* RealmCode.swift */,
 				ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */,
+				7C023A5A23326BFA007D22A5 /* RealmQuestionSettings.swift */,
 				ADAF73492241327600A1F6D2 /* RealmAnswer.swift */,
 				ADAD040C21E73F4E006463A2 /* RealmJson.swift */,
 				ADAD041021E782EA006463A2 /* RealmOrganization.swift */,
@@ -2054,6 +2057,7 @@
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
+				7C023A5B23326BFA007D22A5 /* RealmQuestionSettings.swift in Sources */,
 				7CF225DE23269162004E023C /* RealmSettings.swift in Sources */,
 				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
 				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,

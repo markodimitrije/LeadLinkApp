@@ -68,6 +68,9 @@ class RealmCampaign: Object {
             let realmSettings = RealmSettings()
             realmSettings.update(with: settings, forCampaignId: campaign.id)
             self.settings = realmSettings
+        } else {
+            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self.self])
+            self.settings = nil
         }
         
         self.dateReadAt = Date.now
@@ -89,9 +92,12 @@ class RealmCampaign: Object {
             }
         }
         
-        // update questoins and codes
+        // update questions and codes
         try? Realm.init().write {
+            
+            questions.removeAll()
             questions.append(objectsIn: realmQuestions)
+            
             codes.append(objectsIn: realmCodes)
         }
         

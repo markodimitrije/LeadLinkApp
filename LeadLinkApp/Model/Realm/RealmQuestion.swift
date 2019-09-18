@@ -35,25 +35,11 @@ public class RealmQuestion: Object {
         self.order = question.order
         self.element_id = question.element_id
         
-        self.settings?.updateWith(settings: question.settings, question: question)
+        self.settings.updateWith(settings: question.settings, question: question)
     }
     
     override public static func primaryKey() -> String? {
         return "id"
-    }
-    
-}
-
-public class RealmQuestionSettings: Object {
-    
-    @objc dynamic var id = 0
-    var options = List<String>()
-    
-    func updateWith(settings: QuestionSettings, question: Question) {
-        let compositeId = "\(question.campaign_id)" + "\(question.id)"
-        self.id = Int(compositeId)!
-        let options = settings.options ?? [ ]
-        self.options.append(objectsIn: options)
     }
     
 }

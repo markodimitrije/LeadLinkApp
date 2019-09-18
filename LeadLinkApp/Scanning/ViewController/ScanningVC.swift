@@ -30,6 +30,8 @@ class ScanningVC: UIViewController, Storyboarded {
     private var campaign: Campaign? // imas observera koji ce te sync sa realm...
     private let _obsCampaign = factory.sharedCampaignsRepository.fetchCampaign(selectedCampaignId ?? 0)
 
+    //let _obsCampaign = RealmSelectedCampaign.init(campaignsDataStore: factory.sharedCampaignsRepository.dataStore).selectedCampaign() // pises ono sto vec imas .... !?
+    
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
     

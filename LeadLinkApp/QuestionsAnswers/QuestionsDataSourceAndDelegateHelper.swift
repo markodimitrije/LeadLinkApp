@@ -61,8 +61,6 @@ struct QuestionsDataSourceAndDelegateHelper {
         guard let questions = questionsInGroupWith(index: index) else {
             return localComponents.componentsInOrder.count
         }
-        print("questions.count = \(questions.count)")
-        print("groupName = \(questions.first?.group ?? "ne znam?")")
         return questions.count
     }
     
