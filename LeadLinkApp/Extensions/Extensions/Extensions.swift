@@ -59,7 +59,7 @@ extension UIColor {
     //static let disclaimerBlue = UIColor.init(red: 57/255, green: 89/255, blue: 121/255, alpha: 1.0)
     static let disclaimerBlue = UIColor.init(red: 106/255, green: 130/255, blue: 155/255, alpha: 1.0)
     static var leadLinkColor: UIColor {
-        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+        guard let campaignId = selectedCampaignId else {
             return UIColor(hexString: "#672edf")
         }
         guard let colorName = factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value?.color else {

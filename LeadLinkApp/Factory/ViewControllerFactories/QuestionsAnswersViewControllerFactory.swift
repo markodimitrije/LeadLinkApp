@@ -24,7 +24,7 @@ class QuestionsAnswersViewControllerFactory {
         
         guard let code = try? viewModel!.codeInput.value() else {fatalError()}
         
-        guard let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+        guard let campaignId = selectedCampaignId else {
             fatalError("no campaign selected !?!")
         }
         

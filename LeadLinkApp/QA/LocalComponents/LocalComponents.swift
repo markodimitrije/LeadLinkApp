@@ -11,7 +11,7 @@ import UIKit
 class LocalComponents {
     
     private let campaign: Campaign? = {
-        let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
+        let campaignId = selectedCampaignId ?? 0 // hard-coded
         return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
     }()
     

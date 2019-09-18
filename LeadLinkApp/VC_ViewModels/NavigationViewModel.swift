@@ -76,7 +76,7 @@ extension NavigationViewModel: UINavigationControllerDelegate {
             Timer.scheduledTimer(timeInterval: 0.0,
                                  target: UIApplication.shared.delegate as! AppDelegate,
                                      selector: #selector(AppDelegate.statsBtnTapped(_:)),
-                                     userInfo: ["campaignId": UserDefaults.standard.value(forKey: "campaignId") as? Int],
+                                     userInfo: ["campaignId": selectedCampaignId],
                                      repeats: false)
         case 1:
 

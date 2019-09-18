@@ -23,7 +23,7 @@ struct RealmSelectedCampaign: SelectedCampaignObserving {
     }
     
     func selectedCampaign() -> Observable<Campaign?> {
-        guard let id = UserDefaults.standard.value(forKey: "campaignId") as? Int else {
+        guard let id = selectedCampaignId else {
             fatalError() // bolje vrati error...
         }
         

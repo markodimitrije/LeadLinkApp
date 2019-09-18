@@ -76,7 +76,8 @@ extension CampaignsVC: UITableViewDelegate {
         
         let selectedCampaign = campaignsViewModel.getCampaign(forSelectedTableIndex: indexPath.item)
         
-        UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
+        //UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
+        selectedCampaignId = selectedCampaign.id
         
         let campaign = Campaign(realmCampaign: selectedCampaign)
         

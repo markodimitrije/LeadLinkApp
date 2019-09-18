@@ -28,7 +28,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private var scanner: MinimumScanning!
     
     private var campaign: Campaign? // imas observera koji ce te sync sa realm...
-    private let _obsCampaign = factory.sharedCampaignsRepository.fetchCampaign(UserDefaults.standard.integer(forKey: "campaignId"))
+    private let _obsCampaign = factory.sharedCampaignsRepository.fetchCampaign(selectedCampaignId ?? 0)
 
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
