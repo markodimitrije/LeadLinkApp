@@ -38,10 +38,10 @@ public class CampaignsRepository: UserCampaignsRepository {
             when(fulfilled: [remoteAPI.getCampaignsWithQuestions(userSession: userSession)])
             .then { results -> Promise<(Bool, CampaignResults)> in
                 
-                let promise = self.campaignsVersionChecker.needsUpdate(newCampaignData: (results.first!).jsonString)
+                let promise = self.campaignsVersionChecker.needsUpdate(newJson: (results.first!).jsonString)
                 
-                return promise.map({ update -> (Bool, CampaignResults) in
-                    return (update, results.first!)
+                return promise.map({ shouldUpdate -> (Bool, CampaignResults) in
+                    return (shouldUpdate, results.first!)
                 })
             }.map { (shouldUpdate, results) -> (Bool, CampaignResults) in
                 
@@ -52,35 +52,29 @@ public class CampaignsRepository: UserCampaignsRepository {
                 return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
                                                                json: results.jsonString).isFulfilled, results)
                 
-        }
+            }
         
         return update.map { (jsonUpdated, results) -> Bool in
             
             if jsonUpdated {
                 
-                var allCampaignsSaved = false; var allQuestionsSaved = false; // jsonUpdated ti je arg...
+                //var allCampaignsSaved = false
 
                 let campaignsWithQuestions = results.campaignsWithQuestions
 
-                allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
+                let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
 
-                let quests = campaignsWithQuestions.map {$0.1}
-                let savedQuestions = quests.map { questions -> Bool in
-                    return self.questionsDataStore.save(questions: questions).isFulfilled
-
-                }
-
-                allQuestionsSaved = !savedQuestions.contains(false)
-
-                let shouldUpdate = allCampaignsSaved && allQuestionsSaved && jsonUpdated
+                //let shouldFinallyUpdate = allCampaignsSaved && jsonUpdated
                 
-                print("saved both (campaigns,questions) and json = \(shouldUpdate)")
+                //print("saved both (campaigns,questions) and json = \(shouldFinallyUpdate)")
+
+                return allCampaignsSaved
                 
-                if shouldUpdate {
-                    return (allCampaignsSaved && allQuestionsSaved && jsonUpdated)
-                } else {
-                    return false//Promise.init(error: CampaignError.unknown)
-                }
+//                if shouldFinallyUpdate {
+//                    return (allCampaignsSaved && jsonUpdated) //allQuestionsSaved && jsonUpdated)
+//                } else {
+//                    return false//Promise.init(error: CampaignError.unknown)
+//                }
                 
             } else {
                 print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")

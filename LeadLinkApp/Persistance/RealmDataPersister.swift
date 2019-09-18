@@ -77,7 +77,6 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                //realm.add(objects)
                 realm.add(objects, update: true)
             }
         } catch {

@@ -18,7 +18,7 @@ public protocol DownloadImageAPI {
 }
 
 public protocol CampaignsVersionChecking {
-    func needsUpdate(newCampaignData json: String) -> Promise<Bool>
+    func needsUpdate(newJson json: String) -> Promise<Bool>
 }
 
 public struct CampaignsVersionChecker: CampaignsVersionChecking {
@@ -31,7 +31,7 @@ public struct CampaignsVersionChecker: CampaignsVersionChecking {
     
     
     
-    public func needsUpdate(newCampaignData json: String) -> Promise<Bool> {
+    public func needsUpdate(newJson json: String) -> Promise<Bool> {
         
         let realmString = campaignsDataStore.getCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions)
 

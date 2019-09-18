@@ -57,13 +57,109 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/QuestionsAnswersFactory/LocalComponentsViewFactory.swift"
-            timestampString = "590424830.028898"
+            filePath = "LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
+            timestampString = "590494848.896065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "makeTermsNoSwitchView(tag:optIn:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "save(questions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LeadLinkApp.RealmQuestionsDataStore.save(questions: Swift.Array&lt;LeadLinkApp.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
+                  moduleName = "LeadLinkApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
+                  timestampString = "590497768.29805"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PromiseKit.Resolver&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;) -&gt; () in LeadLinkApp.RealmQuestionsDataStore.save(questions: Swift.Array&lt;LeadLinkApp.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
+                  moduleName = "LeadLinkApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
+                  timestampString = "590497768.299715"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/Disclaimer/ShowDisclaimerValidator.swift"
+            timestampString = "590498226.113813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "shouldShowDisclaimer(disclaimerAlreadyOnScreen:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/Disclaimer/ShowDisclaimerValidator.swift"
+            timestampString = "590498226.897318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "shouldShowDisclaimer(disclaimerAlreadyOnScreen:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/CampaignsRepository/CampaignsRepository.swift"
+            timestampString = "590498274.89846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "getCampaignsAndQuestions(userSession:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/CampaignsRepository/CampaignsRepository.swift"
+            timestampString = "590498276.723832"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getCampaignsAndQuestions(userSession:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

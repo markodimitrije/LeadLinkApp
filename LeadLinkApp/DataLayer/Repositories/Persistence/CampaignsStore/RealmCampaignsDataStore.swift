@@ -148,7 +148,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
                 try realm.write {
                     realm.add(object, update: true)
                 }
-                //                print("SAVED JSON za kampanje !")
+                print("SAVED JSON za kampanje !")
                 seal.fulfill(true)
             } catch {
                 seal.reject(CampaignError.cantSave)

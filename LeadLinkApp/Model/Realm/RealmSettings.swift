@@ -11,11 +11,14 @@ import RealmSwift
 
 class RealmSettings: Object {
     
+    @objc dynamic var id = 0
     @objc dynamic var disclaimer: RealmDisclaimer?
     @objc dynamic var optIn: RealmOptIn?
     
     public func update(with settings: Settings, forCampaignId id: Int) {
     
+        self.id = id
+        
         if let disclaimer = settings.disclaimer {
             let realmSettings = RealmDisclaimer()
             realmSettings.update(with: disclaimer, forCampaignId: id)

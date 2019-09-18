@@ -50,11 +50,11 @@ public class LogOutViewModel: Logoutable {
     // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
     private func deleteCampaignRelatedData() {
         RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
-                                                             RealmOrganization.self,
-                                                             RealmQuestionSettings.self,
-                                                             RealmQuestion.self,
-                                                             RealmApplication.self,
                                                              RealmSettings.self,
+                                                             RealmOrganization.self,
+                                                             RealmApplication.self,
+                                                             RealmQuestion.self,
+                                                             RealmQuestionSettings.self,
                                                              RealmDisclaimer.self,
                                                              RealmOptIn.self,
                                                              RealmJson.self])

@@ -68,6 +68,7 @@ class RealmCampaign: Object {
             realmSettings.update(with: settings, forCampaignId: campaign.id)
             self.settings = realmSettings
         } else {
+            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self.self])
             self.settings = nil
         }
         
