@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct ShowDisclaimerValidator {
     var code: String

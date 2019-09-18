@@ -8,6 +8,7 @@
 
 import Realm
 import RealmSwift
+import RxRealm
 
 //public struct Campaigns: Codable {
 //    var data: [Campaign]

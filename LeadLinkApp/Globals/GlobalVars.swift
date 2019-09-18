@@ -53,3 +53,11 @@ var confApiKeyState: ConferenceApiKeyState? = {
     return ConferenceApiKeyState(authToken: authToken, selectedCampaign: selectedCampaign)
 }()
 
+var selectedCampaignId: Int? {
+    get {
+        return UserDefaults.standard.value(forKey: "campaignId") as? Int
+    }
+    set {
+        UserDefaults.standard.setValue(newValue, forKey: "campaignId")
+    }
+}

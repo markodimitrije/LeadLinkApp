@@ -27,11 +27,9 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private var scanner: MinimumScanning!
     
-    private let campaign: Campaign? = {
-        let campaignId = UserDefaults.standard.value(forKey: "campaignId") as? Int ?? 0 // hard-coded
-        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
-    }()
-    
+    private var campaign: Campaign? // imas observera koji ce te sync sa realm...
+    private let _obsCampaign = factory.sharedCampaignsRepository.fetchCampaign(UserDefaults.standard.integer(forKey: "campaignId"))
+
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
     
@@ -57,6 +55,8 @@ class ScanningVC: UIViewController, Storyboarded {
         
         loadKeyboardManager()
         bindUI()
+        
+        observeCampaign()
         
     }
     
@@ -107,6 +107,12 @@ class ScanningVC: UIViewController, Storyboarded {
             .filter {$0}
             .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
+    }
+    
+    private func observeCampaign() {
+        _obsCampaign.subscribe(onNext: { realmCampaign in
+            self.campaign = Campaign.init(realmCampaign: realmCampaign)
+        }).disposed(by: disposeBag)
     }
     
     private func hideScaningView() {

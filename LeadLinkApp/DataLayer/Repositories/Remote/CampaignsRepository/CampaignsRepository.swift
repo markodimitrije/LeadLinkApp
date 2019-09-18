@@ -9,6 +9,9 @@
 import Foundation
 import PromiseKit
 import RxSwift
+import RxRealm
+import Realm
+import RealmSwift
 
 public protocol UserCampaignsRepository {
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool>
@@ -58,23 +61,11 @@ public class CampaignsRepository: UserCampaignsRepository {
             
             if jsonUpdated {
                 
-                //var allCampaignsSaved = false
-
                 let campaignsWithQuestions = results.campaignsWithQuestions
 
                 let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
 
-                //let shouldFinallyUpdate = allCampaignsSaved && jsonUpdated
-                
-                //print("saved both (campaigns,questions) and json = \(shouldFinallyUpdate)")
-
                 return allCampaignsSaved
-                
-//                if shouldFinallyUpdate {
-//                    return (allCampaignsSaved && jsonUpdated) //allQuestionsSaved && jsonUpdated)
-//                } else {
-//                    return false//Promise.init(error: CampaignError.unknown)
-//                }
                 
             } else {
                 print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
@@ -87,6 +78,16 @@ public class CampaignsRepository: UserCampaignsRepository {
 
     public func getCampaign(_ campaignId: Int) -> Campaign? {
         return self.dataStore.readCampaign(id: campaignId).value
+    }
+    
+    func fetchCampaign(_ campaignId: Int) -> Observable<RealmCampaign> {
+        let realm = try! Realm()
+        guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
+            fatalError("someone asked for selected campaign, before it was saved ?!?")
+        }
+        //let campaign = Campaign.init(realmCampaign: realmCampaign)
+        //return Observable.from(optional: campaign)
+        return Observable.from(object: realmCampaign)
     }
 }
 
