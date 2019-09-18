@@ -68,9 +68,6 @@ class RealmCampaign: Object {
             let realmSettings = RealmSettings()
             realmSettings.update(with: settings, forCampaignId: campaign.id)
             self.settings = realmSettings
-        } else {
-            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self.self])
-            self.settings = nil
         }
         
         self.dateReadAt = Date.now
