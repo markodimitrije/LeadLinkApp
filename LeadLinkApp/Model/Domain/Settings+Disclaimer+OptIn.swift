@@ -9,8 +9,8 @@
 import Foundation
 
 public struct Settings: Codable {
-    var disclaimer: Disclaimer
-    var optIn: OptIn
+    var disclaimer: Disclaimer?
+    var optIn: OptIn?
     
     init(realmSettings settings: RealmSettings?) {
         self.disclaimer = Disclaimer.init(realmDisclaimer: settings?.disclaimer)
@@ -22,9 +22,13 @@ public struct Disclaimer: Codable {
     var text: String
     var url: String
     
-    init(realmDisclaimer disclaimer: RealmDisclaimer?) {
-        self.text = disclaimer?.text ?? ""
-        self.url = disclaimer?.url ?? ""
+    init?(realmDisclaimer disclaimer: RealmDisclaimer?) {
+        guard let text = disclaimer?.text,
+            let url = disclaimer?.url else {
+                return nil
+        }
+        self.text = text
+        self.url = url
     }
 }
 
@@ -32,8 +36,12 @@ public struct OptIn: Codable {
     var text: String
     var url: String
     
-    init(realmOptIn optIn: RealmOptIn?) {
-        self.text = optIn?.text ?? ""
-        self.url = optIn?.url ?? ""
+    init?(realmOptIn optIn: RealmOptIn?) {
+        guard let text = optIn?.text,
+            let url = optIn?.url else {
+                return nil
+        }
+        self.text = text
+        self.url = url
     }
 }

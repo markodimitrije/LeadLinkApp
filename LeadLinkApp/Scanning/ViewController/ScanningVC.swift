@@ -156,8 +156,8 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func showDisclaimer() {
-        let disclaimerUrl = campaign?.settings.disclaimer.url ?? ""
-        let disclaimerTxt = campaign?.settings.disclaimer.text ?? ""
+        let disclaimerUrl = campaign?.settings?.disclaimer?.url ?? ""
+        let disclaimerTxt = campaign?.settings?.disclaimer?.text ?? ""
         
         if let disclaimerView = disclaimerFactory.create() {
             disclaimerView.delegate = self

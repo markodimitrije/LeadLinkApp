@@ -32,7 +32,7 @@ public struct Campaign: Codable {
     var codes: [Code]?
     var organization: Organization
     var application: Application
-    var settings: Settings
+    var settings: Settings?
     
     var dateReadAt: Date?
     

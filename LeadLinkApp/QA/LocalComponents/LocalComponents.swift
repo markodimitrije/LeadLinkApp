@@ -23,9 +23,14 @@ class LocalComponents {
     private let localComponentsViewFactory = LocalComponentsViewFactory(localComponentsSize: LocalComponentsSize())
     
     init() {
-        self.componentsInOrder = [
-            localComponentsViewFactory.makeTermsNoSwitchView(tag: 0, optIn: campaign?.settings.optIn),
+        let components: [UIView?] = [
+            localComponentsViewFactory.makeTermsNoSwitchView(tag: 0, optIn: campaign?.settings?.optIn),
             SaveButton()
         ]
+//        self.componentsInOrder = [
+//            localComponentsViewFactory.makeTermsNoSwitchView(tag: 0, optIn: campaign?.settings?.optIn),
+//            SaveButton()
+//        ]
+        self.componentsInOrder = components.compactMap {$0}
     }
 }

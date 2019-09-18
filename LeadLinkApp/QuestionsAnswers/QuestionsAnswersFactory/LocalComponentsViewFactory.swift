@@ -15,7 +15,11 @@ class LocalComponentsViewFactory {
         self.localComponentsSize = localComponentsSize
     }
     
-    func makeTermsNoSwitchView(tag: Int, optIn: OptIn?) -> TermsNoSwitchView {
+    func makeTermsNoSwitchView(tag: Int, optIn: OptIn?) -> TermsNoSwitchView? {
+        
+        guard let optIn = optIn else {
+            return nil
+        }
         
         let (width, height) = localComponentsSize.getComponentWidthAndHeight(type: TermsNoSwitchView.self)
         

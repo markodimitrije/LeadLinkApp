@@ -20,8 +20,8 @@ struct ShowDisclaimerValidator {
     func shouldShowDisclaimer(disclaimerAlreadyOnScreen: Bool) -> Bool {
         if !disclaimerAlreadyOnScreen {
             if delegate != nil &&
-                campaign?.settings.disclaimer.url != nil &&
-                campaign?.settings.disclaimer.text != nil {
+                campaign?.settings?.disclaimer?.url != nil &&
+                campaign?.settings?.disclaimer?.text != nil {
                 return true
             }
         }

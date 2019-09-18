@@ -19,7 +19,7 @@ struct QuestionsDataSourceAndDelegateHelper {
             } else {
                 return question.group!
             }
-        }.unique() + [QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
+        }.unique() + [getNameForLastGroup()] //[QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
 
     // to test group reordering:
 //    lazy private var orderedGroups = [QuestionsAnswersSectionType.localComponentsGroupName.rawValue] +
@@ -61,6 +61,8 @@ struct QuestionsDataSourceAndDelegateHelper {
         guard let questions = questionsInGroupWith(index: index) else {
             return localComponents.componentsInOrder.count
         }
+        print("questions.count = \(questions.count)")
+        print("groupName = \(questions.first?.group ?? "ne znam?")")
         return questions.count
     }
     
@@ -93,6 +95,10 @@ struct QuestionsDataSourceAndDelegateHelper {
         return CGSize.init(width: tableView.bounds.width,
                            height: tableHeaderFooterCalculator.getFooterHeight()
         )
+    }
+    
+    private func getNameForLastGroup() -> String {
+        return (localComponents.componentsInOrder.count == 1) ? "" : QuestionsAnswersSectionType.localComponentsGroupName.rawValue
     }
     
     // MARK:- New API

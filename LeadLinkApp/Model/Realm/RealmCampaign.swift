@@ -63,9 +63,13 @@ class RealmCampaign: Object {
         realmApp.updateWith(application: campaign.application)
         self.application = realmApp
         
-        let realmSettings = RealmSettings()
-        realmSettings.update(with: campaign.settings, forCampaignId: campaign.id)
-        self.settings = realmSettings
+        if let settings = campaign.settings {
+            let realmSettings = RealmSettings()
+            realmSettings.update(with: settings, forCampaignId: campaign.id)
+            self.settings = realmSettings
+        } else {
+            self.settings = nil
+        }
         
         self.dateReadAt = Date.now
         
