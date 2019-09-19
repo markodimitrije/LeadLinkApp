@@ -27,10 +27,9 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private var scanner: MinimumScanning!
     
-    private var campaign: Campaign? // imas observera koji ce te sync sa realm...
-    private let _obsCampaign = factory.sharedCampaignsRepository.fetchCampaign(selectedCampaignId ?? 0)
-
-    //let _obsCampaign = RealmSelectedCampaign.init(campaignsDataStore: factory.sharedCampaignsRepository.dataStore).selectedCampaign() // pises ono sto vec imas .... !?
+    private var campaign: Campaign? {
+        return viewModel.campaign
+    }
     
     var viewModel: ScanningViewModel!
     var keyboardManager: MovingKeyboardDelegate?
@@ -52,8 +51,6 @@ class ScanningVC: UIViewController, Storyboarded {
         
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
-        
-        observeCampaign()
         
         hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
@@ -109,12 +106,6 @@ class ScanningVC: UIViewController, Storyboarded {
             .filter {$0}
             .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
-    }
-    
-    private func observeCampaign() {
-        _obsCampaign.subscribe(onNext: { realmCampaign in
-            self.campaign = Campaign.init(realmCampaign: realmCampaign)
-        }).disposed(by: disposeBag)
     }
     
     private func hideScaningView() {

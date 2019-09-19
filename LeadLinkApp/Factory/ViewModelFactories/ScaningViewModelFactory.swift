@@ -16,12 +16,16 @@ class ScanningViewModelFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    func makeViewModel(campaign: Campaign, codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
+    func makeViewModel(campaignRepository: CampaignsRepository,
+                       codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
         
         let dataStoreFactory = CodesDataStoreFactory(appDependancyContainer: appDependancyContainer)
         let codesDataStore = dataStoreFactory.makeCodeDataStore()
         
-        let scanningViewmodel = ScanningViewModel.init(campaign: campaign, codesDataStore: codesDataStore)
+        let obsRealmCampaign = campaignRepository.fetchCampaign(selectedCampaignId!)
+        let obsCampaign = obsRealmCampaign.map(Campaign.init(realmCampaign:))
+        
+        let scanningViewmodel = ScanningViewModel.init(obsCampaign: obsCampaign, codesDataStore: codesDataStore)
         
         return scanningViewmodel
     }

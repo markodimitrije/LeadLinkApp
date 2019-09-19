@@ -20,7 +20,8 @@ struct CampaignsNavigateToViewControllerFactory: PageNavigatingProtocol {
                 return nil
         }
         
-        let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaign: campaign)
+        //let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaign: campaign)
+        let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaignRepository: campaignsRepo)
         let scanningVcFactory = ScanningViewControllerFactory(appDependancyContainer: factory)
         let scanningVC = scanningVcFactory.makeVC(viewModel: scanningViewModel)
         

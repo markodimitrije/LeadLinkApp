@@ -6,36 +6,37 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-// treba da zna da prikaze logo kampanje (dobija data preko selected Campaign, javice ti campaignsVC)
-
 import UIKit
 import RxSwift
 
 class ScanningViewModel {
     
-    var campaign: Campaign
-    var codesDataStore: CodesDataStore
-    var logo: UIImage?
+    private (set) var obsCampaign: Observable<Campaign>
+    private (set) var codesDataStore: CodesDataStore
+    private (set) var logo: UIImage?
+    
     public let codeInput = BehaviorSubject<String>(value: "")
+    
+    private (set) var campaign: Campaign! {
+        didSet {
+            updateLogoImage()
+            setCodeListener()
+        }
+    }
 
-    init(campaign: Campaign, codesDataStore: CodesDataStore) {
-        self.campaign = campaign
+    init(obsCampaign: Observable<Campaign>, codesDataStore: CodesDataStore) {
+        self.obsCampaign = obsCampaign
         self.codesDataStore = codesDataStore
-        updateLogoImage(campaign: campaign)
-        setCodeListener()
+        hookUpObserverToStateVar()
     }
     
-    init(realmCampaign: RealmCampaign, codesDataStore: CodesDataStore) {
-        self.campaign = Campaign.init(realmCampaign: realmCampaign)
-        self.codesDataStore = codesDataStore
-        updateLogoImage(campaign: campaign)
-        setCodeListener()
+    private func hookUpObserverToStateVar() {
+        obsCampaign.subscribe(onNext: { campaign in
+            self.campaign = campaign
+        }).disposed(by: disposeBag)
     }
     
-    private func updateLogoImage(realmCampaign: RealmCampaign) {
-        self.logo = UIImage.imageFromData(data: realmCampaign.imgData) ?? UIImage.campaignPlaceholder
-    }
-    private func updateLogoImage(campaign: Campaign) {
+    private func updateLogoImage() {
         self.logo = UIImage.imageFromData(data: campaign.imgData) ?? UIImage.campaignPlaceholder
     }
     private func setCodeListener() {
