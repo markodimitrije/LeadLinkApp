@@ -136,6 +136,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "campaign.useScanditScanner">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginViewController.init(coder:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString

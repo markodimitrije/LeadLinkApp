@@ -53,12 +53,12 @@ class ScanningVC: UIViewController, Storyboarded {
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
         
+        observeCampaign()
+        
         hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
         loadKeyboardManager()
         bindUI()
-        
-        observeCampaign()
         
     }
     
