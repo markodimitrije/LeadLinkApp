@@ -26,13 +26,13 @@ public struct Campaign: Codable {
     var logo: String? // url
     var imgData: Data? = nil
     var use_scandit_scanner: Bool?
-    var number_of_responses: Int
+    var number_of_responses: Int?
     
     var questions: [Question]
     var codes: [Code]?
-    var organization: Organization
     var application: Application
     var settings: Settings?
+    var organization: Organization?
     
     var dateReadAt: Date?
     
@@ -51,14 +51,14 @@ public struct Campaign: Codable {
         self.use_scandit_scanner = campaign.useScanditScanner
         self.number_of_responses = campaign.number_of_responses
         
-        self.organization = Organization(realmOrganization: campaign.organization)
-        
         self.questions = campaign.questions.toArray().map(Question.init)
         self.codes = campaign.codes.toArray().map(Code.init)
         
         self.application = Application(realmApplication: campaign.application)
         
         self.settings = Settings(realmSettings: campaign.settings)
+        
+        self.organization = Organization(realmOrganization: campaign.organization)
         
         self.dateReadAt = campaign.dateReadAt
     }

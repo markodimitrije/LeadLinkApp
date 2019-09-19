@@ -54,11 +54,16 @@ class RealmCampaign: Object {
         self.logo = campaign.logo
         self.imgData = campaign.imgData
         self.useScanditScanner = campaign.use_scandit_scanner ?? false
-        self.number_of_responses = campaign.number_of_responses
+        self.number_of_responses = campaign.number_of_responses ?? 0
         
-        let org = RealmOrganization()
-        org.update(with: campaign.organization)
-        self.organization = org
+        if let organization = campaign.organization {
+            let org = RealmOrganization()
+            org.update(with: organization)
+            self.organization = org
+        } else {
+//            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmOrganization.self])
+//            self.organization = nil
+        }
         
         let realmApp = RealmApplication()
         realmApp.updateWith(application: campaign.application)
@@ -69,8 +74,8 @@ class RealmCampaign: Object {
             realmSettings.update(with: settings, forCampaignId: campaign.id)
             self.settings = realmSettings
         } else {
-            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self.self])
-            self.settings = nil
+//            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self])
+//            self.settings = nil
         }
         
         self.dateReadAt = Date.now
