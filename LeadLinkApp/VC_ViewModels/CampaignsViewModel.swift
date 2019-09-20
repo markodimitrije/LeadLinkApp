@@ -103,6 +103,9 @@ public class CampaignsViewModel {
     
     private func handleErrorUsingAlert(err: Error) {
         var alertInfo: AlertInfo!
+        
+        if err == CampaignError.dontNeedUpdate { return }
+        
         if err == CampaignError.noCampaignsFound {
             print("nemas nijednu kampanju")
             alertInfo = AlertInfo.getInfo(type: AlertInfoType.noCampaigns)
@@ -112,10 +115,10 @@ public class CampaignsViewModel {
             alertInfo = AlertInfo.init(title: "Campaign error", text: text, btnText: ["OK"])
         }
         
-        if let topVC = UIApplication.topViewController() as? CampaignsVC {
+        if let topVC = UIApplication.topViewController() {
             topVC.alert(alertInfo: alertInfo, preferredStyle: .alert).subscribe { _ in
                 (UIApplication.shared.delegate as! AppDelegate).loadLoginVC()
-            }.disposed(by: disposeBag)
+            }//.disposed(by: disposeBag)
         }
     }
    
