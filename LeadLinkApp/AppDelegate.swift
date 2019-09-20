@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationViewModel: NavigationViewModel!
     var startVCProvider: StartViewControllerProviding!
-    private lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
+    lazy var logOutViewModel = LogoutViewModelFactory(appDependancyContainer: factory).makeViewModel()
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationViewModel = navigationViewModelFactory.makeViewModel()
         
-        downloadCampaignsQuestionsAndLogos()
+        //downloadCampaignsQuestionsAndLogos()
         
         let navVC = window?.rootViewController as? UINavigationController
         
@@ -71,6 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     topController.dismiss(animated: true)
                 }
             }).disposed(by: disposeBag)
+    }
+    
+    func loadLoginVC() {
+        (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
     }
     
     @objc func statsBtnTapped(_ notification: NSNotification) {

@@ -47,6 +47,11 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                         let campaigns = payload.data
                         let questions = campaigns.map {$0.questions}
                         
+                        if campaigns.isEmpty {
+                            seal.reject(CampaignError.noCampaignsFound)
+                            return
+                        }
+                        
                         let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
                         
                         let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")

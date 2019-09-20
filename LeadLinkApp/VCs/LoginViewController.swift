@@ -178,7 +178,7 @@ class LoginViewController: UIViewController, Storyboarded {
                     sSelf.onSignedInNavigateToCampaignsVC(userSession: userSession)
                     sSelf.downloadCampaigns()
                 case .signOut:
-                    sSelf.logInViewModel.userIsLogedOut()
+                    sSelf.logInViewModel.userIsLogedOutClearTxtFields()
                 }
             }).disposed(by: disposeBag)
     }

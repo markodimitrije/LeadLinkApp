@@ -23,6 +23,7 @@ public protocol CampaignsDataStore: CampaignsDataStoreBase {
     func readAllCampaignLogoInfos() -> Promise<[LogoInfo]>
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>
+    func deleteCampaignRelatedData()
     
 //    func observableCampaign(id: Int) -> Observable<Campaign>
 }

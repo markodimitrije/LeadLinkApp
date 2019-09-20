@@ -41,23 +41,10 @@ public class LogOutViewModel: Logoutable {
                     .signOut(userSession: session)
                     .ensure { [weak self] in guard let sSelf = self else {return}
                         sSelf.notSignedInResponder.notSignedIn()
-                        sSelf.deleteCampaignRelatedData()
                         sSelf.deleteConfApiKeyStateAndAuthorization()
+                        sSelf.realmCampaignsDataStore.deleteCampaignRelatedData()
                 }
         }
-    }
-    
-    // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
-    private func deleteCampaignRelatedData() {
-        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
-                                                             RealmSettings.self,
-                                                             RealmOrganization.self,
-                                                             RealmApplication.self,
-                                                             RealmQuestion.self,
-                                                             RealmQuestionSettings.self,
-                                                             RealmDisclaimer.self,
-                                                             RealmOptIn.self,
-                                                             RealmJson.self])
     }
     
     private func deleteConfApiKeyStateAndAuthorization() {

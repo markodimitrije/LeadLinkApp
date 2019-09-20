@@ -113,13 +113,13 @@ public class LogInViewModel {
         sharedMainViewModel.userSessionStateObservable.skip(1) // tamo je init sa signOut....
             .subscribe(onNext: { [weak self] state in
                 if state == .signOut {
-                    self?.userIsLogedOut()
+                    self?.userIsLogedOutClearTxtFields()
                 }
             })
             .disposed(by: bag)
     }
     
-    func userIsLogedOut() { print("userLogedOut is called")
+    func userIsLogedOutClearTxtFields() { print("userLogedOut is called")
         emailInput.onNext("")
         passwordInput.onNext("")
     }

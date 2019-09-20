@@ -15,6 +15,8 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
     
     @IBOutlet weak var tableView: UITableView!
     
+//    lazy var alertNoValidCampaignsObserver = self.alert(alertInfo: AlertInfo.getInfo(type: .noCampaigns), preferredStyle: .alert)
+    
     // MARK:- injected by factory
     var logOutViewModel: Logoutable!
     var campaignsViewModel: CampaignsViewModel!
@@ -29,6 +31,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
         observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         bindUI()
+        
     }
     
     private func observe(userSessionState: Observable<MainViewState>) { // navigation...

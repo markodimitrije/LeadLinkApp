@@ -55,7 +55,7 @@ public class CampaignsRepository: UserCampaignsRepository {
                 return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
                                                                json: results.jsonString).isFulfilled, results)
                 
-            }
+        }
         
         return update.map { (jsonUpdated, results) -> Bool in
             

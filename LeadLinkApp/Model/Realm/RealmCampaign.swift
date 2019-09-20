@@ -43,12 +43,12 @@ class RealmCampaign: Object {
 
     public func update(with campaign: Campaign) {
         self.id = campaign.id
-        self.name = campaign.name
-        self.desc = campaign.description
-        self.user_id = campaign.user_id
-        self.conference_id = campaign.conference_id
-        self.organization_id = campaign.organization_id
-        self.created_at = campaign.created_at
+        self.name = campaign.name ?? Constants.Campaign.defaultName + "\(campaign.id)"
+        self.desc = campaign.description ?? Constants.Campaign.defaultDesc + "\(campaign.id)"
+        self.user_id = campaign.user_id ?? 0
+        self.conference_id = campaign.conference_id ?? 0
+        self.organization_id = campaign.organization_id ?? 0
+        self.created_at = campaign.created_at ?? Date.now.toString(format: Date.defaultFormatString)!
         self.primary_color = campaign.primary_color
         self.color = campaign.color
         self.logo = campaign.logo

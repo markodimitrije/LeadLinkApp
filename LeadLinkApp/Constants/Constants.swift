@@ -51,6 +51,14 @@ extension Constants {
             static let title = NSLocalizedString("AlertInfo.QuestionsAnswers.FormNotValid.title", comment: "")
             static let msg = NSLocalizedString("AlertInfo.QuestionsAnswers.FormNotValid.msg", comment: "")
         }
+        struct readingCampaignsError {
+            static let title = NSLocalizedString("AlertInfo.Campaigns.CantReadResponse.title", comment: "")
+            static let msg = NSLocalizedString("AlertInfo.Campaigns.CantReadResponse.msg", comment: "")
+        }
+        struct noCampaignsError {
+            static let title = NSLocalizedString("AlertInfo.Campaigns.Empty.title", comment: "")
+            static let msg = NSLocalizedString("AlertInfo.Campaigns.Empty.msg", comment: "")
+        }
     }
     struct Disclaimer {
         static let title = NSLocalizedString("Disclaimer.title", comment: "")
@@ -74,5 +82,12 @@ extension Constants {
         
         static let hyperLinkPolicyText = "Privacy Policy"
         static let navusHyperLinkPolicyText = "Navus Privacy Policy"
+    }
+}
+
+extension Constants {
+    struct Campaign {
+        static let defaultName = NSLocalizedString("Strings.Campaign.defaultName", comment: "")
+        static let defaultDesc = NSLocalizedString("Strings.Campaign.defaultDesc", comment: "")
     }
 }

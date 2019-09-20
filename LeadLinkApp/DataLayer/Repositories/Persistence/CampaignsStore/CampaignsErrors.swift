@@ -14,6 +14,7 @@ enum CampaignError: Error {
     case cantSave
     case cantDelete
     case dontNeedUpdate// nije pravi Err
+    case noCampaignsFound
     
     func translateToErrorMessage() -> ErrorMessage {
         switch self {
@@ -25,6 +26,9 @@ enum CampaignError: Error {
             return ErrorMessage.init(title: "Error", message: "Could not execute campaigns task.\n Unknown error occured.")
         case .dontNeedUpdate:
             return ErrorMessage.init(title: "'Error'", message: "Not really error, used to break chain if update campaigns not needed.")
+        case .noCampaignsFound:
+            return ErrorMessage.init(title: "'Error'", message: "No valid campaigns found. Please go to Configurator to set up your campaigns.")
+            
         }
         
     }

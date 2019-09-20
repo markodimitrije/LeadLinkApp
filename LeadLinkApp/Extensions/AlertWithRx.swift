@@ -34,18 +34,16 @@ extension UIViewController {
                 popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
             }
             
-            _ = alertInfo.btnText.enumerated().map({ (index, title) -> Void in
+            _ = alertInfo.btnText.enumerated().map { (index, title) -> Void in
                 alertVC.addAction(
                     UIAlertAction(title: title, style: .destructive, handler: {_ in
                         observer.onNext(index)
                     })
                 )
-            })
+            }
             self?.present(alertVC, animated: true, completion: nil)
             
-            return Disposables.create {
-                self?.dismiss(animated: true, completion: nil)
-            }
+            return Disposables.create()
         }
     }
     
@@ -78,6 +76,17 @@ struct AlertInfo {
             return AlertInfo.init(title: Constants.AlertInfo.questionsFormNotValid.title,
                                   text: Constants.AlertInfo.questionsFormNotValid.msg,
                                   btnText: [Constants.AlertInfo.ok])
+     
+        case .readingCampaignsError:
+            return AlertInfo.init(title: Constants.AlertInfo.readingCampaignsError.title,
+                              text: Constants.AlertInfo.readingCampaignsError.msg,
+                              btnText: [Constants.AlertInfo.ok])
+        
+        case .noCampaigns:
+            return AlertInfo.init(title: Constants.AlertInfo.noCampaignsError.title,
+                                  text: Constants.AlertInfo.noCampaignsError.msg,
+                                  btnText: [Constants.AlertInfo.ok])
+    
         }
     }
 }
@@ -88,6 +97,8 @@ enum AlertInfoType {
     case noCodeDetected
     case logout
     case questionsFormNotValid
+    case readingCampaignsError
+    case noCampaigns
 }
 
 

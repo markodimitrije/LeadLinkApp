@@ -14,13 +14,13 @@ public struct Campaigns: Codable {
 }
 
 public struct Campaign: Codable {
-    var id: Int
-    var name: String
-    var description: String
-    var user_id: Int
-    var conference_id: Int
-    var organization_id: Int
-    var created_at: String // (Date)
+    var id: Int = -1
+    var conference_id: Int = -1
+    var name: String?
+    var description: String?
+    var user_id: Int?
+    var organization_id: Int?
+    var created_at: String? // (Date)
     var primary_color: String? // oprez - ne vidim iz response koji je ovo type
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
@@ -38,10 +38,10 @@ public struct Campaign: Codable {
     
     init(realmCampaign campaign: RealmCampaign) {
         self.id = campaign.id
+        self.conference_id = campaign.conference_id
         self.name = campaign.name
         self.description = campaign.desc
         self.user_id = campaign.user_id
-        self.conference_id = campaign.conference_id
         self.organization_id = campaign.organization_id
         self.created_at = campaign.created_at
         self.primary_color = campaign.primary_color

@@ -23,6 +23,14 @@ public class CampaignsViewModel {
     let campaignsRepository: CampaignsRepository
     let downloadImageAPI: DownloadImageAPI
     
+    private(set) var campaigns: Results<RealmCampaign>!
+    
+    // output
+    
+    private(set) var oCampaigns: Observable<(AnyRealmCollection<RealmCampaign>, RealmChangeset?)>!
+    
+    var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
+    
     // MARK: - Methods
     public init(campaignsRepository: CampaignsRepository, downloadImageAPI: DownloadImageAPI) {
         self.campaignsRepository = campaignsRepository
@@ -65,21 +73,12 @@ public class CampaignsViewModel {
                 RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
             }
         }.catch { (err) in
-            print("err or status = \(err)")
+            self.handleErrorUsingAlert(err: err)
+            factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
+            RealmCampaignsDataStore().deleteCampaignRelatedData()
         }
     
     }
-    
-    private(set) var campaigns: Results<RealmCampaign>!
-    
-    // input
-    //var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: nil)
-    
-    // output
-    
-    private(set) var oCampaigns: Observable<(AnyRealmCollection<RealmCampaign>, RealmChangeset?)>!
-    
-    var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
     
     // MARK:- calculators
     
@@ -98,17 +97,26 @@ public class CampaignsViewModel {
         
         oCampaigns = Observable.changeset(from: campaigns)
         
-//        selectedTableIndex.subscribe(onNext: { index in
-////            print("selectedTableIndex je dobio index = \(index)")
-//            let campaigns = self.campaigns.toArray()
-//            if let index = index, index < campaigns.count {
-////                print("da li je ikada emitovao index >!>>! = \(index)")
-//                self.selectedCampaign.onNext(campaigns[index])
-//            }
-//        }).disposed(by: disposeBag)
-        
     }
     
     private let disposeBag = DisposeBag()
+    
+    private func handleErrorUsingAlert(err: Error) {
+        var alertInfo: AlertInfo!
+        if err == CampaignError.noCampaignsFound {
+            print("nemas nijednu kampanju")
+            alertInfo = AlertInfo.getInfo(type: AlertInfoType.noCampaigns)
+        } else {
+            print("localzed = \(err.localizedDescription)")
+            let text = err.localizedDescription + " Please contact Navus team."
+            alertInfo = AlertInfo.init(title: "Campaign error", text: text, btnText: ["OK"])
+        }
+        
+        if let topVC = UIApplication.topViewController() as? CampaignsVC {
+            topVC.alert(alertInfo: alertInfo, preferredStyle: .alert).subscribe { _ in
+                (UIApplication.shared.delegate as! AppDelegate).loadLoginVC()
+            }.disposed(by: disposeBag)
+        }
+    }
    
 }
