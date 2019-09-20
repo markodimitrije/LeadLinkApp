@@ -31,7 +31,7 @@ AlertInfo.QuestionsAnswers.FormNotValid.msg = "Email and Terms & Conditions are 
 
 AlertInfo.Campaigns.CantReadResponse.title = "Campaigns not configured properly.";
 AlertInfo.Campaigns.CantReadResponse.msg = "Please go to Navus configurator and configure campaign properly. Every campaign must have 'id', 'conferenceId' and application info";
-AlertInfo.Campaigns.Empty.title = "No valid campaigns found";
+AlertInfo.Campaigns.Empty.title = "No campaigns found";
 AlertInfo.Campaigns.Empty.msg = "Please go to Configurator and set up your campaign(s)";
 
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
@@ -51,3 +51,6 @@ Strings.Chart.Grid.NotSyncedThisDevice.text = "Not synced (this device): ";
 
 Strings.Campaign.defaultName = "Campaign ";
 Strings.Campaign.defaultDesc = "Campaign ";
+
+Strings.Campaign.Err.campaignError = "Campaign error.";
+Strings.Campaign.Err.contactNavusTeam = " Please contact Navus team.";

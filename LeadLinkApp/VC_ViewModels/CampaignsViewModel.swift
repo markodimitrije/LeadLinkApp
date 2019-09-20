@@ -107,16 +107,17 @@ public class CampaignsViewModel {
         if err == CampaignError.dontNeedUpdate { return }
         
         if err == CampaignError.noCampaignsFound {
-            print("nemas nijednu kampanju")
             alertInfo = AlertInfo.getInfo(type: AlertInfoType.noCampaigns)
         } else {
-            print("localzed = \(err.localizedDescription)")
-            let text = err.localizedDescription + " Please contact Navus team."
-            alertInfo = AlertInfo.init(title: "Campaign error", text: text, btnText: ["OK"])
+            let title = NSLocalizedString("Strings.Campaign.Err.campaignError", comment: "")
+            let text = err.localizedDescription + NSLocalizedString("Strings.Campaign.Err.contactNavusTeam", comment: "")
+            
+            alertInfo = AlertInfo.init(title: title, text: text, btnText: ["OK"])
         }
         
         if let topVC = UIApplication.topViewController() {
-            topVC.alert(alertInfo: alertInfo, preferredStyle: .alert).subscribe { _ in
+            topVC.alert(alertInfo: alertInfo, preferredStyle: .alert)
+                .subscribe { _ in
                 (UIApplication.shared.delegate as! AppDelegate).loadLoginVC()
             }//.disposed(by: disposeBag)
         }
