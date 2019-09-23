@@ -17,10 +17,10 @@ import RxRealm
 class RealmCampaign: Object {
     //@objc dynamic var id = 0
     @objc dynamic var id: Int = 0
+    @objc dynamic var conference_id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var user_id: Int = 0
-    @objc dynamic var conference_id: Int = 0
     @objc dynamic var organization_id: Int = 0
     @objc dynamic var created_at: String = ""// (Date)
     @objc dynamic var primary_color: String? // oprez - ne vidim iz response koji je ovo types
@@ -46,7 +46,7 @@ class RealmCampaign: Object {
         self.name = campaign.name ?? Constants.Campaign.defaultName + "\(campaign.id)"
         self.desc = campaign.description ?? Constants.Campaign.defaultDesc + "\(campaign.id)"
         self.user_id = campaign.user_id ?? 0
-        self.conference_id = campaign.conference_id ?? 0
+        self.conference_id = campaign.conference_id
         self.organization_id = campaign.organization_id ?? 0
         self.created_at = campaign.created_at ?? Date.now.toString(format: Date.defaultFormatString)!
         self.primary_color = campaign.primary_color
@@ -60,9 +60,6 @@ class RealmCampaign: Object {
             let org = RealmOrganization()
             org.update(with: organization)
             self.organization = org
-        } else {
-//            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmOrganization.self])
-//            self.organization = nil
         }
         
         let realmApp = RealmApplication()
@@ -73,9 +70,6 @@ class RealmCampaign: Object {
             let realmSettings = RealmSettings()
             realmSettings.update(with: settings, forCampaignId: campaign.id)
             self.settings = realmSettings
-        } else {
-//            RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmSettings.self])
-//            self.settings = nil
         }
         
         self.dateReadAt = Date.now
@@ -97,8 +91,8 @@ class RealmCampaign: Object {
             }
         }
         
-        // update questions and codes
-        try? Realm.init().write {
+        let realm = try! Realm.init() // update questions and codes
+        try? realm.write {
             
             questions.removeAll()
             questions.append(objectsIn: realmQuestions)

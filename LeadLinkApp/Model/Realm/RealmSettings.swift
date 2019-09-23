@@ -31,4 +31,8 @@ class RealmSettings: Object {
             self.optIn = realmOptIn
         }
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
