@@ -73,6 +73,8 @@ public class CampaignsViewModel {
                 RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
             }
         }.catch { (err) in
+            guard let err = err as? CampaignError else {return}
+            if err == .dontNeedUpdate {return}
             self.handleErrorUsingAlert(err: err)
             factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
             RealmCampaignsDataStore().deleteCampaignRelatedData()
@@ -108,6 +110,8 @@ public class CampaignsViewModel {
         
         if err == CampaignError.noCampaignsFound {
             alertInfo = AlertInfo.getInfo(type: AlertInfoType.noCampaigns)
+        } else if err == CampaignError.mandatoryKeyIsMissing {
+            alertInfo = AlertInfo.getInfo(type: AlertInfoType.campaignKeyIsMissing)
         } else {
             let title = NSLocalizedString("Strings.Campaign.Err.campaignError", comment: "")
             let text = err.localizedDescription + NSLocalizedString("Strings.Campaign.Err.contactNavusTeam", comment: "")

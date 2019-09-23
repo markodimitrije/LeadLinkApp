@@ -15,6 +15,7 @@ enum CampaignError: Error {
     case cantDelete
     case dontNeedUpdate// nije pravi Err
     case noCampaignsFound
+    case mandatoryKeyIsMissing
     
     func translateToErrorMessage() -> ErrorMessage {
         switch self {
@@ -28,7 +29,8 @@ enum CampaignError: Error {
             return ErrorMessage.init(title: "'Error'", message: "Not really error, used to break chain if update campaigns not needed.")
         case .noCampaignsFound:
             return ErrorMessage.init(title: "'Error'", message: "No valid campaigns found. Please go to Configurator to set up your campaigns.")
-            
+        case .mandatoryKeyIsMissing:
+            return ErrorMessage.init(title: "Error", message: "Mandatory key is missing. Please contact Navus Team.")
         }
         
     }

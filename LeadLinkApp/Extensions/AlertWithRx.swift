@@ -86,7 +86,10 @@ struct AlertInfo {
             return AlertInfo.init(title: Constants.AlertInfo.noCampaignsError.title,
                                   text: Constants.AlertInfo.noCampaignsError.msg,
                                   btnText: [Constants.AlertInfo.ok])
-    
+        case .campaignKeyIsMissing:
+            return AlertInfo.init(title: Constants.AlertInfo.campaignKeyIsMissingError.title,
+                                  text: Constants.AlertInfo.campaignKeyIsMissingError.msg,
+                                  btnText: [Constants.AlertInfo.ok])
         }
     }
 }
@@ -99,6 +102,7 @@ enum AlertInfoType {
     case questionsFormNotValid
     case readingCampaignsError
     case noCampaigns
+    case campaignKeyIsMissing
 }
 
 

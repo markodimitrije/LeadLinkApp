@@ -36,30 +36,35 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                 let dataErrorFromUrlResponse = DataErrorFromUrlResponse(data: data, response: response, error: error)
                 
                 if !dataErrorFromUrlResponse.answerOk {
-                    seal.reject(dataErrorFromUrlResponse.error!)
+                    //seal.reject(dataErrorFromUrlResponse.error!)
+                    return
                 } else {
+                
+                    let decoder = JSONDecoder()
+                    var payload: Campaigns!
+                    
                     do {
-                        let decoder = JSONDecoder()
-                        let payload = try decoder.decode(Campaigns.self, from: data!)
-                        
-                        let jsonString = String.init(data: data!, encoding: String.Encoding.utf8) // versioning
-                        
-                        let campaigns = payload.data
-                        let questions = campaigns.map {$0.questions}
-                        
-                        if campaigns.isEmpty {
-                            seal.reject(CampaignError.noCampaignsFound)
-                            return
-                        }
-                        
-                        let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
-                        
-                        let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
-                        
-                        seal.fulfill(campaignResults)
+                        payload = try decoder.decode(Campaigns.self, from: data!)
                     } catch {
-                        seal.reject(error)
+                        seal.reject(CampaignError.mandatoryKeyIsMissing)
+                        return
                     }
+                    
+                    let jsonString = String.init(data: data!, encoding: String.Encoding.utf8) // versioning
+                    
+                    let campaigns = payload.data
+                    let questions = campaigns.map {$0.questions}
+                    
+                    if campaigns.isEmpty {
+                        seal.reject(CampaignError.noCampaignsFound)
+                        return
+                    }
+                    
+                    let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
+                    
+                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
+                    
+                    seal.fulfill(campaignResults)
                 }
                 
             }.resume()

@@ -33,6 +33,8 @@ AlertInfo.Campaigns.CantReadResponse.title = "Campaigns not configured properly.
 AlertInfo.Campaigns.CantReadResponse.msg = "Please go to Navus configurator and configure campaign properly. Every campaign must have 'id', 'conferenceId' and application info";
 AlertInfo.Campaigns.Empty.title = "No campaigns found";
 AlertInfo.Campaigns.Empty.msg = "Please go to Configurator and set up your campaign(s)";
+AlertInfo.Campaigns.MandatoryKeyIsMissing.title = "Campaign key is missing";
+AlertInfo.Campaigns.MandatoryKeyIsMissing.msg = "Please contact Navus Team";
 
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
 

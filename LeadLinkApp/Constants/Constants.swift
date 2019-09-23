@@ -59,6 +59,10 @@ extension Constants {
             static let title = NSLocalizedString("AlertInfo.Campaigns.Empty.title", comment: "")
             static let msg = NSLocalizedString("AlertInfo.Campaigns.Empty.msg", comment: "")
         }
+        struct campaignKeyIsMissingError {
+            static let title = NSLocalizedString("AlertInfo.Campaigns.MandatoryKeyIsMissing.title", comment: "")
+            static let msg = NSLocalizedString("AlertInfo.Campaigns.MandatoryKeyIsMissing.msg", comment: "")
+        }
     }
     struct Disclaimer {
         static let title = NSLocalizedString("Disclaimer.title", comment: "")

@@ -11,19 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "type(of: UIApplication.topViewController())">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,6 +59,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BarOrChartData.loadCompartmentValues():BarOrChartDataImplementations.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "campaign.number_of_responses">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ReportsTVC.update(report:):ReportsTVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -76,10 +75,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "BarOrChartData.loadCompartmentValues():BarOrChartDataImplementations.swift">
+         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
          <PersistentStrings>
             <PersistentString
-               value = "campaign.number_of_responses">
+               value = "campaign.useScanditScanner">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -120,10 +119,10 @@
          contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -136,14 +135,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Campaign.init(realmCampaign:):Campaign.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "campaign.useScanditScanner">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "LoginViewController.init(coder:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -152,10 +143,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DataErrorFromUrlResponse.answerOk.getter:DataErrorFromUrlResponse.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data != nil &amp;&amp; error == nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SaveButton.setColorAndText():SaveButton.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.backgroundColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.scannerVC">
+            </PersistentString>
+            <PersistentString
+               value = "self.scannerVC.scannerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -175,17 +185,6 @@
          <PersistentStrings>
             <PersistentString
                value = "questions">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.scannerVC.scannerView">
-            </PersistentString>
-            <PersistentString
-               value = "self.scannerVC">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -220,10 +219,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewController.navigationItem">
+               value = "doneBtn">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
@@ -233,9 +235,6 @@
             </PersistentString>
             <PersistentString
                value = "count">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -248,10 +247,19 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sSelf.navigationController">
+               value = "type(of: UIApplication.topViewController())">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
