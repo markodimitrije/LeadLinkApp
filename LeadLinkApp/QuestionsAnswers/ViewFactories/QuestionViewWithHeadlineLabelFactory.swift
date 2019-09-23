@@ -23,22 +23,23 @@ class QuestionViewWithHeadlineLabelFactory {
         
         let titleLabel = getHeadlineLabel(question: question, aboveStackerView: stackerView)
         
-        let finalView = UIView()
-        finalView.addSubview(titleLabel)
-        finalView.frame = CGRect.init(origin: stackerView.frame.origin, size: CGSize.init(width: stackerView.bounds.width, height: stackerView.bounds.height + titleLabel.bounds.height))
+        let questionView = UIView()
+        questionView.addSubview(titleLabel)
+        questionView.frame = CGRect.init(origin: stackerView.frame.origin, size: CGSize.init(width: stackerView.bounds.width, height: stackerView.bounds.height + titleLabel.bounds.height))
         let stackerShifted = stackerView
         stackerShifted.frame.origin.y += titleLabel.bounds.height
-        finalView.insertSubview(stackerShifted, at: 1)
+        questionView.insertSubview(stackerShifted, at: 1)
         
-        return finalView
+        return questionView
     }
     
     private func getHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UILabel {
-        let titleLabel = UILabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
-                                                         size: CGSize.init(width: stackerView.bounds.width,
-                                                                           height: tableHeaderFooterCalculator.getHeaderHeight())))
+        let titleLabel = UIHorizontalMarginLabel.init(frame: CGRect.init(origin: stackerView.frame.origin,
+                                                               size: CGSize.init(width: stackerView.bounds.width,
+                                                                           height: 2*tableHeaderFooterCalculator.getHeaderHeight())))
         
         titleLabel.numberOfLines = 0
+        
         titleLabel.text = "  " + question.headlineText
         
         return titleLabel
