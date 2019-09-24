@@ -39,8 +39,9 @@ class QuestionViewWithHeadlineLabelFactory {
                                                                            height: 2*tableHeaderFooterCalculator.getHeaderHeight())))
         
         titleLabel.numberOfLines = 0
-        
-        titleLabel.text = "  " + question.headlineText
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.textAlignment = .natural
+        titleLabel.text = question.headlineText
         
         return titleLabel
     }

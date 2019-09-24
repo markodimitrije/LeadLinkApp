@@ -56,6 +56,8 @@ class ViewStacker: UIView {
         
         self.addSubview(view)
         
+//        formatViewLayout()
+        
     }
     
     // ovde izracunaj koliko stacks treba da imas
@@ -82,8 +84,12 @@ class ViewStacker: UIView {
         
         viewStacker.frame = CGRect.init(origin: CGPoint.zero,
                                         size: CGSize.init(width: viewStacker.bounds.width, height: (totalHeight + 8) * CGFloat(components.count)))
-        
     }
+    
+//    private func formatViewLayout() {
+//        self.layer.borderWidth = 1.0
+//        self.layer.borderColor = UIColor.gray.cgColor
+//    }
     
     func addAsLast(view: UIView) {
         viewStacker.addArrangedSubview(view)

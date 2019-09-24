@@ -31,6 +31,7 @@ class ViewStackerFactory {
             delegate: delegate)
         
         let height = tableRowHeightCalculator.getOneRowHeight(componentType: surveyQuestion.question.type)
+        
         let fr = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: questionsWidthProvider.getWidth(),
                                                                      height: height))
         
