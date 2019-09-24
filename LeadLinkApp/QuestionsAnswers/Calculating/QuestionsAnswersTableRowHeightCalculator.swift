@@ -18,7 +18,9 @@ class IphoneQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHe
         switch type {
         case .textField:
             return CGFloat.init(80)
-        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput:
+            return CGFloat.init(60)
+        case .switchBtn:
             return CGFloat.init(80)
         case .termsSwitchBtn:
             return CGFloat.init(80)
@@ -37,7 +39,9 @@ class IpadQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHeig
         switch type {
         case .textField:
             return 90.0
-        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput, .switchBtn:
+        case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput:
+            return 60.0
+        case .switchBtn:
             return 60.0
         case .termsSwitchBtn:
             return 60.0
