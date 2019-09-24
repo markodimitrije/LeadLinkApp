@@ -52,7 +52,8 @@ class TableViewPayingAttentioner: PayingAttentionToField {
         
         // show red view
         let view = UIView.init(frame: cell.bounds)
-        view.backgroundColor = .red
+        //view.backgroundColor = .red
+        view.backgroundColor = UIColor.red.withAlphaComponent(0.5)
         cell.addSubview(view)
         
         // remove red view
