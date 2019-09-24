@@ -36,10 +36,11 @@ class QuestionViewWithHeadlineLabelFactory {
     }
     
     private func getHeadlineLabel(question: PresentQuestion, aboveStackerView stackerView: ViewStacker) -> UILabel {
-        var origin = stackerView.frame.origin
-        origin.x += 8.0
-        let initialSize = CGSize.init(width: stackerView.bounds.width, height: 0)
-        let titleLabel = UILabel.init(frame: CGRect.init(origin: origin, size: initialSize))
+        var labelOrigin = stackerView.frame.origin
+        let padding: CGFloat = 8.0
+        labelOrigin.x += padding
+        let initialSize = CGSize.init(width: stackerView.bounds.width - 2*padding, height: 0)
+        let titleLabel = UILabel.init(frame: CGRect.init(origin: labelOrigin, size: initialSize))
         
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
@@ -48,6 +49,8 @@ class QuestionViewWithHeadlineLabelFactory {
         titleLabel.text = question.headlineText
         
         titleLabel.sizeToFit()
+        
+        titleLabel.frame.origin = labelOrigin
         
         return titleLabel
     }
