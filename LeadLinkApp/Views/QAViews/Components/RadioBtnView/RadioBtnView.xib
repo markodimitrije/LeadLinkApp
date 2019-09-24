@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,25 +22,20 @@
             <rect key="frame" x="0.0" y="0.0" width="254" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-lP-doP">
-                    <rect key="frame" x="16" y="10" width="222" height="30"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-5E-lJk">
-                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="5eI-5E-lJk" secondAttribute="height" multiplier="1:1" id="BBh-Wf-nRU"/>
-                                <constraint firstAttribute="height" constant="30" id="iYB-l9-tR6"/>
-                            </constraints>
-                            <state key="normal" backgroundImage="radioBtn_OFF.png"/>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-Cg-CYE">
-                            <rect key="frame" x="38" y="0.0" width="184" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-5E-lJk">
+                    <rect key="frame" x="16" y="10" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5eI-5E-lJk" secondAttribute="height" multiplier="1:1" id="BBh-Wf-nRU"/>
+                        <constraint firstAttribute="height" constant="30" id="iYB-l9-tR6"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="radioBtn_OFF.png"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="Option text" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-Cg-CYE">
+                    <rect key="frame" x="62" y="15" width="176" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8M-da-PBS">
                     <rect key="frame" x="0.0" y="0.0" width="254" height="50"/>
                     <connections>
@@ -49,13 +43,18 @@
                     </connections>
                 </button>
             </subviews>
+            <color key="backgroundColor" red="0.1703016802" green="1" blue="0.065275902050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="IJg-Cg-CYE" firstAttribute="leading" secondItem="5eI-5E-lJk" secondAttribute="trailing" constant="16" id="1rA-4X-zjD"/>
+                <constraint firstItem="5eI-5E-lJk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2IM-Av-vcq"/>
                 <constraint firstItem="D8M-da-PBS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="5XG-Lx-tIw"/>
                 <constraint firstItem="D8M-da-PBS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="8bM-f7-M8M"/>
+                <constraint firstItem="D8M-da-PBS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BNc-aV-6os"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="D8M-da-PBS" secondAttribute="bottom" id="DRR-AV-EzZ"/>
-                <constraint firstItem="f6W-lP-doP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="RrV-X0-wBr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f6W-lP-doP" secondAttribute="trailing" constant="16" id="bdN-hg-58P"/>
-                <constraint firstItem="f6W-lP-doP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oml-dC-kHw"/>
+                <constraint firstItem="5eI-5E-lJk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Kw3-D8-PfT"/>
+                <constraint firstItem="IJg-Cg-CYE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SZW-ri-tXv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IJg-Cg-CYE" secondAttribute="trailing" constant="16" id="XXE-6B-Nao"/>
+                <constraint firstItem="D8M-da-PBS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sUd-1n-Hjk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D8M-da-PBS" secondAttribute="trailing" id="vTT-xB-Qb1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
