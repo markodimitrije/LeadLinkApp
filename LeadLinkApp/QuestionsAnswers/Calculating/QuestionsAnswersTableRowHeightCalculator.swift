@@ -17,7 +17,7 @@ class IphoneQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHe
     func getOneRowHeight(componentType type: QuestionType) -> CGFloat {
         switch type {
         case .textField:
-            return CGFloat.init(80)
+            return CGFloat.init(90)
         case .radioBtn, .checkbox, .radioBtnWithInput, .checkboxWithInput:
             return CGFloat.init(60)
         case .switchBtn:
