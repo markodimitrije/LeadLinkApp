@@ -44,7 +44,8 @@ public struct QuestionSettings: Codable {
     var options: [String]?
     
     init(realmSetting: RealmQuestionSettings) {
-        self.options = realmSetting.options.sorted()
+        //self.options = realmSetting.options.sorted()
+        self.options = realmSetting.options.toArray()
     }
 }
 
