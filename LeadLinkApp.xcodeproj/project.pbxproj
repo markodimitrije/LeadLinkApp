@@ -178,6 +178,7 @@
 		7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */; };
 		7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */; };
 		7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */; };
+		7CA53281233A52AC00339BC6 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */; };
 		7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */; };
 		7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */; };
 		7CA998DC22A945C200C226F1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA998DB22A945C200C226F1 /* MediaPlayer.framework */; };
@@ -480,6 +481,7 @@
 		7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionsVC.swift; sourceTree = "<group>"; };
 		7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionOptionsDataSource.swift; sourceTree = "<group>"; };
 		7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
+		7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthSupplying.swift; sourceTree = "<group>"; };
 		7CA998DB22A945C200C226F1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -1071,6 +1073,7 @@
 			isa = PBXGroup;
 			children = (
 				7C69552123391ECB009D4A25 /* UIMarginLabel.swift */,
+				7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2163,6 +2166,7 @@
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
 				ADE9553121D91A4E00B86052 /* LogInViewModel.swift in Sources */,
 				7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */,
+				7CA53281233A52AC00339BC6 /* UITextField+Extension.swift in Sources */,
 				7C8BCE21230AD5710011A125 /* SurveyQuestionsLoader.swift in Sources */,
 				7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,

@@ -53,11 +53,11 @@ class CheckboxBtnsWithInputViewFactory {
         //let stacker = produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, elementsInOneRow: 3)!
         let stacker = sameComponentsFactory.createStackWithSameComponents(ofType: CheckboxView.self, componentsTotalCount: question.options.count, elementsInOneRow: 1)!
         
-        guard let lastRow = stacker.components.last as? OneRowStacker,
-            let lastElement = lastRow.components.last else {  return stacker }
+        guard let lastRow = stacker.components.last as? OneRowStacker else { return stacker }
         
-        let txtBox = UITextField.init(frame: lastElement.bounds)
-        txtBox.backgroundColor = .gray
+        let txtBox = UITextField.init()
+        
+        format(txtField: txtBox)
         
         if lastRow.components.count == 3 { // max per row !
             guard let newRow = OneRowStacker.init(frame: lastRow.bounds, components: [txtBox]) else {return stacker}
@@ -68,6 +68,15 @@ class CheckboxBtnsWithInputViewFactory {
         
         return stacker
         
+    }
+    
+    private func format(txtField: UITextField) {
+        txtField.layer.borderColor = UIColor.black.cgColor
+        txtField.layer.cornerRadius = CGFloat(10.0)
+        txtField.layer.borderWidth = CGFloat(1.0)
+        
+        txtField.setLeftPaddingPoints(8.0)
+        txtField.setRightPaddingPoints(8.0)
     }
 }
 
