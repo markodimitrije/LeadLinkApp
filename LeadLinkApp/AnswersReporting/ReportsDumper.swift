@@ -23,17 +23,20 @@ class ReportsDumper {
     var timerFired = BehaviorRelay.init(value: ()) // timer events
     
     var timeToSendReport: Observable<Bool> {
-        return timerFired
-                    .asObservable()
-                    //.map {return true} // temp ON
-                    .withLatestFrom(connectedToInternet()) // temp OFF
+        
+        let oTimer = timerFired.asObservable().map {_ in true}
+        let oConnectedToNet = connectedToInternet()
+        let resulting = Observable.merge([oTimer, oConnectedToNet])
+        
+        return resulting
+        
     }
     
     var reportsDeleted: BehaviorRelay<Bool> = {
         return BehaviorRelay.init(value: RealmDataPersister.shared.getFailedReports().isEmpty)
     }()
     
-    init() { print("ReportsDumper.INIT, fire every 8 sec or on wi-fi changed")
+    init() { print("ReportsDumper.INIT, fire every \(Constants.TimeInterval.reportUnsyncBarcodesEvery) sec or on wi-fi changed")
         
         hookUpTimer()
         
