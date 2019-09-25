@@ -25,6 +25,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     
+    let child = SpinnerViewController()
+    
     private var scanner: MinimumScanning!
     
     private var campaign: Campaign? {
@@ -152,11 +154,12 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func fetchDelegateAndProceedToQuestions(code: String) {
         
-        
+        createSpinnerView()
         
         DelegatesRemoteAPI.shared.getDelegate(withCode: code)
             .subscribe(onNext: { [weak self] delegate in
                 guard let sSelf = self else {return}
+                sSelf.removeSpinnerView()
                 DispatchQueue.main.async {
                     let diclaimerValidator = ShowDisclaimerValidator(code: code,
                                                                      delegate: delegate,
@@ -171,20 +174,17 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func createSpinnerView() {
-        let child = SpinnerViewController()
-        
-        // add the spinner view controller
         addChild(child)
         child.view.frame = view.frame
         view.addSubview(child.view)
         child.didMove(toParent: self)
-        
-        // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            // then remove the spinner view controller
-            child.willMove(toParent: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParent()
+    }
+    
+    private func removeSpinnerView() {
+        DispatchQueue.main.async() {
+            self.child.willMove(toParent: nil)
+            self.child.view.removeFromSuperview()
+            self.child.removeFromParent()
         }
     }
  
