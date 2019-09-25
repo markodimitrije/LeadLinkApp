@@ -138,6 +138,22 @@ class ScanningVC: UIViewController, Storyboarded {
         self.lastScanedCode = code // save state
         self.hideScaningView()
         
+        connectedToInternet()
+            .take(1)
+            .subscribe(onNext: { [weak self] hasConnection in
+                guard let sSelf = self else {return}
+                if hasConnection {
+                    sSelf.fetchDelegateAndProceedToQuestions(code: code)
+                } else {
+                    sSelf.consent(hasConsent: true)
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func fetchDelegateAndProceedToQuestions(code: String) {
+        
+        UIActivityIndicatorView
+        
         DelegatesRemoteAPI.shared.getDelegate(withCode: code)
             .subscribe(onNext: { [weak self] delegate in
                 guard let sSelf = self else {return}
