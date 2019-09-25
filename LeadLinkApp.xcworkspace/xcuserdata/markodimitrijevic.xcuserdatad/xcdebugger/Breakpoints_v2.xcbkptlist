@@ -74,7 +74,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
-                  timestampString = "591103033.671759"
+                  timestampString = "591104301.054069"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -89,7 +89,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
-                  timestampString = "591103033.674997"
+                  timestampString = "591104301.0557441"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -154,12 +154,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/VC_ViewModels/CampaignsViewModel.swift"
-            timestampString = "591103033.1409169"
+            timestampString = "591104132.205655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "getCampaignsFromWeb()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/Scanning/ViewController/ScanningVC.swift"
+            timestampString = "591104298.74834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "found(code:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/ScanditScan/Scanning/ScanningImplementations/ScanditScanner.swift"
+            timestampString = "591104315.348271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "barcodeCapture(_:didScanIn:frameData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/ScanditScan/Scanning/ScanningImplementations/NativeScanner.swift"
+            timestampString = "591104318.079494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "barcodeFound(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

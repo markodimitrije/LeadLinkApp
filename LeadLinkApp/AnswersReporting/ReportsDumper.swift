@@ -14,15 +14,15 @@ import Realm
 
 class ReportsDumper {
     
-    let bag = DisposeBag.init()
+    // Output
+    var oReportsDumped = BehaviorRelay<Bool>.init(value: false)
     
-    var timer: Observable<Int>?
+    private let bag = DisposeBag.init()
+    private var timer: Observable<Int>?
+    private var isRunning = BehaviorRelay.init(value: false) // timer
+    private var timerFired = BehaviorRelay.init(value: ()) // timer events
     
-    var isRunning = BehaviorRelay.init(value: false) // timer
-    
-    var timerFired = BehaviorRelay.init(value: ()) // timer events
-    
-    var timeToSendReport: Observable<Bool> {
+    private var timeToSendReport: Observable<Bool> {
         
         let oTimer = timerFired.asObservable().map {_ in true}
         let oConnectedToNet = connectedToInternet()
@@ -32,7 +32,7 @@ class ReportsDumper {
         
     }
     
-    var reportsDeleted: BehaviorRelay<Bool> = {
+    private var reportsDeleted: BehaviorRelay<Bool> = {
         return BehaviorRelay.init(value: RealmDataPersister.shared.getFailedReports().isEmpty)
     }()
     
@@ -45,10 +45,6 @@ class ReportsDumper {
         hookUpAllCodesReportedToWeb()
         
     }
-    
-    // Output
-    
-    var oReportsDumped = BehaviorRelay<Bool>.init(value: false)
     
     // MARK:- API
     func sendToWebUnsycedReports() {
