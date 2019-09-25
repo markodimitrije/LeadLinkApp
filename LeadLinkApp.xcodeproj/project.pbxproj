@@ -33,6 +33,7 @@
 		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
 		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
 		7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */; };
+		7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390531233B711100249B18 /* SpinnerViewController.swift */; };
 		7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C398F6E22DE0A66007330CA /* SelectedCampaignObserving.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
@@ -334,6 +335,7 @@
 		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
 		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataImplementations.swift; sourceTree = "<group>"; };
+		7C390531233B711100249B18 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		7C398F6E22DE0A66007330CA /* SelectedCampaignObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCampaignObserving.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
@@ -809,6 +811,14 @@
 				7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */,
 			);
 			path = BarOrChartInfo;
+			sourceTree = "<group>";
+		};
+		7C390530233B70F900249B18 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C390531233B711100249B18 /* SpinnerViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
@@ -1505,6 +1515,7 @@
 		ADA9B1CD22385DAC00B7D74F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7C390530233B70F900249B18 /* ViewController */,
 				7C69552023391EBA009D4A25 /* View */,
 				ADA9B1CE22385DC800B7D74F /* MovingKeyboardDelegate.swift */,
 				7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */,
@@ -2221,6 +2232,7 @@
 				7CAB84BA22EF290500CE91AA /* RadioBtnsViewFactory.swift in Sources */,
 				7C4276CB22F052A6000C24DF /* OCP.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
+				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
 				7CAB84B822EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift in Sources */,
 				7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */,
