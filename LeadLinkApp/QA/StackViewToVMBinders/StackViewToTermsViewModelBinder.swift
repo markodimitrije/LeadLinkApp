@@ -18,9 +18,9 @@ class StackViewToTermsViewModelBinder: ViewStackerViewsToViewModelBinder {
         _ = inputCreator.createTxtDrivers()
             .enumerated().map { (offset, textDriver) in
             switch offset {
-                case 0: textDriver.drive(btnViews.first!.rx.termsTxt).disposed(by: bag)
-                case 1: textDriver.drive(btnViews.first!.rx.labelTxt).disposed(by: bag)
-                case 2: textDriver.drive(btnViews.first!.rx.linkBtnTxt).disposed(by: bag)
+                case 0: textDriver.drive(btnViews.first!.rx.labelTxt).disposed(by: bag)
+                case 1: textDriver.drive(btnViews.first!.rx.linkBtnTxt).disposed(by: bag)
+                case 2: textDriver.drive(btnViews.first!.rx.termsTxt).disposed(by: bag)
             default: break
             }
         }
