@@ -34,6 +34,8 @@
 		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
 		7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */; };
 		7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390531233B711100249B18 /* SpinnerViewController.swift */; };
+		7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390534233B7AD600249B18 /* SpinnerViewManager.swift */; };
+		7C390537233B7AEF00249B18 /* SpinnerViewManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390536233B7AEF00249B18 /* SpinnerViewManaging.swift */; };
 		7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C398F6E22DE0A66007330CA /* SelectedCampaignObserving.swift */; };
 		7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */; };
 		7C39F3A822BD40F80017A78C /* LocalComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3A722BD40F80017A78C /* LocalComponents.swift */; };
@@ -336,6 +338,8 @@
 		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataImplementations.swift; sourceTree = "<group>"; };
 		7C390531233B711100249B18 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		7C390534233B7AD600249B18 /* SpinnerViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewManager.swift; sourceTree = "<group>"; };
+		7C390536233B7AEF00249B18 /* SpinnerViewManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewManaging.swift; sourceTree = "<group>"; };
 		7C398F6E22DE0A66007330CA /* SelectedCampaignObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCampaignObserving.swift; sourceTree = "<group>"; };
 		7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDelegateDataDecisioner.swift; sourceTree = "<group>"; };
 		7C39F3A722BD40F80017A78C /* LocalComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalComponents.swift; sourceTree = "<group>"; };
@@ -821,6 +825,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		7C390533233B7AC600249B18 /* SpinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				7C390536233B7AEF00249B18 /* SpinnerViewManaging.swift */,
+				7C390534233B7AD600249B18 /* SpinnerViewManager.swift */,
+			);
+			path = SpinnerView;
+			sourceTree = "<group>";
+		};
 		7C39F3A622BD40DB0017A78C /* LocalComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,6 +1095,7 @@
 		7C69552023391EBA009D4A25 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7C390533233B7AC600249B18 /* SpinnerView */,
 				7C69552123391ECB009D4A25 /* UIMarginLabel.swift */,
 				7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */,
 			);
@@ -2157,6 +2171,7 @@
 				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */,
+				7C390537233B7AEF00249B18 /* SpinnerViewManaging.swift in Sources */,
 				7C98A6A02289689900DA184E /* ViewStacker.swift in Sources */,
 				7C98A69B2289689900DA184E /* LabelAndTextField.swift in Sources */,
 				7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */,
@@ -2279,6 +2294,7 @@
 				7CE63AC422A7F83E008E477B /* DelegatesAPIController.swift in Sources */,
 				7CAB84BC22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift in Sources */,
 				7C98A6CE22896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift in Sources */,
+				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */,
 				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,

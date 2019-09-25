@@ -25,7 +25,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     
-    let child = SpinnerViewController()
+    var spinnerViewManager: SpinnerViewManaging!
     
     private var scanner: MinimumScanning!
     
@@ -53,6 +53,8 @@ class ScanningVC: UIViewController, Storyboarded {
         
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
+        
+        spinnerViewManager = SpinnerViewManager(ownerViewController: self)
         
         hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
@@ -154,12 +156,11 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func fetchDelegateAndProceedToQuestions(code: String) {
         
-        createSpinnerView()
-        
+        spinnerViewManager.showSpinnerView()
         DelegatesRemoteAPI.shared.getDelegate(withCode: code)
             .subscribe(onNext: { [weak self] delegate in
                 guard let sSelf = self else {return}
-                sSelf.removeSpinnerView()
+                sSelf.spinnerViewManager.removeSpinnerView()
                 DispatchQueue.main.async {
                     let diclaimerValidator = ShowDisclaimerValidator(code: code,
                                                                      delegate: delegate,
@@ -171,21 +172,6 @@ class ScanningVC: UIViewController, Storyboarded {
                     }
                 }
             }).disposed(by: disposeBag)
-    }
-    
-    private func createSpinnerView() {
-        addChild(child)
-        child.view.frame = view.frame
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-    
-    private func removeSpinnerView() {
-        DispatchQueue.main.async() {
-            self.child.willMove(toParent: nil)
-            self.child.view.removeFromSuperview()
-            self.child.removeFromParent()
-        }
     }
  
     private func showDisclaimer() {
@@ -264,3 +250,5 @@ extension ScanningVC: UITextViewDelegate {
         return false
     }
 }
+
+

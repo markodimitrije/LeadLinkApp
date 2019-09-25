@@ -74,7 +74,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
-                  timestampString = "591099658.7608891"
+                  timestampString = "591100943.817618"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -89,7 +89,7 @@
                   moduleName = "LeadLinkApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
-                  timestampString = "591099658.76231"
+                  timestampString = "591100943.821243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -154,12 +154,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeadLinkApp/VC_ViewModels/CampaignsViewModel.swift"
-            timestampString = "591099658.186428"
+            timestampString = "591100942.97168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "getCampaignsFromWeb()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/AnswersReporting/ReportsDumper.swift"
+            timestampString = "591101215.842454"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "sendToWebUnsycedReports()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
