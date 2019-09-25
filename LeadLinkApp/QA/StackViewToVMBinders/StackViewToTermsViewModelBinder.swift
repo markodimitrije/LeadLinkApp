@@ -27,7 +27,7 @@ class StackViewToTermsViewModelBinder: ViewStackerViewsToViewModelBinder {
         
         let initial = viewmodel.answer?.optionIds ?? [ ]
         
-        let checkedArr = BehaviorRelay<[Int]>.init(value: initial) // mozda treba sa answer !!?
+        let checkedArr = BehaviorRelay<[Int]>.init(value: initial)
         
         let values = inputCreator.createSwitchBtnsInput(btnViews: btnViews)
         
