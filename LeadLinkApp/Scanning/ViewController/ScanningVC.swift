@@ -169,7 +169,7 @@ class ScanningVC: UIViewController, Storyboarded {
                 }
             }).disposed(by: disposeBag)
     }
-    /*
+    
     private func createSpinnerView() {
         let child = SpinnerViewController()
         
@@ -187,7 +187,7 @@ class ScanningVC: UIViewController, Storyboarded {
             child.removeFromParent()
         }
     }
-    */
+ 
     private func showDisclaimer() {
         let disclaimerUrl = campaign?.settings?.disclaimer?.url ?? ""
         let disclaimerTxt = campaign?.settings?.disclaimer?.text ?? ""

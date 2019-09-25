@@ -69,7 +69,7 @@ struct CheckboxAnswer: Answering {
         let noOptions = [Int]()
         var options = noOptions
         if let realmAnswer = realmAnswer {
-            let optionIds = realmAnswer.optionIds ?? List<Int>()
+            let optionIds = realmAnswer.optionIds
             options = Array(optionIds)
         }
         self.optionIds = options
@@ -115,7 +115,7 @@ struct SwitchAnswer: Answering {
         let noOptions = [Int]()
         var options = noOptions
         if let realmAnswer = realmAnswer {
-            let optionIds = realmAnswer.optionIds ?? List<Int>()
+            let optionIds = realmAnswer.optionIds
             options = Array(optionIds)
         }
         print("SwitchAnswer.options.count = \(options.count)")

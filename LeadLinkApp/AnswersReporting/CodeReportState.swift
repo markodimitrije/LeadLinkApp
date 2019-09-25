@@ -90,7 +90,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
         
         print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
-        RealmDataPersister.shared.saveToRealm(report: report)
+        _ = RealmDataPersister.shared.saveToRealm(report: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
         if reportsDumper == nil {
             reportsDumper = ReportsDumper() // u svom init, zna da javlja reports web-u...

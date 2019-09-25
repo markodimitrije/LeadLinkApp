@@ -31,7 +31,7 @@ class AnswersUpdater: AnswersUpdating {
         func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
             
             func updateMyAnswers(newAnswer: MyAnswer) {
-                if let index = answerIds.index(of: newAnswer.id) {
+                if let index = answerIds.firstIndex(of: newAnswer.id) {
                     answers.remove(at: index)
                 }
                 answers.append(newAnswer)

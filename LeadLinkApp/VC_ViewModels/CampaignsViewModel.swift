@@ -76,7 +76,7 @@ public class CampaignsViewModel {
             guard let err = err as? CampaignError else {return}
             if err == .dontNeedUpdate {return}
             self.handleErrorUsingAlert(err: err)
-            factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
+            _ = factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
             RealmCampaignsDataStore().deleteCampaignRelatedData()
         }
     

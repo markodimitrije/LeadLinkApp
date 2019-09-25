@@ -125,7 +125,7 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
         let questionOptions = viewmodel.question.options
         let answerIsNotTxtOption = questionOptions.contains(answer.content.first!)
         if answerIsNotTxtOption {
-            if let index = questionOptions.index(of: answer.content.first!) {
+            if let index = questionOptions.firstIndex(of: answer.content.first!) {
                 radioBtnViews[index].isOn = true
             }
         }

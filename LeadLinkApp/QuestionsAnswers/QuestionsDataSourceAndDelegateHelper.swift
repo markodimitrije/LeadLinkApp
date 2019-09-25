@@ -102,10 +102,10 @@ struct QuestionsDataSourceAndDelegateHelper {
     // MARK:- New API
     mutating func getIndexPath(forQuestion question: PresentQuestion) -> IndexPath? {
         guard let groupName = question.group else {return nil}
-        guard let groupIndex = groupNames().index(of: groupName) else {return nil}
+        guard let groupIndex = groupNames().firstIndex(of: groupName) else {return nil}
         guard let questionsInGroup = questionsInGroupWith(index: groupIndex) else {return nil}
         let orders = questionsInGroup.compactMap {$0.order}
-        guard let orderInGroup: Int = orders.index(of: question.order) else {return nil}
+        guard let orderInGroup: Int = orders.firstIndex(of: question.order) else {return nil}
         return IndexPath(row: orderInGroup, section: groupIndex)
     }
     

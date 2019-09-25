@@ -19,8 +19,6 @@ public struct LogoutAuthRemoteAPI: LogoutRemoteAPIProtocol {
     
     public func logOut(userSession: UserSession) -> Promise<UserSession> {
         
-        let authToken = userSession.remoteSession.token
-        
         return Promise<UserSession> { seal in
             // Build Request
             var request = URLRequest(url: URL(string: "https://service.e-materials.com/api/logout")!)

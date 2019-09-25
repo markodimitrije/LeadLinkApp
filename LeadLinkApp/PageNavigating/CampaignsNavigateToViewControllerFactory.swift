@@ -15,12 +15,6 @@ struct CampaignsNavigateToViewControllerFactory: PageNavigatingProtocol {
     
     func getNavigationDestination(dict: [String: Any]) -> UIViewController? {
         
-        guard let campaignId = dict["campaignId"] as? Int,
-            let campaign = campaignsRepo.getCampaign(campaignId) else {
-                return nil
-        }
-        
-        //let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaign: campaign)
         let scanningViewModel = self.scanningViewModelFactory.makeViewModel(campaignRepository: campaignsRepo)
         let scanningVcFactory = ScanningViewControllerFactory(appDependancyContainer: factory)
         let scanningVC = scanningVcFactory.makeVC(viewModel: scanningViewModel)

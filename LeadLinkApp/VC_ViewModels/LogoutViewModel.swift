@@ -44,7 +44,7 @@ public class LogOutViewModel: Logoutable {
                         sSelf.deleteConfApiKeyStateAndAuthorization()
                         sSelf.realmCampaignsDataStore.deleteCampaignRelatedData()
                 }
-        }
+            }
     }
     
     private func deleteConfApiKeyStateAndAuthorization() {
