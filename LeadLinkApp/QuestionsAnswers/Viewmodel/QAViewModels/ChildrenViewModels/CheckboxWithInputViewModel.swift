@@ -44,3 +44,79 @@ class CheckboxWithInputViewModel: NSObject, ViewModelType, Questanable, Answerab
     
     private var bag = DisposeBag()
 }
+
+class CheckboxMultipleWithInputViewModel: NSObject, ViewModelType, Questanable, Answerable {
+    
+    var question: PresentQuestion
+    var answer: MyAnswer?
+    var code: String = ""
+    
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
+        self.question = question
+        self.answer = answer
+        self.code = code
+    }
+    
+    struct Input {
+        var ids: Observable<[Int]>
+        var optionTxt: Observable<String?>
+        var answer: MyAnswer?
+    }
+    
+    struct Output { // treba ti side effects
+        var ids: Observable<[Int]> // tap koji mapiras u id (btn.tag)
+        var optionTxt: Observable<String?>
+    }
+    
+    func transform(input: Input) -> Output {
+        
+        let resulting = Observable.merge(Observable.of(answer?.optionIds ?? [ ]), input.ids)
+        
+        let withAnswer = (answer != nil) ? resulting : input.ids
+        
+        let output = Output.init(ids: withAnswer, optionTxt: input.optionTxt)
+        
+        return output
+    }
+    
+    private var bag = DisposeBag()
+}
+
+
+/*
+class CheckboxViewModelTemplate: NSObject, ViewModelType, Questanable, Answerable {
+    
+    var question: PresentQuestion
+    var answer: MyAnswer?
+    var code: String = ""
+    
+    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
+        self.question = question
+        self.answer = answer
+        self.code = code
+    }
+    
+    struct Input {
+        var ids: Observable<[Int]>
+        var answer: MyAnswer?
+    }
+    
+    struct Output { // treba ti side effects
+        var ids: Observable<[Int]> // tap koji mapiras u id (btn.tag)
+    }
+    
+    func transform(input: Input) -> Output { // ovo je bas bezveze... razumi kako radi...
+        
+        let resulting = Observable.merge(Observable.of(answer?.optionIds ?? [ ]), input.ids)
+        
+        let withAnswer = (answer != nil) ? resulting : input.ids
+        
+        let output = Output.init(ids: withAnswer)
+        
+        return output
+    }
+    
+    let bag = DisposeBag()
+    
+}
+*/

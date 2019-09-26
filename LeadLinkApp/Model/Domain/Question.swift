@@ -54,6 +54,7 @@ enum QuestionType: String {
     case checkbox = "checkbox"
     case radioBtnWithInput = "radioBtnWithInput"
     case checkboxWithInput = "checkboxWithInput"
+    case checkboxMultipleWithInput = "checkboxMultipleWithInput"
     case switchBtn = "switchBtn"
     case textField = "text"//"textField"
     case textArea = "textarea"

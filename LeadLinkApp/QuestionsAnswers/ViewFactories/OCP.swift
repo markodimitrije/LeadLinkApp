@@ -74,6 +74,10 @@ class MyQuestionViewFactory: QuestionViewCreating {
             
             return ViewStackerForTermsSwitchQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
+        case .checkboxMultipleWithInput:
+            
+            return  ViewStackerForCheckboxMultipleWithInputQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            
         }
         
     }

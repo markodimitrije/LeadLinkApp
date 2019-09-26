@@ -120,6 +120,46 @@ extension Reactive where Base: CheckboxWithInputViewModel {
     }
 }
 
+// multiple single selection choice
+
+extension Reactive where Base: CheckboxMultipleWithInputViewModel {
+    internal var optionSelected: Binder<[Int]> {
+        return Binder.init(self.base, binding: { (viewmodel, indexes) in
+            
+            let newContent = viewmodel.question.options.enumerated().filter({ (index, element) -> Bool in
+                return indexes.contains(index)
+            }).map({ (_, element) -> String in
+                return element
+            })
+            
+            let question = viewmodel.question
+            
+            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
+                                             questionId: question.id,
+                                             code: viewmodel.code,
+                                             questionType: question.type.rawValue,
+                                             content: newContent,
+                                             optionIds: indexes)
+        })
+    }
+    
+    internal var txtChanged: Binder<String> {
+        return Binder.init(self.base, binding: { (viewmodel, value) in
+            let options = viewmodel.question.options
+            guard let lastOption = options.last,
+                let lastIndex = options.lastIndex(of: lastOption) else {return}
+            let question = viewmodel.question
+            let newAnswer = MyAnswer.init(campaignId: question.campaignId,
+                                          questionId: question.id,
+                                          code: viewmodel.code,
+                                          questionType: question.type.rawValue,
+                                          content: [value],
+                                          optionIds: [lastIndex])
+            viewmodel.answer = newAnswer
+        })
+    }
+}
+
 extension Reactive where Base: SwitchBtnsViewModel {
     internal var optionSelected: Binder<[Int]> { // javlja ti koji tag (redni br switch-a je tapped)
         return Binder.init(self.base, binding: { (viewmodel, indexes) in

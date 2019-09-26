@@ -41,6 +41,8 @@ class ViewmodelFactory {
             return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)
         case .termsSwitchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
+        case .checkboxMultipleWithInput:
+            return CheckboxMultipleWithInputViewModel(question: question, answer: answer, code: code)
         }
 
     }
