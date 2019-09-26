@@ -222,6 +222,7 @@ extension ScanningVC: BarcodeListening {
         
         scanner?.stopScanning()
         codeSuccessfull(code: code)
+        self.barCodeTxtField.text = ""
         
     }
     

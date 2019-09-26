@@ -223,6 +223,7 @@
 		7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */; };
 		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
 		7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225EE232BA25E004E023C /* ScannerFactory.swift */; };
+		7CFBA7EC233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -529,6 +530,7 @@
 		7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigatingProtocol.swift; sourceTree = "<group>"; };
 		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
 		7CF225EE232BA25E004E023C /* ScannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFactory.swift; sourceTree = "<group>"; };
+		7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1263,6 +1265,7 @@
 				7C98A6BB22896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift */,
 				7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */,
 				7C1C1530229EDA5E0050337B /* TextAreaViewModelBinder.swift */,
+				7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */,
 			);
 			path = StackViewToVMBinders;
 			sourceTree = "<group>";
@@ -2330,6 +2333,7 @@
 				ADBB468C2242942300E1020F /* CodesVC.swift in Sources */,
 				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
 				7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */,
+				7CFBA7EC233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift in Sources */,
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */,
 				7C3ED56122E5E3CD00EDDD70 /* RealmDisclaimer.swift in Sources */,
