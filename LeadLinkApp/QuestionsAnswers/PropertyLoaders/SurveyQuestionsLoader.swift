@@ -33,7 +33,7 @@ class SurveyQuestionsLoader: SurveyQuestionsProviding  {
             return rAnswer
         }
         
-        self.questions = questions.map { question -> SurveyQuestion in
+        self.questions = questions.compactMap { question -> SurveyQuestion? in
             let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
             return SurveyQuestion.init(question: question, realmAnswer: rAnswer)
         }

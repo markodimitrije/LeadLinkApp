@@ -14,7 +14,9 @@ class SurveyQuestion {
     //var answer: Answering?
     var answer: MyAnswer?
     
-    init(question: Question, realmAnswer: RealmAnswer?) {
+    init?(question: Question, realmAnswer: RealmAnswer?) {
+        let isKnownQuestionType = QuestionType(rawValue: question.type) != nil
+        guard isKnownQuestionType else {return nil}
         self.question = PresentQuestion(question: question)
         self.answer = MyAnswer.init(realmAnswer: realmAnswer)
     }    
