@@ -15,10 +15,8 @@ extension Reactive where Base: LabelWithTextFieldViewModel {
             
             let question = viewmodel.question
             
-            let newAnswer = MyAnswer.init(campaignId: question.campaignId,
-                                          questionId: question.id,
+            let newAnswer = MyAnswer.init(question: question,
                                           code: viewmodel.code,
-                                          questionType: question.type.rawValue,
                                           content: [text ?? ""],
                                           optionIds: nil)
             

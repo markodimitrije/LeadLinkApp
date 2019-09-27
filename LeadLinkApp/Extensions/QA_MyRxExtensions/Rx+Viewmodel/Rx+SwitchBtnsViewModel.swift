@@ -19,14 +19,10 @@ extension Reactive where Base: SwitchBtnsViewModel {
                 return element
             })
             let question = viewmodel.question
-            let newAnswer = MyAnswer.init(campaignId: question.campaignId,
-                                          questionId: question.id,
+            let newAnswer = MyAnswer.init(question: question,
                                           code: viewmodel.code,
-                                          questionType: question.type.rawValue,
                                           content: newContent,
                                           optionIds: indexes)
-            //print("extension Reactive where Base: SwitchBtnsViewModel")
-            //print("newAnswer = \(newAnswer)")
             viewmodel.answer = newAnswer
         })
     }

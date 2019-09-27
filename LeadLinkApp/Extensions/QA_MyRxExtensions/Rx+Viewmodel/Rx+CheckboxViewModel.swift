@@ -21,10 +21,8 @@ extension Reactive where Base: CheckboxViewModel {
             
             let question = viewmodel.question
             
-            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
-                                             questionId: question.id,
+            viewmodel.answer = MyAnswer.init(question: question,
                                              code: viewmodel.code,
-                                             questionType: question.type.rawValue,
                                              content: newContent,
                                              optionIds: indexes)
         })

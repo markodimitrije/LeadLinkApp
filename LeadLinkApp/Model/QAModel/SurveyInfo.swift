@@ -136,19 +136,20 @@ extension SurveyInfo {
     
     private func makeAnswer(forKey optionKey: QuestionPersonalInfoKey, delegate: Delegate) -> MyAnswer {
         guard let question = self.question(forKey: optionKey) else {fatalError()}// hard-coded
-        return MyAnswer.init(campaignId: self.campaign.id,
-                             questionId: question.id, // hard-coded
+        return MyAnswer.init(question: question,
                              code: self.code,
-                             questionType: question.type,
                              content: [delegate.value(optionKey: optionKey)],
                              optionIds: nil)
     }
     
     private func barcodeAnswer() -> MyAnswer {
-        return MyAnswer.init(campaignId: self.campaign.id,
-                             questionId: barcodeQuestion()?.id ?? 90, // hard-coded !!
+        guard let question = self.questions.first(where: { question -> Bool in
+            question.settings.options?.first == "barcode"
+        }) else {
+            fatalError("nemam barcode kao question !!?!?")
+        }
+        return MyAnswer.init(question: question,
                              code: self.code,
-                             questionType: QuestionType.textField.rawValue,
                              content: [self.code],
                              optionIds: nil)
     }

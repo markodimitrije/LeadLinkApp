@@ -26,14 +26,24 @@ struct MyAnswer: Answering {
         return "\(campaignId)" + "\(questionId)" + code
     }
     
-    init(campaignId: Int, questionId: Int, code: String, questionType: String, content: [String], optionIds: [Int]?) {
-        self.campaignId = campaignId
-        self.questionId = questionId
+    init(question: Question, code: String, content: [String], optionIds: [Int]?) {
+        self.campaignId = question.campaign_id
+        self.questionId = question.id
         self.code = code
         self.id = "\(campaignId)" + "\(questionId)" + code
         self.content = content
         self.optionIds = optionIds
-        self.questionType = questionType
+        self.questionType = question.type
+    }
+    
+    init(question: PresentQuestion, code: String, content: [String], optionIds: [Int]?) {
+        self.campaignId = question.campaignId
+        self.questionId = question.id
+        self.code = code
+        self.id = "\(campaignId)" + "\(questionId)" + code
+        self.content = content
+        self.optionIds = optionIds
+        self.questionType = question.type.rawValue
     }
     
     init?(realmAnswer: RealmAnswer?) {
@@ -49,13 +59,10 @@ struct MyAnswer: Answering {
     }
     
     static func emptyContent(question: PresentQuestion) -> MyAnswer {
-        return MyAnswer.init(campaignId: question.campaignId,
-                             questionId: question.id,
+        return MyAnswer.init(question: question,
                              code: "",
-                             questionType: question.type.rawValue,
                              content: [],
                              optionIds: [])
-        
     }
     
     func toWebReportJson() -> [String: String] {
@@ -76,6 +83,10 @@ struct MyAnswer: Answering {
 }
 
 extension MyAnswer: Hashable {
+    static func == (lhs: MyAnswer, rhs: MyAnswer) -> Bool {
+        return lhs.compositeId == rhs.compositeId
+    }
+    
     var hashValue: Int {
         return Int(self.compositeId) ?? 0
     }

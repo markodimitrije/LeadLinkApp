@@ -15,10 +15,8 @@ extension Reactive where Base: CheckboxWithInputViewModel {
         return Binder.init(self.base, binding: { (viewmodel, index) in
             let optionTxt = viewmodel.question.options[index]
             let question = viewmodel.question
-            let newAnswer = MyAnswer.init(campaignId: question.campaignId,
-                                          questionId: question.id,
+            let newAnswer = MyAnswer.init(question: question,
                                           code: viewmodel.code,
-                                          questionType: question.type.rawValue,
                                           content: [optionTxt],
                                           optionIds: [index])
             viewmodel.answer = newAnswer
@@ -30,10 +28,8 @@ extension Reactive where Base: CheckboxWithInputViewModel {
             guard let lastOption = options.last,
                 let lastIndex = options.lastIndex(of: lastOption) else {return}
             let question = viewmodel.question
-            let newAnswer = MyAnswer.init(campaignId: question.campaignId,
-                                          questionId: question.id,
+            let newAnswer = MyAnswer.init(question: question,
                                           code: viewmodel.code,
-                                          questionType: question.type.rawValue,
                                           content: [value],
                                           optionIds: [lastIndex])
             viewmodel.answer = newAnswer

@@ -22,12 +22,10 @@ extension Reactive where Base: RadioViewModel {
             
             let question = viewmodel.question
             
-            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId, // refactor !!!
-                questionId: question.id,
-                code: viewmodel.code,
-                questionType: question.type.rawValue,
-                content: newContent,
-                optionIds: [selectedIndex])
+            viewmodel.answer = MyAnswer.init(question: question,
+                                            code: viewmodel.code,
+                                            content: newContent,
+                                            optionIds: [selectedIndex])
         })
         
     }
