@@ -48,8 +48,8 @@ public struct DelegatesRemoteAPI {
     
     mutating func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
 
-        let url = base.appendingPathComponent(pathComponent)
-        //        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
+//        let url = base.appendingPathComponent(pathComponent)
+        let url = URL(string: "https://93b3ab7d-1e62-4a6b-b5f7-d872b00879b5.mock.pstmn.io/delegate")!//mock
         
         var request = URLRequest(url: url)
         
@@ -59,8 +59,8 @@ public struct DelegatesRemoteAPI {
             guard let params = params as? [(String, String)] else { // hard-coded off !!!
                 return Observable.empty()
             }
-            let queryItems = params.map { URLQueryItem(name: $0.0, value: $0.1) }
-            urlComponents.queryItems = queryItems
+            //let queryItems = params.map { URLQueryItem(name: $0.0, value: $0.1) } hard-coded off
+            //urlComponents.queryItems = queryItems
         } else {
             guard let params = params as? [String: Any] else {
                 return Observable.empty()
@@ -71,7 +71,7 @@ public struct DelegatesRemoteAPI {
         
         request.url = urlComponents.url!
         request.httpMethod = method
-        request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
+        //request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
         let session = URLSession.shared
         responseToDataParser = ResponseToDataParser(session: session, request: request)
