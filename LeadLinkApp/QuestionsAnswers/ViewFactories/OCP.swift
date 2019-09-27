@@ -85,17 +85,6 @@ class MyQuestionViewFactory: QuestionViewCreating {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 class HelperFactories {
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory

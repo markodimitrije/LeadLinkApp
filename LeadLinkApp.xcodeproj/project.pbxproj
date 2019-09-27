@@ -188,6 +188,7 @@
 		7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */; };
 		7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */; };
 		7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */; };
+		7C9EFF18233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EFF17233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift */; };
 		7CA53281233A52AC00339BC6 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */; };
 		7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */; };
 		7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */; };
@@ -504,6 +505,7 @@
 		7C98A6F12289747D00DA184E /* ChooseOptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionsVC.swift; sourceTree = "<group>"; };
 		7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionOptionsDataSource.swift; sourceTree = "<group>"; };
 		7C98A6F52289762B00DA184E /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
+		7C9EFF17233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForCheckboxMultipleWithInputQuestion.swift; sourceTree = "<group>"; };
 		7CA53280233A52AC00339BC6 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7CA998D022A908C400C226F1 /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CA998D222A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthSupplying.swift; sourceTree = "<group>"; };
@@ -1000,8 +1002,8 @@
 		7C44EFEC22F1C673002D3571 /* QuestionViewProviding */ = {
 			isa = PBXGroup;
 			children = (
-				7C44EFEF22F1C7D0002D3571 /* Implementations */,
 				7C44EFED22F1C6AE002D3571 /* QuestionViewProviding.swift */,
+				7C44EFEF22F1C7D0002D3571 /* Implementations */,
 			);
 			path = QuestionViewProviding;
 			sourceTree = "<group>";
@@ -1013,6 +1015,7 @@
 				7C44EFF222F1C811002D3571 /* ViewStackerForCheckboxQuestion.swift */,
 				7C44EFF422F1C847002D3571 /* ViewStackerForRadioWithInputQuestion.swift */,
 				7C44EFF622F1C86F002D3571 /* ViewStackerForCheckboxWithInputQuestion.swift */,
+				7C9EFF17233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift */,
 				7C44EFF822F1C896002D3571 /* ViewStackerForSwitchQuestion.swift */,
 				7C44EFFA22F1C8C0002D3571 /* ViewStackerForTextFieldQuestion.swift */,
 				7C44EFFC22F1C8F0002D3571 /* ViewStackerForTextAreaQuestion.swift */,
@@ -2365,6 +2368,7 @@
 				7C44F00122F1C98B002D3571 /* ViewStackerForTermsSwitchQuestion.swift in Sources */,
 				AD1739C421DD4D2700218BE5 /* AlwaysExtensions.swift in Sources */,
 				7C44EFEE22F1C6AE002D3571 /* QuestionViewProviding.swift in Sources */,
+				7C9EFF18233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
 				7C3ED56422E606D200EDDD70 /* DisclaimerInfo.swift in Sources */,

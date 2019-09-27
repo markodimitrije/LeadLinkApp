@@ -1,15 +1,15 @@
 //
-//  ViewStackerForCheckboxWithInputQuestion.swift
+//  ViewStackerForCheckboxMultipleWithInputQuestion.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 31/07/2019.
+//  Created by Marko Dimitrijevic on 27/09/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-class ViewStackerForCheckboxWithInputQuestion: QuestionViewProviding {
+class ViewStackerForCheckboxMultipleWithInputQuestion: QuestionViewProviding {
     
     private var helperFactories: HelperFactories
     var resultView: UIView
@@ -25,13 +25,14 @@ class ViewStackerForCheckboxWithInputQuestion: QuestionViewProviding {
             delegate: helperFactories.delegate)
         
         let result: (UIView, [UIView]) = factory.getCheckboxBtnsWithInputView(question: question, answer: answer, frame: frame)
-        let binder = StackViewToCheckboxBtnsWithInputViewModelBinder.init()
+        let binder = StackViewToMultipleSelectCheckboxWithInputViewModelBinder.init()
         
         binder.hookUp(btnViews: result.1,
-                      viewmodel: viewmodel as! CheckboxWithInputViewModel,
+                      viewmodel: viewmodel as! CheckboxMultipleWithInputViewModel,
                       bag: helperFactories.bag)
         
         self.resultView = result.0
         
     }
 }
+
