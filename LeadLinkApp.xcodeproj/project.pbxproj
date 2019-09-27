@@ -224,6 +224,8 @@
 		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
 		7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225EE232BA25E004E023C /* ScannerFactory.swift */; };
 		7CFBA7EC233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */; };
+		7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */; };
+		7CFBA7F0233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -531,6 +533,8 @@
 		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
 		7CF225EE232BA25E004E023C /* ScannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFactory.swift; sourceTree = "<group>"; };
 		7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift; sourceTree = "<group>"; };
+		7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewModel.swift; sourceTree = "<group>"; };
+		7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewmodelCreator.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1107,12 +1111,13 @@
 		7C754059229FC3F900FFF5B9 /* ChildrenViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */,
+				7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */,
+				7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */,
 				7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */,
 				7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */,
+				7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */,
 				7C75405E229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift */,
-				7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */,
-				7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */,
+				7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */,
 				7C754064229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift */,
 			);
 			path = ChildrenViewModels;
@@ -1274,12 +1279,13 @@
 			isa = PBXGroup;
 			children = (
 				7C98A6C422896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift */,
+				7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */,
 				7C98A6C522896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift */,
 				7C98A6C622896ED500DA184E /* CheckboxViewmodelInputCreator.swift */,
+				7C98A6C922896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift */,
+				7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */,
 				7C98A6C722896ED500DA184E /* SelectOptionTextViewModelInputCreator.swift */,
 				7C98A6C822896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift */,
-				7C98A6C922896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift */,
-				7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */,
 				7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */,
 			);
 			path = InputCreators;
@@ -2121,6 +2127,7 @@
 				7C98A67E2289675D00DA184E /* AnswerModel.swift in Sources */,
 				7C622277229444BA00717CA1 /* RealmDataPersister.swift in Sources */,
 				7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */,
+				7CFBA7F0233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift in Sources */,
 				7C98A6CB22896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift in Sources */,
 				7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */,
 				7C98A6D622896F9300DA184E /* RxDataBaseEmiters.swift in Sources */,
@@ -2154,6 +2161,7 @@
 				ADAFED7B2239577A004C4AC1 /* Extensions+Rx.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				7CB4D3DE22DCAEB100D6987E /* ScanditAllowable.swift in Sources */,
+				7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */,
 				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,

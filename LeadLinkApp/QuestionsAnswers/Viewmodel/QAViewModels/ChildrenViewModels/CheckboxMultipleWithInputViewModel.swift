@@ -1,8 +1,8 @@
 //
-//  CheckboxWithInputViewModel.swift
+//  CheckboxMultipleWithInputViewModel.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 30/05/2019.
+//  Created by Marko Dimitrijevic on 26/09/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class CheckboxWithInputViewModel: NSObject, ViewModelType, Questanable, Answerable {
+class CheckboxMultipleWithInputViewModel: NSObject, ViewModelType, Questanable, Answerable {
     
     var question: PresentQuestion
     var answer: MyAnswer?
@@ -23,21 +23,23 @@ class CheckboxWithInputViewModel: NSObject, ViewModelType, Questanable, Answerab
     }
     
     struct Input {
-        var ids: Observable<Int>
+        var ids: Observable<[Int]>
         var optionTxt: Observable<String?>
         var answer: MyAnswer?
     }
     
     struct Output { // treba ti side effects
-        var ids: Observable<Int> // tap koji mapiras u id (btn.tag)
+        var ids: Observable<[Int]> // tap koji mapiras u id (btn.tag)
         var optionTxt: Observable<String?>
     }
     
     func transform(input: Input) -> Output {
         
-        let resultingBtns = (answer == nil) ? input.ids : input.ids
+        let resulting = Observable.merge(Observable.of(answer?.optionIds ?? [ ]), input.ids)
         
-        let output = Output.init(ids: resultingBtns, optionTxt: input.optionTxt)
+        let withAnswer = (answer != nil) ? resulting : input.ids
+        
+        let output = Output.init(ids: withAnswer, optionTxt: input.optionTxt)
         
         return output
     }

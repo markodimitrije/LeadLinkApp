@@ -11,19 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "type(of: UIApplication.topViewController())">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+               value = "sSelf.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -125,21 +116,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
+         contextName = "DataErrorFromUrlResponse.answerOk.getter:DataErrorFromUrlResponse.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.frame.midY">
-            </PersistentString>
-            <PersistentString
-               value = "cell.frame.origin.y">
+               value = "data != nil &amp;&amp; error == nil">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Validation.invalidFieldQuestionId.getter:Validation.swift">
+         contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "emailAnswer">
+               value = "cell.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "self.frame.midY">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -152,10 +143,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DataErrorFromUrlResponse.answerOk.getter:DataErrorFromUrlResponse.swift">
+         contextName = "Validation.invalidFieldQuestionId.getter:Validation.swift">
          <PersistentStrings>
             <PersistentString
-               value = "data != nil &amp;&amp; error == nil">
+               value = "emailAnswer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewmodel.question.options">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -168,10 +167,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
+         contextName = "closure #1 in Reactive&lt;A&gt;.txtChanged.getter:RxViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewmodel.question.options">
+               value = "viewmodel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -190,10 +189,10 @@
          contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.scannerVC.scannerView">
+               value = "self.scannerVC">
             </PersistentString>
             <PersistentString
-               value = "self.scannerVC">
+               value = "self.scannerVC.scannerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -236,10 +235,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "count">
+               value = "chooseOptionsVC">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "count">
             </PersistentString>
             <PersistentString
                value = "doneBtn">
@@ -249,9 +251,6 @@
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "chooseOptionsVC">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -264,10 +263,19 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sSelf.navigationController">
+               value = "type(of: UIApplication.topViewController())">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

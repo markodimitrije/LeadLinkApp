@@ -38,15 +38,15 @@ class StackViewToMultipleSelectCheckboxWithInputViewModelBinder: ViewStackerView
         
         let output = viewmodel.transform(input: input) // vratio sam identican input na output
         
-        self.reportUiChangesToYourViewmodel(output: output, viewmodel: viewmodel, bag: bag)
+        self.bindUiChangesToViewmodel(output: output, viewmodel: viewmodel, bag: bag)
         
         self.displayCheckboxesInitialy(output: output, checkBtnViews: checkBtnViews, bag: bag)
         
         self.handleCheckboxSelectDeselectBehaviour(checkboxTagSequence: checkboxTagSequence, checkboxTagState: checkboxTagState, bag: bag)
         
-        self.handleHowLastCheckboxTapInfluenceTextField(checkboxTapSequence: checkboxTagSequence, checkBtnViews: checkBtnViews, txtField: txtField, bag: bag)
+//        self.handleHowLastCheckboxTapInfluenceTextField(checkboxTapSequence: checkboxTagSequence, checkBtnViews: checkBtnViews, txtField: txtField, bag: bag)
         
-        self.handleHowTextFieldInfluenceLastCheckbox(textDriver: txtField.rx.text.asDriver(), checkBtnViews: checkBtnViews, bag: bag)
+//        self.handleHowTextFieldInfluenceLastCheckbox(textDriver: txtField.rx.text.asDriver(), checkBtnViews: checkBtnViews, bag: bag)
         
         self.loadInitialValuesFromExistingAnswerIfNonTextOption(viewmodel: viewmodel, checkboxViews: checkBtnViews)
         
@@ -98,27 +98,33 @@ class StackViewToMultipleSelectCheckboxWithInputViewModelBinder: ViewStackerView
         }
     }
     
-    private func reportUiChangesToYourViewmodel(output: CheckboxMultipleWithInputViewModel.Output,
-                                                viewmodel: CheckboxMultipleWithInputViewModel,
-                                                bag: DisposeBag) {
-        output.ids
-            .bind(to: viewmodel.rx.optionSelected)
+    private func bindUiChangesToViewmodel(output: CheckboxMultipleWithInputViewModel.Output,
+                                          viewmodel: CheckboxMultipleWithInputViewModel,
+                                          bag: DisposeBag) {
+        
+        let options = viewmodel.question.options
+        // source signals:
+        let checkboxContent = output.ids.flatMap { indexes -> Observable<[String]> in
+            return Observable.create({ observer -> Disposable in
+                var content = [String]()
+                for index in indexes {
+                    content.append(options[index])
+                }
+                observer.onNext(content)
+                return Disposables.create()
+            })
+        }
+        let txtFieldContent = output.optionTxt.map {[$0!]}.asObservable()
+        // composite signal:
+        let composite: Observable<[String]> = Observable.combineLatest(checkboxContent, txtFieldContent) {
+            (checkboxTexts, txtFieldText) -> [String] in
+                checkboxTexts + txtFieldText
+        }
+        // hook signal to listener
+        composite
+            .bind(to: viewmodel.rx.newContent)
             .disposed(by: bag)
         
-        output.optionTxt.filter {$0 != ""}.map {$0!}
-            .bind(to: viewmodel.rx.txtChanged)
-            .disposed(by: bag)
-        
-        
-        output.optionTxt.asObservable()
-            .subscribe(onNext: { text in
-                print("output.optionTxt.treba li da zapamtim ovo = \(text)")
-            }).disposed(by: bag)
-        
-        output.ids.asObservable()
-            .subscribe(onNext: { id in
-                print("output.ids.treba li da zapamtim ovo = \(id)")
-            }).disposed(by: bag)
     }
     
     private func displayCheckboxesInitialy(output: CheckboxMultipleWithInputViewModel.Output,

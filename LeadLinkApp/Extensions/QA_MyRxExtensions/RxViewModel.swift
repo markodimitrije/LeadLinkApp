@@ -123,7 +123,7 @@ extension Reactive where Base: CheckboxWithInputViewModel {
 // multiple single selection choice
 
 extension Reactive where Base: CheckboxMultipleWithInputViewModel {
-    internal var optionSelected: Binder<[Int]> {
+    internal var optionsSelected: Binder<[Int]> {
         return Binder.init(self.base, binding: { (viewmodel, indexes) in
             
             let newContent = viewmodel.question.options.enumerated().filter({ (index, element) -> Bool in
@@ -132,30 +132,52 @@ extension Reactive where Base: CheckboxMultipleWithInputViewModel {
                 return element
             })
             
-            let question = viewmodel.question
+            print("CheckboxMultipleWithInputViewModel.optionsSelected = \(viewmodel)")
+            
+            let question = viewmodel.question // refactor!
             
             viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
                                              questionId: question.id,
                                              code: viewmodel.code,
                                              questionType: question.type.rawValue,
-                                             content: newContent,
+                                             content: newContent + ["koja vrednost?"],
                                              optionIds: indexes)
         })
     }
     
     internal var txtChanged: Binder<String> {
         return Binder.init(self.base, binding: { (viewmodel, value) in
-            let options = viewmodel.question.options
-            guard let lastOption = options.last,
-                let lastIndex = options.lastIndex(of: lastOption) else {return}
+            
+            let selectedCheckboxIds = viewmodel.answer?.optionIds ?? [ ] // hard-coded, treba lastIndex
+            let checkboxContent = viewmodel.answer?.content ?? [ ] // treba content na lastIndex
+            
             let question = viewmodel.question
             let newAnswer = MyAnswer.init(campaignId: question.campaignId,
                                           questionId: question.id,
                                           code: viewmodel.code,
                                           questionType: question.type.rawValue,
-                                          content: [value],
-                                          optionIds: [lastIndex])
+                                          content: checkboxContent + [value],
+                                          optionIds: selectedCheckboxIds)
             viewmodel.answer = newAnswer
+        })
+    }
+    
+    internal var newContent: Binder<[String]> {
+        return Binder.init(self.base, binding: { (viewmodel, content) in
+            
+            //print("newContent for multiple check + txt = \(content)")
+            
+            let question = viewmodel.question // refactor!
+            let indexes = content.compactMap({ text -> Int? in
+                return question.options.firstIndex(of: text)
+            })
+            
+            viewmodel.answer = MyAnswer.init(campaignId: question.campaignId,
+                                             questionId: question.id,
+                                             code: viewmodel.code,
+                                             questionType: question.type.rawValue,
+                                             content: content,
+                                             optionIds: indexes)
         })
     }
 }
