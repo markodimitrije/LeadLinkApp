@@ -15,6 +15,7 @@ public struct DelegatesStructure: Codable {
 public struct Delegate: Codable {
 
     var id: Int
+    var consentGiven: Bool?
     var first_name: String?
     var last_name: String?
     var email: String?
