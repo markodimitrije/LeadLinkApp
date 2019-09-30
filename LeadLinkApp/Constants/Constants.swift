@@ -77,12 +77,12 @@ extension Constants {
     }
     
     struct TermsAndConditions {
-        static let url = "https://service.e-materials.com/storage/resources/era_edta/ter/terms_and_conditions_app.pdf"
+        static let url = "https://navus.e-materials.com/assets/PDFs/Navus-T&Cs-Digital-Services-15062018.pdf"
     }
     
     struct PrivacyPolicy {
-        static let url = "https://service.e-materials.com/storage/resources/era_edta/coo/Privacy_Policy.pdf"
-        static let navusUrl =  "https://www.navus.io/wp-content/uploads/2019/04/Privacy-and-Cookies-Policy-Navus_March_26_2019.pdf"
+        static let url = "https://navus.e-materials.com/assets/PDFs/Privacy-and-Cookies-Policy-Navus-16062018.pdf"
+        static let navusUrl =  "https://navus.e-materials.com/assets/PDFs/Privacy-and-Cookies-Policy-Navus-16062018.pdf"
         
         static let hyperLinkPolicyText = "Privacy Policy"
         static let navusHyperLinkPolicyText = "Navus Privacy Policy"
