@@ -132,7 +132,8 @@ extension UITableView {
         var cellPositionY = CGFloat.zero
         
         if let firstResponser = cell.findViews(subclassOf: UITextField.self).first {
-            let firstResponserOneRowStackerView = firstResponser.superview!.superview!.superview!
+            
+            let firstResponserOneRowStackerView = firstResponser.superview(of: OneRowStacker.self)!
             cellPositionY = (cell.frame.origin.y + firstResponserOneRowStackerView.frame.origin.y) - self.contentOffset.y
         } else {
             let contentOffsetVertical = self.contentOffset.y
@@ -259,4 +260,19 @@ extension UIView {
     var recursiveSubviews: [UIView] {
         return subviews + subviews.flatMap { $0.recursiveSubviews }
     }
+    
+    func firstSubview<T: UIView>() -> T? {
+        return subviews.compactMap { $0 as? T ?? $0.firstSubview() as? T }.first
+    }
+    
 }
+
+extension UIView {
+    
+    func superview<T>(of type: T.Type) -> T? {
+        //return superview as? T ?? superview.compactMap { $0.superview(of: type) }
+        return superview as? T ?? superview?.superview(of: type)
+    }
+    
+}
+

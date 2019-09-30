@@ -119,7 +119,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
         
-        print("scrollFirstResponderToTopOfTableView is CALLED ! ! !  ! !  !")
+//        print("scrollFirstResponderToTopOfTableView is CALLED ! ! !  ! !  !")
         
         let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
             let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
