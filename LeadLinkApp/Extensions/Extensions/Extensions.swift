@@ -128,10 +128,18 @@ extension UIView {
 extension UITableView {
     
     func isCellBelowHalfOfTheScreen(cell: UITableViewCell) -> Bool {
-        let contentOffsetVertical = self.contentOffset.y
-        let distFromCellToTableCenter = cell.frame.origin.y + 200.0 - contentOffsetVertical
         
-        return distFromCellToTableCenter > self.frame.midY
+        var cellPositionY = CGFloat.zero
+        
+        if let firstResponser = cell.findViews(subclassOf: UITextField.self).first {
+            let firstResponserOneRowStackerView = firstResponser.superview!.superview!.superview!
+            cellPositionY = (cell.frame.origin.y + firstResponserOneRowStackerView.frame.origin.y) - self.contentOffset.y
+        } else {
+            let contentOffsetVertical = self.contentOffset.y
+            cellPositionY = (cell.frame.origin.y - contentOffsetVertical)
+        }
+        
+        return cellPositionY > UIScreen.main.bounds.midY
     }
     
     func getFirstCellBelow(cell: UITableViewCell) -> UITableViewCell? {

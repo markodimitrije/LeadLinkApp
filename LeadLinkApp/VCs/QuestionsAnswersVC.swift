@@ -118,6 +118,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
         
+        print("scrollFirstResponderToTopOfTableView is CALLED ! ! !  ! !  !")
+        
         let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
             let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
             guard let textControl = textControlObject else {
@@ -135,8 +137,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             if verticalShift < 0 {
                 
                 let ip = self.tableView.indexPath(for: firstResponderCell)!
-                self.tableView.scrollToRow(at: ip, at: .top, animated: true)
-                
+//                self.tableView.scrollToRow(at: ip, at: .top, animated: true)
+                self.tableView.contentOffset.y += CGFloat(200)
             }
             
         }

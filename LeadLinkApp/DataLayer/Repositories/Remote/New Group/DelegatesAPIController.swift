@@ -71,7 +71,7 @@ public struct DelegatesRemoteAPI {
         
         request.url = urlComponents.url!
         request.httpMethod = method
-        //request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
+        //request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields // hard-coded off ?!???
         
         let session = URLSession.shared
         responseToDataParser = ResponseToDataParser(session: session, request: request)
