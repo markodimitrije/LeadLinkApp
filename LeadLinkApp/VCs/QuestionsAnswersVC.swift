@@ -33,13 +33,14 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     var bag = DisposeBag()
     
+    private var keyboardDelegate: MovingKeyboardDelegate!
+    
     private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
 
     private var myDataSource: QuestionsAnswersDataSource!
     private var myDelegate: QuestionsAnswersDelegate!
     
     lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self, parentViewmodel: parentViewmodel)
-    private var keyboardDelegate: MovingKeyboardDelegate?
     
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
                                                                            parentViewmodel: parentViewmodel)
@@ -133,14 +134,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
         
         if isCellBelowHalfOfTheScreen {
-            
             if verticalShift < 0 {
-                
-                let ip = self.tableView.indexPath(for: firstResponderCell)!
-//                self.tableView.scrollToRow(at: ip, at: .top, animated: true)
-                self.tableView.contentOffset.y += CGFloat(200)
+                self.tableView.contentOffset.y += abs(2*verticalShift)
             }
-            
         }
         
     }
