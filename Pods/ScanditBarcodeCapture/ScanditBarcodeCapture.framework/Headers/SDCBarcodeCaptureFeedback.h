@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Determines what feedback (vibration, sound) should be emitted when reading barcodes.
  * The feedback is specified for each SDCBarcodeCapture instance separately and can be changed
  * through the feedback property by either modifying an existing
- * instance of SDCBarcodeCaptureFeedback, or assigning a new one.
+ * instance of this class, or by assigning a new one.
  *
  * As of now, this class only allows to configure the feedback that gets emitted when a barcode is read successfully, through the success property.
  *

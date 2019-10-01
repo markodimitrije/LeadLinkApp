@@ -183,15 +183,20 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
     
     // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
     public func deleteCampaignRelatedData() {
-        _ = RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmCampaign.self,
-                                                             RealmSettings.self,
-                                                             RealmOrganization.self,
-                                                             RealmApplication.self,
-                                                             RealmQuestion.self,
-                                                             RealmQuestionSettings.self,
-                                                             RealmDisclaimer.self,
-                                                             RealmOptIn.self,
-                                                             RealmJson.self])
+        let objectTypes: [Object.Type] = [RealmCampaign.self,
+                                    RealmSettings.self,
+                                    RealmOrganization.self,
+                                    RealmApplication.self,
+                                    RealmQuestion.self,
+                                    RealmQuestionSettings.self,
+                                    RealmDisclaimer.self,
+                                    RealmOptIn.self,
+                                    RealmJson.self]
+        
+        _ = objectTypes.map { type -> Void in
+            _ = RealmDataPersister.shared.deleteAllObjects(ofTypes: [type])
+        }
+        
     }
     
 }

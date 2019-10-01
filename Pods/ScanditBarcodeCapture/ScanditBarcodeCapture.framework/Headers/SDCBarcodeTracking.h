@@ -13,6 +13,8 @@
 @class SDCBarcodeTracking;
 @class SDCBarcodeTrackingSettings;
 @class SDCBarcodeTrackingSession;
+@class SDCCameraSettings;
+
 @protocol SDCFrameData;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -109,6 +111,11 @@ SDC_EXPORTED_SYMBOL
  */
 - (BOOL)updateFromJSONString:(nonnull NSString *)jsonString
                        error:(NSError *_Nullable *_Nullable)error;
+
+/**
+ * Returns the recommended camera settings for use with barcode tracking.
+ */
++ (SDCCameraSettings *)recommendedCameraSettings;
 
 @end
 

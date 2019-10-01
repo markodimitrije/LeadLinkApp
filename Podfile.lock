@@ -1,21 +1,21 @@
 PODS:
   - Differentiator (3.1.0)
   - PieCharts (0.0.7)
-  - PromiseKit (6.8.4):
-    - PromiseKit/CorePromise (= 6.8.4)
-    - PromiseKit/Foundation (= 6.8.4)
-    - PromiseKit/UIKit (= 6.8.4)
-  - PromiseKit/CorePromise (6.8.4)
-  - PromiseKit/Foundation (6.8.4):
+  - PromiseKit (6.11.0):
+    - PromiseKit/CorePromise (= 6.11.0)
+    - PromiseKit/Foundation (= 6.11.0)
+    - PromiseKit/UIKit (= 6.11.0)
+  - PromiseKit/CorePromise (6.11.0)
+  - PromiseKit/Foundation (6.11.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.8.4):
+  - PromiseKit/UIKit (6.11.0):
     - PromiseKit/CorePromise
   - ReachabilitySwift (4.3.1)
-  - Realm (3.14.1):
-    - Realm/Headers (= 3.14.1)
-  - Realm/Headers (3.14.1)
-  - RealmSwift (3.14.1):
-    - Realm (= 3.14.1)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
@@ -31,10 +31,10 @@ PODS:
     - RxRealm (~> 0.7.6)
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
-  - ScanditBarcodeCapture (6.0.0):
-    - ScanditCaptureCore (= 6.0.0)
-  - ScanditCaptureCore (6.0.0)
-  - SwiftyJSON (4.3.0)
+  - ScanditBarcodeCapture (6.0.3):
+    - ScanditCaptureCore (= 6.0.3)
+  - ScanditCaptureCore (6.0.3)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - PieCharts
@@ -68,18 +68,18 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
-  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
-  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
-  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxRealmDataSources: 89b61c0d3edf7769da2a6bf4dcf317bc713394db
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  ScanditBarcodeCapture: 14f6033e4cf4641ab0824203bc0511cfae6cd0c5
-  ScanditCaptureCore: 651a487a20b7696343feda3b7434d80cf4f607e6
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  ScanditBarcodeCapture: a57a1c7392aea546766332444d3f56a6c56fd5dd
+  ScanditCaptureCore: b9eb50d9ea9d05a32e5eb9c3c9490867fcaaaf6d
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 127cfbb910cfe60b853624b197a0723be2548fcc
 

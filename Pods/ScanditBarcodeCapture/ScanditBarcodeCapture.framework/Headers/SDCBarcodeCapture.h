@@ -12,6 +12,7 @@
 @class SDCBarcodeCaptureSettings;
 @class SDCDataCaptureContext;
 @class SDCBarcodeCaptureFeedback;
+@class SDCCameraSettings;
 @protocol SDCFrameData;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,9 +28,9 @@ NS_SWIFT_NAME(BarcodeCaptureListener)
 /**
  * Invoked whenever a code has been scanned. The newly scanned codes can be retrieved from SDCBarcodeCaptureSession.newlyRecognizedBarcodes.
  *
- * This method is invoked from a recognition internal thread. To perform UI work, you must dispatch to the main thread first.
+ * This method is invoked from a recognition internal thread. To perform UI work, you must dispatch to the main thread first. After receiving this callback, you will typically want to start processing the scanned barcodes. Keep in mind however, that any further recognition is blocked until this method completes. Therefore, if you need to perform a time-consuming operation, like querying a database or opening an URL encoded in the barcode data, consider switching to another thread.
  *
- * Inside this method, you will typically want to start processing the scanned barcodes somehow, e.g. by using the data to look up information in a database, or to open an URL encoded in the barcode data. Depending on the application, you will want to pause, or stop recognition, or continue reading barcodes:
+ * Sometimes, after receiving this callback, you may want to pause scanning or to stop scanning completely.
  *
  *   • To pause scanning, but keep the camera (frame source) running, just set the barcode capture’s enabled property to NO.
  *
@@ -159,6 +160,11 @@ SDC_EXPORTED_SYMBOL
  */
 - (BOOL)updateFromJSONString:(nonnull NSString *)jsonString
                        error:(NSError *_Nullable *_Nullable)error;
+
+/**
+ * Returns the recommended camera settings for use with barcode capture.
+ */
++ (SDCCameraSettings *)recommendedCameraSettings;
 
 @end
 

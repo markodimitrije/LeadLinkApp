@@ -17,17 +17,15 @@ ___clang_call_terminate
 _OBJC_IVAR_$_SDCBarcode._impl
 l_OBJC_PROTOCOL_$_ScanditCppProxy
 l_OBJC_LABEL_PROTOCOL_$_ScanditCppProxy
-__ZTSNSt3__110shared_ptrIN3sdc4core7BarcodeEEE
-__ZTINSt3__110shared_ptrIN3sdc4core7BarcodeEEE
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcode.mm
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcode.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk
 ~shared_ptr
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory
 __release_shared
 __libcpp_atomic_refcount_decrement<long>
 ~Handle
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/../proxy_cache_interface.hpp
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/../proxy_cache_interface.hpp
 type_index
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/typeindex
 operator bool
@@ -49,7 +47,7 @@ destroy<sdc::core::EncodingRange>
 __destroy<sdc::core::EncodingRange>
 destroy
 ~EncodingRange
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/encoding_range.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/encoding_range.hh
 ~basic_string
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string
 __get_long_pointer
@@ -64,7 +62,7 @@ __get_pointer
 __get_short_pointer
 size
 ~optional
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/third-party/optional/include/optional.hpp
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/third-party/optional/include/optional.hpp
 ~optional_base
 initialized
 operator->
@@ -94,6 +92,7 @@ operator==<sdc::core::Barcode>
 -[SDCBarcodeCapture context:willProcessFrame:]
 -[SDCBarcodeCapture context]
 -[SDCBarcodeCapture typeErasedCppImpl]
++[SDCBarcodeCapture recommendedCameraSettings]
 -[SDCBarcodeCapture .cxx_destruct]
 -[SDCBarcodeCapture .cxx_construct]
 __ZNSt3__1L20__throw_length_errorEPKc
@@ -124,64 +123,18 @@ l_OBJC_PROTOCOL_$_NSObject
 l_OBJC_LABEL_PROTOCOL_$_NSObject
 l_OBJC_PROTOCOL_$_SDCDataCaptureMode
 l_OBJC_LABEL_PROTOCOL_$_SDCDataCaptureMode
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc14BarcodeCaptureENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc14BarcodeCaptureENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc14BarcodeCaptureEEE
-__ZTINSt3__110shared_ptrIN3sdc14BarcodeCaptureEEE
 __ZTVNSt3__120__shared_ptr_emplaceIN12_GLOBAL__N_118IosSuccessFeedbackENS_9allocatorIS2_EEEE
 __ZTSNSt3__120__shared_ptr_emplaceIN12_GLOBAL__N_118IosSuccessFeedbackENS_9allocatorIS2_EEEE
 __ZTINSt3__120__shared_ptr_emplaceIN12_GLOBAL__N_118IosSuccessFeedbackENS_9allocatorIS2_EEEE
 __ZTVN12_GLOBAL__N_118IosSuccessFeedbackE
 __ZTSN12_GLOBAL__N_118IosSuccessFeedbackE
-__ZTSN3sdc4core8FeedbackE
-__ZTIN3sdc4core8FeedbackE
-__ZTSN6djinni13ObjcProxyBaseIU8__strongP25SDCBarcodeCaptureFeedbackEE
-__ZTIN6djinni13ObjcProxyBaseIU8__strongP25SDCBarcodeCaptureFeedbackEE
 __ZTIN12_GLOBAL__N_118IosSuccessFeedbackE
-__ZTSP25SDCBarcodeCaptureFeedback
-__ZTS25SDCBarcodeCaptureFeedback
-__ZTS8NSObject
-__ZTI8NSObject
-__ZTI25SDCBarcodeCaptureFeedback
-__ZTIP25SDCBarcodeCaptureFeedback
-__ZTSNSt3__120__shared_ptr_emplaceIN3bar4impl11SharedStateINS1_4VoidEEENS_9allocatorIS5_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3bar4impl11SharedStateINS1_4VoidEEENS_9allocatorIS5_EEEE
-__ZTSNSt3__117bad_function_callE
-__ZTINSt3__117bad_function_callE
 __ZTVNSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ53-[SDCBarcodeCapture applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
 __ZTSNSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ53-[SDCBarcodeCapture applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
-__ZTSNSt3__110__function6__baseIFvRKN3bar4VoidEEEE
-__ZTINSt3__110__function6__baseIFvRKN3bar4VoidEEEE
 __ZTINSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ53-[SDCBarcodeCapture applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
 __ZTSN3bar4impl12ThenCallbackINS_4VoidEZ53-[SDCBarcodeCapture applySettings:completionHandler:]E3$_0EE
 __ZTIN3bar4impl12ThenCallbackINS_4VoidEZ53-[SDCBarcodeCapture applySettings:completionHandler:]E3$_0EE
-__ZTSPU36objcproto25SDCBarcodeCaptureListener11objc_object
-__ZTSU36objcproto25SDCBarcodeCaptureListener11objc_object
-__ZTIU36objcproto25SDCBarcodeCaptureListener11objc_object
-__ZTIPU36objcproto25SDCBarcodeCaptureListener11objc_object
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core27BarcodeCaptureListenerProxyENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core27BarcodeCaptureListenerProxyENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core27BarcodeCaptureListenerProxyE
-__ZTSN11proxy_cache13ListenerProxyIU8__strongPU36objcproto25SDCBarcodeCaptureListener11objc_objectN3sdc22BarcodeCaptureListenerEEE
-__ZTSN3sdc22BarcodeCaptureListenerE
-__ZTSN3sdc4core13AsyncListenerINS_14BarcodeCaptureEEE
-__ZTIN3sdc4core13AsyncListenerINS_14BarcodeCaptureEEE
-__ZTIN3sdc22BarcodeCaptureListenerE
-__ZTIN11proxy_cache13ListenerProxyIU8__strongPU36objcproto25SDCBarcodeCaptureListener11objc_objectN3sdc22BarcodeCaptureListenerEEE
-__ZTIN3sdc4core27BarcodeCaptureListenerProxyE
-__ZTSNSt3__110shared_ptrIN3sdc4core29AbstractBarcodeScannerSessionEEE
-__ZTINSt3__110shared_ptrIN3sdc4core29AbstractBarcodeScannerSessionEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core9FrameDataEEE
-__ZTINSt3__110shared_ptrIN3sdc4core9FrameDataEEE
-__ZTSN3sdc4core9FrameDataE
-__ZTIN3sdc4core9FrameDataE
-__ZTSN3sdc4core14FrameDataProxyE
-__ZTSN6djinni13ObjcProxyBaseIU8__strongPU23objcproto12SDCFrameData11objc_objectEE
-__ZTIN6djinni13ObjcProxyBaseIU8__strongPU23objcproto12SDCFrameData11objc_objectEE
-__ZTIN3sdc4core14FrameDataProxyE
-__ZTSNSt3__110shared_ptrIN3sdc4core18DataCaptureContextEEE
-__ZTINSt3__110shared_ptrIN3sdc4core18DataCaptureContextEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm
 reserve
 ~__split_buffer
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__split_buffer
@@ -200,7 +153,7 @@ __end_cap
 first
 __get
 __invoke
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/DJICppWrapperCache+Private.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/DJICppWrapperCache+Private.h
 operator()
 pair<SDCDataCaptureContext *, void *, false>
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility
@@ -208,7 +161,7 @@ static_pointer_cast<sdc::core::DataCaptureContext, void>
 shared_ptr<void>
 get_cpp_proxy_impl<SDCDataCaptureContext, sdc::core::DataCaptureContext>
 shared_ptr<sdc::core::DataCaptureContext>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/proxy-cache.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/proxy-cache.hh
 pair<SDCFrameDataProxy *, void *, false>
 static_pointer_cast<sdc::core::FrameData, void>
 pair<SDCBarcodeCaptureSession *, void *, false>
@@ -218,12 +171,12 @@ shared_ptr<sdc::core::AbstractBarcodeScannerSession>
 to_objc<sdc::core::FrameData>
 shared_ptr<sdc::core::FrameData>
 djinni_private_get_proxied_objc_object
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/DJIObjcWrapperCache+Private.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/third-party/djinni/support-lib/objc/DJIObjcWrapperCache+Private.h
 dynamic_pointer_cast<sdc::core::FrameDataProxy, sdc::core::FrameData>
 ~ListenerProxy
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh
 onUpdate
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_capture_listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_capture_listener_proxy.hh
 get_cpp_proxy<SDCBarcodeCaptureSession, std::__1::shared_ptr<sdc::core::AbstractBarcodeScannerSession> >
 get_cpp_proxy<SDCBarcodeCapture, std::__1::shared_ptr<sdc::BarcodeCapture> >
 getObjcInstance
@@ -255,7 +208,7 @@ push_back
 construct<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
 __construct<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
 ListenerWithPriority
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh
 destroy<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
 __destroy<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
 ~ListenerWithPriority
@@ -282,16 +235,15 @@ __move_range
 move_backward<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 __move_backward<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 operator-<const sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
-begin
 insertSorted
 fail
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/assert.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/assert.hh
 is_sorted<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *> >
 is_sorted<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority> >
+operator==<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 is_sorted_until<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority> >
 operator<
 operator!=<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
-operator==<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 upper_bound<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
 upper_bound<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority> >
 __upper_bound<std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority> &, std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority>
@@ -303,11 +255,11 @@ __distance<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureLi
 operator-<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 erase
 operator==<sdc::BarcodeCaptureListener, sdc::BarcodeCaptureListener>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/serial_dispatch_queue.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/serial_dispatch_queue.hh
 ~
 addAsync
-async<(lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh:63:13)>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/ref_counted.hh
+async<(lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh:63:13)>
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/ref_counted.hh
 _ZZN3sdc4core14ListenerVectorINS_22BarcodeCaptureListenerENS_14BarcodeCaptureEE8addAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEiENUlvE_C1EOS9_
 _ZZN3sdc4core14ListenerVectorINS_22BarcodeCaptureListenerENS_14BarcodeCaptureEE8addAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEiENUlvE_C2EOS9_
 operator==<sdc::BarcodeCaptureListener>
@@ -317,26 +269,24 @@ target_type
 target
 operator==
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/typeinfo
-__compare_nonunique_names
-name
-__call<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &, const bar::Void &>
+__call<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &, const bar::Void &>
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base
-__invoke<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &, const bar::Void &>
+__invoke<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &, const bar::Void &>
 operator()<const bar::Void &>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/future.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/future.hh
 setValue<bar::Void>
 destroy_deallocate
 ~ThenCallback
 ~Promise
 __clone
 __func
-__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &, const std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> > &>
-__compressed_pair_elem<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &, 0>
+__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &, const std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> > &>
+__compressed_pair_elem<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &, 0>
 ThenCallback
 _ZZ53-[SDCBarcodeCapture applySettings:completionHandler:]EN3$_0C1ERKS_
 _ZZ53-[SDCBarcodeCapture applySettings:completionHandler:]EN3$_0C2ERKS_
 Promise
-__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> > &&>
+__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> > &&>
 ~__func
 swap<std::__1::__function::__base<void (const bar::Void &)> *>
 __as_base
@@ -347,7 +297,7 @@ setValue<>
 maybeCallback
 ~lock_guard
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__mutex_base
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/flags.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/flags.hh
 operator!=<bar::impl::ResultState, void>
 to_bits<bar::impl::ResultState, void>
 bits
@@ -356,7 +306,7 @@ operator|=
 hasValue
 operator&
 operator&=
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/engine_based_data_capture_mode.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/engine_based_data_capture_mode.hh
 isAttachedToContext
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/atomic
 load
@@ -365,21 +315,29 @@ swap<sdc::BarcodeCaptureSettings *>
 ~function
 __throw_bad_weak_ptr
 bad_weak_ptr
+operator-<const sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *, const sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
+__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeCaptureListener, sdc::BarcodeCapture>::ListenerWithPriority *>
 removeAsync
-async<(lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh:88:23)>
+async<(lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/listener_vector.hh:88:23)>
 _ZZN3sdc4core14ListenerVectorINS_22BarcodeCaptureListenerENS_14BarcodeCaptureEE11removeAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEENUlvE_C1EOS9_
 _ZZN3sdc4core14ListenerVectorINS_22BarcodeCaptureListenerENS_14BarcodeCaptureEE11removeAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEENUlvE_C2EOS9_
 __push_back_slow_path<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> &>
 construct<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy>, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> &>
 __construct<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy>, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> &>
-remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69)>
+move<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+__move<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+swap<sdc::core::BarcodeCaptureListenerProxy *>
+operator-<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+operator!=<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+operator==<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+operator-<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69)>
 operator!=<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
 operator==<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-swap<sdc::core::BarcodeCaptureListenerProxy *>
 operator()<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> >
-find_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69) &>
+find_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69) &>
 ~Feedback
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/feedback.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/feedback.hh
 onFreeResources
 onLoadResources
 emit
@@ -435,12 +393,12 @@ dynamic_pointer_cast<(anonymous namespace)::IosSuccessFeedback, sdc::core::Feedb
 shared_ptr<sdc::core::Feedback>
 operator!=<sdc::core::Feedback>
 getSuccessFeedback
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture.hh
 applySettings
 ~Future
 make_shared<bar::impl::SharedState<bar::Void>>
 make_shared<>
-async<(lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/engine_based_data_capture_mode.hh:136:18)>
+async<(lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/engine_based_data_capture_mode.hh:136:18)>
 _ZZN3sdc4core26EngineBasedDataCaptureModeINS_14BarcodeCaptureEE13applySettingsERKNSt3__110shared_ptrINS_22BarcodeCaptureSettingsEEEENUlvE_C1EOSA_
 _ZZN3sdc4core26EngineBasedDataCaptureModeINS_14BarcodeCaptureEE13applySettingsERKNSt3__110shared_ptrINS_22BarcodeCaptureSettingsEEEENUlvE_C2EOSA_
 getFuture
@@ -452,24 +410,18 @@ SharedState
 flags
 condition_variable
 function
-then<(lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)>
-setCallback<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> >
-operator=<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)>, void>
+then<(lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)>
+setCallback<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> >
+operator=<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)>, void>
 _ZZ53-[SDCBarcodeCapture applySettings:completionHandler:]EN3$_0C1EOS_
 _ZZ53-[SDCBarcodeCapture applySettings:completionHandler:]EN3$_0C2EOS_
-function<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)>, void>
-__compressed_pair<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &&, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> > &&>
-__compressed_pair_elem<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:105:21)> &&, 0>
+function<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)>, void>
+__compressed_pair<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &&>
+__compressed_pair_elem<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCapture.mm:106:21)> &&, 0>
 containsCallback
 removeListenerAsync
 getAndRemoveExpiredProxies
-move<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-__move<std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-operator-<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-end
-operator!=<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-operator==<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
-operator-<const std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeCaptureListenerProxy> *>
+__compressed_pair<nullptr_t, true>
 make_shared<(anonymous namespace)::IosSuccessFeedback, SDCBarcodeCaptureFeedback *>
 make_shared<SDCBarcodeCaptureFeedback *>
 __shared_ptr_emplace<SDCBarcodeCaptureFeedback *>
@@ -495,63 +447,11 @@ ___41-[SDCBarcodeCaptureDeserializer warnings]_block_invoke
 -[SDCBarcodeCaptureDeserializer .cxx_construct]
 __ZZN6djinniL14get_objc_proxyIN3sdc4core39BarcodeCaptureDeserializerListenerProxyEU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_objectEENSt3__110shared_ptrIT_EEPT0_ENUlRU8__strongKP11objc_objectE_8__invokeESE_
 _OBJC_IVAR_$_SDCBarcodeCaptureDeserializer._impl
-___block_descriptor_32_e293_@"NSString"32@?0{basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >={__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >={__rep=(?={__long=*QQ}{__short=[23c]{?=C}}{__raw=[3Q]})}}}8l
+___block_descriptor_20_e294_@"NSString"16@?0{basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >={__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >={__rep=(?={__long=II*}{__short=(?=Cc)[11c]}{__raw=[3L]})}}}4l
 ___block_literal_global
 _OBJC_IVAR_$_SDCBarcodeCaptureDeserializer._delegate
 _OBJC_IVAR_$_SDCBarcodeCaptureDeserializer._listenerCache
-__ZTSNSt3__110shared_ptrIN3sdc22BarcodeCaptureSettingsEEE
-__ZTINSt3__110shared_ptrIN3sdc22BarcodeCaptureSettingsEEE
-__ZTSNSt3__110shared_ptrIN3sdc21BarcodeCaptureOverlayEEE
-__ZTINSt3__110shared_ptrIN3sdc21BarcodeCaptureOverlayEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN7details36BarcodeCaptureDeserializerHelperImplENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN7details36BarcodeCaptureDeserializerHelperImplENS_9allocatorIS2_EEEE
-__ZTSN7details36BarcodeCaptureDeserializerHelperImplE
-__ZTSN3sdc32BarcodeCaptureDeserializerHelperE
-__ZTIN3sdc32BarcodeCaptureDeserializerHelperE
-__ZTIN7details36BarcodeCaptureDeserializerHelperImplE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core19NoLocationSelectionENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core19NoLocationSelectionENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core19NoLocationSelectionE
-__ZTSN3sdc4core17LocationSelectionE
-__ZTIN3sdc4core17LocationSelectionE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc4core19NoLocationSelectionEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc4core19NoLocationSelectionEEE
-__ZTIN3sdc4core19NoLocationSelectionE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core23RadiusLocationSelectionENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core23RadiusLocationSelectionENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core23RadiusLocationSelectionE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc4core23RadiusLocationSelectionEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc4core23RadiusLocationSelectionEEE
-__ZTIN3sdc4core23RadiusLocationSelectionE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core28RectangularLocationSelectionENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core28RectangularLocationSelectionENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core28RectangularLocationSelectionE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc4core28RectangularLocationSelectionEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc4core28RectangularLocationSelectionEEE
-__ZTIN3sdc4core28RectangularLocationSelectionE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core19LaserlineViewfinderENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core19LaserlineViewfinderENS_9allocatorIS3_EEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core21RectangularViewfinderENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core21RectangularViewfinderENS_9allocatorIS3_EEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc21BarcodeCaptureOverlayENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc21BarcodeCaptureOverlayENS_9allocatorIS2_EEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc26BarcodeCaptureDeserializerENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc26BarcodeCaptureDeserializerENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc26BarcodeCaptureDeserializerEEE
-__ZTINSt3__110shared_ptrIN3sdc26BarcodeCaptureDeserializerEEE
-__ZTSPU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_object
-__ZTSU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_object
-__ZTIU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_object
-__ZTIPU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_object
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core39BarcodeCaptureDeserializerListenerProxyENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core39BarcodeCaptureDeserializerListenerProxyENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core39BarcodeCaptureDeserializerListenerProxyE
-__ZTSN11proxy_cache13ListenerProxyIU8__strongPU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_objectN3sdc34BarcodeCaptureDeserializerListenerEEE
-__ZTSN3sdc34BarcodeCaptureDeserializerListenerE
-__ZTIN3sdc34BarcodeCaptureDeserializerListenerE
-__ZTIN11proxy_cache13ListenerProxyIU8__strongPU48objcproto37SDCBarcodeCaptureDeserializerDelegate11objc_objectN3sdc34BarcodeCaptureDeserializerListenerEEE
-__ZTIN3sdc4core39BarcodeCaptureDeserializerListenerProxyE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureDeserializer.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureDeserializer.mm
 destroy<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy> >
 __destroy<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy> >
 swap<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy> *>
@@ -559,7 +459,7 @@ __construct_backward<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerL
 construct<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy>, std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy> >
 __construct<std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy>, std::__1::shared_ptr<sdc::core::BarcodeCaptureDeserializerListenerProxy> >
 onOverlayDeserializationFinished
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_capture_deserializer_listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_capture_deserializer_listener_proxy.hh
 get_cpp_proxy<SDCBarcodeCaptureOverlay, std::__1::shared_ptr<sdc::BarcodeCaptureOverlay> >
 onOverlayDeserializationStarted
 onModeDeserializationFinished
@@ -579,7 +479,7 @@ static_pointer_cast<sdc::BarcodeCaptureDeserializer, void>
 get_cpp_proxy_impl<SDCBarcodeCaptureDeserializer, sdc::BarcodeCaptureDeserializer>
 shared_ptr<sdc::BarcodeCaptureDeserializer>
 ~BarcodeCaptureDeserializer
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_deserializer.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_deserializer.hh
 ~enable_shared_from_this
 destroy<std::__1::basic_string<char> >
 __destroy<std::__1::basic_string<char> >
@@ -595,9 +495,9 @@ BarcodeCaptureDeserializer
 enable_shared_from_this
 weak_ptr
 DataCaptureModeDeserializer
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/data_capture_mode_deserializer.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/data_capture_mode_deserializer.hh
 shared_ptr<details::BarcodeCaptureDeserializerHelperImpl>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_overlay.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_overlay.hh
 make_shared<sdc::BarcodeCaptureOverlay>
 __enable_weak_this<sdc::BarcodeCaptureOverlay, sdc::BarcodeCaptureOverlay>
 operator=<sdc::BarcodeCaptureOverlay>
@@ -607,23 +507,26 @@ shared_ptr<sdc::BarcodeCaptureOverlay>
 __compressed_pair<std::__1::allocator<sdc::BarcodeCaptureOverlay>, true>
 BarcodeCaptureOverlay
 ScanAreaGuides
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/scan_area_guides.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/scan_area_guides.hh
 optional
 constexpr_optional_base
 constexpr_storage_t
 defaultBrush
+scanditBlue
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/glui/include/glui/color_palette.hh
 Color
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/glui/include/glui/color.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/glui/include/glui/color.hh
 DataCaptureOverlay
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/data_capture_overlay.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/data_capture_overlay.hh
+UiElement
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/ui_element.hh
 ~RectangularViewfinder
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/rectangular_viewfinder.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/rectangular_viewfinder.hh
 ~BaseRectangularViewfinder
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/base_rectangular_viewfinder.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/base_rectangular_viewfinder.hh
 ~Viewfinder
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/viewfinder.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/viewfinder.hh
 ~UiElement
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/ui_element.hh
 __enable_weak_this<sdc::core::Viewfinder, sdc::core::RectangularViewfinder>
 operator=<sdc::core::Viewfinder>
 swap<sdc::core::Viewfinder *>
@@ -632,11 +535,11 @@ shared_ptr<sdc::core::RectangularViewfinder>
 __compressed_pair<std::__1::allocator<sdc::core::RectangularViewfinder>, true>
 RectangularViewfinder
 ~LaserlineViewfinder
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/laserline_viewfinder.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/laserline_viewfinder.hh
 applyToBuilder
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/rectangular_location_selection.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/rectangular_location_selection.hh
 setSizeWithUnitAndAspect
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/barcode_area_builder.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/barcode_area_builder.hh
 initialize<const sdc::core::SizeWithUnitAndAspect &>
 constexpr_storage_t<const sdc::core::SizeWithUnitAndAspect &>
 ~RectangularLocationSelection
@@ -648,13 +551,13 @@ shared_ptr<sdc::core::RectangularLocationSelection>
 __compressed_pair<std::__1::allocator<sdc::core::RectangularLocationSelection>, true>
 RectangularLocationSelection
 LocationSelection
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/location_selection.hh
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/radius_location_selection.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/location_selection.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/radius_location_selection.hh
 setCodeRadius
 initialize<const sdc::core::FloatWithUnit &>
 constexpr_storage_t<const sdc::core::FloatWithUnit &>
 ~RadiusLocationSelection
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/no_location_selection.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/no_location_selection.hh
 ~NoLocationSelection
 feedbackFromJson
 basic_string<nullptr_t>
@@ -664,8 +567,11 @@ copy
 __set_short_size
 __compressed_pair<true, void>
 asString
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/json_value.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/json_value.hh
 operator==<sdc::core::JsonValue>
+__set_long_size
+__set_long_cap
+__set_long_pointer
 updateOverlayFromJson
 createOverlay
 createRectangularViewfinder
@@ -676,6 +582,9 @@ __enable_weak_this<sdc::core::Viewfinder, sdc::core::LaserlineViewfinder>
 shared_ptr<sdc::core::LaserlineViewfinder>
 __compressed_pair<std::__1::allocator<sdc::core::LaserlineViewfinder>, true>
 LaserlineViewfinder
+fraction
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/float_with_unit.hh
+FloatWithUnit
 Viewfinder
 createRectangularLocationSelection
 make_shared<sdc::core::RectangularLocationSelection>
@@ -712,7 +621,7 @@ pair<SDCBarcodeCaptureSettings *, void *, false>
 static_pointer_cast<sdc::BarcodeCaptureSettings, void>
 get_cpp_proxy_impl<SDCBarcodeCaptureSettings, sdc::BarcodeCaptureSettings>
 shared_ptr<sdc::BarcodeCaptureSettings>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/Private/SDCBarcodeCaptureDeserializer.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/Private/SDCBarcodeCaptureDeserializer.h
 setListener
 swap<sdc::BarcodeCaptureDeserializerListener *>
 get_objc_proxy<sdc::core::BarcodeCaptureDeserializerListenerProxy, id<SDCBarcodeCaptureDeserializerDelegate> >
@@ -726,7 +635,7 @@ shared_ptr<sdc::core::DataCaptureMode>
 modeFromJson
 __41-[SDCBarcodeCaptureDeserializer warnings]_block_invoke
 nsarrayWithCppVector<std::__1::basic_string<char>, NSString *(^)(std::__1::basic_string<char>)>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/ios/include/ScanditCaptureCore/Private/SDCUtils.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/ios/include/ScanditCaptureCore/Private/SDCUtils.hh
 operator!=<const std::__1::basic_string<char> *>
 operator==<const std::__1::basic_string<char> *, const std::__1::basic_string<char> *>
 get_cpp_proxy<SDCBarcodeCaptureDeserializer, std::__1::shared_ptr<sdc::BarcodeCaptureDeserializer> >
@@ -739,8 +648,8 @@ BarcodeCaptureDeserializerHelperImpl
 -[SDCBarcodeCaptureFeedback setSuccess:]
 -[SDCBarcodeCaptureFeedback .cxx_destruct]
 _OBJC_IVAR_$_SDCBarcodeCaptureFeedback._success
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureFeedback.mm
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeCaptureFeedback.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureFeedback.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeCaptureFeedback.h
 -[SDCBarcodeCaptureOverlay initWithCpp:]
 -[SDCBarcodeCaptureOverlay cppImpl]
 +[SDCBarcodeCaptureOverlay overlayWithBarcodeCapture:]
@@ -759,17 +668,7 @@ _OBJC_IVAR_$_SDCBarcodeCaptureFeedback._success
 _OBJC_IVAR_$_SDCBarcodeCaptureOverlay._impl
 l_OBJC_PROTOCOL_$_SDCDataCaptureOverlay
 l_OBJC_LABEL_PROTOCOL_$_SDCDataCaptureOverlay
-__ZTSN3sdc4core9UiElementE
-__ZTIN3sdc4core9UiElementE
-__ZTSN3sdc4core10ViewfinderE
-__ZTIN3sdc4core10ViewfinderE
-__ZTSNSt3__110shared_ptrIN3sdc4core19LaserlineViewfinderEEE
-__ZTINSt3__110shared_ptrIN3sdc4core19LaserlineViewfinderEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core21RectangularViewfinderEEE
-__ZTINSt3__110shared_ptrIN3sdc4core21RectangularViewfinderEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core19SpotlightViewfinderEEE
-__ZTINSt3__110shared_ptrIN3sdc4core19SpotlightViewfinderEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureOverlay.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureOverlay.mm
 pair<SDCSpotlightViewfinder *, void *, false>
 static_pointer_cast<sdc::core::SpotlightViewfinder, void>
 get_cpp_proxy_impl<SDCSpotlightViewfinder, sdc::core::SpotlightViewfinder>
@@ -791,7 +690,7 @@ operator==<sdc::core::Viewfinder>
 setViewfinder
 setShouldShowScanAreaGuides
 setNeedsRedraw
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/glui/include/glui/ui.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/glui/include/glui/ui.hh
 lock
 shouldRedrawGuides
 exchange<bool, bool>
@@ -811,10 +710,10 @@ ___50-[SDCBarcodeCaptureSession newlyLocalizedBarcodes]_block_invoke
 -[SDCBarcodeCaptureSession .cxx_destruct]
 -[SDCBarcodeCaptureSession .cxx_construct]
 _OBJC_IVAR_$_SDCBarcodeCaptureSession._impl
-___block_descriptor_32_e84_@"SDCBarcode"24@?0{shared_ptr<sdc::core::Barcode>=^{Barcode}^{__shared_weak_count}}8l
-___block_descriptor_32_e123_@"SDCLocalizedOnlyBarcode"24@?0{shared_ptr<sdc::core::LocalizedOnlyBarcode>=^{LocalizedOnlyBarcode}^{__shared_weak_count}}8l
+___block_descriptor_20_e84_@"SDCBarcode"12@?0{shared_ptr<sdc::core::Barcode>=^{Barcode}^{__shared_weak_count}}4l
+___block_descriptor_20_e123_@"SDCLocalizedOnlyBarcode"12@?0{shared_ptr<sdc::core::LocalizedOnlyBarcode>=^{LocalizedOnlyBarcode}^{__shared_weak_count}}4l
 ___block_literal_global.6
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureSession.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureSession.mm
 __50-[SDCBarcodeCaptureSession newlyLocalizedBarcodes]_block_invoke
 nsarrayWithCppVector<std::__1::shared_ptr<sdc::core::LocalizedOnlyBarcode>, SDCLocalizedOnlyBarcode *(^)(std::__1::shared_ptr<sdc::core::LocalizedOnlyBarcode>)>
 operator!=<const std::__1::shared_ptr<sdc::core::LocalizedOnlyBarcode> *>
@@ -848,20 +747,12 @@ ___47-[SDCBarcodeCaptureSettings enableSymbologies:]_block_invoke
 -[SDCBarcodeCaptureSettings .cxx_destruct]
 -[SDCBarcodeCaptureSettings .cxx_construct]
 _OBJC_IVAR_$_SDCBarcodeCaptureSettings._impl
-___block_descriptor_32_e18_@"NSNumber"12@?0i8l
-___block_descriptor_32_e18_i16@?0@"NSNumber"8l
+___block_descriptor_20_e17_@"NSNumber"8@?0i4l
+___block_descriptor_20_e17_i8@?0@"NSNumber"4l
 ___block_literal_global.15
 l_OBJC_PROTOCOL_$_NSCopying
 l_OBJC_LABEL_PROTOCOL_$_NSCopying
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc22BarcodeCaptureSettingsENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc22BarcodeCaptureSettingsENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core17SymbologySettingsEEE
-__ZTINSt3__110shared_ptrIN3sdc4core17SymbologySettingsEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core23RadiusLocationSelectionEEE
-__ZTINSt3__110shared_ptrIN3sdc4core23RadiusLocationSelectionEEE
-__ZTSNSt3__110shared_ptrIN3sdc4core28RectangularLocationSelectionEEE
-__ZTINSt3__110shared_ptrIN3sdc4core28RectangularLocationSelectionEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureSettings.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeCaptureSettings.mm
 pair<SDCRectangularLocationSelection *, void *, false>
 static_pointer_cast<sdc::core::RectangularLocationSelection, void>
 get_cpp_proxy_impl<SDCRectangularLocationSelection, sdc::core::RectangularLocationSelection>
@@ -886,7 +777,7 @@ static_pointer_cast<sdc::core::SymbologySettings, void>
 get_cpp_proxy_impl<SDCSymbologySettings, sdc::core::SymbologySettings>
 shared_ptr<sdc::core::SymbologySettings>
 ~BarcodeCaptureSettings
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_settings.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_capture_settings.hh
 setLocationSelection
 swap<sdc::core::LocationSelection *>
 get_cpp_proxy<SDCRectangularLocationSelection, std::__1::shared_ptr<sdc::core::RectangularLocationSelection> >
@@ -907,21 +798,22 @@ __emplace_unique_key_args<sdc::core::Symbology, sdc::core::Symbology>
 __construct_node_hash<sdc::core::Symbology>
 construct<sdc::core::Symbology, sdc::core::Symbology>
 __construct<sdc::core::Symbology, sdc::core::Symbology>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/symbology.hh
 unordered_set
 __hash_table
 __compressed_pair<float, true>
 __compressed_pair_elem<float, void>
-__hash_node_base
-__set_long_size
-__set_long_cap
-__set_long_pointer
+unique_ptr<true, void>
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<sdc::core::Symbology, void *> *> **, true>
+__bucket_list_deallocator
+__compressed_pair<int, true>
+__compressed_pair_elem<int, void>
 __align_it<16>
 length
 __47-[SDCBarcodeCaptureSettings enabledSymbologies]_block_invoke
 nssetWithCppSet<sdc::core::Symbology, NSNumber *(^)(sdc::core::Symbology)>
 operator!=
 operator*
+begin
 get_cpp_proxy<SDCSymbologySettings, std::__1::shared_ptr<sdc::core::SymbologySettings> >
 make_shared<sdc::BarcodeCaptureSettings>
 __compressed_pair<std::__1::allocator<sdc::BarcodeCaptureSettings>, true>
@@ -943,6 +835,7 @@ __compressed_pair<std::__1::allocator<sdc::BarcodeCaptureSettings>, true>
 -[SDCBarcodeTracking context:willProcessFrame:]
 -[SDCBarcodeTracking context]
 -[SDCBarcodeTracking typeErasedCppImpl]
++[SDCBarcodeTracking recommendedCameraSettings]
 -[SDCBarcodeTracking .cxx_destruct]
 -[SDCBarcodeTracking .cxx_construct]
 __ZNSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EED1Ev
@@ -957,32 +850,12 @@ __ZNKSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ54-[SDCBarcod
 __ZZN6djinniL14get_objc_proxyIN3sdc4core28BarcodeTrackingListenerProxyEU37objcproto26SDCBarcodeTrackingListener11objc_objectEENSt3__110shared_ptrIT_EEPT0_ENUlRU8__strongKP11objc_objectE_8__invokeESE_
 _OBJC_IVAR_$_SDCBarcodeTracking._impl
 _OBJC_IVAR_$_SDCBarcodeTracking._listenerCache
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc15BarcodeTrackingENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc15BarcodeTrackingENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc15BarcodeTrackingEEE
-__ZTINSt3__110shared_ptrIN3sdc15BarcodeTrackingEEE
 __ZTVNSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
 __ZTSNSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
 __ZTINSt3__110__function6__funcIN3bar4impl12ThenCallbackINS2_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EENS_9allocatorIS7_EEFvRKS5_EEE
 __ZTSN3bar4impl12ThenCallbackINS_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EE
 __ZTIN3bar4impl12ThenCallbackINS_4VoidEZ54-[SDCBarcodeTracking applySettings:completionHandler:]E3$_0EE
-__ZTSPU37objcproto26SDCBarcodeTrackingListener11objc_object
-__ZTSU37objcproto26SDCBarcodeTrackingListener11objc_object
-__ZTIU37objcproto26SDCBarcodeTrackingListener11objc_object
-__ZTIPU37objcproto26SDCBarcodeTrackingListener11objc_object
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core28BarcodeTrackingListenerProxyENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core28BarcodeTrackingListenerProxyENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core28BarcodeTrackingListenerProxyE
-__ZTSN11proxy_cache13ListenerProxyIU8__strongPU37objcproto26SDCBarcodeTrackingListener11objc_objectN3sdc23BarcodeTrackingListenerEEE
-__ZTSN3sdc23BarcodeTrackingListenerE
-__ZTSN3sdc4core13AsyncListenerINS_15BarcodeTrackingEEE
-__ZTIN3sdc4core13AsyncListenerINS_15BarcodeTrackingEEE
-__ZTIN3sdc23BarcodeTrackingListenerE
-__ZTIN11proxy_cache13ListenerProxyIU8__strongPU37objcproto26SDCBarcodeTrackingListener11objc_objectN3sdc23BarcodeTrackingListenerEEE
-__ZTIN3sdc4core28BarcodeTrackingListenerProxyE
-__ZTSNSt3__110shared_ptrIN3sdc22BarcodeTrackingSessionEEE
-__ZTINSt3__110shared_ptrIN3sdc22BarcodeTrackingSessionEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm
 destroy<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> >
 __destroy<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> >
 swap<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
@@ -994,7 +867,7 @@ static_pointer_cast<sdc::BarcodeTrackingSession, void>
 get_cpp_proxy_impl<SDCBarcodeTrackingSession, sdc::BarcodeTrackingSession>
 shared_ptr<sdc::BarcodeTrackingSession>
 onSessionUpdated
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_listener_proxy.hh
 get_cpp_proxy<SDCBarcodeTrackingSession, std::__1::shared_ptr<sdc::BarcodeTrackingSession> >
 get_cpp_proxy<SDCBarcodeTracking, std::__1::shared_ptr<sdc::BarcodeTracking> >
 ~BarcodeTrackingListenerProxy
@@ -1023,9 +896,9 @@ __move_backward<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::Bar
 operator-<const sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
 is_sorted<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *> >
 is_sorted<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority> >
+operator==<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
 is_sorted_until<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority> >
 operator!=<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
-operator==<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
 upper_bound<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority>
 upper_bound<std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority, std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority> >
 __upper_bound<std::__1::__less<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority> &, std::__1::__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>, sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority>
@@ -1038,25 +911,33 @@ operator==<sdc::BarcodeTrackingListener, sdc::BarcodeTrackingListener>
 _ZZN3sdc4core14ListenerVectorINS_23BarcodeTrackingListenerENS_15BarcodeTrackingEE8addAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEiENUlvE_C1EOS9_
 _ZZN3sdc4core14ListenerVectorINS_23BarcodeTrackingListenerENS_15BarcodeTrackingEE8addAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEiENUlvE_C2EOS9_
 operator==<sdc::BarcodeTrackingListener>
-__call<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &, const bar::Void &>
-__invoke<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &, const bar::Void &>
-__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &, const std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> > &>
-__compressed_pair_elem<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &, 0>
+__call<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &, const bar::Void &>
+__invoke<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &, const bar::Void &>
+__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &, const std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> > &>
+__compressed_pair_elem<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &, 0>
 _ZZ54-[SDCBarcodeTracking applySettings:completionHandler:]EN3$_0C1ERKS_
 _ZZ54-[SDCBarcodeTracking applySettings:completionHandler:]EN3$_0C2ERKS_
-__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> > &&>
+__compressed_pair<const bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> > &&>
 swap<sdc::BarcodeTrackingSettings *>
+operator-<const sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *, const sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
+__wrap_iter<sdc::core::ListenerVector<sdc::BarcodeTrackingListener, sdc::BarcodeTracking>::ListenerWithPriority *>
 _ZZN3sdc4core14ListenerVectorINS_23BarcodeTrackingListenerENS_15BarcodeTrackingEE11removeAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEENUlvE_C1EOS9_
 _ZZN3sdc4core14ListenerVectorINS_23BarcodeTrackingListenerENS_15BarcodeTrackingEE11removeAsyncENSt3__110shared_ptrIS2_EENS6_IS3_EEENUlvE_C2EOS9_
 __push_back_slow_path<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> &>
 construct<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy>, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> &>
 __construct<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy>, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> &>
-remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69)>
+move<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+__move<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+swap<sdc::core::BarcodeTrackingListenerProxy *>
+operator-<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+operator!=<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+operator==<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+operator-<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
+remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69)>
 operator!=<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
 operator==<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-swap<sdc::core::BarcodeTrackingListenerProxy *>
 operator()<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> >
-find_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69) &>
+find_if<std::__1::__wrap_iter<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/proxy-cache/include/proxy-cache/listener_proxy.hh:106:69) &>
 pair<SDCBarcodeTracking *, void *, false>
 static_pointer_cast<sdc::BarcodeTracking, void>
 get_cpp_proxy_impl<SDCBarcodeTracking, sdc::BarcodeTracking>
@@ -1071,25 +952,17 @@ __compressed_pair<std::__1::allocator<sdc::BarcodeTracking> &, const std::__1::s
 __compressed_pair_elem<const std::__1::shared_ptr<sdc::core::DataCaptureContext> &, std::__1::shared_ptr<sdc::BarcodeTrackingSettings> &, 0, 1>
 get_objc_proxy<sdc::core::BarcodeTrackingListenerProxy, id<SDCBarcodeTrackingListener> >
 static_pointer_cast<sdc::core::BarcodeTrackingListenerProxy, void>
-narrow_cast<int, long, void>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/bar/include/bar/narrow_cast.hh
 _ZZN3sdc4core26EngineBasedDataCaptureModeINS_15BarcodeTrackingEE13applySettingsERKNSt3__110shared_ptrINS_23BarcodeTrackingSettingsEEEENUlvE_C1EOSA_
 _ZZN3sdc4core26EngineBasedDataCaptureModeINS_15BarcodeTrackingEE13applySettingsERKNSt3__110shared_ptrINS_23BarcodeTrackingSettingsEEEENUlvE_C2EOSA_
-then<(lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)>
-setCallback<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> >
-operator=<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)>, void>
+then<(lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)>
+setCallback<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> >
+operator=<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)>, void>
 _ZZ54-[SDCBarcodeTracking applySettings:completionHandler:]EN3$_0C1EOS_
 _ZZ54-[SDCBarcodeTracking applySettings:completionHandler:]EN3$_0C2EOS_
-function<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)>, void>
-__compressed_pair<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &&, std::__1::allocator<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> > &&>
-__compressed_pair_elem<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:84:21)> &&, 0>
-move<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-__move<std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-operator-<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-operator!=<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-operator==<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-operator-<const std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *, std::__1::shared_ptr<sdc::core::BarcodeTrackingListenerProxy> *>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking.hh
+function<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)>, void>
+__compressed_pair<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &&>
+__compressed_pair_elem<bar::impl::ThenCallback<bar::Void, (lambda at /Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTracking.mm:85:21)> &&, 0>
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking.hh
 make_shared<sdc::BarcodeTracking, const std::__1::shared_ptr<sdc::core::DataCaptureContext> &, std::__1::shared_ptr<sdc::BarcodeTrackingSettings> &>
 -[_SDCBarcodeTrackingAdvancedOverlayListener initWithOverlay:]
 -[_SDCBarcodeTrackingAdvancedOverlayListener barcodeTracking:didUpdate:frameData:]
@@ -1100,12 +973,12 @@ make_shared<sdc::BarcodeTracking, const std::__1::shared_ptr<sdc::core::DataCapt
 -[SDCBarcodeTrackingAdvancedOverlay dealloc]
 -[SDCBarcodeTrackingAdvancedOverlay setView:forTrackedBarcode:]
 ___63-[SDCBarcodeTrackingAdvancedOverlay setView:forTrackedBarcode:]_block_invoke
-___copy_helper_block_ea8_32s40s48s
-___destroy_helper_block_ea8_32s40s48s
+___copy_helper_block_ea4_20s24s28s
+___destroy_helper_block_ea4_20s24s28s
 -[SDCBarcodeTrackingAdvancedOverlay setAnchor:forTrackedBarcode:]
 ___65-[SDCBarcodeTrackingAdvancedOverlay setAnchor:forTrackedBarcode:]_block_invoke
-___copy_helper_block_ea8_32s40s
-___destroy_helper_block_ea8_32s40s
+___copy_helper_block_ea4_20s24s
+___destroy_helper_block_ea4_20s24s
 -[SDCBarcodeTrackingAdvancedOverlay setOffset:forTrackedBarcode:]
 ___65-[SDCBarcodeTrackingAdvancedOverlay setOffset:forTrackedBarcode:]_block_invoke
 -[SDCBarcodeTrackingAdvancedOverlay viewForTrackedBarcode:]
@@ -1113,16 +986,18 @@ ___65-[SDCBarcodeTrackingAdvancedOverlay setOffset:forTrackedBarcode:]_block_inv
 -[SDCBarcodeTrackingAdvancedOverlay offsetForTrackedBarcode:]
 -[SDCBarcodeTrackingAdvancedOverlay barcodeTracking:didUpdate:]
 ___63-[SDCBarcodeTrackingAdvancedOverlay barcodeTracking:didUpdate:]_block_invoke
-___copy_helper_block_ea8_32s40s48s56s
-___destroy_helper_block_ea8_32s40s48s56s
+___copy_helper_block_ea4_20s24s28s32s
+___destroy_helper_block_ea4_20s24s28s32s
 -[SDCBarcodeTrackingAdvancedOverlay addAugmentationsFor:]
 -[SDCBarcodeTrackingAdvancedOverlay updateAugmentationsFor:]
 ___60-[SDCBarcodeTrackingAdvancedOverlay updateAugmentationsFor:]_block_invoke
+___copy_helper_block_ea4_20s24c54_ZTSNSt3__16vectorI12SDCAnimationNS_9allocatorIS1_EEEE
+___destroy_helper_block_ea4_20s24c54_ZTSNSt3__16vectorI12SDCAnimationNS_9allocatorIS1_EEEE
 -[SDCBarcodeTrackingAdvancedOverlay removeAugmentationsFor:]
 -[SDCBarcodeTrackingAdvancedOverlay clearTrackedBarcodeViews]
 ___61-[SDCBarcodeTrackingAdvancedOverlay clearTrackedBarcodeViews]_block_invoke
-___copy_helper_block_ea8_32s
-___destroy_helper_block_ea8_32s
+___copy_helper_block_ea4_20s
+___destroy_helper_block_ea4_20s
 -[SDCBarcodeTrackingAdvancedOverlay featureAvailability]
 -[SDCBarcodeTrackingAdvancedOverlay delegate]
 -[SDCBarcodeTrackingAdvancedOverlay setDelegate:]
@@ -1146,61 +1021,83 @@ _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._viewsOverride
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._anchorsOverride
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._offsetsOverride
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._featureAvailability
-___block_descriptor_56_ea8_32s40s48s_e5_v8@?0l
-___block_descriptor_56_ea8_32s40s_e5_v8@?0l
-___block_descriptor_80_ea8_32s40s_e5_v8@?0l
-___block_descriptor_64_ea8_32s40s48s56s_e5_v8@?0l
-___block_descriptor_48_ea8_32s40s_e5_v8@?0l
-___block_descriptor_40_ea8_32s_e5_v8@?0l
+___block_descriptor_32_ea4_20s24s28s_e5_v4@?0l
+___block_descriptor_32_ea4_20s24s_e5_v4@?0l
+___block_descriptor_44_ea4_20s24s_e5_v4@?0l
+___block_descriptor_36_ea4_20s24s28s32s_e5_v4@?0l
+___block_descriptor_36_ea4_20s24c54_ZTSNSt3__16vectorI12SDCAnimationNS_9allocatorIS1_EEEE_e5_v4@?0l
+___block_descriptor_24_ea4_20s_e5_v4@?0l
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._delegate
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._dataCaptureView
 _OBJC_IVAR_$_SDCBarcodeTrackingAdvancedOverlay._animator
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingAdvancedOverlay.mm
-__erase_unique<long>
-destroy<std::__1::pair<const long, SDCAugmentation> >
-__destroy<std::__1::pair<const long, SDCAugmentation> >
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingAdvancedOverlay.mm
+__erase_unique<int>
+destroy<std::__1::pair<const int, SDCAugmentation> >
+__destroy<std::__1::pair<const int, SDCAugmentation> >
 ~pair
 ~SDCAugmentation
-find<long>
+find<int>
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/unordered_map
-reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, SDCPointWithUnit>, void *> *> **>
-reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, SDCAnchor>, void *> *> **>
-reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, SDCAugmentation>, void *> *> **>
+destroy<SDCAnimation>
+__destroy<SDCAnimation>
+~SDCAnimation
+__construct_at_end<SDCAnimation *>
+__construct_range_forward<SDCAnimation *, SDCAnimation *>
+construct<SDCAnimation, SDCAnimation &>
+__construct<SDCAnimation, SDCAnimation &>
+SDCAnimation
+SDCAugmentation
+__vallocate
+__compressed_pair<nullptr_t, std::__1::allocator<SDCAnimation> >
+__push_back_slow_path<SDCAnimation>
+swap<SDCAnimation *>
+__construct_backward<SDCAnimation *>
+construct<SDCAnimation, SDCAnimation>
+__construct<SDCAnimation, SDCAnimation>
+reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCPointWithUnit>, void *> *> **>
+reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCAnchor>, void *> *> **>
+reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCAugmentation>, void *> *> **>
 __move_assign
 release
 unordered_map
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCPointWithUnit>, void *> *> **, true>
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCAnchor>, void *> *> **, true>
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, SDCAugmentation>, void *> *> **, true>
 ~unordered_map
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeTrackingAdvancedOverlay.h
-__destroy_helper_block_ea8_32s
-__copy_helper_block_ea8_32s
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeTrackingAdvancedOverlay.h
+__destroy_helper_block_ea4_20s
+__copy_helper_block_ea4_20s
 __61-[SDCBarcodeTrackingAdvancedOverlay clearTrackedBarcodeViews]_block_invoke
-pair<std::__1::pair<const long, SDCAugmentation> &, false>
-SDCAugmentation
+pair<std::__1::pair<const int, SDCAugmentation> &, false>
 find
+__destroy_helper_block_ea4_20s24c54_ZTSNSt3__16vectorI12SDCAnimationNS_9allocatorIS1_EEEE
+__copy_helper_block_ea4_20s24c54_ZTSNSt3__16vectorI12SDCAnimationNS_9allocatorIS1_EEEE
 __60-[SDCBarcodeTrackingAdvancedOverlay updateAugmentationsFor:]_block_invoke
+operator!=<const SDCAnimation *>
+operator==<const SDCAnimation *, const SDCAnimation *>
 SDCTrackedBarcodePredictedLocationInternal
 getPredictedLocationIgnoringLicense
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/tracked_barcode.hh
-__destroy_helper_block_ea8_32s40s48s56s
-__copy_helper_block_ea8_32s40s48s56s
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/tracked_barcode.hh
+__destroy_helper_block_ea4_20s24s28s32s
+__copy_helper_block_ea4_20s24s28s32s
 __63-[SDCBarcodeTrackingAdvancedOverlay barcodeTracking:didUpdate:]_block_invoke
-__emplace_unique_key_args<long, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-__construct_node_hash<const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-construct<std::__1::pair<const long, SDCPointWithUnit>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-__construct<std::__1::pair<const long, SDCPointWithUnit>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-pair<long &&>
-pair<long &&, 0>
+__emplace_unique_key_args<int, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+__construct_node_hash<const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+construct<std::__1::pair<const int, SDCPointWithUnit>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+__construct<std::__1::pair<const int, SDCPointWithUnit>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+pair<int &&>
+pair<int &&, 0>
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/tuple
 __65-[SDCBarcodeTrackingAdvancedOverlay setOffset:forTrackedBarcode:]_block_invoke
-__destroy_helper_block_ea8_32s40s
-__copy_helper_block_ea8_32s40s
-construct<std::__1::pair<const long, SDCAnchor>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-__construct<std::__1::pair<const long, SDCAnchor>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
+__destroy_helper_block_ea4_20s24s
+__copy_helper_block_ea4_20s24s
+construct<std::__1::pair<const int, SDCAnchor>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+__construct<std::__1::pair<const int, SDCAnchor>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
 __65-[SDCBarcodeTrackingAdvancedOverlay setAnchor:forTrackedBarcode:]_block_invoke
-__destroy_helper_block_ea8_32s40s48s
-__copy_helper_block_ea8_32s40s48s
-construct<std::__1::pair<const long, SDCAugmentation>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
-__construct<std::__1::pair<const long, SDCAugmentation>, const std::__1::piecewise_construct_t &, std::__1::tuple<long &&>, std::__1::tuple<> >
+__destroy_helper_block_ea4_20s24s28s
+__copy_helper_block_ea4_20s24s28s
+construct<std::__1::pair<const int, SDCAugmentation>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
+__construct<std::__1::pair<const int, SDCAugmentation>, const std::__1::piecewise_construct_t &, std::__1::tuple<int &&>, std::__1::tuple<> >
 __63-[SDCBarcodeTrackingAdvancedOverlay setView:forTrackedBarcode:]_block_invoke
 -[SDCBarcodeTrackingBasicOverlay initWithCpp:]
 +[SDCBarcodeTrackingBasicOverlay overlayWithBarcodeTracking:]
@@ -1222,31 +1119,13 @@ __63-[SDCBarcodeTrackingAdvancedOverlay setView:forTrackedBarcode:]_block_invoke
 __ZZN6djinniL14get_objc_proxyIN3sdc4core40BarcodeTrackingBasicOverlayListenerProxyEU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_objectEENSt3__110shared_ptrIT_EEPT0_ENUlRU8__strongKP11objc_objectE_8__invokeESE_
 _OBJC_IVAR_$_SDCBarcodeTrackingBasicOverlay._impl
 _OBJC_IVAR_$_SDCBarcodeTrackingBasicOverlay._delegate
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc27BarcodeTrackingBasicOverlayENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc27BarcodeTrackingBasicOverlayENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc27BarcodeTrackingBasicOverlayEEE
-__ZTINSt3__110shared_ptrIN3sdc27BarcodeTrackingBasicOverlayEEE
-__ZTSPU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_object
-__ZTSU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_object
-__ZTIU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_object
-__ZTIPU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_object
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core40BarcodeTrackingBasicOverlayListenerProxyENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core40BarcodeTrackingBasicOverlayListenerProxyENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core40BarcodeTrackingBasicOverlayListenerProxyE
-__ZTSN11proxy_cache13ListenerProxyIU8__strongPU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_objectN3sdc35BarcodeTrackingBasicOverlayListenerEEE
-__ZTSN3sdc35BarcodeTrackingBasicOverlayListenerE
-__ZTIN3sdc35BarcodeTrackingBasicOverlayListenerE
-__ZTIN11proxy_cache13ListenerProxyIU8__strongPU49objcproto38SDCBarcodeTrackingBasicOverlayDelegate11objc_objectN3sdc35BarcodeTrackingBasicOverlayListenerEEE
-__ZTIN3sdc4core40BarcodeTrackingBasicOverlayListenerProxyE
-__ZTSNSt3__110shared_ptrIN3sdc4core14TrackedBarcodeEEE
-__ZTINSt3__110shared_ptrIN3sdc4core14TrackedBarcodeEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingBasicOverlay.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingBasicOverlay.mm
 pair<SDCTrackedBarcode *, void *, false>
 static_pointer_cast<sdc::core::TrackedBarcode, void>
 get_cpp_proxy_impl<SDCTrackedBarcode, sdc::core::TrackedBarcode>
 shared_ptr<sdc::core::TrackedBarcode>
 onTrackedBarcodeTapped
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_basic_overlay_listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_basic_overlay_listener_proxy.hh
 get_cpp_proxy<SDCTrackedBarcode, std::__1::shared_ptr<sdc::core::TrackedBarcode> >
 get_cpp_proxy<SDCBarcodeTrackingBasicOverlay, std::__1::shared_ptr<sdc::BarcodeTrackingBasicOverlay> >
 brushForTrackedBarcode
@@ -1263,26 +1142,27 @@ static_pointer_cast<sdc::BarcodeTrackingBasicOverlay, void>
 get_cpp_proxy_impl<SDCBarcodeTrackingBasicOverlay, sdc::BarcodeTrackingBasicOverlay>
 shared_ptr<sdc::BarcodeTrackingBasicOverlay>
 BarcodeTrackingBasicOverlay
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_basic_overlay.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_basic_overlay.hh
 ~DataCaptureOverlay
 BarcodeLocationsDrawing
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_locations_drawing.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_locations_drawing.hh
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, sdc::BarcodeLocationsDrawing::AnimatedTrack>, void *> *> **, true>
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, sdc::core::Brush>, void *> *> **, true>
 flags<sdc::BarcodeLocationsDrawing::DrawingMode, sdc::BarcodeLocationsDrawing::DrawingMode>
 BarcodeLocationsDrawingListener
-UiElement
 __enable_weak_this<sdc::BarcodeTrackingBasicOverlay, sdc::BarcodeTrackingBasicOverlay>
 operator=<sdc::BarcodeTrackingBasicOverlay>
 swap<sdc::BarcodeTrackingBasicOverlay *>
 weak_ptr<sdc::BarcodeTrackingBasicOverlay>
 __compressed_pair<std::__1::allocator<sdc::BarcodeTrackingBasicOverlay>, true>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeTrackingBasicOverlay.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/SDCBarcodeTrackingBasicOverlay.h
 swap<sdc::BarcodeTrackingBasicOverlayListener *>
 get_objc_proxy<sdc::core::BarcodeTrackingBasicOverlayListenerProxy, id<SDCBarcodeTrackingBasicOverlayDelegate> >
 static_pointer_cast<sdc::core::BarcodeTrackingBasicOverlayListenerProxy, void>
 setDefaultBrush
 value_or<sdc::core::Brush>
 getDefaultBrush
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/brush.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/core/main/include/sdc/core/brush.hh
 make_shared<sdc::BarcodeTrackingBasicOverlay>
 +[SDCBarcodeTrackingDeserializer barcodeTrackingDeserializer]
 -[SDCBarcodeTrackingDeserializer initWithCpp:]
@@ -1304,31 +1184,7 @@ __ZZN6djinniL14get_objc_proxyIN3sdc4core40BarcodeTrackingDeserializerListenerPro
 _OBJC_IVAR_$_SDCBarcodeTrackingDeserializer._impl
 _OBJC_IVAR_$_SDCBarcodeTrackingDeserializer._delegate
 _OBJC_IVAR_$_SDCBarcodeTrackingDeserializer._listenerCache
-__ZTSNSt3__110shared_ptrIN3sdc23BarcodeTrackingSettingsEEE
-__ZTINSt3__110shared_ptrIN3sdc23BarcodeTrackingSettingsEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN7details37BarcodeTrackingDeserializerHelperImplENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN7details37BarcodeTrackingDeserializerHelperImplENS_9allocatorIS2_EEEE
-__ZTSN7details37BarcodeTrackingDeserializerHelperImplE
-__ZTSN3sdc33BarcodeTrackingDeserializerHelperE
-__ZTIN3sdc33BarcodeTrackingDeserializerHelperE
-__ZTIN7details37BarcodeTrackingDeserializerHelperImplE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc27BarcodeTrackingDeserializerENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc27BarcodeTrackingDeserializerENS_9allocatorIS2_EEEE
-__ZTSNSt3__110shared_ptrIN3sdc27BarcodeTrackingDeserializerEEE
-__ZTINSt3__110shared_ptrIN3sdc27BarcodeTrackingDeserializerEEE
-__ZTSPU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_object
-__ZTSU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_object
-__ZTIU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_object
-__ZTIPU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_object
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core40BarcodeTrackingDeserializerListenerProxyENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core40BarcodeTrackingDeserializerListenerProxyENS_9allocatorIS3_EEEE
-__ZTSN3sdc4core40BarcodeTrackingDeserializerListenerProxyE
-__ZTSN11proxy_cache13ListenerProxyIU8__strongPU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_objectN3sdc35BarcodeTrackingDeserializerListenerEEE
-__ZTSN3sdc35BarcodeTrackingDeserializerListenerE
-__ZTIN3sdc35BarcodeTrackingDeserializerListenerE
-__ZTIN11proxy_cache13ListenerProxyIU8__strongPU49objcproto38SDCBarcodeTrackingDeserializerDelegate11objc_objectN3sdc35BarcodeTrackingDeserializerListenerEEE
-__ZTIN3sdc4core40BarcodeTrackingDeserializerListenerProxyE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingDeserializer.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingDeserializer.mm
 destroy<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy> >
 __destroy<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy> >
 swap<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy> *>
@@ -1336,7 +1192,7 @@ __construct_backward<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializer
 construct<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy>, std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy> >
 __construct<std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy>, std::__1::shared_ptr<sdc::core::BarcodeTrackingDeserializerListenerProxy> >
 onBasicOverlayDeserializationFinished
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_deserializer_listener_proxy.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/sdc/barcode/barcode_tracking_deserializer_listener_proxy.hh
 onBasicOverlayDeserializationStarted
 get_cpp_proxy<SDCBarcodeTrackingSettings, std::__1::shared_ptr<sdc::BarcodeTrackingSettings> >
 ~BarcodeTrackingDeserializerListenerProxy
@@ -1351,7 +1207,7 @@ static_pointer_cast<sdc::BarcodeTrackingDeserializer, void>
 get_cpp_proxy_impl<SDCBarcodeTrackingDeserializer, sdc::BarcodeTrackingDeserializer>
 shared_ptr<sdc::BarcodeTrackingDeserializer>
 ~BarcodeTrackingDeserializer
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_deserializer.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_deserializer.hh
 make_shared<const std::__1::shared_ptr<details::BarcodeTrackingDeserializerHelperImpl> &>
 __enable_weak_this<sdc::BarcodeTrackingDeserializer, sdc::BarcodeTrackingDeserializer>
 operator=<sdc::BarcodeTrackingDeserializer>
@@ -1369,7 +1225,7 @@ pair<SDCBarcodeTrackingSettings *, void *, false>
 static_pointer_cast<sdc::BarcodeTrackingSettings, void>
 get_cpp_proxy_impl<SDCBarcodeTrackingSettings, sdc::BarcodeTrackingSettings>
 shared_ptr<sdc::BarcodeTrackingSettings>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/Private/SDCBarcodeTrackingDeserializer.h
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/include/ScanditBarcodeCapture/Private/SDCBarcodeTrackingDeserializer.h
 swap<sdc::BarcodeTrackingDeserializerListener *>
 get_objc_proxy<sdc::core::BarcodeTrackingDeserializerListenerProxy, id<SDCBarcodeTrackingDeserializerDelegate> >
 static_pointer_cast<sdc::core::BarcodeTrackingDeserializerListenerProxy, void>
@@ -1398,13 +1254,11 @@ ___44-[SDCBarcodeTrackingSession trackedBarcodes]_block_invoke_2
 -[SDCBarcodeTrackingSession .cxx_destruct]
 -[SDCBarcodeTrackingSession .cxx_construct]
 _OBJC_IVAR_$_SDCBarcodeTrackingSession._impl
-___block_descriptor_32_e107_@"SDCTrackedBarcode"16@?0r^{shared_ptr<sdc::core::TrackedBarcode>=^{TrackedBarcode}^{__shared_weak_count}}8l
+___block_descriptor_20_e106_@"SDCTrackedBarcode"8@?0r^{shared_ptr<sdc::core::TrackedBarcode>=^{TrackedBarcode}^{__shared_weak_count}}4l
 ___block_literal_global.10
 ___block_literal_global.11
 ___block_literal_global.12
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc22BarcodeTrackingSessionENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc22BarcodeTrackingSessionENS_9allocatorIS2_EEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingSession.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingSession.mm
 reset<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, std::__1::shared_ptr<sdc::core::TrackedBarcode> >, void *> *> **>
 destroy<std::__1::pair<const int, std::__1::shared_ptr<sdc::core::TrackedBarcode> > >
 __destroy<std::__1::pair<const int, std::__1::shared_ptr<sdc::core::TrackedBarcode> > >
@@ -1416,19 +1270,17 @@ construct<std::__1::pair<const int, std::__1::shared_ptr<sdc::core::TrackedBarco
 __construct<std::__1::pair<const int, std::__1::shared_ptr<sdc::core::TrackedBarcode> >, const std::__1::pair<const int, std::__1::shared_ptr<sdc::core::TrackedBarcode> > &>
 pair
 __get_key
-unique_ptr<true, void>
 __compressed_pair<nullptr_t, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, std::__1::shared_ptr<sdc::core::TrackedBarcode> >, void *> *> *> > >
 __compressed_pair_elem<std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, std::__1::shared_ptr<sdc::core::TrackedBarcode> >, void *> *> *> >, void>
-__bucket_list_deallocator
 destroy<std::__1::shared_ptr<sdc::core::TrackedBarcode> >
 __destroy<std::__1::shared_ptr<sdc::core::TrackedBarcode> >
 __construct_at_end<std::__1::shared_ptr<sdc::core::TrackedBarcode> *>
 __construct_range_forward<std::__1::shared_ptr<sdc::core::TrackedBarcode> *, std::__1::shared_ptr<sdc::core::TrackedBarcode> *>
 construct<std::__1::shared_ptr<sdc::core::TrackedBarcode>, std::__1::shared_ptr<sdc::core::TrackedBarcode> &>
 __construct<std::__1::shared_ptr<sdc::core::TrackedBarcode>, std::__1::shared_ptr<sdc::core::TrackedBarcode> &>
-__vallocate
+__compressed_pair<nullptr_t, std::__1::allocator<std::__1::shared_ptr<sdc::core::TrackedBarcode> > >
 ~BarcodeTrackingSession
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_session.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_session.hh
 __44-[SDCBarcodeTrackingSession trackedBarcodes]_block_invoke_2
 __44-[SDCBarcodeTrackingSession trackedBarcodes]_block_invoke
 nsdictionaryWithCppUnorderedMap<int, std::__1::shared_ptr<sdc::core::TrackedBarcode>, NSNumber *(^)(int), SDCTrackedBarcode *(^)(const std::__1::shared_ptr<sdc::core::TrackedBarcode> &)>
@@ -1445,6 +1297,7 @@ operator!=<const int *>
 operator==<const int *, const int *>
 __construct_at_end<int *>
 __construct_range_forward<int, int, int, int>
+__compressed_pair<nullptr_t, std::__1::allocator<int> >
 getRemovedTrackedBarcodes
 __49-[SDCBarcodeTrackingSession addedTrackedBarcodes]_block_invoke
 getAddedTrackedBarcodes
@@ -1471,11 +1324,9 @@ ___48-[SDCBarcodeTrackingSettings enableSymbologies:]_block_invoke
 -[SDCBarcodeTrackingSettings .cxx_destruct]
 -[SDCBarcodeTrackingSettings .cxx_construct]
 _OBJC_IVAR_$_SDCBarcodeTrackingSettings._impl
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc23BarcodeTrackingSettingsENS_9allocatorIS2_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc23BarcodeTrackingSettingsENS_9allocatorIS2_EEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingSettings.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCBarcodeTrackingSettings.mm
 ~BarcodeTrackingSettings
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_settings.hh
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/main/include/sdc/barcode/barcode_tracking_settings.hh
 __48-[SDCBarcodeTrackingSettings enableSymbologies:]_block_invoke
 __48-[SDCBarcodeTrackingSettings enabledSymbologies]_block_invoke
 make_shared<sdc::BarcodeTrackingSettings>
@@ -1487,14 +1338,12 @@ __compressed_pair<std::__1::allocator<sdc::BarcodeTrackingSettings>, true>
 -[SDCLocalizedOnlyBarcode .cxx_destruct]
 -[SDCLocalizedOnlyBarcode .cxx_construct]
 _OBJC_IVAR_$_SDCLocalizedOnlyBarcode._impl
-__ZTSNSt3__110shared_ptrIN3sdc4core20LocalizedOnlyBarcodeEEE
-__ZTINSt3__110shared_ptrIN3sdc4core20LocalizedOnlyBarcodeEEE
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCLocalizedOnlyBarcode.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCLocalizedOnlyBarcode.mm
 shared_ptr<sdc::core::LocalizedOnlyBarcode>
 swap<sdc::core::LocalizedOnlyBarcode *>
 operator==<sdc::core::LocalizedOnlyBarcode>
 ___SDCAllSymbologies_block_invoke
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbology.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbology.mm
 __SDCAllSymbologies_block_invoke
 nsarrayWithCppVector<sdc::core::Symbology, NSNumber *(^)(sdc::core::Symbology)>
 operator!=<const sdc::core::Symbology *>
@@ -1515,7 +1364,7 @@ SDCSymbologyToString
 -[SDCSymbologyDescription .cxx_destruct]
 -[SDCSymbologyDescription .cxx_construct]
 _OBJC_IVAR_$_SDCSymbologyDescription._symbologyDescription
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbologyDescription.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbologyDescription.mm
 __compressed_pair<sdc::core::SymbologyDescription *, true>
 __compressed_pair_elem<sdc::core::SymbologyDescription *, void>
 make_unique<sdc::core::SymbologyDescription, sdc::core::Symbology>
@@ -1541,13 +1390,14 @@ ___46-[SDCSymbologySettings setActiveSymbolCounts:]_block_invoke
 -[SDCSymbologySettings .cxx_destruct]
 -[SDCSymbologySettings .cxx_construct]
 _OBJC_IVAR_$_SDCSymbologySettings._impl
-___block_descriptor_32_e18_@"NSNumber"12@?0s8l
+___block_descriptor_20_e17_@"NSNumber"8@?0s4l
 ___block_literal_global.4
-___block_descriptor_32_e18_S16@?0@"NSNumber"8l
+___block_descriptor_20_e17_S8@?0@"NSNumber"4l
 ___block_literal_global.9
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbologySettings.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCSymbologySettings.mm
 reset<std::__1::__hash_node_base<std::__1::__hash_node<short, void *> *> **>
 __node_insert_unique
+pair<std::__1::__hash_iterator<std::__1::__hash_node<short, void *> *>, bool &, false>
 __hash_iterator
 __46-[SDCSymbologySettings setActiveSymbolCounts:]_block_invoke
 cppSetWithNSSet<short, unsigned short (^)(NSNumber *)>
@@ -1558,12 +1408,13 @@ __emplace_unique_impl<unsigned short>
 __construct_node<unsigned short>
 construct<short, unsigned short>
 __construct<short, unsigned short>
+__compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<short, void *> *> **, true>
 __42-[SDCSymbologySettings activeSymbolCounts]_block_invoke
 nssetWithCppSet<short, NSNumber *(^)(short)>
 __41-[SDCSymbologySettings enabledExtensions]_block_invoke
 nssetWithCppSet<std::__1::basic_string<char>, NSString *(^)(std::__1::basic_string<char>)>
-from_bits<unsigned short>
-narrow_cast<unsigned short, unsigned long, void>
+narrow_cast<unsigned short, unsigned int, void>
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/bar/include/bar/narrow_cast.hh
 swap<sdc::core::SymbologySettings *>
 operator==<sdc::core::SymbologySettings>
 -[SDCTrackedBarcode initWithCpp:]
@@ -1576,7 +1427,7 @@ operator==<sdc::core::SymbologySettings>
 -[SDCTrackedBarcode .cxx_destruct]
 -[SDCTrackedBarcode .cxx_construct]
 _OBJC_IVAR_$_SDCTrackedBarcode._impl
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCTrackedBarcode.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/SDCTrackedBarcode.mm
 getBarcode
 operator!=<sdc::core::Barcode>
 getIdentifier
@@ -1584,71 +1435,20 @@ shouldAnimateFromPreviousToNextState
 getDeltaTime
 swap<sdc::core::TrackedBarcode *>
 operator==<sdc::core::TrackedBarcode>
-/Users/scandit/builds/7db096a5/0/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/conversions.mm
+/Users/scandit/builds/7db096a5/2/mobile/data-capture-sdk/libs/sdc/barcode/ios/src/conversions.mm
 to<sdc::core::CompositeFlag, SDCCompositeFlag>
 to<SDCCompositeFlag, sdc::core::CompositeFlag>
-to<unsigned long, bar::flags<sdc::core::Checksum> >
-to<bar::flags<sdc::core::Checksum>, unsigned long>
+to<unsigned int, bar::flags<sdc::core::Checksum> >
+to<bar::flags<sdc::core::Checksum>, unsigned int>
 to<SDCSymbology, sdc::core::Symbology>
 to<sdc::core::Symbology, SDCSymbology>
-__ZTSN3sdc4core26EngineBasedDataCaptureModeINS_14BarcodeCaptureEEE
-__ZTSN3sdc4core15DataCaptureModeE
-__ZTIN3sdc4core15DataCaptureModeE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc14BarcodeCaptureEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc14BarcodeCaptureEEE
-__ZTIN3sdc4core26EngineBasedDataCaptureModeINS_14BarcodeCaptureEEE
 __ZNSt16invalid_argumentC1EPKc
 __ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE7seekposENS_4fposI11__mbstate_tEEj
 __ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_
-__ZTSN3sdc4core27DataCaptureModeDeserializerE
-__ZTIN3sdc4core27DataCaptureModeDeserializerE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc26BarcodeCaptureDeserializerEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc26BarcodeCaptureDeserializerEEE
-__ZTSNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
-__ZTINSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
-__ZTSNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE
-__ZTINSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE
-__ZTSN3sdc4core18DataCaptureOverlayE
-__ZTIN3sdc4core18DataCaptureOverlayE
 __ZNSt3__123enable_shared_from_thisIN3sdc21BarcodeCaptureOverlayEED2Ev
-__ZTSNSt3__123enable_shared_from_thisIN3sdc21BarcodeCaptureOverlayEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc21BarcodeCaptureOverlayEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc6detail29BarcodeCaptureOverlayListenerENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc6detail29BarcodeCaptureOverlayListenerENS_9allocatorIS3_EEEE
-__ZTSN3sdc6detail29BarcodeCaptureOverlayListenerE
-__ZTIN3sdc6detail29BarcodeCaptureOverlayListenerE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core22BarcodeScannerSettingsENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core22BarcodeScannerSettingsENS_9allocatorIS3_EEEE
 __ZNSt3__113unordered_mapIiN3sdc23BarcodeLocationsDrawing13AnimatedTrackENS_4hashIiEENS_8equal_toIiEENS_9allocatorINS_4pairIKiS3_EEEEE7emplaceIJiS3_EEENS9_INS_19__hash_map_iteratorINS_15__hash_iteratorIPNS_11__hash_nodeINS_17__hash_value_typeIiS3_EEPvEEEEEEbEEDpOT_
-__ZTSN3sdc4core26EngineBasedDataCaptureModeINS_15BarcodeTrackingEEE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc15BarcodeTrackingEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc15BarcodeTrackingEEE
-__ZTIN3sdc4core26EngineBasedDataCaptureModeINS_15BarcodeTrackingEEE
 __ZNSt3__123enable_shared_from_thisIN3sdc27BarcodeTrackingBasicOverlayEED2Ev
-__ZTSN3sdc31BarcodeLocationsDrawingListenerE
-__ZTIN3sdc31BarcodeLocationsDrawingListenerE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc27BarcodeTrackingBasicOverlayEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc27BarcodeTrackingBasicOverlayEEE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc6detail30BarcodeTrackingSessionListenerENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc6detail30BarcodeTrackingSessionListenerENS_9allocatorIS3_EEEE
-__ZTSN3sdc6detail30BarcodeTrackingSessionListenerE
-__ZTIN3sdc6detail30BarcodeTrackingSessionListenerE
-__ZTSNSt3__123enable_shared_from_thisIN3sdc27BarcodeTrackingDeserializerEEE
-__ZTINSt3__123enable_shared_from_thisIN3sdc27BarcodeTrackingDeserializerEEE
-__ZTSNSt3__120__shared_ptr_pointerIPN3sdc4core22BarcodeScannerSettingsENS_14default_deleteIS3_EENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_pointerIPN3sdc4core22BarcodeScannerSettingsENS_14default_deleteIS3_EENS_9allocatorIS3_EEEE
-__ZTSNSt3__114default_deleteIN3sdc4core22BarcodeScannerSettingsEEE
-__ZTSNSt3__120__shared_ptr_pointerIPN6djinni10ProxyCacheINS1_20ObjcProxyCacheTraitsEE5PimplENS_14default_deleteIS5_EENS_9allocatorIS5_EEEE
-__ZTINSt3__120__shared_ptr_pointerIPN6djinni10ProxyCacheINS1_20ObjcProxyCacheTraitsEE5PimplENS_14default_deleteIS5_EENS_9allocatorIS5_EEEE
-__ZTSNSt3__114default_deleteIN6djinni10ProxyCacheINS1_20ObjcProxyCacheTraitsEE5PimplEEE
-__ZTSNSt3__120__shared_ptr_pointerIPN6djinni10ProxyCacheINS1_19CppProxyCacheTraitsEE5PimplENS_14default_deleteIS5_EENS_9allocatorIS5_EEEE
-__ZTINSt3__120__shared_ptr_pointerIPN6djinni10ProxyCacheINS1_19CppProxyCacheTraitsEE5PimplENS_14default_deleteIS5_EENS_9allocatorIS5_EEEE
-__ZTSNSt3__114default_deleteIN6djinni10ProxyCacheINS1_19CppProxyCacheTraitsEE5PimplEEE
 __GLOBAL__sub_I_barcode_area_builder.cc
-__ZTSNSt12experimental19bad_optional_accessE
-__ZTINSt12experimental19bad_optional_accessE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core17SymbologySettingsENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core17SymbologySettingsENS_9allocatorIS3_EEEE
 __GLOBAL__sub_I_frame_of_reference.cc
 __GLOBAL__sub_I_symbology_description.cc
 __ZN3sdc4core12_GLOBAL__N_121ean13_upca_identifierE
@@ -1660,5 +1460,3 @@ __ZN3sdc4core12_GLOBAL__N_123micro_pdf417_identifierE
 __ZN3sdc4core12_GLOBAL__N_122msi_plessey_identifierE
 __ZN3sdc4core12_GLOBAL__N_126databar_limited_identifierE
 __ZN3sdc4core12_GLOBAL__N_127databar_expanded_identifierE
-__ZTSNSt3__120__shared_ptr_emplaceIN3sdc4core7BarcodeENS_9allocatorIS3_EEEE
-__ZTINSt3__120__shared_ptr_emplaceIN3sdc4core7BarcodeENS_9allocatorIS3_EEEE
