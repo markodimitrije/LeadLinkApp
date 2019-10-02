@@ -51,7 +51,7 @@ class MyQuestionViewFactory: QuestionViewCreating {
             
             return ViewStackerForCheckboxQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             
-        case .checkboxWithInput: // OK
+        case .checkboxSingleWithInput: // OK
             
             return ViewStackerForCheckboxWithInputQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
             

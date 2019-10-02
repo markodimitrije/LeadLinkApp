@@ -31,8 +31,10 @@ class ViewmodelFactory {
             return CheckboxViewModel.init(question: question, answer: answer, code: code)
         case .radioBtnWithInput:
             return RadioWithInputViewModel.init(question: question, answer: answer, code: code)
-        case .checkboxWithInput:
+        case .checkboxSingleWithInput:
             return CheckboxWithInputViewModel.init(question: question, answer: answer, code: code)
+        case .checkboxMultipleWithInput:
+            return CheckboxMultipleWithInputViewModel(question: question, answer: answer, code: code)
         case .switchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
         case .dropdown:
@@ -41,8 +43,6 @@ class ViewmodelFactory {
             return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)
         case .termsSwitchBtn:
             return SwitchBtnsViewModel.init(question: question, answer: answer, code: code)
-        case .checkboxMultipleWithInput:
-            return CheckboxMultipleWithInputViewModel(question: question, answer: answer, code: code)
         }
 
     }
