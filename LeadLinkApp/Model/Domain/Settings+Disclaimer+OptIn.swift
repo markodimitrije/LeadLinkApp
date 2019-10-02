@@ -11,10 +11,12 @@ import Foundation
 public struct Settings: Codable {
     var disclaimer: Disclaimer?
     var optIn: OptIn?
+    var use_scandit_scanner: Bool?
     
     init(realmSettings settings: RealmSettings?) {
         self.disclaimer = Disclaimer.init(realmDisclaimer: settings?.disclaimer)
         self.optIn = OptIn(realmOptIn: settings?.optIn)
+        self.use_scandit_scanner = settings?.useScanditScanner
     }
 }
 

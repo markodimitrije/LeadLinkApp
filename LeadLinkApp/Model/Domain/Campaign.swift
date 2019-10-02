@@ -25,7 +25,6 @@ public struct Campaign: Codable {
     var color: String? // oprez - ne vidim iz response koji je ovo type
     var logo: String? // url
     var imgData: Data? = nil
-    var use_scandit_scanner: Bool?
     var number_of_responses: Int?
     
     var questions: [Question]
@@ -48,7 +47,6 @@ public struct Campaign: Codable {
         self.color = campaign.color ?? "#ee9c00" // hard-coded
         self.logo = campaign.logo
         self.imgData = campaign.imgData
-        self.use_scandit_scanner = campaign.useScanditScanner
         self.number_of_responses = campaign.number_of_responses
         
         self.questions = campaign.questions.toArray().map(Question.init)

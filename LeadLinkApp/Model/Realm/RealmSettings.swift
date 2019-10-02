@@ -14,6 +14,7 @@ class RealmSettings: Object {
     @objc dynamic var id = 0
     @objc dynamic var disclaimer: RealmDisclaimer?
     @objc dynamic var optIn: RealmOptIn?
+    @objc dynamic var useScanditScanner: Bool = false
     
     public func update(with settings: Settings, forCampaignId id: Int) {
     
@@ -29,6 +30,10 @@ class RealmSettings: Object {
             let realmOptIn = RealmOptIn()
             realmOptIn.update(with: optIn, forCampaignId: id)
             self.optIn = realmOptIn
+        }
+        
+        if let useScanditScanner = settings.use_scandit_scanner {
+            self.useScanditScanner = useScanditScanner
         }
     }
     

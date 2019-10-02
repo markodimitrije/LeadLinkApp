@@ -21,10 +21,10 @@ class ScanditAllownessValidator: ScanditAllowable {
     }
     
     func canUseScandit() -> Bool {
-        //return false // hard-coded for test
+//        return false // hard-coded for test
         guard let campaign = self.campaign else {
             return false
         }
-        return campaign.use_scandit_scanner ?? false
+        return campaign.settings?.use_scandit_scanner ?? false
     }
 }
