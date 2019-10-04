@@ -15,6 +15,7 @@ class RealmSettings: Object {
     @objc dynamic var disclaimer: RealmDisclaimer?
     @objc dynamic var optIn: RealmOptIn?
     @objc dynamic var useScanditScanner: Bool = false
+    @objc dynamic var showEmail: Bool = true
     
     public func update(with settings: Settings, forCampaignId id: Int) {
     
@@ -35,6 +36,11 @@ class RealmSettings: Object {
         if let useScanditScanner = settings.use_scandit_scanner {
             self.useScanditScanner = useScanditScanner
         }
+        
+        if let showEmail = settings.showEmail {
+            self.showEmail = showEmail
+        }
+        
     }
     
     override static func primaryKey() -> String? {

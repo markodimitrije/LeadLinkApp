@@ -23,14 +23,14 @@ class LoginViewController: UIViewController, Storyboarded {
     @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var emailField: UITextField! {
         didSet {
-            //emailField.text = "medibeacon@mailinator.com"
-            emailField.text = "biorad@mailinator.com"
+            emailField.text = "medibeacon@mailinator.com"
+//            emailField.text = "biorad@mailinator.com"
         }
     }
     @IBOutlet weak var passField: UITextField! {
         didSet {
-            //passField.text = "ERAEDTA2019"
-            passField.text = "timm2019"
+            passField.text = "ERAEDTA2019"
+//            passField.text = "timm2019"
         }
     }
     @IBOutlet weak var logInBtn: UIButton!
