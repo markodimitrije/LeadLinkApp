@@ -251,5 +251,3 @@ extension ScanningVC: UITextViewDelegate {
         return false
     }
 }
-
-

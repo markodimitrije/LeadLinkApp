@@ -97,11 +97,17 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
         
         oNewDelegate
-            .subscribe(onNext: { [weak self] result in
-                guard let sSelf = self else {return}
-                guard let delegate = result else { return }
+            .subscribe(onNext: { [weak self] delegate in
+                guard let sSelf = self, let delegate = delegate else { return }
                 
-                let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: delegate)
+                var myDelegate = delegate
+                
+                let delegateEmailScrambler = DelegateEmailScrambler(campaign: sSelf.surveyInfo.campaign)
+                if !delegateEmailScrambler.shouldShowEmail() {
+                    myDelegate.email = ""
+                }
+                
+                let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: myDelegate)
                 
                 DispatchQueue.main.async {
                     sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,

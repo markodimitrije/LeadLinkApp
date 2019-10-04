@@ -22,6 +22,7 @@
 		7C31BFFD2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */; };
 		7C31BFFF2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
+		7C3667772347572600A21F25 /* DelegateEmailScrambling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */; };
 		7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */; };
 		7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */; };
 		7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */; };
@@ -337,6 +338,7 @@
 		7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToTermsViewModelBinder.swift; sourceTree = "<group>"; };
 		7C31BFFE2292B69D00A6B105 /* TermsSwitchBtnsViewmodelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnsViewmodelInputCreator.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateEmailScrambling.swift; sourceTree = "<group>"; };
 		7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndURLRequestExtensions.swift; sourceTree = "<group>"; };
 		7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataErrorFromUrlResponse.swift; sourceTree = "<group>"; };
 		7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUrlRequest.swift; sourceTree = "<group>"; };
@@ -784,6 +786,14 @@
 			path = DividerView;
 			sourceTree = "<group>";
 		};
+		7C3667752347571600A21F25 /* EmailScrambling */ = {
+			isa = PBXGroup;
+			children = (
+				7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */,
+			);
+			path = EmailScrambling;
+			sourceTree = "<group>";
+		};
 		7C38086422C5105800BB62C5 /* CampaignsWithQuestions */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,6 +980,7 @@
 		7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */ = {
 			isa = PBXGroup;
 			children = (
+				7C3667752347571600A21F25 /* EmailScrambling */,
 				7C8BCE1F230AD5360011A125 /* PropertyLoaders */,
 				AD4F013E21D8F72600946CBA /* Viewmodel */,
 				7C44EFEC22F1C673002D3571 /* QuestionViewProviding */,
@@ -2327,6 +2338,7 @@
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */,
 				7C98A6D822896F9300DA184E /* Rx+SelectOptionTextFieldViewModel.swift in Sources */,
+				7C3667772347572600A21F25 /* DelegateEmailScrambling.swift in Sources */,
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
 				ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
