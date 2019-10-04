@@ -140,22 +140,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2E19FF76-9B41-406E-86B2-662161D7025E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "getCampaignsWithQuestions(userSession:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AFBDF1E5-982B-4500-AB48-662AA14D88E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -166,22 +150,6 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "getCampaignsWithQuestions(userSession:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E15CCEA1-B859-4D79-A6E1-B464525BB986"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/VCs/LoginViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "observe(userSessionState:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
