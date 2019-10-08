@@ -7,7 +7,7 @@ Strings.Login.btn = "Log in";
 Strings.Logout.btn = "Logout";
 Strings.Stats.btn = "Stats";
 
-Strings.Scaner.scanCode = "Click on the image below to scan the delagete’s badge barcode with the device camera";
+Strings.Scaner.scanCode = "Click on the image below to scan the delegate’s badge barcode with the device camera";
 Strings.Scaner.enterCodeManually = "Enter the badge barcode number manually";
 
 AlertInfo.ok = "OK";
