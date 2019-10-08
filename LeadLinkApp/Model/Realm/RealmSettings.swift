@@ -15,7 +15,7 @@ class RealmSettings: Object {
     @objc dynamic var disclaimer: RealmDisclaimer?
     @objc dynamic var optIn: RealmOptIn?
     @objc dynamic var useScanditScanner: Bool = false
-    @objc dynamic var showEmail: Bool = true
+    @objc dynamic var showEmail: Bool = false
     
     public func update(with settings: Settings, forCampaignId id: Int) {
     

@@ -585,7 +585,7 @@
 		ADAD040C21E73F4E006463A2 /* RealmJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmJson.swift; sourceTree = "<group>"; };
 		ADAD040E21E7826E006463A2 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		ADAD041021E782EA006463A2 /* RealmOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrganization.swift; sourceTree = "<group>"; };
-		ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeadLinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAEE87721D8F331000B3C52 /* Navus Lead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navus Lead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAEE87C21D8F331000B3C52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADAEE87F21D8F331000B3C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
@@ -1647,7 +1647,7 @@
 		ADAEE87821D8F331000B3C52 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */,
+				ADAEE87721D8F331000B3C52 /* Navus Lead.app */,
 				7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */,
 			);
 			name = Products;
@@ -1974,7 +1974,7 @@
 			);
 			name = LeadLinkApp;
 			productName = signInApp;
-			productReference = ADAEE87721D8F331000B3C52 /* LeadLinkApp.app */;
+			productReference = ADAEE87721D8F331000B3C52 /* Navus Lead.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2604,7 +2604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2617,7 +2617,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Navus Lead";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2630,7 +2630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2643,7 +2643,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Navus Lead";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

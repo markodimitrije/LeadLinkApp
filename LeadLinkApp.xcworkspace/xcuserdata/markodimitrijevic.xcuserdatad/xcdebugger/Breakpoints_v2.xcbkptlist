@@ -72,12 +72,12 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - 2c275782a4884179"
+                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - 3e9443f42593b6ad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "LeadLinkApp.RealmQuestionsDataStore.save(questions: Swift.Array&lt;LeadLinkApp.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
-                  moduleName = "LeadLinkApp"
+                  symbolName = "Navus_Lead.RealmQuestionsDataStore.save(questions: Swift.Array&lt;Navus_Lead.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;"
+                  moduleName = "Navus Lead"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -87,12 +87,12 @@
                   offsetFromSymbolStart = "104">
                </Location>
                <Location
-                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - a485c128e75ba1a4"
+                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - 27693198947f2ce9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (PromiseKit.Resolver&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;) -&gt; () in LeadLinkApp.RealmQuestionsDataStore.save(questions: Swift.Array&lt;LeadLinkApp.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;LeadLinkApp.Question&gt;&gt;"
-                  moduleName = "LeadLinkApp"
+                  symbolName = "closure #1 (PromiseKit.Resolver&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;) -&gt; () in Navus_Lead.RealmQuestionsDataStore.save(questions: Swift.Array&lt;Navus_Lead.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;"
+                  moduleName = "Navus Lead"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -118,38 +118,6 @@
             startingLineNumber = "73"
             endingLineNumber = "73"
             landmarkName = "barcodeFound(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6E16BBEF-98B7-4D52-8776-21F9E14B264A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getCampaignsWithQuestions(userSession:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AFBDF1E5-982B-4500-AB48-662AA14D88E8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/Campaigns/CampaignsImplementations.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "getCampaignsWithQuestions(userSession:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
