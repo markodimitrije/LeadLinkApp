@@ -171,7 +171,14 @@ class ScanningVC: UIViewController, Storyboarded {
                         sSelf.consent(hasConsent: true)
                     }
                 }
-            }).disposed(by: disposeBag)
+        }, onError: { [weak self] err in
+            guard let sSelf = self else {return}
+            DispatchQueue.main.async {
+                sSelf.spinnerViewManager.removeSpinnerView()
+                sSelf.consent(hasConsent: true) // timeout 1001 !!
+            }
+        })
+            .disposed(by: disposeBag)
     }
  
     private func showDisclaimer() {

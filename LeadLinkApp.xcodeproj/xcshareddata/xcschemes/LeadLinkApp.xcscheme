@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADAEE87621D8F331000B3C52"
-               BuildableName = "LeadLinkApp.app"
+               BuildableName = "Navus Lead.app"
                BlueprintName = "LeadLinkApp"
                ReferencedContainer = "container:LeadLinkApp.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADAEE87621D8F331000B3C52"
-            BuildableName = "LeadLinkApp.app"
+            BuildableName = "Navus Lead.app"
             BlueprintName = "LeadLinkApp"
             ReferencedContainer = "container:LeadLinkApp.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADAEE87621D8F331000B3C52"
-            BuildableName = "LeadLinkApp.app"
+            BuildableName = "Navus Lead.app"
             BlueprintName = "LeadLinkApp"
             ReferencedContainer = "container:LeadLinkApp.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADAEE87621D8F331000B3C52"
-            BuildableName = "LeadLinkApp.app"
+            BuildableName = "Navus Lead.app"
             BlueprintName = "LeadLinkApp"
             ReferencedContainer = "container:LeadLinkApp.xcodeproj">
          </BuildableReference>
