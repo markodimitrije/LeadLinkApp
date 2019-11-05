@@ -43,7 +43,7 @@ class TermsNoSwitchView: UIView {
     }
     
     private func formatFontSize() {
-        self.textView.font = .systemFont(ofSize: 16)
+        self.textView.font = .systemFont(ofSize: 18)
     }
     
     func configureTxtViewWithHyperlinkText(tag: Int, optIn: OptIn?) {
