@@ -56,3 +56,5 @@ Strings.Campaign.defaultDesc = "Campaign ";
 
 Strings.Campaign.Err.campaignError = "Campaign error.";
 Strings.Campaign.Err.contactNavusTeam = " Please contact Navus team.";
+
+Strings.Answers.Save = "Save";

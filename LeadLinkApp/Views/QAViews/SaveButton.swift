@@ -30,7 +30,8 @@ class SaveButton: UIButton {
     
     private func setColorAndText() {
         self.backgroundColor = UIColor.leadLinkColor
-        self.setTitle("Save", for: .normal)
+        let saveText = NSLocalizedString("Strings.Answers.Save", comment: "")
+        self.setTitle(saveText, for: .normal)
     }
     
     private func roundBtn() {
@@ -38,6 +39,4 @@ class SaveButton: UIButton {
     }
     
 }
-
-
 

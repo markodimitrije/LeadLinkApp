@@ -43,7 +43,7 @@ class QuestionViewWithHeadlineLabelFactory {
         let titleLabel = UILabel.init(frame: CGRect.init(origin: labelOrigin, size: initialSize))
         
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         titleLabel.textAlignment = .natural
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.text = question.headlineText
