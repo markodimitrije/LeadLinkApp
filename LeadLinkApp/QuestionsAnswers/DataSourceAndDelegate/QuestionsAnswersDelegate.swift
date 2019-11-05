@@ -47,6 +47,14 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
         return tableHeaderFooterCalculator.getHeaderHeight()
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.textLabel?.frame = header.frame
+        header.textLabel?.textAlignment = .left
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section != (tableView.numberOfSections - 1) else {return nil}
         return dataSourceHelper.footerView(sectionIndex: section, tableView: tableView)

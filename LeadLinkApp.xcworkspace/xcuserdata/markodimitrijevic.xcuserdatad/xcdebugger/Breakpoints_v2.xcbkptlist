@@ -70,6 +70,38 @@
             endingLineNumber = "41"
             landmarkName = "save(questions:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - 3e9443f42593b6ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Navus_Lead.RealmQuestionsDataStore.save(questions: Swift.Array&lt;Navus_Lead.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;"
+                  moduleName = "Navus Lead"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "E4909F2C-D623-48AE-9A07-D1EAF911ACF5 - 27693198947f2ce9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PromiseKit.Resolver&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;) -&gt; () in Navus_Lead.RealmQuestionsDataStore.save(questions: Swift.Array&lt;Navus_Lead.Question&gt;) -&gt; PromiseKit.Promise&lt;Swift.Array&lt;Navus_Lead.Question&gt;&gt;"
+                  moduleName = "Navus Lead"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/DataLayer/Repositories/Persistence/QuestionsStore/RealmQuestionsDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
