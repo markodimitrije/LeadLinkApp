@@ -32,6 +32,8 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         observe(userSessionState: factory.sharedMainViewModel.userSessionStateObservable) // bind VC to listen for signedIn event (from mainViewModel):
         bindUI()
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
     }
     
     private func observe(userSessionState: Observable<MainViewState>) { // navigation...
