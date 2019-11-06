@@ -235,6 +235,7 @@
 		7CFBA7EC233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */; };
 		7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */; };
 		7CFBA7F0233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */; };
+		7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -553,6 +554,7 @@
 		7CFBA7EB233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift; sourceTree = "<group>"; };
 		7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewModel.swift; sourceTree = "<group>"; };
 		7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewmodelCreator.swift; sourceTree = "<group>"; };
+		7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidation.swift; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -692,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				7C0E5CC4228F0B030011E0A2 /* Validation.swift */,
+				7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */,
 				7CB4D3DD22DCAEB100D6987E /* ScanditAllowable.swift */,
 			);
 			path = Validation;
@@ -2288,6 +2291,7 @@
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
+				7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
 				7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
