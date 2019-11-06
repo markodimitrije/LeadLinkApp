@@ -1,5 +1,5 @@
 //
-//  OCP.swift
+//  MyQuestionViewFactory.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 30/07/2019.
@@ -60,7 +60,11 @@ class MyQuestionViewFactory: QuestionViewCreating {
             
         case .textField: // OK
             
-            return ViewStackerForTextFieldQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            if let option = question.options.first, option == "phone" {
+                return ViewStackerForPhoneTextFieldQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            } else {
+                return ViewStackerForTextFieldQuestion(helperFactories: self.helperFactories, question: question, answer: answer, frame: frame, viewmodel: viewmodel).resultView
+            }
             
         case .textArea:
             

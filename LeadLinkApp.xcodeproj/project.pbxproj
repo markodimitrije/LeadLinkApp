@@ -67,7 +67,7 @@
 		7C3F970C22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
-		7C4276CB22F052A6000C24DF /* OCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4276CA22F052A6000C24DF /* OCP.swift */; };
+		7C4276CB22F052A6000C24DF /* MyQuestionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4276CA22F052A6000C24DF /* MyQuestionViewFactory.swift */; };
 		7C44EFEE22F1C6AE002D3571 /* QuestionViewProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EFED22F1C6AE002D3571 /* QuestionViewProviding.swift */; };
 		7C44EFF122F1C7E3002D3571 /* ViewStackerForRadioQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EFF022F1C7E3002D3571 /* ViewStackerForRadioQuestion.swift */; };
 		7C44EFF322F1C811002D3571 /* ViewStackerForCheckboxQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EFF222F1C811002D3571 /* ViewStackerForCheckboxQuestion.swift */; };
@@ -236,6 +236,14 @@
 		7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */; };
 		7CFBA7F0233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */; };
 		7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */; };
+		7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */; };
+		7CFDEE362372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE352372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift */; };
+		7CFDEE382372E548004D1DD0 /* LabelAndPhoneTextFieldFromModelInputCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE372372E548004D1DD0 /* LabelAndPhoneTextFieldFromModelInputCreator.swift */; };
+		7CFDEE3A2372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */; };
+		7CFDEE3C2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE3B2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift */; };
+		7CFDEE3E2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE3D2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift */; };
+		7CFDEE412372FDFC004D1DD0 /* LabelAndPhoneTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE402372FDFC004D1DD0 /* LabelAndPhoneTxtField.swift */; };
+		7CFDEE432372FE29004D1DD0 /* LabelAndPhoneTxtField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CFDEE422372FE28004D1DD0 /* LabelAndPhoneTxtField.xib */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -386,7 +394,7 @@
 		7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableRowHeightCalculator.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
-		7C4276CA22F052A6000C24DF /* OCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCP.swift; sourceTree = "<group>"; };
+		7C4276CA22F052A6000C24DF /* MyQuestionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionViewFactory.swift; sourceTree = "<group>"; };
 		7C44EFED22F1C6AE002D3571 /* QuestionViewProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewProviding.swift; sourceTree = "<group>"; };
 		7C44EFF022F1C7E3002D3571 /* ViewStackerForRadioQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForRadioQuestion.swift; sourceTree = "<group>"; };
 		7C44EFF222F1C811002D3571 /* ViewStackerForCheckboxQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForCheckboxQuestion.swift; sourceTree = "<group>"; };
@@ -555,6 +563,14 @@
 		7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewModel.swift; sourceTree = "<group>"; };
 		7CFBA7EF233D05B300E0D35C /* CheckboxMultipleWithInputViewmodelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewmodelCreator.swift; sourceTree = "<group>"; };
 		7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidation.swift; sourceTree = "<group>"; };
+		7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPhoneTextFieldViewModel.swift; sourceTree = "<group>"; };
+		7CFDEE352372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldViewModelBinder.swift; sourceTree = "<group>"; };
+		7CFDEE372372E548004D1DD0 /* LabelAndPhoneTextFieldFromModelInputCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPhoneTextFieldFromModelInputCreator.swift; sourceTree = "<group>"; };
+		7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+LabelWithPhoneTextFieldViewModel.swift"; sourceTree = "<group>"; };
+		7CFDEE3B2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForPhoneTextFieldQuestion.swift; sourceTree = "<group>"; };
+		7CFDEE3D2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPhoneTxtFieldFactory.swift; sourceTree = "<group>"; };
+		7CFDEE402372FDFC004D1DD0 /* LabelAndPhoneTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPhoneTxtField.swift; sourceTree = "<group>"; };
+		7CFDEE422372FE28004D1DD0 /* LabelAndPhoneTxtField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelAndPhoneTxtField.xib; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -1031,6 +1047,7 @@
 				7C44EFF622F1C86F002D3571 /* ViewStackerForCheckboxWithInputQuestion.swift */,
 				7C9EFF17233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift */,
 				7C44EFF822F1C896002D3571 /* ViewStackerForSwitchQuestion.swift */,
+				7CFDEE3B2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift */,
 				7C44EFFA22F1C8C0002D3571 /* ViewStackerForTextFieldQuestion.swift */,
 				7C44EFFC22F1C8F0002D3571 /* ViewStackerForTextAreaQuestion.swift */,
 				7C44EFFE22F1C951002D3571 /* ViewStackerForDropdownQuestion.swift */,
@@ -1049,6 +1066,7 @@
 				7C4DC2AA233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift */,
 				7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */,
 				7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */,
+				7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */,
 				7C98A6D522896F9300DA184E /* Rx+SelectOptionTextFieldViewModel.swift */,
 			);
 			path = "Rx+Viewmodel";
@@ -1158,6 +1176,7 @@
 			isa = PBXGroup;
 			children = (
 				7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */,
+				7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */,
 				7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */,
 				7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */,
 				7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */,
@@ -1263,6 +1282,7 @@
 		7C98A6842289689900DA184E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7CFDEE3F2372FDD1004D1DD0 /* LabelAndPhoneTextField */,
 				7C3A3FBB22AE8058003C079E /* TermsNoSwitchView */,
 				7C0E5CB7228ECD310011E0A2 /* TermsSwitch */,
 				7C1C1529229ED5E50050337B /* LabelAndTextField */,
@@ -1312,6 +1332,7 @@
 				7C98A6B722896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift */,
 				7C98A6B822896D4700DA184E /* StackViewToSwitchBtnsViewModelBinder.swift */,
 				7C98A6B922896D4700DA184E /* TextFieldViewModelBinder.swift */,
+				7CFDEE352372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift */,
 				7C98A6BA22896D4700DA184E /* StackViewToCheckboxBtnsWithInputViewModelBinder.swift */,
 				7C98A6BB22896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift */,
 				7C31BFFC2292A7F900A6B105 /* StackViewToTermsViewModelBinder.swift */,
@@ -1325,6 +1346,7 @@
 			isa = PBXGroup;
 			children = (
 				7C98A6C422896ED500DA184E /* LabelAndTextFieldFromModelInputCreator.swift */,
+				7CFDEE372372E548004D1DD0 /* LabelAndPhoneTextFieldFromModelInputCreator.swift */,
 				7C98A6CA22896ED500DA184E /* RadioViewmodelInputCreator.swift */,
 				7C98A6C522896ED500DA184E /* RadioWithInputViewmodelInputCreator.swift */,
 				7C98A6C622896ED500DA184E /* CheckboxViewmodelInputCreator.swift */,
@@ -1406,7 +1428,7 @@
 				7C98A66E228961D400DA184E /* SameComponentsFactory.swift */,
 				7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */,
 				7CAB84CC22EF447800CE91AA /* QuestionViewFactory */,
-				7C4276CA22F052A6000C24DF /* OCP.swift */,
+				7C4276CA22F052A6000C24DF /* MyQuestionViewFactory.swift */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -1432,6 +1454,7 @@
 				7CAB84C422EF352E00CE91AA /* SwitchBtnsViewFactory.swift */,
 				7CAB84C622EF38F700CE91AA /* TermsSwitchBtnsViewFactory.swift */,
 				7CAB84C822EF395F00CE91AA /* LabelWithTxtFieldFactory.swift */,
+				7CFDEE3D2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift */,
 				7CAB84CA22EF3E3900CE91AA /* LabelWithTxtViewFactory.swift */,
 			);
 			path = QuestionViewFactory;
@@ -1497,6 +1520,15 @@
 				7CF225EE232BA25E004E023C /* ScannerFactory.swift */,
 			);
 			path = ScannerFactory;
+			sourceTree = "<group>";
+		};
+		7CFDEE3F2372FDD1004D1DD0 /* LabelAndPhoneTextField */ = {
+			isa = PBXGroup;
+			children = (
+				7CFDEE402372FDFC004D1DD0 /* LabelAndPhoneTxtField.swift */,
+				7CFDEE422372FE28004D1DD0 /* LabelAndPhoneTxtField.xib */,
+			);
+			path = LabelAndPhoneTextField;
 			sourceTree = "<group>";
 		};
 		AD1739B921DD269B00218BE5 /* UIViewController+ErrorPresentation */ = {
@@ -2053,6 +2085,7 @@
 				7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 				7C98A69F2289689900DA184E /* CheckboxView.xib in Resources */,
+				7CFDEE432372FE29004D1DD0 /* LabelAndPhoneTxtField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2144,6 +2177,7 @@
 				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
+				7CFDEE3E2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift in Sources */,
 				7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */,
 				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
 				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
@@ -2151,6 +2185,7 @@
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
+				7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
 				7C023A5B23326BFA007D22A5 /* RealmQuestionSettings.swift in Sources */,
 				7CF225DE23269162004E023C /* RealmSettings.swift in Sources */,
@@ -2193,11 +2228,13 @@
 				7C3A3FBA22AE8002003C079E /* TermsNoSwitchView.swift in Sources */,
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
+				7CFDEE3C2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift in Sources */,
 				7C44EFF722F1C86F002D3571 /* ViewStackerForCheckboxWithInputQuestion.swift in Sources */,
 				7CAB84C322EF307100CE91AA /* CheckboxBtnsWithInputViewFactory.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
 				7C98A6B222896AB200DA184E /* DataProvider.swift in Sources */,
 				7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */,
+				7CFDEE362372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift in Sources */,
 				7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */,
 				7C98A6C222896D4700DA184E /* TextFieldWithOptionsViewModelBinder.swift in Sources */,
 				7C3ED56622E606FE00EDDD70 /* ConsentApproving.swift in Sources */,
@@ -2243,6 +2280,7 @@
 				7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */,
 				7C98A6EB2289733200DA184E /* SequenceExtensions.swift in Sources */,
 				7C44EFF122F1C7E3002D3571 /* ViewStackerForRadioQuestion.swift in Sources */,
+				7CFDEE382372E548004D1DD0 /* LabelAndPhoneTextFieldFromModelInputCreator.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
 				7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */,
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
@@ -2304,10 +2342,11 @@
 				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
 				7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
+				7CFDEE3A2372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
 				7CAB84BA22EF290500CE91AA /* RadioBtnsViewFactory.swift in Sources */,
-				7C4276CB22F052A6000C24DF /* OCP.swift in Sources */,
+				7C4276CB22F052A6000C24DF /* MyQuestionViewFactory.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
@@ -2346,6 +2385,7 @@
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
 				ADAF73482241314C00A1F6D2 /* Answer.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
+				7CFDEE412372FDFC004D1DD0 /* LabelAndPhoneTxtField.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C8CC9E122C3C1BC009A410E /* CheckboxBtnImage.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,

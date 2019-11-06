@@ -1,19 +1,25 @@
 //
-//  LabelAndPhoneTextField.swift
-//  LeadLink
+//  LabelAndPhoneTxtField.swift
+//  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 11/12/2018.
-//  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
+//  Created by Marko Dimitrijevic on 06/11/2019.
+//  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
 
-class LabelAndTextField: UIView {
+class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var headlineLbl: UILabel!
-    @IBOutlet weak var textField: UITextField! {didSet { formatBorder()}}
+    @IBOutlet weak var textField: UITextField! {
+        didSet {
+            formatBorder()
+            textField.delegate = self
+        }}
+    
+    private let phoneValidator = PhoneValidation()
     
     var headlineTxt: String? {
         get {
@@ -81,6 +87,14 @@ class LabelAndTextField: UIView {
         self.headlineTxt = headlineText
         self.inputTxt = inputTxt
         self.placeholderTxt = placeholderTxt
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !phoneValidator.isValidPhone(phone: textField.text ?? "") {
+            textField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            textField.layer.borderColor = UIColor.black.cgColor
+        }
     }
     
 }

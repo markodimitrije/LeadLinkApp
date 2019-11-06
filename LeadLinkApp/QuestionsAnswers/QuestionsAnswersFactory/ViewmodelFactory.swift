@@ -24,7 +24,12 @@ class ViewmodelFactory {
         
         switch surveyQuestion.question.type {
         case .textField:
-            return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)// as? TextAnswer)
+            if let option = question.options.first, option == "phone" {
+                return LabelWithPhoneTextFieldViewModel.init(question: question, answer: answer, code: code)
+            } else {
+                return LabelWithTextFieldViewModel.init(question: question, answer: answer, code: code)
+            }
+            
         case .radioBtn:
             return RadioViewModel.init(question: question, answer: answer, code: code)
         case .checkbox:

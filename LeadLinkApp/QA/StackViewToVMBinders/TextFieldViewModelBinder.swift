@@ -20,14 +20,12 @@ class TextFieldToViewModelBinder {
     
     private var isBarcodeTxtField: Bool { return viewmodel.question.options.contains("barcode") }
     private var isEmailTxtField: Bool { return viewmodel.question.options.contains("email") }
-    private var isPhoneTxtField: Bool { return viewmodel.question.options.contains("phone") }
     
-    func hookUp(labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag, selector: Selector? = nil) {
+    func hookUp(labelAndTextView: LabelAndTextField, viewmodel: LabelWithTextFieldViewModel, bag: DisposeBag, delegate: PhoneTextFieldReleaseDelegateProtocol? = nil) {
         
         self.labelAndTextView = labelAndTextView
         self.viewmodel = viewmodel
         self.bag = bag
-        self.selector = selector
         
         let inputCreator = LabelAndTextFieldFromModelInputCreator(viewmodel: viewmodel)
         let driver = isBarcodeTxtField ? inputCreator.createBarcodeTxtDriver(): inputCreator.createTxtDriver()
@@ -49,8 +47,6 @@ class TextFieldToViewModelBinder {
             self.formatBarcodeTextField()
         } else if isEmailTxtField {
             self.formatEmailTextField()
-        } else if isPhoneTxtField {
-            self.formatPhoneTextField()
         }
     }
     
@@ -63,10 +59,6 @@ class TextFieldToViewModelBinder {
     
     private func formatEmailTextField() {
         labelAndTextView.textField.keyboardType = .emailAddress
-    }
-    
-    private func formatPhoneTextField() {
-        labelAndTextView.textField.keyboardType = .phonePad
     }
 
 }
