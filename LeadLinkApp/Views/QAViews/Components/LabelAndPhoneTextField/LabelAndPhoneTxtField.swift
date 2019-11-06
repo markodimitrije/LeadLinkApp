@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
-    
     @IBOutlet weak var headlineLbl: UILabel!
-    @IBOutlet weak var textField: UITextField! {
+    @IBOutlet weak var textField: PhoneNumberTextField! {
         didSet {
             formatBorder()
+            formatPhoneNumberProperties()
             textField.delegate = self
         }}
     
     private let phoneValidator = PhoneValidation()
+    private let phoneNumberKit = PhoneNumberKit()
     
     var headlineTxt: String? {
         get {
@@ -66,7 +68,7 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     
     func loadViewFromNib() {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "LabelAndTextField", bundle: bundle)
+        let nib = UINib(nibName: "LabelAndPhoneTxtField", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -81,6 +83,17 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.fieldBorderGray.cgColor
     }
     
+    private func formatPhoneNumberProperties() {
+        do {
+            let phoneNumber = try phoneNumberKit.parse(textField.text ?? "")
+            inputTxt = phoneNumberKit.format(phoneNumber, toType: .international)
+        }
+        catch {
+            print("Generic parser error")
+        }
+        
+    }
+    
     // MARK:- API
     
     func update(headlineText: String?, inputTxt: String?, placeholderTxt: String?) {
@@ -90,11 +103,25 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if !phoneValidator.isValidPhone(phone: textField.text ?? "") {
-            textField.layer.borderColor = UIColor.red.cgColor
+        
+        var numberWithoutFormat = textField.text ?? ""
+        _ = ["+", "-", "(", ")", " "].map { char in
+            numberWithoutFormat = remove(char: char, fromText: numberWithoutFormat)
+        }
+
+        if !phoneValidator.isValidPhone(phone: numberWithoutFormat) {
+            if numberWithoutFormat == "" {
+                textField.layer.borderColor = UIColor.black.cgColor
+            } else {
+                textField.layer.borderColor = UIColor.red.cgColor
+            }
         } else {
             textField.layer.borderColor = UIColor.black.cgColor
         }
+    }
+    
+    private func remove(char: String, fromText text: String) -> String {
+        return text.replacingOccurrences(of: char, with: "")
     }
     
 }

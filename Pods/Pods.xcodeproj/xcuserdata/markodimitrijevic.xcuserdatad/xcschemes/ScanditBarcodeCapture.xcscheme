@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C8B91ED95F25C4F2AEC333F3BA623452"
+               BlueprintIdentifier = "16671FA936254F40ADDD512010952F4A"
                BuildableName = "ScanditBarcodeCapture"
                BlueprintName = "ScanditBarcodeCapture"
                ReferencedContainer = "container:Pods.xcodeproj">

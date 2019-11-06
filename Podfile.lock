@@ -1,5 +1,11 @@
 PODS:
   - Differentiator (3.1.0)
+  - PhoneNumberKit (3.0.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.0.0)
+    - PhoneNumberKit/UIKit (= 3.0.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.0.0)
+  - PhoneNumberKit/UIKit (3.0.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - PieCharts (0.0.7)
   - PromiseKit (6.11.0):
     - PromiseKit/CorePromise (= 6.11.0)
@@ -37,6 +43,7 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - PhoneNumberKit
   - PieCharts
   - PromiseKit (~> 6.0)
   - ReachabilitySwift
@@ -51,6 +58,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Differentiator
+    - PhoneNumberKit
     - PieCharts
     - PromiseKit
     - ReachabilitySwift
@@ -67,6 +75,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  PhoneNumberKit: 86019c972ef6904bcad11b46a6b8a91184d51117
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
@@ -81,6 +90,6 @@ SPEC CHECKSUMS:
   ScanditCaptureCore: b9eb50d9ea9d05a32e5eb9c3c9490867fcaaaf6d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 127cfbb910cfe60b853624b197a0723be2548fcc
+PODFILE CHECKSUM: 24d413f5aeb478541f361047900e07dac2823fa2
 
 COCOAPODS: 1.6.1

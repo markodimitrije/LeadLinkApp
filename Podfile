@@ -15,6 +15,7 @@ target 'LeadLinkApp' do
     pod "PromiseKit", "~> 6.0"
     pod 'PieCharts'
     pod 'ScanditBarcodeCapture', '~> 6.0'
+    pod 'PhoneNumberKit'
 
   # Pods for tryLeadLinkModularComponent
 
