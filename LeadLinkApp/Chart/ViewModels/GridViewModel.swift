@@ -35,7 +35,7 @@ class GridViewModel: GridViewModeling {
         self.viewFactory = viewFactory
         
         self.listenUpdatesOnCampaignAndWebReports()
-        self.getNewestCampaignData()
+        
     }
     
     private func listenUpdatesOnCampaignAndWebReports() { // input to output
@@ -71,14 +71,6 @@ class GridViewModel: GridViewModeling {
         let compartmentsGridView: UIStackView = viewFactory.makeOutput(webReports: webReports,
                                                                        campaign: campaign)
         output.onNext(compartmentsGridView)
-    }
-    
-    private func getNewestCampaignData() {
-        
-        if let appdel = UIApplication.shared.delegate as? AppDelegate { // DRY!
-            appdel.downloadCampaignsQuestionsAndLogos()
-        }
-        
     }
     
 }

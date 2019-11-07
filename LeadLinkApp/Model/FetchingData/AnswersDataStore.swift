@@ -84,7 +84,7 @@ public class RealmAnswersDataStore: DataStoreAnswering {
             
             do {
                 try realm.write { // ovako
-                    realm.add(objects, update: true)
+                    realm.add(objects, update: .modified)
                 }
                 print("SAVED ANSWERS!")
                 seal.fulfill(true)

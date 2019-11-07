@@ -41,11 +41,11 @@ public class RealmCodesDataStore: CodesDataStore {
             
             let rCode = RealmCode.init()
             rCode.update(with: code)
-            
+
             do {
                 try realm.write {
                     print("code = \(code.value) successfully saved in realm")
-                    realm.add(rCode, update: true)
+                    realm.add(rCode, update: .modified)
                 }
             } catch {
                 print("RealmCodesDataStore.save.... o-o... catch")

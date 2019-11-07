@@ -29,15 +29,13 @@ public struct CampaignsVersionChecker: CampaignsVersionChecking {
         self.campaignsDataStore = campaignsDataStore
     }
     
-    
-    
     public func needsUpdate(newJson json: String) -> Promise<Bool> {
         
         let realmString = campaignsDataStore.getCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions)
 
         return realmString.compactMap { str -> Bool? in
-            
-            return (realmString.value != json)
+            return true // hard-coded
+//            return (realmString.value != json)
         }
 
     }

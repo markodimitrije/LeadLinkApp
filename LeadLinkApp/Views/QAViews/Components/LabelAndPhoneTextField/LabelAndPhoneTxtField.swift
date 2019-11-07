@@ -18,12 +18,13 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
             formatBorder()
             formatPhoneNumberProperties()
             textField.delegate = self
-        }}
+        }
+    }
     
     private let phoneValidator = PhoneValidation()
     private let phoneNumberKit = PhoneNumberKit()
     
-    var headlineTxt: String? {
+    private var headlineTxt: String? {
         get {
             return headlineLbl?.text
         }
@@ -31,8 +32,7 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
             headlineLbl?.text = newValue
         }
     }
-    
-    var inputTxt: String? {
+    private var inputTxt: String? {
         get {
             return textField?.text
         }
@@ -40,8 +40,7 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
             textField?.text = newValue ?? ""
         }
     }
-    
-    var placeholderTxt: String? {
+    private var placeholderTxt: String? {
         get {
             return textField?.placeholder
         }
@@ -89,7 +88,7 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
             inputTxt = phoneNumberKit.format(phoneNumber, toType: .international)
         }
         catch {
-            print("Generic parser error")
+            //print("Generic parser error")
         }
         
     }

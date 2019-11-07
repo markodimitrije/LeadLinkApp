@@ -57,7 +57,7 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                realm.add(records, update: true)
+                realm.add(records, update: .modified)
             }
             print("RealmDataPersister.deleteAnswersReports: update Reported AnswersReports")
             return Observable.just(true)
@@ -77,7 +77,7 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                realm.add(objects, update: true)
+                realm.add(objects, update: .modified)
             }
         } catch {
             return Observable<Bool>.just(false)
@@ -98,7 +98,7 @@ struct RealmDataPersister {
         do { // ako nemas ovaj objekat kod sebe u bazi
             
             try realm.write { //realm.add(newReport) old solution
-                realm.add(newReport, update:true)
+                realm.add(newReport, update: .modified)
                 print("\(newReport.code), \(newReport.campaignId), \(newReport.success), saved to realm")
             }
         } catch {
@@ -156,7 +156,7 @@ struct RealmDataPersister {
 
         do {
             try realm.write {
-                realm.add(realmWebReportedCodes, update: true)
+                realm.add(realmWebReportedCodes, update: .modified)
                 print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
             }
         } catch {

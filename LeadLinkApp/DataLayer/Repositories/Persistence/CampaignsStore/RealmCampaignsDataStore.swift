@@ -72,7 +72,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
             
             do {
                 try realm.write { // ovako
-                    realm.add(objects, update: true)
+                    realm.add(objects, update: .modified)
                 }
                 //                print("SAVED CAMPAIGNS!")
                 seal.fulfill(campaigns)
@@ -146,7 +146,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
             
             do {
                 try realm.write {
-                    realm.add(object, update: true)
+                    realm.add(object, update: .modified)
                 }
                 print("SAVED JSON za kampanje !")
                 seal.fulfill(true)

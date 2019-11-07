@@ -31,18 +31,21 @@ class ScanningViewModel {
     }
     
     private func hookUpObserverToStateVar() {
-        obsCampaign.subscribe(onNext: { campaign in
+        obsCampaign
+        .subscribe(onNext: { campaign in
             self.campaign = campaign
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
     }
     
     private func updateLogoImage() {
         self.logo = UIImage.imageFromData(data: campaign.imgData) ?? UIImage.campaignPlaceholder
     }
+    
     private func setCodeListener() {
-        codeInput.subscribe(onNext: { code in
+        codeInput.debounce(0.5, scheduler: MainScheduler.instance) // jako vazno, da nema conflict na write u realm
+        .subscribe(onNext: { code in
             guard code != "" else {return}
-//            print("ScanningViewModel. code is = \(code), forward to dataProvider campaign = \(self.campaign)")
             let myCode = Code.init(value: code, campaign_id: self.campaign.id)
             _ = self.codesDataStore.save(code: myCode) // hard-coded, report to webApi
             // u stvari treba da dobacis sledecem a da on fetch answers i kasnije ih save za ovaj code

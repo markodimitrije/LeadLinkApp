@@ -51,7 +51,7 @@ public class RealmQuestionsDataStore: QuestionsDataStore {
             
             do {
                 try realm.write { // ovako
-                    realm.add(objects, update: true)
+                    realm.add(objects, update: .modified)
                 }
                 seal.fulfill(questions)
             } catch {

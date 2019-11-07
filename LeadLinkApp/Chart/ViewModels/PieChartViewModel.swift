@@ -35,7 +35,9 @@ class PieChartViewModel: PieChartViewModeling {
         self.viewFactory = viewFactory
         
         self.listenUpdatesOnCampaignAndWebReports()
+        
         self.getNewestCampaignData()
+        
     }
     
     private func listenUpdatesOnCampaignAndWebReports() { // input to output
