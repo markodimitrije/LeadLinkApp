@@ -104,7 +104,13 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        var numberWithoutFormat = textField.text ?? ""
+        formatTextFieldColorAccordingTo(text: textField.text ?? "")
+        
+    }
+    
+    private func formatTextFieldColorAccordingTo(text: String) {
+        
+        var numberWithoutFormat = text
         _ = ["+", "-", "(", ")", " "].map { char in
             numberWithoutFormat = remove(char: char, fromText: numberWithoutFormat)
         }
