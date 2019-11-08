@@ -35,7 +35,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private var keyboardDelegate: MovingKeyboardDelegate!
     
-    private let answersReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
+    private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
 
     private var myDataSource: QuestionsAnswersDataSource!
     private var myDelegate: QuestionsAnswersDelegate!
@@ -164,18 +164,19 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         localComponents.saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
                 
+                strongSelf.localComponents.saveBtn.startSpinner()
                 let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
-                strongSelf.saveAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
+                strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
                 
             })
             .disposed(by: bag)
 
     }
     
-    private func saveAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
+    private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
         
         let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
-
+        
         if validator.questionsFormIsValid {
             
             strongSelf.navigationController?.popViewController(animated: true)
@@ -183,7 +184,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: surveyInfo, answers: answers)
             
             let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
-            answersReporter.report.accept(newReport)
+            self.answersWebReporter.report.accept(newReport)
             
         } else {
             strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
@@ -216,6 +217,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                                                  helper: helper)
                 
                 scroller.scrollTo(question: question)
+                
+                self.localComponents.saveBtn.stopSpinner()
                 
                 let attentioner = TableViewPayingAttentioner(tableView: self.tableView,
                                                              questions: self.questions.map({$0.question}),

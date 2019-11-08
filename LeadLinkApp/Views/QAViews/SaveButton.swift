@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ButtonWithSpinnerProtocol {
+    func startSpinner()
+    func stopSpinner()
+}
+
 class SaveButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,5 +43,24 @@ class SaveButton: UIButton {
         self.layer.cornerRadius = 10.0
     }
     
+    deinit {
+        self.stopSpinner()
+    }
 }
 
+extension SaveButton: ButtonWithSpinnerProtocol {
+    
+    func startSpinner() {
+        let frame = CGRect.init(center: CGPoint.init(x: self.bounds.midX, y: self.bounds.midY),
+                                size: CGSize.init(width: 0.9*self.bounds.width, height: 0.9*self.bounds.height))
+        let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicatorView.backgroundColor = self.backgroundColor
+        activityIndicatorView.frame = frame
+        activityIndicatorView.startAnimating()
+        self.addSubview(activityIndicatorView)
+    }
+    
+    func stopSpinner() {
+        self.subviews.first(where: {$0 is UIActivityIndicatorView})?.removeFromSuperview()
+    }
+}
