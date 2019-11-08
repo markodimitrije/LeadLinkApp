@@ -35,8 +35,8 @@ public struct CampaignsVersionChecker: CampaignsVersionChecking {
 
         return realmString.compactMap { str -> Bool? in
             print("needsUpdate(newJson = \(realmString.value != json)")
-            return true // hard-coded
-//            return (realmString.value != json)
+            //return true // hard-coded
+            return (realmString.value != json)
         }
 
     }
