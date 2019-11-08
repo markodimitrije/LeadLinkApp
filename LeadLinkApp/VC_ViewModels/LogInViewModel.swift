@@ -77,8 +77,8 @@ public class LogInViewModel {
         if let err = error as? RemoteAPIError {
             errorMessage = err.translateToErrorMessage()
         } else {
-            errorMessage = ErrorMessage(title: "Sign In Failed",
-                                        message: error.localizedDescription)
+            let title = NSLocalizedString("Strings.Login.signInFailed", comment: "")
+            errorMessage = ErrorMessage(title: title, message: error.localizedDescription)
         }
         
         errorMessagesSubject.onNext(errorMessage)
