@@ -35,8 +35,6 @@ public struct LoginAuthRemoteAPI: LoginRemoteAPIProtocol {
             let postData = NSMutableData(data: "email=\(credentials.email)".data(using: String.Encoding.utf8)!)
             postData.append("&password=\(credentials.password)".data(using: String.Encoding.utf8)!)
             
-            request.timeoutInterval = 0.001 // hard-coded temp on
-            
             request.httpBody = postData as Data
             request.allHTTPHeaderFields = headers
             
