@@ -31,4 +31,3 @@ class RealmWebReportedAnswers: Object {
         return "id"
     }
 }
-import Foundation

@@ -49,7 +49,7 @@ class ChartViewControllerFactory {
         
         let campaign = selectedCampaign.selectedCampaign()
         let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
-        let viewFactory: PieChartViewBuilding = PieChartViewFactory()
+        let viewFactory: PieChartViewFactoryProtocol = PieChartViewFactory()
         
         return PieChartViewModel(campaign: campaign,
                                  webReports: webReports,

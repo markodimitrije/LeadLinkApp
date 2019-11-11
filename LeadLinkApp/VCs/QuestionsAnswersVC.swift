@@ -175,7 +175,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
         
-        let validator = Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
+        let validator = QA_Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
         
         if validator.questionsFormIsValid {
             

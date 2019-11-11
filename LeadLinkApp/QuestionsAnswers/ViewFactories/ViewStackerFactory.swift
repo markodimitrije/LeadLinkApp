@@ -24,7 +24,7 @@ class ViewStackerFactory {
     
     func getStackerView(surveyQuestion: SurveyQuestion, viewmodel: Questanable) -> UIView {
         
-        let questionViewFactory: MyQuestionViewFactory = MyQuestionViewFactory(
+        let questionViewFactory: SingleQuestionViewFactory = SingleQuestionViewFactory(
             sameComponentsFactory: SameComponentsFactory(questionsWidthProvider: questionsWidthProvider),
             questionViewHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory(),
             bag: bag,

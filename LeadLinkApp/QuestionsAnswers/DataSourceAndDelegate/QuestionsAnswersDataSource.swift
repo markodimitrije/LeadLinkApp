@@ -12,7 +12,7 @@ class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     
     private var viewController: QuestionsAnswersVC
     private var questions: [SurveyQuestion]
-    private var webViewsAndViewSizesProvider: WebViewProviding
+    private var webViewsAndViewSizesProvider: WebQuestionsViewProviding
     
     private var webQuestionViews: [Int: UIView] {
         return webViewsAndViewSizesProvider.webQuestionViews
@@ -24,7 +24,7 @@ class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     
     lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     
-    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebViewProviding) {
+    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebQuestionsViewProviding) {
         self.viewController = viewController
         self.questions = questions
         self.webViewsAndViewSizesProvider = webViewsAndViewSizesProvider

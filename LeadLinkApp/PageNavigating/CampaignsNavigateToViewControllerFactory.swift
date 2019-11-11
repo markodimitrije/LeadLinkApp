@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CampaignsNavigateToViewControllerFactory: PageNavigatingProtocol {
+struct FromCampaignsVCNavigateToViewControllerFactory: PageNavigatingProtocol {
     
     let campaignsRepo = factory.sharedCampaignsRepository
     let scanningViewModelFactory = ScanningViewModelFactory(appDependancyContainer: factory)

@@ -12,7 +12,7 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
     
     private var viewController: QuestionsAnswersVC
     private var questions: [SurveyQuestion]
-    private var webViewsAndViewSizesProvider: WebViewProviding
+    private var webViewsAndViewSizesProvider: WebQuestionsViewProviding
     
     private var webQuestionIdsViewSizes: [Int: CGSize] {
         return self.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes
@@ -21,7 +21,7 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
     
     lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     
-    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebViewProviding) {
+    init(viewController: QuestionsAnswersVC, questions: [SurveyQuestion], webViewsAndViewSizesProvider: WebQuestionsViewProviding) {
         self.viewController = viewController
         self.questions = questions
         self.webViewsAndViewSizesProvider = webViewsAndViewSizesProvider

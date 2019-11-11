@@ -90,5 +90,3 @@ public class CampaignsRepository: UserCampaignsRepository {
         return Observable.from(object: realmCampaign)
     }
 }
-
-
