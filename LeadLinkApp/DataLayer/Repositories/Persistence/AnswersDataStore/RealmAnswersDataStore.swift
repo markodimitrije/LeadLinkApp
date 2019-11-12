@@ -1,6 +1,6 @@
 
 //
-//  AnswersRepository.swift
+//  RealmAnswersDataStore.swift
 //  tryLeadLinkModularComponent
 //
 //  Created by Marko Dimitrijevic on 21/04/2019.
@@ -12,11 +12,11 @@ import PromiseKit
 import Realm
 import RealmSwift
 
-protocol DataStoreAnswering {
+protocol AnswersDataStore {
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<RealmAnswer?>
 }
 
-public class RealmAnswersDataStore: DataStoreAnswering {
+public class RealmAnswersDataStore: AnswersDataStore {
     
     // MARK: - Properties
     var realm = try! Realm.init()

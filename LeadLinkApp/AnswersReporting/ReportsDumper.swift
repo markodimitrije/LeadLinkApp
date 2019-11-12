@@ -69,7 +69,6 @@ class ReportsDumper {
             .disposed(by: self.bag)
     }
     
-    
     // MARK:- Private
     
     private func hookUpTimer() {
@@ -129,7 +128,7 @@ class ReportsDumper {
             return Observable.just(false)
         }
         
-        return AnswersApiController.shared
+        return AnswersRemoteAPI.shared
             .notifyWeb(withReports: reports) // Observable<[AnswersReport], Bool>
             .map { (reports, success) -> Bool in
                 if success {
@@ -140,10 +139,4 @@ class ReportsDumper {
             }
     }
     
-}
-
-
-enum ReportToWebError: Error {
-    case noCodesToReport
-    case notConfirmedByServer // nije 201
 }

@@ -1,5 +1,5 @@
 //
-//  TextFieldWithOptionsViewModelBinder.swift
+//  TextViewToDropdownViewModelBinder.swift
 //  tryLeadLinkModularComponent
 //
 //  Created by Marko Dimitrijevic on 06/05/2019.
@@ -23,7 +23,7 @@ class TextViewToDropdownViewModelBinder {
         self.viewmodel = viewmodel
         self.bag = bag
         
-        let inputCreator = SelectOptionTextViewModelInputCreator(viewmodel: viewmodel)
+        let inputCreator = DropdownTextViewModelInputCreator(viewmodel: viewmodel)
         let textDriver = inputCreator.createTxtDriver()
         
         textDriver

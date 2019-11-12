@@ -72,8 +72,3 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
     }
     
 }
-
-public struct CampaignResults {
-    var campaignsWithQuestions = [(Campaign, [Question])]()
-    var jsonString: String = ""
-}

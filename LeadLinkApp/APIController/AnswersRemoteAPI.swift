@@ -1,5 +1,5 @@
 //
-//  AswersAPICotroller.swift
+//  AnswersRemoteAPI.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 21/05/2019.
@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-class AnswersApiController {
+class AnswersRemoteAPI {
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
         static let baseLeadLinkURL = URL(string: "https://service.e-materials.com/api/leadlink/")!
     }
     
-    static var shared = AnswersApiController()
+    static var shared = AnswersRemoteAPI()
     
     //private let headerFieldsCreator = AnswersHeaderFieldsCreator()
     private var headerFieldsCreator: AnswersHeaderFieldsCreator!
@@ -43,7 +43,7 @@ class AnswersApiController {
         request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
         let payload = reports.map {$0.payload}
-        //print("AnswersAPIController.postRequest.payload = \(payload)")
+        //print("AnswersRemoteAPI.postRequest.payload = \(payload)")
         
         guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {
             fatalError()

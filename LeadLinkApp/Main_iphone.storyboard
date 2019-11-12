@@ -99,40 +99,6 @@
             </objects>
             <point key="canvasLocation" x="536" y="55"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="eXJ-5y-63H">
-            <objects>
-                <viewController id="1Wb-E1-gRw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Doh-WJ-40Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-2D-ajP">
-                                <rect key="frame" x="20" y="56" width="280" height="512"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wzT-po-K0V">
-                                <rect key="frame" x="20" y="0.0" width="280" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="wzT-po-K0V" firstAttribute="leading" secondItem="8gf-56-R93" secondAttribute="leading" constant="20" id="F45-Va-vHA"/>
-                            <constraint firstItem="KQa-2D-ajP" firstAttribute="bottom" secondItem="8gf-56-R93" secondAttribute="bottom" id="I2g-ME-cOJ"/>
-                            <constraint firstItem="KQa-2D-ajP" firstAttribute="leading" secondItem="8gf-56-R93" secondAttribute="leading" constant="20" id="dHe-Mr-d7B"/>
-                            <constraint firstItem="wzT-po-K0V" firstAttribute="top" secondItem="8gf-56-R93" secondAttribute="top" id="pcD-tc-JUz"/>
-                            <constraint firstItem="KQa-2D-ajP" firstAttribute="top" secondItem="wzT-po-K0V" secondAttribute="bottom" id="rBg-UP-Qpi"/>
-                            <constraint firstItem="8gf-56-R93" firstAttribute="trailing" secondItem="wzT-po-K0V" secondAttribute="trailing" constant="20" id="sp5-ML-bQ7"/>
-                            <constraint firstItem="8gf-56-R93" firstAttribute="trailing" secondItem="KQa-2D-ajP" secondAttribute="trailing" constant="20" id="vEt-F3-smg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="8gf-56-R93"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Coz-sg-0jE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1136.6834170854272" y="-690.64748201438852"/>
-        </scene>
         <!--CampaignsVC-->
         <scene sceneID="SUY-LM-U3r">
             <objects>
@@ -535,47 +501,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY0-qS-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="1539.0845070422536"/>
-        </scene>
-        <!--CodesVC-->
-        <scene sceneID="j0r-j2-AdL">
-            <objects>
-                <viewController storyboardIdentifier="CodesVC" id="bcr-YJ-hrB" customClass="CodesVC" customModule="Navus_Lead" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="68I-5M-RZX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZ8-Nu-9mj">
-                                <rect key="frame" x="20" y="0.0" width="280" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeCell" id="vn7-G7-fuJ">
-                                        <rect key="frame" x="0.0" y="28" width="280" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vn7-G7-fuJ" id="XD1-Bg-cgM">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="RCi-8X-x2e" firstAttribute="trailing" secondItem="wZ8-Nu-9mj" secondAttribute="trailing" constant="20" id="5O3-Wd-OBh"/>
-                            <constraint firstItem="wZ8-Nu-9mj" firstAttribute="top" secondItem="RCi-8X-x2e" secondAttribute="top" id="Dnj-nY-Wlv"/>
-                            <constraint firstItem="wZ8-Nu-9mj" firstAttribute="leading" secondItem="RCi-8X-x2e" secondAttribute="leading" constant="20" id="mxp-Tq-Imx"/>
-                            <constraint firstItem="RCi-8X-x2e" firstAttribute="bottom" secondItem="wZ8-Nu-9mj" secondAttribute="bottom" constant="20" id="wd8-zg-lAy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="RCi-8X-x2e"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="wZ8-Nu-9mj" id="75E-m9-UYd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eyg-2b-ccp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2204" y="1164"/>
+            <point key="canvasLocation" x="2571" y="1494"/>
         </scene>
         <!--Choose OptionsVC-->
         <scene sceneID="8gk-1N-u0l">
@@ -848,7 +774,7 @@ barcode number manually</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74A-qf-W65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3757.5999999999999" y="1163.568215892054"/>
+            <point key="canvasLocation" x="3396" y="1494"/>
         </scene>
     </scenes>
     <resources>

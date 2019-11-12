@@ -1,5 +1,5 @@
 //
-//  DelegatesAPIController.swift
+//  DelegatesRemoteAPI.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 05/06/2019.

@@ -1,5 +1,5 @@
 //
-//  SelectOptionTextViewModelInputCreator.swift
+//  DropdownTextViewModelInputCreator.swift
 //  tryLeadLinkModularComponent
 //
 //  Created by Marko Dimitrijevic on 08/05/2019.
@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SelectOptionTextViewModelInputCreator {
+class DropdownTextViewModelInputCreator {
     
     var viewmodel: SelectOptionTextFieldViewModel
     

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 import RxCocoa
 
@@ -17,11 +16,5 @@ public protocol CodesDataStore {
     func save(code: Code) -> Promise<Code>
     // Read sync
     func getCodes(campaignId: Int) -> [Code]
-}
-
-protocol ReportsDataStore {
-    /// Read
-    var campaignId: Int {get set}
-    var oReports: BehaviorRelay<[RealmWebReportedAnswers]> {get set}
 }
 
