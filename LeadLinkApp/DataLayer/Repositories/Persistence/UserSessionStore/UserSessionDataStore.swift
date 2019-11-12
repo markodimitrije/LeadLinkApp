@@ -6,9 +6,7 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
-import RxSwift
 
 // USER_SESSION
 

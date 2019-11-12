@@ -11,7 +11,7 @@ import UIKit
 struct QuestionsDataSourceAndDelegateHelper {
     
     private var orderedQuestions = [PresentQuestion]()
-    private var localComponents: LocalComponents
+    private var localComponents: LocalComponentsViewFactory
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
             if itemHasNoGroup(question: question) {
@@ -34,7 +34,7 @@ struct QuestionsDataSourceAndDelegateHelper {
 //
 //        }.unique()
     
-    init(questions: [SurveyQuestion], localComponents: LocalComponents) {
+    init(questions: [SurveyQuestion], localComponents: LocalComponentsViewFactory) {
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
         self.localComponents = localComponents
     }

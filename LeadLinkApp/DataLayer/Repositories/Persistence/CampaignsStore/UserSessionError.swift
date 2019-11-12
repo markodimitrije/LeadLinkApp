@@ -6,9 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-import PromiseKit
-
 enum UserSessionError: Error {
     case notSignedIn
 }

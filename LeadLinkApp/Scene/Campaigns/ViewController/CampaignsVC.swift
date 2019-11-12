@@ -36,7 +36,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
         
     }
     
-    private func observe(userSessionState: Observable<MainViewState>) { // navigation...
+    private func observe(userSessionState: Observable<UserState>) { // navigation...
         userSessionState
             .skip(1) // jer je inicijano set-ovan na signOut
             .subscribe(onNext: { [weak self] state in

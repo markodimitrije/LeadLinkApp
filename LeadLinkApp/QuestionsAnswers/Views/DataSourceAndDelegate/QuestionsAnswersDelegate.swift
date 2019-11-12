@@ -17,7 +17,7 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
     private var webQuestionIdsViewSizes: [Int: CGSize] {
         return self.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes
     }
-    private var localComponents: LocalComponents {return viewController.localComponents}
+    private var localComponents: LocalComponentsViewFactory {return viewController.localComponents}
     
     lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     

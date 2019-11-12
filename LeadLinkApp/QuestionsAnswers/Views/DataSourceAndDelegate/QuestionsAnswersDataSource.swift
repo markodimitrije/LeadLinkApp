@@ -20,7 +20,7 @@ class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     private var webQuestionIdsViewSizes: [Int: CGSize] {
         return webViewsAndViewSizesProvider.webQuestionIdsToViewSizes
     }
-    private var localComponents: LocalComponents {return viewController.localComponents}
+    private var localComponents: LocalComponentsViewFactory {return viewController.localComponents}
     
     lazy private var dataSourceHelper = QuestionsDataSourceAndDelegateHelper(questions: self.questions, localComponents: viewController.localComponents)
     

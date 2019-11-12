@@ -6,8 +6,6 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-
 public struct RemoteUserSession: Codable {
     
     // MARK: - Properties

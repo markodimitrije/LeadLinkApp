@@ -29,7 +29,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private var parentViewmodel: ParentViewModel!
     
     var webViewsAndViewSizesProvider: WebViewsAndViewSizesProvider!
-    let localComponents = LocalComponents()
+    let localComponents = LocalComponentsViewFactory()
     
     var bag = DisposeBag()
     
