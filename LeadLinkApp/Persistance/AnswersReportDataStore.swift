@@ -5,16 +5,15 @@
 //  Created by Marko Dimitrijevic on 30/10/2018.
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
-
 import RxSwift
 import RxCocoa
 import RealmSwift
 import Realm
 import RxRealm
 
-struct RealmDataPersister {
+struct AnswersReportDataStore {
     
-    static var shared = RealmDataPersister()
+    static var shared = AnswersReportDataStore()
     
     // observable OUTPUT
     func getRealmWebReportedAnswers() -> Observable<Results<RealmWebReportedAnswers>> {
@@ -57,7 +56,7 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                realm.add(records, update: .modified)
+                realm.add(records, update: true)
             }
             print("RealmDataPersister.deleteAnswersReports: update Reported AnswersReports")
             return Observable.just(true)
@@ -77,7 +76,7 @@ struct RealmDataPersister {
         
         do {
             try realm.write {
-                realm.add(objects, update: .modified)
+                realm.add(objects, update: true)
             }
         } catch {
             return Observable<Bool>.just(false)
@@ -98,7 +97,7 @@ struct RealmDataPersister {
         do { // ako nemas ovaj objekat kod sebe u bazi
             
             try realm.write { //realm.add(newReport) old solution
-                realm.add(newReport, update: .modified)
+                realm.add(newReport, update:true)
                 print("\(newReport.code), \(newReport.campaignId), \(newReport.success), saved to realm")
             }
         } catch {
@@ -107,6 +106,39 @@ struct RealmDataPersister {
         
         return Observable<Bool>.just(true) // all good here
         
+    }
+    
+    // MARK: All data (delete)
+    
+    func deleteAllDataIfAny() -> Observable<Bool> {
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        return Observable<Bool>.just(true) // all good
+    }
+    
+    func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        do {
+            try realm.write {
+                for type in types {
+                    let objects = realm.objects(type)
+                    realm.delete(objects)
+                }
+            }
+        } catch {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        return Observable<Bool>.just(true) // all good
     }
     
     // MARK: save codes successfully reported to web
@@ -123,7 +155,7 @@ struct RealmDataPersister {
 
         do {
             try realm.write {
-                realm.add(realmWebReportedCodes, update: .modified)
+                realm.add(realmWebReportedCodes, update: true)
                 print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
             }
         } catch {

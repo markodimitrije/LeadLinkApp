@@ -75,7 +75,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
         
         if success { // hard-coded of
             print("jesam success, implement save to realm!")
-            RealmDataPersister.shared.save(reportsAcceptedFromWeb: [report])
+            AnswersReportDataStore.shared.save(reportsAcceptedFromWeb: [report])
                 .subscribe(onNext: { saved in
                     print("code successfully reported to web, save in your archive")
                 }).disposed(by: bag)
@@ -90,7 +90,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
         
         print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
-        _ = RealmDataPersister.shared.saveToRealm(report: report)
+        _ = AnswersReportDataStore.shared.saveToRealm(report: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
         if reportsDumper == nil {
             reportsDumper = ReportsDumper() // u svom init, zna da javlja reports web-u...

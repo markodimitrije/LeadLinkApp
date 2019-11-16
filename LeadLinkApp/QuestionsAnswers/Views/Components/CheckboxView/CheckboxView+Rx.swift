@@ -10,6 +10,20 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: CheckboxView {
+    var optionTxt: Binder<String> {
+        return Binder.init(self.base, binding: { (view, value) in
+            view.headlineText = value
+        })
+    }
+}
+
+extension CheckboxView: OptionTxtUpdatable {
+    var optionTxt: Binder<String> {
+        return self.rx.optionTxt
+    }
+}
+
+extension Reactive where Base: CheckboxView {
     
     var btnOnImg: UIImage? {
         return UIImage.init(named: "checkbox_ON")

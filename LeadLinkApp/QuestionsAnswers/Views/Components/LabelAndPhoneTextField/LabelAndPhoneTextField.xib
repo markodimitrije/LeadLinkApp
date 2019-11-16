@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelAndPhoneTxtField" customModule="Navus_Lead" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelAndPhoneTextField" customModule="Navus_Lead" customModuleProvider="target">
             <connections>
                 <outlet property="headlineLbl" destination="aM3-ne-CpY" id="PMW-3k-esm"/>
                 <outlet property="stackView" destination="no6-Nu-gbq" id="qTc-JV-aWu"/>

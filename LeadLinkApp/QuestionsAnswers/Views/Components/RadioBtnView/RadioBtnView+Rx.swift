@@ -11,6 +11,20 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: RadioBtnView {
+    var optionTxt: Binder<String> {
+           return Binder.init(self.base, binding: { (view, value) in
+               view.headlineText = value
+           })
+    }
+}
+
+extension RadioBtnView: OptionTxtUpdatable {
+    var optionTxt: Binder<String> {
+        return self.rx.optionTxt
+    }
+}
+
+extension Reactive where Base: RadioBtnView {
     
     var radioBtnOnImg: UIImage? {
         return UIImage.init(named: "radioBtn_ON")
@@ -24,12 +38,6 @@ extension Reactive where Base: RadioBtnView {
         return Binder.init(self.base, binding: { (view, value) in
             let image = value ? self.radioBtnOnImg : self.radioBtnOffImg
             view.radioImageBtn.setBackgroundImage(image, for: .normal)
-        })
-    }
-    
-    var optionTxt: Binder<String> {
-        return Binder.init(self.base, binding: { (view, value) in
-            view.headlineText = value
         })
     }
     

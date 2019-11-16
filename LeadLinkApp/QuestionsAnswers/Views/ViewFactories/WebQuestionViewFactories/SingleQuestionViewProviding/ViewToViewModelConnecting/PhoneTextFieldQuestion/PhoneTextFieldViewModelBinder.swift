@@ -15,11 +15,11 @@ protocol PhoneTextFieldReleaseDelegateProtocol {
 
 class PhoneTextFieldViewModelBinder: NSObject, UITextFieldDelegate {
     
-    private var labelAndTextView: LabelAndPhoneTxtField!
+    private var labelAndTextView: LabelAndPhoneTextField!
     private var viewmodel: LabelWithPhoneTextFieldViewModel!
     private var bag: DisposeBag!
     
-    func hookUp(labelAndTextView: LabelAndPhoneTxtField, viewmodel: LabelWithPhoneTextFieldViewModel, bag: DisposeBag) {
+    func hookUp(labelAndTextView: LabelAndPhoneTextField, viewmodel: LabelWithPhoneTextFieldViewModel, bag: DisposeBag) {
         
         self.labelAndTextView = labelAndTextView
         self.viewmodel = viewmodel

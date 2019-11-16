@@ -19,13 +19,13 @@ class ViewStackerForPhoneTextFieldQuestion: NSObject, QuestionViewProviding {
         
         self.helperFactories = helperFactories
         
-        let factory = LabelWithPhoneTxtFieldFactory.init(
+        let factory = LabelWithPhoneTextFieldFactory.init(
             sameComponentsFactory: helperFactories.sameComponentsFactory,
             questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
             bag: helperFactories.bag,
             delegate: helperFactories.delegate)
         
-        let result: (ViewStacker, [LabelAndPhoneTxtField]) = factory.getLabelAndTextField(question: question, answer: answer, frame: frame)
+        let result: (ViewStacker, [LabelAndPhoneTextField]) = factory.getLabelAndTextField(question: question, answer: answer, frame: frame)
         let binder = PhoneTextFieldViewModelBinder.init()
         
         binder.hookUp(labelAndTextView: result.1.first!,

@@ -18,7 +18,7 @@ class ViewStackerForTextFieldQuestion: QuestionViewProviding {
         
         self.helperFactories = helperFactories
         
-        let factory = LabelWithTxtFieldFactory.init(
+        let factory = LabelWithTextFieldFactory.init(
             sameComponentsFactory: helperFactories.sameComponentsFactory,
             questionViewWithHeadlineLabelFactory: helperFactories.questionViewWithHeadlineLabelFactory,
             bag: helperFactories.bag,

@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class LabelWithPhoneTxtFieldFactory {
+class LabelWithPhoneTextFieldFactory {
     
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory
@@ -27,12 +27,12 @@ class LabelWithPhoneTxtFieldFactory {
         self.delegate = delegate
     }
     
-    func getLabelAndTextField(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndPhoneTxtField]) {
+    func getLabelAndTextField(question: PresentQuestion, answer: Answering?, frame: CGRect) -> (ViewStacker, [LabelAndPhoneTextField]) {
 
         let stackerView = self.viewStackerWithLblAndTextField(questionWithAnswers: [(question, answer)], frame: frame)
 
-        let views = stackerView.components.flatMap { view -> [LabelAndPhoneTxtField] in
-            return (view as? OneRowStacker)?.components as? [LabelAndPhoneTxtField] ?? [ ]
+        let views = stackerView.components.flatMap { view -> [LabelAndPhoneTextField] in
+            return (view as? OneRowStacker)?.components as? [LabelAndPhoneTextField] ?? [ ]
         }
 
         _ = views.enumerated().map { $0.element.textField.tag = $0.offset } // dodeli svakome unique TAG
@@ -44,7 +44,7 @@ class LabelWithPhoneTxtFieldFactory {
     private func viewStackerWithLblAndTextField(questionWithAnswers: [(PresentQuestion, Answering?)], frame: CGRect) -> ViewStacker {
         
         //return produceStackWithSameComponents(ofType: RadioBtnView.self, count: question.options.count, inOneRow: 3)!
-        return sameComponentsFactory.createStackWithSameComponents(ofType: LabelAndPhoneTxtField.self,
+        return sameComponentsFactory.createStackWithSameComponents(ofType: LabelAndPhoneTextField.self,
             //componentsTotalCount: questionWithAnswers.count,
             //componentsTotalCount: 2,
             //elementsInOneRow: 2)!

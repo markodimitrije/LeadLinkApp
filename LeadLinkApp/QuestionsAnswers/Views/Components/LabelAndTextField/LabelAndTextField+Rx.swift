@@ -32,3 +32,13 @@ extension Reactive where Base: LabelAndTextField {
     }
     
 }
+
+extension Reactive where Base: LabelAndTextField {
+    var titles: Binder<[String]> {
+        return Binder.init(self.base, binding: { (view, value) in
+            view.update(headlineText: value[0],
+                        inputTxt: value[1],
+                        placeholderTxt: value[2])
+        })
+    }
+}

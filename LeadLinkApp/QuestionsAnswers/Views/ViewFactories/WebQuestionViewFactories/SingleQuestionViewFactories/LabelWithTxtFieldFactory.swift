@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class LabelWithTxtFieldFactory {
+class LabelWithTextFieldFactory {
     
     var sameComponentsFactory: SameComponentsFactory
     var questionViewWithHeadlineLabelFactory: QuestionViewWithHeadlineLabelFactory

@@ -1,5 +1,5 @@
 //
-//  LabelAndPhoneTxtField.swift
+//  LabelAndPhoneTextField.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 06/11/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import PhoneNumberKit
 
-class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
+class LabelAndPhoneTextField: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var headlineLbl: UILabel!
@@ -67,7 +67,7 @@ class LabelAndPhoneTxtField: UIView, UITextFieldDelegate {
     
     func loadViewFromNib() {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "LabelAndPhoneTxtField", bundle: bundle)
+        let nib = UINib(nibName: "LabelAndPhoneTextField", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

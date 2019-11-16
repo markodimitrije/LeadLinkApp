@@ -33,7 +33,7 @@ class ReportsDumper {
     }
     
     private var reportsDeleted: BehaviorRelay<Bool> = {
-        return BehaviorRelay.init(value: RealmDataPersister.shared.getFailedReports().isEmpty)
+        return BehaviorRelay.init(value: AnswersReportDataStore.shared.getFailedReports().isEmpty)
     }()
     
     init() { print("ReportsDumper.INIT, fire every \(Constants.TimeInterval.reportUnsyncBarcodesEvery) sec or on wi-fi changed")
@@ -49,7 +49,7 @@ class ReportsDumper {
     // MARK:- API
     func sendToWebUnsycedReports() {
         
-        let reports = RealmDataPersister.shared.getFailedReports()
+        let reports = AnswersReportDataStore.shared.getFailedReports()
         
         self.reportToWeb(reports: reports)
             .subscribe(onNext: { success in
@@ -58,7 +58,7 @@ class ReportsDumper {
                     let reported = reports.map({ report -> AnswersReport in
                         return report.updated(withSuccess: success)
                     })
-                    RealmDataPersister.shared.updateReports(reported)
+                    AnswersReportDataStore.shared.updateReports(reported)
                         .subscribe(onNext: { deleted in
                             
                             self.reportsDeleted.accept(deleted)

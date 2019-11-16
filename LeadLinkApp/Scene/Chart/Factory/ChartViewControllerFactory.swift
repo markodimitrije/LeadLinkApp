@@ -37,7 +37,7 @@ class ChartViewControllerFactory {
     private func createGridViewModel(campaignId id: Int) -> GridViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+        let webReports = AnswersReportDataStore.shared.getRealmWebReportedAnswers()
         let viewFactory: ChartGridViewBuilding = ChartGridViewFactory()
         
         return GridViewModel(campaign: campaign,
@@ -48,7 +48,7 @@ class ChartViewControllerFactory {
     private func createPieChartViewModel(campaignId id: Int) -> PieChartViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = RealmDataPersister.shared.getRealmWebReportedAnswers()
+        let webReports = AnswersReportDataStore.shared.getRealmWebReportedAnswers()
         let viewFactory: PieChartViewFactoryProtocol = PieChartViewFactory()
         
         return PieChartViewModel(campaign: campaign,
