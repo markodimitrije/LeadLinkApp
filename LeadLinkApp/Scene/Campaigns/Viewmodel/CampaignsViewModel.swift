@@ -6,15 +6,9 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-//import Foundation
-//import RxSwift
-
-import Foundation
 import RealmSwift
-import Realm
 import RxSwift
 import RxRealm
-
 import PromiseKit
 
 public class CampaignsViewModel {

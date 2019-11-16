@@ -6,14 +6,11 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
-import RxSwift
 
 public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
     
     static let shared = CampaignsWithQuestionsRemoteAPI()
-    private let bag = DisposeBag()
     
     // MARK: - Methods
     

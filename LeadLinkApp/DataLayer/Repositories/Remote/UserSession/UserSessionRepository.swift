@@ -6,7 +6,6 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 
 public protocol UserSessionRepositoryProtocol {

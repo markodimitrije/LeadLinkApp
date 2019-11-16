@@ -117,6 +117,7 @@
 		7C44EFFD22F1C8F0002D3571 /* ViewStackerForTextAreaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EFFC22F1C8F0002D3571 /* ViewStackerForTextAreaQuestion.swift */; };
 		7C44EFFF22F1C951002D3571 /* ViewStackerForDropdownQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44EFFE22F1C951002D3571 /* ViewStackerForDropdownQuestion.swift */; };
 		7C44F00122F1C98B002D3571 /* ViewStackerForTermsSwitchQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44F00022F1C98B002D3571 /* ViewStackerForTermsSwitchQuestion.swift */; };
+		7C468217238005AC0000F00F /* QuestionsAnswersSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C468216238005AC0000F00F /* QuestionsAnswersSectionType.swift */; };
 		7C4DC2A3233E1D3B00E2F98E /* Rx+RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A2233E1D3B00E2F98E /* Rx+RadioViewModel.swift */; };
 		7C4DC2A5233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A4233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift */; };
 		7C4DC2A7233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A6233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift */; };
@@ -477,6 +478,7 @@
 		7C44EFFC22F1C8F0002D3571 /* ViewStackerForTextAreaQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForTextAreaQuestion.swift; sourceTree = "<group>"; };
 		7C44EFFE22F1C951002D3571 /* ViewStackerForDropdownQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForDropdownQuestion.swift; sourceTree = "<group>"; };
 		7C44F00022F1C98B002D3571 /* ViewStackerForTermsSwitchQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackerForTermsSwitchQuestion.swift; sourceTree = "<group>"; };
+		7C468216238005AC0000F00F /* QuestionsAnswersSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersSectionType.swift; sourceTree = "<group>"; };
 		7C4DC2A2233E1D3B00E2F98E /* Rx+RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+RadioViewModel.swift"; sourceTree = "<group>"; };
 		7C4DC2A4233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+CheckboxViewModel.swift"; sourceTree = "<group>"; };
 		7C4DC2A6233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+RadioWithInputViewModel.swift"; sourceTree = "<group>"; };
@@ -1740,6 +1742,7 @@
 		7C3F970D22E1D87B00C8A797 /* DataSourceAndDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				7C4682152380059E0000F00F /* Model */,
 				7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */,
 				7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */,
 				7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */,
@@ -1779,6 +1782,14 @@
 				7C1F42D1237AD5F60043D5E3 /* ViewStackerForTermsSwitchQuestion */,
 			);
 			path = ViewToViewModelConnecting;
+			sourceTree = "<group>";
+		};
+		7C4682152380059E0000F00F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C468216238005AC0000F00F /* QuestionsAnswersSectionType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -2851,6 +2862,7 @@
 				7CAB84BA22EF290500CE91AA /* RadioBtnsViewFactory.swift in Sources */,
 				7C1F4306237B0D2D0043D5E3 /* CheckboxView+Rx.swift in Sources */,
 				7C4276CB22F052A6000C24DF /* SingleQuestionViewFactory.swift in Sources */,
+				7C468217238005AC0000F00F /* QuestionsAnswersSectionType.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,

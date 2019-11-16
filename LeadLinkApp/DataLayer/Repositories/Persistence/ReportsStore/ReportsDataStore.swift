@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import PromiseKit
 import RxCocoa
 
 protocol ReportsDataStore {

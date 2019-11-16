@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Realm
 
 struct MyAnswer: Answering {
     var campaignId = 0
@@ -68,7 +67,7 @@ struct MyAnswer: Answering {
     func toWebReportJson() -> [String: String] {
         var res = [String: String]()
         res["question_id"] = "\(self.questionId)"
-        res["content"] = concatanateIfMultipleOptionsIn(content: content)//self.content.first ?? "" // hard-coded (concatanate multiple) !
+        res["content"] = concatanateIfMultipleOptionsIn(content: content)
         return res
     }
     

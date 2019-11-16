@@ -6,10 +6,8 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import RxCocoa
-import Realm
 import RealmSwift
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {
@@ -231,9 +229,4 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             }).disposed(by: bag)
     }
     
-}
-
-enum QuestionsAnswersSectionType: String {
-    case noGroupAssociated = " "
-    case localComponentsGroupName = "Privacy Policy"
 }

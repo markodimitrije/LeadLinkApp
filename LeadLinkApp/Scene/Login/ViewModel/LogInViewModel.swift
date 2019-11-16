@@ -6,10 +6,7 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-
-import PromiseKit
 
 public class LogInViewModel {
     

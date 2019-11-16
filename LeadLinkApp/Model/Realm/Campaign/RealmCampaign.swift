@@ -6,13 +6,7 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Realm
 import RealmSwift
-import RxRealm
-
-//public struct Campaigns: Codable {
-//    var data: [Campaign]
-//}
 
 class RealmCampaign: Object {
     //@objc dynamic var id = 0

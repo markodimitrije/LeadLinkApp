@@ -6,11 +6,8 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 import RxSwift
-import RxRealm
-import Realm
 import RealmSwift
 
 public protocol UserCampaignsRepository {
@@ -85,8 +82,10 @@ public class CampaignsRepository: UserCampaignsRepository {
         guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
             fatalError("someone asked for selected campaign, before it was saved ?!?")
         }
+        
         //let campaign = Campaign.init(realmCampaign: realmCampaign)
         //return Observable.from(optional: campaign)
+        
         return Observable.from(object: realmCampaign)
     }
 }

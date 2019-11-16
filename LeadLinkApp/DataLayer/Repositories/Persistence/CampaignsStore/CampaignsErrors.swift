@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 enum CampaignError: Error {
     case unknown

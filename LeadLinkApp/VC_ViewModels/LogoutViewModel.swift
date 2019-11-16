@@ -6,9 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-import RxSwift
-
 import PromiseKit
 
 protocol Logoutable {

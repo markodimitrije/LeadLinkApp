@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import PromiseKit
 import RxCocoa
 import RxSwift
-import RealmSwift
 
 class LoginViewController: UIViewController, Storyboarded {
 

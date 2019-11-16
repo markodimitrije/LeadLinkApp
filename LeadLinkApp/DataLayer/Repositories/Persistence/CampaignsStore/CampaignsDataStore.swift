@@ -8,15 +8,12 @@
 
 import Foundation
 import PromiseKit
-import RxSwift
 
 public protocol CampaignsDataStoreBase {
-    
     func readAllCampaigns() -> Promise<[Campaign]>
     func readCampaign(id: Int) -> Promise<Campaign>
     func save(campaigns: [Campaign]) -> Promise<[Campaign]>
     func delete(campaigns: [Campaign]) -> Promise<[Campaign]>
-    
 }
 
 public protocol CampaignsDataStore: CampaignsDataStoreBase {
@@ -24,7 +21,5 @@ public protocol CampaignsDataStore: CampaignsDataStoreBase {
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>
     func deleteCampaignRelatedData()
-    
-//    func observableCampaign(id: Int) -> Observable<Campaign>
 }
 

@@ -6,8 +6,7 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Realm
-import RealmSwift
+import Foundation
 
 public struct Campaigns: Codable {
     var data: [Campaign]

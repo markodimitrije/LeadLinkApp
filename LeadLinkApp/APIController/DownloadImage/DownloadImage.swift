@@ -6,14 +6,11 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
-import RxSwift
 
 public struct DownloadImageRemoteAPI: DownloadImageAPI {
     
     static let shared = DownloadImageRemoteAPI()
-    private let bag = DisposeBag()
     
     // MARK: - Methods
     

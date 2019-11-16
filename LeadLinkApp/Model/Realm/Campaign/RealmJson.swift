@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Realm
 import RealmSwift
 
 // cuva u sebi sve originale json zahteva (koristim za versioning)
