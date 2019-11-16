@@ -96,8 +96,8 @@ struct AnswersReportDataStore {
 
         do { // ako nemas ovaj objekat kod sebe u bazi
             
-            try realm.write { //realm.add(newReport) old solution
-                realm.add(newReport, update:true)
+            try realm.write {
+                realm.add(newReport, update: true)
                 print("\(newReport.code), \(newReport.campaignId), \(newReport.success), saved to realm")
             }
         } catch {

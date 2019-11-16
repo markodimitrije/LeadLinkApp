@@ -1,5 +1,5 @@
 //
-//  CodeReport.swift
+//  AnswersReport.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 18/04/2019.
@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class AnswersReport: Object { // Realm Entity
+class AnswersReport {//}: Object { // Realm Entity
     
     private var answers = [MyAnswer]()
     var campaignId = "0"
@@ -29,7 +29,7 @@ class AnswersReport: Object { // Realm Entity
         self.campaignId = "\(surveyInfo.campaign.id)"
         self.success = success
         self.date = date ?? Date(timeIntervalSinceNow: 0)
-        super.init()
+//        super.init()
         self.loadAnswers()
     }
     
@@ -38,7 +38,7 @@ class AnswersReport: Object { // Realm Entity
         self.campaignId = realmAnswersReport.campaignId
         self.success = realmAnswersReport.success
         self.date = realmAnswersReport.date ?? Date(timeIntervalSinceNow: 0)
-        super.init()
+//        super.init()
         self.loadAnswers()
     }
 
@@ -62,16 +62,16 @@ class AnswersReport: Object { // Realm Entity
     
     // kompajler me tera da implementiram, mogu li ikako bez toga ? ...
     
-    required init() {
-        super.init()
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
+//    required init() {
+//        super.init()
+//    }
+//
+//    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+//        super.init(realm: realm, schema: schema)
+//    }
+//
+//    required init(value: Any, schema: RLMSchema) {
+//        super.init(value: value, schema: schema)
+//    }
     
 }

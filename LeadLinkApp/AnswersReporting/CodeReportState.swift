@@ -15,17 +15,16 @@ import Realm
 
 class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     
-    private var reports: Results<AnswersReport>? {
+    private var reports: [AnswersReport] {
         
-        guard let realm = try? Realm.init() else {return nil} // ovde bi trebalo RealmError!
+        guard let realm = try? Realm.init() else {return [ ]} // ovde bi trebalo RealmError!
         
-        return realm.objects(AnswersReport.self)
+        let webReportedAnswersReports = realm.objects(RealmWebReportedAnswers.self)
+        
+        return webReportedAnswersReports.toArray().map(AnswersReport.init(realmAnswersReport:))
     }
     
     private var shouldReportToWeb: Bool {
-        
-        guard let reports = reports else {return false} // ovde bi trebalo RealmError!
-        
         return reports.isEmpty
     }
     
@@ -42,9 +41,7 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     let webNotified = BehaviorRelay<(AnswersReport, Bool)?>.init(value: nil)
     
     init() {
-        
         bindInputWithOutput()
-        
     }
     
     private func bindInputWithOutput() { print("AnswersReportsToWebState.bindInputWithOutput")
