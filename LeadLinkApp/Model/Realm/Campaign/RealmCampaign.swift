@@ -9,7 +9,6 @@
 import RealmSwift
 
 class RealmCampaign: Object {
-    //@objc dynamic var id = 0
     @objc dynamic var id: Int = 0
     @objc dynamic var conference_id: Int = 0
     @objc dynamic var name: String = ""

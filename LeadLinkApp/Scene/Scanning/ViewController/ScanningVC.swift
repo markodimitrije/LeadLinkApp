@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AVFoundation
-import RealmSwift
 
 class ScanningVC: UIViewController, Storyboarded {
 

@@ -19,6 +19,8 @@
 		7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */; };
 		7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F722969A5E0032C860 /* ReportsTVC.swift */; };
 		7C1C1531229EDA5E0050337B /* TextAreaViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C1530229EDA5E0050337B /* TextAreaViewModelBinder.swift */; };
+		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
+		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
 		7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */; };
 		7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */; };
@@ -378,6 +380,8 @@
 		7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C1A45F722969A5E0032C860 /* ReportsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		7C1C1530229EDA5E0050337B /* TextAreaViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModelBinder.swift; sourceTree = "<group>"; };
+		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
+		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
 		7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataStore.swift; sourceTree = "<group>"; };
 		7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResults.swift; sourceTree = "<group>"; };
@@ -872,6 +876,15 @@
 				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
 			);
 			path = DividerView;
+			sourceTree = "<group>";
+		};
+		7C1E80BB23802F4D006957BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */,
+				7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7C1F42B2237AC7710043D5E3 /* Application */ = {
@@ -1598,10 +1611,11 @@
 		7C38D49D22D48BE70044AFC5 /* ViewFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */,
-				7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */,
-				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
+				7C1E80BB23802F4D006957BB /* Model */,
 				7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */,
+				7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */,
+				7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */,
+				7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -2813,6 +2827,7 @@
 				7C69552223391ECB009D4A25 /* UIMarginLabel.swift in Sources */,
 				7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */,
 				7CAB84C722EF38F700CE91AA /* TermsSwitchBtnsViewFactory.swift in Sources */,
+				7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */,
 				7C98A6A92289689900DA184E /* LabelAndTextView.swift in Sources */,
 				7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */,
 				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
@@ -2877,6 +2892,7 @@
 				7C1F42C2237ACF430043D5E3 /* CampaignsVersionChecker.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
+				7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
 				7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */,

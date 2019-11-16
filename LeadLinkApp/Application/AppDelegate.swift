@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        
         startVCProvider = StartViewControllerProvider(factory: factory)
         
         let navigationViewModelFactory = NavigationViewModelFactory(appDependancyContainer: factory)

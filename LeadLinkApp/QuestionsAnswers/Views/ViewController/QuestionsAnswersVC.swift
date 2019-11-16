@@ -8,7 +8,6 @@
 
 import RxSwift
 import RxCocoa
-import RealmSwift
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {
     
@@ -53,7 +52,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    private func configureQuestionForm() { print("Realm url: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+    private func configureQuestionForm() {
         
         questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
         loadParentViewModel(questions: questions)
