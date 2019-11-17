@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import PromiseKit
 import RealmSwift
 
 import RxSwift
@@ -15,15 +14,13 @@ import RxCocoa
 public class RealmReportsDataStore: ReportsDataStore {
     
     private var realm = try! Realm.init()
-    private var campaignsDataStore: CampaignsDataStore
     internal var campaignId: Int
     
     // output:
     var oReports = BehaviorRelay<[RealmWebReportedAnswers]>.init(value: [])
     
-    init(campaignId: Int, campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
+    init(campaignId: Int, realm: Realm? = nil) {
         self.campaignId = campaignId
-        self.campaignsDataStore = campaignsDataStore
         if let realm = realm {
             self.realm = realm
         }
