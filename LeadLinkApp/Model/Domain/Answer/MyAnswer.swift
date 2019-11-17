@@ -86,7 +86,12 @@ extension MyAnswer: Hashable {
         return lhs.compositeId == rhs.compositeId
     }
     
-    public var hashValue: Int {
-        return Int(self.compositeId) ?? 0
+//    public var hashValue: Int {
+//        return Int(self.compositeId) ?? 0
+//    }
+    
+    public func hash(into hasher: inout Hasher) {
+        let value = Int(self.compositeId) ?? 0
+        hasher.combine(value)
     }
 }
