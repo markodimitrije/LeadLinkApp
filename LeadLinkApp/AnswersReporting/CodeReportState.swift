@@ -6,23 +6,13 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 import RealmSwift
-import Realm
 
-
-class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
+class AnswersReportsToWebState {
     
-    private var reports: [AnswersReport] {
-        
-        guard let realm = try? Realm.init() else {return [ ]} // ovde bi trebalo RealmError!
-        
-        let webReportedAnswersReports = realm.objects(RealmWebReportedAnswers.self)
-        
-        return webReportedAnswersReports.toArray().map(AnswersReport.init(realmAnswersReport:))
-    }
+    private var reports = [AnswersReport]()
     
     private var shouldReportToWeb: Bool {
         return reports.isEmpty
@@ -42,7 +32,13 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     
     init() {
         bindInputWithOutput()
+        self.reports = AnswersReportDataStore.shared.getReports()
     }
+    
+//    init(answersReportDataStore: AnswersReportDataStore) { // TODO - DIP + remove .shared
+//        self.reports = answersReportDataStore.getReports()
+//        bindInputWithOutput()
+//    }
     
     private func bindInputWithOutput() { print("AnswersReportsToWebState.bindInputWithOutput")
         
@@ -116,4 +112,3 @@ class AnswersReportsToWebState { // ovo je trebalo da zoves viewModel-om !
     }
     
 }
-

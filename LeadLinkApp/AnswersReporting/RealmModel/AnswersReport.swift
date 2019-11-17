@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class AnswersReport {//}: Object { // Realm Entity
+class AnswersReport {
     
     private var answers = [MyAnswer]()
     var campaignId = "0"
@@ -59,19 +59,5 @@ class AnswersReport {//}: Object { // Realm Entity
         updated.success = success
         return updated
     }
-    
-    // kompajler me tera da implementiram, mogu li ikako bez toga ? ...
-    
-//    required init() {
-//        super.init()
-//    }
-//
-//    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-//        super.init(realm: realm, schema: schema)
-//    }
-//
-//    required init(value: Any, schema: RLMSchema) {
-//        super.init(value: value, schema: schema)
-//    }
     
 }
