@@ -19,6 +19,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     // MARK: - Properties
     var realm = try! Realm.init()
     
+    // MARK: - GET
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<RealmAnswer?> {
         
         return Promise() { seal in
@@ -70,6 +71,14 @@ public class RealmAnswersDataStore: AnswersDataStore {
         return result
     }
     
+    func answers(campaign_id: Int, code: String) -> [RealmAnswer] {
+        return
+            realm.objects(RealmAnswer.self)
+                .filter("code == %@ && campaignId == %i", code, campaign_id)
+                .toArray()
+    }
+    
+    // MARK: - SAVE
     func save(answers: [MyAnswer], forCode code: String) -> Promise<Bool> {
         
         return Promise() { seal in
@@ -92,7 +101,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
             
         }
     }
-    
+    // MARK: - DELETE
     public func delete(answers: [Answer]) -> Promise<[RealmAnswer]> {
         
         let ids = answers.map {$0.id}

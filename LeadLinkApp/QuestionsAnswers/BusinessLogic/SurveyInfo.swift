@@ -6,10 +6,7 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import Realm
-import RealmSwift
 
 enum InternalError: Error {
     case viewmodelConversion
@@ -66,8 +63,7 @@ struct SurveyInfo {
     }
 
     func realmCampaignHasAnswersFor(codeValue code: String) -> Bool { // rename
-        guard let realm = try? Realm() else { return false } // treba exception!
-        let codeExists = realm.objects(RealmAnswer.self).filter("code == %@ && campaignId == %i", code, self.campaign.id).first != nil
+        let codeExists = dataStore.answers(campaign_id: self.campaign.id, code: code).first != nil
         return codeExists
     }
     

@@ -6,11 +6,9 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 import RealmSwift
-import Realm
 
 class ReportsDumper {
     
