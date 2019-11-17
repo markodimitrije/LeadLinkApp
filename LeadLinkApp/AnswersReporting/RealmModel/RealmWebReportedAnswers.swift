@@ -6,8 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-import Realm
 import RealmSwift
 
 class RealmWebReportedAnswers: Object {

@@ -16,15 +16,16 @@ struct AnswersReportDataStore {
     static var shared = AnswersReportDataStore()
     
     // observable OUTPUT
-    func getRealmWebReportedAnswers() -> Observable<Results<RealmWebReportedAnswers>> {
+    
+    func getRealmWebReportedAnswers() -> Observable<[RealmWebReportedAnswers]> {
         
         guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
         
         let results = realm.objects(RealmWebReportedAnswers.self)
         
         return Observable
-                .collection(from: results) // this is live source !!
-        
+            .collection(from: results) // this is live source !!
+            .map {$0.toArray()}
     }
 
     // MARK:- Reports

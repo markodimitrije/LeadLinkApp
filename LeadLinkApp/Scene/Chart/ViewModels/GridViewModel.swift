@@ -6,9 +6,7 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import RealmSwift
 
 protocol GridViewModeling {
     var output: ReplaySubject<UIView> {get set}
@@ -17,7 +15,7 @@ protocol GridViewModeling {
 class GridViewModel: GridViewModeling {
     
     private var campaign: Observable<Campaign?>
-    private var webReports: Observable<Results<RealmWebReportedAnswers>>
+    private var webReports: Observable<[RealmWebReportedAnswers]>
     private var viewFactory: ChartGridViewBuilding
     private let bag = DisposeBag()
     
@@ -27,7 +25,7 @@ class GridViewModel: GridViewModeling {
     var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
     init(campaign: Observable<Campaign?>,
-         webReports: Observable<Results<RealmWebReportedAnswers>>,
+         webReports: Observable<[RealmWebReportedAnswers]>,
          viewFactory: ChartGridViewBuilding) {
         
         self.campaign = campaign
@@ -47,7 +45,7 @@ class GridViewModel: GridViewModeling {
         webReports
             .subscribe(onNext: { [weak self] webReports in
                 guard let sSelf = self else {return}
-                sSelf.newWebReports = webReports.toArray()
+                sSelf.newWebReports = webReports
                 if sSelf.newCampaign != nil {
                     sSelf.newEventIsCatchedEmitUpdatedView(webReports: sSelf.newWebReports,
                                                            campaign: sSelf.newCampaign)

@@ -6,9 +6,7 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import RealmSwift
 
 protocol PieChartViewModeling {
     var output: ReplaySubject<BarOrChartData> {get set}
@@ -17,7 +15,7 @@ protocol PieChartViewModeling {
 class PieChartViewModel: PieChartViewModeling {
     
     private var campaign: Observable<Campaign?>
-    private var webReports: Observable<Results<RealmWebReportedAnswers>>
+    private var webReports: Observable<[RealmWebReportedAnswers]>
     private var viewFactory: PieChartViewFactoryProtocol
     private let bag = DisposeBag()
     
@@ -27,7 +25,7 @@ class PieChartViewModel: PieChartViewModeling {
     var output = ReplaySubject<BarOrChartData>.create(bufferSize: 10) // output
     
     init(campaign: Observable<Campaign?>,
-         webReports: Observable<Results<RealmWebReportedAnswers>>,
+         webReports: Observable<[RealmWebReportedAnswers]>,
          viewFactory: PieChartViewFactoryProtocol) {
         
         self.campaign = campaign
@@ -49,7 +47,7 @@ class PieChartViewModel: PieChartViewModeling {
         webReports
             .subscribe(onNext: { [weak self] webReports in
                 guard let sSelf = self else {return}
-                sSelf.newWebReports = webReports.toArray()
+                sSelf.newWebReports = webReports
                 if sSelf.newCampaign != nil {
                     sSelf.newEventIsCatchedEmitUpdatedView(webReports: sSelf.newWebReports,
                                                            campaign: sSelf.newCampaign)
