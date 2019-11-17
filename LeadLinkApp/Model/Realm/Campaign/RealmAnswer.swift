@@ -8,28 +8,6 @@
 
 import RealmSwift
 
-//public class RealmAnswer: Object {
-//
-//    @objc dynamic var id: String = ""
-//    @objc dynamic var campaignId: Int = 0
-//    @objc dynamic var questionId: Int = 0
-//    @objc dynamic var code = ""
-//    @objc dynamic var result = ""
-//
-//    func updateWith(answer: Answer) {
-//        self.campaignId = answer.campaignId
-//        self.questionId = answer.questionId
-//        self.code = answer.code
-//        self.result = answer.result
-//        self.id = "\(campaignId)" + "\(questionId)"
-//    }
-//
-//    override public static func primaryKey() -> String? {
-//        return "id"
-//    }
-//
-//}
-
 public class RealmAnswer: Object {
     
     @objc dynamic var id: String = ""
@@ -62,7 +40,6 @@ public class RealmAnswer: Object {
             self.optionIds.removeAll()
             self.optionIds.append(objectsIn: answer.optionIds!)
         }
-        
         
         self.content.removeAll();
         self.content.append(objectsIn: answer.content)

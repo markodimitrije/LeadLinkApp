@@ -6,7 +6,6 @@
 //  Copyright © 2019 Navus. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 class AnswersReport {
