@@ -102,7 +102,8 @@ public class RealmAnswersDataStore: AnswersDataStore {
         }
     }
     // MARK: - DELETE
-    public func delete(answers: [Answer]) -> Promise<[RealmAnswer]> {
+    //public func delete(answers: [Answer]) -> Promise<[RealmAnswer]> {
+    public func delete(answers: [MyAnswer]) -> Promise<[RealmAnswer]> {
         
         let ids = answers.map {$0.id}
         

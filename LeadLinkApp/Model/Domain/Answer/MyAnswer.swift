@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyAnswer: Answering {
+public struct MyAnswer: Answering, Codable {
     var campaignId = 0
     var questionId = 0
     var code = ""
@@ -82,11 +82,11 @@ struct MyAnswer: Answering {
 }
 
 extension MyAnswer: Hashable {
-    static func == (lhs: MyAnswer, rhs: MyAnswer) -> Bool {
+    public static func == (lhs: MyAnswer, rhs: MyAnswer) -> Bool {
         return lhs.compositeId == rhs.compositeId
     }
     
-    var hashValue: Int {
+    public var hashValue: Int {
         return Int(self.compositeId) ?? 0
     }
 }

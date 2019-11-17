@@ -11,7 +11,7 @@ import RealmSwift
 public class Code: Codable {
     let value: String
     var campaign_id: Int
-    var answers = [Answer]()
+    var answers = [MyAnswer]()
     
     init(value: String, campaign_id: Int) {
         self.value = value
@@ -21,7 +21,7 @@ public class Code: Codable {
     init(realmCode: RealmCode) {
         self.value = realmCode.value
         self.campaign_id = realmCode.campaign_id
-        self.answers = realmCode.answers.compactMap(Answer.init)
+        self.answers = realmCode.answers.compactMap(MyAnswer.init)
     }
     
 }

@@ -21,7 +21,7 @@ class ViewStacker: UIView {
         }
     }
     
-    var answer: Answer?
+    var answer: MyAnswer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +40,7 @@ class ViewStacker: UIView {
         layoutComponents()
     }
     
-    convenience init(frame: CGRect, components: [UIView], answer: Answer?) {
+    convenience init(frame: CGRect, components: [UIView], answer: MyAnswer?) {
         self.init(frame: frame)
         self.answer = answer
         self.components = components
