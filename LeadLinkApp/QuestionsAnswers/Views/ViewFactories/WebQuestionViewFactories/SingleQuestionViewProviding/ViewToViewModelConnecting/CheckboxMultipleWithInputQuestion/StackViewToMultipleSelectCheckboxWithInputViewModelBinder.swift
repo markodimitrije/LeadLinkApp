@@ -77,7 +77,8 @@ class StackViewToMultipleSelectCheckboxWithInputViewModelBinder: ViewStackerView
             textDrivers.last?.asObservable()
                 .subscribe(onNext: { (val) in
                     if val == "" {
-                        (allViews.last as? UITextField)?.placeholder = "Type your answer"
+                        //(allViews.last as? UITextField)?.placeholder = "Type your answer"
+                        (allViews.last as? UITextField)?.placeholder = "Autre"
                     }
                 })
                 .disposed(by: bag)

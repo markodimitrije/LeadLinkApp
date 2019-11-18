@@ -39,6 +39,7 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         }
         set {
             //linkBtn?.titleLabel?.text = newValue
+            linkBtn?.titleLabel?.numberOfLines = 0
             linkBtn?.setTitle(newValue, for: .normal)
         }
     }
@@ -75,10 +76,17 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        formatBorder()
         formatStackDueToDeviceType()
         
         self.addSubview(view)
         
+    }
+    
+    private func formatBorder() {
+        self.layer.borderColor = UIColor.fieldBorderGray.cgColor
+        self.layer.borderWidth = 1.0
+        self.layer.cornerRadius = 5.0
     }
     
     private func formatStackDueToDeviceType() {

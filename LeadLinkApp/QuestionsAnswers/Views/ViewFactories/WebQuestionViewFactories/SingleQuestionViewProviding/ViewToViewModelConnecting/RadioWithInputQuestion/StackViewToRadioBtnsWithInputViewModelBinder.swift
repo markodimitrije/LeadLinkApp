@@ -89,7 +89,8 @@ class StackViewToRadioBtnsWithInputViewModelBinder: ViewStackerViewsToViewModelB
                 .subscribe(onNext: { [weak self] (val) in
                     guard let sSelf = self else {return}
                     if val == "" {
-                        sSelf.txtField.placeholder = "Type your answer"
+                        //sSelf.txtField.placeholder = "Type your answer"
+                        sSelf.txtField.placeholder = "Autre"
                     }
                 })
                 .disposed(by: bag)

@@ -60,18 +60,3 @@ class TermsNoSwitchView: UIView {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,7 +23,7 @@ class IphoneQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHe
         case .switchBtn:
             return CGFloat.init(80)
         case .termsSwitchBtn:
-            return CGFloat.init(80)
+            return CGFloat.init(120)
         case .textArea:
             return 200.0
         case .dropdown:

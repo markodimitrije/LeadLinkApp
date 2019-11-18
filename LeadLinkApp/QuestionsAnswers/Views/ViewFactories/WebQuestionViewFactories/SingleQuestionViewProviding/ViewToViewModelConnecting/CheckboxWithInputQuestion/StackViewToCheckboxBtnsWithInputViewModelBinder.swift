@@ -39,7 +39,8 @@ class StackViewToCheckboxBtnsWithInputViewModelBinder: ViewStackerViewsToViewMod
             textDrivers.last?.asObservable()
                 .subscribe(onNext: { (val) in
                     if val == "" {
-                        (btnViews.last as? UITextField)?.placeholder = "Type your answer"
+                        //(btnViews.last as? UITextField)?.placeholder = "Type your answer"
+                        (btnViews.last as? UITextField)?.placeholder = "Autre"
                     }
                 })
                 .disposed(by: bag)
