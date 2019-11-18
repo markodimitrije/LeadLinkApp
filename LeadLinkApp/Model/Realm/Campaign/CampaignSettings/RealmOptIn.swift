@@ -13,12 +13,14 @@ class RealmOptIn: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var text: String = ""
     @objc dynamic var url: String = ""
+    @objc dynamic var privacyPolicy: String = ""
     
     public func update(with optIn: OptIn, forCampaignId campaignId: Int) {
         
         self.id = campaignId
         self.text = optIn.text
         self.url = optIn.url
+        self.privacyPolicy = optIn.privacyPolicy
     }
     
     override static func primaryKey() -> String? {

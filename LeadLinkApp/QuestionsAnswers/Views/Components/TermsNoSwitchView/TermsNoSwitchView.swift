@@ -50,11 +50,18 @@ class TermsNoSwitchView: UIView {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
         
-        let hyperlink = Constants.PrivacyPolicy.hyperLinkPolicyText
+        let hyperlink = optIn?.privacyPolicy ?? Constants.PrivacyPolicy.hyperLinkPolicyText
         let url = optIn?.url ?? Constants.PrivacyPolicy.navusUrl
-        let originalText = optIn?.text ?? Constants.TermsNoSwitch.navusText
-
-        textView.hyperLink(originalText: originalText,
+        
+        var text = ""
+        
+        if let textBase = optIn?.text {
+            text = textBase + " " + hyperlink
+        } else {
+            text = Constants.TermsNoSwitch.navusText
+        }
+        
+        textView.hyperLink(originalText: text,
                            hyperLinkFirst: hyperlink,
                            urlStringFirst: url)
     }

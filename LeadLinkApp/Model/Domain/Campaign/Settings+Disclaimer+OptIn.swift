@@ -39,13 +39,16 @@ public struct Disclaimer: Codable {
 public struct OptIn: Codable {
     var text: String
     var url: String
+    var privacyPolicy: String
     
     init?(realmOptIn optIn: RealmOptIn?) {
         guard let text = optIn?.text,
-            let url = optIn?.url else {
+            let url = optIn?.url,
+            let privacyPolicy = optIn?.privacyPolicy else {
                 return nil
         }
         self.text = text
         self.url = url
+        self.privacyPolicy = privacyPolicy
     }
 }
