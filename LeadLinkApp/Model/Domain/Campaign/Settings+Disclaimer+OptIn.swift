@@ -42,13 +42,11 @@ public struct OptIn: Codable {
     var privacyPolicy: String
     
     init?(realmOptIn optIn: RealmOptIn?) {
-        guard let text = optIn?.text,
-            let url = optIn?.url,
-            let privacyPolicy = optIn?.privacyPolicy else {
-                return nil
+        guard let optIn = optIn else {
+            return nil
         }
-        self.text = text
-        self.url = url
-        self.privacyPolicy = privacyPolicy
+        self.text = optIn.text
+        self.url = optIn.url
+        self.privacyPolicy = optIn.privacyPolicy
     }
 }

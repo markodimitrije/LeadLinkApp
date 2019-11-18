@@ -22,7 +22,7 @@ extension UITextView {
         
         attributedOriginalText.addAttribute(.link, value: urlStringFirst, range: linkRangeFirst)
         
-        attributedOriginalText.addAttribute(.paragraphStyle, value: style, range: fullRange)
+//        attributedOriginalText.addAttribute(.paragraphStyle, value: style, range: fullRange)
         attributedOriginalText.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
         attributedOriginalText.addAttribute(.font, value: UIFont.systemFont(ofSize: 14), range: fullRange)
         
@@ -48,7 +48,7 @@ extension UITextView {
         attributedOriginalText.addAttribute(.link, value: urlStringFirst, range: linkRangeFirst)
         attributedOriginalText.addAttribute(.link, value: urlStringSecond, range: linkRangeSecond)
         
-        attributedOriginalText.addAttribute(.paragraphStyle, value: style, range: fullRange)
+//        attributedOriginalText.addAttribute(.paragraphStyle, value: style, range: fullRange)
         attributedOriginalText.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
         attributedOriginalText.addAttribute(.font, value: UIFont.systemFont(ofSize: 14), range: fullRange)
         
