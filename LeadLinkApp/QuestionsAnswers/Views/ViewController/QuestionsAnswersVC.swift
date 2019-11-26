@@ -138,7 +138,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         if isCellBelowHalfOfTheScreen {
             if verticalShift < 0 {
-                self.tableView.contentOffset.y += abs(2*verticalShift)
+                delay(0.1) {
+                    self.tableView.contentOffset.y += abs(2*verticalShift)
+                }
             }
         }
         
