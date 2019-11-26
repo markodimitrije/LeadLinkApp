@@ -763,9 +763,8 @@
 		7C0E5CB7228ECD310011E0A2 /* TermsSwitch */ = {
 			isa = PBXGroup;
 			children = (
-				7C0E5CB8228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib */,
-				7C0E5CB9228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift */,
-				7C1F4307237B0D870043D5E3 /* TermsLabelBtnSwitchView+Rx.swift */,
+				7C1B11A7238D6857004DFB1C /* iPhoneTermsSwitch */,
+				7C1B11A6238D6834004DFB1C /* iPadTermsSwitch */,
 			);
 			path = TermsSwitch;
 			sourceTree = "<group>";
@@ -797,6 +796,23 @@
 				7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */,
 			);
 			path = ReportsStore;
+			sourceTree = "<group>";
+		};
+		7C1B11A6238D6834004DFB1C /* iPadTermsSwitch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPadTermsSwitch;
+			sourceTree = "<group>";
+		};
+		7C1B11A7238D6857004DFB1C /* iPhoneTermsSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				7C0E5CB8228ECD520011E0A2 /* TermsLabelBtnSwitchView.xib */,
+				7C0E5CB9228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift */,
+				7C1F4307237B0D870043D5E3 /* TermsLabelBtnSwitchView+Rx.swift */,
+			);
+			path = iPhoneTermsSwitch;
 			sourceTree = "<group>";
 		};
 		7C1C1528229ED5CE0050337B /* LabelAndTextView */ = {

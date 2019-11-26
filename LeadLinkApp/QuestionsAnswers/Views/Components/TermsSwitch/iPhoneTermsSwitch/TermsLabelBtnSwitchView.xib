@@ -5,12 +5,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermsLabelBtnSwitchView" customModule="Navus_Lead" customModuleProvider="target">
             <connections>
-                <outlet property="label" destination="pMT-AM-trd" id="IBn-Wq-U0r"/>
+                <outlet property="label" destination="dAd-OB-chs" id="Owj-gY-b7y"/>
                 <outlet property="linkBtn" destination="p8q-a4-xjd" id="yAr-Lc-FMw"/>
                 <outlet property="stackView" destination="ruh-gA-AcD" id="8Ec-H3-6cm"/>
                 <outlet property="switcher" destination="ATm-yX-Fdz" id="Mao-8J-nnL"/>
@@ -21,17 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="524" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
-                    <rect key="frame" x="16" y="12.5" width="267" height="55.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-gA-AcD">
+                    <rect key="frame" x="8" y="19.5" width="451" height="41"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalCompressionResistancePriority="749" text="Implement &quot;read and accept the&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-AM-trd">
-                            <rect key="frame" x="0.0" y="0.0" width="267" height="21.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Label dshcvhdshahdshvca Label dshcvhdshahdshvca" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAd-OB-chs">
+                            <rect key="frame" x="0.0" y="0.0" width="225.5" height="41"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
-                            <rect key="frame" x="0.0" y="21.5" width="267" height="34"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-a4-xjd">
+                            <rect key="frame" x="233.5" y="0.0" width="217.5" height="41"/>
+                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="Implement Terms &amp; Conditions"/>
                             <connections>
@@ -39,22 +42,20 @@
                             </connections>
                         </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="p8q-a4-xjd" firstAttribute="top" secondItem="pMT-AM-trd" secondAttribute="bottom" id="v9i-Nu-J9a"/>
-                    </constraints>
                 </stackView>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
-                    <rect key="frame" x="459" y="24.5" width="51" height="31"/>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATm-yX-Fdz">
+                    <rect key="frame" x="467" y="24.5" width="51" height="31"/>
                 </switch>
             </subviews>
+            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ruh-gA-AcD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="6S8-JE-cTQ"/>
-                <constraint firstItem="ATm-yX-Fdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ruh-gA-AcD" secondAttribute="trailing" constant="8" id="BMn-3R-NBQ"/>
-                <constraint firstItem="ruh-gA-AcD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="BjI-W1-HtX"/>
+                <constraint firstItem="ruh-gA-AcD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="BjI-W1-HtX"/>
                 <constraint firstItem="ruh-gA-AcD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IGk-8j-u3W"/>
+                <constraint firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="8" id="WX7-nS-CGk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ruh-gA-AcD" secondAttribute="bottom" constant="4" id="XQi-1j-93H"/>
+                <constraint firstItem="ATm-yX-Fdz" firstAttribute="leading" secondItem="ruh-gA-AcD" secondAttribute="trailing" constant="8" id="r9D-yi-TQz"/>
                 <constraint firstItem="ATm-yX-Fdz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rbh-Ed-llb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ATm-yX-Fdz" secondAttribute="trailing" constant="16" id="tEH-h3-KpT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

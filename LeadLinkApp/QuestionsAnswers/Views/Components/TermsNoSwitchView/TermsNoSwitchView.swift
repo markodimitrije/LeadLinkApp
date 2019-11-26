@@ -54,7 +54,7 @@ class TermsNoSwitchView: UIView {
         let hyperlink = optIn.privacyPolicy
         let url = optIn.url
         
-        let text = optIn.text + optIn.privacyPolicy
+        let text = optIn.text + " " + optIn.privacyPolicy
         
         textView.hyperLink(originalText: text,
                            hyperLinkFirst: hyperlink,

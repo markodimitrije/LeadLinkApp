@@ -44,7 +44,7 @@ class IpadQuestionsAnswersTableRowHeightCalculator: QuestionsAnswersTableRowHeig
         case .switchBtn:
             return 60.0
         case .termsSwitchBtn:
-            return 60.0
+            return 80.0
         case .textArea:
             return 200.0
         case .dropdown:

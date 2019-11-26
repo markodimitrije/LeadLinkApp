@@ -92,10 +92,8 @@ class TermsLabelBtnSwitchView: UIView, ViewWithSwitch, RowsStackedEqually {
     private func formatStackDueToDeviceType() {
         if getDeviceType() == .iPad {
             stackView.axis = .horizontal
-            stackView.spacing = 8.0
         } else if getDeviceType() == .iPhone {
             stackView.axis = .vertical
-            stackView.spacing = -32.0
         }
     }
     
