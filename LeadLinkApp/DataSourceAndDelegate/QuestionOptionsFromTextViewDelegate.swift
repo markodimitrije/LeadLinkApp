@@ -33,9 +33,10 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
 
         let dataSourceAndDelegate = QuestionOptionsTableViewDataSourceAndDelegate(selectOptionTextViewModel: childViewmodel)
         chooseOptionsVC.dataSourceAndDelegate = dataSourceAndDelegate
-//
-//        viewController.tableView.reloadData()
-//
+
+        textView.textColor = .black
+        textView.resignFirstResponder()
+        
         chooseOptionsVC.doneWithOptions.subscribe(onNext: { [weak self] (dataSource) in
             guard let sSelf = self else {return}
             sSelf.reloadTableViewAndUpdateModel(selfRef: sSelf.viewController, //sSelf,
@@ -50,9 +51,6 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             showOptionsAsPopover(vc: chooseOptionsVC, fromSourceRect: textView)
         }
         
-        textView.textColor = .black
-        
-        textView.resignFirstResponder()
     }
     
     private func showOptionsAsPopover(vc: UIViewController, fromSourceRect source: UIView) {
