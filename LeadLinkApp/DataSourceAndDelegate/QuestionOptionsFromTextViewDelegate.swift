@@ -30,12 +30,12 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
         
         let navBarTitle = childViewmodel.question.headlineText
         chooseOptionsVC.navigationItem.title = navBarTitle
-        
+
         let dataSourceAndDelegate = QuestionOptionsTableViewDataSourceAndDelegate(selectOptionTextViewModel: childViewmodel)
         chooseOptionsVC.dataSourceAndDelegate = dataSourceAndDelegate
-        
-        viewController.tableView.reloadData()
-        
+//
+//        viewController.tableView.reloadData()
+//
         chooseOptionsVC.doneWithOptions.subscribe(onNext: { [weak self] (dataSource) in
             guard let sSelf = self else {return}
             sSelf.reloadTableViewAndUpdateModel(selfRef: sSelf.viewController, //sSelf,
@@ -83,10 +83,12 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             
             //selfRef.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
             selfRef.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
-            selfRef.tableView.reloadData()
+            
+            reloadTableOnlyForOptionsTextView(textView: textView, selfRef: selfRef)
         }
         
     }
+    
     private func navigateBackFrom(optionsVC: UIViewController) {
         if UIDevice.current.userInterfaceIdiom == .phone {
             optionsVC.navigationController?.popViewController(animated: true)
@@ -94,4 +96,11 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             optionsVC.dismiss(animated: true, completion: nil)
         }
     }
+    
+    private func reloadTableOnlyForOptionsTextView(textView: UITextView, selfRef: QuestionsAnswersVC) {
+        let point = textView.convert(textView.frame.origin, to: selfRef.tableView)
+        let ip = selfRef.tableView.indexPathForRow(at: point)!
+        selfRef.tableView.reloadRows(at: [ip], with: .top)
+    }
+    
 }

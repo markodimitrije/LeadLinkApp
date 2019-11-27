@@ -30,7 +30,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     var bag = DisposeBag()
     
-    private var keyboardDelegate: MovingKeyboardDelegate!
+    private var keyboardDelegate: QuestionsAnswersMovingKeyboardDelegate!
     
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
 
@@ -116,14 +116,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func setUpKeyboardBehavior() {
         
-        keyboardDelegate = MovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
+        keyboardDelegate = QuestionsAnswersMovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
         
     }
     
     private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
-        
-//        print("scrollFirstResponderToTopOfTableView is CALLED ! ! !  ! !  !")
-        
+    
         let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
             let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
             guard let textControl = textControlObject else {
@@ -133,9 +131,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         })
         
         guard let firstResponderCell = firstResponder else { return }
-        
+
+        // da li je od dropdowna ?? ako da, ponisti mu scroll...
+
         let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
-        
+
         if isCellBelowHalfOfTheScreen {
             if verticalShift < 0 {
                 delay(0.1) {
