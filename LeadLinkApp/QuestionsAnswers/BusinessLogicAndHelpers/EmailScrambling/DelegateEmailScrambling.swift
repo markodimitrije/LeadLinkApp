@@ -18,6 +18,6 @@ class DelegateEmailScrambler: DelegateEmailScrambling {
         self.campaign = campaign
     }
     func shouldShowEmail() -> Bool {
-        return campaign.settings?.showEmail ?? false// ?? true
+        return campaign.settings?.showEmail ?? true//false// ?? true
     }
 }
