@@ -36,7 +36,7 @@ class TextViewFactory: GetViewProtocol {
         let textView = UITextView()
         textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
-        textView.font = UIFont(name: "Helvetica", size: CGFloat.init(24))
+        textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
         
         textView.text = getText(inputText: inputText, placeholderText: placeholderText)

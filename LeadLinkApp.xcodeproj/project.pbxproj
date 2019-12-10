@@ -130,7 +130,7 @@
 		7C4DC2AD233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */; };
 		7C4DC2AF233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */; };
 		7C4E0754239FEF0B003FBCF6 /* DropdownViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */; };
-		7C4E0757239FEF69003FBCF6 /* LabelFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0756239FEF69003FBCF6 /* LabelFactoryProtocol.swift */; };
+		7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */; };
 		7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */; };
 		7C4E075B239FF0B5003FBCF6 /* GetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */; };
 		7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */; };
@@ -502,7 +502,7 @@
 		7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+SwitchBtnsViewModel.swift"; sourceTree = "<group>"; };
 		7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+LabelWithTextFieldViewModel.swift"; sourceTree = "<group>"; };
 		7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModelFactory.swift; sourceTree = "<group>"; };
-		7C4E0756239FEF69003FBCF6 /* LabelFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactoryProtocol.swift; sourceTree = "<group>"; };
+		7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewProtocol.swift; sourceTree = "<group>"; };
 		7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewModelProtocol.swift; sourceTree = "<group>"; };
 		7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModel.swift; sourceTree = "<group>"; };
@@ -1865,7 +1865,7 @@
 			isa = PBXGroup;
 			children = (
 				7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */,
-				7C4E0756239FEF69003FBCF6 /* LabelFactoryProtocol.swift */,
+				7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
 			);
 			path = CodeViewFactories;
@@ -2945,7 +2945,7 @@
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */,
-				7C4E0757239FEF69003FBCF6 /* LabelFactoryProtocol.swift in Sources */,
+				7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
 				7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,

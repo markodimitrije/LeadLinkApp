@@ -1,5 +1,5 @@
 //
-//  LabelFactoryProtocol.swift
+//  LabelFactory.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 10/12/2019.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol LabelFactoryProtocol: GetViewProtocol {}
-
-class LabelFactory: LabelFactoryProtocol {
+class LabelFactory: GetViewProtocol {
     
     private var myView: UIView
     
@@ -22,10 +20,13 @@ class LabelFactory: LabelFactoryProtocol {
         
         //Text Label
         let textLabel = UILabel()
-        textLabel.backgroundColor = .blue
+        textLabel.backgroundColor = .cyan
         textLabel.numberOfLines = 0
         textLabel.text = text
         textLabel.textAlignment = .left
+        textLabel.font = UIFont(name: "Helvetica", size: 20.0)
+        
+        textLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
         
         if let width = width {
             textLabel.widthAnchor.constraint(equalToConstant: width).isActive = true
