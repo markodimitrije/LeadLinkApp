@@ -19,9 +19,12 @@ class CheckboxBtnsViewModelFactory: GetViewModelProtocol {
         let question = questionInfo.getQuestion()
         let answer = questionInfo.getAnswer()
         
+        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
         let checkboxBtnsFactory = CheckboxBtnsFactory(question: question, answer: answer)
         
-        let viewmodel = CheckboxBtnsViewModel(questionInfo: questionInfo, checkboxBtnsFactory: checkboxBtnsFactory)
+        let viewmodel = CheckboxBtnsViewModel(questionInfo: questionInfo,
+                                              labelFactory: labelFactory,
+                                              checkboxBtnsFactory: checkboxBtnsFactory)
         
         self.viewmodel = viewmodel
     }
