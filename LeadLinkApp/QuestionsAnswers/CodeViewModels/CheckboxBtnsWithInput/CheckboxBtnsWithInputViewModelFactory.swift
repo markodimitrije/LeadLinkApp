@@ -22,8 +22,10 @@ class CheckboxBtnsWithInputViewModelFactory: GetViewModelProtocol {
         let checkboxBtnsFactory = CheckboxBtnsFactory(question: question, answer: answer)
         let textViewFactory = TextViewFactory(inputText: answer?.content.first ?? "",
                                                   placeholderText: question.description)
+        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
         
         let mainFactory = CheckboxWithInputViewFactory(questionInfo: questionInfo,
+                                                       labelFactory: labelFactory,
                                                        checkboxBtnsFactory: checkboxBtnsFactory,
                                                        textViewFactory: textViewFactory)
         

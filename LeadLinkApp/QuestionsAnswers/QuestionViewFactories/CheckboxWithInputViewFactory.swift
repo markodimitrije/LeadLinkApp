@@ -21,7 +21,7 @@ class CheckboxWithInputViewFactory: GetViewProtocol {
         return self.singleCheckboxBtnViewModels
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol, checkboxBtnsFactory: CheckboxBtnsFactory, textViewFactory: TextViewFactory) {
+    init(questionInfo: PresentQuestionInfoProtocol, labelFactory: LabelFactory, checkboxBtnsFactory: CheckboxBtnsFactory, textViewFactory: TextViewFactory) {
         
         let checkboxBtnsViewModels: [SingleCheckboxBtnViewModel] = checkboxBtnsFactory.getViewModels()
         self.singleCheckboxBtnViewModels = checkboxBtnsViewModels
@@ -37,7 +37,11 @@ class CheckboxWithInputViewFactory: GetViewProtocol {
         
         let lastCheckboxBtnWithInputView = CodeHorizontalStacker(views: [lastCheckboxBtnView, textView], distribution: .fillEqually).getView()
         
-        self.myView = CodeVerticalStacker(views: [singleCheckboxBtnsView, lastCheckboxBtnWithInputView]).getView()
+        let labelView = labelFactory.getView()
+        
+        self.myView = CodeVerticalStacker(views: [labelView,
+                                                  singleCheckboxBtnsView,
+                                                  lastCheckboxBtnWithInputView]).getView()
         
         lastCheckboxBtnWithInputView.leadingAnchor.constraint(equalTo: lastCheckboxBtnWithInputView.superview!.leadingAnchor).isActive = true
         lastCheckboxBtnWithInputView.superview!.trailingAnchor.constraint(equalTo: lastCheckboxBtnWithInputView.trailingAnchor).isActive = true
