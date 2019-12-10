@@ -38,6 +38,10 @@ class ParentViewModel: QuestionsViewItemManaging {
                 let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
                 items.append(dropdownItem)
             }
+            if info.getQuestion().type == .checkbox {
+                let dropdownItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
+                items.append(dropdownItem)
+            }
         }
     }
     

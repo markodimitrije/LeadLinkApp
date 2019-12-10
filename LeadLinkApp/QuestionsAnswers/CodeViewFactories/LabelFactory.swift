@@ -26,7 +26,9 @@ class LabelFactory: GetViewProtocol {
         textLabel.textAlignment = .left
         textLabel.font = UIFont(name: "Helvetica", size: 20.0)
         
-        textLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
+        if text != "" {
+            textLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
+        }
         
         if let width = width {
             textLabel.widthAnchor.constraint(equalToConstant: width).isActive = true

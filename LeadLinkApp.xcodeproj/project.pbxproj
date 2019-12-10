@@ -140,6 +140,13 @@
 		7C4E076B23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */; };
 		7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */; };
 		7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */; };
+		7C4E077423A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077323A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift */; };
+		7C4E077623A03474003FBCF6 /* CheckboxBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077523A03474003FBCF6 /* CheckboxBtnsViewModel.swift */; };
+		7C4E077823A03508003FBCF6 /* CheckboxBtnsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */; };
+		7C4E078023A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077F23A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift */; };
+		7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */; };
+		7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078323A03C15003FBCF6 /* CodeVerticalStacker.swift */; };
+		7C4E078723A03C3C003FBCF6 /* CodeHorizontalStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -516,6 +523,13 @@
 		7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModelFactory.swift; sourceTree = "<group>"; };
 		7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModel.swift; sourceTree = "<group>"; };
 		7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModelFactory.swift; sourceTree = "<group>"; };
+		7C4E077323A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C4E077523A03474003FBCF6 /* CheckboxBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnsViewModel.swift; sourceTree = "<group>"; };
+		7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnsFactory.swift; sourceTree = "<group>"; };
+		7C4E077F23A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCheckboxBtnViewModel.swift; sourceTree = "<group>"; };
+		7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCheckboxBtnViewFactory.swift; sourceTree = "<group>"; };
+		7C4E078323A03C15003FBCF6 /* CodeVerticalStacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerticalStacker.swift; sourceTree = "<group>"; };
+		7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeHorizontalStacker.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -1868,6 +1882,7 @@
 				7C4E076D23A031A8003FBCF6 /* TextArea */,
 				7C4E076723A02AFE003FBCF6 /* TextField */,
 				7C4E0763239FF276003FBCF6 /* Dropdown */,
+				7C4E077223A03449003FBCF6 /* CheckboxBtns */,
 			);
 			path = CodeViewModels;
 			sourceTree = "<group>";
@@ -1878,6 +1893,7 @@
 				7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */,
 				7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
+				7C4E078523A03C1E003FBCF6 /* ViewStackers */,
 			);
 			path = CodeViewFactories;
 			sourceTree = "<group>";
@@ -1911,6 +1927,8 @@
 			isa = PBXGroup;
 			children = (
 				7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */,
+				7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */,
+				7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */,
 			);
 			path = QuestionViewFactories;
 			sourceTree = "<group>";
@@ -1922,6 +1940,33 @@
 				7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */,
 			);
 			path = TextArea;
+			sourceTree = "<group>";
+		};
+		7C4E077223A03449003FBCF6 /* CheckboxBtns */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E077323A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift */,
+				7C4E077523A03474003FBCF6 /* CheckboxBtnsViewModel.swift */,
+				7C4E077E23A035EE003FBCF6 /* SingleCheckboxBtn */,
+			);
+			path = CheckboxBtns;
+			sourceTree = "<group>";
+		};
+		7C4E077E23A035EE003FBCF6 /* SingleCheckboxBtn */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E077F23A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift */,
+			);
+			path = SingleCheckboxBtn;
+			sourceTree = "<group>";
+		};
+		7C4E078523A03C1E003FBCF6 /* ViewStackers */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E078323A03C15003FBCF6 /* CodeVerticalStacker.swift */,
+				7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */,
+			);
+			path = ViewStackers;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -2820,6 +2865,7 @@
 				7CF225DE23269162004E023C /* RealmSettings.swift in Sources */,
 				7C38086E22C5144600BB62C5 /* HeaderFieldsCreator.swift in Sources */,
 				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,
+				7C4E078723A03C3C003FBCF6 /* CodeHorizontalStacker.swift in Sources */,
 				7C2227232379CAC40006B8EE /* UIView+Extensions.swift in Sources */,
 				7C22270623799A690006B8EE /* HelperFactories.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
@@ -2862,6 +2908,7 @@
 				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C98A6AB2289689900DA184E /* LabelBtnSwitchView.swift in Sources */,
 				7CFDEE3C2372E756004D1DD0 /* ViewStackerForPhoneTextFieldQuestion.swift in Sources */,
+				7C4E077623A03474003FBCF6 /* CheckboxBtnsViewModel.swift in Sources */,
 				7C44EFF722F1C86F002D3571 /* ViewStackerForCheckboxWithInputQuestion.swift in Sources */,
 				7CF0CEB4237EC61300834CD9 /* LabelAndTextView+Rx.swift in Sources */,
 				7CAB84C322EF307100CE91AA /* CheckboxBtnsWithInputViewFactory.swift in Sources */,
@@ -2875,6 +2922,7 @@
 				7C3ED56622E606FE00EDDD70 /* ConsentApproving.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
 				7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */,
+				7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */,
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
 				7C22271F2379C0910006B8EE /* SurveyQuestion.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
@@ -2923,6 +2971,7 @@
 				7C3ED55D22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift in Sources */,
 				7C3A3FBF22AE853C003C079E /* TermsNoSwitchViewFactory.swift in Sources */,
 				7C4DC2AB233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift in Sources */,
+				7C4E077823A03508003FBCF6 /* CheckboxBtnsFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C98A6D022896ED500DA184E /* CheckboxWithInputViewmodelCreator.swift in Sources */,
 				7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */,
@@ -2982,6 +3031,7 @@
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
+				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
 				7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */,
 				7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
@@ -3006,6 +3056,7 @@
 				7C1F4306237B0D2D0043D5E3 /* CheckboxView+Rx.swift in Sources */,
 				7C4276CB22F052A6000C24DF /* SingleQuestionViewFactory.swift in Sources */,
 				7C468217238005AC0000F00F /* QuestionsAnswersSectionType.swift in Sources */,
+				7C4E078023A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
@@ -3098,6 +3149,7 @@
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
 				7C3ED56422E606D200EDDD70 /* DisclaimerInfo.swift in Sources */,
 				7C98A6BE22896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift in Sources */,
+				7C4E077423A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift in Sources */,
 				7C98A67C228962D900DA184E /* SurveyInfo.swift in Sources */,
 				7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */,
 				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
