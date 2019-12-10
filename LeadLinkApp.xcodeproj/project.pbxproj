@@ -135,7 +135,11 @@
 		7C4E075B239FF0B5003FBCF6 /* GetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */; };
 		7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */; };
 		7C4E0762239FF208003FBCF6 /* TextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */; };
-		7C4E0766239FF299003FBCF6 /* LabelAndTextViewDropdownFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0765239FF299003FBCF6 /* LabelAndTextViewDropdownFactory.swift */; };
+		7C4E0766239FF299003FBCF6 /* LabelAndTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */; };
+		7C4E076923A02B91003FBCF6 /* LabelTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */; };
+		7C4E076B23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */; };
+		7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */; };
+		7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -507,7 +511,11 @@
 		7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewModelProtocol.swift; sourceTree = "<group>"; };
 		7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModel.swift; sourceTree = "<group>"; };
 		7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactory.swift; sourceTree = "<group>"; };
-		7C4E0765239FF299003FBCF6 /* LabelAndTextViewDropdownFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextViewDropdownFactory.swift; sourceTree = "<group>"; };
+		7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextViewFactory.swift; sourceTree = "<group>"; };
+		7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModel.swift; sourceTree = "<group>"; };
+		7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModelFactory.swift; sourceTree = "<group>"; };
+		7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModel.swift; sourceTree = "<group>"; };
+		7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModelFactory.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -1789,6 +1797,7 @@
 			children = (
 				7C4E075C239FF0DB003FBCF6 /* CodeScene */,
 				7C4E0755239FEF46003FBCF6 /* CodeViewFactories */,
+				7C4E076C23A03170003FBCF6 /* QuestionViewFactories */,
 				7C4E0752239FEEF8003FBCF6 /* CodeViewModels */,
 				7C1F42D8237AE1740043D5E3 /* BusinessLogic */,
 				7C1F42D5237AE0910043D5E3 /* Model */,
@@ -1856,6 +1865,8 @@
 			isa = PBXGroup;
 			children = (
 				7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */,
+				7C4E076D23A031A8003FBCF6 /* TextArea */,
+				7C4E076723A02AFE003FBCF6 /* TextField */,
 				7C4E0763239FF276003FBCF6 /* Dropdown */,
 			);
 			path = CodeViewModels;
@@ -1883,9 +1894,34 @@
 			children = (
 				7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */,
 				7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */,
-				7C4E0765239FF299003FBCF6 /* LabelAndTextViewDropdownFactory.swift */,
 			);
 			path = Dropdown;
+			sourceTree = "<group>";
+		};
+		7C4E076723A02AFE003FBCF6 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */,
+				7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		7C4E076C23A03170003FBCF6 /* QuestionViewFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */,
+			);
+			path = QuestionViewFactories;
+			sourceTree = "<group>";
+		};
+		7C4E076D23A031A8003FBCF6 /* TextArea */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */,
+				7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */,
+			);
+			path = TextArea;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -2814,6 +2850,7 @@
 				7C1F42F8237B06270043D5E3 /* CGRect+Extensions.swift in Sources */,
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7C1F4311237B0EE30043D5E3 /* UITextField+ResignResponder+Rx.swift in Sources */,
+				7C4E076B23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift in Sources */,
 				7C4DC2A7233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift in Sources */,
 				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
 				7C22272D2379CBF00006B8EE /* Date+Extensions.swift in Sources */,
@@ -2848,6 +2885,7 @@
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
+				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
@@ -2872,7 +2910,7 @@
 				7C2227272379CB7B0006B8EE /* UITableView+Extensions.swift in Sources */,
 				7C1F42F0237B04150043D5E3 /* UIImage+Extensions.swift in Sources */,
 				7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */,
-				7C4E0766239FF299003FBCF6 /* LabelAndTextViewDropdownFactory.swift in Sources */,
+				7C4E0766239FF299003FBCF6 /* LabelAndTextViewFactory.swift in Sources */,
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */,
 				7C390537233B7AEF00249B18 /* SpinnerViewManaging.swift in Sources */,
@@ -2977,6 +3015,7 @@
 				7C98A6E8228972F700DA184E /* Sequence+Extensions.swift in Sources */,
 				ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */,
 				7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */,
+				7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */,
 				7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */,
 				7C3B20A822E9E60200791C11 /* AnswersUpdater.swift in Sources */,
 				7C1F42C2237ACF430043D5E3 /* CampaignsVersionChecker.swift in Sources */,
@@ -3027,6 +3066,7 @@
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */,
+				7C4E076923A02B91003FBCF6 /* LabelTextFieldViewModel.swift in Sources */,
 				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,
 				7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,

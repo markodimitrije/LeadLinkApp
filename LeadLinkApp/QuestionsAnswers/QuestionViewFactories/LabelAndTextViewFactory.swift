@@ -1,5 +1,5 @@
 //
-//  LabelAndTextViewDropdownFactory.swift
+//  LabelAndTextViewFactory.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 10/12/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LabelAndTextViewDropdownFactory:  GetViewProtocol {
+class LabelAndTextViewFactory:  GetViewProtocol {
     
     private let labelFactory: LabelFactory
     private let textViewFactory: TextViewFactory

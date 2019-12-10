@@ -27,6 +27,14 @@ class ParentViewModel: QuestionsViewItemManaging {
         self.questionInfos = questionInfos
         _ = questionInfos.map { info in
             if info.getQuestion().type == .textField {
+                let labelTextItem = LabelTextFieldViewModelFactory(questionInfo: info).getViewModel()
+                items.append(labelTextItem)
+            }
+            if info.getQuestion().type == .textArea {
+                let textAreaItem = TextAreaViewModelFactory(questionInfo: info).getViewModel()
+                items.append(textAreaItem)
+            }
+            if info.getQuestion().type == .dropdown {
                 let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
                 items.append(dropdownItem)
             }
