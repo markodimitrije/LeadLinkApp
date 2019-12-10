@@ -86,3 +86,11 @@ extension UIView {
     }
     
 }
+
+extension UIView {
+    func makeRoundedBorder(color: UIColor, cornerRadius: CGFloat) {
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = color.cgColor
+        self.layer.cornerRadius = cornerRadius
+    }
+}

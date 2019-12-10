@@ -20,10 +20,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         delegate: questionOptionsFromTextViewDelegate
     )
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     
     private var questions = [SurveyQuestion]()
     private var parentViewmodel: ParentViewModel!
+    private var viewItems = [QuestionPageGetViewProtocol]()
     
     var webViewsAndViewSizesProvider: WebViewsAndViewSizesProvider!
     let localComponents = LocalComponentsViewFactory()
@@ -45,13 +48,18 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-            configureQuestionForm()
+//            configureQuestionForm()
             if oldValue == nil {
-                subscribeListeningToSaveEvent()
+//                subscribeListeningToSaveEvent()
             }
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureQuestionForm()
+    }
+
     private func configureQuestionForm() {
         
         questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
@@ -64,7 +72,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.hideKeyboardWhenTappedAround()
         self.setUpKeyboardBehavior()
         
-        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+//        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
         tableView?.reloadData()
         
         loadTableViewDataSourceAndDelegate()
@@ -79,10 +87,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView?.delegate = myDelegate
     }
     
+    /*
     private func subscribeListeningToSaveEvent() {
         self.listenToSaveEvent()
     }
-
+    */
+    /*
     private func fetchDelegateAndSaveToRealm(code: String) {
         
         let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
@@ -113,7 +123,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
     }
-    
+    */
     private func setUpKeyboardBehavior() {
         
         keyboardDelegate = QuestionsAnswersMovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
@@ -152,12 +162,29 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-        let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
-            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion)
+//        let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
+//            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion)
+//        }
+//        parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
+        
+        let questionInfos = questions.map { surveyQuestion -> PresentQuestionInfoProtocol in
+            PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: "12")
         }
-        parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
+        parentViewmodel = ParentViewModel(questionInfos: questionInfos)
+        viewItems = parentViewmodel.getQuestionPageViewItems()
+        drawScreen(viewItems: viewItems)
     }
     
+    private func drawScreen(viewItems: [QuestionPageGetViewProtocol]) {
+        //let items = viewItems + viewItems + viewItems
+        print("viewItems.count = \(viewItems.count)")
+        _ = viewItems.map({
+            //stackView?.addSubview($0.getView())
+            stackView?.addArrangedSubview($0.getView())
+        })
+    }
+    
+    /*
     private func listenToSaveEvent() {
         
         localComponents.saveBtn.rx.controlEvent(.touchUpInside)
@@ -171,7 +198,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .disposed(by: bag)
 
     }
-    
+    */
+    /*
     private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
         
         let validator = QA_Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
@@ -189,7 +217,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
         }
     }
-    
+    */
+    /*
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
         surveyInfo.save(answers: answers)
             .subscribe({ (saved) in
@@ -198,7 +227,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
     }
-    
+    */
+    /*
     private func showAlertFormNotValid(forQuestion question: PresentQuestion?) {
         
         let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
@@ -229,5 +259,5 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
             }).disposed(by: bag)
     }
-    
+    */
 }

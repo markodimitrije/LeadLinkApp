@@ -9,9 +9,29 @@
 import Foundation
 import RxSwift
 
-class ParentViewModel {
-
+class ParentViewModel: QuestionsViewItemManaging {
+    
+    func getQuestionPageViewItems() -> [QuestionPageGetViewProtocol] {
+        return items
+    }
+    
+    func btnTapped(_ sender: UIButton) {
+        print("implement me, save btn tapped....")
+    }
+    
+    private var questionInfos = [PresentQuestionInfoProtocol]()
+    private var items = [QuestionPageGetViewProtocol]()
     var childViewmodels = [Int: Questanable]()
+    
+    init(questionInfos: [PresentQuestionInfoProtocol]) {
+        self.questionInfos = questionInfos
+        _ = questionInfos.map { info in
+            if info.getQuestion().type == .textField {
+                let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
+                items.append(dropdownItem)
+            }
+        }
+    }
     
     init(viewmodels: [Questanable]) {
         
@@ -29,4 +49,13 @@ protocol Questanable {
 
 protocol Answerable {
     var answer: MyAnswer? {get set}
+}
+
+class QuestionInfoFactory {
+    func convert(surveyQuestion: SurveyQuestion) -> PresentQuestionInfoProtocol {
+        let question = surveyQuestion.question
+        let answer = surveyQuestion.answer
+        let code = "3" // hard-coded
+        return PresentQuestionInfo(question: question, answer: answer, code: code)
+    }
 }

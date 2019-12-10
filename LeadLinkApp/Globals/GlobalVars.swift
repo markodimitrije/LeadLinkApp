@@ -59,3 +59,8 @@ var selectedCampaignId: Int? {
         UserDefaults.standard.setValue(newValue, forKey: "campaignId")
     }
 }
+
+var allowedQuestionsWidth: CGFloat {
+    let myAllowedWidth = UIScreen.main.bounds.width - 16
+    return myAllowedWidth
+}
