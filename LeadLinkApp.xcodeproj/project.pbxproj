@@ -147,6 +147,9 @@
 		7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */; };
 		7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078323A03C15003FBCF6 /* CodeVerticalStacker.swift */; };
 		7C4E078723A03C3C003FBCF6 /* CodeHorizontalStacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */; };
+		7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078923A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift */; };
+		7C4E078C23A04399003FBCF6 /* CheckboxInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078B23A04399003FBCF6 /* CheckboxInputViewModel.swift */; };
+		7C4E078E23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E078D23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift */; };
 		7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */; };
 		7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */; };
 		7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */; };
@@ -530,6 +533,9 @@
 		7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCheckboxBtnViewFactory.swift; sourceTree = "<group>"; };
 		7C4E078323A03C15003FBCF6 /* CodeVerticalStacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerticalStacker.swift; sourceTree = "<group>"; };
 		7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeHorizontalStacker.swift; sourceTree = "<group>"; };
+		7C4E078923A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnsWithInputViewModelFactory.swift; sourceTree = "<group>"; };
+		7C4E078B23A04399003FBCF6 /* CheckboxInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxInputViewModel.swift; sourceTree = "<group>"; };
+		7C4E078D23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithInputViewFactory.swift; sourceTree = "<group>"; };
 		7C51085A22C0CA0C005EE58B /* ChartViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085C22C0CAEA005EE58B /* ReportsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51085E22C0CDF7005EE58B /* StatsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -1883,6 +1889,7 @@
 				7C4E076723A02AFE003FBCF6 /* TextField */,
 				7C4E0763239FF276003FBCF6 /* Dropdown */,
 				7C4E077223A03449003FBCF6 /* CheckboxBtns */,
+				7C4E078823A0435D003FBCF6 /* CheckboxBtnsWithInput */,
 			);
 			path = CodeViewModels;
 			sourceTree = "<group>";
@@ -1929,6 +1936,7 @@
 				7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */,
 				7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */,
 				7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */,
+				7C4E078D23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift */,
 			);
 			path = QuestionViewFactories;
 			sourceTree = "<group>";
@@ -1967,6 +1975,15 @@
 				7C4E078623A03C3C003FBCF6 /* CodeHorizontalStacker.swift */,
 			);
 			path = ViewStackers;
+			sourceTree = "<group>";
+		};
+		7C4E078823A0435D003FBCF6 /* CheckboxBtnsWithInput */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E078923A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift */,
+				7C4E078B23A04399003FBCF6 /* CheckboxInputViewModel.swift */,
+			);
+			path = CheckboxBtnsWithInput;
 			sourceTree = "<group>";
 		};
 		7C51086422C0D3DD005EE58B /* AppDependancyContainer */ = {
@@ -2917,6 +2934,7 @@
 				7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */,
 				7CFDEE362372E4D1004D1DD0 /* PhoneTextFieldViewModelBinder.swift in Sources */,
 				7C0E5CBB228ECD520011E0A2 /* TermsLabelBtnSwitchView.swift in Sources */,
+				7C4E078C23A04399003FBCF6 /* CheckboxInputViewModel.swift in Sources */,
 				7C2227102379B4AE0006B8EE /* Constants+PrivacyPolicy.swift in Sources */,
 				7C98A6C222896D4700DA184E /* TextViewToDropdownViewModelBinder.swift in Sources */,
 				7C3ED56622E606FE00EDDD70 /* ConsentApproving.swift in Sources */,
@@ -3073,6 +3091,7 @@
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsImplementations.swift in Sources */,
 				7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */,
+				7C4E078E23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
 				7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */,
@@ -3147,6 +3166,7 @@
 				7C9EFF18233E23CE00649AD5 /* ViewStackerForCheckboxMultipleWithInputQuestion.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */,
 				7C3ED56422E606D200EDDD70 /* DisclaimerInfo.swift in Sources */,
 				7C98A6BE22896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift in Sources */,
 				7C4E077423A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift in Sources */,
