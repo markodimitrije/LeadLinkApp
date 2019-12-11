@@ -21,7 +21,7 @@ class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
         let switchBtn = myView.findViews(subclassOf: UISwitch.self).first!
         let content = ["\(switchBtn.isOn)"]
         if answer != nil {
-            answer?.content = content
+            answer!.content = content
         } else {
             answer = MyAnswer(question: question, code: code, content: content, optionIds: nil)
         }

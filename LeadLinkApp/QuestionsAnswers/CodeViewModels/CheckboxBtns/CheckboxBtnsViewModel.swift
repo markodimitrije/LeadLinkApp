@@ -77,6 +77,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
         if answer != nil {
             answer!.content = content
             answer!.optionIds = selectedTags
+            
         } else {
             answer = MyAnswer(question: question, code: code, content: content, optionIds: selectedTags)
         }

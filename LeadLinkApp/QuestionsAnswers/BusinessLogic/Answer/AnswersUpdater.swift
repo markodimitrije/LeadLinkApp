@@ -51,15 +51,22 @@ class AnswersUpdater: AnswersUpdating {
             updateMyAnswers(newAnswer: answer)
         }
         
-        _ = self.parentViewmodel.childViewmodels.compactMap { viewmodelDict in
-            
-            if let viewmodel = viewmodelDict.value as? Answerable, var answer = viewmodel.answer {
-                
-                answer.code = surveyInfo.code
-                addOrUpdateAnswers(withAnswer: answer)
-            }
-            
+        answers = parentViewmodel.getAnswers()
+        _ = answers.map { (answer) in
+            addOrUpdateAnswers(withAnswer: answer)
         }
+        
+//        _ = self.parentViewmodel.childViewmodels.compactMap { viewmodelDict in // transfer
+//
+//            if let viewmodel = viewmodelDict.value as? Answerable, var answer = viewmodel.answer {
+//
+//                answer.code = surveyInfo.code
+//                addOrUpdateAnswers(withAnswer: answer)
+//            }
+//
+//        }
+        
+        print("updatedAnswers = \(answers)")
         
         return answers
     }

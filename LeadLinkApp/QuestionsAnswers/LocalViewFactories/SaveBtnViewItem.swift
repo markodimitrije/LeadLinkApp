@@ -11,6 +11,9 @@ import UIKit
 class SaveBtnViewItem: QuestionPageGetViewProtocol {
     
     private var view: UIView
+    var button: UIButton {
+        return self.view.findViews(subclassOf: UIButton.self).first!
+    }
     
     init(saveBtnFactory: SaveButtonFactory) {
         self.view = saveBtnFactory.getView()

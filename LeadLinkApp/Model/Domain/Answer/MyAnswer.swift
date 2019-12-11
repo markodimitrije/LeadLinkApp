@@ -55,6 +55,7 @@ public struct MyAnswer: Answering, Codable {
         self.id = realmAnswer.id
         self.content = Array(realmAnswer.content)
         self.optionIds = Array(realmAnswer.optionIds)
+        self.questionType = realmAnswer.type
     }
     
     static func emptyContent(question: PresentQuestion) -> MyAnswer {

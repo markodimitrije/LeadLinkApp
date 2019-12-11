@@ -15,6 +15,12 @@ class ParentViewModel: QuestionsViewItemManaging {
         return items
     }
     
+    func getAnswers() -> [MyAnswer] {
+        let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
+        let answers: [MyAnswer] = itemsWithAnswer.compactMap {$0.getActualAnswer()}
+        return answers
+    }
+    
     private let campaign: Campaign? = {
         let campaignId = selectedCampaignId ?? 0 // hard-coded
         return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
@@ -22,6 +28,7 @@ class ParentViewModel: QuestionsViewItemManaging {
     
     private var questionInfos = [PresentQuestionInfoProtocol]()
     private var items = [QuestionPageGetViewProtocol]()
+    private var viewmodels = [QuestionPageViewModelProtocol]()
     var childViewmodels = [Int: Questanable]()
     
     init(questionInfos: [PresentQuestionInfoProtocol]) {
@@ -49,15 +56,15 @@ class ParentViewModel: QuestionsViewItemManaging {
             }
             if info.getQuestion().type == .radioBtn {
                 let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
-                items.append(radioBtnsItem)
+                items.append(radioBtnsItem);
             }
             if info.getQuestion().type == .radioBtnWithInput {
                 let radioBtnsWithInputItem = RadioBtnsWithInput_ViewModelFactory(questionInfo: info).getViewModel()
-                items.append(radioBtnsWithInputItem)
+                items.append(radioBtnsWithInputItem);
             }
             if info.getQuestion().type == .termsSwitchBtn {
                 let termsSwitchBtnItem = TermsSwitchBtnViewModelFactory(questionInfo: info).getViewModel()
-                items.append(termsSwitchBtnItem)
+                items.append(termsSwitchBtnItem);
             }
         }
         appendLocalItems()

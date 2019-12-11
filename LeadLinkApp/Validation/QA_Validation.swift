@@ -48,7 +48,9 @@ struct QA_Validation {
         if termsAnswer == nil {
             return false
         }
-        return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
+        //return termsAnswer!.optionIds?.first != nil // indexes su u optionIds ako su checked
+        //return (termsAnswer!.optionIds?.first == 1) ? true : false
+        return termsAnswer!.content.first == "true" ? true : false
     }
     
     init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswer]) {

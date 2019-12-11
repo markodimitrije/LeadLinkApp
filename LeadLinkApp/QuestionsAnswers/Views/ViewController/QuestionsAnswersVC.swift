@@ -76,6 +76,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         tableView?.reloadData()
         
         loadTableViewDataSourceAndDelegate()
+        
+        subscribeListeningToSaveEvent()
     }
     
     private func loadTableViewDataSourceAndDelegate() {
@@ -87,11 +89,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView?.delegate = myDelegate
     }
     
-    /*
+    
     private func subscribeListeningToSaveEvent() {
         self.listenToSaveEvent()
     }
-    */
+    
     /*
     private func fetchDelegateAndSaveToRealm(code: String) {
         
@@ -183,22 +185,36 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         })
     }
     
-    /*
     private func listenToSaveEvent() {
+        let items = parentViewmodel.getQuestionPageViewItems()
         
-        localComponents.saveBtn.rx.controlEvent(.touchUpInside)
+//        let views = items.map { (item) -> UIView in
+//            return item.getView()
+//        }
+        let saveBtn = (items.first(where: {$0 is SaveBtnViewItem}) as! SaveBtnViewItem).button
+        
+        saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
-                
+
                 strongSelf.localComponents.saveBtn.startSpinner()
                 let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
                 strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
-                
+
             })
             .disposed(by: bag)
+        
+//        localComponents.saveBtn.rx.controlEvent(.touchUpInside)
+//            .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
+//
+//                strongSelf.localComponents.saveBtn.startSpinner()
+//                let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
+//                strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
+//
+//            })
+//            .disposed(by: bag)
 
     }
-    */
-    /*
+    
     private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
         
         let validator = QA_Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
@@ -216,8 +232,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
         }
     }
-    */
-    /*
+    
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
         surveyInfo.save(answers: answers)
             .subscribe({ (saved) in
@@ -226,8 +241,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
     }
-    */
-    /*
+    
     private func showAlertFormNotValid(forQuestion question: PresentQuestion?) {
         
         let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
@@ -258,5 +272,5 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
             }).disposed(by: bag)
     }
-    */
+    
 }
