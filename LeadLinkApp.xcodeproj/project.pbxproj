@@ -33,6 +33,10 @@
 		7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3A23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift */; };
 		7C1CEA3D23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */; };
 		7C1CEA3F23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3E23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift */; };
+		7C1CEA4223A100090015F8F7 /* OptInViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4123A100090015F8F7 /* OptInViewFactory.swift */; };
+		7C1CEA4423A100730015F8F7 /* OptInViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */; };
+		7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */; };
+		7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
@@ -429,6 +433,10 @@
 		7C1CEA3A23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnViewFactory.swift; sourceTree = "<group>"; };
 		7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithHiperlinkViewFactory.swift; sourceTree = "<group>"; };
 		7C1CEA3E23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnViewModelFactory.swift; sourceTree = "<group>"; };
+		7C1CEA4123A100090015F8F7 /* OptInViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInViewItem.swift; sourceTree = "<group>"; };
+		7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBtnViewItem.swift; sourceTree = "<group>"; };
+		7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
@@ -1019,6 +1027,17 @@
 				7C1CEA3823A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift */,
 			);
 			path = TermsSwitchBtn;
+			sourceTree = "<group>";
+		};
+		7C1CEA4023A0FFF70015F8F7 /* LocalViewFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CEA4123A100090015F8F7 /* OptInViewFactory.swift */,
+				7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */,
+				7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */,
+				7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */,
+			);
+			path = LocalViewFactories;
 			sourceTree = "<group>";
 		};
 		7C1E80BB23802F4D006957BB /* Model */ = {
@@ -1889,6 +1908,7 @@
 			children = (
 				7C4E075C239FF0DB003FBCF6 /* CodeScene */,
 				7C4E0755239FEF46003FBCF6 /* CodeViewFactories */,
+				7C1CEA4023A0FFF70015F8F7 /* LocalViewFactories */,
 				7C4E076C23A03170003FBCF6 /* QuestionViewFactories */,
 				7C4E0752239FEEF8003FBCF6 /* CodeViewModels */,
 				7C1F42D8237AE1740043D5E3 /* BusinessLogic */,
@@ -3082,6 +3102,7 @@
 				7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */,
 				7C98A6C022896D4700DA184E /* TextFieldViewModelBinder.swift in Sources */,
 				7C1CEA3023A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift in Sources */,
+				7C1CEA4423A100730015F8F7 /* OptInViewItem.swift in Sources */,
 				7C1F42FA237B064D0043D5E3 /* DateFormatter+Extensions.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
@@ -3124,9 +3145,11 @@
 				7C1F4300237B095E0043D5E3 /* AlertInfo.swift in Sources */,
 				7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */,
 				7CF0CEAE237EAC5F00834CD9 /* AnswersReportDataStore.swift in Sources */,
+				7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */,
 				7C3B20AA22E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift in Sources */,
 				7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */,
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
+				7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */,
 				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
@@ -3164,6 +3187,7 @@
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
+				7C1CEA4223A100090015F8F7 /* OptInViewFactory.swift in Sources */,
 				7CAB84B822EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift in Sources */,
 				7CF225E4232A51A6004E023C /* LogoutAuthRemoteAPI.swift in Sources */,
 				7C98A6E9228972F700DA184E /* URLRequest+Extensions.swift in Sources */,

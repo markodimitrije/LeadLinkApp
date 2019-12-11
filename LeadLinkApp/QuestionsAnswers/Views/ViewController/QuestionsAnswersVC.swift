@@ -170,14 +170,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let questionInfos = questions.map { surveyQuestion -> PresentQuestionInfoProtocol in
             PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: "12")
         }
+        
         parentViewmodel = ParentViewModel(questionInfos: questionInfos)
         viewItems = parentViewmodel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }
     
     private func drawScreen(viewItems: [QuestionPageGetViewProtocol]) {
-        //let items = viewItems + viewItems + viewItems
-        print("viewItems.count = \(viewItems.count)")
         _ = viewItems.map({
             //stackView?.addSubview($0.getView())
             stackView?.addArrangedSubview($0.getView())

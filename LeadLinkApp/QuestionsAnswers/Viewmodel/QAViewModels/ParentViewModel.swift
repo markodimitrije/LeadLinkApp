@@ -15,9 +15,10 @@ class ParentViewModel: QuestionsViewItemManaging {
         return items
     }
     
-    func btnTapped(_ sender: UIButton) {
-        print("implement me, save btn tapped....")
-    }
+    private let campaign: Campaign? = {
+        let campaignId = selectedCampaignId ?? 0 // hard-coded
+        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
+    }()
     
     private var questionInfos = [PresentQuestionInfoProtocol]()
     private var items = [QuestionPageGetViewProtocol]()
@@ -59,6 +60,41 @@ class ParentViewModel: QuestionsViewItemManaging {
                 items.append(termsSwitchBtnItem)
             }
         }
+        appendLocalItems()
+        hookUpSaveEvent()
+    }
+    
+    private func appendLocalItems() {
+        appendOptInView()
+        appendSaveBtn()
+    }
+    
+    private func appendOptInView() {
+        guard let optIn = campaign?.settings?.optIn else {return}
+        let hiperlinkFactory = TextWithHiperlinkViewFactory(text: optIn.text, hiperlinkText: optIn.privacyPolicy, urlString: optIn.url)
+        let optInFactory = OptInViewFactory(optIn: optIn, titleWithHiperlinkViewFactory: hiperlinkFactory)
+        let optInItem = OptInViewItem(optInViewFactory: optInFactory)
+        self.items.append(optInItem)
+    }
+    
+    private func appendSaveBtn() {
+        let saveBtnFactory = SaveButtonFactory(title: "Save", width: allowedQuestionsWidth)
+        let saveBtnItem = SaveBtnViewItem(saveBtnFactory: saveBtnFactory)
+        self.items.append(saveBtnItem)
+    }
+    
+    private func hookUpSaveEvent() {
+        let saveBtnViewItem = self.items.last(where: {$0 is SaveBtnViewItem}) as! SaveBtnViewItem
+        let btn = saveBtnViewItem.getView().subviews.first! as! UIButton
+        btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+    }
+    
+    @objc internal func btnTapped(_ sender: UIButton) { print("saveBtnTapped. save answers")
+        
+        let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
+        let answers: [[String]] = itemsWithAnswer.compactMap {$0.getActualAnswer()}.map {$0.content}
+        print("save answers:")
+        print(answers)
     }
     
     init(viewmodels: [Questanable]) {
