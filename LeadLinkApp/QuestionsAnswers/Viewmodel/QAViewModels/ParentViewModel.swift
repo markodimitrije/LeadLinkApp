@@ -39,12 +39,16 @@ class ParentViewModel: QuestionsViewItemManaging {
                 items.append(dropdownItem)
             }
             if info.getQuestion().type == .checkbox {
-                let dropdownItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
-                items.append(dropdownItem)
+                let checkboxBtnsItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
+                items.append(checkboxBtnsItem)
             }
             if info.getQuestion().type == .checkboxMultipleWithInput {
-                let dropdownItem = CheckboxBtnsWithInputViewModelFactory(questionInfo: info).getViewModel()
-                items.append(dropdownItem)
+                let checkboxBtnsWithInputItem = CheckboxBtnsWithInputViewModelFactory(questionInfo: info).getViewModel()
+                items.append(checkboxBtnsWithInputItem)
+            }
+            if info.getQuestion().type == .radioBtn {
+                let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
+                items.append(radioBtnsItem)
             }
         }
     }

@@ -21,6 +21,11 @@
 		7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */; };
 		7C1BBE85239FDCE4005A121D /* PresentQuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* PresentQuestionInfo.swift */; };
 		7C1C1531229EDA5E0050337B /* TextAreaViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C1530229EDA5E0050337B /* TextAreaViewModelBinder.swift */; };
+		7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */; };
+		7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */; };
+		7C1CEA2823A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */; };
+		7C1CEA2E23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2D23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift */; };
+		7C1CEA3023A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2F23A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
@@ -405,6 +410,11 @@
 		7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAppProtocols.swift; sourceTree = "<group>"; };
 		7C1BBE84239FDCE4005A121D /* PresentQuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestionInfo.swift; sourceTree = "<group>"; };
 		7C1C1530229EDA5E0050337B /* TextAreaViewModelBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModelBinder.swift; sourceTree = "<group>"; };
+		7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModel.swift; sourceTree = "<group>"; };
+		7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewModel.swift; sourceTree = "<group>"; };
+		7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA2D23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C1CEA2F23A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtns_ViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
@@ -947,6 +957,42 @@
 				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
 			);
 			path = DividerView;
+			sourceTree = "<group>";
+		};
+		7C1CEA2123A0EA710015F8F7 /* RadioBtns */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CEA2D23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift */,
+				7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */,
+				7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */,
+			);
+			path = RadioBtns;
+			sourceTree = "<group>";
+		};
+		7C1CEA2223A0EA860015F8F7 /* RadioBtnsWithInput */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RadioBtnsWithInput;
+			sourceTree = "<group>";
+		};
+		7C1CEA2B23A0EEC00015F8F7 /* CheckboxViewFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */,
+				7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */,
+				7C4E078D23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift */,
+			);
+			path = CheckboxViewFactories;
+			sourceTree = "<group>";
+		};
+		7C1CEA2C23A0EEDB0015F8F7 /* RadioViewFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */,
+				7C1CEA2F23A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift */,
+			);
+			path = RadioViewFactories;
 			sourceTree = "<group>";
 		};
 		7C1E80BB23802F4D006957BB /* Model */ = {
@@ -1884,6 +1930,8 @@
 		7C4E0752239FEEF8003FBCF6 /* CodeViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7C1CEA2123A0EA710015F8F7 /* RadioBtns */,
+				7C1CEA2223A0EA860015F8F7 /* RadioBtnsWithInput */,
 				7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */,
 				7C4E076D23A031A8003FBCF6 /* TextArea */,
 				7C4E076723A02AFE003FBCF6 /* TextField */,
@@ -1934,9 +1982,8 @@
 			isa = PBXGroup;
 			children = (
 				7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */,
-				7C4E077723A03508003FBCF6 /* CheckboxBtnsFactory.swift */,
-				7C4E078123A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift */,
-				7C4E078D23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift */,
+				7C1CEA2B23A0EEC00015F8F7 /* CheckboxViewFactories */,
+				7C1CEA2C23A0EEDB0015F8F7 /* RadioViewFactories */,
 			);
 			path = QuestionViewFactories;
 			sourceTree = "<group>";
@@ -2862,6 +2909,7 @@
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
 				7CAB84B522EB2FF200CE91AA /* QuestionsAnswersTableWidthCalculating.swift in Sources */,
 				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
+				7C1CEA2E23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
 				7CFDEE3E2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift in Sources */,
@@ -2939,6 +2987,7 @@
 				7C98A6C222896D4700DA184E /* TextViewToDropdownViewModelBinder.swift in Sources */,
 				7C3ED56622E606FE00EDDD70 /* ConsentApproving.swift in Sources */,
 				ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */,
+				7C1CEA2823A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift in Sources */,
 				7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */,
 				7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */,
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
@@ -3002,6 +3051,7 @@
 				7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */,
 				7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */,
 				7C98A6C022896D4700DA184E /* TextFieldViewModelBinder.swift in Sources */,
+				7C1CEA3023A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift in Sources */,
 				7C1F42FA237B064D0043D5E3 /* DateFormatter+Extensions.swift in Sources */,
 				ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */,
 				AD1739C921DE14B900218BE5 /* CampaignsVC.swift in Sources */,
@@ -3041,6 +3091,7 @@
 				7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
 				7C1F4300237B095E0043D5E3 /* AlertInfo.swift in Sources */,
+				7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */,
 				7CF0CEAE237EAC5F00834CD9 /* AnswersReportDataStore.swift in Sources */,
 				7C3B20AA22E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift in Sources */,
 				7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */,
@@ -3070,6 +3121,7 @@
 				7CFDEE3A2372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
+				7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */,
 				7CAB84BA22EF290500CE91AA /* RadioBtnsViewFactory.swift in Sources */,
 				7C1F4306237B0D2D0043D5E3 /* CheckboxView+Rx.swift in Sources */,
 				7C4276CB22F052A6000C24DF /* SingleQuestionViewFactory.swift in Sources */,
