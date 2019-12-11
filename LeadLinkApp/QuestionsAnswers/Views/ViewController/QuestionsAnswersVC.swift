@@ -63,8 +63,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad() { super.viewDidLoad()
+        self.scrollView.delegate = self
         configureQuestionForm()
     }
 
@@ -76,7 +76,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         webViewsAndViewSizesProvider = WebViewsAndViewSizesProvider(questions: questions,
                                                                     viewmodels: parentViewmodel.childViewmodels,
                                                                     viewStackerFactory: viewStackerFactory)
-        
         self.hideKeyboardWhenTappedAround()
         self.setUpKeyboardBehavior()
         
@@ -282,4 +281,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             }).disposed(by: bag)
     }
     
+}
+
+extension QuestionsAnswersVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
 }
