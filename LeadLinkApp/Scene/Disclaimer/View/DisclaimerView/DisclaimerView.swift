@@ -60,8 +60,8 @@ class DisclaimerView: UIView {
         textView.isEditable = false
 
         textView.hyperLink(originalText: text,
-                           hyperLinkFirst: Constants.PrivacyPolicy.hyperLinkPolicyText,
-                           urlStringFirst: url)
+                           hyperLink: Constants.PrivacyPolicy.hyperLinkPolicyText,
+                           urlString: url)
     }
     
     private func loadDataFrom(disclaimer: DisclaimerInfo) {

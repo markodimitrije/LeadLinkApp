@@ -11,26 +11,24 @@ import UIKit
 
 extension UITextView {
     
-    func hyperLink(originalText: String, hyperLinkFirst: String, urlStringFirst: String) {
-        
+    func hyperLink(originalText: String, hyperLink: String, urlString: String) {
+
         let style = NSMutableParagraphStyle()
         style.alignment = .justified
-        
+
         let attributedOriginalText = NSMutableAttributedString(string: originalText)
-        let linkRangeFirst = attributedOriginalText.mutableString.range(of: hyperLinkFirst)
+        let linkRange = attributedOriginalText.mutableString.range(of: hyperLink)
         let fullRange = NSMakeRange(0, attributedOriginalText.length)
-        
-        attributedOriginalText.addAttribute(.link, value: urlStringFirst, range: linkRangeFirst)
-        
-//        attributedOriginalText.addAttribute(.paragraphStyle, value: style, range: fullRange)
+
+        attributedOriginalText.addAttribute(.link, value: urlString, range: linkRange)
         attributedOriginalText.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
         attributedOriginalText.addAttribute(.font, value: UIFont.systemFont(ofSize: 14), range: fullRange)
-        
+
         self.linkTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.blue,
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
         ]
-        
+
         self.attributedText = attributedOriginalText
     }
     

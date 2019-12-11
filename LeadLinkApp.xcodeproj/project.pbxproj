@@ -29,6 +29,10 @@
 		7C1CEA3223A0F6300015F8F7 /* RadioBtnsWithInput_ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3123A0F6300015F8F7 /* RadioBtnsWithInput_ViewModelFactory.swift */; };
 		7C1CEA3423A0F6580015F8F7 /* RadioBtnsWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3323A0F6580015F8F7 /* RadioBtnsWithInputViewModel.swift */; };
 		7C1CEA3623A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3523A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift */; };
+		7C1CEA3923A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3823A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift */; };
+		7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3A23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift */; };
+		7C1CEA3D23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */; };
+		7C1CEA3F23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA3E23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
@@ -421,6 +425,10 @@
 		7C1CEA3123A0F6300015F8F7 /* RadioBtnsWithInput_ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsWithInput_ViewModelFactory.swift; sourceTree = "<group>"; };
 		7C1CEA3323A0F6580015F8F7 /* RadioBtnsWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsWithInputViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA3523A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsWithInput_ViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA3823A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnViewModel.swift; sourceTree = "<group>"; };
+		7C1CEA3A23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithHiperlinkViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA3E23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsSwitchBtnViewModelFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
@@ -1002,6 +1010,15 @@
 				7C1CEA3523A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift */,
 			);
 			path = RadioViewFactories;
+			sourceTree = "<group>";
+		};
+		7C1CEA3723A0FC5D0015F8F7 /* TermsSwitchBtn */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CEA3E23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift */,
+				7C1CEA3823A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift */,
+			);
+			path = TermsSwitchBtn;
 			sourceTree = "<group>";
 		};
 		7C1E80BB23802F4D006957BB /* Model */ = {
@@ -1939,12 +1956,13 @@
 		7C4E0752239FEEF8003FBCF6 /* CodeViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7C1CEA2123A0EA710015F8F7 /* RadioBtns */,
-				7C1CEA2223A0EA860015F8F7 /* RadioBtnsWithInput */,
+				7C1CEA3723A0FC5D0015F8F7 /* TermsSwitchBtn */,
 				7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */,
 				7C4E076D23A031A8003FBCF6 /* TextArea */,
 				7C4E076723A02AFE003FBCF6 /* TextField */,
 				7C4E0763239FF276003FBCF6 /* Dropdown */,
+				7C1CEA2123A0EA710015F8F7 /* RadioBtns */,
+				7C1CEA2223A0EA860015F8F7 /* RadioBtnsWithInput */,
 				7C4E077223A03449003FBCF6 /* CheckboxBtns */,
 				7C4E078823A0435D003FBCF6 /* CheckboxBtnsWithInput */,
 			);
@@ -1958,6 +1976,7 @@
 				7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
 				7C4E078523A03C1E003FBCF6 /* ViewStackers */,
+				7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */,
 			);
 			path = CodeViewFactories;
 			sourceTree = "<group>";
@@ -1991,6 +2010,7 @@
 			isa = PBXGroup;
 			children = (
 				7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */,
+				7C1CEA3A23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift */,
 				7C1CEA2B23A0EEC00015F8F7 /* CheckboxViewFactories */,
 				7C1CEA2C23A0EEDB0015F8F7 /* RadioViewFactories */,
 			);
@@ -3025,6 +3045,7 @@
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,
 				7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */,
 				ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */,
+				7C1CEA3D23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift in Sources */,
 				7C51086322C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift in Sources */,
 				7C6528B322CE42ED0077464C /* Application.swift in Sources */,
 				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
@@ -3071,6 +3092,7 @@
 				7CA998D122A908C400C226F1 /* ConferenceApiKeyState.swift in Sources */,
 				AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */,
 				AD1739D321DE1E7900218BE5 /* Factory.swift in Sources */,
+				7C1CEA3F23A0FEA00015F8F7 /* TermsSwitchBtnViewModelFactory.swift in Sources */,
 				7CAB84BF22EF2DD000CE91AA /* RadioBtnsWithInputViewFactory.swift in Sources */,
 				7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */,
 				7C44EFFB22F1C8C0002D3571 /* ViewStackerForTextFieldQuestion.swift in Sources */,
@@ -3136,6 +3158,7 @@
 				7C1F4306237B0D2D0043D5E3 /* CheckboxView+Rx.swift in Sources */,
 				7C4276CB22F052A6000C24DF /* SingleQuestionViewFactory.swift in Sources */,
 				7C1CEA3423A0F6580015F8F7 /* RadioBtnsWithInputViewModel.swift in Sources */,
+				7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */,
 				7C468217238005AC0000F00F /* QuestionsAnswersSectionType.swift in Sources */,
 				7C4E078023A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
@@ -3238,6 +3261,7 @@
 				7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */,
 				7C98A69A2289689900DA184E /* SaveButton.swift in Sources */,
 				7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */,
+				7C1CEA3923A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift in Sources */,
 				7CFBA7EC233CBEC700E0D35C /* StackViewToMultipleSelectCheckboxWithInputViewModelBinder.swift in Sources */,
 				7C1F430A237B0DCF0043D5E3 /* LabelAndTextField+Rx.swift in Sources */,
 				7C4DC2A9233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift in Sources */,
