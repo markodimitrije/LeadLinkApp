@@ -50,6 +50,10 @@ class ParentViewModel: QuestionsViewItemManaging {
                 let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
                 items.append(radioBtnsItem)
             }
+            if info.getQuestion().type == .radioBtnWithInput {
+                let radioBtnsWithInputItem = RadioBtnsWithInput_ViewModelFactory(questionInfo: info).getViewModel()
+                items.append(radioBtnsWithInputItem)
+            }
         }
     }
     
