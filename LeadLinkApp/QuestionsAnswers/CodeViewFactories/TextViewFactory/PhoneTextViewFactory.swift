@@ -1,14 +1,15 @@
 //
-//  TextViewFactory.swift
+//  PhoneTextViewFactory.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 10/12/2019.
+//  Created by Marko Dimitrijevic on 11/12/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
+//import PhoneNumberKit
 
-class TextViewFactory: GetViewProtocol {
+class PhoneTextViewFactory: TextViewFactoryProtocol {
     
     private var myView: UIView
     
@@ -33,9 +34,11 @@ class TextViewFactory: GetViewProtocol {
         }
         
         //textField
-        let textView = UITextView()
+        let textView = UITextView()//PhoneNumberTextField()
         textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
+        textView.returnKeyType = .done
+        textView.keyboardType = .phonePad
         textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
         
@@ -55,10 +58,6 @@ class TextViewFactory: GetViewProtocol {
         myView = stackView
         
         textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
-        
     }
 
 }
-
-
-

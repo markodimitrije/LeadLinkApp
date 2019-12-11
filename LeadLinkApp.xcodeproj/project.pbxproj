@@ -37,6 +37,9 @@
 		7C1CEA4423A100730015F8F7 /* OptInViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */; };
 		7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */; };
 		7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */; };
+		7C1CEA4B23A14E070015F8F7 /* TextViewFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */; };
+		7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */; };
+		7C1CEA4F23A14E9B0015F8F7 /* PhoneTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
@@ -437,6 +440,9 @@
 		7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInViewItem.swift; sourceTree = "<group>"; };
 		7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBtnViewItem.swift; sourceTree = "<group>"; };
 		7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonFactory.swift; sourceTree = "<group>"; };
+		7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactoryProtocol.swift; sourceTree = "<group>"; };
+		7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTextViewFactory.swift; sourceTree = "<group>"; };
+		7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
@@ -1038,6 +1044,17 @@
 				7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */,
 			);
 			path = LocalViewFactories;
+			sourceTree = "<group>";
+		};
+		7C1CEA4923A14D890015F8F7 /* TextViewFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */,
+				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
+				7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */,
+				7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */,
+			);
+			path = TextViewFactory;
 			sourceTree = "<group>";
 		};
 		7C1E80BB23802F4D006957BB /* Model */ = {
@@ -1994,7 +2011,7 @@
 			children = (
 				7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */,
 				7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */,
-				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
+				7C1CEA4923A14D890015F8F7 /* TextViewFactory */,
 				7C4E078523A03C1E003FBCF6 /* ViewStackers */,
 				7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */,
 			);
@@ -2972,6 +2989,7 @@
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C98A6A12289689900DA184E /* OneRowStacker.swift in Sources */,
 				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
+				7C1CEA4F23A14E9B0015F8F7 /* PhoneTextViewFactory.swift in Sources */,
 				7C1F4308237B0D870043D5E3 /* TermsLabelBtnSwitchView+Rx.swift in Sources */,
 				7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
@@ -3048,6 +3066,7 @@
 				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
+				7C1CEA4B23A14E070015F8F7 /* TextViewFactoryProtocol.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
 				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
@@ -3302,6 +3321,7 @@
 				7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
 				7C98A6AE2289699C00DA184E /* MyAnswer.swift in Sources */,
+				7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */,
 				7C51086622C0D59C005EE58B /* Storyboarded.swift in Sources */,
 				7C4DC2AD233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift in Sources */,
 			);

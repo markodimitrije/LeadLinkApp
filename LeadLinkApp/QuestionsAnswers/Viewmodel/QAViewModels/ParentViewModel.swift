@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class ParentViewModel: QuestionsViewItemManaging {
+class ParentViewModel: NSObject, QuestionsViewItemManaging {
     
     func getQuestionPageViewItems() -> [QuestionPageGetViewProtocol] {
         return items
@@ -33,6 +33,7 @@ class ParentViewModel: QuestionsViewItemManaging {
     
     init(questionInfos: [PresentQuestionInfoProtocol]) {
         self.questionInfos = questionInfos
+        super.init()
         _ = questionInfos.map { info in
             if info.getQuestion().type == .textField {
                 let labelTextItem = LabelTextFieldViewModelFactory(questionInfo: info).getViewModel()
@@ -69,6 +70,7 @@ class ParentViewModel: QuestionsViewItemManaging {
         }
         appendLocalItems()
         hookUpSaveEvent()
+        //setYourselfAsDelegateToAllTextViews()
     }
     
     private func appendLocalItems() {
@@ -96,6 +98,13 @@ class ParentViewModel: QuestionsViewItemManaging {
         btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
     }
     
+    private func setYourselfAsDelegateToAllTextViews() {
+        _ = self.items.map { (item) in
+            let textViews = item.getView().findViews(subclassOf: UITextView.self)
+            _ = textViews.map({$0.delegate = self})
+        }
+    }
+    
     @objc internal func btnTapped(_ sender: UIButton) { print("saveBtnTapped. save answers")
         
         let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
@@ -105,7 +114,7 @@ class ParentViewModel: QuestionsViewItemManaging {
     }
     
     init(viewmodels: [Questanable]) {
-        
+        super.init()
         _ = viewmodels.map { viewmodel -> Void in
             
             childViewmodels[viewmodel.question.id] = viewmodel
@@ -122,11 +131,13 @@ protocol Answerable {
     var answer: MyAnswer? {get set}
 }
 
-class QuestionInfoFactory {
-    func convert(surveyQuestion: SurveyQuestion) -> PresentQuestionInfoProtocol {
-        let question = surveyQuestion.question
-        let answer = surveyQuestion.answer
-        let code = "3" // hard-coded
-        return PresentQuestionInfo(question: question, answer: answer, code: code)
+extension ParentViewModel: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let questionInfo = questionInfos.first(where: {$0.getQuestion().id == textView.tag})
+        let placeholderTxt = questionInfo?.getQuestion().description ?? ""
+        if textView.text == placeholderTxt {
+            textView.text = ""
+            textView.textColor = .black
+        }
     }
 }

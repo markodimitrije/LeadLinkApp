@@ -26,6 +26,7 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
         let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
         let textViewFactory = TextViewFactory(inputText: inputText,
                                               placeholderText: placeholderText,
+                                              questionId: questionInfo.getQuestion().id,
                                               width: allowedQuestionsWidth)
         
         let textView = textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
@@ -36,4 +37,3 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
         self.viewmodel = TextAreaViewModel(questionInfo: questionInfo, textAreaViewFactory: factory)
     }
 }
-

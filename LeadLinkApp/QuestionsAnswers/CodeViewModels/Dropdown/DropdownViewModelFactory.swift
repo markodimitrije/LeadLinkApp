@@ -19,10 +19,13 @@ class DropdownViewModelFactory: GetViewModelProtocol {
         let question = questionInfo.getQuestion()
         
         let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
-        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description, width: allowedQuestionsWidth)
+        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+                                              placeholderText: question.description,
+                                              questionId: questionInfo.getQuestion().id,
+                                              width: allowedQuestionsWidth)
         
 //        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth - 8.0)
-//        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description ?? "", width: allowedQuestionsWidth - 8.0)
+//        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description ?? "", questionId: questionInfo.getQuestion().id, width: allowedQuestionsWidth - 8.0)
 
         let viewFactory = LabelAndTextViewFactory(labelFactory: labelFactory,
                                                   textViewFactory: textViewFactory)

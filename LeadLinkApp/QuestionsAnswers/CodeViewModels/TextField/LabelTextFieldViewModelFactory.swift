@@ -19,7 +19,18 @@ class LabelTextFieldViewModelFactory: GetViewModelProtocol {
         let question = questionInfo.getQuestion()
         
         let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
-        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description, width: allowedQuestionsWidth)
+        var textViewFactory: TextViewFactoryProtocol!
+        if questionInfo.getQuestion().options.first == "barcode" {
+            textViewFactory = BarcodeTextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+                                                     width: allowedQuestionsWidth)
+        } else {
+            textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+                                              placeholderText: question.description,
+                                              questionId: questionInfo.getQuestion().id,
+                                              width: allowedQuestionsWidth)
+        }
+        
+//        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description, questionId: questionInfo.getQuestion().id, width: allowedQuestionsWidth)
         
         let viewFactory = LabelAndTextViewFactory(labelFactory: labelFactory,
                                                   textViewFactory: textViewFactory)
@@ -27,7 +38,10 @@ class LabelTextFieldViewModelFactory: GetViewModelProtocol {
         let labelTextViewItem = LabelTextFieldViewModel(questionInfo: questionInfo, viewFactory: viewFactory)
         
         self.viewmodel = labelTextViewItem
+        
+        textViewFactory.getView().findViews(subclassOf: UITextView.self).first?.delegate = self.viewmodel
     }
     
 }
+
 

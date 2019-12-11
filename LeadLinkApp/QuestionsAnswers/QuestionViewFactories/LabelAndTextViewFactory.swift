@@ -11,7 +11,7 @@ import UIKit
 class LabelAndTextViewFactory:  GetViewProtocol {
     
     private let labelFactory: LabelFactory
-    private let textViewFactory: TextViewFactory
+    private let textViewFactory: TextViewFactoryProtocol
     private var myView: UIView!
     
     weak var delegate: UITextViewDelegate?
@@ -20,7 +20,7 @@ class LabelAndTextViewFactory:  GetViewProtocol {
         return myView
     }
     
-    init(labelFactory: LabelFactory, textViewFactory: TextViewFactory) {
+    init(labelFactory: LabelFactory, textViewFactory: TextViewFactoryProtocol) {
         self.labelFactory = labelFactory
         self.textViewFactory = textViewFactory
         loadView()
