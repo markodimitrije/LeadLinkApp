@@ -36,8 +36,12 @@ class RadioBtns_ViewFactory: GetViewProtocol {
             return radioBtnViewModel
         }
         self.singleRadioBtnViewModels = singleRadioBtnViewModels
-        let singleViews = singleRadioBtnViewModels.map {$0.getView()}
-        let verticalStackerFactory = CodeVerticalStacker(views: singleViews)
+        let singleRadioViews = singleRadioBtnViewModels.map {$0.getView()}
+        
+        let labelView = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth).getView()
+        
+        let allViews = [labelView] + singleRadioViews
+        let verticalStackerFactory = CodeVerticalStacker(views: allViews)
         
         self.myView = verticalStackerFactory.getView()
         
