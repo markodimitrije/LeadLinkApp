@@ -60,24 +60,17 @@ struct QA_Validation {
         self.answers = answers
         
         func loadEmailAndTermsAnswers() {
+            
             self.emailAnswer = answers.first(where: { answer -> Bool in
                 emailValidator.isValidEmail(testStr: answer.content.first)
             })
             
-            let termsQuestion = questions.first { question -> Bool in
-                question.question.type == .termsSwitchBtn
-            }
-            
-            if let terms = termsQuestion {
+            let actualTermsAnswer = answers.first(where: { answer -> Bool in
+                return answer.questionType == QuestionType.termsSwitchBtn.rawValue
+
+            })
                 
-                let actualAnswer = answers.first(where: { answer -> Bool in
-                    return answer.questionId == terms.question.id &&
-                        answer.code == surveyInfo.code
-                })
-                
-                self.termsAnswer = actualAnswer ?? nil
-                
-            }
+            self.termsAnswer = actualTermsAnswer ?? nil
         }
         
         loadEmailAndTermsAnswers()

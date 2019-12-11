@@ -48,9 +48,17 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-//            configureQuestionForm()
-            if oldValue == nil {
+//            delay(1.0) {
+                self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
+//            }
+//            if oldValue == nil {
 //                subscribeListeningToSaveEvent()
+//            }
+            if oldValue != nil {
+                stackView.removeAllSubviews()
+                questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
+                loadParentViewModel(questions: questions)
+                subscribeListeningToSaveEvent()
             }
         }
     }
@@ -72,7 +80,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.hideKeyboardWhenTappedAround()
         self.setUpKeyboardBehavior()
         
-//        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
         tableView?.reloadData()
         
         loadTableViewDataSourceAndDelegate()
@@ -94,7 +102,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.listenToSaveEvent()
     }
     
-    /*
+    
     private func fetchDelegateAndSaveToRealm(code: String) {
         
         let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
@@ -125,7 +133,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             })
             .disposed(by: bag)
     }
-    */
+    
     private func setUpKeyboardBehavior() {
         
         keyboardDelegate = QuestionsAnswersMovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
@@ -170,7 +178,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 //        parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
         
         let questionInfos = questions.map { surveyQuestion -> PresentQuestionInfoProtocol in
-            PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: "12")
+            
+            PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: surveyInfo.code)
         }
         
         parentViewmodel = ParentViewModel(questionInfos: questionInfos)
