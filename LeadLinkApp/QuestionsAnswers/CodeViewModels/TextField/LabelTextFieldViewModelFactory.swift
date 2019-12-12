@@ -21,7 +21,7 @@ class LabelTextFieldViewModelFactory: GetViewModelProtocol {
         let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
         var textViewFactory: TextViewFactoryProtocol!
         if questionInfo.getQuestion().options.first == "barcode" {
-            textViewFactory = BarcodeTextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+            textViewFactory = BarcodeTextViewFactory(inputText: questionInfo.getCode(),
                                                      width: allowedQuestionsWidth)
         } else {
             textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
