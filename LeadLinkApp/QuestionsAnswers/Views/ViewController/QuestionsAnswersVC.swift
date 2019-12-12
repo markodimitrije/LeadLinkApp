@@ -166,17 +166,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-//        let childViewmodels = questions.compactMap { surveyQuestion -> Questanable? in
-//            return viewmodelFactory.makeViewmodel(surveyQuestion: surveyQuestion)
-//        }
-//        parentViewmodel = ParentViewModel.init(viewmodels: childViewmodels)
-        
         let questionInfos = questions.map { surveyQuestion -> PresentQuestionInfoProtocol in
             
             PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: surveyInfo.code)
         }
         
-        parentViewmodel = ParentViewModel(questionInfos: questionInfos)
+        //parentViewmodel = ParentViewModel(questionInfos: questionInfos)
+        parentViewmodel = ParentViewModel(viewInfos: questionInfos)
         viewItems = parentViewmodel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }

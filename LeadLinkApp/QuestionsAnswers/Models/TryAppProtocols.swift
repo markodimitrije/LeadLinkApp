@@ -22,8 +22,31 @@ protocol BtnTapListening {
 
 protocol QuestionsViewItemManaging: QuestionsViewItemSupplying, BtnTapListening {}
 
-protocol PresentQuestionInfoProtocol {
+protocol PresentQuestionInfoProtocol: ViewInfoProtocol {
     func getQuestion() -> PresentQuestion
     func getAnswer() -> MyAnswer?
     func getCode() -> String
 }
+
+protocol ViewInfoProtocol {}
+
+protocol GroupViewInfoProtocol: ViewInfoProtocol {
+    func getTitle() -> String
+}
+
+// implementations:
+// GroupViewInfo
+struct GroupViewInfo {
+    var title: String
+    init(title: String) {
+        self.title = title
+    }
+}
+extension GroupViewInfo: GroupViewInfoProtocol {
+    func getTitle() -> String {
+        return self.title
+    }
+}
+
+//PresentQuestionInfo
+//

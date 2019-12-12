@@ -31,46 +31,60 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
     private var viewmodels = [QuestionPageViewModelProtocol]()
     var childViewmodels = [Int: Questanable]()
     
-    init(questionInfos: [PresentQuestionInfoProtocol]) {
-        self.questionInfos = questionInfos
+    init(viewInfos: [ViewInfoProtocol]) {
         super.init()
-        _ = questionInfos.map { info in
-            if info.getQuestion().type == .textField {
-                let labelTextItem = LabelTextFieldViewModelFactory(questionInfo: info).getViewModel()
-                items.append(labelTextItem)
+        _ = viewInfos.map({ viewInfo in
+            if let info = viewInfo as? GroupViewInfoProtocol {
+                let groupFactory = GroupViewFactory(text: info.getTitle())
+                let groupItem = GroupViewItem(viewFactory: groupFactory)
+                items.append(groupItem)
+            } else if let info = viewInfo as? PresentQuestionInfoProtocol {
+                self.questionInfos.append(info)
+                appendQuestion(info: info)
             }
-            if info.getQuestion().type == .textArea {
-                let textAreaItem = TextAreaViewModelFactory(questionInfo: info).getViewModel()
-                items.append(textAreaItem)
-            }
-            if info.getQuestion().type == .dropdown {
-                let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
-                items.append(dropdownItem)
-            }
-            if info.getQuestion().type == .checkbox {
-                let checkboxBtnsItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
-                items.append(checkboxBtnsItem)
-            }
-            if info.getQuestion().type == .checkboxMultipleWithInput {
-                let checkboxBtnsWithInputItem = CheckboxBtnsWithInputViewModelFactory(questionInfo: info).getViewModel()
-                items.append(checkboxBtnsWithInputItem)
-            }
-            if info.getQuestion().type == .radioBtn {
-                let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
-                items.append(radioBtnsItem);
-            }
-            if info.getQuestion().type == .radioBtnWithInput {
-                let radioBtnsWithInputItem = RadioBtnsWithInput_ViewModelFactory(questionInfo: info).getViewModel()
-                items.append(radioBtnsWithInputItem);
-            }
-            if info.getQuestion().type == .termsSwitchBtn {
-                let termsSwitchBtnItem = TermsSwitchBtnViewModelFactory(questionInfo: info).getViewModel()
-                items.append(termsSwitchBtnItem);
-            }
-        }
+        })
         appendLocalItems()
         hookUpSaveEvent()
         //setYourselfAsDelegateToAllTextViews()
+    }
+    
+    
+    
+    func appendQuestion(info: PresentQuestionInfoProtocol) {
+        
+        if info.getQuestion().type == .textField {
+            let labelTextItem = LabelTextFieldViewModelFactory(questionInfo: info).getViewModel()
+            items.append(labelTextItem)
+        }
+        if info.getQuestion().type == .textArea {
+            let textAreaItem = TextAreaViewModelFactory(questionInfo: info).getViewModel()
+            items.append(textAreaItem)
+        }
+        if info.getQuestion().type == .dropdown {
+            let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
+            items.append(dropdownItem)
+        }
+        if info.getQuestion().type == .checkbox {
+            let checkboxBtnsItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
+            items.append(checkboxBtnsItem)
+        }
+        if info.getQuestion().type == .checkboxMultipleWithInput {
+            let checkboxBtnsWithInputItem = CheckboxBtnsWithInputViewModelFactory(questionInfo: info).getViewModel()
+            items.append(checkboxBtnsWithInputItem)
+        }
+        if info.getQuestion().type == .radioBtn {
+            let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
+            items.append(radioBtnsItem);
+        }
+        if info.getQuestion().type == .radioBtnWithInput {
+            let radioBtnsWithInputItem = RadioBtnsWithInput_ViewModelFactory(questionInfo: info).getViewModel()
+            items.append(radioBtnsWithInputItem);
+        }
+        if info.getQuestion().type == .termsSwitchBtn {
+            let termsSwitchBtnItem = TermsSwitchBtnViewModelFactory(questionInfo: info).getViewModel()
+            items.append(termsSwitchBtnItem);
+        }
+        
     }
     
     private func appendLocalItems() {
