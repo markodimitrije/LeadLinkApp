@@ -120,22 +120,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DE3FC7CB-7D7A-4F6A-86C2-53B5B5D66E29"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/BusinessLogic/Answer/AnswersUpdater.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "updateAnswers()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "472C93C0-66E1-47EF-82D6-5304610CDB97"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -152,81 +136,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ED6E2034-2E0C-46F9-8CA5-170EBA8D9BE5"
+            uuid = "40E725F2-C8BC-4789-8450-2E8A8EA54AF1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/Validation/QA_Validation.swift"
+            filePath = "LeadLinkApp/DataLayer/Repositories/Persistence/AnswersDataStore/RealmAnswersDataStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "hasCheckedTermsAndConditions"
-            landmarkType = "24">
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "save(answers:forCode:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23AFD9D8-9754-4D9C-A066-84438A058A3C"
+            uuid = "DDD6F751-589B-42F5-AAAE-34DFABAAB967"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/Views/ViewController/QuestionsAnswersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "scrollFirstResponderToTopOfTableView(verticalShift:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81CC4919-10BD-462F-B349-1FF4FDE4A67A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/Viewmodel/QAViewModels/ParentViewModel.swift"
+            filePath = "LeadLinkApp/QuestionsAnswers/Views/ViewController/QuestionsAnswersVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "textViewDidBeginEditing(_:)"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "listenToSaveEvent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CBCD8A70-A4F4-46A5-A316-1F95F16200BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/Views/DataSourceAndDelegate/QuestionsDataSourceAndDelegateHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "questionsInGroupWith(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C497D0A-B8C5-44FE-AFE8-00EB73C0DD7D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "loadQuestions()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "23AFD9D8-9754-4D9C-A066-84438A058A3C - f88e65de85dcb164"
+                  uuid = "0C497D0A-B8C5-44FE-AFE8-00EB73C0DD7D - 70bc91e55e78b1bc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Navus_Lead.ParentViewModel.textViewDidBeginEditing(__C.UITextView) -&gt; ()"
+                  symbolName = "Navus_Lead.SurveyQuestionsLoader.(loadQuestions in _6DF318496F252E74F378555086BFDFDF)() -&gt; ()"
                   moduleName = "Navus Lead"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/Viewmodel/QAViewModels/ParentViewModel.swift"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "86">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "750">
                </Location>
                <Location
-                  uuid = "23AFD9D8-9754-4D9C-A066-84438A058A3C - 9d1c93bcf1bed145"
+                  uuid = "0C497D0A-B8C5-44FE-AFE8-00EB73C0DD7D - 523685eddc6e0754"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Navus_Lead.PresentQuestionInfoProtocol) -&gt; Swift.Bool in Navus_Lead.ParentViewModel.textViewDidBeginEditing(__C.UITextView) -&gt; ()"
+                  symbolName = "closure #2 (Navus_Lead.Question) -&gt; Swift.Optional&lt;Navus_Lead.SurveyQuestion&gt; in Navus_Lead.SurveyQuestionsLoader.(loadQuestions in _6DF318496F252E74F378555086BFDFDF)() -&gt; ()"
                   moduleName = "Navus Lead"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/Viewmodel/QAViewModels/ParentViewModel.swift"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "49">
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "424">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "70C86FB6-912C-493F-9BD7-8653AD0383B0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/CodeViewFactories/TextViewFactory/BarcodeTextViewFactory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "init(inputText:width:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

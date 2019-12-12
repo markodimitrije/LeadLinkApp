@@ -48,12 +48,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
-//            delay(1.0) {
                 self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
-//            }
-//            if oldValue == nil {
-//                subscribeListeningToSaveEvent()
-//            }
             if oldValue != nil {
                 stackView.removeAllSubviews()
                 questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
