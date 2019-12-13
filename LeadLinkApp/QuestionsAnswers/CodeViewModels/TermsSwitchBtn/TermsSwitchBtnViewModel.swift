@@ -34,6 +34,7 @@ class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
         let isOn = !(self.answer?.content.isEmpty ?? true)
         let factory = TermsSwitchBtnViewFactory(questionInfo: questionInfo, isOn: isOn)
         self.myView = factory.getView()
+        self.myView.tag = questionInfo.getQuestion().id
     }
     
 }

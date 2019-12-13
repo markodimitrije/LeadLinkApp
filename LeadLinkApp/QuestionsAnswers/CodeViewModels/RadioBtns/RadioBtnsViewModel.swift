@@ -28,6 +28,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
         super.init()
         self.singleRadioBtnViewModels = radioBtnsFactory.getViewModels()
         self.view = radioBtnsFactory.getView()
+        self.view.tag = questionInfo.getQuestion().id
         
         _ = self.view.findViews(subclassOf: UIButton.self).map {
             $0.addTarget(self, action: #selector(RadioBtnsViewModel.btnTapped), for: .touchUpInside)

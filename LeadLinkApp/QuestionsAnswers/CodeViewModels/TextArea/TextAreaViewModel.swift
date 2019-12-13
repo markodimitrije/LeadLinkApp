@@ -22,6 +22,7 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
         self.code = questionInfo.getCode()
         super.init()
         self.view = textAreaViewFactory.getView()
+        self.view.tag = questionInfo.getQuestion().id
         self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
     }
     

@@ -63,6 +63,7 @@ class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
         
         self.singleCheckboxBtnViewModels = checkboxBtnsWithInputViewFactory.getViewModels()
         self.view = checkboxBtnsWithInputViewFactory.getView()
+        self.view.tag = questionInfo.getQuestion().id
         
         _ = self.view.findViews(subclassOf: UITextView.self).map {$0.delegate = self}
         _ = self.view.findViews(subclassOf: UIButton.self).map {

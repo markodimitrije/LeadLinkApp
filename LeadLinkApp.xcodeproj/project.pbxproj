@@ -300,6 +300,9 @@
 		7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC27A22D773D600B7D43F /* PieChartView.xib */; };
 		7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27B22D773D600B7D43F /* PieChartView.swift */; };
 		7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */; };
+		7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5223A3ABBC00D52338 /* KeyboardHandling.swift */; };
+		7CC94E5523A3ABD400D52338 /* ScrollViewKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5423A3ABD400D52338 /* ScrollViewKeyboardHandler.swift */; };
+		7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */; };
@@ -707,6 +710,9 @@
 		7CBDC27A22D773D600B7D43F /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		7CBDC27B22D773D600B7D43F /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCompartmentsOrderer.swift; sourceTree = "<group>"; };
+		7CC94E5223A3ABBC00D52338 /* KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandling.swift; sourceTree = "<group>"; };
+		7CC94E5423A3ABD400D52338 /* ScrollViewKeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewKeyboardHandler.swift; sourceTree = "<group>"; };
+		7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewScroller.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesRemoteAPI.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesRemoteAPI.swift"; sourceTree = "<group>"; };
@@ -1881,13 +1887,13 @@
 			path = TermsNoSwitchView;
 			sourceTree = "<group>";
 		};
-		7C3A689922E75943007E9240 /* ScrollTableViewAndPayAttention */ = {
+		7C3A689922E75943007E9240 /* ScrollAndPayAttentionToView */ = {
 			isa = PBXGroup;
 			children = (
-				7C3A689A22E75974007E9240 /* ScrollingToField.swift */,
-				7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */,
+				7CC94E5823A3AD7C00D52338 /* ScrollViewImplementation */,
+				7CC94E5723A3ACF400D52338 /* TableViewImplementation */,
 			);
-			path = ScrollTableViewAndPayAttention;
+			path = ScrollAndPayAttentionToView;
 			sourceTree = "<group>";
 		};
 		7C3BF65122CA38A3001EA1E6 /* LeadLinkAppTests */ = {
@@ -1953,6 +1959,7 @@
 		7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */ = {
 			isa = PBXGroup;
 			children = (
+				7CC94E5123A3ABA700D52338 /* Workers */,
 				7C1BBE81239FDB9A005A121D /* Models */,
 				7C4E075C239FF0DB003FBCF6 /* CodeScene */,
 				7C4E0755239FEF46003FBCF6 /* CodeViewFactories */,
@@ -2423,6 +2430,41 @@
 			path = PieChartView;
 			sourceTree = "<group>";
 		};
+		7CC94E5123A3ABA700D52338 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A689922E75943007E9240 /* ScrollAndPayAttentionToView */,
+				7CC94E5623A3ACAB00D52338 /* KeyboardHandling */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		7CC94E5623A3ACAB00D52338 /* KeyboardHandling */ = {
+			isa = PBXGroup;
+			children = (
+				7CC94E5223A3ABBC00D52338 /* KeyboardHandling.swift */,
+				7CC94E5423A3ABD400D52338 /* ScrollViewKeyboardHandler.swift */,
+			);
+			path = KeyboardHandling;
+			sourceTree = "<group>";
+		};
+		7CC94E5723A3ACF400D52338 /* TableViewImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A689A22E75974007E9240 /* ScrollingToField.swift */,
+				7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */,
+			);
+			path = TableViewImplementation;
+			sourceTree = "<group>";
+		};
+		7CC94E5823A3AD7C00D52338 /* ScrollViewImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */,
+			);
+			path = ScrollViewImplementation;
+			sourceTree = "<group>";
+		};
 		7CF225E5232A8F2E004E023C /* PageNavigating */ = {
 			isa = PBXGroup;
 			children = (
@@ -2590,7 +2632,6 @@
 				7C2227202379C5780006B8EE /* Scene */,
 				AD4F013921D8F61F00946CBA /* Model */,
 				7CF225E5232A8F2E004E023C /* PageNavigating */,
-				7C3A689922E75943007E9240 /* ScrollTableViewAndPayAttention */,
 				7C3F970A22E1D7F400C8A797 /* QuestionsAnswers */,
 				7CA998EC22A96E9900C226F1 /* Service */,
 				7CA998CF22A908AC00C226F1 /* ConferenceApiKeyState */,
@@ -3004,6 +3045,7 @@
 				7C1F430F237B0EA20043D5E3 /* UIViewController+DismissKeyboard+Rx.swift in Sources */,
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
 				7CAB84B522EB2FF200CE91AA /* QuestionsAnswersTableWidthCalculating.swift in Sources */,
+				7CC94E5523A3ABD400D52338 /* ScrollViewKeyboardHandler.swift in Sources */,
 				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
 				7C1CEA2E23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift in Sources */,
 				7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */,
@@ -3089,6 +3131,7 @@
 				7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */,
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
 				7C22271F2379C0910006B8EE /* SurveyQuestion.swift in Sources */,
+				7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				7CB4D3DE22DCAEB100D6987E /* ScanditAllownessValidation.swift in Sources */,
@@ -3100,6 +3143,7 @@
 				7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */,
 				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
+				7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
 				7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */,

@@ -30,8 +30,6 @@ class LabelTextFieldViewModelFactory: GetViewModelProtocol {
                                               width: allowedQuestionsWidth)
         }
         
-//        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "", placeholderText: question.description, questionId: questionInfo.getQuestion().id, width: allowedQuestionsWidth)
-        
         let viewFactory = LabelAndTextViewFactory(labelFactory: labelFactory,
                                                   textViewFactory: textViewFactory)
         

@@ -20,13 +20,17 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         delegate: questionOptionsFromTextViewDelegate
     )
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     
     private var questions = [SurveyQuestion]()
     private var parentViewmodel: ParentViewModel!
     private var viewItems = [QuestionPageGetViewProtocol]()
+    
+    lazy private var keyboardHandler: KeyboardHandling = {
+        return ScrollViewKeyboardHandler(scrollView: scrollView)
+    }()
     
     var webViewsAndViewSizesProvider: WebViewsAndViewSizesProvider!
     let localComponents = LocalComponentsViewFactory()
@@ -60,10 +64,15 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     override func viewDidLoad() { super.viewDidLoad()
         self.scrollView.delegate = self
-        listenKeyboardEvents()
+        keyboardHandler.registerForKeyboardEvents()
         configureQuestionForm()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.scrollView.contentOffset = CGPoint(x: 0, y: 682.0)
+    }
+    
     private func configureQuestionForm() {
         
         questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
@@ -81,11 +90,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         loadTableViewDataSourceAndDelegate()
         
         subscribeListeningToSaveEvent()
-    }
-    
-    private func listenKeyboardEvents() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func loadTableViewDataSourceAndDelegate() {
@@ -247,40 +251,31 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
                 guard let question = question else { return }
                 
-                let helper = QuestionsDataSourceAndDelegateHelper(questions: self.questions,
-                                                                  localComponents: self.localComponents)
+//                let helper = QuestionsDataSourceAndDelegateHelper(questions: self.questions,
+//                                                                  localComponents: self.localComponents)
+//
+//                let scroller = TableViewScroller(tableView: self.tableView,
+//                                                 questions: self.questions.map({$0.question}),
+//                                                 helper: helper)
                 
-                let scroller = TableViewScroller(tableView: self.tableView,
-                                                 questions: self.questions.map({$0.question}),
-                                                 helper: helper)
+                let scroller = ScrollViewScroller(scrollView: self.scrollView,
+                                                  questions: self.questions.map({$0.question}))
                 
                 scroller.scrollTo(question: question)
                 
                 self.localComponents.saveBtn.stopSpinner()
                 
-                let attentioner = TableViewPayingAttentioner(tableView: self.tableView,
-                                                             questions: self.questions.map({$0.question}),
-                                                             helper: helper)
+//                let attentioner = TableViewPayingAttentioner(tableView: self.tableView,
+//                                                             questions: self.questions.map({$0.question}),
+//                                                             helper: helper)
+                let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView,
+                                                              questions: self.questions.map {$0.question})
                 
                 delay(0.5, closure: {
                     attentioner.payAttentionTo(question: question)
                 })
                 
             }).disposed(by: bag)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let textView = scrollView.findViews(subclassOf: UITextView.self).first(where: {$0.isFirstResponder})
-            let textField = scrollView.findViews(subclassOf: UITextField.self).first(where: {$0.isFirstResponder})
-            let responder = textView ?? textField!
-            let relativeOrigin = responder.convert(responder.frame.origin, to: scrollView)
-            
-            // scroll up by keyboardHeight, but only if responder wont leave the screen
-            if relativeOrigin.y - keyboardSize.height > scrollView.contentOffset.y {
-                scrollView.contentOffset.y = scrollView.contentOffset.y + keyboardSize.height
-            }
-        }
     }
     
 }

@@ -64,6 +64,7 @@ class RadioBtnsWithInputViewModel: NSObject, QuestionPageViewModelProtocol {
         
         self.singleRadioBtnViewModels = radioBtnsWithInputViewFactory.getViewModels()
         self.view = radioBtnsWithInputViewFactory.getView()
+        self.view.tag = questionInfo.getQuestion().id
         
         _ = self.view.findViews(subclassOf: UITextView.self).map {$0.delegate = self}
         _ = self.view.findViews(subclassOf: UIButton.self).map {

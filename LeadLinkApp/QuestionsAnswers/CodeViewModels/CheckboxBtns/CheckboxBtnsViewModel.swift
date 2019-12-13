@@ -30,36 +30,11 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
         
         let viewStacker = CodeVerticalStacker(views: [labelFactory.getView(), checkboxBtnsFactory.getView()])
         self.view = viewStacker.getView()
+        self.view.tag = questionInfo.getQuestion().id
         
         _ = self.view.findViews(subclassOf: UIButton.self).map {
             $0.addTarget(self, action: #selector(CheckboxBtnsViewModel.btnTapped), for: .touchUpInside)
         }
-    }
-    
-    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
-        self.question = question
-        self.answer = answer
-        self.code = code
-        super.init()
-        loadView()
-    }
-    
-    private func loadView() {
-        let titles = question.options
-        
-        let selected = titles.map {(answer?.content ?? [ ]).contains($0)}
-        
-        let singleCheckboxBtnViewModel = titles.enumerated().map { (index, title) -> SingleCheckboxBtnViewModel in
-            let checkboxBtnFactory = SingleCheckboxBtnViewFactory(tag: index,
-                                                               isOn: selected[index],
-                                                               titleText: title)
-            let checkboxBtnViewModel = SingleCheckboxBtnViewModel(viewFactory: checkboxBtnFactory, isOn: selected[index])
-            return checkboxBtnViewModel
-        }
-        self.singleCheckboxBtnViewModel = singleCheckboxBtnViewModel
-        let singleViews = singleCheckboxBtnViewModel.map {$0.getView()}
-        let verticalStackerFactory = CodeVerticalStacker(views: singleViews)
-        self.view = verticalStackerFactory.getView()
     }
     
     func getView() -> UIView {

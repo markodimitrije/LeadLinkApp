@@ -21,6 +21,7 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
         self.answer = presentQuestionInfo.getAnswer()
         self.code = presentQuestionInfo.getCode()
         self.view = viewFactory.getView()
+        self.view.tag = presentQuestionInfo.getQuestion().id
         super.init()
         self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
     }

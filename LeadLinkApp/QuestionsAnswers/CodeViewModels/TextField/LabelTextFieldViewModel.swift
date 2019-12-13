@@ -14,23 +14,24 @@ class LabelTextFieldViewModel: NSObject, QuestionPageViewModelProtocol {
     private var answer: MyAnswer?
     private var code: String
     
-    private var view: UIView!
+    private var myView: UIView!
     
     init(questionInfo: PresentQuestionInfoProtocol, viewFactory: GetViewProtocol) {
         self.question = questionInfo.getQuestion()
         self.answer = questionInfo.getAnswer()
         self.code = questionInfo.getCode()
         super.init()
-        self.view = viewFactory.getView()
-        self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
+        self.myView = viewFactory.getView()
+        self.myView.tag = questionInfo.getQuestion().id
+        self.myView.findViews(subclassOf: UITextView.self).first!.delegate = self
     }
     
     func getView() -> UIView {
-        return self.view
+        return self.myView
     }
     
     func getActualAnswer() -> MyAnswer? {
-        let text = view.findViews(subclassOf: UITextView.self).first!.text
+        let text = myView.findViews(subclassOf: UITextView.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
