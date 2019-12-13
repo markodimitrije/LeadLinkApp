@@ -22,13 +22,13 @@ protocol BtnTapListening {
 
 protocol QuestionsViewItemManaging: QuestionsViewItemSupplying, BtnTapListening {}
 
+protocol ViewInfoProtocol {}
+
 protocol PresentQuestionInfoProtocol: ViewInfoProtocol {
     func getQuestion() -> PresentQuestion
     func getAnswer() -> MyAnswer?
     func getCode() -> String
 }
-
-protocol ViewInfoProtocol {}
 
 protocol GroupViewInfoProtocol: ViewInfoProtocol {
     func getTitle() -> String

@@ -304,7 +304,7 @@
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */; };
 		7CE63AC622A80578008E477B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC522A80578008E477B /* Delegate.swift */; };
-		7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */; };
+		7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */; };
 		7CF0CEAE237EAC5F00834CD9 /* AnswersReportDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0CEAD237EAC5F00834CD9 /* AnswersReportDataStore.swift */; };
 		7CF0CEB0237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0CEAF237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift */; };
 		7CF0CEB2237EC59300834CD9 /* LabelAndPhoneTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0CEB1237EC59300834CD9 /* LabelAndPhoneTextField+Rx.swift */; };
@@ -711,7 +711,7 @@
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesRemoteAPI.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesRemoteAPI.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataSourceAndDelegateHelper.swift; sourceTree = "<group>"; };
+		7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoProvider.swift; sourceTree = "<group>"; };
 		7CF0CEAD237EAC5F00834CD9 /* AnswersReportDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersReportDataStore.swift; sourceTree = "<group>"; };
 		7CF0CEAF237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+MyRx+Extensions.swift"; sourceTree = "<group>"; };
 		7CF0CEB1237EC59300834CD9 /* LabelAndPhoneTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelAndPhoneTextField+Rx.swift"; sourceTree = "<group>"; };
@@ -1974,7 +1974,7 @@
 				7C4682152380059E0000F00F /* Model */,
 				7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */,
 				7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */,
-				7CEFA5F322AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift */,
+				7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */,
 			);
 			path = DataSourceAndDelegate;
 			sourceTree = "<group>";
@@ -3097,7 +3097,7 @@
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
 				7C1CEA4B23A14E070015F8F7 /* TextViewFactoryProtocol.swift in Sources */,
-				7CEFA5F422AA806C00BD2660 /* QuestionsDataSourceAndDelegateHelper.swift in Sources */,
+				7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */,
 				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// delete after replacing scrolling behaviour
 struct QuestionsDataSourceAndDelegateHelper {
     
     private var orderedQuestions = [PresentQuestion]()
@@ -107,6 +108,84 @@ struct QuestionsDataSourceAndDelegateHelper {
         let orders = questionsInGroup.compactMap {$0.order}
         guard let orderInGroup: Int = orders.firstIndex(of: question.order) else {return nil}
         return IndexPath(row: orderInGroup, section: groupIndex)
+    }
+    
+}
+
+class ViewInfoProvider {
+    
+    private var code: String
+    private var surveyQuestions = [SurveyQuestion]()
+    private var orderedQuestions = [PresentQuestion]()
+    private var localComponents: LocalComponentsViewFactory
+    
+    lazy private var orderedGroups = orderedQuestions.map { question -> String in
+            if itemHasNoGroup(question: question) {
+                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
+            } else {
+                return question.group!
+            }
+        }.unique() + [getNameForLastGroup()] //[QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
+
+    // to test group reordering:
+//    lazy private var orderedGroups = [QuestionsAnswersSectionType.localComponentsGroupName.rawValue] +
+//
+//        orderedQuestions.map { question -> String in
+//
+//            if itemHasNoGroup(question: question) {
+//                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
+//            } else {
+//                return question.group!
+//            }
+//
+//        }.unique()
+    
+    init(questions: [SurveyQuestion], localComponents: LocalComponentsViewFactory, code: String) {
+        self.surveyQuestions = questions
+        self.code = code
+        self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
+        self.localComponents = localComponents
+    }
+    
+    // MARK:- API
+    
+    func getQuestionsFor(groupName name: String) -> [SurveyQuestion] {
+        return surveyQuestions.filter({$0.question.group == name})
+    }
+    
+    func getViewInfos() -> [ViewInfoProtocol] {
+        var items = [ViewInfoProtocol]()
+        let questionsInGroups = orderedGroups.map(getQuestionsFor)
+        _ = orderedGroups.enumerated().map { (index, groupName) in
+
+            let groupViewInfo = GroupViewInfo(title: groupName)
+            items.append(groupViewInfo)
+
+            let groupQuestions = questionsInGroups[index]
+
+            let questionInfos: [PresentQuestionInfo] = groupQuestions.map { presentQuestion in
+                    return PresentQuestionInfo(question: presentQuestion.question,
+                                               answer: presentQuestion.answer,
+                                               code: self.code)
+                }
+            items.append(contentsOf: questionInfos)
+        }
+        return items
+    }
+    
+    // MARK:- Privates
+    private func itemHasNoGroup(question: PresentQuestion) -> Bool {
+        return question.group == nil || question.group == ""
+    }
+    
+    private func footerViewSize(sectionIndex: Int, tableView: UITableView) -> CGSize {
+        return CGSize.init(width: tableView.bounds.width,
+                           height: tableHeaderFooterCalculator.getFooterHeight()
+        )
+    }
+    
+    private func getNameForLastGroup() -> String {
+        return (localComponents.componentsInOrder.count == 1) ? "" : QuestionsAnswersSectionType.localComponentsGroupName.rawValue
     }
     
 }

@@ -166,20 +166,16 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-        let questionInfos = questions.map { surveyQuestion -> PresentQuestionInfoProtocol in
-            
-            PresentQuestionInfo(question: surveyQuestion.question, answer: surveyQuestion.answer, code: surveyInfo.code)
-        }
+        let helper = ViewInfoProvider(questions: questions, localComponents: self.localComponents, code: surveyInfo.code)
+        let viewInfos = helper.getViewInfos()
         
-        //parentViewmodel = ParentViewModel(questionInfos: questionInfos)
-        parentViewmodel = ParentViewModel(viewInfos: questionInfos)
+        parentViewmodel = ParentViewModel(viewInfos: viewInfos)
         viewItems = parentViewmodel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }
     
     private func drawScreen(viewItems: [QuestionPageGetViewProtocol]) {
         _ = viewItems.map({
-            //stackView?.addSubview($0.getView())
             stackView?.addArrangedSubview($0.getView())
         })
     }
@@ -187,9 +183,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private func listenToSaveEvent() {
         let items = parentViewmodel.getQuestionPageViewItems()
         
-//        let views = items.map { (item) -> UIView in
-//            return item.getView()
-//        }
         let saveBtn = (items.first(where: {$0 is SaveBtnViewItem}) as! SaveBtnViewItem).button
         
         saveBtn.rx.controlEvent(.touchUpInside)
