@@ -60,6 +60,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     override func viewDidLoad() { super.viewDidLoad()
         self.scrollView.delegate = self
+        listenKeyboardEvents()
         configureQuestionForm()
     }
 
@@ -82,6 +83,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         subscribeListeningToSaveEvent()
     }
     
+    private func listenKeyboardEvents() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func loadTableViewDataSourceAndDelegate() {
         
         myDataSource = QuestionsAnswersDataSource.init(viewController: self, questions: questions, webViewsAndViewSizesProvider: webViewsAndViewSizesProvider)
@@ -91,11 +97,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.tableView?.delegate = myDelegate
     }
     
-    
     private func subscribeListeningToSaveEvent() {
         self.listenToSaveEvent()
     }
-    
     
     private func fetchDelegateAndSaveToRealm(code: String) {
         
@@ -135,7 +139,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
-    
+    /*
         let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
             let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
             guard let textControl = textControlObject else {
@@ -157,7 +161,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 }
             }
         }
-        
+        */
     }
     
     @objc func doneWithOptionsIsTapped() {
@@ -263,6 +267,20 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 })
                 
             }).disposed(by: bag)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let textView = scrollView.findViews(subclassOf: UITextView.self).first(where: {$0.isFirstResponder})
+            let textField = scrollView.findViews(subclassOf: UITextField.self).first(where: {$0.isFirstResponder})
+            let responder = textView ?? textField!
+            let relativeOrigin = responder.convert(responder.frame.origin, to: scrollView)
+            
+            // scroll up by keyboardHeight, but only if responder wont leave the screen
+            if relativeOrigin.y - keyboardSize.height > scrollView.contentOffset.y {
+                scrollView.contentOffset.y = scrollView.contentOffset.y + keyboardSize.height
+            }
+        }
     }
     
 }
