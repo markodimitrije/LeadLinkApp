@@ -22,7 +22,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var tableView: UITableView!
     
     private var questions = [SurveyQuestion]()
     private var parentViewmodel: ParentViewModel!

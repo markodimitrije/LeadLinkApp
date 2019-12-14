@@ -61,6 +61,11 @@ var selectedCampaignId: Int? {
 }
 
 var allowedQuestionsWidth: CGFloat {
-    let myAllowedWidth = UIScreen.main.bounds.width - 16
-    return myAllowedWidth
+    guard let deviceType = getDeviceType() else {return 0.0} // fatal..
+    if deviceType == .iPad {
+        return UIScreen.main.bounds.width/2 - 16
+    } else if deviceType == .iPhone {
+        return UIScreen.main.bounds.width - 16
+    }
+    fatalError("not itended to work on other device type..")
 }
