@@ -10,13 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
  class ChooseOptionsVC: UIViewController, Storyboarded {
  
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
  
+    var _chosenOptions = PublishSubject<[String]>()
+    
+    public var chosenOptions: Observable<[String]> {
+        return doneBtn.rx.tap
+            .withLatestFrom(_chosenOptions.asObservable())
+            .debug()
+    }
+    
     var dataSourceAndDelegate: QuestionOptionsTableViewDataSourceAndDelegate!
     
     private var _options = PublishSubject<UITableViewDataSource>.init()
@@ -33,10 +40,6 @@ import RxCocoa
         setUpBindings()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     private func setUpBindings() {
         
         dataSourceAndDelegate.tableView = tableView
@@ -44,6 +47,11 @@ import RxCocoa
         
         _options.onNext(dataSourceAndDelegate) // mora da emituje odmah da bi postojao withLatestFrom
         
+        dataSourceAndDelegate.observableAnswer
+            .subscribe(onNext: { (answer) in
+                self._chosenOptions.onNext(answer?.content ?? [])
+            })
+            .disposed(by: bag)
     }
  
     private let bag = DisposeBag()

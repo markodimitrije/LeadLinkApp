@@ -27,6 +27,7 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
     }()
     
     private var questionInfos = [PresentQuestionInfoProtocol]()
+    
     private var items = [QuestionPageGetViewProtocol]()
     private var viewmodels = [QuestionPageViewModelProtocol]()
     var childViewmodels = [Int: Questanable]()
@@ -46,7 +47,6 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
         
         appendLocalItems()
         hookUpSaveEvent()
-        //setYourselfAsDelegateToAllTextViews()
     }
     
     
@@ -113,13 +113,6 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
         btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
     }
     
-    private func setYourselfAsDelegateToAllTextViews() {
-        _ = self.items.map { (item) in
-            let textViews = item.getView().findViews(subclassOf: UITextView.self)
-            _ = textViews.map({$0.delegate = self})
-        }
-    }
-    
     @objc internal func btnTapped(_ sender: UIButton) { print("saveBtnTapped. save answers")
         
         let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
@@ -128,13 +121,6 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
 //        print(answers)
     }
     
-    init(viewmodels: [Questanable]) {
-        super.init()
-        _ = viewmodels.map { viewmodel -> Void in
-            
-            childViewmodels[viewmodel.question.id] = viewmodel
-        }
-    }
 }
 
 protocol Questanable {

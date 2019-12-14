@@ -36,8 +36,13 @@ class DropdownViewModelFactory: GetViewModelProtocol {
 //        let borderLayout = BorderLayout(cornerRadius: 5.0, borderWidth: 1.0, borderColor: .orange)
 //        let embededFactory = WrapIntoBorderFactory(embededViewFactory: viewFactory, insets: UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0), borderLayout: borderLayout)
         
-        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo, viewFactory: viewFactory)
-//        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo, viewFactory: embededFactory)
+        let chooseOptionsViewControllerFactory =
+            ChooseOptionsViewControllerFactory(appDependancyContainer: factory, questionInfo: questionInfo)
+        
+        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo,
+                                             viewFactory: viewFactory,
+                                             viewControllerFactory: chooseOptionsViewControllerFactory)
+//        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo, viewFactory: embededFactory, viewControllerFactory: chooseOptionsViewControllerFactory)
         
         self.viewmodel = dropdownItem
     }

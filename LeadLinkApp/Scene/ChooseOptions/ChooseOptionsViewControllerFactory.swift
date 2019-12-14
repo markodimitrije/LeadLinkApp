@@ -6,23 +6,44 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import RxSwift
 
-class ChooseOptionsViewControllerFactory {
+protocol GetViewControllerProtocol {
+    func getViewController() -> UIViewController
+}
+
+protocol ChooseOptionsProtocol: GetViewControllerProtocol {
+    func getChosenOptions() -> Observable<[String]>
+}
+
+class ChooseOptionsViewControllerFactory: ChooseOptionsProtocol {
     
     var appDependancyContainer: AppDependencyContainer
     
-    init(appDependancyContainer: AppDependencyContainer) {
-        self.appDependancyContainer = appDependancyContainer
+    private var myController: ChooseOptionsVC
+    func getChosenOptions() -> Observable<[String]> {
+        myController.chosenOptions
     }
     
-    func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
-        let chooseOptionsVC = ChooseOptionsVC.instantiate(using: appDependancyContainer.sb)
-        //        let sb = UIStoryboard.init(name: "Main_iphone", bundle: nil)
-        //        let chooseOptionsVC = sb.instantiateViewController(withIdentifier: "ChooseOptionsVC") as! ChooseOptionsVC
-        return chooseOptionsVC
+    func getViewController() -> UIViewController {
+        return myController
+    }
+    
+    init(appDependancyContainer: AppDependencyContainer, questionInfo: PresentQuestionInfoProtocol) {
+        
+        func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
+            let chooseOptionsVC = ChooseOptionsVC.instantiate(using: appDependancyContainer.sb)
+            let selectOptionsViewModel = SelectOptionTextFieldViewModel(question: questionInfo.getQuestion(),
+                                                                        answer: questionInfo.getAnswer(),
+                                                                        code: questionInfo.getCode())
+            let dataSourceAndDelegate = QuestionOptionsTableViewDataSourceAndDelegate(selectOptionTextViewModel: selectOptionsViewModel)
+            chooseOptionsVC.dataSourceAndDelegate = dataSourceAndDelegate
+            return chooseOptionsVC
+        }
+        
+        self.appDependancyContainer = appDependancyContainer
+        self.myController = makeFlatChooseOptionsVC()
     }
 
 }
-
-
