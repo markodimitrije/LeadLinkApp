@@ -375,20 +375,6 @@ barcode number manually</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BMq-Yc-a3T">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Axb-9d-O8p">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Axb-9d-O8p" id="wqx-VM-csV">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-Q1-a0p" customClass="QuestionsScrollView" customModule="Navus_Lead" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -409,21 +395,16 @@ barcode number manually</string>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Xn3-dL-1K9" firstAttribute="trailing" secondItem="BMq-Yc-a3T" secondAttribute="trailing" id="18c-T9-9Y4"/>
                             <constraint firstItem="TPB-Q1-a0p" firstAttribute="leading" secondItem="Xn3-dL-1K9" secondAttribute="leading" id="4P0-nH-C5Q"/>
                             <constraint firstItem="Xn3-dL-1K9" firstAttribute="trailing" secondItem="TPB-Q1-a0p" secondAttribute="trailing" id="6cF-7q-0wj"/>
-                            <constraint firstItem="BMq-Yc-a3T" firstAttribute="bottom" secondItem="Xn3-dL-1K9" secondAttribute="bottom" id="S5M-EN-y5r"/>
                             <constraint firstItem="TPB-Q1-a0p" firstAttribute="top" secondItem="Xn3-dL-1K9" secondAttribute="top" id="Ush-gg-U8S"/>
                             <constraint firstItem="Xn3-dL-1K9" firstAttribute="bottom" secondItem="TPB-Q1-a0p" secondAttribute="bottom" id="ewn-9w-qJp"/>
-                            <constraint firstItem="BMq-Yc-a3T" firstAttribute="leading" secondItem="Xn3-dL-1K9" secondAttribute="leading" id="gms-8g-V27"/>
-                            <constraint firstItem="BMq-Yc-a3T" firstAttribute="top" secondItem="Xn3-dL-1K9" secondAttribute="top" id="uMR-sy-Wbw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xn3-dL-1K9"/>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="TPB-Q1-a0p" id="Hff-nP-XuN"/>
                         <outlet property="stackView" destination="vOL-HX-ISw" id="B6K-xc-Jb4"/>
-                        <outlet property="tableView" destination="BMq-Yc-a3T" id="XeD-P5-trN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEu-f7-ubq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -124,8 +124,8 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
         
         let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
         let answers: [[String]] = itemsWithAnswer.compactMap {$0.getActualAnswer()}.map {$0.content}
-        print("save answers:")
-        print(answers)
+//        print("save answers:")
+//        print(answers)
     }
     
     init(viewmodels: [Questanable]) {
