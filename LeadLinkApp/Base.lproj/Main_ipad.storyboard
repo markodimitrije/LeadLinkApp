@@ -373,7 +373,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTP-RJ-kJo" customClass="QuestionsScrollView" customModule="Navus_Lead" customModuleProvider="target">
                                 <rect key="frame" x="256" y="0.0" width="512" height="748"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="614" placeholderIntrinsicHeight="748" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-ig-PCV">
+                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="614" placeholderIntrinsicHeight="748" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-ig-PCV">
                                         <rect key="frame" x="0.0" y="0.0" width="614" height="748"/>
                                     </stackView>
                                 </subviews>

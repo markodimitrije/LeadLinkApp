@@ -1151,6 +1151,7 @@
 		7C1F42B9237AC9D90043D5E3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7CC94E5B23A527E700D52338 /* QuestionsAnswersVC */,
 				7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */,
 			);
 			path = ViewController;
@@ -2463,6 +2464,13 @@
 				7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */,
 			);
 			path = ScrollViewImplementation;
+			sourceTree = "<group>";
+		};
+		7CC94E5B23A527E700D52338 /* QuestionsAnswersVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QuestionsAnswersVC;
 			sourceTree = "<group>";
 		};
 		7CF225E5232A8F2E004E023C /* PageNavigating */ = {

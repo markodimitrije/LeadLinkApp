@@ -11,7 +11,7 @@ import RxCocoa
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {
     
-    private var viewmodelFactory: ViewmodelFactory!
+//    private var viewmodelFactory: ViewmodelFactory!
     
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
@@ -28,8 +28,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     var bag = DisposeBag()
     
-    private var keyboardDelegate: QuestionsAnswersMovingKeyboardDelegate!
-    
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
     
     lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self, parentViewmodel: parentViewmodel)
@@ -39,7 +37,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
-            self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
+//            self.viewmodelFactory = ViewmodelFactory(code: surveyInfo.code)
                 self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
             if oldValue != nil {
                 stackView.removeAllSubviews()
