@@ -251,13 +251,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
                 guard let question = question else { return }
                 
-//                let helper = QuestionsDataSourceAndDelegateHelper(questions: self.questions,
-//                                                                  localComponents: self.localComponents)
-//
-//                let scroller = TableViewScroller(tableView: self.tableView,
-//                                                 questions: self.questions.map({$0.question}),
-//                                                 helper: helper)
-                
                 let scroller = ScrollViewScroller(scrollView: self.scrollView,
                                                   questions: self.questions.map({$0.question}))
                 
@@ -265,13 +258,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
                 self.localComponents.saveBtn.stopSpinner()
                 
-//                let attentioner = TableViewPayingAttentioner(tableView: self.tableView,
-//                                                             questions: self.questions.map({$0.question}),
-//                                                             helper: helper)
                 let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView,
                                                               questions: self.questions.map {$0.question})
                 
-                delay(0.5, closure: {
+                delay(0.05, closure: {
                     attentioner.payAttentionTo(question: question)
                 })
                 

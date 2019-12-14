@@ -24,8 +24,42 @@ class ScrollViewScroller: ScrollingToField {
             return
         }
         
-        let destinationPoint = scrollView.convert(viewToScrollTo.frame.origin, to: scrollView)
-        self.scrollView.contentOffset = destinationPoint
+        if shouldScroll(view: viewToScrollTo) {
+            let destinationPoint = scrollView.convert(viewToScrollTo.frame.origin, to: scrollView)
+            self.scrollView.contentOffset = destinationPoint
+        } else {
+            print("ne treba da scroll.....")
+        }
         
     }
+    
+    private func shouldScroll(view: UIView) -> Bool {
+        return !isVisible(view: view)
+    }
 }
+
+func isVisible(view: UIView) -> Bool {
+    func isVisible(view: UIView, inView: UIView?) -> Bool {
+        guard let inView = inView else { return true }
+        let viewFrame = inView.convert(view.bounds, from: view)
+        if viewFrame.intersects(inView.bounds) {
+            return isVisible(view: view, inView: inView.superview)
+        }
+        return false
+    }
+    return isVisible(view: view, inView: view.superview)
+}
+
+//extension UIView {
+//    func isVisible() -> Bool {
+//        func isVisible(view: UIView, inView: UIView?) -> Bool {
+//            guard let inView = inView else { return true }
+//            let viewFrame = inView.convert(view.bounds, from: view)
+//            if viewFrame.intersects(inView.bounds) {
+//                return isVisible(view: view, inView: inView.superview)
+//            }
+//            return false
+//        }
+//        return isVisible(view: self, inView: self.superview)
+//    }
+//}
