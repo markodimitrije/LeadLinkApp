@@ -11,14 +11,7 @@ import RxCocoa
 
 class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDelegate, Storyboarded {
     
-    private var questionsWidthProvider = QuestionsAnswersTableWidthCalculatorFactory().makeWidthCalculator()
     private var viewmodelFactory: ViewmodelFactory!
-    
-    private lazy var viewStackerFactory = ViewStackerFactory.init(
-        questionsWidthProvider: questionsWidthProvider,
-        bag: bag,
-        delegate: questionOptionsFromTextViewDelegate
-    )
     
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
@@ -31,7 +24,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return ScrollViewKeyboardHandler(scrollView: scrollView)
     }()
     
-    var webViewsAndViewSizesProvider: WebViewsAndViewSizesProvider!
     let localComponents = LocalComponentsViewFactory()
     
     var bag = DisposeBag()
@@ -69,9 +61,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
         loadParentViewModel(questions: questions)
         
-        webViewsAndViewSizesProvider = WebViewsAndViewSizesProvider(questions: questions,
-                                                                    viewmodels: parentViewmodel.childViewmodels,
-                                                                    viewStackerFactory: viewStackerFactory)
         self.hideKeyboardWhenTappedAround()
         
         fetchDelegateAndSaveToRealm(code: surveyInfo.code)

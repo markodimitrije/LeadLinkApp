@@ -80,9 +80,7 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             (textView as? OptionsTextView)?.formatLayout(accordingToOptions: newContent)
             
             //selfRef.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
-            selfRef.webViewsAndViewSizesProvider.webQuestionIdsToViewSizes[viewmodel.question.id] = textView.bounds.size
-            
-//            reloadTableOnlyForOptionsTextView(textView: textView, selfRef: selfRef)
+        
         }
         
     }
@@ -94,11 +92,5 @@ class QuestionOptionsFromTextViewDelegate: NSObject, UITextViewDelegate {
             optionsVC.dismiss(animated: true, completion: nil)
         }
     }
-    
-//    private func reloadTableOnlyForOptionsTextView(textView: UITextView, selfRef: QuestionsAnswersVC) {
-//        let point = textView.convert(textView.frame.origin, to: selfRef.tableView)
-//        let ip = selfRef.tableView.indexPathForRow(at: point)!
-//        selfRef.tableView.reloadRows(at: [ip], with: .top)
-//    }
     
 }
