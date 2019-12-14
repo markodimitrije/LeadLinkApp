@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     
     private var viewController: QuestionsAnswersVC
@@ -83,3 +84,4 @@ class QuestionsAnswersDataSource: NSObject, UITableViewDataSource {
     }
     
 }
+*/

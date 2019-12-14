@@ -40,9 +40,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private var keyboardDelegate: QuestionsAnswersMovingKeyboardDelegate!
     
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
-
-    private var myDataSource: QuestionsAnswersDataSource!
-    private var myDelegate: QuestionsAnswersDelegate!
     
     lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self, parentViewmodel: parentViewmodel)
     
@@ -68,11 +65,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         configureQuestionForm()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        self.scrollView.contentOffset = CGPoint(x: 0, y: 682.0)
-    }
-    
     private func configureQuestionForm() {
         
         questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
@@ -82,23 +74,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                                                                     viewmodels: parentViewmodel.childViewmodels,
                                                                     viewStackerFactory: viewStackerFactory)
         self.hideKeyboardWhenTappedAround()
-        self.setUpKeyboardBehavior()
         
         fetchDelegateAndSaveToRealm(code: surveyInfo.code)
-        tableView?.reloadData()
-        
-        loadTableViewDataSourceAndDelegate()
         
         subscribeListeningToSaveEvent()
-    }
-    
-    private func loadTableViewDataSourceAndDelegate() {
-        
-        myDataSource = QuestionsAnswersDataSource.init(viewController: self, questions: questions, webViewsAndViewSizesProvider: webViewsAndViewSizesProvider)
-        myDelegate = QuestionsAnswersDelegate.init(viewController: self, questions: questions, webViewsAndViewSizesProvider: webViewsAndViewSizesProvider)
-        
-        self.tableView?.dataSource = myDataSource
-        self.tableView?.delegate = myDelegate
     }
     
     private func subscribeListeningToSaveEvent() {
@@ -136,38 +115,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .disposed(by: bag)
     }
     
-    private func setUpKeyboardBehavior() {
-        
-        keyboardDelegate = QuestionsAnswersMovingKeyboardDelegate.init(keyboardChangeHandler: scrollFirstResponderToTopOfTableView)
-        
-    }
-    
-    private func scrollFirstResponderToTopOfTableView(verticalShift: CGFloat) {
-    /*
-        let firstResponder: UITableViewCell? = tableView.visibleCells.first(where: { cell -> Bool in
-            let textControlObject = cell.locateClosestChild(ofType: UITextField.self) ?? cell.locateClosestChild(ofType: UITextView.self)
-            guard let textControl = textControlObject else {
-                return false
-            }
-            return textControl.isFirstResponder
-        })
-        
-        guard let firstResponderCell = firstResponder else { return }
-
-        // da li je od dropdowna ?? ako da, ponisti mu scroll...
-
-        let isCellBelowHalfOfTheScreen = self.tableView.isCellBelowHalfOfTheScreen(cell: firstResponderCell)
-
-        if isCellBelowHalfOfTheScreen {
-            if verticalShift < 0 {
-                delay(0.1) {
-                    self.tableView.contentOffset.y += abs(2*verticalShift)
-                }
-            }
-        }
-        */
-    }
-    
     @objc func doneWithOptionsIsTapped() {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -202,17 +149,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 
             })
             .disposed(by: bag)
-        
-//        localComponents.saveBtn.rx.controlEvent(.touchUpInside)
-//            .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
-//
-//                strongSelf.localComponents.saveBtn.startSpinner()
-//                let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
-//                strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
-//
-//            })
-//            .disposed(by: bag)
-
     }
     
     private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {

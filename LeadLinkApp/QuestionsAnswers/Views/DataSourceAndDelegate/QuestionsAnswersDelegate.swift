@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelegate {
     
     private var viewController: QuestionsAnswersVC
@@ -75,3 +76,4 @@ class QuestionsAnswersDelegate: NSObject, UITableViewDelegate, UITextFieldDelega
         return section == 0
     }
 }
+*/
