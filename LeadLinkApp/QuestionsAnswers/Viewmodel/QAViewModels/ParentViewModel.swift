@@ -43,6 +43,7 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
                 appendQuestion(info: info)
             }
         })
+        
         appendLocalItems()
         hookUpSaveEvent()
         //setYourselfAsDelegateToAllTextViews()
