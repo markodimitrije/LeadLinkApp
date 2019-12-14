@@ -39,6 +39,7 @@ class TextViewFactory: TextViewFactoryProtocol {
         textView.isScrollEnabled = false
         textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
+        textView.returnKeyType = UIReturnKeyType.done
         
         textView.tag = questionId ?? 0
         
