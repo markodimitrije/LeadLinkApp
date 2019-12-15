@@ -34,7 +34,10 @@ class CheckboxBtnsWithInputViewModelFactory: GetViewModelProtocol {
         
         self.viewmodel = viewmodel
         
-        textViewFactory.getView().findViews(subclassOf: UITextView.self).first!.delegate = self.viewmodel
+        let textView =
+            textViewFactory.getView() as? UITextView ?? textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
+        
+        textView.delegate = self.viewmodel
     }
     
 }

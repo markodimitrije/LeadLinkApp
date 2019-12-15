@@ -19,7 +19,8 @@ class TextWithHiperlinkViewFactory: GetViewProtocol {
     
     init(text: String, hiperlinkText: String, urlString: String) {
         self.myView = TextViewFactory(inputText: "", placeholderText: "").getView()
-        self.textView = self.myView.subviews.first(where: {$0 is UITextView}) as? UITextView
+        self.textView = self.myView as? UITextView ??
+            self.myView.subviews.first(where: {$0 is UITextView}) as? UITextView
         configureTxtViewWithHyperlinkText(text: text, hiperlinkText: hiperlinkText, urlString: urlString)
     }
     

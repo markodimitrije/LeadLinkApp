@@ -29,7 +29,7 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
                                               questionId: questionInfo.getQuestion().id,
                                               width: allowedQuestionsWidth)
         
-        let textView = textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
+        let textView = textViewFactory.getView() as? UITextView ?? textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
         textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 120.0).isActive = true
         
         let factory = LabelAndTextViewFactory(labelFactory: labelFactory, textViewFactory: textViewFactory)

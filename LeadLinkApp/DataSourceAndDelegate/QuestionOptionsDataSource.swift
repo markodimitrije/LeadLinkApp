@@ -95,7 +95,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
             _ = tableView.visibleCells.map {$0.accessoryType = .none}
             cell.accessoryType = .checkmark
         }
-        print("emitujem.observableAnswer.newAnswer.content.accept = \(newAnswer.content) ")
+        //print("emitujem.observableAnswer.newAnswer.content.accept = \(newAnswer.content) ")
         observableAnswer.accept(newAnswer)
         
     }

@@ -35,17 +35,19 @@ class LabelFactory: GetViewProtocol {
         }
 
         //Stack View
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .leading
-        stackView.spacing = 8.0
+//        let stackView = UIStackView()
+//        stackView.axis = .vertical
+//        stackView.distribution = .equalSpacing
+//        stackView.alignment = .leading
+//        stackView.spacing = 8.0
+//
+//        stackView.addArrangedSubview(textLabel)
+//
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
 
-        stackView.addArrangedSubview(textLabel)
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        myView = stackView
+//        myView = stackView
+        
+        myView = textLabel
         
         //myView = LabelAndTextField(frame: stackView.bounds) // pukne layout, i nema nicega...
     }
