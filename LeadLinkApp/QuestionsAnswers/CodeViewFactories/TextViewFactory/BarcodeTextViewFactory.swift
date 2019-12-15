@@ -36,12 +36,13 @@ class BarcodeTextViewFactory: TextViewFactoryProtocol {
         }
 
         //Stack View
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(textView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        myView = stackView
+//        let stackView = UIStackView()
+//        stackView.addArrangedSubview(textView)
+//
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        myView = stackView
+        myView = textView
         
         textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
         

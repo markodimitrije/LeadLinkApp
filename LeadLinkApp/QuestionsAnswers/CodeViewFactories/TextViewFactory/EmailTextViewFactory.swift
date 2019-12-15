@@ -1,14 +1,14 @@
 //
-//  TextViewFactory.swift
+//  EmailTextViewFactory.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 10/12/2019.
+//  Created by Marko Dimitrijevic on 15/12/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
 
-class TextViewFactory: TextViewFactoryProtocol {
+class EmailTextViewFactory: TextViewFactoryProtocol {
     
     private var myView: UIView
     
@@ -18,10 +18,9 @@ class TextViewFactory: TextViewFactoryProtocol {
         return myView
     }
     
-    init(inputText: String, placeholderText: String, questionId: Int? = nil, width: CGFloat? = nil) {
+    init(inputText: String, placeholderText: String, width: CGFloat? = nil) {
         
         func getTextColor(inputText: String, placeholderText: String) -> UIColor {
-            if placeholderText == "" { return .black }
             if inputText == "" { return .lightGray }
             return (inputText != placeholderText) ? .black : .lightGray
         }
@@ -37,11 +36,10 @@ class TextViewFactory: TextViewFactoryProtocol {
         let textView = UITextView()
         textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
+        textView.returnKeyType = .done
+        textView.keyboardType = .emailAddress
         textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
-        textView.returnKeyType = UIReturnKeyType.done
-        
-        textView.tag = questionId ?? 0 // hard-coded proveri, mislim da su tagovani na level: LabelWithTextViewFactory
         
         textView.text = getText(inputText: inputText, placeholderText: placeholderText)
         textView.textColor = getTextColor(inputText: inputText, placeholderText: placeholderText)
@@ -57,11 +55,9 @@ class TextViewFactory: TextViewFactoryProtocol {
 //        stackView.translatesAutoresizingMaskIntoConstraints = false
 //
 //        myView = stackView
-        
         myView = textView
         
         textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
-        
     }
 
 }

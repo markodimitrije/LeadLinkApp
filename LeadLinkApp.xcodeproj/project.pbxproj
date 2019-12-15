@@ -37,7 +37,6 @@
 		7C1CEA4423A100730015F8F7 /* OptInViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */; };
 		7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */; };
 		7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */; };
-		7C1CEA4B23A14E070015F8F7 /* TextViewFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */; };
 		7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */; };
 		7C1CEA4F23A14E9B0015F8F7 /* PhoneTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
@@ -304,6 +303,8 @@
 		7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
+		7CD1AF0523A67CAC003DDF0C /* TextViewFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */; };
+		7CD1AF0723A67D7F003DDF0C /* EmailTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */; };
 		7CE63AC622A80578008E477B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC522A80578008E477B /* Delegate.swift */; };
 		7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */; };
@@ -444,7 +445,6 @@
 		7C1CEA4323A100730015F8F7 /* OptInViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInViewItem.swift; sourceTree = "<group>"; };
 		7C1CEA4523A101EC0015F8F7 /* SaveBtnViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBtnViewItem.swift; sourceTree = "<group>"; };
 		7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonFactory.swift; sourceTree = "<group>"; };
-		7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactoryProtocol.swift; sourceTree = "<group>"; };
 		7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
@@ -713,6 +713,8 @@
 		7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewScroller.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactoryProtocol.swift; sourceTree = "<group>"; };
+		7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextViewFactory.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesRemoteAPI.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesRemoteAPI.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoProvider.swift; sourceTree = "<group>"; };
@@ -1056,9 +1058,10 @@
 		7C1CEA4923A14D890015F8F7 /* TextViewFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7C1CEA4A23A14E070015F8F7 /* TextViewFactoryProtocol.swift */,
+				7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
 				7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */,
+				7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */,
 				7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */,
 			);
 			path = TextViewFactory;
@@ -3045,6 +3048,7 @@
 				7C8CC9DF22C3BF2D009A410E /* RadioBtnImage.swift in Sources */,
 				7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */,
 				7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */,
+				7CD1AF0523A67CAC003DDF0C /* TextViewFactoryProtocol.swift in Sources */,
 				7C1F42F6237B05F80043D5E3 /* UIApplication+Extensions.swift in Sources */,
 				7C2227252379CB410006B8EE /* UIColor+Extensions.swift in Sources */,
 				7C1F430F237B0EA20043D5E3 /* UIViewController+DismissKeyboard+Rx.swift in Sources */,
@@ -3144,7 +3148,6 @@
 				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
-				7C1CEA4B23A14E070015F8F7 /* TextViewFactoryProtocol.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */,
 				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
@@ -3158,6 +3161,7 @@
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
 				7CF0CEB2237EC59300834CD9 /* LabelAndPhoneTextField+Rx.swift in Sources */,
 				7C2227292379CBA30006B8EE /* UIViewController+DismissKeyboard.swift in Sources */,
+				7CD1AF0723A67D7F003DDF0C /* EmailTextViewFactory.swift in Sources */,
 				7C22272B2379CBC50006B8EE /* String+Extensions.swift in Sources */,
 				7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */,
 				ADE9552D21D918F900B86052 /* FileUserSessionDataStore.swift in Sources */,

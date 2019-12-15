@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LabelFactory: GetViewProtocol {
+protocol LabelFactoryProtocol: GetViewProtocol {}
+
+class LabelFactory: LabelFactoryProtocol {
     
     private var myView: UIView
     
