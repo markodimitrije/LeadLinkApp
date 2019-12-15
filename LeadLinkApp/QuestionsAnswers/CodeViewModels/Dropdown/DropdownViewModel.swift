@@ -16,6 +16,7 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
     private let code: String
     
     fileprivate let viewControllerFactory: ChooseOptionsProtocol
+    var actualVC = UIApplication.topViewController()!
     lazy fileprivate var nextViewController: UIViewController = {
         return viewControllerFactory.getViewController()
     }()
@@ -68,7 +69,12 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
     }
     
     private func navigateBackToQuestionsScreen() {
-        UIApplication.topViewController()?.navigationController?.popViewController(animated: true)
+        let optionsVC = UIApplication.topViewController()
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            optionsVC?.navigationController?.popViewController(animated: true)
+        } else {
+            optionsVC?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func getView() -> UIView {
@@ -91,6 +97,8 @@ extension DropdownViewModel: UITextViewDelegate {
      
     func textViewDidBeginEditing(_ textView: UITextView) {
         
+        textView.resignFirstResponder()
+        
         if UIDevice.current.userInterfaceIdiom == .phone {
             UIApplication.topViewController()?.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
@@ -101,7 +109,6 @@ extension DropdownViewModel: UITextViewDelegate {
             self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
         }
         
-        textView.resignFirstResponder()
     }
     private func deletePlaceholderAndSetTxtColorToBlack(textView: UITextView) {
         if textView.textColor == .lightGray {
@@ -116,7 +123,7 @@ extension DropdownViewModel: UITextViewDelegate {
         nav.modalPresentationStyle = .popover
         let popover = nav.popoverPresentationController
         popoverContent.preferredContentSize = CGSize(width: 400,height: 600)
-        let presentationVC = UIApplication.topViewController()!
+        let presentationVC = actualVC
         popover?.delegate = presentationVC as! UIPopoverPresentationControllerDelegate
         popover?.sourceView = presentationVC.view
         popover?.sourceRect = source.bounds
