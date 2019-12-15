@@ -214,7 +214,6 @@
 		7C8BCE23230AD5A10011A125 /* WebQuestionsViewProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8BCE22230AD5A10011A125 /* WebQuestionsViewProviding.swift */; };
 		7C8CC9D822C370B3009A410E /* QuestionsAnswersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */; };
 		7C8CC9DA22C370F1009A410E /* QuestionsAnswersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */; };
-		7C8CC9DC22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9DB22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift */; };
 		7C8CC9DF22C3BF2D009A410E /* RadioBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9DE22C3BF2D009A410E /* RadioBtnImage.swift */; };
 		7C8CC9E122C3C1BC009A410E /* CheckboxBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CC9E022C3C1BC009A410E /* CheckboxBtnImage.swift */; };
 		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
@@ -624,7 +623,6 @@
 		7C8BCE22230AD5A10011A125 /* WebQuestionsViewProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebQuestionsViewProviding.swift; sourceTree = "<group>"; };
 		7C8CC9D722C370B3009A410E /* QuestionsAnswersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersDataSource.swift; sourceTree = "<group>"; };
 		7C8CC9D922C370F1009A410E /* QuestionsAnswersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersDelegate.swift; sourceTree = "<group>"; };
-		7C8CC9DB22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionOptionsFromTextViewDelegate.swift; sourceTree = "<group>"; };
 		7C8CC9DE22C3BF2D009A410E /* RadioBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnImage.swift; sourceTree = "<group>"; };
 		7C8CC9E022C3C1BC009A410E /* CheckboxBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnImage.swift; sourceTree = "<group>"; };
 		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
@@ -2762,7 +2760,6 @@
 		ADBB468D2242943F00E1020F /* DataSourceAndDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				7C8CC9DB22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift */,
 				7C98A6F32289750600DA184E /* QuestionOptionsDataSource.swift */,
 				7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */,
 				7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */,
@@ -3343,7 +3340,6 @@
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
-				7C8CC9DC22C3734E009A410E /* QuestionOptionsFromTextViewDelegate.swift in Sources */,
 				7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */,
 				7CAB84BC22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift in Sources */,
 				7C98A6CE22896ED500DA184E /* DropdownTextViewModelInputCreator.swift in Sources */,

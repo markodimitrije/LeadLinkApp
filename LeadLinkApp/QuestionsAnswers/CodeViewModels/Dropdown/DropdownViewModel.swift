@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
+public class DropdownViewModel: NSObject {
     
     private let question: PresentQuestion
     private var answer: MyAnswer?
@@ -43,12 +43,12 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
         
         self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
         
-        hookToSelectedOptions()
+        listenToDoneWithSelectedOptions()
         
         hideTextViewCursor()
     }
     
-    private func hookToSelectedOptions() {
+    private func listenToDoneWithSelectedOptions() {
                 
         viewControllerFactory.getChosenOptions()
             .subscribe(onNext: { [weak self] selectedOptions in
@@ -76,13 +76,16 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
             optionsVC?.dismiss(animated: true, completion: nil)
         }
     }
+}
+
+extension DropdownViewModel: QuestionPageViewModelProtocol {
     
     func getView() -> UIView {
         return self.view
     }
     
     func getActualAnswer() -> MyAnswer? {
-        let text = view.findViews(subclassOf: UITextView.self).first!.text
+        let text = self.view.findViews(subclassOf: UITextView.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
@@ -95,7 +98,7 @@ class DropdownViewModel: NSObject, QuestionPageViewModelProtocol {
 
 extension DropdownViewModel: UITextViewDelegate {
      
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         
         textView.resignFirstResponder()
         

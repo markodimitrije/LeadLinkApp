@@ -28,8 +28,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
     
-//    lazy private var questionOptionsFromTextViewDelegate = QuestionOptionsFromTextViewDelegate.init(viewController: self, parentViewmodel: parentViewmodel)
-    
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
                                                                            parentViewmodel: parentViewmodel)
     // API
