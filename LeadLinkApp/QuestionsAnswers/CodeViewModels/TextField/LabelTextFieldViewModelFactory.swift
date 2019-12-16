@@ -2,15 +2,17 @@
 //  LabelTextFieldViewModelFactory.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 10/12/2019.
+//  Created by Marko Dimitrijevic on 16/12/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
+import Foundation
+
 import UIKit
 
-class LabelTextFieldViewModelFactory: GetViewModelProtocol {
+class LabelPhoneTextField_ViewModelFactory: GetViewModelProtocol {
     
-    private let viewmodel: LabelTextFieldViewModel
+    private let viewmodel: LabelTextField_ViewModel
     func getViewModel() -> QuestionPageViewModelProtocol {
         return viewmodel
     }
@@ -19,32 +21,19 @@ class LabelTextFieldViewModelFactory: GetViewModelProtocol {
         let question = questionInfo.getQuestion()
         
         let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
-        var textViewFactory: TextViewFactoryProtocol!
-        let textOption = questionInfo.getQuestion().options.first
-        if textOption == "barcode" {
-            textViewFactory = BarcodeTextViewFactory(inputText: questionInfo.getCode(),
-                                                     width: allowedQuestionsWidth)
-        } else if textOption == "email"{
-            textViewFactory = EmailTextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-                                                   placeholderText: question.description,
-                                                   width: allowedQuestionsWidth)
-        } else {
-            textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-            placeholderText: question.description,
-            questionId: questionInfo.getQuestion().id,
-            width: allowedQuestionsWidth)
-        }
         
-        let viewFactory = LabelAndTextViewFactory(labelFactory: labelFactory,
-                                                  textViewFactory: textViewFactory)
+        let textFieldFactory = PhoneTextFieldFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+                                                    placeholderText: question.description,
+                                                    width: allowedQuestionsWidth)
         
-        let labelTextViewItem = LabelTextFieldViewModel(questionInfo: questionInfo, viewFactory: viewFactory)
+        let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,
+                                                       textInputViewFactory: textFieldFactory)
+        
+        let labelTextViewItem = LabelTextField_ViewModel(questionInfo: questionInfo, viewFactory: viewFactory)
         
         self.viewmodel = labelTextViewItem
         
-        textViewFactory.getView().findViews(subclassOf: UITextView.self).first?.delegate = self.viewmodel
+        textFieldFactory.getView().findViews(subclassOf: UITextField.self).first?.delegate = self.viewmodel
     }
     
 }
-
-

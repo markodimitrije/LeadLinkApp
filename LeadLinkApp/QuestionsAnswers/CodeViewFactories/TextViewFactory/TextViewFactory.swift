@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextViewFactory: TextViewFactoryProtocol {
+class TextViewFactory: TextInputViewFactoryProtocol {
     
     private var myView: UIView
     

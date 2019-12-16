@@ -7,9 +7,9 @@
 //
 
 import UIKit
-//import PhoneNumberKit
+import PhoneNumberKit
 
-class PhoneTextViewFactory: TextViewFactoryProtocol {
+class PhoneTextFieldFactory: TextInputViewFactoryProtocol {
     
     private var myView: UIView
     
@@ -33,32 +33,21 @@ class PhoneTextViewFactory: TextViewFactoryProtocol {
             return inputText
         }
         
-        //textField
-        let textView = UITextView()//PhoneNumberTextField()
-        textView.backgroundColor = .yellow
-        textView.isScrollEnabled = false
-        textView.returnKeyType = .done
-        textView.keyboardType = .phonePad
-        textView.font = UIFont(name: "Helvetica", size: 24.0)
-        textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
+        let textField = PhoneNumberTextField()
+        textField.backgroundColor = .yellow
+        textField.keyboardType = .phonePad
+        textField.font = UIFont(name: "Helvetica", size: 24.0)
+        textField.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
         
-        textView.text = getText(inputText: inputText, placeholderText: placeholderText)
-        textView.textColor = getTextColor(inputText: inputText, placeholderText: placeholderText)
+        textField.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        
+        textField.text = getText(inputText: inputText, placeholderText: placeholderText)
+        textField.textColor = getTextColor(inputText: inputText, placeholderText: placeholderText)
         
         if let width = width {
-            textView.widthAnchor.constraint(equalToConstant: width).isActive = true
+            textField.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-
-        //Stack View
-//        let stackView = UIStackView()
-//        stackView.addArrangedSubview(textView)
-//
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        myView = stackView
-        myView = textView
         
-        textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        self.myView = textField
     }
-
 }

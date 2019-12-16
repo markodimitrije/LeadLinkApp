@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmailTextViewFactory: TextViewFactoryProtocol {
+class EmailTextViewFactory: TextInputViewFactoryProtocol {
     
     private var myView: UIView
     

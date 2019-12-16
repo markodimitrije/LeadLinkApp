@@ -8,10 +8,10 @@
 
 import UIKit
 
-class LabelAndTextViewFactory:  GetViewProtocol {
+class LabelAndTextInputViewFactory:  GetViewProtocol {
     
     private let labelFactory: LabelFactory
-    private let textViewFactory: TextViewFactoryProtocol
+    private let textInputViewFactory: TextInputViewFactoryProtocol
     private var myView: UIView!
     
     weak var delegate: UITextViewDelegate?
@@ -20,9 +20,9 @@ class LabelAndTextViewFactory:  GetViewProtocol {
         return myView
     }
     
-    init(labelFactory: LabelFactory, textViewFactory: TextViewFactoryProtocol) {
+    init(labelFactory: LabelFactory, textInputViewFactory: TextInputViewFactoryProtocol) {
         self.labelFactory = labelFactory
-        self.textViewFactory = textViewFactory
+        self.textInputViewFactory = textInputViewFactory
         loadView()
     }
     
@@ -32,7 +32,7 @@ class LabelAndTextViewFactory:  GetViewProtocol {
         let textLabel = labelFactory.getView()
         
         //textField
-        let textView = textViewFactory.getView()
+        let textView = textInputViewFactory.getView()
         
         //Stack View
         let stackView = UIStackView()

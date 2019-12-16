@@ -24,8 +24,8 @@ class DropdownViewModelFactory: GetViewModelProtocol {
                                               questionId: questionInfo.getQuestion().id,
                                               width: allowedQuestionsWidth)
 
-        let viewFactory = LabelAndTextViewFactory(labelFactory: labelFactory,
-                                                  textViewFactory: textViewFactory)
+        let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,
+                                                       textInputViewFactory: textViewFactory)
         
         let textView = textViewFactory.getView() as? UITextView ?? textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
         textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80.0).isActive = true

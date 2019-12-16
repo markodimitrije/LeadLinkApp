@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BarcodeTextViewFactory: TextViewFactoryProtocol {
+class BarcodeTextViewFactory: TextInputViewFactoryProtocol {
     
     private var myView: UIView
     

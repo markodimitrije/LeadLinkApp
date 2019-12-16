@@ -39,6 +39,8 @@
 		7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */; };
 		7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */; };
 		7C1CEA4F23A14E9B0015F8F7 /* PhoneTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */; };
+		7C1D1E4523A7BCAF001D9415 /* LabelTextField_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D1E4423A7BCAF001D9415 /* LabelTextField_ViewModel.swift */; };
+		7C1D1E4723A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D1E4623A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */; };
@@ -156,8 +158,8 @@
 		7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */; };
 		7C4E0762239FF208003FBCF6 /* TextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */; };
 		7C4E0766239FF299003FBCF6 /* LabelAndTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */; };
-		7C4E076923A02B91003FBCF6 /* LabelTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */; };
-		7C4E076B23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */; };
+		7C4E076923A02B91003FBCF6 /* LabelTextViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076823A02B91003FBCF6 /* LabelTextViewViewModel.swift */; };
+		7C4E076B23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076A23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift */; };
 		7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */; };
 		7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */; };
 		7C4E077423A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E077323A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift */; };
@@ -303,7 +305,7 @@
 		7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */; };
 		7CCAF0F322953BF200016F77 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */; };
 		7CCFEACD2269C968004F4838 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFEACC2269C968004F4838 /* ChartVC.swift */; };
-		7CD1AF0523A67CAC003DDF0C /* TextViewFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */; };
+		7CD1AF0523A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1AF0423A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift */; };
 		7CD1AF0723A67D7F003DDF0C /* EmailTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */; };
 		7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */; };
 		7CE63AC622A80578008E477B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63AC522A80578008E477B /* Delegate.swift */; };
@@ -447,6 +449,8 @@
 		7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonFactory.swift; sourceTree = "<group>"; };
 		7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextViewFactory.swift; sourceTree = "<group>"; };
+		7C1D1E4423A7BCAF001D9415 /* LabelTextField_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField_ViewModel.swift; sourceTree = "<group>"; };
+		7C1D1E4623A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModelFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewItem.swift; sourceTree = "<group>"; };
@@ -566,8 +570,8 @@
 		7C4E075F239FF179003FBCF6 /* DropdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModel.swift; sourceTree = "<group>"; };
 		7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactory.swift; sourceTree = "<group>"; };
 		7C4E0765239FF299003FBCF6 /* LabelAndTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextViewFactory.swift; sourceTree = "<group>"; };
-		7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModel.swift; sourceTree = "<group>"; };
-		7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModelFactory.swift; sourceTree = "<group>"; };
+		7C4E076823A02B91003FBCF6 /* LabelTextViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextViewViewModel.swift; sourceTree = "<group>"; };
+		7C4E076A23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextViewViewModelFactory.swift; sourceTree = "<group>"; };
 		7C4E076E23A031CD003FBCF6 /* TextAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModel.swift; sourceTree = "<group>"; };
 		7C4E077023A03203003FBCF6 /* TextAreaViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewModelFactory.swift; sourceTree = "<group>"; };
 		7C4E077323A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnsViewModelFactory.swift; sourceTree = "<group>"; };
@@ -713,7 +717,7 @@
 		7CC94E5923A3ADBF00D52338 /* ScrollViewScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewScroller.swift; sourceTree = "<group>"; };
 		7CCAF0F222953BF200016F77 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = LeadLinkApp/Service/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		7CCFEACC2269C968004F4838 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
-		7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFactoryProtocol.swift; sourceTree = "<group>"; };
+		7CD1AF0423A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewViewFactoryProtocol.swift; sourceTree = "<group>"; };
 		7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextViewFactory.swift; sourceTree = "<group>"; };
 		7CE63AC322A7F83E008E477B /* DelegatesRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelegatesRemoteAPI.swift; path = "../DataLayer/Repositories/Remote/New Group/DelegatesRemoteAPI.swift"; sourceTree = "<group>"; };
 		7CE63AC522A80578008E477B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -1058,13 +1062,22 @@
 		7C1CEA4923A14D890015F8F7 /* TextViewFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7CD1AF0423A67CAC003DDF0C /* TextViewFactoryProtocol.swift */,
+				7CD1AF0423A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
 				7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */,
 				7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */,
 				7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */,
 			);
 			path = TextViewFactory;
+			sourceTree = "<group>";
+		};
+		7C1D1E4323A7BC97001D9415 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				7C1D1E4623A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift */,
+				7C1D1E4423A7BCAF001D9415 /* LabelTextField_ViewModel.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		7C1E80BB23802F4D006957BB /* Model */ = {
@@ -2036,7 +2049,8 @@
 				7C1CEA3723A0FC5D0015F8F7 /* TermsSwitchBtn */,
 				7C4E075A239FF0B5003FBCF6 /* GetViewModelProtocol.swift */,
 				7C4E076D23A031A8003FBCF6 /* TextArea */,
-				7C4E076723A02AFE003FBCF6 /* TextField */,
+				7C1D1E4323A7BC97001D9415 /* TextField */,
+				7C4E076723A02AFE003FBCF6 /* TextView */,
 				7C4E0763239FF276003FBCF6 /* Dropdown */,
 				7C1CEA2123A0EA710015F8F7 /* RadioBtns */,
 				7C1CEA2223A0EA860015F8F7 /* RadioBtnsWithInput */,
@@ -2074,13 +2088,13 @@
 			path = Dropdown;
 			sourceTree = "<group>";
 		};
-		7C4E076723A02AFE003FBCF6 /* TextField */ = {
+		7C4E076723A02AFE003FBCF6 /* TextView */ = {
 			isa = PBXGroup;
 			children = (
-				7C4E076A23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift */,
-				7C4E076823A02B91003FBCF6 /* LabelTextFieldViewModel.swift */,
+				7C4E076A23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift */,
+				7C4E076823A02B91003FBCF6 /* LabelTextViewViewModel.swift */,
 			);
-			path = TextField;
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		7C4E076C23A03170003FBCF6 /* QuestionViewFactories */ = {
@@ -3048,7 +3062,7 @@
 				7C8CC9DF22C3BF2D009A410E /* RadioBtnImage.swift in Sources */,
 				7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */,
 				7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */,
-				7CD1AF0523A67CAC003DDF0C /* TextViewFactoryProtocol.swift in Sources */,
+				7CD1AF0523A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift in Sources */,
 				7C1F42F6237B05F80043D5E3 /* UIApplication+Extensions.swift in Sources */,
 				7C2227252379CB410006B8EE /* UIColor+Extensions.swift in Sources */,
 				7C1F430F237B0EA20043D5E3 /* UIViewController+DismissKeyboard+Rx.swift in Sources */,
@@ -3061,6 +3075,7 @@
 				7C98A6BD22896D4700DA184E /* StackViewToRadioBtnsWithInputViewModelBinder.swift in Sources */,
 				7CFDEE3E2372FD5D004D1DD0 /* LabelWithPhoneTxtFieldFactory.swift in Sources */,
 				7C2227142379B4F30006B8EE /* Constants+Disclaimer.swift in Sources */,
+				7C1D1E4523A7BCAF001D9415 /* LabelTextField_ViewModel.swift in Sources */,
 				7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */,
 				7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */,
 				7C98A6CF22896ED500DA184E /* SwitchBtnsViewmodelInputCreator.swift in Sources */,
@@ -3109,7 +3124,7 @@
 				7C1F42F8237B06270043D5E3 /* CGRect+Extensions.swift in Sources */,
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7C1F4311237B0EE30043D5E3 /* UITextField+ResignResponder+Rx.swift in Sources */,
-				7C4E076B23A02C33003FBCF6 /* LabelTextFieldViewModelFactory.swift in Sources */,
+				7C4E076B23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift in Sources */,
 				7C4DC2A7233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift in Sources */,
 				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
 				7C22272D2379CBF00006B8EE /* Date+Extensions.swift in Sources */,
@@ -3269,6 +3284,7 @@
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C8CC9DA22C370F1009A410E /* QuestionsAnswersDelegate.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* QA_Validation.swift in Sources */,
+				7C1D1E4723A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift in Sources */,
 				7C1CEA3223A0F6300015F8F7 /* RadioBtnsWithInput_ViewModelFactory.swift in Sources */,
 				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
 				7C22270E2379B4090006B8EE /* Constants+BtnTitles.swift in Sources */,
@@ -3350,7 +3366,7 @@
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C98A6A52289689900DA184E /* CheckboxView.swift in Sources */,
-				7C4E076923A02B91003FBCF6 /* LabelTextFieldViewModel.swift in Sources */,
+				7C4E076923A02B91003FBCF6 /* LabelTextViewViewModel.swift in Sources */,
 				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,
 				7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,

@@ -1,14 +1,14 @@
 //
-//  LabelTextFieldViewModel.swift
+//  LabelTextField_ViewModel.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 10/12/2019.
+//  Created by Marko Dimitrijevic on 16/12/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
 
-class LabelTextFieldViewModel: NSObject, QuestionPageViewModelProtocol {
+class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var question: PresentQuestion
     private var answer: MyAnswer?
@@ -23,7 +23,7 @@ class LabelTextFieldViewModel: NSObject, QuestionPageViewModelProtocol {
         super.init()
         self.myView = viewFactory.getView()
         self.myView.tag = questionInfo.getQuestion().id
-        self.myView.findViews(subclassOf: UITextView.self).first!.delegate = self
+        self.myView.findViews(subclassOf: UITextField.self).first!.delegate = self
     }
     
     func getView() -> UIView {
@@ -31,7 +31,7 @@ class LabelTextFieldViewModel: NSObject, QuestionPageViewModelProtocol {
     }
     
     func getActualAnswer() -> MyAnswer? {
-        let text = myView.findViews(subclassOf: UITextView.self).first!.text
+        let text = myView.findViews(subclassOf: UITextField.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
@@ -42,26 +42,18 @@ class LabelTextFieldViewModel: NSObject, QuestionPageViewModelProtocol {
     }
 }
 
-extension LabelTextFieldViewModel: UITextViewDelegate {
+extension LabelTextField_ViewModel: UITextFieldDelegate {
      
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == question.description {
-            self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
-        }
-    }
-    private func deletePlaceholderAndSetTxtColorToBlack(textView: UITextView) {
-        if textView.textColor == .lightGray {
-            textView.text = nil
-            textView.textColor = .black
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == question.description {
+            self.deletePlaceholderAndSetTxtColorToBlack(textField: textField)
         }
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n"
-        {
-            textView.resignFirstResponder()
-            return false
+    private func deletePlaceholderAndSetTxtColorToBlack(textField: UITextField) {
+        if textField.textColor == .lightGray {
+            textField.text = nil
+            textField.textColor = .black
         }
-        return true
     }
 }
