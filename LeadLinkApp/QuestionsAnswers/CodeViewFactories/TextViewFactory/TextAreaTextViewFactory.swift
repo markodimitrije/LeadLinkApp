@@ -1,14 +1,14 @@
 //
-//  EmailTextViewFactory.swift
+//  TextAreaTextViewFactory.swift
 //  LeadLinkApp
 //
-//  Created by Marko Dimitrijevic on 15/12/2019.
+//  Created by Marko Dimitrijevic on 16/12/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
 import UIKit
 
-class EmailTextViewFactory: TextInputViewFactoryProtocol {
+class TextAreaTextViewFactory: TextInputViewFactoryProtocol {
     
     private var myView: UIView
     
@@ -18,9 +18,10 @@ class EmailTextViewFactory: TextInputViewFactoryProtocol {
         return myView
     }
     
-    init(inputText: String, placeholderText: String, width: CGFloat? = nil) {
+    init(inputText: String, placeholderText: String, questionId: Int? = nil, width: CGFloat? = nil) {
         
         func getTextColor(inputText: String, placeholderText: String) -> UIColor {
+            if placeholderText == "" { return .black }
             if inputText == "" { return .lightGray }
             return (inputText != placeholderText) ? .black : .lightGray
         }
@@ -31,15 +32,14 @@ class EmailTextViewFactory: TextInputViewFactoryProtocol {
             }
             return inputText
         }
-        
-        //textField
         let textView = UITextView()
         textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
-        textView.returnKeyType = .done
-        textView.keyboardType = .emailAddress
+        textView.returnKeyType = .default
         textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
+        
+        textView.tag = questionId ?? 0 // hard-coded proveri, mislim da su tagovani na level: LabelWithTextViewFactory
         
         textView.text = getText(inputText: inputText, placeholderText: placeholderText)
         textView.textColor = getTextColor(inputText: inputText, placeholderText: placeholderText)
@@ -51,6 +51,7 @@ class EmailTextViewFactory: TextInputViewFactoryProtocol {
         myView = textView
         
         textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        
     }
 
 }

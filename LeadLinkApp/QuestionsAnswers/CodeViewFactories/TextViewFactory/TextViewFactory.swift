@@ -37,9 +37,9 @@ class TextViewFactory: TextInputViewFactoryProtocol {
         let textView = UITextView()
         textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
+        textView.returnKeyType = UIReturnKeyType.done
         textView.font = UIFont(name: "Helvetica", size: 24.0)
         textView.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
-        textView.returnKeyType = UIReturnKeyType.done
         
         textView.tag = questionId ?? 0 // hard-coded proveri, mislim da su tagovani na level: LabelWithTextViewFactory
         
@@ -49,14 +49,6 @@ class TextViewFactory: TextInputViewFactoryProtocol {
         if let width = width {
             textView.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-
-        //Stack View
-//        let stackView = UIStackView()
-//        stackView.addArrangedSubview(textView)
-//
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        myView = stackView
         
         myView = textView
         

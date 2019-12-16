@@ -14,6 +14,7 @@
 		7C0E5CBE228EE0B90011E0A2 /* mockWithTerms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C0E5CBD228EE0B90011E0A2 /* mockWithTerms.json */; };
 		7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CBF228EE1110011E0A2 /* MainBundleJsonParser.swift */; };
 		7C0E5CC5228F0B030011E0A2 /* QA_Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */; };
+		7C169F0123A7D1DF0036C895 /* TextAreaTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C169F0023A7D1DF0036C895 /* TextAreaTextViewFactory.swift */; };
 		7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45EF22968D580032C860 /* ReportsVC.swift */; };
 		7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */; };
 		7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */; };
@@ -424,6 +425,7 @@
 		7C0E5CBD228EE0B90011E0A2 /* mockWithTerms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockWithTerms.json; sourceTree = "<group>"; };
 		7C0E5CBF228EE1110011E0A2 /* MainBundleJsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBundleJsonParser.swift; sourceTree = "<group>"; };
 		7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QA_Validation.swift; sourceTree = "<group>"; };
+		7C169F0023A7D1DF0036C895 /* TextAreaTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1A45EF22968D580032C860 /* ReportsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsVC.swift; sourceTree = "<group>"; };
 		7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReportsDataStore.swift; sourceTree = "<group>"; };
 		7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataSourceAndDelegate.swift; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 			children = (
 				7CD1AF0423A67CAC003DDF0C /* TextInputViewViewFactoryProtocol.swift */,
 				7C4E0761239FF208003FBCF6 /* TextViewFactory.swift */,
+				7C169F0023A7D1DF0036C895 /* TextAreaTextViewFactory.swift */,
 				7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */,
 				7CD1AF0623A67D7F003DDF0C /* EmailTextViewFactory.swift */,
 				7C1CEA4E23A14E9B0015F8F7 /* PhoneTextViewFactory.swift */,
@@ -3397,6 +3400,7 @@
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
 				7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */,
+				7C169F0123A7D1DF0036C895 /* TextAreaTextViewFactory.swift in Sources */,
 				7C3ED56422E606D200EDDD70 /* DisclaimerInfo.swift in Sources */,
 				7C98A6BE22896D4700DA184E /* StackViewToRadioBtnsViewModelBinder.swift in Sources */,
 				7C4E077423A0345B003FBCF6 /* CheckboxBtnsViewModelFactory.swift in Sources */,
