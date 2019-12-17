@@ -218,7 +218,6 @@
 		7CA998E922A95E5400C226F1 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA998E822A95E5400C226F1 /* Countries.swift */; };
 		7CAB84B522EB2FF200CE91AA /* QuestionsAnswersTableWidthCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB84B422EB2FF200CE91AA /* QuestionsAnswersTableWidthCalculating.swift */; };
 		7CAB84B822EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB84B722EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift */; };
-		7CAB84BC22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */; };
 		7CB4D3DE22DCAEB100D6987E /* ScanditAllownessValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4D3DD22DCAEB100D6987E /* ScanditAllownessValidation.swift */; };
 		7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */; };
 		7CBDC27122D72F5800B7D43F /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC26F22D72F5800B7D43F /* DateView.xib */; };
@@ -549,7 +548,6 @@
 		7CA998E822A95E5400C226F1 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		7CAB84B422EB2FF200CE91AA /* QuestionsAnswersTableWidthCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableWidthCalculating.swift; sourceTree = "<group>"; };
 		7CAB84B722EB335000CE91AA /* QuestionsAnswersTableWithCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableWithCalculatorFactory.swift; sourceTree = "<group>"; };
-		7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewWithHeadlineLabelFactory.swift; sourceTree = "<group>"; };
 		7CB4D3DD22DCAEB100D6987E /* ScanditAllownessValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditAllownessValidation.swift; sourceTree = "<group>"; };
 		7CBDC26A22D6208D00B7D43F /* ChartRefreshDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRefreshDateCalculator.swift; sourceTree = "<group>"; };
 		7CBDC26F22D72F5800B7D43F /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
@@ -1919,7 +1917,6 @@
 		7CAB84B622EB333900CE91AA /* ViewFactories */ = {
 			isa = PBXGroup;
 			children = (
-				7CAB84BB22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift */,
 				7C22273A2379D9850006B8EE /* WebQuestionViewFactories */,
 			);
 			path = ViewFactories;
@@ -2809,7 +2806,6 @@
 				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
 				7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */,
-				7CAB84BC22EF296C00CE91AA /* QuestionViewWithHeadlineLabelFactory.swift in Sources */,
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C4E076923A02B91003FBCF6 /* LabelTextViewViewModel.swift in Sources */,
