@@ -13,11 +13,10 @@ class ViewInfoProvider {
     private var code: String
     private var surveyQuestions = [SurveyQuestion]()
     private var orderedQuestions = [PresentQuestion]()
-    private var localComponents: LocalComponentsViewFactory
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
             if itemHasNoGroup(question: question) {
-                return QuestionsAnswersSectionType.noGroupAssociated.rawValue
+                return ""
             } else {
                 return question.group!
             }
@@ -36,11 +35,10 @@ class ViewInfoProvider {
 //
 //        }.unique()
     
-    init(questions: [SurveyQuestion], localComponents: LocalComponentsViewFactory, code: String) {
+    init(questions: [SurveyQuestion], code: String) {
         self.surveyQuestions = questions
         self.code = code
         self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
-        self.localComponents = localComponents
     }
     
     // MARK:- API
@@ -81,7 +79,7 @@ class ViewInfoProvider {
     }
     
     private func getNameForLastGroup() -> String {
-        return (localComponents.componentsInOrder.count == 1) ? "" : QuestionsAnswersSectionType.localComponentsGroupName.rawValue
+        return "Privacy policy"
     }
     
 }

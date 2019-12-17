@@ -22,8 +22,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return ScrollViewKeyboardHandler(scrollView: scrollView)
     }()
     
-    let localComponents = LocalComponentsViewFactory()
-    
     var bag = DisposeBag()
     
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
@@ -102,7 +100,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func loadParentViewModel(questions: [SurveyQuestion]) {
         
-        let helper = ViewInfoProvider(questions: questions, localComponents: self.localComponents, code: surveyInfo.code)
+        let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
         
         parentViewmodel = ParentViewModel(viewInfos: viewInfos)
@@ -124,7 +122,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         saveBtn.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
 
-                strongSelf.localComponents.saveBtn.startSpinner()
                 let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
                 strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
 
@@ -172,8 +169,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                                                   questions: self.questions.map({$0.question}))
                 
                 scroller.scrollTo(question: question)
-                
-                self.localComponents.saveBtn.stopSpinner()
                 
                 let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView,
                                                               questions: self.questions.map {$0.question})
