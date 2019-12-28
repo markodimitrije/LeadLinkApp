@@ -33,7 +33,7 @@ class TextAreaTextViewFactory: TextInputViewFactoryProtocol {
             return inputText
         }
         let textView = UITextView()
-        textView.backgroundColor = .yellow
+//        textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
         textView.returnKeyType = .default
         textView.font = UIFont(name: "Helvetica", size: 24.0)
@@ -50,7 +50,7 @@ class TextAreaTextViewFactory: TextInputViewFactoryProtocol {
         
         myView = textView
         
-        textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        textView.textContainerInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         
     }
 

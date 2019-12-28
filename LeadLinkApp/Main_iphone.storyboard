@@ -382,7 +382,6 @@ barcode number manually</string>
                                         <rect key="frame" x="8" y="0.0" width="304" height="552"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="oBS-qr-K5K" firstAttribute="bottom" secondItem="vOL-HX-ISw" secondAttribute="bottom" id="1vF-BB-aM1"/>
                                     <constraint firstItem="vOL-HX-ISw" firstAttribute="leading" secondItem="oBS-qr-K5K" secondAttribute="leading" constant="8" id="6cE-DZ-Fun"/>
@@ -394,6 +393,7 @@ barcode number manually</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="nxB-dS-pTT"/>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TPB-Q1-a0p" firstAttribute="leading" secondItem="Xn3-dL-1K9" secondAttribute="leading" id="4P0-nH-C5Q"/>
                             <constraint firstItem="Xn3-dL-1K9" firstAttribute="trailing" secondItem="TPB-Q1-a0p" secondAttribute="trailing" id="6cF-7q-0wj"/>

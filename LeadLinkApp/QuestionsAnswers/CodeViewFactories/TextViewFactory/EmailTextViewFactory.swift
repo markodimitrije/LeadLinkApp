@@ -34,7 +34,7 @@ class EmailTextViewFactory: TextInputViewFactoryProtocol {
         
         //textField
         let textView = UITextView()
-        textView.backgroundColor = .yellow
+//        textView.backgroundColor = .yellow
         textView.isScrollEnabled = false
         textView.returnKeyType = .done
         textView.keyboardType = .emailAddress
@@ -50,7 +50,7 @@ class EmailTextViewFactory: TextInputViewFactoryProtocol {
         
         myView = textView
         
-        textView.textContainerInset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        textView.textContainerInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
     }
 
 }

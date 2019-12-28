@@ -22,7 +22,7 @@ class SingleCheckboxBtnViewFactory: GetViewProtocol {
     init(tag: Int, isOn: Bool, titleText: String) {
         
         let radioButton = UIButton()
-        radioButton.backgroundColor   = .blue
+        radioButton.backgroundColor = .blue
         let img = isOn ? checkboxBtnOnImg : checkboxBtnOffImg
         radioButton.setBackgroundImage(img, for: .normal)
         
@@ -31,7 +31,7 @@ class SingleCheckboxBtnViewFactory: GetViewProtocol {
         
         //Big Button (View size)
         let button = UIButton()
-        button.backgroundColor   = .orange
+//        button.backgroundColor = .orange
         
         //Text Label
         button.titleLabel!.numberOfLines = 0
@@ -42,11 +42,11 @@ class SingleCheckboxBtnViewFactory: GetViewProtocol {
         button.heightAnchor.constraint(equalTo: button.titleLabel!.heightAnchor, multiplier: 1.0).isActive = true
         
         //Stack View
-        let stackView   = UIStackView()
-        stackView.axis  = .horizontal
-        stackView.distribution  = .fill
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
         stackView.alignment = .center
-        stackView.spacing   = 8.0
+        stackView.spacing = 8.0
 
         stackView.addArrangedSubview(radioButton)
         stackView.addArrangedSubview(button)

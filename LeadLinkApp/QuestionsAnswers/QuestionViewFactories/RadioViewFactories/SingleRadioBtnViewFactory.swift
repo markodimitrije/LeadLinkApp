@@ -31,7 +31,7 @@ class SingleRadioBtnViewFactory: GetViewProtocol {
 
         //Big Button (View size)
         let button = UIButton()
-        button.backgroundColor = .yellow
+//        button.backgroundColor = .yellow
 
         //Text Label
         button.titleLabel!.numberOfLines = 0

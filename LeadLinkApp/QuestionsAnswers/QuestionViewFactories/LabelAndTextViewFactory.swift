@@ -39,7 +39,7 @@ class LabelAndTextInputViewFactory:  GetViewProtocol {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.alignment = .leading
-        stackView.spacing = 8.0
+        stackView.spacing = 4.0
 
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(textView)

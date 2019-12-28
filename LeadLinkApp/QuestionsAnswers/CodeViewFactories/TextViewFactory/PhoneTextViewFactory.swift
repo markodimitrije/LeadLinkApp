@@ -34,7 +34,7 @@ class PhoneTextFieldFactory: TextInputViewFactoryProtocol {
         }
         
         let textField = PhoneNumberTextField()
-        textField.backgroundColor = .yellow
+//        textField.backgroundColor = .yellow
         textField.keyboardType = .phonePad
         textField.font = UIFont(name: "Helvetica", size: 24.0)
         textField.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
