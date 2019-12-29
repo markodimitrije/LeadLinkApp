@@ -11,7 +11,6 @@ import Foundation
 class SurveyQuestion {
     
     var question: PresentQuestion
-    //var answer: Answering?
     var answer: MyAnswer?
     
     init?(question: Question, realmAnswer: RealmAnswer?) {

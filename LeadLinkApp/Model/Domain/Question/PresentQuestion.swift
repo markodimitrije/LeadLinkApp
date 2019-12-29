@@ -8,6 +8,18 @@
 
 import Foundation
 
+//public struct Question: Codable {
+//var id: Int
+//var campaign_id: Int
+//var title: String
+//var type: String
+//var group: String?
+//var required: Bool
+//var description: String?
+//var order: Int
+//var element_id: Int?
+//var settings: QuestionSettings
+
 struct PresentQuestion {
     var id: Int
     var campaignId: Int
@@ -15,7 +27,6 @@ struct PresentQuestion {
     var headlineText = ""
     var group: String?
     var order: Int = 0
-    var inputTxt = ""
     var options = [String]()
     var multipleSelection = false
     var description: String = ""
@@ -27,7 +38,6 @@ struct PresentQuestion {
         self.headlineText = question.title
         self.group = question.group
         self.order = question.order
-        self.inputTxt = question.description ?? ""
         self.options = question.settings.options ?? [ ]
         self.description = question.description ?? ""
         if (type == .dropdown) {
