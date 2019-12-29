@@ -35,7 +35,7 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
     init(viewInfos: [ViewInfoProtocol]) {
         super.init()
         
-        //insertDistancerView(height: 12.0)
+        insertDistancerView(height: 12.0)
         
         _ = viewInfos.map({ viewInfo in
             if let info = viewInfo as? GroupViewInfoProtocol {

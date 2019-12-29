@@ -374,13 +374,14 @@
                                 <rect key="frame" x="256" y="0.0" width="512" height="748"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="614" placeholderIntrinsicHeight="748" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-ig-PCV">
-                                        <rect key="frame" x="0.0" y="0.0" width="614" height="748"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="512" height="748"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="top" secondItem="tyr-Af-w9H" secondAttribute="top" id="Ohm-E8-bFB"/>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="leading" secondItem="tyr-Af-w9H" secondAttribute="leading" id="Yq4-d6-cby"/>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="bottom" secondItem="tyr-Af-w9H" secondAttribute="bottom" id="hb5-vX-9Ej"/>
+                                    <constraint firstItem="eNl-ig-PCV" firstAttribute="centerX" secondItem="vTP-RJ-kJo" secondAttribute="centerX" id="jhw-fY-n4t"/>
                                     <constraint firstItem="tyr-Af-w9H" firstAttribute="trailing" secondItem="eNl-ig-PCV" secondAttribute="trailing" id="uhn-ha-9Y5"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="tyr-Af-w9H"/>
@@ -399,7 +400,7 @@
                         <constraints>
                             <constraint firstItem="nX3-Wz-TJH" firstAttribute="centerY" secondItem="3pe-5b-GAf" secondAttribute="centerY" id="6HG-j8-5CI"/>
                             <constraint firstItem="vTP-RJ-kJo" firstAttribute="width" secondItem="3pe-5b-GAf" secondAttribute="width" multiplier="0.5" id="6uy-Lm-eb5"/>
-                            <constraint firstItem="vTP-RJ-kJo" firstAttribute="centerX" secondItem="3EN-Y7-Jck" secondAttribute="centerX" id="Elo-V5-Njm"/>
+                            <constraint firstItem="vTP-RJ-kJo" firstAttribute="centerX" secondItem="3pe-5b-GAf" secondAttribute="centerX" id="Elo-V5-Njm"/>
                             <constraint firstItem="3EN-Y7-Jck" firstAttribute="bottom" secondItem="vTP-RJ-kJo" secondAttribute="bottom" constant="20" id="Pos-JS-Vqv"/>
                             <constraint firstItem="nX3-Wz-TJH" firstAttribute="centerX" secondItem="3EN-Y7-Jck" secondAttribute="centerX" id="g5F-0H-E78"/>
                             <constraint firstItem="vTP-RJ-kJo" firstAttribute="top" secondItem="3EN-Y7-Jck" secondAttribute="top" id="phb-Gj-RXo"/>
