@@ -374,15 +374,15 @@
                                 <rect key="frame" x="256" y="0.0" width="512" height="748"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="614" placeholderIntrinsicHeight="748" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-ig-PCV">
-                                        <rect key="frame" x="0.0" y="0.0" width="512" height="748"/>
+                                        <rect key="frame" x="8" y="0.0" width="496" height="748"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="top" secondItem="tyr-Af-w9H" secondAttribute="top" id="Ohm-E8-bFB"/>
-                                    <constraint firstItem="eNl-ig-PCV" firstAttribute="leading" secondItem="tyr-Af-w9H" secondAttribute="leading" id="Yq4-d6-cby"/>
+                                    <constraint firstItem="eNl-ig-PCV" firstAttribute="leading" secondItem="tyr-Af-w9H" secondAttribute="leading" constant="8" id="Yq4-d6-cby"/>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="bottom" secondItem="tyr-Af-w9H" secondAttribute="bottom" id="hb5-vX-9Ej"/>
                                     <constraint firstItem="eNl-ig-PCV" firstAttribute="centerX" secondItem="vTP-RJ-kJo" secondAttribute="centerX" id="jhw-fY-n4t"/>
-                                    <constraint firstItem="tyr-Af-w9H" firstAttribute="trailing" secondItem="eNl-ig-PCV" secondAttribute="trailing" id="uhn-ha-9Y5"/>
+                                    <constraint firstItem="tyr-Af-w9H" firstAttribute="trailing" secondItem="eNl-ig-PCV" secondAttribute="trailing" constant="8" id="uhn-ha-9Y5"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="tyr-Af-w9H"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="k70-7c-9Cz"/>
