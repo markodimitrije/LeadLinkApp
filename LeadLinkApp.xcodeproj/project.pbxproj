@@ -121,13 +121,6 @@
 		7C3F970C22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */; };
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
-		7C4DC2A3233E1D3B00E2F98E /* Rx+RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A2233E1D3B00E2F98E /* Rx+RadioViewModel.swift */; };
-		7C4DC2A5233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A4233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift */; };
-		7C4DC2A7233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A6233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift */; };
-		7C4DC2A9233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2A8233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift */; };
-		7C4DC2AB233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2AA233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift */; };
-		7C4DC2AD233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */; };
-		7C4DC2AF233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */; };
 		7C4E0754239FEF0B003FBCF6 /* DropdownViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */; };
 		7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */; };
 		7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */; };
@@ -179,12 +172,6 @@
 		7C6528B322CE42ED0077464C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528B222CE42ED0077464C /* Application.swift */; };
 		7C6528B522CE43990077464C /* RealmApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528B422CE43990077464C /* RealmApplication.swift */; };
 		7C69552223391ECB009D4A25 /* UIMarginLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69552123391ECB009D4A25 /* UIMarginLabel.swift */; };
-		7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */; };
-		7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */; };
-		7C75405D229FC44100FFF5B9 /* RadioWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */; };
-		7C75405F229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75405E229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift */; };
-		7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */; };
-		7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */; };
 		7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754064229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift */; };
 		7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */; };
 		7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C776C072331106400250405 /* ShowDisclaimerValidator.swift */; };
@@ -193,7 +180,6 @@
 		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
 		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
 		7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */; };
-		7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66F228961D400DA184E /* ViewmodelFactory.swift */; };
 		7C98A6772289625200DA184E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6742289625200DA184E /* Protocols.swift */; };
 		7C98A6792289625200DA184E /* ParentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6762289625200DA184E /* ParentViewModel.swift */; };
 		7C98A67C228962D900DA184E /* SurveyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A67B228962D900DA184E /* SurveyInfo.swift */; };
@@ -248,10 +234,7 @@
 		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
 		7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225EE232BA25E004E023C /* ScannerFactory.swift */; };
 		7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */; };
-		7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */; };
 		7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */; };
-		7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */; };
-		7CFDEE3A2372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */; };
 		AD1739B521DCE8FC00218BE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1739B421DCE8FC00218BE5 /* Localizable.strings */; };
 		AD1739BB21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */; };
 		AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */; };
@@ -452,13 +435,6 @@
 		7C3F970B22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersTableRowHeightCalculator.swift; sourceTree = "<group>"; };
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
-		7C4DC2A2233E1D3B00E2F98E /* Rx+RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+RadioViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2A4233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+CheckboxViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2A6233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+RadioWithInputViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2A8233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+CheckboxWithInputViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2AA233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+CheckboxMultipleWithInputViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+SwitchBtnsViewModel.swift"; sourceTree = "<group>"; };
-		7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+LabelWithTextFieldViewModel.swift"; sourceTree = "<group>"; };
 		7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModelFactory.swift; sourceTree = "<group>"; };
 		7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewProtocol.swift; sourceTree = "<group>"; };
@@ -510,12 +486,6 @@
 		7C6528B222CE42ED0077464C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		7C6528B422CE43990077464C /* RealmApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmApplication.swift; sourceTree = "<group>"; };
 		7C69552123391ECB009D4A25 /* UIMarginLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMarginLabel.swift; sourceTree = "<group>"; };
-		7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
-		7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxViewModel.swift; sourceTree = "<group>"; };
-		7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWithInputViewModel.swift; sourceTree = "<group>"; };
-		7C75405E229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithInputViewModel.swift; sourceTree = "<group>"; };
-		7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBtnsViewModel.swift; sourceTree = "<group>"; };
-		7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithTextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C754064229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOptionTextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsSyncBtn.swift; sourceTree = "<group>"; };
 		7C776C072331106400250405 /* ShowDisclaimerValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDisclaimerValidator.swift; sourceTree = "<group>"; };
@@ -524,7 +494,6 @@
 		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
 		7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersVC.swift; sourceTree = "<group>"; };
-		7C98A66F228961D400DA184E /* ViewmodelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewmodelFactory.swift; sourceTree = "<group>"; };
 		7C98A6742289625200DA184E /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		7C98A6762289625200DA184E /* ParentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewModel.swift; sourceTree = "<group>"; };
 		7C98A67B228962D900DA184E /* SurveyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInfo.swift; sourceTree = "<group>"; };
@@ -579,10 +548,7 @@
 		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
 		7CF225EE232BA25E004E023C /* ScannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFactory.swift; sourceTree = "<group>"; };
 		7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicView.swift; sourceTree = "<group>"; };
-		7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewModel.swift; sourceTree = "<group>"; };
 		7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidation.swift; sourceTree = "<group>"; };
-		7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPhoneTextFieldViewModel.swift; sourceTree = "<group>"; };
-		7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+LabelWithPhoneTextFieldViewModel.swift"; sourceTree = "<group>"; };
 		AD1739B421DCE8FC00218BE5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD1739BA21DD26AE00218BE5 /* UIViewController+ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresentation.swift"; sourceTree = "<group>"; };
 		AD1739BE21DD395100218BE5 /* SignInResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponsePayload.swift; sourceTree = "<group>"; };
@@ -912,7 +878,6 @@
 		7C1F42B9237AC9D90043D5E3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7CC94E5B23A527E700D52338 /* QuestionsAnswersVC */,
 				7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */,
 			);
 			path = ViewController;
@@ -1240,78 +1205,6 @@
 				7C3D473C22D3585F0096EA75 /* Compartment */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		7C2227312379CCE30006B8EE /* LabelWithTextFieldViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C754062229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift */,
-				7C4DC2AE233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift */,
-			);
-			path = LabelWithTextFieldViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227322379CCEF0006B8EE /* LabelWithPhoneTextFieldViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */,
-				7CFDEE392372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift */,
-			);
-			path = LabelWithPhoneTextFieldViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227332379CCFE0006B8EE /* SwitchBtnsViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C754060229FC48000FFF5B9 /* SwitchBtnsViewModel.swift */,
-				7C4DC2AC233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift */,
-			);
-			path = SwitchBtnsViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227342379CD080006B8EE /* RadioViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C754057229FC3EC00FFF5B9 /* RadioViewModel.swift */,
-				7C4DC2A2233E1D3B00E2F98E /* Rx+RadioViewModel.swift */,
-			);
-			path = RadioViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227352379CD130006B8EE /* RadioWithInputViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C75405C229FC44100FFF5B9 /* RadioWithInputViewModel.swift */,
-				7C4DC2A6233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift */,
-			);
-			path = RadioWithInputViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227362379CD1C0006B8EE /* CheckboxViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C75405A229FC41E00FFF5B9 /* CheckboxViewModel.swift */,
-				7C4DC2A4233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift */,
-			);
-			path = CheckboxViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227372379CD260006B8EE /* CheckboxWithInputViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7C75405E229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift */,
-				7C4DC2A8233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift */,
-			);
-			path = CheckboxWithInputViewModel;
-			sourceTree = "<group>";
-		};
-		7C2227382379CD310006B8EE /* CheckboxMultipleWithInputViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */,
-				7C4DC2AA233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift */,
-			);
-			path = CheckboxMultipleWithInputViewModel;
 			sourceTree = "<group>";
 		};
 		7C2227392379CD3A0006B8EE /* SelectOptionTextFieldViewModel */ = {
@@ -1792,14 +1685,6 @@
 		7C754059229FC3F900FFF5B9 /* ChildrenViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7C2227322379CCEF0006B8EE /* LabelWithPhoneTextFieldViewModel */,
-				7C2227312379CCE30006B8EE /* LabelWithTextFieldViewModel */,
-				7C2227332379CCFE0006B8EE /* SwitchBtnsViewModel */,
-				7C2227342379CD080006B8EE /* RadioViewModel */,
-				7C2227352379CD130006B8EE /* RadioWithInputViewModel */,
-				7C2227362379CD1C0006B8EE /* CheckboxViewModel */,
-				7C2227372379CD260006B8EE /* CheckboxWithInputViewModel */,
-				7C2227382379CD310006B8EE /* CheckboxMultipleWithInputViewModel */,
 				7C2227392379CD3A0006B8EE /* SelectOptionTextFieldViewModel */,
 			);
 			path = ChildrenViewModels;
@@ -1976,13 +1861,6 @@
 			path = ScrollViewImplementation;
 			sourceTree = "<group>";
 		};
-		7CC94E5B23A527E700D52338 /* QuestionsAnswersVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = QuestionsAnswersVC;
-			sourceTree = "<group>";
-		};
 		7CF225E5232A8F2E004E023C /* PageNavigating */ = {
 			isa = PBXGroup;
 			children = (
@@ -2039,7 +1917,6 @@
 		AD4F013E21D8F72600946CBA /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
-				7C98A66F228961D400DA184E /* ViewmodelFactory.swift */,
 				7C98A6732289625200DA184E /* QAViewModels */,
 			);
 			path = Viewmodel;
@@ -2553,7 +2430,6 @@
 				AD4F013B21D8F62E00946CBA /* ErrorMessage.swift in Sources */,
 				7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */,
 				7C1CEA4F23A14E9B0015F8F7 /* PhoneTextViewFactory.swift in Sources */,
-				7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */,
 				7C023A5B23326BFA007D22A5 /* RealmQuestionSettings.swift in Sources */,
 				7CF225DE23269162004E023C /* RealmSettings.swift in Sources */,
@@ -2585,14 +2461,12 @@
 				7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */,
 				7C1F4311237B0EE30043D5E3 /* UITextField+ResignResponder+Rx.swift in Sources */,
 				7C4E076B23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift in Sources */,
-				7C4DC2A7233E1D9300E2F98E /* Rx+RadioWithInputViewModel.swift in Sources */,
 				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
 				7C22272D2379CBF00006B8EE /* Date+Extensions.swift in Sources */,
 				7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */,
 				7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */,
-				7C754061229FC48000FFF5B9 /* SwitchBtnsViewModel.swift in Sources */,
 				7C4E077623A03474003FBCF6 /* CheckboxBtnsViewModel.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
 				7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */,
@@ -2611,7 +2485,6 @@
 				7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				7CB4D3DE22DCAEB100D6987E /* ScanditAllownessValidation.swift in Sources */,
-				7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */,
 				7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */,
 				7C51085D22C0CAEA005EE58B /* ReportsViewControllerFactory.swift in Sources */,
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
@@ -2621,8 +2494,6 @@
 				7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,
 				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
-				7C98A672228961D400DA184E /* ViewmodelFactory.swift in Sources */,
-				7C75405D229FC44100FFF5B9 /* RadioWithInputViewModel.swift in Sources */,
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
 				7C2227292379CBA30006B8EE /* UIViewController+DismissKeyboard.swift in Sources */,
 				7CD1AF0723A67D7F003DDF0C /* EmailTextViewFactory.swift in Sources */,
@@ -2643,17 +2514,14 @@
 				ADB305E5223BB0D20069FACB /* PreviewLayer.swift in Sources */,
 				7C51087222C0DAE8005EE58B /* ScaningViewModelFactory.swift in Sources */,
 				7C390537233B7AEF00249B18 /* SpinnerViewManaging.swift in Sources */,
-				7C754058229FC3EC00FFF5B9 /* RadioViewModel.swift in Sources */,
 				7C1F42FC237B06690043D5E3 /* Data+Extensions.swift in Sources */,
 				ADBECCE42237CB7B00C846F8 /* ScanningVC.swift in Sources */,
 				7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */,
 				7C3ED55D22E5B88200EDDD70 /* DatabaseMigratingImplementations.swift in Sources */,
-				7C4DC2AB233E1FB500E2F98E /* Rx+CheckboxMultipleWithInputViewModel.swift in Sources */,
 				7C4E077823A03508003FBCF6 /* CheckboxBtnsFactory.swift in Sources */,
 				ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */,
 				7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */,
 				ADBB4688224265ED00E1020F /* CodesErrors.swift in Sources */,
-				7C75405B229FC41E00FFF5B9 /* CheckboxViewModel.swift in Sources */,
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
 				7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */,
 				7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */,
@@ -2710,7 +2578,6 @@
 				7C3671E223B8A7C000EDCAB5 /* DistancerViewItem.swift in Sources */,
 				7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
-				7C4DC2AF233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift in Sources */,
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* QA_Validation.swift in Sources */,
 				7C1D1E4723A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift in Sources */,
@@ -2721,7 +2588,6 @@
 				7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */,
-				7CFDEE3A2372E6C4004D1DD0 /* Rx+LabelWithPhoneTextFieldViewModel.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
 				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
 				7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */,
@@ -2748,7 +2614,6 @@
 				7C4E078E23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
-				7C754063229FC49B00FFF5B9 /* LabelWithTextFieldViewModel.swift in Sources */,
 				7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
 				7C6528B522CE43990077464C /* RealmApplication.swift in Sources */,
@@ -2795,7 +2660,6 @@
 				ADE9552F21D9193500B86052 /* LeadLinkKitError.swift in Sources */,
 				7C6222742294345E00717CA1 /* AnswersRemoteAPI.swift in Sources */,
 				ADE9552521D900E400B86052 /* File.swift in Sources */,
-				7C4DC2A3233E1D3B00E2F98E /* Rx+RadioViewModel.swift in Sources */,
 				AD1739D521DE3D6900218BE5 /* LogoutViewModel.swift in Sources */,
 				7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */,
 				AD1739D021DE1BDA00218BE5 /* UserState.swift in Sources */,
@@ -2813,21 +2677,17 @@
 				7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */,
 				7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */,
 				7C1CEA3923A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift in Sources */,
-				7C4DC2A9233E1F5700E2F98E /* Rx+CheckboxWithInputViewModel.swift in Sources */,
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */,
 				7C3ED56122E5E3CD00EDDD70 /* RealmDisclaimer.swift in Sources */,
 				7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */,
-				7C75405F229FC46200FFF5B9 /* CheckboxWithInputViewModel.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
-				7C4DC2A5233E1D5F00E2F98E /* Rx+CheckboxViewModel.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,
 				7C98A6AE2289699C00DA184E /* MyAnswer.swift in Sources */,
 				7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */,
 				7C51086622C0D59C005EE58B /* Storyboarded.swift in Sources */,
-				7C4DC2AD233E1FD700E2F98E /* Rx+SwitchBtnsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
