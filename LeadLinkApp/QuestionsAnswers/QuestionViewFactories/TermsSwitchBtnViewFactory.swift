@@ -27,6 +27,7 @@ class TermsSwitchBtnViewFactory: GetViewProtocol {
         let textsView = titleWithHiperlinkViewFactory.getView()
         let textViewWidth = allowedQuestionsWidth - 8.0 - switchBtn.bounds.width
         textsView.widthAnchor.constraint(equalToConstant: textViewWidth).isActive = true
+        textsView.layer.borderWidth = 0.0
         
         let stackView = CodeHorizontalStacker(views: [textsView, switchBtn], distribution: .fill).getView()
         

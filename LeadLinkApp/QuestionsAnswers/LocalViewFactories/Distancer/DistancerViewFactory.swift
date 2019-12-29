@@ -20,19 +20,3 @@ class DistancerViewFactory: GetViewProtocol {
         self.myView = distancerView
     }
 }
-
-class IntrinsicView: UIView {
-    private var myView: UIView
-    override init(frame: CGRect) {
-        self.myView = UIView(frame: frame)
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        self.myView = UIView.init(frame: CGRect.zero)
-        super.init(coder: coder)
-    }
-    override var intrinsicContentSize: CGSize {
-        return myView.frame.size
-    }
-}

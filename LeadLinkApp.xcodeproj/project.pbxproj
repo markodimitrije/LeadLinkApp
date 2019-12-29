@@ -247,6 +247,7 @@
 		7CF225E7232A8FA2004E023C /* PageNavigatingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */; };
 		7CF225E9232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */; };
 		7CF225EF232BA25E004E023C /* ScannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF225EE232BA25E004E023C /* ScannerFactory.swift */; };
+		7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */; };
 		7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */; };
 		7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */; };
 		7CFDEE322372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */; };
@@ -577,6 +578,7 @@
 		7CF225E6232A8FA2004E023C /* PageNavigatingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigatingProtocol.swift; sourceTree = "<group>"; };
 		7CF225E8232A8FDA004E023C /* CampaignsNavigateToViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsNavigateToViewControllerFactory.swift; sourceTree = "<group>"; };
 		7CF225EE232BA25E004E023C /* ScannerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFactory.swift; sourceTree = "<group>"; };
+		7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicView.swift; sourceTree = "<group>"; };
 		7CFBA7ED233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxMultipleWithInputViewModel.swift; sourceTree = "<group>"; };
 		7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidation.swift; sourceTree = "<group>"; };
 		7CFDEE312372E094004D1DD0 /* LabelWithPhoneTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPhoneTextFieldViewModel.swift; sourceTree = "<group>"; };
@@ -794,6 +796,7 @@
 		7C1CEA4023A0FFF70015F8F7 /* LocalViewFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */,
 				7C3671E023B8A79700EDCAB5 /* Distancer */,
 				7C1EE71923A2959500DB9ED8 /* Group */,
 				7C1EE71E23A295D700DB9ED8 /* OptIn */,
@@ -2605,6 +2608,7 @@
 				7C22271F2379C0910006B8EE /* SurveyQuestion.swift in Sources */,
 				7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
+				7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				7CB4D3DE22DCAEB100D6987E /* ScanditAllownessValidation.swift in Sources */,
 				7CFBA7EE233D04EA00E0D35C /* CheckboxMultipleWithInputViewModel.swift in Sources */,
