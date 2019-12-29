@@ -22,7 +22,6 @@ class SingleRadioBtnViewFactory: GetViewProtocol {
     init(tag: Int, isOn: Bool, titleText: String) {
 
         let radioButton = UIButton()
-        radioButton.backgroundColor = .blue
         let img = isOn ? radioBtnOnImg : radioBtnOffImg
         radioButton.setBackgroundImage(img, for: .normal)
 
@@ -31,7 +30,6 @@ class SingleRadioBtnViewFactory: GetViewProtocol {
 
         //Big Button (View size)
         let button = UIButton()
-//        button.backgroundColor = .yellow
 
         //Text Label
         button.titleLabel!.numberOfLines = 0

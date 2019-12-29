@@ -79,6 +79,8 @@
 		7C27AA2323A8ED5200B678E9 /* CheckboxBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
 		7C3667772347572600A21F25 /* DelegateEmailScrambling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */; };
+		7C3671E223B8A7C000EDCAB5 /* DistancerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3671E123B8A7C000EDCAB5 /* DistancerViewItem.swift */; };
+		7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3671E323B8A7ED00EDCAB5 /* DistancerViewFactory.swift */; };
 		7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */; };
 		7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */; };
 		7C38086C22C5118E00BB62C5 /* MyUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */; };
@@ -405,6 +407,8 @@
 		7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnImage.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateEmailScrambling.swift; sourceTree = "<group>"; };
+		7C3671E123B8A7C000EDCAB5 /* DistancerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancerViewItem.swift; sourceTree = "<group>"; };
+		7C3671E323B8A7ED00EDCAB5 /* DistancerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancerViewFactory.swift; sourceTree = "<group>"; };
 		7C38086522C5107F00BB62C5 /* URLAndURLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndURLRequestExtensions.swift; sourceTree = "<group>"; };
 		7C38086822C5113900BB62C5 /* DataErrorFromUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataErrorFromUrlResponse.swift; sourceTree = "<group>"; };
 		7C38086B22C5118E00BB62C5 /* MyUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUrlRequest.swift; sourceTree = "<group>"; };
@@ -790,6 +794,7 @@
 		7C1CEA4023A0FFF70015F8F7 /* LocalViewFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7C3671E023B8A79700EDCAB5 /* Distancer */,
 				7C1EE71923A2959500DB9ED8 /* Group */,
 				7C1EE71E23A295D700DB9ED8 /* OptIn */,
 				7C1EE71F23A295E000DB9ED8 /* SaveBtn */,
@@ -1401,6 +1406,15 @@
 				7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */,
 			);
 			path = EmailScrambling;
+			sourceTree = "<group>";
+		};
+		7C3671E023B8A79700EDCAB5 /* Distancer */ = {
+			isa = PBXGroup;
+			children = (
+				7C3671E123B8A7C000EDCAB5 /* DistancerViewItem.swift */,
+				7C3671E323B8A7ED00EDCAB5 /* DistancerViewFactory.swift */,
+			);
+			path = Distancer;
 			sourceTree = "<group>";
 		};
 		7C38086422C5105800BB62C5 /* CampaignsWithQuestions */ = {
@@ -2683,11 +2697,13 @@
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
+				7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */,
 				7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */,
 				7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */,
 				ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */,
 				7CBDC27222D72F5800B7D43F /* DateView.swift in Sources */,
 				AD1739C121DD398200218BE5 /* SignInErrorPayload.swift in Sources */,
+				7C3671E223B8A7C000EDCAB5 /* DistancerViewItem.swift in Sources */,
 				7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
 				7C4DC2AF233E1FF200E2F98E /* Rx+LabelWithTextFieldViewModel.swift in Sources */,

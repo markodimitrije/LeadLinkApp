@@ -34,6 +34,9 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
     
     init(viewInfos: [ViewInfoProtocol]) {
         super.init()
+        
+        //insertDistancerView(height: 12.0)
+        
         _ = viewInfos.map({ viewInfo in
             if let info = viewInfo as? GroupViewInfoProtocol {
                 let groupFactory = GroupViewFactory(text: info.getTitle())
@@ -93,7 +96,9 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
     
     private func appendLocalItems() {
         appendOptInView()
+        insertDistancerView(height: 24.0)
         appendSaveBtn()
+        insertDistancerView(height: 24.0)
     }
     
     private func appendOptInView() {
@@ -108,6 +113,12 @@ class ParentViewModel: NSObject, QuestionsViewItemManaging {
         let saveBtnFactory = SaveButtonFactory(title: "Save", width: allowedQuestionsWidth)
         let saveBtnItem = SaveBtnViewItem(saveBtnFactory: saveBtnFactory)
         self.items.append(saveBtnItem)
+    }
+    
+    private func insertDistancerView(height: CGFloat) {
+        let distancerViewFactory = DistancerViewFactory(height: height)
+        let lastDistancerItem = DistancerViewItem(viewFactory: distancerViewFactory)
+        self.items.append(lastDistancerItem)
     }
     
     private func hookUpSaveEvent() {

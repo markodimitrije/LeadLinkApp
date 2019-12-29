@@ -16,16 +16,17 @@ class SaveButtonFactory {
         return myView
     }
     
-    init(title: String, width: CGFloat) {
+    init(title: String, width: CGFloat, color: UIColor? = UIColor.leadLinkColor) {
         
         let button = UIButton()
-        button.heightAnchor.constraint(equalToConstant: 80.0).isActive = true
-        button.widthAnchor.constraint(equalToConstant: width*0.9).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        button.widthAnchor.constraint(equalToConstant: width*0.8).isActive = true
 //        button.widthAnchor.constraint(greaterThanOrEqualToConstant: width*0.5).isActive = true
         
-        button.backgroundColor = .green
+        button.backgroundColor = color
         button.setTitle(title, for: .normal)
         button.isUserInteractionEnabled = true
+        button.makeRoundedBorder(color: color!, cornerRadius: 5.0)
         
         //Stack View
         let stackView = UIStackView()

@@ -21,17 +21,15 @@ class SingleCheckboxBtnViewFactory: GetViewProtocol {
     
     init(tag: Int, isOn: Bool, titleText: String) {
         
-        let radioButton = UIButton()
-        radioButton.backgroundColor = .blue
+        let checkboxButton = UIButton()
         let img = isOn ? checkboxBtnOnImg : checkboxBtnOffImg
-        radioButton.setBackgroundImage(img, for: .normal)
+        checkboxButton.setBackgroundImage(img, for: .normal)
         
-        radioButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-        radioButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        checkboxButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+        checkboxButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
         
         //Big Button (View size)
         let button = UIButton()
-//        button.backgroundColor = .orange
         
         //Text Label
         button.titleLabel!.numberOfLines = 0
@@ -48,14 +46,14 @@ class SingleCheckboxBtnViewFactory: GetViewProtocol {
         stackView.alignment = .center
         stackView.spacing = 8.0
 
-        stackView.addArrangedSubview(radioButton)
+        stackView.addArrangedSubview(checkboxButton)
         stackView.addArrangedSubview(button)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false;
         
         myView = stackView
         
-        _ = [radioButton, button, myView].map {
+        _ = [checkboxButton, button, myView].map {
             $0.tag = tag
         }
 

@@ -207,7 +207,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CEk-eC-qjC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eB4-LL-I0V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -563,7 +562,6 @@ barcode number manually</string>
                 <navigationController restorationIdentifier="NavForOptionsVC" storyboardIdentifier="NavForOptionsVC" automaticallyAdjustsScrollViewInsets="NO" id="xdp-O4-cig" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSE-Dh-Yml">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -621,7 +619,6 @@ barcode number manually</string>
                 <navigationController storyboardIdentifier="NavForTermsVC" automaticallyAdjustsScrollViewInsets="NO" id="llI-uq-9Gd" customClass="NavForTermsVC" customModule="Navus_Lead" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwc-n7-bjS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
