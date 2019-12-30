@@ -44,12 +44,10 @@ class RadioBtnsWithInput_ViewFactory: GetViewProtocol {
     
     private func getNonOptionTextAnswer(question: QuestionProtocol, answer: MyAnswerProtocol?) -> String {
         
-        let options = question.getOptions()
-        
         guard let answer = answer else {
-            return question.getDesc()
+            return question.qDesc
         }
-        let contentNotContainedInOptions = answer.content.first(where: {!options.contains($0)})
+        let contentNotContainedInOptions = answer.content.first(where: {!question.qOptions.contains($0)})
         return contentNotContainedInOptions ?? ""
     }
     

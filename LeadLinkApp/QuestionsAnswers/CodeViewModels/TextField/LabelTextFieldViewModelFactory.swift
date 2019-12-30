@@ -20,10 +20,10 @@ class LabelPhoneTextField_ViewModelFactory: GetViewModelProtocol {
     init(questionInfo: PresentQuestionInfoProtocol) {
         let question = questionInfo.getQuestion()
         
-        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
+        let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         
         let textFieldFactory = PhoneTextFieldFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-                                                    placeholderText: question.description,
+                                                    placeholderText: question.qDesc,
                                                     width: allowedQuestionsWidth)
         
         let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,

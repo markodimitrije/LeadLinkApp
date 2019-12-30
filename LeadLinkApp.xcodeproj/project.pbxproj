@@ -79,6 +79,8 @@
 		7C26C50C23BA0F75006E7FA6 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C50B23BA0F75006E7FA6 /* QuestionType.swift */; };
 		7C26C50E23BA0FA2006E7FA6 /* QuestionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C50D23BA0FA2006E7FA6 /* QuestionSettings.swift */; };
 		7C26C51023BA140F006E7FA6 /* MyAnswerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C50F23BA140F006E7FA6 /* MyAnswerProtocol.swift */; };
+		7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C51123BA1EF1006E7FA6 /* AnswersReportProtocol.swift */; };
+		7C26C51423BA1F15006E7FA6 /* AnswersWebReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C51323BA1F15006E7FA6 /* AnswersWebReportFactory.swift */; };
 		7C27AA2123A8ED3300B678E9 /* RadioBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27AA2023A8ED3300B678E9 /* RadioBtnImage.swift */; };
 		7C27AA2323A8ED5200B678E9 /* CheckboxBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
@@ -393,6 +395,8 @@
 		7C26C50B23BA0F75006E7FA6 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 		7C26C50D23BA0FA2006E7FA6 /* QuestionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSettings.swift; sourceTree = "<group>"; };
 		7C26C50F23BA140F006E7FA6 /* MyAnswerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerProtocol.swift; sourceTree = "<group>"; };
+		7C26C51123BA1EF1006E7FA6 /* AnswersReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersReportProtocol.swift; sourceTree = "<group>"; };
+		7C26C51323BA1F15006E7FA6 /* AnswersWebReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersWebReportFactory.swift; sourceTree = "<group>"; };
 		7C27AA2023A8ED3300B678E9 /* RadioBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnImage.swift; sourceTree = "<group>"; };
 		7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnImage.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
@@ -1664,6 +1668,8 @@
 		7C6222782294469F00717CA1 /* RealmModel */ = {
 			isa = PBXGroup;
 			children = (
+				7C26C51123BA1EF1006E7FA6 /* AnswersReportProtocol.swift */,
+				7C26C51323BA1F15006E7FA6 /* AnswersWebReportFactory.swift */,
 				7C62226C2294232300717CA1 /* AnswersReport.swift */,
 				7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */,
 			);
@@ -2444,6 +2450,7 @@
 				7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */,
 				7C4E078723A03C3C003FBCF6 /* CodeHorizontalStacker.swift in Sources */,
 				7C2227232379CAC40006B8EE /* UIView+Extensions.swift in Sources */,
+				7C26C51423BA1F15006E7FA6 /* AnswersWebReportFactory.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
 				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
@@ -2646,6 +2653,7 @@
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C1F42C6237AD4270043D5E3 /* ReportToWebError.swift in Sources */,
+				7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,

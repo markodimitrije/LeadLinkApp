@@ -10,7 +10,7 @@ import UIKit
 
 class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String
     
@@ -22,7 +22,7 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
         self.code = questionInfo.getCode()
         super.init()
         self.view = textAreaViewFactory.getView()
-        self.view.tag = questionInfo.getQuestion().id
+        self.view.tag = questionInfo.getQuestion().qId
         self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
     }
     
@@ -32,7 +32,7 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
     
     func getActualAnswer() -> MyAnswerProtocol? {
         let text = view.findViews(subclassOf: UITextView.self).first!.text
-        let result = (text != self.question.description) ? text : ""
+        let result = (text != self.question.qDesc) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
         } else {
@@ -45,7 +45,7 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
 extension TextAreaViewModel: UITextViewDelegate {
      
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == question.description {
+        if textView.text == question.qDesc {
             self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
         }
     }

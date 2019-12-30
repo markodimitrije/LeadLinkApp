@@ -22,7 +22,8 @@ struct PresentQuestionInfo {
 }
 
 extension PresentQuestionInfo: PresentQuestionInfoProtocol {
-    func getQuestion() -> PresentQuestion {
+    //func getQuestion() -> PresentQuestion {
+    func getQuestion() -> QuestionProtocol {
         return self.question
     }
     func getAnswer() -> MyAnswerProtocol? {

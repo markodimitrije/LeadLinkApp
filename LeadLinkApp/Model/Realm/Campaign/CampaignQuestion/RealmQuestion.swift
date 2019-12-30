@@ -18,7 +18,7 @@ public class RealmQuestion: Object {
     @objc dynamic var desc: String = ""
     @objc dynamic var order: Int = 0
     
-    @objc dynamic var group: String?
+    @objc dynamic var group: String = ""
     var element_id: Int?
     @objc dynamic var settings: RealmQuestionSettings! = RealmQuestionSettings.init()
     
@@ -28,10 +28,8 @@ public class RealmQuestion: Object {
         self.title = question.title
         self.type = question.type
         self.group = question.group
-        self.required = question.required
         self.desc = question.description ?? ""
         self.order = question.order
-        self.element_id = question.element_id
         
         self.settings.updateWith(settings: question.settings, question: question)
     }

@@ -42,7 +42,7 @@ class AnswersRemoteAPI {
         
         request.allHTTPHeaderFields = headerFieldsCreator.allHeaderFields
         
-        let payload = reports.map {$0.payload}
+        let payload = reports.map {$0.getPayload()}
         //print("AnswersRemoteAPI.postRequest.payload = \(payload)")
         
         guard let data = try? JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted) else {

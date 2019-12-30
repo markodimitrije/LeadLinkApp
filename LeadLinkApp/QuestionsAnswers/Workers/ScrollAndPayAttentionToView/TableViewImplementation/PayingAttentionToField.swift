@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PayingAttentionToField {
-    func payAttentionTo(question: PresentQuestion)
+    func payAttentionTo(question: QuestionProtocol)
 }
 
 class ScrollViewPayingAttentioner: PayingAttentionToField {
@@ -22,15 +22,15 @@ class ScrollViewPayingAttentioner: PayingAttentionToField {
         self.questions = questions
     }
     
-    func payAttentionTo(question: PresentQuestion) {
-        if question.type == .termsSwitchBtn {
+    func payAttentionTo(question: QuestionProtocol) {
+        if question.qType == .termsSwitchBtn {
             applyColor(question: question)
         } else {
             activateTextField(question: question)
         }
     }
     
-    private func activateTextField(question: PresentQuestion) {
+    private func activateTextField(question: QuestionProtocol) {
         
         guard let textField = scrollView.getQuestionViewTextControl(question: question) else {
             return
@@ -38,7 +38,7 @@ class ScrollViewPayingAttentioner: PayingAttentionToField {
         textField.becomeFirstResponder()
     }
     
-    private func applyColor(question: PresentQuestion) {
+    private func applyColor(question: QuestionProtocol) {
         
         guard let termsView = scrollView.getQuestionView(question: question) else {return}
 
@@ -75,11 +75,11 @@ class QuestionsScrollView: UIScrollView {
         return nil
     }
     
-    func getQuestionView(question: PresentQuestion) -> UIView? {
-        self.stackView.subviews.first(where: {$0.tag == question.id})
+    func getQuestionView(question: QuestionProtocol) -> UIView? {
+        self.stackView.subviews.first(where: {$0.tag == question.qId})
     }
     
-    func getQuestionViewTextControl(question: PresentQuestion) -> UIView? {
+    func getQuestionViewTextControl(question: QuestionProtocol) -> UIView? {
         guard let questionView = getQuestionView(question: question) else {
             return nil
         }

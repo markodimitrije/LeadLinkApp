@@ -10,7 +10,7 @@ import UIKit
 
 class RadioBtnsWithInputViewModel: NSObject, QuestionPageViewModelProtocol {
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String = ""
     
@@ -32,16 +32,16 @@ class RadioBtnsWithInputViewModel: NSObject, QuestionPageViewModelProtocol {
     }
     func getActualAnswer() -> MyAnswerProtocol? { // single selection - not tested !!
 
-        let questionOptions = question.options
+        let questionOptions = question.qOptions
 
         let selectedViewModels = singleRadioBtnViewModels.filter {$0.isOn}
         let selectedTags = selectedViewModels.map {$0.getView().tag}
         var content = selectedTags.map {questionOptions[$0]}
         
-        if radioBtnViewModelAttachedToText.isOn && textView.text != question.description {
+        if radioBtnViewModelAttachedToText.isOn && textView.text != question.qDesc {
             content.append(textView.text)
         } else {
-            let questionOptions = question.options
+            let questionOptions = question.qOptions
             content.removeAll(where: {!questionOptions.contains($0)})
         }
 
@@ -64,7 +64,7 @@ class RadioBtnsWithInputViewModel: NSObject, QuestionPageViewModelProtocol {
         
         self.singleRadioBtnViewModels = radioBtnsWithInputViewFactory.getViewModels()
         self.view = radioBtnsWithInputViewFactory.getView()
-        self.view.tag = questionInfo.getQuestion().id
+        self.view.tag = questionInfo.getQuestion().qId
         
         _ = self.view.findViews(subclassOf: UITextView.self).map {$0.delegate = self}
         _ = self.view.findViews(subclassOf: UIButton.self).map {
@@ -102,7 +102,7 @@ extension RadioBtnsWithInputViewModel: BtnTapListening {
     }
     
     private func setTextViewTextToPlaceholderText() {
-        textView.text = question.description
+        textView.text = question.qDesc
         textView.textColor = .lightGray
     }
     
@@ -114,7 +114,7 @@ extension RadioBtnsWithInputViewModel: BtnTapListening {
 
 extension RadioBtnsWithInputViewModel: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text != question.description { //print("setuj odg. btn, sve ostale reset")
+        if textView.text != question.qDesc { //print("setuj odg. btn, sve ostale reset")
             textView.textColor = .black
             radioBtnViewModelAttachedToText.isOn = true
             _ = nonTextRadioBtnViewModels.map {$0.isOn = false}
@@ -123,7 +123,7 @@ extension RadioBtnsWithInputViewModel: UITextViewDelegate {
         }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == question.description {
+        if textView.text == question.qDesc {
             textView.text = ""
         }
     }

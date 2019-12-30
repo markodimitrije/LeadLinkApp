@@ -17,7 +17,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
         didSet {
             observableSearch.subscribe(onNext: { [weak self] (search) in
                 guard let sSelf = self else {return}
-                let options = sSelf.countries.isEmpty ? sSelf.question.options : sSelf.countries
+                let options = sSelf.countries.isEmpty ? sSelf.question.qOptions : sSelf.countries
                 if search == "" {
                     sSelf.optionsToDisplay.accept(options)
                 } else {
@@ -31,7 +31,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
         }
     }
     
-    var question: PresentQuestion
+    var question: QuestionProtocol
     var tableView: UITableView!
     
     private var optionsToDisplay = BehaviorRelay<[String]>(value: [])
@@ -42,7 +42,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     init(selectOptionTextViewModel: SelectOptionTextFieldViewModel) {
         
         func checkIfOptionsShouldBeCountries() {
-            if selectOptionTextViewModel.question.options.first == QuestionPersonalInfoKey.country_id.rawValue {
+            if selectOptionTextViewModel.question.qOptions.first == QuestionPersonalInfoKey.country_id.rawValue {
                 let countriesManager = CountriesManager()
                 self.countries = Array(countriesManager.countries.values).sorted()
             }
@@ -82,7 +82,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
         
         let option = optionsToDisplay.value[indexPath.row]
         
-        if question.multipleSelection {
+        if question.qMultipleSelection {
             if let index = newAnswer.content.firstIndex(of: option) {
                 newAnswer.content.remove(at: index)
                 cell.accessoryType = .none

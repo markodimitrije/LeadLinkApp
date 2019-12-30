@@ -11,7 +11,7 @@ import RxSwift
 
 public class DropdownViewModel: NSObject {
     
-    private let question: PresentQuestion
+    private let question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private let code: String
     
@@ -37,7 +37,7 @@ public class DropdownViewModel: NSObject {
         self.viewControllerFactory = viewControllerFactory
 
         self.view = viewFactory.getView()
-        self.view.tag = presentQuestionInfo.getQuestion().id
+        self.view.tag = presentQuestionInfo.getQuestion().qId
         
         super.init()
         
@@ -86,7 +86,7 @@ extension DropdownViewModel: QuestionPageViewModelProtocol {
     
     func getActualAnswer() -> MyAnswerProtocol? {
         let text = self.view.findViews(subclassOf: UITextView.self).first!.text
-        let result = (text != self.question.description) ? text : ""
+        let result = (text != self.question.qDesc) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
         } else {
@@ -108,7 +108,7 @@ extension DropdownViewModel: UITextViewDelegate {
             showOptionsAsPopover(vc: nextViewController, fromSourceRect: textView)
         }
         
-        if textView.text == question.description {
+        if textView.text == question.qDesc {
             self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
         }
         

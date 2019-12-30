@@ -10,7 +10,7 @@ import UIKit
 
 class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String = ""
     
@@ -30,17 +30,16 @@ class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
     }
     func getActualAnswer() -> MyAnswerProtocol? { // single selection - not tested !!
 
-        let questionOptions = question.options
+        let questionOptions = question.qOptions
 
         let selectedViewModels = singleCheckboxBtnViewModels.filter {$0.isOn}
         let selectedTags = selectedViewModels.map {$0.getView().tag}
         var content = selectedTags.map {questionOptions[$0]}
         
-        if checkboxBtnViewModelAttachedToText.isOn && textView.text != question.description {
+        if checkboxBtnViewModelAttachedToText.isOn && textView.text != question.qDesc {
             content.append(textView.text)
         } else {
-            let questionOptions = question.options // zasto ovde isto ? proveri? hard-coded
-            content.removeAll(where: {!questionOptions.contains($0)})
+            content.removeAll(where: {!question.qOptions.contains($0)})
         }
 
         if answer != nil {
@@ -63,7 +62,7 @@ class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
         
         self.singleCheckboxBtnViewModels = checkboxBtnsWithInputViewFactory.getViewModels()
         self.view = checkboxBtnsWithInputViewFactory.getView()
-        self.view.tag = questionInfo.getQuestion().id
+        self.view.tag = questionInfo.getQuestion().qId
         
         _ = self.view.findViews(subclassOf: UITextView.self).map {$0.delegate = self}
         _ = self.view.findViews(subclassOf: UIButton.self).map {
@@ -114,7 +113,7 @@ extension CheckboxInputViewModel: BtnTapListening {
 
 extension CheckboxInputViewModel: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text != question.description { //print("setuj odg. btn, sve ostale reset")
+        if textView.text != question.qDesc { //print("setuj odg. btn, sve ostale reset")
             textView.textColor = .black
             checkboxBtnViewModelAttachedToText.isOn = true
         } else if textView.text == "" {
@@ -122,7 +121,7 @@ extension CheckboxInputViewModel: UITextViewDelegate {
         }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == question.description {
+        if textView.text == question.qDesc {
             textView.text = ""
         }
     }
@@ -135,4 +134,3 @@ extension CheckboxInputViewModel: UITextViewDelegate {
         return true
     }
 }
-

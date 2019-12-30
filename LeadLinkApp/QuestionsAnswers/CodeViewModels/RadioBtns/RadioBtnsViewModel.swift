@@ -14,7 +14,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
         setSelectedRadioBtnAndClearOthers(sender: sender)
     }
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String = ""
     
@@ -28,7 +28,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
         super.init()
         self.singleRadioBtnViewModels = radioBtnsFactory.getViewModels()
         self.view = radioBtnsFactory.getView()
-        self.view.tag = questionInfo.getQuestion().id
+        self.view.tag = questionInfo.getQuestion().qId
         
         _ = self.view.findViews(subclassOf: UIButton.self).map {
             $0.addTarget(self, action: #selector(RadioBtnsViewModel.btnTapped), for: .touchUpInside)
@@ -41,7 +41,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
     
     func getActualAnswer() -> MyAnswerProtocol? { // single selection - not tested !!
 
-        let questionOptions = question.options
+        let questionOptions = question.qOptions
 
         let selectedViewModels = singleRadioBtnViewModels.filter {$0.isOn}
         let selectedTags = selectedViewModels.map {$0.getView().tag}

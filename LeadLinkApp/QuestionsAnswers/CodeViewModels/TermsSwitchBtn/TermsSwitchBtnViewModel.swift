@@ -9,7 +9,7 @@
 import UIKit
 
 class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
-    private let question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private let code: String
     private let myView: UIView
@@ -34,7 +34,7 @@ class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
         let isOn = !(self.answer?.content.isEmpty ?? true)
         let factory = TermsSwitchBtnViewFactory(questionInfo: questionInfo, isOn: isOn)
         self.myView = factory.getView()
-        self.myView.tag = questionInfo.getQuestion().id
+        self.myView.tag = questionInfo.getQuestion().qId
     }
     
 }

@@ -14,7 +14,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
         singleCheckboxBtnViewModel[sender.tag].isOn = !singleCheckboxBtnViewModel[sender.tag].isOn
     }
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String = ""
     
@@ -30,7 +30,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
         
         let viewStacker = CodeVerticalStacker(views: [labelFactory.getView(), checkboxBtnsFactory.getView()])
         self.view = viewStacker.getView()
-        self.view.tag = questionInfo.getQuestion().id
+        self.view.tag = questionInfo.getQuestion().qId
         
         _ = self.view.findViews(subclassOf: UIButton.self).map {
             $0.addTarget(self, action: #selector(CheckboxBtnsViewModel.btnTapped), for: .touchUpInside)
@@ -43,7 +43,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
     
     func getActualAnswer() -> MyAnswerProtocol? { // multiple selection
         
-        let questionOptions = question.options
+        let questionOptions = question.qOptions
         
         let selectedViewModels = singleCheckboxBtnViewModel.filter {$0.isOn}
         let selectedTags = selectedViewModels.map {$0.getView().tag}

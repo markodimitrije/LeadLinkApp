@@ -25,7 +25,8 @@ protocol QuestionsViewItemManaging: QuestionsViewItemSupplying, BtnTapListening 
 protocol ViewInfoProtocol {}
 
 protocol PresentQuestionInfoProtocol: ViewInfoProtocol {
-    func getQuestion() -> PresentQuestion
+    //func getQuestion() -> PresentQuestion
+    func getQuestion() -> QuestionProtocol
     func getAnswer() -> MyAnswerProtocol?
     func getCode() -> String
 }

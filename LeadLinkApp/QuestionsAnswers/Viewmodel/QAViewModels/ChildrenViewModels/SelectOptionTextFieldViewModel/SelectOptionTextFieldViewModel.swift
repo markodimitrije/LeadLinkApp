@@ -11,12 +11,11 @@ import RxSwift
 import RxCocoa
 
 class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable, Answerable {
-    
-    var question: PresentQuestion
+    var question: QuestionProtocol
     var answer: MyAnswerProtocol?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswerProtocol?, code: String) {
+    init(question: QuestionProtocol, answer: MyAnswerProtocol?, code: String) {
         self.question = question
         self.answer = answer
         self.code = code

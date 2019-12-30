@@ -18,10 +18,10 @@ class DropdownViewModelFactory: GetViewModelProtocol {
     init(questionInfo: PresentQuestionInfoProtocol) {
         let question = questionInfo.getQuestion()
         
-        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
+        let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-                                              placeholderText: question.description,
-                                              questionId: questionInfo.getQuestion().id,
+                                              placeholderText: question.qDesc,
+                                              questionId: questionInfo.getQuestion().qId,
                                               width: allowedQuestionsWidth)
 
         let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,

@@ -21,9 +21,9 @@ class RadioBtns_ViewFactory: GetViewProtocol {
         return self.singleRadioBtnViewModels
     }
     
-    init(question: PresentQuestion, answer: MyAnswerProtocol?) {
+    init(question: QuestionProtocol, answer: MyAnswerProtocol?) {
         
-        let titles = question.options
+        let titles = question.qOptions
         
         let selected = titles.map {(answer?.content ?? [ ]).contains($0)}
         
@@ -38,7 +38,7 @@ class RadioBtns_ViewFactory: GetViewProtocol {
         self.singleRadioBtnViewModels = singleRadioBtnViewModels
         let singleRadioViews = singleRadioBtnViewModels.map {$0.getView()}
         
-        let labelView = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth).getView()
+        let labelView = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth).getView()
         
         let allViews = [labelView] + singleRadioViews
         let verticalStackerFactory = CodeVerticalStacker(views: allViews)

@@ -17,11 +17,9 @@ public struct Question: Codable {
     var campaign_id: Int
     var title: String
     var type: String
-    var group: String?
-    var required: Bool
+    var group: String
     var description: String?
     var order: Int
-    var element_id: Int?
     var settings: QuestionSettings
     
     init(realmQuestion: RealmQuestion) {
@@ -30,55 +28,56 @@ public struct Question: Codable {
         self.title = realmQuestion.title
         self.type = realmQuestion.type
         self.group = realmQuestion.group
-        self.required = realmQuestion.required
         self.description = realmQuestion.desc
-        
         self.order = realmQuestion.order
-        self.element_id = realmQuestion.element_id
         
         self.settings = QuestionSettings.init(realmSetting: realmQuestion.settings!)
     }
 }
 
 extension Question: QuestionProtocol {
-    func getId() -> Int {
-        return self.id
+    
+    var qId: Int {
+        self.id
     }
     
-    func getCampaignId() -> Int {
-        return self.campaign_id
+    var qCampaignId: Int {
+        self.campaign_id
     }
     
-    func getType() -> QuestionType {
-        return QuestionType(rawValue: type)!
+    var qTitle: String {
+        self.title
     }
     
-    func getGroup() -> String {
-        return self.group ?? ""
+    var qDesc: String {
+        self.description ?? ""
     }
     
-    func getTitle() -> String {
-        return self.title
+    var qGroup: String {
+        self.group
     }
     
-    func getDesc() -> String {
-        return self.description ?? ""
+    var qOrder: Int {
+        self.order
     }
     
-    func getOrder() -> Int {
-        return self.order
+    var qSettings: QuestionSettings {
+        self.settings
     }
     
-    func getElementId() -> Int? {
-        return self.element_id
+    var qOptions: [String] {
+        self.settings.options ?? [ ]
     }
     
-    func getSettings() -> QuestionSettings {
-        return self.settings
+    var qType: QuestionType {
+        QuestionType(rawValue: self.type)!
     }
     
-    func getOptions() -> [String] {
-        return self.settings.options ?? [ ]
+    var qMultipleSelection: Bool {
+        if qType == .dropdown {
+            return !qOptions.contains("country")
+        }
+        return false
     }
     
 }

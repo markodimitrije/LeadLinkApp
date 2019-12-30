@@ -8,14 +8,14 @@
 
 import Foundation
 protocol QuestionProtocol {
-    func getId() -> Int
-    func getCampaignId() -> Int
-    func getType() -> QuestionType
-    func getGroup() -> String
-    func getTitle() -> String
-    func getDesc() -> String
-    func getOrder() -> Int
-    func getElementId() -> Int?
-    func getSettings() -> QuestionSettings
-    func getOptions() -> [String]
+    var qId: Int {get}
+    var qCampaignId: Int {get}
+    var qType: QuestionType {get}
+    var qTitle: String {get}
+    var qGroup: String {get}
+    var qDesc: String {get}
+    var qOrder: Int {get}
+    var qSettings: QuestionSettings {get}
+    var qOptions: [String] {get}
+    var qMultipleSelection: Bool {get}
 }

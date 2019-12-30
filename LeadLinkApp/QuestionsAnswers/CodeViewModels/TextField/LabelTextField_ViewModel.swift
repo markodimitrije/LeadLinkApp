@@ -10,7 +10,7 @@ import UIKit
 
 class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
     
-    private var question: PresentQuestion
+    private var question: QuestionProtocol
     private var answer: MyAnswerProtocol?
     private var code: String
     
@@ -22,7 +22,7 @@ class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
         self.code = questionInfo.getCode()
         super.init()
         self.myView = viewFactory.getView()
-        self.myView.tag = questionInfo.getQuestion().id
+        self.myView.tag = questionInfo.getQuestion().qId
         self.myView.findViews(subclassOf: UITextField.self).first!.delegate = self
     }
     
@@ -32,7 +32,7 @@ class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
     
     func getActualAnswer() -> MyAnswerProtocol? {
         let text = myView.findViews(subclassOf: UITextField.self).first!.text
-        let result = (text != self.question.description) ? text : ""
+        let result = (text != self.question.qDesc) ? text : ""
         if answer != nil {
             answer?.content = [result ?? ""]
         } else {
@@ -45,7 +45,7 @@ class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
 extension LabelTextField_ViewModel: UITextFieldDelegate {
      
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == question.description {
+        if textField.text == question.qDesc {
             self.deletePlaceholderAndSetTxtColorToBlack(textField: textField)
         }
     }

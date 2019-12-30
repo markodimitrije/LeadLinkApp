@@ -27,7 +27,7 @@ struct QA_Validation {
             })?.question
         } else if !hasCheckedTermsAndConditions {
             return questions.first(where: { question -> Bool in
-                question.question.type == .termsSwitchBtn
+                question.question.qType == .termsSwitchBtn
             })?.question
         }
         return nil

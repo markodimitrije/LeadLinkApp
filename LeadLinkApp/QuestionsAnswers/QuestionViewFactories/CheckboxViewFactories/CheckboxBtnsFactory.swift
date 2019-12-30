@@ -21,9 +21,9 @@ class CheckboxBtnsFactory: GetViewProtocol {
         return self.singleCheckboxBtnViewModels
     }
     
-    init(question: PresentQuestion, answer: MyAnswerProtocol?) {
+    init(question: QuestionProtocol, answer: MyAnswerProtocol?) {
         
-        let titles = question.options
+        let titles = question.qOptions
         
         let selected = titles.map {(answer?.content ?? [ ]).contains($0)}
         

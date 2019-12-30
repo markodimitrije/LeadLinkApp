@@ -54,8 +54,8 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     func appendQuestion(info: PresentQuestionInfoProtocol) {
         let question = info.getQuestion()
-        if question.type == .textField {
-            if question.options.first == "phone" {
+        if question.qType == .textField {
+            if question.qOptions.first == "phone" {
                 let labelPhoneItem = LabelPhoneTextField_ViewModelFactory(questionInfo: info).getViewModel()
                 items.append(labelPhoneItem)
             } else {
@@ -63,31 +63,31 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
                 items.append(labelTextItem)
             }
         }
-        if question.type == .textArea {
+        if question.qType == .textArea {
             let textAreaItem = TextAreaViewModelFactory(questionInfo: info).getViewModel()
             items.append(textAreaItem)
         }
-        if question.type == .dropdown {
+        if question.qType == .dropdown {
             let dropdownItem = DropdownViewModelFactory(questionInfo: info).getViewModel()
             items.append(dropdownItem)
         }
-        if question.type == .checkbox {
+        if question.qType == .checkbox {
             let checkboxBtnsItem = CheckboxBtnsViewModelFactory(questionInfo: info).getViewModel()
             items.append(checkboxBtnsItem)
         }
-        if question.type == .checkboxMultipleWithInput {
+        if question.qType == .checkboxMultipleWithInput {
             let checkboxBtnsWithInputItem = CheckboxBtnsWithInputViewModelFactory(questionInfo: info).getViewModel()
             items.append(checkboxBtnsWithInputItem)
         }
-        if question.type == .radioBtn {
+        if question.qType == .radioBtn {
             let radioBtnsItem = RadioBtnsViewModelFactory(questionInfo: info).getViewModel()
             items.append(radioBtnsItem);
         }
-        if question.type == .radioBtnWithInput {
+        if question.qType == .radioBtnWithInput {
             let radioBtnsWithInputItem = RadioBtnsWithInput_ViewModelFactory(questionInfo: info).getViewModel()
             items.append(radioBtnsWithInputItem);
         }
-        if question.type == .termsSwitchBtn {
+        if question.qType == .termsSwitchBtn {
             let termsSwitchBtnItem = TermsSwitchBtnViewModelFactory(questionInfo: info).getViewModel()
             items.append(termsSwitchBtnItem);
         }
@@ -138,7 +138,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
 }
 
 protocol Questanable {
-    var question: PresentQuestion {get set}
+    var question: QuestionProtocol {get set}
     var code: String {get set}
 }
 
@@ -148,8 +148,8 @@ protocol Answerable {
 
 extension QuestionsAnswersViewModel: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        let questionInfo = questionInfos.first(where: {$0.getQuestion().id == textView.tag})
-        let placeholderTxt = questionInfo?.getQuestion().description ?? ""
+        let questionInfo = questionInfos.first(where: {$0.getQuestion().qId == textView.tag})
+        let placeholderTxt = questionInfo?.getQuestion().qDesc
         if textView.text == placeholderTxt {
             textView.text = ""
             textView.textColor = .black

@@ -18,7 +18,7 @@ class ViewInfoProvider {
             if itemHasNoGroup(question: question) {
                 return ""
             } else {
-                return question.group!
+                return question.group
             }
         }.unique() + [getNameForLastGroup()] //[QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
 

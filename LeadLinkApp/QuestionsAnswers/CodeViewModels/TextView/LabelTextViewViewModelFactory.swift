@@ -18,20 +18,20 @@ class LabelTextViewViewModelFactory: GetViewModelProtocol {
     init(questionInfo: PresentQuestionInfoProtocol) {
         let question = questionInfo.getQuestion()
         
-        let labelFactory = LabelFactory(text: question.headlineText, width: allowedQuestionsWidth)
+        let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         var textFactory: TextInputViewFactoryProtocol!
-        let textOption = questionInfo.getQuestion().options.first
+        let textOption = questionInfo.getQuestion().qOptions.first
         if textOption == "barcode" {
             textFactory = BarcodeTextViewFactory(inputText: questionInfo.getCode(),
                                                  width: allowedQuestionsWidth)
         } else if textOption == "email"{
             textFactory = EmailTextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-                                               placeholderText: question.description,
+                                               placeholderText: question.qDesc,
                                                width: allowedQuestionsWidth)
         } else {
             textFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
-                                          placeholderText: question.description,
-                                          questionId: questionInfo.getQuestion().id,
+                                          placeholderText: question.qDesc,
+                                          questionId: questionInfo.getQuestion().qId,
                                           width: allowedQuestionsWidth)
         }
         
