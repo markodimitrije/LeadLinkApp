@@ -10,11 +10,11 @@ import Foundation
 
 struct PresentQuestionInfo {
     
-    private let question: PresentQuestion
+    private let question: QuestionProtocol
     private let answer: MyAnswerProtocol?
     private let code: String
     
-    init(question: PresentQuestion, answer: MyAnswerProtocol?, code: String) {
+    init(question: QuestionProtocol, answer: MyAnswerProtocol?, code: String) {
         self.question = question
         self.answer = answer
         self.code = code

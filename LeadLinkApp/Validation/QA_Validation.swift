@@ -11,7 +11,7 @@ import Foundation
 struct QA_Validation {
     
     private var surveyInfo: SurveyInfo
-    private var questions: [SurveyQuestion]
+    private var questions: [QuestionProtocol]
     private var answers: [MyAnswerProtocol]
     
     // MARK:- API
@@ -20,15 +20,15 @@ struct QA_Validation {
         //return true // hard-coded on
     }
     
-    var invalidFieldQuestion: PresentQuestion? {
+    var invalidFieldQuestion: QuestionProtocol? {
         if !hasValidEmail {
             return questions.first(where: { question -> Bool in
-                question.question.options.first == "email"
-            })?.question
+                question.qOptions.first == "email"
+            })
         } else if !hasCheckedTermsAndConditions {
             return questions.first(where: { question -> Bool in
-                question.question.qType == .termsSwitchBtn
-            })?.question
+                question.qType == .termsSwitchBtn
+            })
         }
         return nil
     }
@@ -53,7 +53,7 @@ struct QA_Validation {
         return termsAnswer!.content.first == "true" ? true : false
     }
     
-    init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswerProtocol]) {
+    init(surveyInfo: SurveyInfo, questions: [QuestionProtocol], answers: [MyAnswerProtocol]) {
         
         self.surveyInfo = surveyInfo
         self.questions = questions

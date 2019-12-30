@@ -11,14 +11,14 @@ import UIKit
 class ViewInfoProvider {
     
     private var code: String
-    private var surveyQuestions = [SurveyQuestion]()
-    private var orderedQuestions = [PresentQuestion]()
+    private var questionsInfos = [PresentQuestionInfoProtocol]()
+    private var orderedQuestions = [QuestionProtocol]()
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
             if itemHasNoGroup(question: question) {
                 return ""
             } else {
-                return question.group
+                return question.qGroup
             }
         }.unique() + [getNameForLastGroup()] //[QuestionsAnswersSectionType.localComponentsGroupName.rawValue]
 
@@ -35,16 +35,16 @@ class ViewInfoProvider {
 //
 //        }.unique()
     
-    init(questions: [SurveyQuestion], code: String) {
-        self.surveyQuestions = questions
+    init(questions: [PresentQuestionInfoProtocol], code: String) {
+        self.questionsInfos = questions
         self.code = code
-        self.orderedQuestions = questions.map {$0.question}.sorted(by: <)
+        self.orderedQuestions = questions.map {$0.getQuestion() as! Question}.sorted(by: <)
     }
     
     // MARK:- API
     
-    func getQuestionsFor(groupName name: String) -> [SurveyQuestion] {
-        return surveyQuestions.filter({$0.question.group == name})
+    func getQuestionsFor(groupName name: String) -> [PresentQuestionInfoProtocol] {
+        return questionsInfos.filter({$0.getQuestion().qGroup == name})
     }
     
     func getViewInfos() -> [ViewInfoProtocol] {
@@ -58,8 +58,8 @@ class ViewInfoProvider {
             let groupQuestions = questionsInGroups[index]
 
             let questionInfos: [PresentQuestionInfo] = groupQuestions.map { presentQuestion in
-                    return PresentQuestionInfo(question: presentQuestion.question,
-                                               answer: presentQuestion.answer,
+                    return PresentQuestionInfo(question: presentQuestion.getQuestion(),
+                                               answer: presentQuestion.getAnswer(),
                                                code: self.code)
                 }
             items.append(contentsOf: questionInfos)
@@ -68,8 +68,8 @@ class ViewInfoProvider {
     }
     
     // MARK:- Privates
-    private func itemHasNoGroup(question: PresentQuestion) -> Bool {
-        return question.group == nil || question.group == ""
+    private func itemHasNoGroup(question: QuestionProtocol) -> Bool {
+        return question.qGroup == ""
     }
     
     private func footerViewSize(sectionIndex: Int, tableView: UITableView) -> CGSize {

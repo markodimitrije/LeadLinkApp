@@ -14,7 +14,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
-    private var questions = [SurveyQuestion]()
+    private var questionInfos = [PresentQuestionInfoProtocol]()
+    private var questions: [QuestionProtocol] {
+        return questionInfos.map {$0.getQuestion()}
+    }
     private var viewModel: QuestionsAnswersViewModel!
     private var viewItems = [QuestionPageGetViewProtocol]()
     
@@ -34,8 +37,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
             if oldValue != nil {
                 stackView.removeAllSubviews()
-                questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
-                loadParentViewModel(questions: questions)
+                questionInfos = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestionInfos()
+                loadParentViewModel(questions: questionInfos)
                 subscribeListeningToSaveEvent()
             }
         }
@@ -49,8 +52,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func configureQuestionForm() {
         
-        questions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestions()
-        loadParentViewModel(questions: questions)
+        questionInfos = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestionInfos()
+        loadParentViewModel(questions: questionInfos)
         
         self.hideKeyboardWhenTappedAround()
         
@@ -98,7 +101,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func loadParentViewModel(questions: [SurveyQuestion]) {
+    private func loadParentViewModel(questions: [PresentQuestionInfoProtocol]) {
         
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
@@ -156,7 +159,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .disposed(by: bag)
     }
     
-    private func showAlertFormNotValid(forQuestion question: PresentQuestion?) {
+    private func showAlertFormNotValid(forQuestion question: QuestionProtocol?) {
         
         let alertInfo = AlertInfo.getInfo(type: AlertInfoType.questionsFormNotValid)
         
@@ -166,12 +169,12 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 guard let question = question else { return }
                 
                 let scroller = ScrollViewScroller(scrollView: self.scrollView,
-                                                  questions: self.questions.map({$0.question}))
+                                                  questions: self.questions)
                 
                 scroller.scrollTo(question: question)
                 
                 let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView,
-                                                              questions: self.questions.map {$0.question})
+                                                              questions: self.questions)
                 
                 delay(0.05, closure: {
                     attentioner.payAttentionTo(question: question)

@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ScrollingToField {
-    func scrollTo(question: PresentQuestion)
+    func scrollTo(question: QuestionProtocol)
 }

@@ -15,9 +15,9 @@ protocol PayingAttentionToField {
 class ScrollViewPayingAttentioner: PayingAttentionToField {
     
     private var scrollView: QuestionsScrollView
-    private var questions: [PresentQuestion]
+    private var questions: [QuestionProtocol]
     
-    init(scrollView: QuestionsScrollView, questions: [PresentQuestion]) {
+    init(scrollView: QuestionsScrollView, questions: [QuestionProtocol]) {
         self.scrollView = scrollView
         self.questions = questions
     }

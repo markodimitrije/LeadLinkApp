@@ -33,6 +33,7 @@ public struct Question: Codable {
         
         self.settings = QuestionSettings.init(realmSetting: realmQuestion.settings!)
     }
+    
 }
 
 extension Question: QuestionProtocol {
@@ -80,4 +81,19 @@ extension Question: QuestionProtocol {
         return false
     }
     
+}
+
+extension Question: Comparable {
+    public static func == (lhs: Question, rhs: Question) -> Bool {
+        lhs.id == rhs.id &&
+        lhs.campaign_id == rhs.campaign_id &&
+        lhs.order == rhs.order &&
+        lhs.group == rhs.group &&
+        lhs.title == rhs.title &&
+        lhs.description == rhs.description &&
+        lhs.settings.options == rhs.settings.options
+    }
+    public static func < (lhs: Question, rhs: Question) -> Bool {
+        return lhs.order < rhs.order
+    }
 }
