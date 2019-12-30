@@ -48,14 +48,12 @@ class CheckboxWithInputViewFactory: GetViewProtocol {
         
     }
     
-    private func getNonOptionTextAnswer(question: Question, answer: MyAnswer?) -> String {
+    private func getNonOptionTextAnswer(question: QuestionProtocol, answer: MyAnswerProtocol?) -> String {
         
-        guard let options = question.settings.options else {
-            return "" // fatal...
-        }
+        let options = question.getOptions()
         
         guard let answer = answer else {
-            return question.description ?? ""
+            return question.getDesc()
         }
         let contentNotContainedInOptions = answer.content.first(where: {!options.contains($0)})
         return contentNotContainedInOptions ?? ""

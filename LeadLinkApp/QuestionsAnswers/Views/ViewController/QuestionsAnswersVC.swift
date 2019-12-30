@@ -15,7 +15,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var stackView: UIStackView!
     
     private var questions = [SurveyQuestion]()
-    private var parentViewmodel: ParentViewModel!
+    private var viewModel: QuestionsAnswersViewModel!
     private var viewItems = [QuestionPageGetViewProtocol]()
     
     lazy private var keyboardHandler: KeyboardHandling = {
@@ -27,7 +27,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
     
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
-                                                                           parentViewmodel: parentViewmodel)
+                                                                           questionsAnswersViewModel: viewModel)
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
@@ -103,8 +103,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
         
-        parentViewmodel = ParentViewModel(viewInfos: viewInfos)
-        viewItems = parentViewmodel.getQuestionPageViewItems()
+        viewModel = QuestionsAnswersViewModel(viewInfos: viewInfos)
+        viewItems = viewModel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }
     
@@ -115,7 +115,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func listenToSaveEvent() {
-        let items = parentViewmodel.getQuestionPageViewItems()
+        let items = viewModel.getQuestionPageViewItems()
         
         let saveBtn = (items.first(where: {$0 is SaveBtnViewItem}) as! SaveBtnViewItem).button
         
@@ -129,7 +129,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             .disposed(by: bag)
     }
     
-    private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswer]) {
+    private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswerProtocol]) {
         
         let validator = QA_Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
         
@@ -147,7 +147,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
     
-    private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswer]) {
+    private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
         surveyInfo.save(answers: answers)
             .subscribe({ (saved) in
                 print("answers saved to realm = \(saved)")

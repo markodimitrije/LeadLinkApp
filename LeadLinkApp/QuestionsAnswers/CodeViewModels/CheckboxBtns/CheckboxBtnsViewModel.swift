@@ -15,7 +15,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
     }
     
     private var question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private var code: String = ""
     
     private var view: UIView!
@@ -41,7 +41,7 @@ class CheckboxBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapList
         return self.view
     }
     
-    func getActualAnswer() -> MyAnswer? { // multiple selection
+    func getActualAnswer() -> MyAnswerProtocol? { // multiple selection
         
         let questionOptions = question.options
         

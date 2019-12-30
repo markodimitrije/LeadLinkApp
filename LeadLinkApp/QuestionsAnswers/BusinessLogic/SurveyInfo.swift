@@ -25,7 +25,7 @@ struct SurveyInfo {
     
     var surveyQuestions = [SurveyQuestion]()
     var questions: [Question] { return campaign.questions }
-    var answers = [MyAnswer]()
+    var answers = [MyAnswerProtocol]()
     
     init(campaign: Campaign,
          code: String,
@@ -37,7 +37,7 @@ struct SurveyInfo {
         self.hasConsent = hasConsent
         self.dataStore = dataStore
     
-        answers = campaign.questions.compactMap { question -> MyAnswer? in//Answer? in
+        answers = campaign.questions.compactMap { question -> MyAnswerProtocol? in
             let answerIdentifier = AnswerIdentifer.init(campaignId: campaign.id, questionId: question.id, code: code)
             if let realmAnswer = dataStore.readAnswer(answerIdentifier: answerIdentifier).value,
                 realmAnswer != nil {
@@ -48,7 +48,7 @@ struct SurveyInfo {
         
     }
     
-    func save(answers: [MyAnswer]) -> Observable<Bool> {
+    func save(answers: [MyAnswerProtocol]) -> Observable<Bool> {
         
         return Observable.create({ (observer) -> Disposable in
 
@@ -144,20 +144,7 @@ extension SurveyInfo {
         }) else {
             fatalError("nemam barcode kao question !!?!?")
         }
-        return MyAnswer.init(question: question,
-                             code: self.code,
-                             content: [self.code],
-                             optionIds: nil)
-    }
-    
-    private func barcodeQuestion() -> Question? { // ili PersonalInfoKey ?
-        guard let myQuestion = self.questions.first(where: { question -> Bool in
-            question.settings.options?.first == "barcode" || question.settings.options?.first == "Barcode"
-        }) else {
-            return nil
-        }
-        
-        return myQuestion
+        return MyAnswer.init(question: question, code: self.code, content: [self.code], optionIds: nil)
     }
     
 }

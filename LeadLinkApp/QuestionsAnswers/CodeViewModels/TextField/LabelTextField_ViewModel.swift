@@ -11,7 +11,7 @@ import UIKit
 class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private var code: String
     
     private var myView: UIView!
@@ -30,7 +30,7 @@ class LabelTextField_ViewModel: NSObject, QuestionPageViewModelProtocol {
         return self.myView
     }
     
-    func getActualAnswer() -> MyAnswer? {
+    func getActualAnswer() -> MyAnswerProtocol? {
         let text = myView.findViews(subclassOf: UITextField.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {

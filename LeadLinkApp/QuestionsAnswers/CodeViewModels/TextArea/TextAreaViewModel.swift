@@ -11,7 +11,7 @@ import UIKit
 class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private var code: String
     
     private var view: UIView!
@@ -30,7 +30,7 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
         return self.view
     }
     
-    func getActualAnswer() -> MyAnswer? {
+    func getActualAnswer() -> MyAnswerProtocol? {
         let text = view.findViews(subclassOf: UITextView.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {

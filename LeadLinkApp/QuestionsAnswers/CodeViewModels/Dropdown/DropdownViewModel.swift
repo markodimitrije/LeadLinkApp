@@ -12,7 +12,7 @@ import RxSwift
 public class DropdownViewModel: NSObject {
     
     private let question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private let code: String
     
     fileprivate let viewControllerFactory: ChooseOptionsProtocol
@@ -84,7 +84,7 @@ extension DropdownViewModel: QuestionPageViewModelProtocol {
         return self.view
     }
     
-    func getActualAnswer() -> MyAnswer? {
+    func getActualAnswer() -> MyAnswerProtocol? {
         let text = self.view.findViews(subclassOf: UITextView.self).first!.text
         let result = (text != self.question.description) ? text : ""
         if answer != nil {

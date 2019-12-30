@@ -12,7 +12,7 @@ struct QA_Validation {
     
     private var surveyInfo: SurveyInfo
     private var questions: [SurveyQuestion]
-    private var answers: [MyAnswer]
+    private var answers: [MyAnswerProtocol]
     
     // MARK:- API
     var questionsFormIsValid: Bool {
@@ -37,8 +37,8 @@ struct QA_Validation {
     
     private let emailValidator = EmailValidator()
     
-    private var emailAnswer: MyAnswer?
-    private var termsAnswer: MyAnswer?
+    private var emailAnswer: MyAnswerProtocol?
+    private var termsAnswer: MyAnswerProtocol?
     
     private var hasValidEmail: Bool {
         return emailAnswer != nil
@@ -53,7 +53,7 @@ struct QA_Validation {
         return termsAnswer!.content.first == "true" ? true : false
     }
     
-    init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswer]) {
+    init(surveyInfo: SurveyInfo, questions: [SurveyQuestion], answers: [MyAnswerProtocol]) {
         
         self.surveyInfo = surveyInfo
         self.questions = questions

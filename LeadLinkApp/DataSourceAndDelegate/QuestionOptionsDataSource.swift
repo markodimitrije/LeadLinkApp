@@ -35,7 +35,7 @@ class QuestionOptionsTableViewDataSourceAndDelegate: NSObject, UITableViewDataSo
     var tableView: UITableView!
     
     private var optionsToDisplay = BehaviorRelay<[String]>(value: [])
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     
     private var countries = [String]()
     

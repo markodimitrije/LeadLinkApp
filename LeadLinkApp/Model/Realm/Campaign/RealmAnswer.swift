@@ -18,7 +18,7 @@ public class RealmAnswer: Object {
     var optionIds = List<Int>()
     var content = List<String>()
     
-    func updateWith(answer: MyAnswer) {
+    func updateWith(answer: MyAnswerProtocol) {
         self.id = "\(answer.campaignId)" + "\(answer.questionId)" + answer.code
         self.campaignId = answer.campaignId
         self.questionId = answer.questionId

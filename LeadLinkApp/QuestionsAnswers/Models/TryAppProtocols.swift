@@ -26,7 +26,7 @@ protocol ViewInfoProtocol {}
 
 protocol PresentQuestionInfoProtocol: ViewInfoProtocol {
     func getQuestion() -> PresentQuestion
-    func getAnswer() -> MyAnswer?
+    func getAnswer() -> MyAnswerProtocol?
     func getCode() -> String
 }
 

@@ -8,18 +8,6 @@
 
 import Foundation
 
-//public struct Question: Codable {
-//var id: Int
-//var campaign_id: Int
-//var title: String
-//var type: String
-//var group: String?
-//var required: Bool
-//var description: String?
-//var order: Int
-//var element_id: Int?
-//var settings: QuestionSettings
-
 struct PresentQuestion {
     var id: Int
     var campaignId: Int

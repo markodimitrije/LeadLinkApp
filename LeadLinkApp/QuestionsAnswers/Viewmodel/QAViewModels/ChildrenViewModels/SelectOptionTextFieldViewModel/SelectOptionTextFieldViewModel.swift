@@ -13,10 +13,10 @@ import RxCocoa
 class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable, Answerable {
     
     var question: PresentQuestion
-    var answer: MyAnswer?
+    var answer: MyAnswerProtocol?
     var code: String = ""
     
-    init(question: PresentQuestion, answer: MyAnswer?, code: String) {
+    init(question: PresentQuestion, answer: MyAnswerProtocol?, code: String) {
         self.question = question
         self.answer = answer
         self.code = code
@@ -24,7 +24,7 @@ class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable, Answ
     
     struct Input {
         var content: Observable<[String]> // ovo su izabrane opcije, npr ["ita", "bra", "usa"...]
-        var answer: MyAnswer?
+        var answer: MyAnswerProtocol?
     }
     
     struct Output { // treba ti side effects

@@ -10,14 +10,14 @@ import UIKit
 
 class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
     private let question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private let code: String
     private let myView: UIView
     func getView() -> UIView {
         return self.myView
     }
     
-    func getActualAnswer() -> MyAnswer? {
+    func getActualAnswer() -> MyAnswerProtocol? {
         let switchBtn = myView.findViews(subclassOf: UISwitch.self).first!
         let content = ["\(switchBtn.isOn)"]
         if answer != nil {

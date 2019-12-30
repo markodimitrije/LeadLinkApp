@@ -10,27 +10,27 @@ import Foundation
 
 
 protocol AnswersUpdating {
-    func updateAnswers() -> [MyAnswer]
+    func updateAnswers() -> [MyAnswerProtocol]
 }
 
 class AnswersUpdater: AnswersUpdating {
     
     private var surveyInfo: SurveyInfo
-    private var parentViewmodel: ParentViewModel
+    private var questionsAnswersViewModel: QuestionsAnswersViewModel
     
-    init(surveyInfo: SurveyInfo, parentViewmodel: ParentViewModel) {
+    init(surveyInfo: SurveyInfo, questionsAnswersViewModel: QuestionsAnswersViewModel) {
         self.surveyInfo = surveyInfo
-        self.parentViewmodel = parentViewmodel
+        self.questionsAnswersViewModel = questionsAnswersViewModel
     }
     
-    func updateAnswers() -> [MyAnswer] {
+    func updateAnswers() -> [MyAnswerProtocol] {
         
         var answers = self.surveyInfo.answers // contains barcode
         var answerIds = answers.map({$0.id})
         
-        func addOrUpdateAnswers(withAnswer answer: MyAnswer) {
+        func addOrUpdateAnswers(withAnswer answer: MyAnswerProtocol) {
             
-            func updateMyAnswers(newAnswer: MyAnswer) {
+            func updateMyAnswers(newAnswer: MyAnswerProtocol) {
                 if let index = answerIds.firstIndex(of: newAnswer.id) {
                     answers.remove(at: index)
                 }
@@ -51,12 +51,12 @@ class AnswersUpdater: AnswersUpdating {
             updateMyAnswers(newAnswer: answer)
         }
         
-        answers = parentViewmodel.getAnswers()
+        answers = questionsAnswersViewModel.getAnswers()
         _ = answers.map { (answer) in
             addOrUpdateAnswers(withAnswer: answer)
         }
         
-//        _ = self.parentViewmodel.childViewmodels.compactMap { viewmodelDict in // transfer
+//        _ = self.questionsAnswersViewModel.childViewmodels.compactMap { viewmodelDict in // transfer
 //
 //            if let viewmodel = viewmodelDict.value as? Answerable, var answer = viewmodel.answer {
 //

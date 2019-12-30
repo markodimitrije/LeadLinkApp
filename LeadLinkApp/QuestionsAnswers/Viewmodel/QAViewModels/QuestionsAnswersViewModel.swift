@@ -1,5 +1,5 @@
 //
-//  ParentViewModel.swift
+//  QuestionsAnswersViewModel.swift
 //  tryLeadLinkModularComponent
 //
 //  Created by Marko Dimitrijevic on 25/03/2019.
@@ -9,15 +9,15 @@
 import Foundation
 import RxSwift
 
-class ParentViewModel: NSObject, QuestionsViewItemManaging {
+class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     func getQuestionPageViewItems() -> [QuestionPageGetViewProtocol] {
         return items
     }
     
-    func getAnswers() -> [MyAnswer] {
+    func getAnswers() -> [MyAnswerProtocol] {
         let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
-        let answers: [MyAnswer] = itemsWithAnswer.compactMap {$0.getActualAnswer()}
+        let answers: [MyAnswerProtocol] = itemsWithAnswer.compactMap {$0.getActualAnswer()}
         return answers
     }
     
@@ -143,10 +143,10 @@ protocol Questanable {
 }
 
 protocol Answerable {
-    var answer: MyAnswer? {get set}
+    var answer: MyAnswerProtocol? {get set}
 }
 
-extension ParentViewModel: UITextViewDelegate {
+extension QuestionsAnswersViewModel: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         let questionInfo = questionInfos.first(where: {$0.getQuestion().id == textView.tag})
         let placeholderTxt = questionInfo?.getQuestion().description ?? ""

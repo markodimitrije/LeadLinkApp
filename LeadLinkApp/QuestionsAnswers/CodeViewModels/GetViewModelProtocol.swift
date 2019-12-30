@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ActualAnswerProtocol {
-    func getActualAnswer() -> MyAnswer?
+    func getActualAnswer() -> MyAnswerProtocol?
 }
 
 protocol QuestionPageViewModelProtocol: QuestionPageGetViewProtocol, ActualAnswerProtocol {}

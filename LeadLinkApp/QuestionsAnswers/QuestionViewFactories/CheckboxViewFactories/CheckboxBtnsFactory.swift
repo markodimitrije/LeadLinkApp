@@ -21,7 +21,7 @@ class CheckboxBtnsFactory: GetViewProtocol {
         return self.singleCheckboxBtnViewModels
     }
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswerProtocol?) {
         
         let titles = question.options
         

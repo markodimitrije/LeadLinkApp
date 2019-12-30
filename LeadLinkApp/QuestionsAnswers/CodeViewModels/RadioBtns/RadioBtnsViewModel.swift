@@ -15,7 +15,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
     }
     
     private var question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private var code: String = ""
     
     private var view: UIView!
@@ -39,7 +39,7 @@ class RadioBtnsViewModel: NSObject, QuestionPageViewModelProtocol, BtnTapListeni
         return self.view
     }
     
-    func getActualAnswer() -> MyAnswer? { // single selection - not tested !!
+    func getActualAnswer() -> MyAnswerProtocol? { // single selection - not tested !!
 
         let questionOptions = question.options
 

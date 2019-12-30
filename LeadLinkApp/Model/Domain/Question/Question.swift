@@ -40,24 +40,45 @@ public struct Question: Codable {
     }
 }
 
-public struct QuestionSettings: Codable {
-    var options: [String]?
-    
-    init(realmSetting: RealmQuestionSettings) {
-        //self.options = realmSetting.options.sorted()
-        self.options = realmSetting.options.toArray()
+extension Question: QuestionProtocol {
+    func getId() -> Int {
+        return self.id
     }
-}
-
-enum QuestionType: String {
-    case radioBtn = "radio"//"radioBtn"
-    case checkbox = "checkbox"
-    case radioBtnWithInput = "radioBtnWithInput"
-    case checkboxSingleWithInput = "checkbox_single_with_input"
-    case checkboxMultipleWithInput = "checkbox_with_input"
-    case switchBtn = "switchBtn"
-    case textField = "text"//"textField"
-    case textArea = "textarea"
-    case dropdown = "dropdown"// case textWithOptions = "textWithOptions"
-    case termsSwitchBtn = "termsSwitchBtn"
+    
+    func getCampaignId() -> Int {
+        return self.campaign_id
+    }
+    
+    func getType() -> QuestionType {
+        return QuestionType(rawValue: type)!
+    }
+    
+    func getGroup() -> String {
+        return self.group ?? ""
+    }
+    
+    func getTitle() -> String {
+        return self.title
+    }
+    
+    func getDesc() -> String {
+        return self.description ?? ""
+    }
+    
+    func getOrder() -> Int {
+        return self.order
+    }
+    
+    func getElementId() -> Int? {
+        return self.element_id
+    }
+    
+    func getSettings() -> QuestionSettings {
+        return self.settings
+    }
+    
+    func getOptions() -> [String] {
+        return self.settings.options ?? [ ]
+    }
+    
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct MyAnswer: Answering, Codable {
+public struct MyAnswer: Codable, MyAnswerProtocol {//Answering, Codable {
+    
     var campaignId = 0
     var questionId = 0
     var code = ""
@@ -25,14 +26,14 @@ public struct MyAnswer: Answering, Codable {
         return "\(campaignId)" + "\(questionId)" + code
     }
     
-    init(question: Question, code: String, content: [String], optionIds: [Int]?) {
-        self.campaignId = question.campaign_id
-        self.questionId = question.id
+    init(question: QuestionProtocol, code: String, content: [String], optionIds: [Int]?) {
+        self.campaignId = question.getCampaignId()
+        self.questionId = question.getId()
         self.code = code
         self.id = "\(campaignId)" + "\(questionId)" + code
         self.content = content
         self.optionIds = optionIds
-        self.questionType = question.type
+        self.questionType = question.getType().rawValue
     }
     
     init(question: PresentQuestion, code: String, content: [String], optionIds: [Int]?) {

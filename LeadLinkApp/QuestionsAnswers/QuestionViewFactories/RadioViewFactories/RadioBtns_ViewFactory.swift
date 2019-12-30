@@ -21,7 +21,7 @@ class RadioBtns_ViewFactory: GetViewProtocol {
         return self.singleRadioBtnViewModels
     }
     
-    init(question: PresentQuestion, answer: MyAnswer?) {
+    init(question: PresentQuestion, answer: MyAnswerProtocol?) {
         
         let titles = question.options
         

@@ -11,7 +11,7 @@ import UIKit
 class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var question: PresentQuestion
-    private var answer: MyAnswer?
+    private var answer: MyAnswerProtocol?
     private var code: String = ""
     
     private var view: UIView!
@@ -28,7 +28,7 @@ class CheckboxInputViewModel: NSObject, QuestionPageViewModelProtocol {
     func getView() -> UIView {
         return self.view
     }
-    func getActualAnswer() -> MyAnswer? { // single selection - not tested !!
+    func getActualAnswer() -> MyAnswerProtocol? { // single selection - not tested !!
 
         let questionOptions = question.options
 

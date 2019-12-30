@@ -79,7 +79,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     }
     
     // MARK: - SAVE
-    func save(answers: [MyAnswer], forCode code: String) -> Promise<Bool> {
+    func save(answers: [MyAnswerProtocol], forCode code: String) -> Promise<Bool> {
         
         return Promise() { seal in
             
@@ -102,7 +102,6 @@ public class RealmAnswersDataStore: AnswersDataStore {
         }
     }
     // MARK: - DELETE
-    //public func delete(answers: [Answer]) -> Promise<[RealmAnswer]> {
     public func delete(answers: [MyAnswer]) -> Promise<[RealmAnswer]> {
         
         let ids = answers.map {$0.id}
@@ -125,3 +124,4 @@ public class RealmAnswersDataStore: AnswersDataStore {
         }
     }
 }
+
