@@ -56,7 +56,7 @@ class ScrollViewPayingAttentioner: PayingAttentionToField {
 
 protocol QuestionsScrollViewProtocol {
     func getFirstResponder() -> UIView?
-    func getQuestionView(question: PresentQuestion) -> UIView?
+    func getQuestionView(question: QuestionProtocol) -> UIView?
 }
 
 class QuestionsScrollView: UIScrollView {

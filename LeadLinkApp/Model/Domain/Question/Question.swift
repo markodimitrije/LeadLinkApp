@@ -88,6 +88,7 @@ extension Question: Comparable {
         lhs.id == rhs.id &&
         lhs.campaign_id == rhs.campaign_id &&
         lhs.order == rhs.order &&
+        lhs.type == rhs.type &&
         lhs.group == rhs.group &&
         lhs.title == rhs.title &&
         lhs.description == rhs.description &&

@@ -68,7 +68,6 @@
 		7C2227122379B4D80006B8EE /* Constants+Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227112379B4D80006B8EE /* Constants+Terms.swift */; };
 		7C2227142379B4F30006B8EE /* Constants+Disclaimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227132379B4F30006B8EE /* Constants+Disclaimer.swift */; };
 		7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227152379B58E0006B8EE /* GlobalVars+ScanditKey.swift */; };
-		7C22271F2379C0910006B8EE /* SurveyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22271E2379C0910006B8EE /* SurveyQuestion.swift */; };
 		7C2227232379CAC40006B8EE /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227222379CAC40006B8EE /* UIView+Extensions.swift */; };
 		7C2227252379CB410006B8EE /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227242379CB410006B8EE /* UIColor+Extensions.swift */; };
 		7C2227292379CBA30006B8EE /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2227282379CBA30006B8EE /* UIViewController+DismissKeyboard.swift */; };
@@ -182,7 +181,6 @@
 		7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */; };
 		7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C776C072331106400250405 /* ShowDisclaimerValidator.swift */; };
 		7C8BCE21230AD5710011A125 /* SurveyQuestionsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8BCE20230AD5710011A125 /* SurveyQuestionsLoader.swift */; };
-		7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A6612289603400DA184E /* PresentQuestion.swift */; };
 		7C98A666228960B100DA184E /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A664228960B100DA184E /* GlobalVars.swift */; };
 		7C98A667228960B100DA184E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A665228960B100DA184E /* GlobalFuncs.swift */; };
 		7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */; };
@@ -384,7 +382,6 @@
 		7C2227112379B4D80006B8EE /* Constants+Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Terms.swift"; sourceTree = "<group>"; };
 		7C2227132379B4F30006B8EE /* Constants+Disclaimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Disclaimer.swift"; sourceTree = "<group>"; };
 		7C2227152379B58E0006B8EE /* GlobalVars+ScanditKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlobalVars+ScanditKey.swift"; sourceTree = "<group>"; };
-		7C22271E2379C0910006B8EE /* SurveyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestion.swift; sourceTree = "<group>"; };
 		7C2227222379CAC40006B8EE /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7C2227242379CB410006B8EE /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		7C2227282379CBA30006B8EE /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
@@ -500,7 +497,6 @@
 		7C754067229FEC9200FFF5B9 /* ReportsSyncBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsSyncBtn.swift; sourceTree = "<group>"; };
 		7C776C072331106400250405 /* ShowDisclaimerValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDisclaimerValidator.swift; sourceTree = "<group>"; };
 		7C8BCE20230AD5710011A125 /* SurveyQuestionsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionsLoader.swift; sourceTree = "<group>"; };
-		7C98A6612289603400DA184E /* PresentQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestion.swift; sourceTree = "<group>"; };
 		7C98A664228960B100DA184E /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7C98A665228960B100DA184E /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
 		7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersVC.swift; sourceTree = "<group>"; };
@@ -1184,8 +1180,6 @@
 			children = (
 				7C26C50923BA0CF6006E7FA6 /* QuestionProtocol.swift */,
 				ADABCC4C21E4AB3C00B43427 /* Question.swift */,
-				7C98A6612289603400DA184E /* PresentQuestion.swift */,
-				7C22271E2379C0910006B8EE /* SurveyQuestion.swift */,
 				7C26C50B23BA0F75006E7FA6 /* QuestionType.swift */,
 				7C26C50D23BA0FA2006E7FA6 /* QuestionSettings.swift */,
 			);
@@ -2494,7 +2488,6 @@
 				7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */,
 				7C4E078423A03C15003FBCF6 /* CodeVerticalStacker.swift in Sources */,
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
-				7C22271F2379C0910006B8EE /* SurveyQuestion.swift in Sources */,
 				7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
 				7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */,
@@ -2657,7 +2650,6 @@
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
-				7C98A6622289603400DA184E /* PresentQuestion.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
 				7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */,
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,

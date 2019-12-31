@@ -23,7 +23,8 @@ struct SurveyInfo {
     
     private let realmAnswersDataStore = RealmAnswersDataStore.init()
     
-    var surveyQuestions = [SurveyQuestion]()
+    //var surveyQuestions = [SurveyQuestion]()
+    var surveyQuestions = [PresentQuestionInfoProtocol]()
     var questions: [Question] { return campaign.questions }
     var answers = [MyAnswerProtocol]()
     
