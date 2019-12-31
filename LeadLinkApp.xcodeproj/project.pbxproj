@@ -18,7 +18,7 @@
 		7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */; };
 		7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F722969A5E0032C860 /* ReportsTVC.swift */; };
 		7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */; };
-		7C1BBE85239FDCE4005A121D /* PresentQuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* PresentQuestionInfo.swift */; };
+		7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */; };
 		7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */; };
 		7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */; };
 		7C1CEA2823A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */; };
@@ -171,6 +171,9 @@
 		7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* ReportsDumper.swift */; };
 		7C6222742294345E00717CA1 /* AnswersRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersRemoteAPI.swift */; };
 		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
+		7C64DBCB23BB610800674E04 /* SurveyQuestionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */; };
+		7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCC23BB614000674E04 /* GroupViewInfoProtocol.swift */; };
+		7C64DBCF23BB615F00674E04 /* GroupViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCE23BB615F00674E04 /* GroupViewInfo.swift */; };
 		7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AA22CDFBE10077464C /* DownloadImage.swift */; };
 		7C6528AD22CDFF290077464C /* AVCaptureSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */; };
 		7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */; };
@@ -332,7 +335,7 @@
 		7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C1A45F722969A5E0032C860 /* ReportsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAppProtocols.swift; sourceTree = "<group>"; };
-		7C1BBE84239FDCE4005A121D /* PresentQuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentQuestionInfo.swift; sourceTree = "<group>"; };
+		7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestion.swift; sourceTree = "<group>"; };
 		7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewFactory.swift; sourceTree = "<group>"; };
@@ -487,6 +490,9 @@
 		7C62226E2294264600717CA1 /* ReportsDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsDumper.swift; sourceTree = "<group>"; };
 		7C6222732294345E00717CA1 /* AnswersRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersRemoteAPI.swift; sourceTree = "<group>"; };
 		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
+		7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionProtocol.swift; sourceTree = "<group>"; };
+		7C64DBCC23BB614000674E04 /* GroupViewInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewInfoProtocol.swift; sourceTree = "<group>"; };
+		7C64DBCE23BB615F00674E04 /* GroupViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewInfo.swift; sourceTree = "<group>"; };
 		7C6528AA22CDFBE10077464C /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionError.swift; sourceTree = "<group>"; };
 		7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDeviceExtension.swift; sourceTree = "<group>"; };
@@ -699,7 +705,9 @@
 			isa = PBXGroup;
 			children = (
 				7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */,
-				7C1BBE84239FDCE4005A121D /* PresentQuestionInfo.swift */,
+				7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */,
+				7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */,
+				7C64DBD023BB618F00674E04 /* GroupViewInfo */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1670,6 +1678,15 @@
 			path = RealmModel;
 			sourceTree = "<group>";
 		};
+		7C64DBD023BB618F00674E04 /* GroupViewInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C64DBCC23BB614000674E04 /* GroupViewInfoProtocol.swift */,
+				7C64DBCE23BB615F00674E04 /* GroupViewInfo.swift */,
+			);
+			path = GroupViewInfo;
+			sourceTree = "<group>";
+		};
 		7C6528A922CDFBC30077464C /* DownloadImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2549,7 +2566,7 @@
 				7C98A6F42289750600DA184E /* QuestionOptionsDataSource.swift in Sources */,
 				7C69552223391ECB009D4A25 /* UIMarginLabel.swift in Sources */,
 				7C1EE71D23A295C500DB9ED8 /* GroupViewFactory.swift in Sources */,
-				7C1BBE85239FDCE4005A121D /* PresentQuestionInfo.swift in Sources */,
+				7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */,
 				7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */,
 				7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */,
 				7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */,
@@ -2576,6 +2593,7 @@
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
+				7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */,
 				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
 				7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */,
 				7CFDEE302372D8A0004D1DD0 /* PhoneValidation.swift in Sources */,
@@ -2624,6 +2642,7 @@
 				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
 				7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
+				7C64DBCF23BB615F00674E04 /* GroupViewInfo.swift in Sources */,
 				7C6528B522CE43990077464C /* RealmApplication.swift in Sources */,
 				7C4E0762239FF208003FBCF6 /* TextViewFactory.swift in Sources */,
 				7C1CEA3623A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift in Sources */,
@@ -2690,6 +2709,7 @@
 				7C3ED56122E5E3CD00EDDD70 /* RealmDisclaimer.swift in Sources */,
 				7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
+				7C64DBCB23BB610800674E04 /* SurveyQuestionProtocol.swift in Sources */,
 				ADAD040F21E7826E006463A2 /* Organization.swift in Sources */,
 				7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */,
 				ADBB468422425F0C00E1020F /* CodesDataStore.swift in Sources */,

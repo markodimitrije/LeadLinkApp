@@ -16,13 +16,13 @@ class LabelTextView_ViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var myView: UIView!
     
-    init(questionInfo: PresentQuestionInfoProtocol, viewFactory: GetViewProtocol) {
-        self.question = questionInfo.getQuestion()
-        self.answer = questionInfo.getAnswer()
-        self.code = questionInfo.getCode()
+    init(surveyQuestion: SurveyQuestionProtocol, viewFactory: GetViewProtocol) {
+        self.question = surveyQuestion.getQuestion()
+        self.answer = surveyQuestion.getAnswer()
+        self.code = surveyQuestion.getCode()
         super.init()
         self.myView = viewFactory.getView()
-        self.myView.tag = questionInfo.getQuestion().qId
+        self.myView.tag = surveyQuestion.getQuestion().qId
         self.myView.findViews(subclassOf: UITextView.self).first!.delegate = self
     }
     

@@ -15,13 +15,13 @@ class DropdownViewModelFactory: GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        let question = questionInfo.getQuestion()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        let question = surveyQuestion.getQuestion()
         
         let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
-        let textViewFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+        let textViewFactory = TextViewFactory(inputText: surveyQuestion.getAnswer()?.content.first ?? "",
                                               placeholderText: question.qDesc,
-                                              questionId: questionInfo.getQuestion().qId,
+                                              questionId: surveyQuestion.getQuestion().qId,
                                               width: allowedQuestionsWidth)
 
         let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,
@@ -37,12 +37,12 @@ class DropdownViewModelFactory: GetViewModelProtocol {
 //        let embededFactory = WrapIntoBorderFactory(embededViewFactory: viewFactory, insets: UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0), borderLayout: borderLayout)
         
         let chooseOptionsViewControllerFactory =
-            ChooseOptionsViewControllerFactory(appDependancyContainer: factory, questionInfo: questionInfo)
+            ChooseOptionsViewControllerFactory(appDependancyContainer: factory, surveyQuestion: surveyQuestion)
         
-        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo,
+        let dropdownItem = DropdownViewModel(surveyQuestion: surveyQuestion,
                                              viewFactory: viewFactory,
                                              viewControllerFactory: chooseOptionsViewControllerFactory)
-//        let dropdownItem = DropdownViewModel(presentQuestionInfo: questionInfo, viewFactory: embededFactory, viewControllerFactory: chooseOptionsViewControllerFactory)
+//        let dropdownItem = DropdownViewModel(surveyQuestion: surveyQuestion, viewFactory: embededFactory, viewControllerFactory: chooseOptionsViewControllerFactory)
     
         self.viewmodel = dropdownItem
     }

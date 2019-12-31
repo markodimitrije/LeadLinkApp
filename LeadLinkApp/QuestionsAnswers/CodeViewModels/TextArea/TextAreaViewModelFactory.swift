@@ -15,10 +15,10 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
+    init(surveyQuestion: SurveyQuestionProtocol) {
         
-        let question = questionInfo.getQuestion()
-        let answer = questionInfo.getAnswer()
+        let question = surveyQuestion.getQuestion()
+        let answer = surveyQuestion.getAnswer()
         
         let inputText = answer?.content.first ?? ""
         let placeholderText = question.qDesc
@@ -26,7 +26,7 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
         let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         let textViewFactory = TextAreaTextViewFactory(inputText: inputText,
                                                       placeholderText: placeholderText,
-                                                      questionId: questionInfo.getQuestion().qId,
+                                                      questionId: surveyQuestion.getQuestion().qId,
                                                       width: allowedQuestionsWidth)
         
         let textView = textViewFactory.getView() as? UITextView ?? textViewFactory.getView().findViews(subclassOf: UITextView.self).first!
@@ -35,6 +35,6 @@ class TextAreaViewModelFactory: NSObject, GetViewModelProtocol {
         let factory = LabelAndTextInputViewFactory(labelFactory: labelFactory,
                                                    textInputViewFactory: textViewFactory)
         
-        self.viewmodel = TextAreaViewModel(questionInfo: questionInfo, textAreaViewFactory: factory)
+        self.viewmodel = TextAreaViewModel(surveyQuestion: surveyQuestion, textAreaViewFactory: factory)
     }
 }

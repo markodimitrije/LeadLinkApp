@@ -30,13 +30,13 @@ class ChooseOptionsViewControllerFactory: ChooseOptionsProtocol {
         return myController
     }
     
-    init(appDependancyContainer: AppDependencyContainer, questionInfo: PresentQuestionInfoProtocol) {
+    init(appDependancyContainer: AppDependencyContainer, surveyQuestion: SurveyQuestionProtocol) {
         
         func makeFlatChooseOptionsVC() -> ChooseOptionsVC {
             let chooseOptionsVC = ChooseOptionsVC.instantiate(using: appDependancyContainer.sb)
-            let selectOptionsViewModel = SelectOptionTextFieldViewModel(question: questionInfo.getQuestion(),
-                                                                        answer: questionInfo.getAnswer(),
-                                                                        code: questionInfo.getCode())
+            let selectOptionsViewModel = SelectOptionTextFieldViewModel(question: surveyQuestion.getQuestion(),
+                                                                        answer: surveyQuestion.getAnswer(),
+                                                                        code: surveyQuestion.getCode())
             let dataSourceAndDelegate = QuestionOptionsTableViewDataSourceAndDelegate(selectOptionTextViewModel: selectOptionsViewModel)
             chooseOptionsVC.dataSourceAndDelegate = dataSourceAndDelegate
             return chooseOptionsVC

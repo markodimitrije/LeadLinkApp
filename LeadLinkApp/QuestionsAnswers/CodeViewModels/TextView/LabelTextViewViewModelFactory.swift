@@ -15,30 +15,30 @@ class LabelTextViewViewModelFactory: GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        let question = questionInfo.getQuestion()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        let question = surveyQuestion.getQuestion()
         
         let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         var textFactory: TextInputViewFactoryProtocol!
-        let textOption = questionInfo.getQuestion().qOptions.first
+        let textOption = surveyQuestion.getQuestion().qOptions.first
         if textOption == "barcode" {
-            textFactory = BarcodeTextViewFactory(inputText: questionInfo.getCode(),
+            textFactory = BarcodeTextViewFactory(inputText: surveyQuestion.getCode(),
                                                  width: allowedQuestionsWidth)
         } else if textOption == "email"{
-            textFactory = EmailTextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+            textFactory = EmailTextViewFactory(inputText: surveyQuestion.getAnswer()?.content.first ?? "",
                                                placeholderText: question.qDesc,
                                                width: allowedQuestionsWidth)
         } else {
-            textFactory = TextViewFactory(inputText: questionInfo.getAnswer()?.content.first ?? "",
+            textFactory = TextViewFactory(inputText: surveyQuestion.getAnswer()?.content.first ?? "",
                                           placeholderText: question.qDesc,
-                                          questionId: questionInfo.getQuestion().qId,
+                                          questionId: surveyQuestion.getQuestion().qId,
                                           width: allowedQuestionsWidth)
         }
         
         let viewFactory = LabelAndTextInputViewFactory(labelFactory: labelFactory,
                                                        textInputViewFactory: textFactory)
         
-        let labelTextViewItem = LabelTextView_ViewModel(questionInfo: questionInfo, viewFactory: viewFactory)
+        let labelTextViewItem = LabelTextView_ViewModel(surveyQuestion: surveyQuestion, viewFactory: viewFactory)
         
         self.viewmodel = labelTextViewItem
         

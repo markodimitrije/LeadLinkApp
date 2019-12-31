@@ -27,17 +27,17 @@ public class DropdownViewModel: NSObject {
     }
     private let bag = DisposeBag()
     
-    init(presentQuestionInfo: PresentQuestionInfoProtocol,
+    init(surveyQuestion: SurveyQuestionProtocol,
          viewFactory: GetViewProtocol,
          viewControllerFactory: ChooseOptionsProtocol) {
         
-        self.question = presentQuestionInfo.getQuestion()
-        self.answer = presentQuestionInfo.getAnswer()
-        self.code = presentQuestionInfo.getCode()
+        self.question = surveyQuestion.getQuestion()
+        self.answer = surveyQuestion.getAnswer()
+        self.code = surveyQuestion.getCode()
         self.viewControllerFactory = viewControllerFactory
 
         self.view = viewFactory.getView()
-        self.view.tag = presentQuestionInfo.getQuestion().qId
+        self.view.tag = surveyQuestion.getQuestion().qId
         
         super.init()
         

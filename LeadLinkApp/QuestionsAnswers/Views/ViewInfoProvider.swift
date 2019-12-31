@@ -11,7 +11,7 @@ import UIKit
 class ViewInfoProvider {
     
     private var code: String
-    private var questionsInfos = [PresentQuestionInfoProtocol]()
+    private var questionsInfos = [SurveyQuestionProtocol]()
     private var orderedQuestions = [QuestionProtocol]()
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
@@ -35,7 +35,7 @@ class ViewInfoProvider {
 //
 //        }.unique()
     
-    init(questions: [PresentQuestionInfoProtocol], code: String) {
+    init(questions: [SurveyQuestionProtocol], code: String) {
         self.questionsInfos = questions
         self.code = code
         self.orderedQuestions = questions.map {$0.getQuestion() as! Question}.sorted(by: <)
@@ -43,7 +43,7 @@ class ViewInfoProvider {
     
     // MARK:- API
     
-    func getQuestionsFor(groupName name: String) -> [PresentQuestionInfoProtocol] {
+    func getQuestionsFor(groupName name: String) -> [SurveyQuestionProtocol] {
         return questionsInfos.filter({$0.getQuestion().qGroup == name})
     }
     
@@ -57,8 +57,8 @@ class ViewInfoProvider {
 
             let groupQuestions = questionsInGroups[index]
 
-            let questionInfos: [PresentQuestionInfo] = groupQuestions.map { presentQuestion in
-                    return PresentQuestionInfo(question: presentQuestion.getQuestion(),
+            let questionInfos: [SurveyQuestion] = groupQuestions.map { presentQuestion in
+                    return SurveyQuestion(question: presentQuestion.getQuestion(),
                                                answer: presentQuestion.getAnswer(),
                                                code: self.code)
                 }

@@ -14,8 +14,8 @@ class TermsSwitchBtnViewFactory: GetViewProtocol {
         return self.myView
     }
 
-    init(questionInfo: PresentQuestionInfoProtocol, isOn: Bool) {
-        let options = questionInfo.getQuestion().qOptions
+    init(surveyQuestion: SurveyQuestionProtocol, isOn: Bool) {
+        let options = surveyQuestion.getQuestion().qOptions
         let titleWithHiperlinkViewFactory =
             TextWithHiperlinkViewFactory(text: options.first!,
                                           hiperlinkText: options.last!,

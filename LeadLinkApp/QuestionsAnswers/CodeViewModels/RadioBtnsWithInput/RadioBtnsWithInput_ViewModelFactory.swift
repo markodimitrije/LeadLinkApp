@@ -15,19 +15,19 @@ class RadioBtnsWithInput_ViewModelFactory: GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        let question = questionInfo.getQuestion()
-        let answer = questionInfo.getAnswer()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        let question = surveyQuestion.getQuestion()
+        let answer = surveyQuestion.getAnswer()
         
         let radioBtnsFactory = RadioBtns_ViewFactory(question: question, answer: answer)
         let textViewFactory = TextViewFactory(inputText: answer?.content.first ?? "",
                                               placeholderText: question.qDesc,
-                                              questionId: questionInfo.getQuestion().qId)
+                                              questionId: surveyQuestion.getQuestion().qId)
         
         let mainFactory = RadioBtnsWithInput_ViewFactory(radioBtnsFactory: radioBtnsFactory,
                                                          textViewFactory: textViewFactory)
         
-        let viewmodel = RadioBtnsWithInputViewModel(questionInfo: questionInfo,
+        let viewmodel = RadioBtnsWithInputViewModel(surveyQuestion: surveyQuestion,
                                                     radioBtnsWithInputViewFactory: mainFactory)
         
         self.viewmodel = viewmodel

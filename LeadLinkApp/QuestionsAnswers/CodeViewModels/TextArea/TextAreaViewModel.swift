@@ -16,13 +16,13 @@ class TextAreaViewModel: NSObject, QuestionPageViewModelProtocol {
     
     private var view: UIView!
     
-    init(questionInfo: PresentQuestionInfoProtocol, textAreaViewFactory: GetViewProtocol) {
-        self.question = questionInfo.getQuestion()
-        self.answer = questionInfo.getAnswer()
-        self.code = questionInfo.getCode()
+    init(surveyQuestion: SurveyQuestionProtocol, textAreaViewFactory: GetViewProtocol) {
+        self.question = surveyQuestion.getQuestion()
+        self.answer = surveyQuestion.getAnswer()
+        self.code = surveyQuestion.getCode()
         super.init()
         self.view = textAreaViewFactory.getView()
-        self.view.tag = questionInfo.getQuestion().qId
+        self.view.tag = surveyQuestion.getQuestion().qId
         self.view.findViews(subclassOf: UITextView.self).first!.delegate = self
     }
     

@@ -45,9 +45,9 @@ func getCameraDeviceDirection() -> CameraPosition? {
     return nil
 }
 
-func getAnswersWithoutTermsSwitch(questions: [Question], answers: [MyAnswer]) -> [MyAnswer] {
+func getAnswersWithoutTermsSwitch(questions: [QuestionProtocol], answers: [MyAnswer]) -> [MyAnswer] {
     
-    if let termsQuestionId = (questions.filter({$0.type == "termsSwitchBtn"}).first)?.id {
+    if let termsQuestionId = (questions.filter({$0.qType == .termsSwitchBtn}).first)?.qId {
         let newAnswers = answers.filter({$0.questionId != termsQuestionId})
         return newAnswers
     } else {

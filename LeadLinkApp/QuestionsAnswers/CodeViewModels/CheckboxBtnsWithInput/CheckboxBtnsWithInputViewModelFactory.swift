@@ -15,22 +15,22 @@ class CheckboxBtnsWithInputViewModelFactory: GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        let question = questionInfo.getQuestion()
-        let answer = questionInfo.getAnswer()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        let question = surveyQuestion.getQuestion()
+        let answer = surveyQuestion.getAnswer()
         
         let checkboxBtnsFactory = CheckboxBtnsFactory(question: question, answer: answer)
         let textViewFactory = TextViewFactory(inputText: answer?.content.last ?? "",
                                                   placeholderText: question.qDesc,
-                                                  questionId: questionInfo.getQuestion().qId)
+                                                  questionId: surveyQuestion.getQuestion().qId)
         let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         
-        let mainFactory = CheckboxWithInputViewFactory(questionInfo: questionInfo,
+        let mainFactory = CheckboxWithInputViewFactory(surveyQuestion: surveyQuestion,
                                                        labelFactory: labelFactory,
                                                        checkboxBtnsFactory: checkboxBtnsFactory,
                                                        textViewFactory: textViewFactory)
         
-        let viewmodel = CheckboxInputViewModel(questionInfo: questionInfo, checkboxBtnsWithInputViewFactory: mainFactory)
+        let viewmodel = CheckboxInputViewModel(surveyQuestion: surveyQuestion, checkboxBtnsWithInputViewFactory: mainFactory)
         
         self.viewmodel = viewmodel
         

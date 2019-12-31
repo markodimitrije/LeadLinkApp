@@ -9,21 +9,20 @@
 import Foundation
 
 protocol SurveyQuestionsProviding {
-    //func getQuestions() -> [SurveyQuestion]
-    func getQuestionInfos() -> [PresentQuestionInfoProtocol]
+    func getSurveyQuestions() -> [SurveyQuestionProtocol]
 }
 
 class SurveyQuestionsLoader: SurveyQuestionsProviding  {
     
     private var surveyInfo: SurveyInfo?
-    private var questionInfos = [PresentQuestionInfoProtocol]()
+    private var surveyQuestions = [SurveyQuestionProtocol]()
     
     init(surveyInfo: SurveyInfo?) {
         self.surveyInfo = surveyInfo
-        loadQuestions()
+        loadSurveyQuestions()
     }
     
-    private func loadQuestions() {
+    private func loadSurveyQuestions() {
         
         guard let surveyInfo = surveyInfo else {return}
         
@@ -34,20 +33,16 @@ class SurveyQuestionsLoader: SurveyQuestionsProviding  {
             return rAnswer
         }
         
-        self.questionInfos = questions.compactMap { question -> PresentQuestionInfo? in
+        self.surveyQuestions = questions.compactMap { question -> SurveyQuestion? in
             let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
             let answer = MyAnswer(realmAnswer: rAnswer)
-            return PresentQuestionInfo.init(question: question, answer: answer, code: surveyInfo.code)
+            return SurveyQuestion.init(question: question, answer: answer, code: surveyInfo.code)
         }
         
     }
     
     // MARK:- API
-//    func getQuestions() -> [SurveyQuestion] {
-//        return questions
-//    }
-    func getQuestionInfos() -> [PresentQuestionInfoProtocol] {
-        return questionInfos
+    func getSurveyQuestions() -> [SurveyQuestionProtocol] {
+        return surveyQuestions
     }
 }
-

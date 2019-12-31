@@ -1,5 +1,5 @@
 //
-//  QuestionInfo.swift
+//  SurveyQuestion.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 10/12/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PresentQuestionInfo {
+struct SurveyQuestion {
     
     private let question: QuestionProtocol
     private let answer: MyAnswerProtocol?
@@ -21,8 +21,7 @@ struct PresentQuestionInfo {
     }
 }
 
-extension PresentQuestionInfo: PresentQuestionInfoProtocol {
-    //func getQuestion() -> PresentQuestion {
+extension SurveyQuestion: SurveyQuestionProtocol {
     func getQuestion() -> QuestionProtocol {
         return self.question
     }

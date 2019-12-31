@@ -27,14 +27,14 @@ class TermsSwitchBtnViewModel: QuestionPageViewModelProtocol {
         }
         return answer
     }
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        self.question = questionInfo.getQuestion()
-        self.answer = questionInfo.getAnswer()
-        self.code = questionInfo.getCode()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        self.question = surveyQuestion.getQuestion()
+        self.answer = surveyQuestion.getAnswer()
+        self.code = surveyQuestion.getCode()
         let isOn = !(self.answer?.content.isEmpty ?? true)
-        let factory = TermsSwitchBtnViewFactory(questionInfo: questionInfo, isOn: isOn)
+        let factory = TermsSwitchBtnViewFactory(surveyQuestion: surveyQuestion, isOn: isOn)
         self.myView = factory.getView()
-        self.myView.tag = questionInfo.getQuestion().qId
+        self.myView.tag = surveyQuestion.getQuestion().qId
     }
     
 }

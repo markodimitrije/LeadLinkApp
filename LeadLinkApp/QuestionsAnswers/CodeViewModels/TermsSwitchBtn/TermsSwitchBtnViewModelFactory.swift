@@ -13,7 +13,7 @@ class TermsSwitchBtnViewModelFactory: GetViewModelProtocol {
     func getViewModel() -> QuestionPageViewModelProtocol {
         return self.viewmodel
     }
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        self.viewmodel = TermsSwitchBtnViewModel(questionInfo: questionInfo)
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        self.viewmodel = TermsSwitchBtnViewModel(surveyQuestion: surveyQuestion)
     }
 }

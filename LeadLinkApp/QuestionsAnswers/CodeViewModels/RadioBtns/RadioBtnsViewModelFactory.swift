@@ -13,13 +13,13 @@ class RadioBtnsViewModelFactory: GetViewModelProtocol {
         return viewmodel
     }
     
-    init(questionInfo: PresentQuestionInfoProtocol) {
-        let question = questionInfo.getQuestion()
-        let answer = questionInfo.getAnswer()
+    init(surveyQuestion: SurveyQuestionProtocol) {
+        let question = surveyQuestion.getQuestion()
+        let answer = surveyQuestion.getAnswer()
         
         let radioBtnsFactory = RadioBtns_ViewFactory(question: question, answer: answer)
         
-        let viewmodel = RadioBtnsViewModel(questionInfo: questionInfo, radioBtnsFactory: radioBtnsFactory)
+        let viewmodel = RadioBtnsViewModel(surveyQuestion: surveyQuestion, radioBtnsFactory: radioBtnsFactory)
         
         self.viewmodel = viewmodel
     }

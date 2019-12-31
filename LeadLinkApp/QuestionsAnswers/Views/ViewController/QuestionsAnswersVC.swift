@@ -14,9 +14,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
-    private var questionInfos = [PresentQuestionInfoProtocol]()
+    private var surveyQuestions = [SurveyQuestionProtocol]()
     private var questions: [QuestionProtocol] {
-        return questionInfos.map {$0.getQuestion()}
+        return surveyQuestions.map {$0.getQuestion()}
     }
     private var viewModel: QuestionsAnswersViewModel!
     private var viewItems = [QuestionPageGetViewProtocol]()
@@ -37,8 +37,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
             self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
             if oldValue != nil {
                 stackView.removeAllSubviews()
-                questionInfos = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestionInfos()
-                loadParentViewModel(questions: questionInfos)
+                surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
+                loadParentViewModel(questions: surveyQuestions)
                 subscribeListeningToSaveEvent()
             }
         }
@@ -52,8 +52,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func configureQuestionForm() {
         
-        questionInfos = SurveyQuestionsLoader(surveyInfo: surveyInfo).getQuestionInfos()
-        loadParentViewModel(questions: questionInfos)
+        surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
+        loadParentViewModel(questions: surveyQuestions)
         
         self.hideKeyboardWhenTappedAround()
         
@@ -101,7 +101,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func loadParentViewModel(questions: [PresentQuestionInfoProtocol]) {
+    private func loadParentViewModel(questions: [SurveyQuestionProtocol]) {
         
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
