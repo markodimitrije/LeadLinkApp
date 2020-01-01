@@ -21,6 +21,7 @@
 		7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */; };
 		7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18723BCF20D006D1048 /* Questanable.swift */; };
 		7C1CE18A23BCF224006D1048 /* Answerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18923BCF224006D1048 /* Answerable.swift */; };
+		7C1CE18D23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */; };
 		7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */; };
 		7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */; };
 		7C1CEA2823A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */; };
@@ -340,6 +341,7 @@
 		7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestion.swift; sourceTree = "<group>"; };
 		7C1CE18723BCF20D006D1048 /* Questanable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questanable.swift; sourceTree = "<group>"; };
 		7C1CE18923BCF224006D1048 /* Answerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answerable.swift; sourceTree = "<group>"; };
+		7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageGetViewItemsWorker.swift; sourceTree = "<group>"; };
 		7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewFactory.swift; sourceTree = "<group>"; };
@@ -723,6 +725,14 @@
 				ADA9B1CB22384D8400B7D74F /* DividerView.swift */,
 			);
 			path = DividerView;
+			sourceTree = "<group>";
+		};
+		7C1CE18B23BCF2EB006D1048 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */,
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 		7C1CEA2123A0EA710015F8F7 /* RadioBtns */ = {
@@ -1930,6 +1940,7 @@
 				7C1CE18723BCF20D006D1048 /* Questanable.swift */,
 				7C1CE18923BCF224006D1048 /* Answerable.swift */,
 				7C98A6762289625200DA184E /* QuestionsAnswersViewModel.swift */,
+				7C1CE18B23BCF2EB006D1048 /* Workers */,
 				7C98A6732289625200DA184E /* QAViewModels */,
 			);
 			path = Viewmodel;
@@ -2583,6 +2594,7 @@
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
+				7C1CE18D23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift in Sources */,
 				7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */,
 				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
 				7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */,

@@ -105,7 +105,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
         
-        viewModel = QuestionsAnswersViewModel(viewInfos: viewInfos)
+        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
+        viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker)
+        
         let viewItems = viewModel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }
