@@ -19,7 +19,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return surveyQuestions.map {$0.getQuestion()}
     }
     private var viewModel: QuestionsAnswersViewModel!
-    private var viewItems = [QuestionPageGetViewProtocol]()
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)
@@ -107,7 +106,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let viewInfos = helper.getViewInfos()
         
         viewModel = QuestionsAnswersViewModel(viewInfos: viewInfos)
-        viewItems = viewModel.getQuestionPageViewItems()
+        let viewItems = viewModel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)
     }
     

@@ -43,10 +43,6 @@ class ViewInfoProvider {
     
     // MARK:- API
     
-    func getQuestionsFor(groupName name: String) -> [SurveyQuestionProtocol] {
-        return questionsInfos.filter({$0.getQuestion().qGroup == name})
-    }
-    
     func getViewInfos() -> [ViewInfoProtocol] {
         var items = [ViewInfoProtocol]()
         let questionsInGroups = orderedGroups.map(getQuestionsFor)
@@ -68,6 +64,10 @@ class ViewInfoProvider {
     }
     
     // MARK:- Privates
+    private func getQuestionsFor(groupName name: String) -> [SurveyQuestionProtocol] {
+        return questionsInfos.filter({$0.getQuestion().qGroup == name})
+    }
+    
     private func itemHasNoGroup(question: QuestionProtocol) -> Bool {
         return question.qGroup == ""
     }

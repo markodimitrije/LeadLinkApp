@@ -11,6 +11,12 @@ import RxSwift
 
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
+    // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
+    // 1. loadItems
+    // 2. fetchDelegate from web
+    // 3. save to realm
+    // 4. itd...
+    
     func getQuestionPageViewItems() -> [QuestionPageGetViewProtocol] {
         return items
     }
@@ -135,15 +141,6 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
 //        print(answers)
     }
     
-}
-
-protocol Questanable {
-    var question: QuestionProtocol {get set}
-    var code: String {get set}
-}
-
-protocol Answerable {
-    var answer: MyAnswerProtocol? {get set}
 }
 
 extension QuestionsAnswersViewModel: UITextViewDelegate {

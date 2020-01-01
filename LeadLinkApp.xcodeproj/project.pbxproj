@@ -19,6 +19,8 @@
 		7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F722969A5E0032C860 /* ReportsTVC.swift */; };
 		7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */; };
 		7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */; };
+		7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18723BCF20D006D1048 /* Questanable.swift */; };
+		7C1CE18A23BCF224006D1048 /* Answerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18923BCF224006D1048 /* Answerable.swift */; };
 		7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */; };
 		7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */; };
 		7C1CEA2823A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */; };
@@ -336,6 +338,8 @@
 		7C1A45F722969A5E0032C860 /* ReportsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAppProtocols.swift; sourceTree = "<group>"; };
 		7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestion.swift; sourceTree = "<group>"; };
+		7C1CE18723BCF20D006D1048 /* Questanable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questanable.swift; sourceTree = "<group>"; };
+		7C1CE18923BCF224006D1048 /* Answerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answerable.swift; sourceTree = "<group>"; };
 		7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2723A0ED570015F8F7 /* SingleRadioBtnViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewFactory.swift; sourceTree = "<group>"; };
@@ -885,14 +889,6 @@
 				7CAB84BD22EF29F500CE91AA /* TableViewCalculating */,
 			);
 			path = BusinessLogicAndHelpers;
-			sourceTree = "<group>";
-		};
-		7C1F42B9237AC9D90043D5E3 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		7C1F42BA237ACA5A0043D5E3 /* ModelAndBusinessLogic */ = {
@@ -1481,7 +1477,6 @@
 			children = (
 				7CC94E5123A3ABA700D52338 /* Workers */,
 				7C1BBE81239FDB9A005A121D /* Models */,
-				7C4E075C239FF0DB003FBCF6 /* CodeScene */,
 				7C4E0755239FEF46003FBCF6 /* CodeViewFactories */,
 				7C1CEA4023A0FFF70015F8F7 /* LocalViewFactories */,
 				7C4E076C23A03170003FBCF6 /* QuestionViewFactories */,
@@ -1530,13 +1525,6 @@
 				7C1CEA3C23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift */,
 			);
 			path = CodeViewFactories;
-			sourceTree = "<group>";
-		};
-		7C4E075C239FF0DB003FBCF6 /* CodeScene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CodeScene;
 			sourceTree = "<group>";
 		};
 		7C4E0763239FF276003FBCF6 /* Dropdown */ = {
@@ -1745,7 +1733,6 @@
 			isa = PBXGroup;
 			children = (
 				7C98A6742289625200DA184E /* Protocols.swift */,
-				7C98A6762289625200DA184E /* QuestionsAnswersViewModel.swift */,
 				7C754059229FC3F900FFF5B9 /* ChildrenViewModels */,
 			);
 			path = QAViewModels;
@@ -1755,7 +1742,7 @@
 			isa = PBXGroup;
 			children = (
 				7CEFA5F322AA806C00BD2660 /* ViewInfoProvider.swift */,
-				7C1F42B9237AC9D90043D5E3 /* ViewController */,
+				7C98A66A2289617B00DA184E /* QuestionsAnswersVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1940,6 +1927,9 @@
 		AD4F013E21D8F72600946CBA /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
+				7C1CE18723BCF20D006D1048 /* Questanable.swift */,
+				7C1CE18923BCF224006D1048 /* Answerable.swift */,
+				7C98A6762289625200DA184E /* QuestionsAnswersViewModel.swift */,
 				7C98A6732289625200DA184E /* QAViewModels */,
 			);
 			path = Viewmodel;
@@ -2621,6 +2611,7 @@
 				7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */,
 				7C4E078023A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
+				7C1CE18A23BCF224006D1048 /* Answerable.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
 				7C1CEA4223A100090015F8F7 /* OptInViewFactory.swift in Sources */,
@@ -2666,6 +2657,7 @@
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C1F42C6237AD4270043D5E3 /* ReportToWebError.swift in Sources */,
 				7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */,
+				7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
