@@ -15,7 +15,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var stackView: UIStackView!
     
     private var surveyQuestions = [SurveyQuestionProtocol]()
-    private var questions: [QuestionProtocol] {
+    var questions: [QuestionProtocol] {
         return surveyQuestions.map {$0.getQuestion()}
     }
     private var viewModel: QuestionsAnswersViewModel!
@@ -119,36 +119,15 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     private func listenToSaveEvent() {
-        let items = viewModel.getQuestionPageViewItems()
-        
-        let saveBtn = (items.first(where: {$0 is SaveBtnViewItem}) as! SaveBtnViewItem).button
-        
-        saveBtn.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: { [weak self] (_) in guard let strongSelf = self else {return}
-
-                let myAnswers = strongSelf.answersUpdater.updateAnswers() // both actual + realm
-                strongSelf.persistAnswersIfFormIsValid(strongSelf: strongSelf, answers: myAnswers)
-
-            })
-            .disposed(by: bag)
-    }
-    
-    private func persistAnswersIfFormIsValid(strongSelf: QuestionsAnswersVC, answers: [MyAnswerProtocol]) {
-        
-        let validator = QA_Validation(surveyInfo: surveyInfo, questions: questions, answers: answers)
-        
-        if validator.questionsFormIsValid {
-            
-            strongSelf.navigationController?.popViewController(animated: true)
-            
-            saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: surveyInfo, answers: answers)
-            
-            let newReport = AnswersReport.init(surveyInfo: surveyInfo, answers: answers, success: false)
-            self.answersWebReporter.report.accept(newReport)
-            
-        } else {
-            strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
-        }
+        viewModel.formIsValid
+        .subscribe(onNext: { (question) in
+            if question == nil {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.showAlertFormNotValid(forQuestion: question)
+            }
+        })
+        .disposed(by: bag)
     }
     
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
