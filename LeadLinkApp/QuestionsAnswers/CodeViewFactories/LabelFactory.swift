@@ -21,13 +21,13 @@ class LabelFactory: LabelFactoryProtocol {
     init(text: String, width: CGFloat? = nil) {
         
         //Text Label
-        let textLabel = UILabel()
-//        let textLabel = PaddingLabel()
+        let textLabel = PaddingLabel()
         //textLabel.backgroundColor = .cyan
         textLabel.numberOfLines = 0
         textLabel.text = text
         textLabel.textAlignment = .left
         textLabel.font = UIFont(name: "Helvetica", size: 20.0)
+        textLabel.adjustsFontSizeToFitWidth = true
         
         if text != "" {
             textLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
