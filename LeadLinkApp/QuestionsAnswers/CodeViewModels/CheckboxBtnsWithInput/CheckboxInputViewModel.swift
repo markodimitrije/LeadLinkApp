@@ -117,7 +117,7 @@ extension CheckboxInputViewModel: UITextViewDelegate {
             textView.textColor = .black
             checkboxBtnViewModelAttachedToText.isOn = true
         } else if textView.text == "" {
-            _ = singleCheckboxBtnViewModels.map {$0.isOn = false}
+            checkboxBtnViewModelAttachedToText.isOn = false
         }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
