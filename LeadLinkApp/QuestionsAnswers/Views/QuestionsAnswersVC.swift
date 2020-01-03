@@ -33,7 +33,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
-            self.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
+            guard surveyInfo != nil, viewModel != nil else {return}
+            viewModel.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
             if oldValue != nil {
                 stackView.removeAllSubviews()
                 surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
@@ -56,44 +57,21 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         self.hideKeyboardWhenTappedAround()
         
-        fetchDelegateAndSaveToRealm(code: surveyInfo.code)
+        viewModel.fetchDelegateAndSaveToRealm(code: surveyInfo.code)
         
         subscribeListeningToSaveEvent()
     }
     
     private func subscribeListeningToSaveEvent() {
-        self.listenToSaveEvent()
-    }
-    
-    private func fetchDelegateAndSaveToRealm(code: String) {
-        
-        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
-                                                                codeToCheck: code)
-        guard decisioner.shouldPrepopulateDelegateData() else {
-            return
-        }
-
-        let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
-        
-        oNewDelegate
-            .subscribe(onNext: { [weak self] delegate in
-                guard let sSelf = self, let delegate = delegate else { return }
-                
-                var myDelegate = delegate
-                
-                let delegateEmailScrambler = DelegateEmailScrambler(campaign: sSelf.surveyInfo.campaign)
-                if !delegateEmailScrambler.shouldShowEmail() {
-                    myDelegate.email = ""
-                }
-                
-                let updatedSurvey = sSelf.surveyInfo.updated(withDelegate: myDelegate)
-                
-                DispatchQueue.main.async {
-                    sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
-                                                                answers: updatedSurvey.answers) //redundant....
-                }
-            })
-            .disposed(by: bag)
+        viewModel.formIsValid
+        .subscribe(onNext: { (question) in
+            if question == nil {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.showAlertFormNotValid(forQuestion: question)
+            }
+        })
+        .disposed(by: bag)
     }
     
     @objc func doneWithOptionsIsTapped() {
@@ -116,18 +94,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         _ = viewItems.map({
             stackView?.addArrangedSubview($0.getView())
         })
-    }
-    
-    private func listenToSaveEvent() {
-        viewModel.formIsValid
-        .subscribe(onNext: { (question) in
-            if question == nil {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                self.showAlertFormNotValid(forQuestion: question)
-            }
-        })
-        .disposed(by: bag)
     }
     
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {

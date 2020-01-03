@@ -22,7 +22,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     var formIsValid = PublishSubject<QuestionProtocol?>()
     // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
     // 1. loadItems - -  - - - - - OK
-    // 2. fetchDelegate from web
+    // 2. fetchDelegate from web - - -- - - OK (transfer to dedicated worker)
     // 3. save to realm
     // 4. itd...
     
@@ -53,12 +53,42 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     }
     
     @objc internal func btnTapped(_ sender: UIButton) { print("saveBtnTapped. save answers")
-        
-        let itemsWithAnswer: [QuestionPageViewModelProtocol] = self.items.filter {$0 is QuestionPageViewModelProtocol} as! [QuestionPageViewModelProtocol]
-        let answers: [[String]] = itemsWithAnswer.compactMap {$0.getActualAnswer()}.map {$0.content}
-//        print("save answers:")
-//        print(answers)
         reactOnSaveEvent()
+    }
+    
+    func fetchDelegateAndSaveToRealm(code: String) {
+        
+        guard let surveyInfo = (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo else {
+            return
+        }
+        
+        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
+                                                                codeToCheck: code)
+        guard decisioner.shouldPrepopulateDelegateData() else {
+            return
+        }
+
+        let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
+        
+        oNewDelegate
+            .subscribe(onNext: { [weak self] delegate in
+                guard let sSelf = self, let delegate = delegate else { return }
+                
+                var myDelegate = delegate
+                
+                let delegateEmailScrambler = DelegateEmailScrambler(campaign: surveyInfo.campaign)
+                if !delegateEmailScrambler.shouldShowEmail() {
+                    myDelegate.email = ""
+                }
+                
+                let updatedSurvey = surveyInfo.updated(withDelegate: myDelegate)
+                
+                DispatchQueue.main.async {
+                    sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
+                                                                answers: updatedSurvey.answers) //redundant....
+                }
+            })
+            .disposed(by: bag)
     }
     
     private func reactOnSaveEvent() {
@@ -75,8 +105,6 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         
         if validator.questionsFormIsValid {
             
-            //strongSelf.navigationController?.popViewController(animated: true)
-            
             let survey = (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo
             
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: survey!, answers: answers)
@@ -87,17 +115,14 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
             self.answersWebReporter.report.accept(newReport)
             
         } else {
-//            strongSelf.showAlertFormNotValid(forQuestion: validator.invalidFieldQuestion)
             formIsValid.onNext(validator.invalidFieldQuestion)
         }
     }
     
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
-        surveyInfo.save(answers: answers)
+        surveyInfo.save(answers: answers) // save to realm
             .subscribe({ (saved) in
-                print("answers saved to realm = \(saved)")
-                //self.surveyInfo = surveyInfo
-                (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo = surveyInfo
+                (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo = surveyInfo //update state
             })
             .disposed(by: bag)
     }
