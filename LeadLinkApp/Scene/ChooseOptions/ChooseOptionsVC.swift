@@ -35,13 +35,13 @@ import RxCocoa
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Choose options"
         tableView.dataSource = dataSourceAndDelegate
         tableView.delegate = dataSourceAndDelegate
         setUpBindings()
     }
     
     private func setUpBindings() {
-        
         dataSourceAndDelegate.tableView = tableView
         dataSourceAndDelegate.observableSearch = searchBar.rx.text
         
@@ -53,7 +53,7 @@ import RxCocoa
             })
             .disposed(by: bag)
     }
- 
+    
     private let bag = DisposeBag()
  
  }

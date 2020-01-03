@@ -123,7 +123,7 @@ extension RadioBtnsWithInputViewModel: UITextViewDelegate {
         }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == question.qDesc {
+        if textView.text == question.qOptions.last {
             textView.text = ""
         }
     }

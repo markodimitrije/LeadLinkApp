@@ -63,6 +63,10 @@ public class DropdownViewModel: NSObject {
     }
     
     private func updateText(selectedOptions: [String]) {
+        guard !selectedOptions.isEmpty else {
+            self.textView.text = ""
+            return
+        }
         let optionsText = selectedOptions.reduce("", { ($0 + "\n" + $1) })
         let text = NSString(string: optionsText).substring(from: 1)
         self.textView.text = text
@@ -85,12 +89,12 @@ extension DropdownViewModel: QuestionPageViewModelProtocol {
     }
     
     func getActualAnswer() -> MyAnswerProtocol? {
-        let text = self.view.findViews(subclassOf: UITextView.self).first!.text
-        let result = (text != self.question.qDesc) ? text : ""
+        let text = self.view.findViews(subclassOf: UITextView.self).first!.text ?? ""
+        let content: [String] = text.split(whereSeparator: {$0 == "\n"}).map({String($0)})
         if answer != nil {
-            answer?.content = [result ?? ""]
+            answer?.content = content
         } else {
-            answer = MyAnswer(question: question, code: code, content: [result ?? ""], optionIds: nil)
+            answer = MyAnswer(question: question, code: code, content: content, optionIds: nil)
         }
         return answer
     }
@@ -102,12 +106,16 @@ extension DropdownViewModel: UITextViewDelegate {
         
         textView.resignFirstResponder()
         
+        guard let questionsVC = UIApplication.topViewController() as? QuestionsAnswersVC else {
+            return
+        }
+            
         if UIDevice.current.userInterfaceIdiom == .phone {
-            UIApplication.topViewController()?.navigationController?.pushViewController(nextViewController, animated: true)
+            questionsVC.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
             showOptionsAsPopover(vc: nextViewController, fromSourceRect: textView)
         }
-        
+          
         if textView.text == question.qDesc {
             self.deletePlaceholderAndSetTxtColorToBlack(textView: textView)
         }

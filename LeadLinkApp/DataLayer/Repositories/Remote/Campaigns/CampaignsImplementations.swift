@@ -20,8 +20,8 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
         
         return Promise<CampaignResults> { seal in
             
-//            let urlRequestBase = URLRequest.campaignsWithQuestions
-            let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
+            let urlRequestBase = URLRequest.campaignsWithQuestions
+//            let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
             let headersCreator = CampaignsWithQuestionsHeaderFieldsCreator()
             let request = MyUrlRequestWithHeadersGetNoCache(
                     request: urlRequestBase,
