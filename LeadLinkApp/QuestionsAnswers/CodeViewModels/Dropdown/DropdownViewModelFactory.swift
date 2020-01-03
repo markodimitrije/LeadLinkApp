@@ -20,8 +20,10 @@ class DropdownViewModelFactory: GetViewModelProtocol {
         
         let labelFactory = LabelFactory(text: question.qTitle, width: allowedQuestionsWidth)
         let selectedOptions = surveyQuestion.getAnswer()?.content ?? [ ]
-        let optionsText = selectedOptions.reduce("", { ($0 + "\n" + $1) })
-        let text = NSString(string: optionsText).substring(from: 1)
+        var text = selectedOptions.reduce("", { ($0 + "\n" + $1) })
+        if text != "" {
+            text = NSString(string: text).substring(from: 1)
+        }
         
         let textViewFactory = TextViewFactory(inputText: text,
                                               placeholderText: question.qDesc,
