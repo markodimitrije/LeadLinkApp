@@ -12,8 +12,7 @@ import RxSwift
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
-    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo,
-                                                                              questionsAnswersViewModel: self)
+    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo, questionsAnswersViewModel: self)
     private let answersWebReporter = AnswersReportsToWebState.init()
     private var questionsVC: QuestionsAnswersVC {
         (UIApplication.topViewController() as! QuestionsAnswersVC)

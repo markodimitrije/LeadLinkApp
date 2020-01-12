@@ -24,12 +24,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return ScrollViewKeyboardHandler(scrollView: scrollView)
     }()
     
-    var bag = DisposeBag()
+    private let bag = DisposeBag()
     
-    private let answersWebReporter = AnswersReportsToWebState.init() // report to web (manage API and REALM if failed)
-    
-    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: surveyInfo,
-                                                                           questionsAnswersViewModel: viewModel)
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
@@ -94,15 +90,6 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         _ = viewItems.map({
             stackView?.addArrangedSubview($0.getView())
         })
-    }
-    
-    private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
-        surveyInfo.save(answers: answers)
-            .subscribe({ (saved) in
-                print("answers saved to realm = \(saved)")
-                self.surveyInfo = surveyInfo
-            })
-            .disposed(by: bag)
     }
     
     private func showAlertFormNotValid(forQuestion question: QuestionProtocol?) {
