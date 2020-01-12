@@ -80,7 +80,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let viewInfos = helper.getViewInfos()
         
         let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
-        viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker)
+        let answersWebReporter = AnswersReportsToWebState()
+        viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
+                                                   answersWebReporterWorker: answersWebReporter)
         
         let viewItems = viewModel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)

@@ -13,7 +13,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo, questionsAnswersViewModel: self)
-    private let answersWebReporter = AnswersReportsToWebState.init()
+    private var answersWebReporter: AnswersReportsToWebStateProtocol// = AnswersReportsToWebState.init()
     private var questionsVC: QuestionsAnswersVC {
         (UIApplication.topViewController() as! QuestionsAnswersVC)
     }
@@ -39,9 +39,11 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private var items = [QuestionPageGetViewProtocol]()
     
-    init(getViewItemsWorker: QuestionPageGetViewItemsProtocol ) {
-        super.init()
+    init(getViewItemsWorker: QuestionPageGetViewItemsProtocol,
+         answersWebReporterWorker: AnswersReportsToWebStateProtocol) {
         self.items = getViewItemsWorker.getViewItems()
+        self.answersWebReporter = answersWebReporterWorker
+        super.init()
         hookUpSaveEvent()
     }
     
@@ -57,9 +59,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     func fetchDelegateAndSaveToRealm(code: String) {
         
-        guard let surveyInfo = (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo else {
-            return
-        }
+        guard let surveyInfo = questionsVC.surveyInfo else {return}
         
         let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
                                                                 codeToCheck: code)
@@ -104,7 +104,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         
         if validator.questionsFormIsValid {
             
-            let survey = (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo
+            let survey = questionsVC.surveyInfo
             
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: survey!, answers: answers)
             
@@ -121,7 +121,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
         surveyInfo.save(answers: answers) // save to realm
             .subscribe({ (saved) in
-                (UIApplication.topViewController() as? QuestionsAnswersVC)?.surveyInfo = surveyInfo //update state
+                self.questionsVC.surveyInfo = surveyInfo //update state
             })
             .disposed(by: bag)
     }

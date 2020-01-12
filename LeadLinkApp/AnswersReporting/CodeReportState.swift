@@ -10,7 +10,14 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-class AnswersReportsToWebState {
+protocol AnswersReportsToWebStateProtocol {
+    //input
+    var report: BehaviorRelay<AnswersReport?> {get set}
+    //output
+    var webNotified: BehaviorRelay<(AnswersReport, Bool)?> {get set}
+}
+
+class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
     
     private var reports = [AnswersReport]()
     
@@ -24,11 +31,11 @@ class AnswersReportsToWebState {
     
     // INPUT
     
-    let report = BehaviorRelay<AnswersReport?>.init(value: nil)
+    var report = BehaviorRelay<AnswersReport?>.init(value: nil)
     
     // OUTPUT
     
-    let webNotified = BehaviorRelay<(AnswersReport, Bool)?>.init(value: nil)
+    var webNotified = BehaviorRelay<(AnswersReport, Bool)?>.init(value: nil)
     
     init() {
         bindInputWithOutput()
