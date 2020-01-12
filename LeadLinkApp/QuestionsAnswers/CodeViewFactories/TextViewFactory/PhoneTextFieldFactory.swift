@@ -1,5 +1,5 @@
 //
-//  PhoneTextViewFactory.swift
+//  PhoneTextFieldFactory.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 11/12/2019.
@@ -34,10 +34,11 @@ class PhoneTextFieldFactory: TextInputViewFactoryProtocol {
         }
         
         let textField = PhoneNumberTextField()
-//        textField.backgroundColor = .yellow
         textField.keyboardType = .phonePad
         textField.font = UIFont(name: "Helvetica", size: 24.0)
         textField.makeRoundedBorder(color: .darkGray, cornerRadius: 5.0)
+        textField.setLeftPaddingPoints(10)
+        textField.setRightPaddingPoints(10)
         
         textField.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         
