@@ -13,7 +13,8 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo, questionsAnswersViewModel: self)
-    private var answersWebReporter: AnswersReportsToWebStateProtocol// = AnswersReportsToWebState.init()
+    private var answersWebReporter: AnswersReportsToWebStateProtocol
+    
     private var questionsVC: QuestionsAnswersVC {
         (UIApplication.topViewController() as! QuestionsAnswersVC)
     }
