@@ -22,6 +22,7 @@ class TermsSwitchBtnViewFactory: GetViewProtocol {
                                           urlString: Constants.PrivacyPolicy.navusUrl)
         
         let switchBtn = UISwitch()
+        switchBtn.onTintColor = UIColor.leadLinkColor
         switchBtn.isOn = isOn
         
         let textsView = titleWithHiperlinkViewFactory.getView()
