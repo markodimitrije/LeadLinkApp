@@ -41,6 +41,9 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
         })
         
         appendLocalItems()
+        
+        insertGroupSeparators()
+        
     }
     
     func appendQuestion(surveyQuestion: SurveyQuestionProtocol) {
@@ -86,10 +89,26 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
     }
     
     private func appendLocalItems() {
+        
         appendOptInView()
         insertDistancerView(height: 24.0)
         appendSaveBtn()
         insertDistancerView(height: 24.0)
+    }
+    
+    private func insertGroupSeparators() {
+        
+        var modifiedItems = [QuestionPageGetViewProtocol]()
+        
+        _ = self.items.enumerated().map { (index, viewItem) in
+            if (viewItem is GroupViewItem) && index != 1 { // ne zelimo na vrhu tabele, nije 0 zbog distancerView (12pt)
+                let groupSeparatorItem = getGroupSeparatorViewItem()
+                modifiedItems.append(groupSeparatorItem)
+            }
+            modifiedItems.append(viewItem)
+        }
+
+        self.items = modifiedItems
     }
     
     private func appendOptInView() {
@@ -110,6 +129,11 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
         let distancerViewFactory = DistancerViewFactory(height: height)
         let lastDistancerItem = DistancerViewItem(viewFactory: distancerViewFactory)
         self.items.append(lastDistancerItem)
+    }
+    
+    private func getGroupSeparatorViewItem() -> GroupSeparatorViewItem {
+        let groupSeparatorViewFactory = GroupSeparatorViewFactory()
+        return GroupSeparatorViewItem(viewFactory: groupSeparatorViewFactory)
     }
     
 }

@@ -85,6 +85,8 @@
 		7C26C51423BA1F15006E7FA6 /* AnswersWebReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26C51323BA1F15006E7FA6 /* AnswersWebReportFactory.swift */; };
 		7C27AA2123A8ED3300B678E9 /* RadioBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27AA2023A8ED3300B678E9 /* RadioBtnImage.swift */; };
 		7C27AA2323A8ED5200B678E9 /* CheckboxBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */; };
+		7C2E556D23D891D5002AA513 /* GroupSeparatorViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E556C23D891D5002AA513 /* GroupSeparatorViewItem.swift */; };
+		7C2E556F23D891F0002AA513 /* GroupSeparatorViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E556E23D891F0002AA513 /* GroupSeparatorViewFactory.swift */; };
 		7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C31C0002292BD6F00A6B105 /* TermsVC.swift */; };
 		7C3667772347572600A21F25 /* DelegateEmailScrambling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */; };
 		7C3671E223B8A7C000EDCAB5 /* DistancerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3671E123B8A7C000EDCAB5 /* DistancerViewItem.swift */; };
@@ -405,6 +407,8 @@
 		7C26C51323BA1F15006E7FA6 /* AnswersWebReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersWebReportFactory.swift; sourceTree = "<group>"; };
 		7C27AA2023A8ED3300B678E9 /* RadioBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnImage.swift; sourceTree = "<group>"; };
 		7C27AA2223A8ED5200B678E9 /* CheckboxBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxBtnImage.swift; sourceTree = "<group>"; };
+		7C2E556C23D891D5002AA513 /* GroupSeparatorViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSeparatorViewItem.swift; sourceTree = "<group>"; };
+		7C2E556E23D891F0002AA513 /* GroupSeparatorViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSeparatorViewFactory.swift; sourceTree = "<group>"; };
 		7C31C0002292BD6F00A6B105 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateEmailScrambling.swift; sourceTree = "<group>"; };
 		7C3671E123B8A7C000EDCAB5 /* DistancerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancerViewItem.swift; sourceTree = "<group>"; };
@@ -789,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				7CF412AD23B8BB49009B3120 /* IntrinsicView.swift */,
+				7C2E556B23D891AF002AA513 /* GroupSeparator */,
 				7C3671E023B8A79700EDCAB5 /* Distancer */,
 				7C1EE71923A2959500DB9ED8 /* Group */,
 				7C1EE71E23A295D700DB9ED8 /* OptIn */,
@@ -1312,6 +1317,15 @@
 				7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */,
 			);
 			path = DisclaimerView;
+			sourceTree = "<group>";
+		};
+		7C2E556B23D891AF002AA513 /* GroupSeparator */ = {
+			isa = PBXGroup;
+			children = (
+				7C2E556C23D891D5002AA513 /* GroupSeparatorViewItem.swift */,
+				7C2E556E23D891F0002AA513 /* GroupSeparatorViewFactory.swift */,
+			);
+			path = GroupSeparator;
 			sourceTree = "<group>";
 		};
 		7C3667752347571600A21F25 /* EmailScrambling */ = {
@@ -2656,6 +2670,7 @@
 				7C62226822941F9300717CA1 /* RealmAnswersDataStore.swift in Sources */,
 				7CF0CEB0237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift in Sources */,
 				7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */,
+				7C2E556D23D891D5002AA513 /* GroupSeparatorViewItem.swift in Sources */,
 				7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */,
 				7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */,
 				7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */,
@@ -2671,6 +2686,7 @@
 				7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */,
 				7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
+				7C2E556F23D891F0002AA513 /* GroupSeparatorViewFactory.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
