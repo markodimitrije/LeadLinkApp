@@ -29,7 +29,7 @@ class GroupSeparatorViewFactory {
         let rectBar = CGRect(origin: childOrigin,
                                size: CGSize(width: allowedQuestionsWidth, height: colorBarHeight))
         let barView = UIView(frame: rectBar)
-        barView.backgroundColor = UIColor.red
+        barView.backgroundColor = UIColor.leadLinkColor
         
         baseView.addSubview(barView)
         
