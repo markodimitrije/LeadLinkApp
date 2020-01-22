@@ -49,7 +49,6 @@ public struct DelegatesRemoteAPI {
     mutating func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
 
         let url = base.appendingPathComponent(pathComponent)
-//        let url = URL(string: "https://93b3ab7d-1e62-4a6b-b5f7-d872b00879b5.mock.pstmn.io/delegate")!//mock
         
         var request = URLRequest(url: url)
         
