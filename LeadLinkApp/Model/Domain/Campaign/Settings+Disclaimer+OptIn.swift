@@ -24,15 +24,16 @@ public struct Settings: Codable {
 
 public struct Disclaimer: Codable {
     var text: String
+    var privacyPolicy: String
     var url: String
     
     init?(realmDisclaimer disclaimer: RealmDisclaimer?) {
-        guard let text = disclaimer?.text,
-            let url = disclaimer?.url else {
+        guard let text = disclaimer?.text, let url = disclaimer?.url, let privacyPolicy = disclaimer?.privacyPolicy else {
                 return nil
         }
         self.text = text
         self.url = url
+        self.privacyPolicy = privacyPolicy
     }
 }
 

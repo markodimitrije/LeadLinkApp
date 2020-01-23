@@ -33,7 +33,6 @@ class DisclaimerView: UIView {
     
     convenience init(frame: CGRect, disclaimer: DisclaimerInfo) {
         self.init(frame: frame)
-//        let frame = getRectForDisclaimerView(center: center)
         loadDataFrom(disclaimer: disclaimer)
     }
     
@@ -55,12 +54,12 @@ class DisclaimerView: UIView {
         
     }
     
-    func configureTxtView(withText text: String, url: String) {
+    func configureTxtView(withText text: String, hiperlinkText: String, url: String) {
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
 
-        textView.hyperLink(originalText: text,
-                           hyperLink: Constants.PrivacyPolicy.hyperLinkPolicyText,
+        textView.hyperLink(originalText: text + " " + hiperlinkText,
+                           hyperLink: hiperlinkText,
                            urlString: url)
     }
     
@@ -90,42 +89,6 @@ class DisclaimerView: UIView {
     private func formatAgree() {
         agreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
     }
-    
-//    private func getMySize() -> CGSize {
-//
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            return getSizeOnIpad()
-//        } else if UIDevice.current.userInterfaceIdiom == .phone{
-//            return getSizeOnIphone()
-//        }
-//        return CGSize.zero
-//
-//    }
-//
-//    private func getSizeOnIpad() -> CGSize {
-//
-//        let width = UIScreen.main.bounds.width
-//        let height = UIScreen.main.bounds.height
-//
-//        let side = min(width, height)
-//        return CGSize.init(width: 0.75*side, height: 0.75*side)
-//
-//    }
-//
-//    private func getSizeOnIphone() -> CGSize {
-//
-//        let width = UIScreen.main.bounds.width
-//        let height = UIScreen.main.bounds.height
-//
-//        return CGSize.init(width: 0.9*width, height: 0.9*height)
-//
-//    }
-    
-//    func getRectForDisclaimerView(center: CGPoint) -> CGRect {
-//
-//        return CGRect.init(center: center, size: getMySize())
-//
-//    }
     
 }
 

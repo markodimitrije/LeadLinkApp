@@ -13,7 +13,7 @@ struct DisclaimerInfo {
     var text: String = ""
     var disagreeTitle: String = ""
     var agreeTitle: String = ""
-    init() {
+    init(campaign: Campaign) {
         self.title = Constants.Disclaimer.title
         self.text = Constants.Disclaimer.text
         self.disagreeTitle = Constants.Disclaimer.disagree
