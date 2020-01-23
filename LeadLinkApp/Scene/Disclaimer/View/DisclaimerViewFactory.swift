@@ -10,11 +10,15 @@ import UIKit
 
 class DisclaimerViewFactory {
     
-    func create(campaign: Campaign) -> DisclaimerView? {
+    func create(campaign: Campaign?) -> DisclaimerView? {
         guard let topVC = UIApplication.topViewController() else {
             return nil
         }
-        let disclaimerInfo = DisclaimerInfo(campaign: campaign)
-        return DisclaimerView.init(frame: topVC.view.frame, disclaimer: disclaimerInfo)
+        guard let disclaimer = campaign?.settings?.disclaimer else {
+            return nil
+        }
+        
+        let disclaimerInfo = DisclaimerInfo(disclaimer: disclaimer)
+        return DisclaimerView.init(frame: topVC.view.frame, disclaimerInfo: disclaimerInfo)
     }
 }

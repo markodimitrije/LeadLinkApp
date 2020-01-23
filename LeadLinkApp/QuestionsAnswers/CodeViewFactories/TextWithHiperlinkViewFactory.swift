@@ -24,7 +24,7 @@ class TextWithHiperlinkViewFactory: GetViewProtocol {
         configureTxtViewWithHyperlinkText(text: text, hiperlinkText: hiperlinkText, urlString: urlString)
     }
     
-    func configureTxtViewWithHyperlinkText(text: String, hiperlinkText: String, urlString: String) {
+    private func configureTxtViewWithHyperlinkText(text: String, hiperlinkText: String, urlString: String) {
 
         textView.isUserInteractionEnabled = true
         textView.isEditable = false

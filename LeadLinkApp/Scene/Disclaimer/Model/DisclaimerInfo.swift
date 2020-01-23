@@ -9,13 +9,13 @@
 import Foundation
 
 struct DisclaimerInfo {
+    var disclaimer: Disclaimer
     var title: String = ""
-    var text: String = ""
     var disagreeTitle: String = ""
     var agreeTitle: String = ""
-    init(campaign: Campaign) {
+    init(disclaimer: Disclaimer) {
+        self.disclaimer = disclaimer
         self.title = Constants.Disclaimer.title
-        self.text = Constants.Disclaimer.text
         self.disagreeTitle = Constants.Disclaimer.disagree
         self.agreeTitle = Constants.Disclaimer.agree
     }

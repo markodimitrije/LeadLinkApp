@@ -181,21 +181,16 @@ class ScanningVC: UIViewController, Storyboarded {
     }
  
     private func showDisclaimer() {
-        guard let disclaimerView = disclaimerFactory.create(campaign: campaign!),
-            let disclaimer = campaign?.settings?.disclaimer else {
-                return
+        guard let disclaimerView = disclaimerFactory.create(campaign: campaign) else {
+            return
         }
-        let disclaimerUrl = disclaimer.url
-        let disclaimerTxt = disclaimer.text
-        let hiperlinkText = disclaimer.privacyPolicy
         disclaimerView.delegate = self
         disclaimerView.tag = 12
-        disclaimerView.configureTxtView(withText: disclaimerTxt, hiperlinkText: hiperlinkText, url: disclaimerUrl)
         disclaimerView.textView.delegate = self // envy.. but doesnt work from xib (url, links)..
         self.view.addSubview(disclaimerView)
     }
     
-    private func failed() { //print("failed.....")
+    private func failed() {
         
         self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
             .subscribe {

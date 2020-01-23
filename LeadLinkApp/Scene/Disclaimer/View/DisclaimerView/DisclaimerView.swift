@@ -31,9 +31,9 @@ class DisclaimerView: UIView {
         loadViewFromNib()
     }
     
-    convenience init(frame: CGRect, disclaimer: DisclaimerInfo) {
+    convenience init(frame: CGRect, disclaimerInfo: DisclaimerInfo) {
         self.init(frame: frame)
-        loadDataFrom(disclaimer: disclaimer)
+        loadMyOutlets(from: disclaimerInfo)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,42 +51,37 @@ class DisclaimerView: UIView {
         format()
         
         self.addSubview(view)
+    }
+    
+    private func loadMyOutlets(from disclaimerViewInfo: DisclaimerInfo) {
+        titleLbl.text = disclaimerViewInfo.title
         
-    }
-    
-    func configureTxtView(withText text: String, hiperlinkText: String, url: String) {
-        textView.isUserInteractionEnabled = true
-        textView.isEditable = false
-
-        textView.hyperLink(originalText: text + " " + hiperlinkText,
-                           hyperLink: hiperlinkText,
-                           urlString: url)
-    }
-    
-    private func loadDataFrom(disclaimer: DisclaimerInfo) {
-        titleLbl.text = disclaimer.title
-        textView.text = disclaimer.text
-        disagreeBtn.setTitle(disclaimer.disagreeTitle, for: .normal)
-        agreeBtn.setTitle(disclaimer.agreeTitle, for: .normal)
+        let disclaimer = disclaimerViewInfo.disclaimer
+        textView.hyperLink(originalText: disclaimer.text + " " + disclaimer.privacyPolicy,
+                           hyperLink: disclaimer.privacyPolicy,
+                           urlString: disclaimer.url)
+        
+        disagreeBtn.setTitle(disclaimerViewInfo.disagreeTitle, for: .normal)
+        agreeBtn.setTitle(disclaimerViewInfo.agreeTitle, for: .normal)
     }
     
     private func format() {
         formatView()
-        formatDisagree()
-        formatAgree()
+        formatDisagreeBtn()
+        formatAgreeBtn()
     }
     
     private func formatView() {
         holderView.layer.cornerRadius = 10.0
     }
     
-    private func formatDisagree() {
+    private func formatDisagreeBtn() {
         disagreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
         disagreeBtn.layer.borderWidth = 1.0
         disagreeBtn.layer.borderColor = UIColor.disclaimerBlue.cgColor
     }
     
-    private func formatAgree() {
+    private func formatAgreeBtn() {
         agreeBtn.layer.cornerRadius = disagreeBtn.bounds.height/2
     }
     
