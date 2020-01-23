@@ -31,7 +31,7 @@ class DisclaimerView: UIView {
         loadViewFromNib()
     }
     
-    convenience init(frame: CGRect, disclaimerInfo: DisclaimerInfo) {
+    convenience init(frame: CGRect, disclaimerInfo: DisclaimerViewInfo) {
         self.init(frame: frame)
         loadMyOutlets(from: disclaimerInfo)
     }
@@ -53,7 +53,7 @@ class DisclaimerView: UIView {
         self.addSubview(view)
     }
     
-    private func loadMyOutlets(from disclaimerViewInfo: DisclaimerInfo) {
+    private func loadMyOutlets(from disclaimerViewInfo: DisclaimerViewInfo) {
         titleLbl.text = disclaimerViewInfo.title
         
         let disclaimer = disclaimerViewInfo.disclaimer

@@ -1,5 +1,5 @@
 //
-//  DisclaimerInfo.swift
+//  DisclaimerViewInfo.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 22/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DisclaimerInfo {
+struct DisclaimerViewInfo {
     var disclaimer: Disclaimer
     var title: String = ""
     var disagreeTitle: String = ""

@@ -17,8 +17,7 @@ class DisclaimerViewFactory {
         guard let disclaimer = campaign?.settings?.disclaimer else {
             return nil
         }
-        
-        let disclaimerInfo = DisclaimerInfo(disclaimer: disclaimer)
+        let disclaimerInfo = DisclaimerViewInfo(disclaimer: disclaimer)
         return DisclaimerView.init(frame: topVC.view.frame, disclaimerInfo: disclaimerInfo)
     }
 }
