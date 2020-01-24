@@ -15,6 +15,14 @@ import ScanditBarcodeCapture
 //class ScanditScanner: NSObject, Scanning {
 class ScanditScanner: NSObject, MinimumScanning, ScanViewProviding {
     
+    func startScanning() {
+        camera?.switch(toDesiredState: .on)
+    }
+    
+    func stopScanning() {
+        camera?.switch(toDesiredState: .off)
+    }
+    
     internal var barcodeListener: BarcodeListening
     var captureView: UIView
     
@@ -47,26 +55,21 @@ class ScanditScanner: NSObject, MinimumScanning, ScanViewProviding {
         barcodeCapture.addListener(self)
     }
     
-    func startScanning() {
-        camera?.switch(toDesiredState: .on)
-    }
-    
-    func stopScanning() {
-        camera?.switch(toDesiredState: .off)
-    }
 }
 
 extension ScanditScanner: BarcodeCaptureListener {
+    
     func barcodeCapture(_ barcodeCapture: BarcodeCapture,
                         didScanIn session: BarcodeCaptureSession,
                         frameData: FrameData) {
-        
+
         let code = session.newlyRecognizedBarcodes[0]
-        
+
         DispatchQueue.main.async { [weak self] in
-            
+
             self?.barcodeListener.found(code: code.data)
-            
+
         }
     }
+    
 }

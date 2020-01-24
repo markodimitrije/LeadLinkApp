@@ -31,7 +31,6 @@ class ReportsDumper {
             }
             return sync
         }
-        
         return resulting
     }
     

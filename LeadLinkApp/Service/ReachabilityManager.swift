@@ -25,7 +25,7 @@ private class ReachabilityManager {
         return _reach.asObservable()
     }
     init?() {
-        guard let reach = Reachability() else {
+        guard let reach = try? Reachability() else {
             return nil
         }
         self.reachability = reach
@@ -34,7 +34,7 @@ private class ReachabilityManager {
         } catch {
             return nil
         }
-        self._reach.onNext(self.reachability.connection != .none)
+        self._reach.onNext(self.reachability.connection != .unavailable)
         self.reachability.whenReachable = { _ in
             DispatchQueue.main.async { self._reach.onNext(true) }
         }
