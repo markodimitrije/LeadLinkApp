@@ -24,10 +24,15 @@ class ReportsDumper {
         
         let oTimer = timerFired.asObservable().map {_ in true}
         let oConnectedToNet = connectedToInternet()
-        let resulting = Observable.merge([oTimer, oConnectedToNet])
+        
+        let resulting = Observable.merge([oTimer, oConnectedToNet]).map { (sync) -> Bool in
+            if sync {
+                return confApiKeyState != nil
+            }
+            return sync
+        }
         
         return resulting
-        
     }
     
     private var reportsDeleted: BehaviorRelay<Bool> = {
@@ -95,15 +100,14 @@ class ReportsDumper {
     private func hookUpNotifyWebRepeteadly() {
         
         timeToSendReport
-            .subscribe(onNext: { [weak self] timeToReport in print("timeToReport = \(timeToReport)")
+            .subscribe(onNext: { [weak self] shouldReport in //print("shouldReport = \(shouldReport)")
                 
                 guard let sSelf = self else {return}
-
-                sSelf.sendToWebUnsycedReports()
-                
+                if shouldReport {
+                    sSelf.sendToWebUnsycedReports()
+                }
             })
             .disposed(by: bag)
-        
     }
     
     private func hookUpAllCodesReportedToWeb() {
@@ -111,7 +115,7 @@ class ReportsDumper {
         reportsDeleted.asObservable()
             .subscribe(onNext: { [weak self] success in
                 guard let sSelf = self else {return}
-                if success { print("all good, ugasi timer!")
+                if success { //print("all good, ugasi timer!")
                     
                     sSelf.isRunning.accept(false)  // ugasi timer, uspesno si javio i obrisao Realm
                     sSelf.oReportsDumped.accept(true)

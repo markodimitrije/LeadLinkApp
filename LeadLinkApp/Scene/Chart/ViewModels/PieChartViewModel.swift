@@ -16,7 +16,6 @@ class PieChartViewModel: PieChartViewModeling {
     
     private var campaign: Observable<Campaign?>
     private var webReports: Observable<[RealmWebReportedAnswers]>
-    private var viewFactory: PieChartViewFactoryProtocol
     private let bag = DisposeBag()
     
     private var newWebReports = [RealmWebReportedAnswers]()
@@ -24,18 +23,13 @@ class PieChartViewModel: PieChartViewModeling {
     
     var output = ReplaySubject<BarOrChartData>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<Campaign?>,
-         webReports: Observable<[RealmWebReportedAnswers]>,
-         viewFactory: PieChartViewFactoryProtocol) {
+    init(campaign: Observable<Campaign?>, webReports: Observable<[RealmWebReportedAnswers]>) {
         
         self.campaign = campaign
         self.webReports = webReports
-        self.viewFactory = viewFactory
         
         self.listenUpdatesOnCampaignAndWebReports()
-        
         self.getNewestCampaignData()
-        
     }
     
     private func listenUpdatesOnCampaignAndWebReports() { // input to output
@@ -67,11 +61,7 @@ class PieChartViewModel: PieChartViewModeling {
     }
     
     private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
-        
-//        let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
-//        let compartmentBuilder = CompartmentBuilder(barOrChartInfo: barOrChartData)
-//        let view = viewFactory.makeOutput(compartmentBuilder: compartmentBuilder)
-//        output.onNext(view)
+
         let chartData = BarOrChartData(campaign: newCampaign, webReports: newWebReports)
         output.onNext(chartData)
     }
@@ -81,7 +71,6 @@ class PieChartViewModel: PieChartViewModeling {
         if let appdel = UIApplication.shared.delegate as? AppDelegate { // DRY!
             appdel.downloadCampaignsQuestionsAndLogos()
         }
-        
     }
     
 }

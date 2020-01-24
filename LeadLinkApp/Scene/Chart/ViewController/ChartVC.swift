@@ -12,18 +12,17 @@ import PieCharts
 
 class ChartVC: UIViewController, Storyboarded {
     
-    @IBOutlet weak var upperView: PieChart!
+    @IBOutlet weak var upperView: PieChart! {
+        didSet {
+            upperView.backgroundColor = .red
+        }
+    }
     @IBOutlet weak var lowerView: UIView!
     
     private let bag = DisposeBag()
     
     var pieChartViewModel: PieChartViewModeling! // nek ti ubaci odg. Factory....
     var gridViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
-    
-    override func viewDidLoad() { super.viewDidLoad()
-//        hookUpPieChartViewFromYourViewModel()
-//        hookUpGridViewFromYourViewModel()
-    }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
         hookUpPieChartViewFromYourViewModel()
@@ -45,7 +44,6 @@ class ChartVC: UIViewController, Storyboarded {
 
         let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
         upperView.models = pieSliceModelCreator.models
-        
     }
     
     private func hookUpGridViewFromYourViewModel() {
@@ -74,39 +72,6 @@ class ChartVC: UIViewController, Storyboarded {
         view.frame = destView.bounds
         destView.addSubview(view)
     }
-    
-    
-    // REFACTOR FROM HERE !
-//
-//    private func formatPieChart() {
-//        setChartInnerAndOuterRadius()
-//        setChartBackgroundColor()
-//        setGapBetweenPies()
-//        setReferenceAngle()
-//        setAnimationDuration()
-//    }
-//
-//    private func setChartInnerAndOuterRadius() {
-//        upperView.innerRadius = 0.25 * upperView.bounds.width
-//        upperView.outerRadius = 0.50 * upperView.bounds.width
-//    }
-//
-//    private func setChartBackgroundColor() {
-//        upperView.backgroundColor = .yellow
-//    }
-//
-//    private func setGapBetweenPies() {
-//        upperView.strokeWidth = 10.0
-//        upperView.strokeColor = .white
-//    }
-//
-//    private func setReferenceAngle() {
-//        upperView.referenceAngle = 270.0
-//    }
-//
-//    private func setAnimationDuration() {
-//        upperView.animDuration = 0.01
-//    }
     
 }
 

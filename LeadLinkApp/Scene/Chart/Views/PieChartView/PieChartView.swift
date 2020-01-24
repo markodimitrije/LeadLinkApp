@@ -46,7 +46,7 @@ class PieChartView: UIView {
         setAnimationDuration()
     }
     
-    private func setChartIntoCenter() { // ne radi ?!?
+    func setChartIntoCenter() { // ne radi ?!?
         pieChart.center = CGPoint.init(x: bounds.midX, y: bounds.midY)
     }
     

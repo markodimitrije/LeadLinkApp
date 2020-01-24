@@ -207,6 +207,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CEk-eC-qjC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eB4-LL-I0V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -458,8 +459,11 @@ barcode number manually</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-fU-5fj" customClass="PieChart" customModule="PieCharts">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S8u-fU-5fj" secondAttribute="height" multiplier="1:1" id="CqB-HI-mO5"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
                                         <real key="value" value="65"/>
@@ -479,14 +483,13 @@ barcode number manually</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
-                                <rect key="frame" x="0.0" y="426" width="320" height="134"/>
+                                <rect key="frame" x="0.0" y="320" width="320" height="240"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="width" secondItem="S8u-fU-5fj" secondAttribute="width" id="AEe-J1-QNB"/>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="top" secondItem="S8u-fU-5fj" secondAttribute="bottom" id="C37-f1-Juq"/>
-                            <constraint firstItem="S8u-fU-5fj" firstAttribute="height" secondItem="B6A-DY-6gI" secondAttribute="height" multiplier="0.75" id="Qls-0P-dKA"/>
                             <constraint firstItem="S8u-fU-5fj" firstAttribute="top" secondItem="EHN-qL-WUt" secondAttribute="top" id="S3Y-iY-WmW"/>
                             <constraint firstItem="S8u-fU-5fj" firstAttribute="leading" secondItem="EHN-qL-WUt" secondAttribute="leading" id="cQM-ac-j8i"/>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="centerX" secondItem="B6A-DY-6gI" secondAttribute="centerX" id="lwn-8D-WoQ"/>
@@ -562,6 +565,7 @@ barcode number manually</string>
                 <navigationController restorationIdentifier="NavForOptionsVC" storyboardIdentifier="NavForOptionsVC" automaticallyAdjustsScrollViewInsets="NO" id="xdp-O4-cig" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSE-Dh-Yml">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -619,6 +623,7 @@ barcode number manually</string>
                 <navigationController storyboardIdentifier="NavForTermsVC" automaticallyAdjustsScrollViewInsets="NO" id="llI-uq-9Gd" customClass="NavForTermsVC" customModule="Navus_Lead" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwc-n7-bjS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
