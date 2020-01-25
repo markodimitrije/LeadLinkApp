@@ -64,7 +64,7 @@ extension ScanditScanner: BarcodeCaptureListener {
                         frameData: FrameData) {
 
         let code = session.newlyRecognizedBarcodes[0]
-
+        
         DispatchQueue.main.async { [weak self] in
 
             self?.barcodeListener.found(code: code.data)

@@ -1,6 +1,6 @@
-//
 //  ChartVC.swift
-//  LeadLinkApp
+//  vc na sebi ima upper i lower view (u upper smesta PieChart (lib PieCharts) a u lower - tabelicu)
+//
 //
 //  Created by Marko Dimitrijevic on 19/04/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
@@ -12,11 +12,7 @@ import PieCharts
 
 class ChartVC: UIViewController, Storyboarded {
     
-    @IBOutlet weak var upperView: PieChart! {
-        didSet {
-            upperView.backgroundColor = .red
-        }
-    }
+    @IBOutlet weak var upperView: PieChart!
     @IBOutlet weak var lowerView: UIView!
     
     private let bag = DisposeBag()
@@ -52,7 +48,6 @@ class ChartVC: UIViewController, Storyboarded {
                 guard let sSelf = self else {return}
                 
                 sSelf.viewIsReady(gridView, forDestinationView: sSelf.lowerView)
-                
             })
             .disposed(by: bag)
     }
