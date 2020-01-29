@@ -9,6 +9,7 @@
 import Foundation
 
 class CampaignResponse: CampaignResponseProtocol {
+    
     var id: Int = -1
     var conference_id: Int = -1
     var name: String?
@@ -22,16 +23,16 @@ class CampaignResponse: CampaignResponseProtocol {
     var imgData: Data? = nil
     var number_of_responses: Int?
     
-    var applicationResponse: ApplicationResponseProtocol?
+    var applicationResponse: ApplicationResponseProtocol
     var settingsResponse: SettingsResponseProtocol?
     var organizationResponse: OrganizationResponseProtocol?
     
     var dateReadAt: Date?
     
     init?(json: [String: Any]?,
-          appResponseFactory: ApplicationResponseFactoryProtocol?,
-          settingsResponseFactory: SettingsResponseFactoryProtocol?,
-          organizationResponseFactory: OrganizationResponseFactoryProtocol?) {
+          appResponseFactory: ApplicationResponseFactoryProtocol,
+          settingsResponseFactory: SettingsResponseFactoryProtocol,
+          organizationResponseFactory: OrganizationResponseFactoryProtocol) {
         
         guard let json = json,
         let id = json["id"] as? Int,
@@ -47,6 +48,12 @@ class CampaignResponse: CampaignResponseProtocol {
         let number_of_responses = json["number_of_responses"] as? Int else {
             return nil
         }
+        
+        guard let applicationJson = json["application"] as? [String: Any],
+            let applicationResponse = appResponseFactory.make(json: applicationJson) else {
+            return nil
+        }
+        
         self.id = id
         self.conference_id = conference_id
         self.name = name
@@ -59,9 +66,9 @@ class CampaignResponse: CampaignResponseProtocol {
         self.logo = logo
         self.number_of_responses = number_of_responses
         
-        self.applicationResponse = appResponseFactory?.make(json: json["application"] as? [String: Any])
-        self.settingsResponse = settingsResponseFactory?.make(json: json["settings"] as? [String: Any])
-        self.organizationResponse = organizationResponseFactory?.make(json: json["organization"] as? [String: Any])
+        self.applicationResponse = applicationResponse
+        self.settingsResponse = settingsResponseFactory.make(json: json["settings"] as? [String: Any])
+        self.organizationResponse = organizationResponseFactory.make(json: json["organization"] as? [String: Any])
     }
     
 }

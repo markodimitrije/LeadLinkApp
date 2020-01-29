@@ -8,12 +8,19 @@
 
 import Foundation
 
+protocol SettingsResponseProtocol {
+    var use_scandit_scanner: Bool {get set}
+    var showEmail: Bool {get set}
+    var optInResponse: OptInResponseProtocol? {get set}
+    var disclaimerResponse: DisclaimerResponseProtocol? {get set}
+}
+
 struct SettingsResponse: SettingsResponseProtocol {
     
-    let use_scandit_scanner: Bool
-    let showEmail: Bool
-    let optInResponse: OptInResponseProtocol?
-    let disclaimerResponse: DisclaimerResponseProtocol?
+    var use_scandit_scanner: Bool
+    var showEmail: Bool
+    var optInResponse: OptInResponseProtocol?
+    var disclaimerResponse: DisclaimerResponseProtocol?
     
     init?(json: [String: Any]?,
           optInResponseFactory: OptInResponseFactoryProtocol,

@@ -20,6 +20,16 @@ public struct Settings: Codable {
         self.use_scandit_scanner = settings?.useScanditScanner
         self.showEmail = settings?.showEmail
     }
+    
+    init?(settingsResponse: SettingsResponseProtocol?) {
+        guard let settingsResponse = settingsResponse else {
+            return nil
+        }
+        self.use_scandit_scanner = settingsResponse.use_scandit_scanner
+        self.showEmail = settingsResponse.showEmail
+        self.disclaimer = Disclaimer(disclaimerResponse: settingsResponse.disclaimerResponse)
+        self.optIn = OptIn(optInResponse: settingsResponse.optInResponse)
+    }
 }
 
 public struct Disclaimer: Codable {
@@ -35,6 +45,15 @@ public struct Disclaimer: Codable {
         self.url = url
         self.privacyPolicy = privacyPolicy
     }
+    
+    init?(disclaimerResponse: DisclaimerResponseProtocol?) {
+        guard let disclaimerResponse = disclaimerResponse else {
+            return nil
+        }
+        self.text = disclaimerResponse.text
+        self.privacyPolicy = disclaimerResponse.privacyPolicy
+        self.url = disclaimerResponse.url
+    }
 }
 
 public struct OptIn: Codable {
@@ -49,5 +68,14 @@ public struct OptIn: Codable {
         self.text = optIn.text
         self.url = optIn.url
         self.privacyPolicy = optIn.privacyPolicy
+    }
+    
+    init?(optInResponse: OptInResponseProtocol?) {
+        guard let optInResponse = optInResponse else {
+            return nil
+        }
+        self.text = optInResponse.text
+        self.privacyPolicy = optInResponse.privacyPolicy
+        self.url = optInResponse.url
     }
 }

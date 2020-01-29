@@ -59,6 +59,28 @@ public struct Campaign: Codable {
         
         self.dateReadAt = campaign.dateReadAt
     }
+    
+    init(campaignResponse: CampaignResponseProtocol) {
+        self.application = Application(applicationResponse: campaignResponse.applicationResponse)
+        self.organization = Organization(organizationResponse: campaignResponse.organizationResponse)
+        self.settings = Settings(settingsResponse: campaignResponse.settingsResponse)
+        
+        self.questions = [ ] // hard-coded, implement me!
+        
+        self.id = campaignResponse.id
+        self.conference_id = campaignResponse.conference_id
+        self.name = campaignResponse.name
+        self.description = campaignResponse.description
+        self.user_id = campaignResponse.user_id
+        self.organization_id = campaignResponse.organization_id
+        self.created_at = campaignResponse.created_at // (Date)
+        self.primary_color = campaignResponse.primary_color // oprez - ne vidim iz response koji je ovo type
+        self.color = campaignResponse.color // oprez - ne vidim iz response koji je ovo type
+        self.logo = campaignResponse.logo
+        self.imgData = nil
+        self.number_of_responses = campaignResponse.number_of_responses
+    }
+    
 }
 
 

@@ -17,4 +17,12 @@ public struct Organization: Codable {
         self.name = organization?.name ?? "unknown"
     }
     
+    init?(organizationResponse: OrganizationResponseProtocol?) {
+        guard let organizationResponse = organizationResponse else {
+            return nil
+        }
+        self.id = organizationResponse.id
+        self.name = organizationResponse.name
+    }
+    
 }

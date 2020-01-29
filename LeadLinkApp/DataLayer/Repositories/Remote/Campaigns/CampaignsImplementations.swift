@@ -92,7 +92,7 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                 } else {
                 
                     let decoder = JSONDecoder()
-                    var payload = [CampaignResponseProtocol]()//var payload: Campaigns!
+                    var campaignResponses = [CampaignResponseProtocol]()//var payload: Campaigns!
                     
                     do {
                         let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
@@ -103,7 +103,8 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                         let settingsResponseFactory = SettingsResponseFactory(optInResponseFactory: optInResponseFactory, disclaimerResponseFactory: disclaimerResponseFactory)
                         
                         let singleCampaignResponseFactory = CampaignResponseFactory(applicationResponseFactory: applicationResponseFactory, settingsResponseFactory: settingsResponseFactory, organizationResponseFactory: organizationResponseFactory)
-                        payload = CampaignResponsesFactory(campaignResponseFactory: singleCampaignResponseFactory).make(json: json)
+                        
+                        campaignResponses = CampaignResponsesFactory(campaignResponseFactory: singleCampaignResponseFactory).make(json: json)
                     } catch {
                         seal.reject(CampaignError.mandatoryKeyIsMissing)
                         return
@@ -111,7 +112,7 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                     
                     let jsonString = String.init(data: data!, encoding: String.Encoding.utf8) // versioning
                     
-                    let campaigns = payload.data
+                    let campaigns = campaignResponses.map { Campaign.init(campaignResponse: $0) }
                     let questions = campaigns.map {$0.questions}
                     
                     if campaigns.isEmpty {
@@ -138,7 +139,7 @@ protocol CampaignResponsesFactoryProtocol {
 
 struct CampaignResponsesFactory: CampaignResponsesFactoryProtocol {
     
-    private var campaignResponseFactory: Campaign
+    private var campaignResponseFactory: CampaignResponseFactory
     
     init(campaignResponseFactory: CampaignResponseFactory) {
         self.campaignResponseFactory = campaignResponseFactory
@@ -148,8 +149,7 @@ struct CampaignResponsesFactory: CampaignResponsesFactoryProtocol {
         guard let jsonArray = json?["data"] as? [[String: Any]] else {
             return [ ]
         }
-        let dfgv = jsonArray.map {campaignResponseFactory.make(json: $0)}
-        //return jsonArray.map {campaignResponseFactory.make(json: $0)}
-        return [ ]
+        let campaignsArr = jsonArray.compactMap {campaignResponseFactory.make(json: $0)}
+        return campaignsArr
     }
 }

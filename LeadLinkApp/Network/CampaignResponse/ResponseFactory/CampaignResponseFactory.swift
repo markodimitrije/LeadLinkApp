@@ -22,9 +22,13 @@ struct CampaignResponseFactory: CampaignResponseFactoryProtocol {
         self.organizationResponseFactory = organizationResponseFactory
     }
     
-    func make(json: [String: Any]?) -> CampaignResponse? {
-        guard let json = json else { return nil }
-        let applicationResponse = applicationResponseFactory.make(json: json["application"] as? [String: Any])
+    func make(json: [String: Any]?) -> CampaignResponseProtocol? {
+        guard let json = json,
+            let applicationResponse = applicationResponseFactory.make(json: json["application"] as? [String: Any]) else {
+                
+                return nil
+        }
+        
         let settingsResponse = settingsResponseFactory.make(json: json["settings"] as? [String: Any])
         let organizationResponse = organizationResponseFactory.make(json: json["organization"]  as? [String: Any])
         
@@ -32,9 +36,11 @@ struct CampaignResponseFactory: CampaignResponseFactoryProtocol {
                                                 appResponseFactory: applicationResponseFactory,
                                                 settingsResponseFactory: settingsResponseFactory,
                                                 organizationResponseFactory: organizationResponseFactory)
+        
         campaignResponse?.applicationResponse = applicationResponse
         campaignResponse?.settingsResponse = settingsResponse
         campaignResponse?.organizationResponse = organizationResponse
+        
         return campaignResponse
     }
 }
