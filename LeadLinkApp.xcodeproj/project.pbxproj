@@ -102,6 +102,19 @@
 		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
 		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
 		7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */; };
+		7C38D8C923E1C56900BAA559 /* CampaignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */; };
+		7C38D8CB23E1CB2E00BAA559 /* CampaignResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */; };
+		7C38D8CD23E1CB6000BAA559 /* ApplicationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */; };
+		7C38D8CF23E1CCFF00BAA559 /* SettingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */; };
+		7C38D8D223E1D44500BAA559 /* CampaignResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D123E1D44500BAA559 /* CampaignResponseFactory.swift */; };
+		7C38D8D423E1D46F00BAA559 /* ApplicationResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */; };
+		7C38D8D623E1D48500BAA559 /* OrganizationResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */; };
+		7C38D8D823E1D49600BAA559 /* SettingsResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */; };
+		7C38D8DA23E1D4D800BAA559 /* ResponseFactoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */; };
+		7C38D8DC23E1D6C600BAA559 /* OptInResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DB23E1D6C600BAA559 /* OptInResponseFactory.swift */; };
+		7C38D8DE23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DD23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift */; };
+		7C38D8E023E1D77600BAA559 /* OptInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */; };
+		7C38D8E223E1D78F00BAA559 /* DisclaimerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */; };
 		7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390531233B711100249B18 /* SpinnerViewController.swift */; };
 		7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390534233B7AD600249B18 /* SpinnerViewManager.swift */; };
 		7C390537233B7AEF00249B18 /* SpinnerViewManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C390536233B7AEF00249B18 /* SpinnerViewManaging.swift */; };
@@ -424,6 +437,19 @@
 		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
 		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataImplementations.swift; sourceTree = "<group>"; };
+		7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponse.swift; sourceTree = "<group>"; };
+		7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponseProtocol.swift; sourceTree = "<group>"; };
+		7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationResponse.swift; sourceTree = "<group>"; };
+		7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponse.swift; sourceTree = "<group>"; };
+		7C38D8D123E1D44500BAA559 /* CampaignResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseFactoryProtocols.swift; sourceTree = "<group>"; };
+		7C38D8DB23E1D6C600BAA559 /* OptInResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8DD23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerResponseFactory.swift; sourceTree = "<group>"; };
+		7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInResponse.swift; sourceTree = "<group>"; };
+		7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerResponse.swift; sourceTree = "<group>"; };
 		7C390531233B711100249B18 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		7C390534233B7AD600249B18 /* SpinnerViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewManager.swift; sourceTree = "<group>"; };
 		7C390536233B7AEF00249B18 /* SpinnerViewManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewManaging.swift; sourceTree = "<group>"; };
@@ -1401,6 +1427,42 @@
 			path = BarOrChartInfo;
 			sourceTree = "<group>";
 		};
+		7C38D8C723E1C55400BAA559 /* CampaignResponse */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D8D023E1D43800BAA559 /* ResponseFactory */,
+				7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */,
+				7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */,
+				7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */,
+				7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */,
+				7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */,
+				7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */,
+			);
+			path = CampaignResponse;
+			sourceTree = "<group>";
+		};
+		7C38D8D023E1D43800BAA559 /* ResponseFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */,
+				7C38D8D123E1D44500BAA559 /* CampaignResponseFactory.swift */,
+				7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */,
+				7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */,
+				7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */,
+				7C38D8DB23E1D6C600BAA559 /* OptInResponseFactory.swift */,
+				7C38D8DD23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift */,
+			);
+			path = ResponseFactory;
+			sourceTree = "<group>";
+		};
+		7C38D8E323E1DC7100BAA559 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D8C723E1C55400BAA559 /* CampaignResponse */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7C390530233B70F900249B18 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2051,6 +2113,7 @@
 		ADAEE87921D8F331000B3C52 /* LeadLinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C38D8E323E1DC7100BAA559 /* Network */,
 				7C1F42FD237B093C0043D5E3 /* Alert */,
 				7C2227202379C5780006B8EE /* Scene */,
 				AD4F013921D8F61F00946CBA /* Model */,
@@ -2479,6 +2542,7 @@
 				7C26C51423BA1F15006E7FA6 /* AnswersWebReportFactory.swift in Sources */,
 				ADB6A64521DFA2BA002224C0 /* CampaignsErrors.swift in Sources */,
 				ADA7791921E7AE9200527623 /* UserSessionError.swift in Sources */,
+				7C38D8D623E1D48500BAA559 /* OrganizationResponseFactory.swift in Sources */,
 				ADA9B1CF22385DC800B7D74F /* MovingKeyboardDelegate.swift in Sources */,
 				7C51086922C0D6CB005EE58B /* CodesDataStoreFactory.swift in Sources */,
 				7C26C51023BA140F006E7FA6 /* MyAnswerProtocol.swift in Sources */,
@@ -2494,6 +2558,7 @@
 				7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */,
 				7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */,
 				7C51086B22C0D710005EE58B /* ReportsDataStoreFactory.swift in Sources */,
+				7C38D8DC23E1D6C600BAA559 /* OptInResponseFactory.swift in Sources */,
 				AD1739CE21DE1B8900218BE5 /* SignInResponder.swift in Sources */,
 				7CA998D322A908F100C226F1 /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */,
@@ -2510,6 +2575,7 @@
 				7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */,
 				7C4E077623A03474003FBCF6 /* CheckboxBtnsViewModel.swift in Sources */,
 				AD4F013D21D8F68E00946CBA /* Secret.swift in Sources */,
+				7C38D8CB23E1CB2E00BAA559 /* CampaignResponseProtocol.swift in Sources */,
 				7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */,
 				7C3ED55922E5B82400EDDD70 /* DatabaseMigrationFactory.swift in Sources */,
 				7C4E078C23A04399003FBCF6 /* CheckboxInputViewModel.swift in Sources */,
@@ -2522,6 +2588,7 @@
 				7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */,
 				7CC94E5A23A3ADBF00D52338 /* ScrollViewScroller.swift in Sources */,
 				ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */,
+				7C38D8DE23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift in Sources */,
 				7CF412AE23B8BB49009B3120 /* IntrinsicView.swift in Sources */,
 				ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */,
 				7CB4D3DE22DCAEB100D6987E /* ScanditAllownessValidation.swift in Sources */,
@@ -2565,6 +2632,7 @@
 				ADAB3D9A223AAFB500450625 /* Constants.swift in Sources */,
 				7C4E0760239FF179003FBCF6 /* DropdownViewModel.swift in Sources */,
 				7C98A66B2289617B00DA184E /* QuestionsAnswersVC.swift in Sources */,
+				7C38D8CD23E1CB6000BAA559 /* ApplicationResponse.swift in Sources */,
 				7C1CEA3023A0F1E00015F8F7 /* RadioBtns_ViewFactory.swift in Sources */,
 				7C1CEA4423A100730015F8F7 /* OptInViewItem.swift in Sources */,
 				7C1F42FA237B064D0043D5E3 /* DateFormatter+Extensions.swift in Sources */,
@@ -2585,11 +2653,13 @@
 				7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */,
 				7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */,
 				7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */,
+				7C38D8C923E1C56900BAA559 /* CampaignResponse.swift in Sources */,
 				ADAFED7922390CD5004C4AC1 /* ScanningViewModel.swift in Sources */,
 				7C3F970C22E1D83200C8A797 /* QuestionsAnswersTableRowHeightCalculator.swift in Sources */,
 				7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */,
 				ADBB468622425F4F00E1020F /* RealmCodesDataStore.swift in Sources */,
 				7C51085B22C0CA0C005EE58B /* ChartViewControllerFactory.swift in Sources */,
+				7C38D8E023E1D77600BAA559 /* OptInResponse.swift in Sources */,
 				7C1F4302237B09980043D5E3 /* AlertInfoType.swift in Sources */,
 				7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */,
 				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
@@ -2601,6 +2671,7 @@
 				7CF0CEAE237EAC5F00834CD9 /* AnswersReportDataStore.swift in Sources */,
 				7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */,
 				7C3B20AA22E9F4AD00791C11 /* QuestionsAnswersTableHeaderFooterCalculator.swift in Sources */,
+				7C38D8CF23E1CCFF00BAA559 /* SettingsResponse.swift in Sources */,
 				7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */,
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
 				7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */,
@@ -2609,6 +2680,7 @@
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				7C1CE18D23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift in Sources */,
+				7C38D8DA23E1D4D800BAA559 /* ResponseFactoryProtocols.swift in Sources */,
 				7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */,
 				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
 				7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */,
@@ -2676,6 +2748,7 @@
 				7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */,
+				7C38D8D823E1D49600BAA559 /* SettingsResponseFactory.swift in Sources */,
 				7C26C50E23BA0FA2006E7FA6 /* QuestionSettings.swift in Sources */,
 				7C98A6D822896F9300DA184E /* Rx+SelectOptionTextFieldViewModel.swift in Sources */,
 				7C3667772347572600A21F25 /* DelegateEmailScrambling.swift in Sources */,
@@ -2712,10 +2785,13 @@
 				AD1739D021DE1BDA00218BE5 /* UserState.swift in Sources */,
 				7C98A6772289625200DA184E /* Protocols.swift in Sources */,
 				7C3ED55B22E5B84F00EDDD70 /* DataBaseMigrating.swift in Sources */,
+				7C38D8D423E1D46F00BAA559 /* ApplicationResponseFactory.swift in Sources */,
 				7C98A6F62289762B00DA184E /* StoryboardUtilities.swift in Sources */,
+				7C38D8E223E1D78F00BAA559 /* DisclaimerResponse.swift in Sources */,
 				AD1739C421DD4D2700218BE5 /* FileManager+Extensions.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
+				7C38D8D223E1D44500BAA559 /* CampaignResponseFactory.swift in Sources */,
 				7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */,
 				7C169F0123A7D1DF0036C895 /* TextAreaTextViewFactory.swift in Sources */,
 				7C3ED56422E606D200EDDD70 /* DisclaimerViewInfo.swift in Sources */,

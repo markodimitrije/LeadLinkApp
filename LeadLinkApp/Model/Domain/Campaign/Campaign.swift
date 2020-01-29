@@ -60,3 +60,8 @@ public struct Campaign: Codable {
         self.dateReadAt = campaign.dateReadAt
     }
 }
+
+
+public struct CampaignResponses {
+    var data: [CampaignResponseProtocol]
+}
