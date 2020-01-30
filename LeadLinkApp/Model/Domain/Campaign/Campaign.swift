@@ -43,7 +43,7 @@ public struct Campaign: Codable {
         self.organization_id = campaign.organization_id
         self.created_at = campaign.created_at
         self.primary_color = campaign.primary_color
-        self.color = campaign.color ?? "#ee9c00" // hard-coded
+        self.color = campaign.color ?? "#ee9c00"
         self.logo = campaign.logo
         self.imgData = campaign.imgData
         self.number_of_responses = campaign.number_of_responses
@@ -65,7 +65,8 @@ public struct Campaign: Codable {
         self.organization = Organization(organizationResponse: campaignResponse.organizationResponse)
         self.settings = Settings(settingsResponse: campaignResponse.settingsResponse)
         
-        self.questions = [ ] // hard-coded, implement me!
+        let questions = campaignResponse.questionResponse.map(Question.init)
+        self.questions = questions
         
         self.id = campaignResponse.id
         self.conference_id = campaignResponse.conference_id

@@ -10,13 +10,16 @@ import Foundation
 
 struct CampaignResponseFactory: CampaignResponseFactoryProtocol {
     
+    private var questionResponseFactory: QuestionResponseFactoryProtocol
     private var applicationResponseFactory: ApplicationResponseFactoryProtocol
     private var settingsResponseFactory: SettingsResponseFactoryProtocol
     private var organizationResponseFactory: OrganizationResponseFactoryProtocol
     
-    init(applicationResponseFactory: ApplicationResponseFactoryProtocol,
+    init(questionResponseFactory: QuestionResponseFactoryProtocol,
+         applicationResponseFactory: ApplicationResponseFactoryProtocol,
          settingsResponseFactory: SettingsResponseFactoryProtocol,
          organizationResponseFactory: OrganizationResponseFactoryProtocol) {
+        self.questionResponseFactory = questionResponseFactory
         self.applicationResponseFactory = applicationResponseFactory
         self.settingsResponseFactory = settingsResponseFactory
         self.organizationResponseFactory = organizationResponseFactory
@@ -31,15 +34,18 @@ struct CampaignResponseFactory: CampaignResponseFactoryProtocol {
         
         let settingsResponse = settingsResponseFactory.make(json: json["settings"] as? [String: Any])
         let organizationResponse = organizationResponseFactory.make(json: json["organization"]  as? [String: Any])
+        let questionResponse = questionResponseFactory.make(json: json["questions"] as? [[String: Any]])
         
         let campaignResponse = CampaignResponse(json: json,
                                                 appResponseFactory: applicationResponseFactory,
                                                 settingsResponseFactory: settingsResponseFactory,
-                                                organizationResponseFactory: organizationResponseFactory)
+                                                organizationResponseFactory: organizationResponseFactory,
+                                                questionResponseFactory: questionResponseFactory)
         
-        campaignResponse?.applicationResponse = applicationResponse
-        campaignResponse?.settingsResponse = settingsResponse
-        campaignResponse?.organizationResponse = organizationResponse
+//        campaignResponse?.applicationResponse = applicationResponse
+//        campaignResponse?.settingsResponse = settingsResponse
+//        campaignResponse?.organizationResponse = organizationResponse
+//        campaignResponse?.questionResponse = questionResponse
         
         return campaignResponse
     }

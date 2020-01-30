@@ -9,7 +9,7 @@
 import Foundation
 
 class CampaignResponse: CampaignResponseProtocol {
-    
+
     var id: Int = -1
     var conference_id: Int = -1
     var name: String?
@@ -23,6 +23,7 @@ class CampaignResponse: CampaignResponseProtocol {
     var imgData: Data? = nil
     var number_of_responses: Int?
     
+    var questionResponse: [QuestionResponseProtocol]
     var applicationResponse: ApplicationResponseProtocol
     var settingsResponse: SettingsResponseProtocol?
     var organizationResponse: OrganizationResponseProtocol?
@@ -32,40 +33,29 @@ class CampaignResponse: CampaignResponseProtocol {
     init?(json: [String: Any]?,
           appResponseFactory: ApplicationResponseFactoryProtocol,
           settingsResponseFactory: SettingsResponseFactoryProtocol,
-          organizationResponseFactory: OrganizationResponseFactoryProtocol) {
+          organizationResponseFactory: OrganizationResponseFactoryProtocol,
+          questionResponseFactory: QuestionResponseFactoryProtocol) {
         
         guard let json = json,
-        let id = json["id"] as? Int,
-        let conference_id = json["conference_id"] as? Int,
-        let name = json["name"] as? String,
-        let description = json["description"] as? String,
-        let user_id = json["user_id"] as? Int,
-        let organization_id = json["organization_id"] as? Int,
-        let created_at = json["created_at"] as? String,
-        let primary_color = json["primary_color"] as? String,
-        let color = json["color"] as? String,
-        let logo = json["logo"] as? String,
-        let number_of_responses = json["number_of_responses"] as? Int else {
-            return nil
-        }
-        
-        guard let applicationJson = json["application"] as? [String: Any],
+            let id = json["id"] as? Int,
+            let applicationJson = json["application"] as? [String: Any],
             let applicationResponse = appResponseFactory.make(json: applicationJson) else {
-            return nil
-        }
-        
+                return nil
+            }
+            
         self.id = id
-        self.conference_id = conference_id
-        self.name = name
-        self.description = description
-        self.user_id = user_id
-        self.organization_id = organization_id
-        self.created_at = created_at
-        self.primary_color = primary_color
-        self.color = color
-        self.logo = logo
-        self.number_of_responses = number_of_responses
+        self.conference_id = (json["conference_id"] as? Int) ?? 0
+        self.name = json["name"] as? String
+        self.description = json["description"] as? String
+        self.user_id = json["user_id"] as? Int
+        self.organization_id = json["organization_id"] as? Int
+        self.created_at = json["created_at"] as? String
+        self.primary_color = json["primary_color"] as? String
+        self.color = json["color"] as? String
+        self.logo = json["logo"] as? String
+        self.number_of_responses = json["number_of_responses"] as? Int
         
+        self.questionResponse = questionResponseFactory.make(json: json["questions"] as? [[String: Any]])
         self.applicationResponse = applicationResponse
         self.settingsResponse = settingsResponseFactory.make(json: json["settings"] as? [String: Any])
         self.organizationResponse = organizationResponseFactory.make(json: json["organization"] as? [String: Any])

@@ -34,6 +34,18 @@ public struct Question: Codable {
         self.settings = QuestionSettings.init(realmSetting: realmQuestion.settings!)
     }
     
+    init(questionResponse: QuestionResponseProtocol) {
+        self.id = questionResponse.id
+        self.campaign_id = questionResponse.campaign_id
+        
+        self.title = questionResponse.title
+        self.type = questionResponse.type
+        self.group = questionResponse.group
+        self.description = questionResponse.description
+        self.order = questionResponse.order
+        self.settings = QuestionSettings(questionSettingsResponse: questionResponse.settings)
+    }
+    
 }
 
 extension Question: QuestionProtocol {

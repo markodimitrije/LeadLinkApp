@@ -17,6 +17,11 @@ protocol CampaignResponseFactoryProtocol {
 protocol SettingsResponseFactoryProtocol {
     func make(json: [String: Any]?) -> SettingsResponseProtocol?
 }
+
+
+protocol QuestionResponseFactoryProtocol {
+    func make(json: [[String: Any]]?) -> [QuestionResponseProtocol]
+}
 protocol ApplicationResponseFactoryProtocol {
     func make(json: [String: Any]?) -> ApplicationResponseProtocol?
 }

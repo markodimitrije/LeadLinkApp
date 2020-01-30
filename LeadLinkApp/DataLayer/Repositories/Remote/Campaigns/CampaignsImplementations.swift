@@ -91,7 +91,6 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                     return
                 } else {
                 
-                    let decoder = JSONDecoder()
                     var campaignResponses = [CampaignResponseProtocol]()//var payload: Campaigns!
                     
                     do {
@@ -101,8 +100,13 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                         let optInResponseFactory = OptInResponseFactory()
                         let disclaimerResponseFactory = DisclaimerResponseFactory()
                         let settingsResponseFactory = SettingsResponseFactory(optInResponseFactory: optInResponseFactory, disclaimerResponseFactory: disclaimerResponseFactory)
+                        let questionsResponseFactory = QuestionResponseFactory()
                         
-                        let singleCampaignResponseFactory = CampaignResponseFactory(applicationResponseFactory: applicationResponseFactory, settingsResponseFactory: settingsResponseFactory, organizationResponseFactory: organizationResponseFactory)
+                        let singleCampaignResponseFactory = CampaignResponseFactory(
+                            questionResponseFactory: questionsResponseFactory,
+                            applicationResponseFactory: applicationResponseFactory,
+                            settingsResponseFactory: settingsResponseFactory,
+                            organizationResponseFactory: organizationResponseFactory)
                         
                         campaignResponses = CampaignResponsesFactory(campaignResponseFactory: singleCampaignResponseFactory).make(json: json)
                     } catch {

@@ -13,6 +13,10 @@
 		7C0E5CC0228EE1110011E0A2 /* MainBundleJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CBF228EE1110011E0A2 /* MainBundleJsonParser.swift */; };
 		7C0E5CC5228F0B030011E0A2 /* QA_Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */; };
 		7C169F0123A7D1DF0036C895 /* TextAreaTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C169F0023A7D1DF0036C895 /* TextAreaTextViewFactory.swift */; };
+		7C19F33123E2CF4100AA488A /* QuestionResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19F33023E2CF4100AA488A /* QuestionResponseFactory.swift */; };
+		7C19F33323E2DC7100AA488A /* OrganizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19F33223E2DC7100AA488A /* OrganizationResponse.swift */; };
+		7C19F33523E2DDCB00AA488A /* QuestionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19F33423E2DDCB00AA488A /* QuestionResponse.swift */; };
+		7C19F33723E2DF2800AA488A /* QuestionSettingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19F33623E2DF2800AA488A /* QuestionSettingsResponse.swift */; };
 		7C1A45F022968D580032C860 /* ReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45EF22968D580032C860 /* ReportsVC.swift */; };
 		7C1A45F322968F2E0032C860 /* RealmReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */; };
 		7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */; };
@@ -348,6 +352,10 @@
 		7C0E5CBF228EE1110011E0A2 /* MainBundleJsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBundleJsonParser.swift; sourceTree = "<group>"; };
 		7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QA_Validation.swift; sourceTree = "<group>"; };
 		7C169F0023A7D1DF0036C895 /* TextAreaTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaTextViewFactory.swift; sourceTree = "<group>"; };
+		7C19F33023E2CF4100AA488A /* QuestionResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResponseFactory.swift; sourceTree = "<group>"; };
+		7C19F33223E2DC7100AA488A /* OrganizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponse.swift; sourceTree = "<group>"; };
+		7C19F33423E2DDCB00AA488A /* QuestionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResponse.swift; sourceTree = "<group>"; };
+		7C19F33623E2DF2800AA488A /* QuestionSettingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSettingsResponse.swift; sourceTree = "<group>"; };
 		7C1A45EF22968D580032C860 /* ReportsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsVC.swift; sourceTree = "<group>"; };
 		7C1A45F222968F2E0032C860 /* RealmReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReportsDataStore.swift; sourceTree = "<group>"; };
 		7C1A45F4229699860032C860 /* ReportsDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataSourceAndDelegate.swift; sourceTree = "<group>"; };
@@ -1434,6 +1442,9 @@
 				7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */,
 				7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */,
 				7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */,
+				7C19F33223E2DC7100AA488A /* OrganizationResponse.swift */,
+				7C19F33423E2DDCB00AA488A /* QuestionResponse.swift */,
+				7C19F33623E2DF2800AA488A /* QuestionSettingsResponse.swift */,
 				7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */,
 				7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */,
 				7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */,
@@ -1446,6 +1457,7 @@
 			children = (
 				7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */,
 				7C38D8D123E1D44500BAA559 /* CampaignResponseFactory.swift */,
+				7C19F33023E2CF4100AA488A /* QuestionResponseFactory.swift */,
 				7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */,
 				7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */,
 				7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */,
@@ -2551,6 +2563,7 @@
 				7C98A6F02289740800DA184E /* MultipleStringOptions.swift in Sources */,
 				7C3A689D22E75C11007E9240 /* PayingAttentionToField.swift in Sources */,
 				7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */,
+				7C19F33323E2DC7100AA488A /* OrganizationResponse.swift in Sources */,
 				7C4E0754239FEF0B003FBCF6 /* DropdownViewModelFactory.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
@@ -2772,6 +2785,7 @@
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
 				7C1F42DD237AF8CD0043D5E3 /* NotSignedInResponder.swift in Sources */,
 				7C51087422C0DC62005EE58B /* ScaningViewControllerFactory.swift in Sources */,
+				7C19F33723E2DF2800AA488A /* QuestionSettingsResponse.swift in Sources */,
 				ADBB468122425C5F00E1020F /* TokenAndCredentials.swift in Sources */,
 				7C51086E22C0D84D005EE58B /* LoginViewModelFactory.swift in Sources */,
 				7C3ED55F22E5E2E500EDDD70 /* Settings+Disclaimer+OptIn.swift in Sources */,
@@ -2800,9 +2814,11 @@
 				7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */,
 				7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */,
 				7C1CEA3923A0FC760015F8F7 /* TermsSwitchBtnViewModel.swift in Sources */,
+				7C19F33523E2DDCB00AA488A /* QuestionResponse.swift in Sources */,
 				7C98A6F22289747D00DA184E /* ChooseOptionsVC.swift in Sources */,
 				7C754065229FC4B600FFF5B9 /* SelectOptionTextFieldViewModel.swift in Sources */,
 				7C3ED56122E5E3CD00EDDD70 /* RealmDisclaimer.swift in Sources */,
+				7C19F33123E2CF4100AA488A /* QuestionResponseFactory.swift in Sources */,
 				7C3F970922E0AA1500C8A797 /* NativeScanner.swift in Sources */,
 				ADBB467D22425BB200E1020F /* Code.swift in Sources */,
 				7C64DBCB23BB610800674E04 /* SurveyQuestionProtocol.swift in Sources */,

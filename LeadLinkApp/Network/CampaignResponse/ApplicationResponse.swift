@@ -8,15 +8,13 @@
 
 import Foundation
 
-struct ApplicationResponse {
-    
-    let id: Int
-    let name: String
-    let portal_id: Int
-    let conference_id: Int
-    let api_key: String
-    let type: String
-    let settings: String?
+struct ApplicationResponse: ApplicationResponseProtocol {
+    var id: Int
+    var name: String
+    var portal_id: Int
+    var conference_id: Int
+    var api_key: String
+    var type: String
     
     init?(json: [String: Any]?) {
         guard let json = json,
@@ -25,8 +23,7 @@ struct ApplicationResponse {
         let portal_id = json["portal_id"] as? Int,
         let conference_id = json["conference_id"] as? Int,
         let api_key = json["api_key"] as? String,
-        let type = json["type"] as? String,
-        let settings = json["settings"] as? String else {
+        let type = json["type"] as? String else {
             return nil
         }
         self.id = id
@@ -35,6 +32,5 @@ struct ApplicationResponse {
         self.conference_id = conference_id
         self.api_key = api_key
         self.type = type
-        self.settings = settings
     }
 }

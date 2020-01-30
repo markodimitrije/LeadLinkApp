@@ -23,6 +23,7 @@ protocol CampaignResponseProtocol {
     var applicationResponse: ApplicationResponseProtocol {get set}
     var organizationResponse: OrganizationResponseProtocol? {get set}
     var settingsResponse: SettingsResponseProtocol? {get set}
+    var questionResponse: [QuestionResponseProtocol] {get set}
 }
 protocol QuestionsResponseProtocol {}
 protocol CodesProcol {}
@@ -34,4 +35,20 @@ protocol ApplicationResponseProtocol {
 protocol OrganizationResponseProtocol {
     var id: Int {get set}
     var name: String {get set}
+}
+
+protocol QuestionResponseProtocol {
+    var id: Int { get set}
+    var campaign_id: Int { get set}
+    var title: String { get set}
+    var type: String { get set}
+    var group: String { get set}
+    var required: Bool { get set}
+    var description: String? { get set}
+    var order: Int { get set}
+    var settings: QuestionSettingsResponseProtocol { get set}
+}
+
+protocol QuestionSettingsResponseProtocol {
+    var options: [String] { get set }
 }

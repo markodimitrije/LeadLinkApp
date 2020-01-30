@@ -15,4 +15,8 @@ public struct QuestionSettings: Codable {
         //self.options = realmSetting.options.sorted()
         self.options = realmSetting.options.toArray()
     }
+    
+    init(questionSettingsResponse: QuestionSettingsResponseProtocol) {
+        self.options = questionSettingsResponse.options
+    }
 }
