@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol OrganizationResponseProtocol {
+    var id: Int {get set}
+    var name: String {get set}
+}
+
 struct OrganizationResponse: OrganizationResponseProtocol {
     
     var id: Int

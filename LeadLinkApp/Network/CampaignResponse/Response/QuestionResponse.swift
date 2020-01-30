@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol QuestionResponseProtocol {
+    var id: Int { get set}
+    var campaign_id: Int { get set}
+    var title: String { get set}
+    var type: String { get set}
+    var group: String { get set}
+    var required: Bool { get set}
+    var description: String? { get set}
+    var order: Int { get set}
+    var settings: QuestionSettingsResponseProtocol { get set}
+}
+
 struct QuestionResponse: QuestionResponseProtocol {
     var id: Int
     var campaign_id: Int

@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol ApplicationResponseProtocol {
+    var id: Int {get set}
+    var api_key: String {get set}
+}
+
 struct ApplicationResponse: ApplicationResponseProtocol {
     var id: Int
     var name: String

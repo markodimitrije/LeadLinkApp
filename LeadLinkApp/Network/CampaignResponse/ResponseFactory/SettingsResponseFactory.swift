@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol SettingsResponseFactoryProtocol {
+    func make(json: [String: Any]?) -> SettingsResponseProtocol?
+}
+
 struct SettingsResponseFactory: SettingsResponseFactoryProtocol {
     
     private var optInResponseFactory: OptInResponseFactoryProtocol

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol QuestionResponseFactoryProtocol {
+    func make(json: [[String: Any]]?) -> [QuestionResponseProtocol]
+}
+
 struct QuestionResponseFactory: QuestionResponseFactoryProtocol {
     func make(json: [[String: Any]]?) -> [QuestionResponseProtocol] {
         guard let jsonArr = json else {

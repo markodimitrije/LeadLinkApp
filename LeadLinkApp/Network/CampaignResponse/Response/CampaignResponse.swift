@@ -8,6 +8,28 @@
 
 import Foundation
 
+protocol CampaignResponseProtocol {
+    var id: Int {get set}
+    var name: String? {get set}
+    var description: String? {get set}
+    var user_id: Int? {get set}
+    var organization_id: Int? {get set}
+    var conference_id: Int {get set}
+    var created_at: String? {get set}
+    var primary_color: String? {get set}
+    var color: String? {get set}
+    var logo: String? {get set}
+    var number_of_responses: Int? {get set}
+    var applicationResponse: ApplicationResponseProtocol {get set}
+    var organizationResponse: OrganizationResponseProtocol? {get set}
+    var settingsResponse: SettingsResponseProtocol? {get set}
+    var questionResponse: [QuestionResponseProtocol] {get set}
+}
+
+public struct CampaignResponses {
+    var data: [CampaignResponseProtocol]
+}
+
 class CampaignResponse: CampaignResponseProtocol {
 
     var id: Int = -1
@@ -17,8 +39,8 @@ class CampaignResponse: CampaignResponseProtocol {
     var user_id: Int?
     var organization_id: Int?
     var created_at: String? // (Date)
-    var primary_color: String? // oprez - ne vidim iz response koji je ovo type
-    var color: String? // oprez - ne vidim iz response koji je ovo type
+    var primary_color: String?
+    var color: String?
     var logo: String? // url
     var imgData: Data? = nil
     var number_of_responses: Int?
@@ -60,5 +82,4 @@ class CampaignResponse: CampaignResponseProtocol {
         self.settingsResponse = settingsResponseFactory.make(json: json["settings"] as? [String: Any])
         self.organizationResponse = organizationResponseFactory.make(json: json["organization"] as? [String: Any])
     }
-    
 }

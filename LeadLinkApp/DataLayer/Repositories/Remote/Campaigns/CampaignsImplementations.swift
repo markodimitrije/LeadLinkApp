@@ -74,8 +74,8 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
             
         return Promise<CampaignResults> { seal in
                 
-            let urlRequestBase = URLRequest.campaignsWithQuestions
-//            let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
+//            let urlRequestBase = URLRequest.campaignsWithQuestions
+            let urlRequestBase = URLRequest.campaignsWithQuestionsMock // hard-coded
             let headersCreator = CampaignsWithQuestionsHeaderFieldsCreator()
             let request = MyUrlRequestWithHeadersGetNoCache(
                     request: urlRequestBase,
@@ -91,25 +91,7 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                     return
                 } else {
                 
-                    var campaignResponses = [CampaignResponseProtocol]()//var payload: Campaigns!
-                    
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                        let applicationResponseFactory = ApplicationResponseFactory()
-                        let organizationResponseFactory = OrganizationResponseFactory()
-                        let optInResponseFactory = OptInResponseFactory()
-                        let disclaimerResponseFactory = DisclaimerResponseFactory()
-                        let settingsResponseFactory = SettingsResponseFactory(optInResponseFactory: optInResponseFactory, disclaimerResponseFactory: disclaimerResponseFactory)
-                        let questionsResponseFactory = QuestionResponseFactory()
-                        
-                        let singleCampaignResponseFactory = CampaignResponseFactory(
-                            questionResponseFactory: questionsResponseFactory,
-                            applicationResponseFactory: applicationResponseFactory,
-                            settingsResponseFactory: settingsResponseFactory,
-                            organizationResponseFactory: organizationResponseFactory)
-                        
-                        campaignResponses = CampaignResponsesFactory(campaignResponseFactory: singleCampaignResponseFactory).make(json: json)
-                    } catch {
+                    guard let campaignResponses = CampaignResponsesProvider().make(data: data!) else {
                         seal.reject(CampaignError.mandatoryKeyIsMissing)
                         return
                     }
@@ -155,5 +137,35 @@ struct CampaignResponsesFactory: CampaignResponsesFactoryProtocol {
         }
         let campaignsArr = jsonArray.compactMap {campaignResponseFactory.make(json: $0)}
         return campaignsArr
+    }
+}
+
+struct CampaignResponsesProvider {
+
+    private var singleCampaignResponseFactory: CampaignResponseFactory
+    
+    init() {
+        
+        let applicationResponseFactory = ApplicationResponseFactory()
+        let organizationResponseFactory = OrganizationResponseFactory()
+        let optInResponseFactory = OptInResponseFactory()
+        let disclaimerResponseFactory = DisclaimerResponseFactory()
+        let settingsResponseFactory = SettingsResponseFactory(optInResponseFactory: optInResponseFactory, disclaimerResponseFactory: disclaimerResponseFactory)
+        let questionsResponseFactory = QuestionResponseFactory()
+        
+        self.singleCampaignResponseFactory = CampaignResponseFactory(
+            questionResponseFactory: questionsResponseFactory,
+            applicationResponseFactory: applicationResponseFactory,
+            settingsResponseFactory: settingsResponseFactory,
+            organizationResponseFactory: organizationResponseFactory)
+    }
+    
+    func make(data: Data) -> [CampaignResponseProtocol]? {
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return nil
+        }
+        return CampaignResponsesFactory(campaignResponseFactory: self.singleCampaignResponseFactory)
+            .make(json: json)
     }
 }

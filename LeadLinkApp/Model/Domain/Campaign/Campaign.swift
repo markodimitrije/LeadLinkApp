@@ -61,10 +61,10 @@ public struct Campaign: Codable {
     }
     
     init(campaignResponse: CampaignResponseProtocol) {
+        
         self.application = Application(applicationResponse: campaignResponse.applicationResponse)
         self.organization = Organization(organizationResponse: campaignResponse.organizationResponse)
         self.settings = Settings(settingsResponse: campaignResponse.settingsResponse)
-        
         let questions = campaignResponse.questionResponse.map(Question.init)
         self.questions = questions
         
@@ -75,16 +75,11 @@ public struct Campaign: Codable {
         self.user_id = campaignResponse.user_id
         self.organization_id = campaignResponse.organization_id
         self.created_at = campaignResponse.created_at // (Date)
-        self.primary_color = campaignResponse.primary_color // oprez - ne vidim iz response koji je ovo type
-        self.color = campaignResponse.color // oprez - ne vidim iz response koji je ovo type
+        self.primary_color = campaignResponse.primary_color
+        self.color = campaignResponse.color
         self.logo = campaignResponse.logo
         self.imgData = nil
         self.number_of_responses = campaignResponse.number_of_responses
     }
     
-}
-
-
-public struct CampaignResponses {
-    var data: [CampaignResponseProtocol]
 }

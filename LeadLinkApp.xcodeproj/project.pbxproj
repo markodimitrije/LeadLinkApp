@@ -114,7 +114,6 @@
 		7C38D8D423E1D46F00BAA559 /* ApplicationResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */; };
 		7C38D8D623E1D48500BAA559 /* OrganizationResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */; };
 		7C38D8D823E1D49600BAA559 /* SettingsResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */; };
-		7C38D8DA23E1D4D800BAA559 /* ResponseFactoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */; };
 		7C38D8DC23E1D6C600BAA559 /* OptInResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DB23E1D6C600BAA559 /* OptInResponseFactory.swift */; };
 		7C38D8DE23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DD23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift */; };
 		7C38D8E023E1D77600BAA559 /* OptInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */; };
@@ -453,7 +452,6 @@
 		7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationResponseFactory.swift; sourceTree = "<group>"; };
 		7C38D8D523E1D48500BAA559 /* OrganizationResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponseFactory.swift; sourceTree = "<group>"; };
 		7C38D8D723E1D49600BAA559 /* SettingsResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseFactory.swift; sourceTree = "<group>"; };
-		7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseFactoryProtocols.swift; sourceTree = "<group>"; };
 		7C38D8DB23E1D6C600BAA559 /* OptInResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInResponseFactory.swift; sourceTree = "<group>"; };
 		7C38D8DD23E1D6EC00BAA559 /* DisclaimerResponseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerResponseFactory.swift; sourceTree = "<group>"; };
 		7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptInResponse.swift; sourceTree = "<group>"; };
@@ -734,6 +732,21 @@
 				7CB4D3DD22DCAEB100D6987E /* ScanditAllownessValidation.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		7C19F33823E2F36600AA488A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */,
+				7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */,
+				7C19F33223E2DC7100AA488A /* OrganizationResponse.swift */,
+				7C19F33423E2DDCB00AA488A /* QuestionResponse.swift */,
+				7C19F33623E2DF2800AA488A /* QuestionSettingsResponse.swift */,
+				7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */,
+				7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */,
+				7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		7C1A45F122968F150032C860 /* ReportsStore */ = {
@@ -1438,16 +1451,9 @@
 		7C38D8C723E1C55400BAA559 /* CampaignResponse */ = {
 			isa = PBXGroup;
 			children = (
+				7C19F33823E2F36600AA488A /* Response */,
 				7C38D8D023E1D43800BAA559 /* ResponseFactory */,
 				7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */,
-				7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */,
-				7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */,
-				7C19F33223E2DC7100AA488A /* OrganizationResponse.swift */,
-				7C19F33423E2DDCB00AA488A /* QuestionResponse.swift */,
-				7C19F33623E2DF2800AA488A /* QuestionSettingsResponse.swift */,
-				7C38D8CE23E1CCFF00BAA559 /* SettingsResponse.swift */,
-				7C38D8DF23E1D77600BAA559 /* OptInResponse.swift */,
-				7C38D8E123E1D78F00BAA559 /* DisclaimerResponse.swift */,
 			);
 			path = CampaignResponse;
 			sourceTree = "<group>";
@@ -1455,7 +1461,6 @@
 		7C38D8D023E1D43800BAA559 /* ResponseFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D8D923E1D4D800BAA559 /* ResponseFactoryProtocols.swift */,
 				7C38D8D123E1D44500BAA559 /* CampaignResponseFactory.swift */,
 				7C19F33023E2CF4100AA488A /* QuestionResponseFactory.swift */,
 				7C38D8D323E1D46F00BAA559 /* ApplicationResponseFactory.swift */,
@@ -2693,7 +2698,6 @@
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
 				7C1CE18D23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift in Sources */,
-				7C38D8DA23E1D4D800BAA559 /* ResponseFactoryProtocols.swift in Sources */,
 				7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */,
 				7C4E078223A03658003FBCF6 /* SingleCheckboxBtnViewFactory.swift in Sources */,
 				7C3671E423B8A7ED00EDCAB5 /* DistancerViewFactory.swift in Sources */,

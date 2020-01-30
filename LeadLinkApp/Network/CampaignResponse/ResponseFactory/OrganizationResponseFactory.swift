@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol OrganizationResponseFactoryProtocol {
+    func make(json: [String: Any]?) -> OrganizationResponseProtocol?
+}
+
 struct OrganizationResponseFactory: OrganizationResponseFactoryProtocol {
     func make(json: [String: Any]?) -> OrganizationResponseProtocol? {
         return OrganizationResponse(json: json)

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol QuestionSettingsResponseProtocol {
+    var options: [String] { get set }
+}
+
 struct QuestionSettingsResponse: QuestionSettingsResponseProtocol {
     var options: [String]
     init?(json: [String: Any]?) {
