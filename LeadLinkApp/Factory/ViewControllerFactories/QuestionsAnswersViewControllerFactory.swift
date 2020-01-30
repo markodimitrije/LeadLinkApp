@@ -41,23 +41,6 @@ class QuestionsAnswersViewControllerFactory {
         return vc
     }
     
-    func makeVC(code: Code) -> QuestionsAnswersVC {
-        
-        let codeValue = code.value
-        
-        let campaignId = code.campaign_id
-        
-        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {fatalError("no campaign value !?!")}
-        
-        surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
-        
-        let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
-        
-        vc.surveyInfo = surveyInfo
-        
-        return vc
-    }
-    
     func makeVC(codeValue: String, campaignId: Int) -> QuestionsAnswersVC {
         
         guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {
