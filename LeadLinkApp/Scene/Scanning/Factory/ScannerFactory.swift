@@ -18,9 +18,10 @@ class ScannerFactory: ScannerFactoryProtocol {
     var scanner: MinimumScanning!
     var scannerVC: ScanningVC
     
-    init(scannerVC: ScanningVC, scanditAllownesValidator: ScanditAllowable) {
+    init(scannerVC: ScanningVC, campaign: Campaign) {
         
         self.scannerVC = scannerVC
+        let scanditAllownesValidator = ScanditAllownessValidator(campaign: campaign)
         
         if scanditAllownesValidator.canUseScandit() {
             loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView()

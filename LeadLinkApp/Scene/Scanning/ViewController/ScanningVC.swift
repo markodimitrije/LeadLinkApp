@@ -22,8 +22,8 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     @IBOutlet weak var orLabel: UILabel!
     
+    var viewModel: ScanningViewModel!
     var scannerView: QRcodeView!
-    
     var spinnerViewManager: SpinnerViewManaging!
     
     private var scanner: MinimumScanning!
@@ -32,16 +32,11 @@ class ScanningVC: UIViewController, Storyboarded {
         return viewModel.campaign
     }
     
-    var viewModel: ScanningViewModel!
-    var keyboardManager: MovingKeyboardDelegate?
+    private var keyboardManager: MovingKeyboardDelegate?
     
     private let disclaimerFactory = DisclaimerViewFactory()
     
-    private var lastScanedCode: String = ""
-    private var delegate: Delegate?
-    private var hasConsent = false
-    
-    private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
+    private var scanningProcess = ScanningProcess()
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -60,7 +55,6 @@ class ScanningVC: UIViewController, Storyboarded {
         
         loadKeyboardManager()
         bindUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
@@ -82,10 +76,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private func hookUpCameraAccordingToScanditPermission() {
         
         loadScannerView()
-        
-        let scanditAllownessValidator = ScanditAllownessValidator(campaign: campaign)
-        let scannerFactory = ScannerFactory(scannerVC: self,
-                                            scanditAllownesValidator: scanditAllownessValidator)
+        let scannerFactory = ScannerFactory(scannerVC: self, campaign: campaign!)
         self.scanner = scannerFactory.scanner
     }
     
@@ -95,8 +86,6 @@ class ScanningVC: UIViewController, Storyboarded {
                                                                 handler: hideScaningView)
         self.scannerView.isHidden = true
         self.view.addSubview(self.scannerView)
-        
-        
     }
     
     private func bindUI() {
@@ -145,15 +134,16 @@ class ScanningVC: UIViewController, Storyboarded {
     }
     
     private func navigateToQuestionsScreen() {
-        let questionsVC = questionsAnswersVcFactory.makeVC(scanningViewModel: viewModel,
-                                                           hasConsent: self.hasConsent,
-                                                           delegate: delegate)
+        let questionsVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
+        let questionsVC = questionsVcFactory.makeVC(scanningViewModel: viewModel,
+                                                    hasConsent: self.scanningProcess.hasConsent,
+                                                    delegate: scanningProcess.congressDelegate)
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
     private func codeSuccessfull(code: String) {
         
-        self.lastScanedCode = code // save state
+        self.scanningProcess.lastScanedCode = code // save state
         self.hideScaningView()
         
         connectedToInternet()
@@ -174,13 +164,11 @@ class ScanningVC: UIViewController, Storyboarded {
         DelegatesRemoteAPI.shared.getDelegate(withCode: code)
             .subscribe(onNext: { [weak self] delegate in
                 guard let sSelf = self else {return}
-                sSelf.delegate = delegate
+                sSelf.scanningProcess.congressDelegate = delegate
                 sSelf.spinnerViewManager.removeSpinnerView()
                 DispatchQueue.main.async {
-                    let diclaimerValidator = ShowDisclaimerValidator(code: code,
-                                                                     delegate: delegate,
-                                                                     campaign: sSelf.campaign)
-                    if diclaimerValidator.shouldShowDisclaimer(disclaimerAlreadyOnScreen: sSelf.isDisclaimerAlreadyOnScreen()) {
+                    let diclaimerValidator = ShowDisclaimerValidator(campaign: sSelf.campaign)
+                    if diclaimerValidator.shouldShowDisclaimer(disclaimerAlreadyOnScreen: sSelf.isDisclaimerAlreadyOnScreen(), delegate: delegate) {
                         sSelf.showDisclaimer()
                     } else {
                         sSelf.consent(hasConsent: true)
@@ -206,21 +194,12 @@ class ScanningVC: UIViewController, Storyboarded {
         self.view.addSubview(disclaimerView)
     }
     
-    private func failed() {
-        
-        self.alert(alertInfo: AlertInfo.getInfo(type: .noCamera), sourceView: orLabel)
-            .subscribe {
-                self.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
-    }
-    
     private func isDisclaimerAlreadyOnScreen() -> Bool {
         return self.view.subviews.first(where: {$0.tag == 12}) != nil
     }
  
     fileprivate func notifyWorldAboutScanedCode() { // print("prosledi code report za code = \(code)....")
-        viewModel.codeInput.onNext(self.lastScanedCode)
+        viewModel.codeInput.onNext(self.scanningProcess.lastScanedCode)
         navigateToQuestionsScreen()
     }
     
@@ -242,14 +221,12 @@ extension ScanningVC: BarcodeListening {
         scanner?.stopScanning()
         codeSuccessfull(code: code)
         self.barCodeTxtField.text = ""
-        
     }
-    
 }
 
 extension ScanningVC: ConsentAproving {
     func consent(hasConsent consent: Bool) {
-        self.hasConsent = consent
+        self.scanningProcess.hasConsent = consent
         notifyWorldAboutScanedCode()
         removeDisclaimerView()
     }
@@ -268,5 +245,18 @@ extension ScanningVC: UITextViewDelegate {
             UIApplication.shared.open(URL)
         }
         return false
+    }
+}
+
+struct ScanningProcess {
+    
+    var lastScanedCode: String = ""
+    var congressDelegate: Delegate?
+    var hasConsent = false
+    
+    init(lastScanedCode: String = "", congressDelegate: Delegate? = nil, hasConsent: Bool = false) {
+        self.lastScanedCode = lastScanedCode
+        self.congressDelegate = congressDelegate
+        self.hasConsent = hasConsent
     }
 }

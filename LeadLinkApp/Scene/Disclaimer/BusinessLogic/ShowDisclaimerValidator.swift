@@ -10,28 +10,24 @@ import Foundation
 import RxSwift
 
 struct ShowDisclaimerValidator {
-    var code: String
-    var delegate: Delegate?
     var campaign: Campaign?
-    init(code: String, delegate: Delegate?, campaign: Campaign?) {
-        self.code = code
-        self.delegate = delegate
+    init(campaign: Campaign?) {
         self.campaign = campaign
     }
-    func shouldShowDisclaimer(disclaimerAlreadyOnScreen: Bool) -> Bool {
+    func shouldShowDisclaimer(disclaimerAlreadyOnScreen: Bool, delegate: Delegate?) -> Bool {
         if !disclaimerAlreadyOnScreen {
             if !campaignHasSettingsWithDisclaimer() {
                 return false
             }
-            if !delegateExistsInRemoteDatabase() {
+            if !delegateExistsInRemoteDatabase(delegate: delegate) {
                 return false
             }
-            return shouldAskForConsent()
+            return shouldAskForConsent(delegate: delegate)
         }
         return false
     }
     
-    private func shouldAskForConsent() -> Bool {
+    private func shouldAskForConsent(delegate: Delegate?) -> Bool {
         guard let delegate = delegate else {
             return false
         }
@@ -41,8 +37,8 @@ struct ShowDisclaimerValidator {
         return !consentGiven
     }
     
-    private func delegateExistsInRemoteDatabase() -> Bool {
-        return self.delegate != nil
+    private func delegateExistsInRemoteDatabase(delegate: Delegate?) -> Bool {
+        return delegate != nil
     }
     
     private func campaignHasSettingsWithDisclaimer() -> Bool {

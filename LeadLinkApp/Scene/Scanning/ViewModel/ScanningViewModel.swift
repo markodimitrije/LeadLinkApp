@@ -16,11 +16,13 @@ class ScanningViewModel {
     private (set) var logo: UIImage?
     
     public let codeInput = BehaviorSubject<String>(value: "")
+    private var showDisclaimerValidator: ShowDisclaimerValidator!
     
     private (set) var campaign: Campaign! {
         didSet {
             updateLogoImage()
             setCodeListener()
+            self.showDisclaimerValidator = ShowDisclaimerValidator(campaign: campaign)
         }
     }
 
