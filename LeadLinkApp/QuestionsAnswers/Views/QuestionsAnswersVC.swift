@@ -75,7 +75,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
-        
+
         let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
         let answersWebReporter = AnswersReportsToWebState()
         viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
@@ -123,20 +123,5 @@ extension QuestionsAnswersVC: UIScrollViewDelegate {
         if scrollView.contentOffset.x != 0 {
             scrollView.contentOffset.x = 0
         }
-    }
-}
-
-struct QuestionsAnswersViewModelFactory {
-    func make(surveyInfo: SurveyInfo, obsDelegate: Observable<Delegate?>) -> QuestionsAnswersViewModel {
-        let questions = surveyInfo.surveyQuestions
-        let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
-        let viewInfos = helper.getViewInfos()
-        
-        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
-        let answersWebReporter = AnswersReportsToWebState()
-        let viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
-                                                       answersWebReporterWorker: answersWebReporter,
-                                                       obsDelegate: obsDelegate)
-        return viewModel
     }
 }

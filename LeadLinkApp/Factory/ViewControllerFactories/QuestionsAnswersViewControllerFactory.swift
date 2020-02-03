@@ -35,12 +35,7 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
-        let viewmodelFactory = QuestionsAnswersViewModelFactory()
-        let qaViewmodel = viewmodelFactory.make(surveyInfo: surveyInfo!,
-                                                obsDelegate: Observable.just(delegate))
-        
         vc.surveyInfo = surveyInfo
-        vc.viewModel = qaViewmodel
         
         return vc
     }
@@ -55,11 +50,6 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
-        let viewmodelFactory = QuestionsAnswersViewModelFactory()
-        let qaViewmodel = viewmodelFactory.make(surveyInfo: surveyInfo!,
-                                                obsDelegate: Observable.just(nil))
-        
-        vc.viewModel = qaViewmodel
         vc.surveyInfo = surveyInfo
         
         return vc
