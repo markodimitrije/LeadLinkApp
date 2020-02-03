@@ -55,7 +55,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private func listenOnDelegate() {
         obsDelegate
             .subscribe(onNext: { (delegate) in
-                print("listenOnDelegate called, delegate = \(delegate)")
+                print("listenOnDelegate called, delegate.id = \(delegate?.id)")
                 self.dataReceived(delegate: delegate)
                 })
             .disposed(by: bag)
@@ -100,41 +100,6 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     @objc internal func btnTapped(_ sender: UIButton) { print("saveBtnTapped. save answers")
         reactOnSaveEvent()
     }
-    
-    /*
-    func fetchDelegateAndSaveToRealm(code: String) {
-        
-        guard let surveyInfo = questionsVC.surveyInfo else {return}
-        
-        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
-                                                                codeToCheck: code)
-        guard decisioner.shouldPrepopulateDelegateData() else {
-            return
-        }
-
-        let oNewDelegate = DelegatesRemoteAPI.shared.getDelegate(withCode: code)
-        
-        oNewDelegate
-            .subscribe(onNext: { [weak self] delegate in
-                guard let sSelf = self, let delegate = delegate else { return }
-                
-                var myDelegate = delegate
-                
-                let delegateEmailScrambler = DelegateEmailScrambler(campaign: surveyInfo.campaign)
-                if !delegateEmailScrambler.shouldShowEmail() {
-                    myDelegate.email = ""
-                }
-                
-                let updatedSurvey = surveyInfo.updated(withDelegate: myDelegate)
-                
-                DispatchQueue.main.async {
-                    sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
-                                                                answers: updatedSurvey.answers) //redundant....
-                }
-            })
-            .disposed(by: bag)
-    }
-    */
     
     private func reactOnSaveEvent() {
         
