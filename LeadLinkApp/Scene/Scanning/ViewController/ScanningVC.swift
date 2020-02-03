@@ -38,6 +38,7 @@ class ScanningVC: UIViewController, Storyboarded {
     private let disclaimerFactory = DisclaimerViewFactory()
     
     private var lastScanedCode: String = ""
+    private var delegate: Delegate?
     private var hasConsent = false
     
     private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
@@ -132,7 +133,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func navigateToQuestionsScreen() {
         let questionsVC = questionsAnswersVcFactory.makeVC(scanningViewModel: viewModel,
-                                                           hasConsent: self.hasConsent)
+                                                           hasConsent: self.hasConsent,
+                                                           delegate: delegate)
         navigationController?.pushViewController(questionsVC, animated: true)
     }
     
@@ -159,6 +161,7 @@ class ScanningVC: UIViewController, Storyboarded {
         DelegatesRemoteAPI.shared.getDelegate(withCode: code)
             .subscribe(onNext: { [weak self] delegate in
                 guard let sSelf = self else {return}
+                sSelf.delegate = delegate
                 sSelf.spinnerViewManager.removeSpinnerView()
                 DispatchQueue.main.async {
                     let diclaimerValidator = ShowDisclaimerValidator(code: code,

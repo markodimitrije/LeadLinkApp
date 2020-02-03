@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class QuestionsAnswersViewControllerFactory {
     
@@ -20,23 +21,26 @@ class QuestionsAnswersViewControllerFactory {
     }
     
     func makeVC(scanningViewModel viewModel: ScanningViewModel?,
-                hasConsent consent: Bool = false) -> QuestionsAnswersVC {
+                hasConsent consent: Bool = false,
+                delegate: Delegate?) -> QuestionsAnswersVC {
         
         guard let code = try? viewModel!.codeInput.value() else {fatalError()}
         
-        guard let campaignId = selectedCampaignId else {
-            fatalError("no campaign selected !?!")
-        }
-        
-        guard let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {
-            fatalError("no campaign value !?!")
+        guard let campaignId = selectedCampaignId,
+            let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {
+            fatalError("no campaign selected or no campaign found !?!")
         }
         
         surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
+        let viewmodelFactory = QuestionsAnswersViewModelFactory()
+        let qaViewmodel = viewmodelFactory.make(surveyInfo: surveyInfo!,
+                                                obsDelegate: Observable.just(delegate))
+        
         vc.surveyInfo = surveyInfo
+        vc.viewModel = qaViewmodel
         
         return vc
     }
@@ -51,6 +55,11 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
+        let viewmodelFactory = QuestionsAnswersViewModelFactory()
+        let qaViewmodel = viewmodelFactory.make(surveyInfo: surveyInfo!,
+                                                obsDelegate: Observable.just(nil))
+        
+        vc.viewModel = qaViewmodel
         vc.surveyInfo = surveyInfo
         
         return vc

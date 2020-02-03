@@ -16,13 +16,13 @@ import RxSwift
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
-    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo, questionsAnswersViewModel: self)
+    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC!.surveyInfo, questionsAnswersViewModel: self)
     private var answersWebReporter: AnswersReportsToWebStateProtocol
     private var obsDelegate: Observable<Delegate?>
     
-    private var questionsVC: QuestionsAnswersVC = {
-        (UIApplication.topViewController() as! QuestionsAnswersVC)
-    }()
+    private var questionsVC: QuestionsAnswersVC? {
+        (UIApplication.topViewController() as? QuestionsAnswersVC)
+    }
     
     var formIsValid = PublishSubject<QuestionProtocol?>()
     
@@ -65,7 +65,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         
         DispatchQueue.main.async { [weak self] in guard let sSelf = self else {return}
                 
-            guard let surveyInfo = sSelf.questionsVC.surveyInfo,
+            guard let surveyInfo = sSelf.questionsVC?.surveyInfo,
                 let delegate = delegate else {
                     return
             }
@@ -109,13 +109,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private func persistAnswersIfFormIsValid(answers: [MyAnswerProtocol]) {
                 
-        let validator = QA_Validation(surveyInfo: questionsVC.surveyInfo,
-                                      questions: questionsVC.questions,
+        let validator = QA_Validation(surveyInfo: questionsVC!.surveyInfo,
+                                      questions: questionsVC!.questions,
                                       answers: answers)
         
         if validator.questionsFormIsValid {
             
-            let survey = questionsVC.surveyInfo
+            let survey = questionsVC!.surveyInfo
             
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: survey!, answers: answers)
             
@@ -132,7 +132,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
         surveyInfo.save(answers: answers) // save to realm
             .subscribe({ (saved) in
-                self.questionsVC.surveyInfo = surveyInfo //update state
+                self.questionsVC?.surveyInfo = surveyInfo //update state
             })
             .disposed(by: bag)
     }

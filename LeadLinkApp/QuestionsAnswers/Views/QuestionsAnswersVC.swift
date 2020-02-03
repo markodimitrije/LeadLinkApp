@@ -18,7 +18,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var questions: [QuestionProtocol] {
         return surveyQuestions.map {$0.getQuestion()}
     }
-    private var viewModel: QuestionsAnswersViewModel!
+    var viewModel: QuestionsAnswersViewModel!
     lazy private var obsDelegate: Observable<Delegate?> = {
         return DelegatesRemoteAPI.shared.getDelegate(withCode: surveyInfo.code)
     }()
@@ -123,5 +123,20 @@ extension QuestionsAnswersVC: UIScrollViewDelegate {
         if scrollView.contentOffset.x != 0 {
             scrollView.contentOffset.x = 0
         }
+    }
+}
+
+struct QuestionsAnswersViewModelFactory {
+    func make(surveyInfo: SurveyInfo, obsDelegate: Observable<Delegate?>) -> QuestionsAnswersViewModel {
+        let questions = surveyInfo.surveyQuestions
+        let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
+        let viewInfos = helper.getViewInfos()
+        
+        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
+        let answersWebReporter = AnswersReportsToWebState()
+        let viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
+                                                       answersWebReporterWorker: answersWebReporter,
+                                                       obsDelegate: obsDelegate)
+        return viewModel
     }
 }
