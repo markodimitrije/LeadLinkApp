@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
+         contextName = "QuestionOptionsFromTextViewDelegate.reloadTableViewAndUpdateModel(selfRef:forDataSource:viewmodel:textView:):QuestionOptionsFromTextViewDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "question.type">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sSelf.navigationController">
+               value = "vcfd">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,34 +19,43 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "scanerViewModel.sessionId">
+               value = "cellPositionY &gt; UIScreen.main.bounds.midY">
+            </PersistentString>
+            <PersistentString
+               value = "cell.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "self.frame.midY">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ShowDisclaimerValidator.shouldShowDisclaimer(disclaimerAlreadyOnScreen:):ShowDisclaimerValidator.swift">
+         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "campaign?.settings">
+               value = "questions">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PieChartView.setChartInnerAndOuterRadius():PieChartView.swift">
+         contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "bounds.width">
+               value = "self.scannerVC.scannerView">
+            </PersistentString>
+            <PersistentString
+               value = "self.scannerVC">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsAnswersVC.configureQuestionForm():QuestionsAnswersVC.swift">
+         contextName = "closure #1 in TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
          <PersistentStrings>
             <PersistentString
-               value = "webViewsAndViewSizesProvider">
+               value = "viewmodel.question.options">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -67,10 +68,120 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ReportsTVC.update(report:):ReportsTVC.swift">
+         contextName = "DataErrorFromUrlResponse.answerOk.getter:DataErrorFromUrlResponse.swift">
          <PersistentStrings>
             <PersistentString
-               value = "report.code.count">
+               value = "data != nil &amp;&amp; error == nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "type(of: UIApplication.topViewController())">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CodesVC.listenTapEvents():CodesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sSelf.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Reactive&lt;A&gt;.txtChanged.getter:RxViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewmodel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ShowDisclaimerValidator.shouldShowDisclaimer(disclaimerAlreadyOnScreen:):ShowDisclaimerValidator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "campaign?.settings">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "codesView">
+            </PersistentString>
+            <PersistentString
+               value = "containerView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Validation.invalidFieldQuestionId.getter:Validation.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "emailAnswer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "QuestionsAnswersVC.configureQuestionForm():QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "webViewsAndViewSizesProvider">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TableViewPayingAttentioner.activateTextField(ip:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.subviews.first as? LabelAndTextField">
+            </PersistentString>
+            <PersistentString
+               value = "cell.subviews.first">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanningVC.setupScanditScanner():ScanningVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "captureView.layer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "count">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "doneBtn">
+            </PersistentString>
+            <PersistentString
+               value = "chooseOptionsVC">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -79,6 +190,46 @@
          <PersistentStrings>
             <PersistentString
                value = "campaign.useScanditScanner">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReportsTVC.update(report:):ReportsTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "report.code.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "question.type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SaveButton.setColorAndText():SaveButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.backgroundColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PieChartView.setChartInnerAndOuterRadius():PieChartView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanningVC.found(code:):ScanningVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scanerViewModel.sessionId">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -105,79 +256,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DataErrorFromUrlResponse.answerOk.getter:DataErrorFromUrlResponse.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "data != nil &amp;&amp; error == nil">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "StatsVC.viewDidLoad():StatsVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "codesView">
-            </PersistentString>
-            <PersistentString
-               value = "containerView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UITableView.isCellBelowHalfOfTheScreen(cell:):Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cellPositionY &gt; UIScreen.main.bounds.midY">
-            </PersistentString>
-            <PersistentString
-               value = "self.frame.midY">
-            </PersistentString>
-            <PersistentString
-               value = "cell.frame.origin.y">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "LoginViewController.init(coder:):LoginViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "factory">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Validation.invalidFieldQuestionId.getter:Validation.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "emailAnswer">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in TermsSwitchBtnsViewmodelInputCreator.createTxtDrivers():TermsSwitchBtnsViewmodelInputCreator.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewmodel.question.options">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in Reactive&lt;A&gt;.txtChanged.getter:RxViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewmodel">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SaveButton.setColorAndText():SaveButton.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.backgroundColor">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "LabelAndTextView.formatTextView():LabelAndTextView.swift">
          <PersistentStrings>
             <PersistentString
@@ -189,21 +267,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
+         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.scannerVC">
-            </PersistentString>
-            <PersistentString
-               value = "self.scannerVC.scannerView">
+               value = "surveyInfo.campaign">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "QuestionsAnswersVC.loadViewStackerAndComponentSizes():QuestionsAnswersVC.swift">
+         contextName = "ScanditAllownessValidator.canUseScandit():ScanditAllowable.swift">
          <PersistentStrings>
             <PersistentString
-               value = "questions">
+               value = "campaign.use_scandit_scanner">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.init(coder:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "factory">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -224,85 +307,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in TableViewPayingAttentioner.activateTextField(ip:):QuestionsAnswersVC.swift">
+         contextName = "QuestionsAnswersVC.surveyInfo.didset:QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.subviews.first as? LabelAndTextField">
-            </PersistentString>
-            <PersistentString
-               value = "cell.subviews.first">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ScanningVC.setupScanditScanner():ScanningVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "captureView.layer">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ScanditAllownessValidator.canUseScandit():ScanditAllowable.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "campaign.use_scandit_scanner">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionOptionsFromTextViewDelegate.reloadTableViewAndUpdateModel(selfRef:forDataSource:viewmodel:textView:):QuestionOptionsFromTextViewDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "vcfd">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "chooseOptionsVC">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems!.count">
-            </PersistentString>
-            <PersistentString
-               value = "doneBtn">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "QuestionsAnswersVC.loadQuestions(surveyInfo:):QuestionsAnswersVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "surveyInfo.campaign">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in UIViewController.alert(alertInfo:preferredStyle:sourceView:):AlertWithRx.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "type(of: UIApplication.topViewController())">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.rightBarButtonItems">
-            </PersistentString>
-            <PersistentString
-               value = "UIApplication.topViewController()!.navigationItem.leftBarButtonItem">
+               value = "stackView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

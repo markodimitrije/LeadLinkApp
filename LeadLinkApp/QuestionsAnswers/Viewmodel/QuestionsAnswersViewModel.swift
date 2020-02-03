@@ -1,6 +1,10 @@
 //
 //  QuestionsAnswersViewModel.swift
-//  tryLeadLinkModularComponent
+//  // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
+//  1. loadItems - -  - - - - - OK
+//  2. fetchDelegate from web - - -- - - OK (transfer to dedicated worker)
+//  3. save to realm
+//  4. itd...
 //
 //  Created by Marko Dimitrijevic on 25/03/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
@@ -14,17 +18,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private let bag = DisposeBag()
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC.surveyInfo, questionsAnswersViewModel: self)
     private var answersWebReporter: AnswersReportsToWebStateProtocol
+    private var obsDelegate: Observable<Delegate?>
     
-    private var questionsVC: QuestionsAnswersVC {
+    private var questionsVC: QuestionsAnswersVC = {
         (UIApplication.topViewController() as! QuestionsAnswersVC)
-    }
+    }()
     
     var formIsValid = PublishSubject<QuestionProtocol?>()
-    // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
-    // 1. loadItems - -  - - - - - OK
-    // 2. fetchDelegate from web - - -- - - OK (transfer to dedicated worker)
-    // 3. save to realm
-    // 4. itd...
     
     func getQuestionPageViewItems() -> [QuestionPageGetViewProtocol] {
         return items
@@ -41,11 +41,54 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private var items = [QuestionPageGetViewProtocol]()
     
     init(getViewItemsWorker: QuestionPageGetViewItemsProtocol,
-         answersWebReporterWorker: AnswersReportsToWebStateProtocol) {
+         answersWebReporterWorker: AnswersReportsToWebStateProtocol,
+         obsDelegate: Observable<Delegate?>) {
+       
         self.items = getViewItemsWorker.getViewItems()
         self.answersWebReporter = answersWebReporterWorker
+        self.obsDelegate = obsDelegate
         super.init()
+        listenOnDelegate()
         hookUpSaveEvent()
+    }
+    
+    private func listenOnDelegate() {
+        obsDelegate
+            .subscribe(onNext: { (delegate) in
+                print("listenOnDelegate called, delegate = \(delegate)")
+                self.dataReceived(delegate: delegate)
+                })
+            .disposed(by: bag)
+    }
+    
+    private func dataReceived(delegate: Delegate?) {
+        
+        DispatchQueue.main.async { [weak self] in guard let sSelf = self else {return}
+                
+            guard let surveyInfo = sSelf.questionsVC.surveyInfo,
+                let delegate = delegate else {
+                    return
+            }
+            
+            let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: surveyInfo,
+                                                                    codeToCheck: surveyInfo.code)
+            guard decisioner.shouldPrepopulateDelegateData() else {
+                return
+            }
+            
+            var myDelegate = delegate
+            
+            let delegateEmailScrambler = DelegateEmailScrambler(campaign: surveyInfo.campaign)
+            if !delegateEmailScrambler.shouldShowEmail() {
+                myDelegate.email = ""
+            }
+            
+            let updatedSurvey = surveyInfo.updated(withDelegate: myDelegate)
+            
+            sSelf.saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: updatedSurvey,
+                                                           answers: updatedSurvey.answers) //redundant....
+        }
+        
     }
     
     private func hookUpSaveEvent() {
@@ -58,6 +101,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         reactOnSaveEvent()
     }
     
+    /*
     func fetchDelegateAndSaveToRealm(code: String) {
         
         guard let surveyInfo = questionsVC.surveyInfo else {return}
@@ -90,6 +134,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
             })
             .disposed(by: bag)
     }
+    */
     
     private func reactOnSaveEvent() {
         

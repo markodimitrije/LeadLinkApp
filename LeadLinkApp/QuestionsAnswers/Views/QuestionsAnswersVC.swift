@@ -19,6 +19,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return surveyQuestions.map {$0.getQuestion()}
     }
     private var viewModel: QuestionsAnswersViewModel!
+    lazy private var obsDelegate: Observable<Delegate?> = {
+        return DelegatesRemoteAPI.shared.getDelegate(withCode: surveyInfo.code)
+    }()
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)
@@ -30,12 +33,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var surveyInfo: SurveyInfo! {
         didSet {
             guard surveyInfo != nil, viewModel != nil else {return}
-            viewModel.fetchDelegateAndSaveToRealm(code: self.surveyInfo.code)
             if oldValue != nil {
-                stackView.removeAllSubviews()
-                surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-                loadParentViewModel(questions: surveyQuestions)
-                subscribeListeningToSaveEvent()
+                configureQuestionForm()
             }
         }
     }
@@ -48,13 +47,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private func configureQuestionForm() {
         
-        surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-        loadParentViewModel(questions: surveyQuestions)
-        
         self.hideKeyboardWhenTappedAround()
         
-        viewModel.fetchDelegateAndSaveToRealm(code: surveyInfo.code)
-        
+        stackView?.removeAllSubviews()
+        surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
+        loadParentViewModel(questions: surveyQuestions)
         subscribeListeningToSaveEvent()
     }
     
@@ -82,7 +79,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
         let answersWebReporter = AnswersReportsToWebState()
         viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
-                                                   answersWebReporterWorker: answersWebReporter)
+                                                   answersWebReporterWorker: answersWebReporter,
+                                                   obsDelegate: obsDelegate)
         
         let viewItems = viewModel.getQuestionPageViewItems()
         drawScreen(viewItems: viewItems)

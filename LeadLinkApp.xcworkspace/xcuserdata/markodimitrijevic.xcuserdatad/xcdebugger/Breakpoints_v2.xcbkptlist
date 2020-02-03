@@ -104,22 +104,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E930CCF-3786-455A-898A-F3314BB67B4F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/BusinessLogic/SurveyInfo.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "shouldLoadAnswerWithDelegateData(optionKey:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C072F726-47EE-41F4-833C-DB2FC9213E79"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -200,33 +184,29 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2BA3F7C8-2972-4549-9495-8EE1480B60E1"
+            uuid = "D782728B-D0F9-41DD-B5A1-E108888C52DE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/DataLayer/Repositories/Remote/New Group/DelegatesRemoteAPI.swift"
+            filePath = "LeadLinkApp/Scene/Scanning/ViewModel/ScanningViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "getDelegate(withCode:)"
-            landmarkType = "7">
+            startingLineNumber = "57"
+            endingLineNumber = "57">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C660AF9B-8E8B-4438-8174-1598B629B671"
+            uuid = "79090501-EBD8-4A3E-9D73-E4A14A98C623"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LeadLinkApp/QuestionsAnswers/Viewmodel/QuestionsAnswersViewModel.swift"
+            filePath = "LeadLinkApp/Scene/Scanning/ViewModel/ScanningViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "fetchDelegateAndSaveToRealm(code:)"
-            landmarkType = "7">
+            startingLineNumber = "57"
+            endingLineNumber = "57">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
