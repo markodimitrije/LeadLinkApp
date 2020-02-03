@@ -49,6 +49,10 @@ struct AlertInfo {
             return AlertInfo.init(title: Constants.AlertInfo.campaignKeyIsMissingError.title,
                                   text: Constants.AlertInfo.campaignKeyIsMissingError.msg,
                                   btnText: [Constants.AlertInfo.ok])
+        case .cameraPermission:
+            return AlertInfo.init(title: Constants.AlertInfo.CameraPermission.title,
+                                  text: Constants.AlertInfo.CameraPermission.subtitle,
+                                  btnText: [Constants.AlertInfo.ok])
         }
     }
 }

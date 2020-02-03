@@ -17,4 +17,5 @@ enum AlertInfoType {
     case readingCampaignsError
     case noCampaigns
     case campaignKeyIsMissing
+    case cameraPermission
 }

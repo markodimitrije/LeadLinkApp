@@ -37,6 +37,9 @@ AlertInfo.Campaigns.Empty.msg = "Please go to Configurator and set up your campa
 AlertInfo.Campaigns.MandatoryKeyIsMissing.title = "Campaign key is missing";
 AlertInfo.Campaigns.MandatoryKeyIsMissing.msg = "Please contact Navus Team";
 
+AlertInfo.CameraPermission.title = "Camera access was denied";
+AlertInfo.CameraPermission.subtitle = "In order to use camera you should open Settings app, navigate by selecting Privacy/Camera and then grant access to Navus Lead app";
+
 TermsAndConditions.btnLabel.text = "Terms & Conditions";
 
 Disclaimer.title = "Data Retrieval";

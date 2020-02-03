@@ -26,6 +26,10 @@ extension Constants {
             static let cancel = NSLocalizedString("AlertInfo.Option.cancel", comment: "")
             static let agree = NSLocalizedString("AlertInfo.Option.agree", comment: "")
         }
+        struct CameraPermission {
+            static let title = NSLocalizedString("AlertInfo.CameraPermission.title", comment: "")
+            static let subtitle = NSLocalizedString("AlertInfo.CameraPermission.subtitle", comment: "")
+        }
         struct NoCodeDetected {
             static let title = NSLocalizedString("AlertInfo.Scan.NoCodeDetected.title", comment: "")
             static let msg = NSLocalizedString("AlertInfo.Scan.NoCodeDetected.msg", comment: "")

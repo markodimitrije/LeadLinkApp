@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>LeadLink needs access to device camera in order to scan QRcode/Barcode</string>
+	<string>Navus Lead needs access to device camera in order to scan QRcode/Barcode. Permission can be changed any time in Settings/Camera</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main_ipad</string>
 	<key>UIMainStoryboardFile~iphone</key>

@@ -95,6 +95,8 @@ class ScanningVC: UIViewController, Storyboarded {
                                                                 handler: hideScaningView)
         self.scannerView.isHidden = true
         self.view.addSubview(self.scannerView)
+        
+        
     }
     
     private func bindUI() {
@@ -103,6 +105,7 @@ class ScanningVC: UIViewController, Storyboarded {
         
         scanBarcodeBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { _ in
             self.scannerView.isHidden = false // show avSession (camera) view
+            self.checkCameraPermission()
             self.barCodeTxtField.resignFirstResponder() // dismiss barCodeTxtField and keyboard if any
         }).disposed(by: disposeBag)
         
@@ -110,6 +113,16 @@ class ScanningVC: UIViewController, Storyboarded {
             .filter {$0}
             .bind(to: scannerView.rx.isHidden)
             .disposed(by: disposeBag)
+    }
+    
+    private func checkCameraPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized, .notDetermined: return
+        default:
+        alert(alertInfo: AlertInfo.getInfo(type: .cameraPermission),
+                       preferredStyle: .alert)
+            .subscribe(onNext: { _ in })
+        }
     }
     
     private func hideScaningView() {
