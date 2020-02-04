@@ -52,6 +52,7 @@
 		7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */; };
 		7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */; };
 		7C1EE71D23A295C500DB9ED8 /* GroupViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */; };
+		7C1F19AE23E96E23006C4901 /* ScanningProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
 		7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */; };
 		7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */; };
@@ -392,6 +393,7 @@
 		7C1E80B823802E54006957BB /* LastDateSyncViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateSyncViewFactory.swift; sourceTree = "<group>"; };
 		7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewItem.swift; sourceTree = "<group>"; };
 		7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewFactory.swift; sourceTree = "<group>"; };
+		7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProcess.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
 		7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataStore.swift; sourceTree = "<group>"; };
 		7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResults.swift; sourceTree = "<group>"; };
@@ -970,6 +972,7 @@
 		7C1F42BA237ACA5A0043D5E3 /* ModelAndBusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */,
 				7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */,
 				ADB305E4223BB0D20069FACB /* PreviewLayer.swift */,
 				7C3F970722E0A9DC00C8A797 /* ScanningImplementations */,
@@ -2769,6 +2772,7 @@
 				7C1CEA3623A0F7010015F8F7 /* RadioBtnsWithInput_ViewFactory.swift in Sources */,
 				ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */,
 				AD4F014421D8F7D500946CBA /* UserSessionRepository.swift in Sources */,
+				7C1F19AE23E96E23006C4901 /* ScanningProcess.swift in Sources */,
 				7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */,
 				7C22272F2379CC1C0006B8EE /* UserDefaults+Extensions.swift in Sources */,
 				7C62226822941F9300717CA1 /* RealmAnswersDataStore.swift in Sources */,

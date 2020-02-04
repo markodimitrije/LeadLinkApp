@@ -16,12 +16,15 @@ class ScanningViewControllerFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    func makeVC(viewModel: ScanningViewModel?) -> ScanningVC {
+    func makeVC(viewModel: ScanningViewModel) -> ScanningVC {
         
         let scanningVC = ScanningVC.instantiate(using: appDependancyContainer.sb)
-        if let viewModel = viewModel {
-            scanningVC.viewModel = viewModel
-        }
+        scanningVC.viewModel = viewModel
+        
+        scanningVC.spinnerViewManager = SpinnerViewManager(ownerViewController: scanningVC)
+        
+        scanningVC.disclaimerFactory = DisclaimerViewFactory()
+        scanningVC.scanningProcess = ScanningProcess()
         
         return scanningVC
     }

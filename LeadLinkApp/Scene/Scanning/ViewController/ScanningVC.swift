@@ -22,11 +22,11 @@ class ScanningVC: UIViewController, Storyboarded {
     @IBOutlet weak var scanBarcodeBtn: UIButton!
     @IBOutlet weak var orLabel: UILabel!
     
-    var viewModel: ScanningViewModel!
-    var scannerView: QRcodeView!
+    var viewModel: ScanningViewModel! // load on your own because of view (viewDidLoad)
     var spinnerViewManager: SpinnerViewManaging!
+    var scanner: MinimumScanning!
     
-    private var scanner: MinimumScanning!
+    var scannerView: QRcodeView!
     
     private var campaign: Campaign? {
         return viewModel.campaign
@@ -34,9 +34,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private var keyboardManager: MovingKeyboardDelegate?
     
-    private let disclaimerFactory = DisclaimerViewFactory()
-    
-    private var scanningProcess = ScanningProcess()
+    var disclaimerFactory: DisclaimerViewFactory!
+    var scanningProcess: ScanningProcess!
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -48,8 +47,6 @@ class ScanningVC: UIViewController, Storyboarded {
         
         barCodeTxtField.delegate = self
         barCodeTxtField.returnKeyType = .done
-        
-        spinnerViewManager = SpinnerViewManager(ownerViewController: self)
         
         hookUpCameraAccordingToScanditPermission() // mogu li ovde nekako OCP ?
         
@@ -75,17 +72,15 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func hookUpCameraAccordingToScanditPermission() {
         
-        loadScannerView()
-        let scannerFactory = ScannerFactory(scannerVC: self, campaign: campaign!)
-        self.scanner = scannerFactory.scanner
-    }
-    
-    private func loadScannerView() { // QRCodeView
+        //loadScannerView:
         let scannerViewFactory = ScannerViewFactory()
         self.scannerView = scannerViewFactory.createScannerView(inView: self.view,
                                                                 handler: hideScaningView)
         self.scannerView.isHidden = true
         self.view.addSubview(self.scannerView)
+        //loadScanner:
+        let scannerFactory = ScannerFactory(scannerVC: self, campaign: campaign!)
+        self.scanner = scannerFactory.scanner
     }
     
     private func bindUI() {
@@ -245,18 +240,5 @@ extension ScanningVC: UITextViewDelegate {
             UIApplication.shared.open(URL)
         }
         return false
-    }
-}
-
-struct ScanningProcess {
-    
-    var lastScanedCode: String = ""
-    var congressDelegate: Delegate?
-    var hasConsent = false
-    
-    init(lastScanedCode: String = "", congressDelegate: Delegate? = nil, hasConsent: Bool = false) {
-        self.lastScanedCode = lastScanedCode
-        self.congressDelegate = congressDelegate
-        self.hasConsent = hasConsent
     }
 }
