@@ -8,7 +8,11 @@
 
 import Foundation
 
-public struct QuestionSettings: Codable {
+protocol QuestionSettingsProtocol {
+    var options: [String]? { get set }
+}
+
+public struct QuestionSettings: Codable, QuestionSettingsProtocol {
     var options: [String]?
     
     init(realmSetting: RealmQuestionSettings) {

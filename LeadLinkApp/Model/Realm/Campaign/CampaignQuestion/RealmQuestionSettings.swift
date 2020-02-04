@@ -13,8 +13,8 @@ public class RealmQuestionSettings: Object {
     @objc dynamic var id = 0
     var options = List<String>()
     
-    func updateWith(settings: QuestionSettings, question: Question) {
-        let compositeId = "\(question.campaign_id)" + "\(question.id)"
+    func updateWith(settings: QuestionSettingsProtocol, question: QuestionProtocol) {
+        let compositeId = "\(question.qCampaignId)" + "\(question.qId)"
         self.id = Int(compositeId)!
         let newOptions = settings.options ?? [ ]
         self.options.removeAll()

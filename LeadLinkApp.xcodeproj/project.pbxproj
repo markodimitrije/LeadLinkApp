@@ -53,6 +53,7 @@
 		7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */; };
 		7C1EE71D23A295C500DB9ED8 /* GroupViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */; };
 		7C1F19AE23E96E23006C4901 /* ScanningProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */; };
+		7C1F19B223E986B0006C4901 /* QuestionsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
 		7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */; };
 		7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */; };
@@ -289,7 +290,6 @@
 		ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D9B223AB56200450625 /* AlertWithRx.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
-		ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC5121E4E23500B43427 /* QuestionsDataStore.swift */; };
 		ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */; };
 		ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040821E65EC4006463A2 /* CampaignCell.swift */; };
 		ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040A21E73F29006463A2 /* LogoInfo.swift */; };
@@ -394,6 +394,7 @@
 		7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewItem.swift; sourceTree = "<group>"; };
 		7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewFactory.swift; sourceTree = "<group>"; };
 		7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProcess.swift; sourceTree = "<group>"; };
+		7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsDataStoreProtocol.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
 		7C1F42BC237ACDCA0043D5E3 /* ReportsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataStore.swift; sourceTree = "<group>"; };
 		7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResults.swift; sourceTree = "<group>"; };
@@ -632,7 +633,6 @@
 		ADAB3D9B223AB56200450625 /* AlertWithRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWithRx.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
-		ADABCC5121E4E23500B43427 /* QuestionsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataStore.swift; sourceTree = "<group>"; };
 		ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestionsDataStore.swift; sourceTree = "<group>"; };
 		ADAD040821E65EC4006463A2 /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
 		ADAD040A21E73F29006463A2 /* LogoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoInfo.swift; sourceTree = "<group>"; };
@@ -2118,7 +2118,7 @@
 		ADABCC5021E4E22900B43427 /* QuestionsStore */ = {
 			isa = PBXGroup;
 			children = (
-				ADABCC5121E4E23500B43427 /* QuestionsDataStore.swift */,
+				7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */,
 				ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */,
 			);
 			path = QuestionsStore;
@@ -2648,7 +2648,6 @@
 				7C1CEA3D23A0FD5A0015F8F7 /* TextWithHiperlinkViewFactory.swift in Sources */,
 				7C51086322C0D1ED005EE58B /* ChooseOptionsViewControllerFactory.swift in Sources */,
 				7C6528B322CE42ED0077464C /* Application.swift in Sources */,
-				ADABCC5221E4E23500B43427 /* QuestionsDataStore.swift in Sources */,
 				7C1F42F4237B05C00043D5E3 /* UITextView+Extensions.swift in Sources */,
 				7C2227122379B4D80006B8EE /* Constants+Terms.swift in Sources */,
 				7C1F42F0237B04150043D5E3 /* UIImage+Extensions.swift in Sources */,
@@ -2799,6 +2798,7 @@
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
+				7C1F19B223E986B0006C4901 /* QuestionsDataStoreProtocol.swift in Sources */,
 				7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */,
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
@@ -3050,7 +3050,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3062,7 +3062,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
 				PRODUCT_NAME = "Navus Lead";
 				SWIFT_VERSION = 5.0;
@@ -3077,7 +3077,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UJZMY6T4V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3089,7 +3089,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.LeadLinkSwift;
 				PRODUCT_NAME = "Navus Lead";
 				SWIFT_VERSION = 5.0;

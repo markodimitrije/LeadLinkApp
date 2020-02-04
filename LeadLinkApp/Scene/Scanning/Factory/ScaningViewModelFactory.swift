@@ -22,8 +22,7 @@ class ScanningViewModelFactory {
         let dataStoreFactory = CodesDataStoreFactory(appDependancyContainer: appDependancyContainer)
         let codesDataStore = dataStoreFactory.makeCodeDataStore()
         
-        let obsRealmCampaign = campaignRepository.fetchCampaign(selectedCampaignId!)
-        let obsCampaign = obsRealmCampaign.map(Campaign.init(realmCampaign:))
+        let obsCampaign = campaignRepository.fetchCampaign(selectedCampaignId!)
         
         let scanningViewmodel = ScanningViewModel.init(obsCampaign: obsCampaign, codesDataStore: codesDataStore)
         

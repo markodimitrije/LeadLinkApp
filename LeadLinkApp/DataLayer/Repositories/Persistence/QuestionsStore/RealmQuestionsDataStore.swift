@@ -10,12 +10,12 @@ import PromiseKit
 import Realm
 import RealmSwift
 
-public class RealmQuestionsDataStore: QuestionsDataStore {
+public class RealmQuestionsDataStore: QuestionsDataStoreProtocol {
     
     // MARK: - Properties
     var realm = try! Realm.init()
     
-    public func readAllQuestions() -> Promise<[Question]> {
+    func readAllQuestions() -> Promise<[QuestionProtocol]> {
         
         return Promise() { seal in
             
@@ -34,7 +34,7 @@ public class RealmQuestionsDataStore: QuestionsDataStore {
         
     }
     
-    public func save(questions: [Question]) -> Promise<[Question]> {
+    func save(questions: [QuestionProtocol]) -> Promise<[QuestionProtocol]> {
         
 //        print("Realm location = \(Realm.Configuration.defaultConfiguration.fileURL!)")
         return Promise() { seal in
@@ -58,9 +58,9 @@ public class RealmQuestionsDataStore: QuestionsDataStore {
         }
     }
     
-    public func delete(questions: [Question]) -> Promise<[Question]> {
+    func delete(questions: [QuestionProtocol]) -> Promise<[QuestionProtocol]> {
         
-        let ids = questions.map {$0.id}
+        let ids = questions.map {$0.qId}
         
         return Promise() { seal in
             

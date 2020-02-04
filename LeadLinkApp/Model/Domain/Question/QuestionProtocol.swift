@@ -15,7 +15,7 @@ protocol QuestionProtocol {
     var qGroup: String {get}
     var qDesc: String {get}
     var qOrder: Int {get}
-    var qSettings: QuestionSettings {get}
+    var qSettings: QuestionSettingsProtocol {get}
     var qOptions: [String] {get}
     var qMultipleSelection: Bool {get}
 }

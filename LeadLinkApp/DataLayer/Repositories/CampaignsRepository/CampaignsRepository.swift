@@ -10,21 +10,21 @@ import PromiseKit
 import RxSwift
 import RealmSwift
 
-public protocol UserCampaignsRepository {
+protocol CampaignsRepositoryProtocol {
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool>
 }
 
-public class CampaignsRepository: UserCampaignsRepository {
+public class CampaignsRepository: CampaignsRepositoryProtocol {
     
     // MARK: - Properties
     let dataStore: CampaignsDataStore
     let userSessionRepository: UserSessionRepository
     let remoteAPI: CampaignsRemoteAPI
-    let questionsDataStore: QuestionsDataStore
+    let questionsDataStore: QuestionsDataStoreProtocol
     let campaignsVersionChecker: CampaignsVersionChecker
     
     // MARK: - Methods
-    public init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStore, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
+    init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStoreProtocol, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
         self.userSessionRepository = userSessionRepository
         self.dataStore = dataStore
         self.remoteAPI = remoteAPI
@@ -32,7 +32,7 @@ public class CampaignsRepository: UserCampaignsRepository {
         self.campaignsVersionChecker = campaignsVersionChecker
     }
 
-    public func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
+    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
         
         let update =
             when(fulfilled: [remoteAPI.getCampaignsWithQuestions(userSession: userSession)])
@@ -49,9 +49,7 @@ public class CampaignsRepository: UserCampaignsRepository {
                     return (shouldUpdate, results)
                 }
                 
-                return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions,
-                                                               json: results.jsonString).isFulfilled, results)
-                
+                return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions, json: results.jsonString).isFulfilled, results)
         }
         
         return update.map { (jsonUpdated, results) -> Bool in
@@ -72,20 +70,14 @@ public class CampaignsRepository: UserCampaignsRepository {
         }
         
     }
-
-    public func getCampaign(_ campaignId: Int) -> Campaign? {
-        return self.dataStore.readCampaign(id: campaignId).value
-    }
     
-    func fetchCampaign(_ campaignId: Int) -> Observable<RealmCampaign> {
+    //func fetchCampaign(_ campaignId: Int) -> Observable<RealmCampaign> {
+    func fetchCampaign(_ campaignId: Int) -> Observable<Campaign> {
         let realm = try! Realm()
         guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
             fatalError("someone asked for selected campaign, before it was saved ?!?")
         }
         
-        //let campaign = Campaign.init(realmCampaign: realmCampaign)
-        //return Observable.from(optional: campaign)
-        
-        return Observable.from(object: realmCampaign)
+        return Observable.from(object: realmCampaign).map(Campaign.init)
     }
 }

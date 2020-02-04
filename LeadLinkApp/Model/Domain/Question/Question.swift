@@ -74,7 +74,7 @@ extension Question: QuestionProtocol {
         self.order
     }
     
-    var qSettings: QuestionSettings {
+    var qSettings: QuestionSettingsProtocol {
         self.settings
     }
     

@@ -22,16 +22,16 @@ public class RealmQuestion: Object {
     var element_id: Int?
     @objc dynamic var settings: RealmQuestionSettings! = RealmQuestionSettings.init()
     
-    func updateWith(question: Question) {
-        self.id = question.id
-        self.campaign_id = question.campaign_id
-        self.title = question.title
-        self.type = question.type
-        self.group = question.group
-        self.desc = question.description ?? ""
-        self.order = question.order
+    func updateWith(question: QuestionProtocol) {
+        self.id = question.qId
+        self.campaign_id = question.qCampaignId
+        self.title = question.qTitle
+        self.type = question.qType.rawValue
+        self.group = question.qGroup
+        self.desc = question.qDesc
+        self.order = question.qOrder
         
-        self.settings.updateWith(settings: question.settings, question: question)
+        self.settings.updateWith(settings: question.qSettings, question: question)
     }
     
     override public static func primaryKey() -> String? {
