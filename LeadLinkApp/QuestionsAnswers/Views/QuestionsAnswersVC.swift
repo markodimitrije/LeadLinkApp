@@ -32,17 +32,13 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     // API
     var surveyInfo: SurveyInfo! {
         didSet {
-            guard surveyInfo != nil, viewModel != nil else {return}
-            if oldValue != nil {
-                configureQuestionForm()
-            }
+            configureQuestionForm()
         }
     }
     
     override func viewDidLoad() { super.viewDidLoad()
         self.scrollView.delegate = self
         keyboardHandler.registerForKeyboardEvents()
-        configureQuestionForm()
     }
     
     private func configureQuestionForm() {
