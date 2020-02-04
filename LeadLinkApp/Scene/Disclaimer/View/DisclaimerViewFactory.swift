@@ -10,7 +10,7 @@ import UIKit
 
 class DisclaimerViewFactory {
     
-    func create(campaign: Campaign?) -> DisclaimerView? {
+    func create(campaign: CampaignProtocol?) -> DisclaimerView? {
         guard let topVC = UIApplication.topViewController() else {
             return nil
         }

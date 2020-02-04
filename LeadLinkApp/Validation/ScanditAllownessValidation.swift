@@ -14,9 +14,9 @@ protocol ScanditAllowable {
 
 class ScanditAllownessValidator: ScanditAllowable {
     
-    var campaign: Campaign?
+    var campaign: CampaignProtocol?
     
-    init(campaign: Campaign?) {
+    init(campaign: CampaignProtocol?) {
         self.campaign = campaign
     }
     

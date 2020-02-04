@@ -9,9 +9,13 @@
 import Foundation
 import RxSwift
 
-struct ShowDisclaimerValidator {
-    var campaign: Campaign?
-    init(campaign: Campaign?) {
+protocol ShowDisclaimerValidatorProtocol {
+    func shouldShowDisclaimer(disclaimerAlreadyOnScreen: Bool, delegate: Delegate?) -> Bool
+}
+
+struct ShowDisclaimerValidator: ShowDisclaimerValidatorProtocol {
+    var campaign: CampaignProtocol?
+    init(campaign: CampaignProtocol?) {
         self.campaign = campaign
     }
     func shouldShowDisclaimer(disclaimerAlreadyOnScreen: Bool, delegate: Delegate?) -> Bool {

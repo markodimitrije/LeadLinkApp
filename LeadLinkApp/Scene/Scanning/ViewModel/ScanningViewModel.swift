@@ -11,14 +11,14 @@ import RxSwift
 
 class ScanningViewModel {
     
-    private (set) var obsCampaign: Observable<Campaign>
+    private (set) var obsCampaign: Observable<CampaignProtocol>
     private (set) var codesDataStore: CodesDataStore
     private (set) var logo: UIImage?
     
     public let codeInput = BehaviorSubject<String>(value: "")
-    private var showDisclaimerValidator: ShowDisclaimerValidator!
+    private var showDisclaimerValidator: ShowDisclaimerValidatorProtocol!
     
-    private (set) var campaign: Campaign! {
+    private (set) var campaign: CampaignProtocol! {
         didSet {
             updateLogoImage()
             setCodeListener()
@@ -26,7 +26,7 @@ class ScanningViewModel {
         }
     }
 
-    init(obsCampaign: Observable<Campaign>, codesDataStore: CodesDataStore) {
+    init(obsCampaign: Observable<CampaignProtocol>, codesDataStore: CodesDataStore) {
         self.obsCampaign = obsCampaign
         self.codesDataStore = codesDataStore
         hookUpObserverToStateVar()

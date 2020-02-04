@@ -13,7 +13,7 @@ import RealmSwift
 protocol CampaignsRepositoryProtocol {
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> // TODO: MOVE!! ...
     func updateImg(data: Data?, campaignId id: Int)
-    func fetchCampaign(_ campaignId: Int) -> Observable<Campaign>
+    func fetchCampaign(_ campaignId: Int) -> Observable<CampaignProtocol>
 }
 
 extension CampaignsRepository: CampaignsRepositoryProtocol {
@@ -66,7 +66,7 @@ extension CampaignsRepository: CampaignsRepositoryProtocol {
         }
     }
     
-    func fetchCampaign(_ campaignId: Int) -> Observable<Campaign> {
+    func fetchCampaign(_ campaignId: Int) -> Observable<CampaignProtocol> {
         let realm = try! Realm()
         guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
             fatalError("someone asked for selected campaign, before it was saved ?!?")

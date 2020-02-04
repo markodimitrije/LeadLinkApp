@@ -18,7 +18,7 @@ class ScannerFactory: ScannerFactoryProtocol {
     var scanner: MinimumScanning!
     var scannerVC: ScanningVC
     
-    init(scannerVC: ScanningVC, campaign: Campaign) {
+    init(scannerVC: ScanningVC, campaign: CampaignProtocol) {
         
         self.scannerVC = scannerVC
         let scanditAllownesValidator = ScanditAllownessValidator(campaign: campaign)

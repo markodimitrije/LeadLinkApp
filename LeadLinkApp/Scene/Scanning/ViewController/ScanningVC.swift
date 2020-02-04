@@ -28,7 +28,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     var scannerView: QRcodeView!
     
-    private var campaign: Campaign? {
+    private var campaign: CampaignProtocol? {
         return viewModel.campaign
     }
     

@@ -12,7 +12,30 @@ public struct Campaigns: Codable {
     var data: [Campaign]
 }
 
-public struct Campaign: Codable {
+protocol CampaignProtocol {
+    var id: Int { get set }
+    var conference_id: Int { get set }
+    var name: String? { get set }
+    var description: String? { get set }
+    var user_id: Int? { get set }
+    var organization_id: Int? { get set }
+    var created_at: String? { get set }
+    var primary_color: String? { get set }
+    var color: String? { get set }
+    var logo: String? { get set }
+    var imgData: Data? { get set }
+    var number_of_responses: Int? { get set }
+    
+    var questions: [Question] { get set }
+    var codes: [Code]? { get set }
+    var application: Application { get set }
+    var settings: Settings? { get set }
+    var organization: Organization? { get set }
+    
+    var dateReadAt: Date? { get set }
+}
+
+public struct Campaign: Codable, CampaignProtocol {
     var id: Int = -1
     var conference_id: Int = -1
     var name: String?
