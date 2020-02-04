@@ -34,7 +34,7 @@ class SurveyQuestionsLoader: SurveyQuestionsProviding  {
         }
         
         self.surveyQuestions = questions.compactMap { question -> SurveyQuestion? in
-            let rAnswer = rAnswers.first(where: {$0.questionId == question.id})
+            let rAnswer = rAnswers.first(where: {$0.questionId == question.qId})
             let answer = MyAnswer(realmAnswer: rAnswer)
             return SurveyQuestion.init(question: question, answer: answer, code: surveyInfo.code)
         }

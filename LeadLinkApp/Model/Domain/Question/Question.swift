@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct Questions: Codable {
-    var data: [Question]
+public struct Questions {
+    var data: [QuestionProtocol]
 }
 
 public struct Question: Codable {

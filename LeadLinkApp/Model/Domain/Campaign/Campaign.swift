@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct Campaigns: Codable {
-    var data: [Campaign]
+struct Campaigns {
+    var data: [CampaignProtocol]
 }
 
 protocol CampaignProtocol {
@@ -26,7 +26,7 @@ protocol CampaignProtocol {
     var imgData: Data? { get set }
     var number_of_responses: Int? { get set }
     
-    var questions: [Question] { get set }
+    var questions: [QuestionProtocol] { get set }
     var codes: [Code]? { get set }
     var application: Application { get set }
     var settings: Settings? { get set }
@@ -35,21 +35,21 @@ protocol CampaignProtocol {
     var dateReadAt: Date? { get set }
 }
 
-public struct Campaign: Codable, CampaignProtocol {
+public struct Campaign: CampaignProtocol {
     var id: Int = -1
     var conference_id: Int = -1
     var name: String?
     var description: String?
     var user_id: Int?
     var organization_id: Int?
-    var created_at: String? // (Date)
-    var primary_color: String? // oprez - ne vidim iz response koji je ovo type
-    var color: String? // oprez - ne vidim iz response koji je ovo type
+    var created_at: String?
+    var primary_color: String?
+    var color: String?
     var logo: String? // url
     var imgData: Data? = nil
     var number_of_responses: Int?
     
-    var questions: [Question]
+    var questions: [QuestionProtocol]
     var codes: [Code]?
     var application: Application
     var settings: Settings?

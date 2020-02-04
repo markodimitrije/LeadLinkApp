@@ -24,7 +24,7 @@ struct SurveyInfo {
     private let realmAnswersDataStore = RealmAnswersDataStore.init()
     
     var surveyQuestions = [SurveyQuestionProtocol]()
-    var questions: [Question] { return campaign.questions }
+    var questions: [QuestionProtocol] { return campaign.questions }
     var answers = [MyAnswerProtocol]()
     
     init(campaign: CampaignProtocol,
@@ -38,7 +38,7 @@ struct SurveyInfo {
         self.dataStore = dataStore
     
         answers = campaign.questions.compactMap { question -> MyAnswerProtocol? in
-            let answerIdentifier = AnswerIdentifer.init(campaignId: campaign.id, questionId: question.id, code: code)
+            let answerIdentifier = AnswerIdentifer.init(campaignId: campaign.id, questionId: question.qId, code: code)
             if let realmAnswer = dataStore.readAnswer(answerIdentifier: answerIdentifier).value,
                 realmAnswer != nil {
                 return MyAnswer.init(realmAnswer: realmAnswer)
@@ -80,7 +80,7 @@ extension SurveyInfo {
             
             if property != nil,
                 let personalKey = property!.questionPersonalInfoKey,
-                let _ = question(forKey: personalKey)?.id,
+                let _ = question(forKey: personalKey)?.qId,
                 shouldLoadAnswerWithDelegateData(optionKey: personalKey) { // we want answer not to exist (only pre-load)
                 
                 let preloadAnswer = makeAnswer(forKey: personalKey,
@@ -104,9 +104,9 @@ extension SurveyInfo {
         return answer.isEmpty
     }
     
-    private func question(forKey optionKey: QuestionPersonalInfoKey) -> Question? { // ili PersonalInfoKey ?
+    private func question(forKey optionKey: QuestionPersonalInfoKey) -> QuestionProtocol? { // ili PersonalInfoKey ?
         guard let myQuestion = self.questions.first(where: { question -> Bool in
-            question.settings.options?.first == optionKey.rawValue
+            question.qSettings.options?.first == optionKey.rawValue
         }) else {
             return nil
         }
@@ -123,7 +123,7 @@ extension SurveyInfo {
         let dataStore = RealmAnswersDataStore.init()
         
         let rAnswer = dataStore.answer(campaign_id: self.campaign.id,
-                                       questionId: myQuestion.id,
+                                       questionId: myQuestion.qId,
                                        code: self.code)
         
         return MyAnswer.init(realmAnswer: rAnswer)
@@ -140,7 +140,7 @@ extension SurveyInfo {
     
     private func barcodeAnswer() -> MyAnswer {
         guard let question = self.questions.first(where: { question -> Bool in
-            question.settings.options?.first == "barcode"
+            question.qSettings.options?.first == "barcode"
         }) else {
             fatalError("nemam barcode kao question !!?!?")
         }

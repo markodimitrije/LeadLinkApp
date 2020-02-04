@@ -9,6 +9,6 @@
 import Foundation
 
 public struct CampaignResults {
-    var campaignsWithQuestions = [(Campaign, [Question])]()
+    var campaignsWithQuestions = [(CampaignProtocol, [QuestionProtocol])]()
     var jsonString: String = ""
 }

@@ -12,8 +12,8 @@ import PromiseKit
 protocol CampaignsDataStoreBase {
     func readAllCampaigns() -> Promise<[CampaignProtocol]>
     func readCampaign(id: Int) -> Promise<CampaignProtocol>
-    func save(campaigns: [Campaign]) -> Promise<[CampaignProtocol]>
-    func delete(campaigns: [Campaign]) -> Promise<[CampaignProtocol]>
+    func save(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]>
+    func delete(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]>
 }
 
 protocol CampaignsDataStore: CampaignsDataStoreBase {

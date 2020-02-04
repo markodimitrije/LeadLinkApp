@@ -33,7 +33,7 @@ class RealmCampaign: Object {
     
     @objc dynamic var dateReadAt: Date?
 
-    public func update(with campaign: Campaign) {
+    public func update(with campaign: CampaignProtocol) {
         self.id = campaign.id
         self.name = campaign.name ?? Constants.Campaign.defaultName + "\(campaign.id)"
         self.desc = campaign.description ?? Constants.Campaign.defaultDesc + "\(campaign.id)"

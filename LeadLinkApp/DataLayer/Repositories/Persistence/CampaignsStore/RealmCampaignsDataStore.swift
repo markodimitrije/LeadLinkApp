@@ -59,7 +59,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    func save(campaigns: [Campaign]) -> Promise<[CampaignProtocol]> {
+    func save(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]> {
         
         return Promise() { seal in
             
@@ -82,7 +82,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
-    func delete(campaigns: [Campaign]) -> Promise<[CampaignProtocol]> {
+    func delete(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]> {
         
         let ids = campaigns.map {$0.id}
         

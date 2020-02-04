@@ -8,7 +8,12 @@
 
 import Foundation
 
-public struct Application: Codable {
+protocol ApplicationProtocol {
+    var id: Int { get set }
+    var api_key: String { get set }
+}
+
+public struct Application: Codable, ApplicationProtocol {
     
     var id: Int
     var api_key: String
