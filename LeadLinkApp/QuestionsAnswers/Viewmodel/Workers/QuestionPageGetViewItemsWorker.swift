@@ -16,16 +16,15 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
     
     private var items = [QuestionPageGetViewProtocol]()
     private var questionInfos = [SurveyQuestionProtocol]()
-    private let campaign: Campaign? = {
-        let campaignId = selectedCampaignId ?? 0 // hard-coded
-        return factory.sharedCampaignsRepository.dataStore.readCampaign(id: campaignId).value
-    }()
+    private let campaign: CampaignProtocol
     
     func getViewItems() -> [QuestionPageGetViewProtocol] {
         return self.items
     }
     
-    init(viewInfos: [ViewInfoProtocol]) {
+    init(viewInfos: [ViewInfoProtocol], campaign: CampaignProtocol) {
+        
+        self.campaign = campaign
         
         insertDistancerView(height: 12.0)
         
@@ -112,7 +111,7 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
     }
     
     private func appendOptInView() {
-        guard let optIn = campaign?.settings?.optIn else {return}
+        guard let optIn = campaign.settings?.optIn else {return}
         let hiperlinkFactory = TextWithHiperlinkViewFactory(text: optIn.text, hiperlinkText: optIn.privacyPolicy, urlString: optIn.url)
         let optInFactory = OptInViewFactory(optIn: optIn, titleWithHiperlinkViewFactory: hiperlinkFactory)
         let optInItem = OptInViewItem(optInViewFactory: optInFactory)

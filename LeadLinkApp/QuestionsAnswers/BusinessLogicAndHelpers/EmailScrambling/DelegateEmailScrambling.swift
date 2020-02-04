@@ -13,8 +13,8 @@ protocol DelegateEmailScrambling {
 }
 
 class DelegateEmailScrambler: DelegateEmailScrambling {
-    private var campaign: Campaign
-    init(campaign: Campaign) {
+    private var campaign: CampaignProtocol
+    init(campaign: CampaignProtocol) {
         self.campaign = campaign
     }
     func shouldShowEmail() -> Bool {

@@ -39,7 +39,7 @@ var tableHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculatin
 var confApiKeyState: ConferenceApiKeyState? = {
     
     let authToken = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceAuth) as? String ?? ""
-    var selectedCampaign: Campaign?
+    var selectedCampaign: CampaignProtocol?
     
     if let campaignId = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) as? Int {
         let sharedCampaignsRepository = factory.sharedCampaignsRepository

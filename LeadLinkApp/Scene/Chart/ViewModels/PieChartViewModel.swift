@@ -14,16 +14,16 @@ protocol PieChartViewModeling {
 
 class PieChartViewModel: PieChartViewModeling {
     
-    private var campaign: Observable<Campaign?>
+    private var campaign: Observable<CampaignProtocol?>
     private var webReports: Observable<[RealmWebReportedAnswers]>
     private let bag = DisposeBag()
     
     private var newWebReports = [RealmWebReportedAnswers]()
-    private var newCampaign: Campaign!
+    private var newCampaign: CampaignProtocol!
     
     var output = ReplaySubject<BarOrChartData>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<Campaign?>, webReports: Observable<[RealmWebReportedAnswers]>) {
+    init(campaign: Observable<CampaignProtocol?>, webReports: Observable<[RealmWebReportedAnswers]>) {
         
         self.campaign = campaign
         self.webReports = webReports
@@ -60,7 +60,7 @@ class PieChartViewModel: PieChartViewModeling {
             }).disposed(by: bag)
     }
     
-    private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: Campaign) {
+    private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) {
 
         let chartData = BarOrChartData(campaign: newCampaign, webReports: newWebReports)
         output.onNext(chartData)

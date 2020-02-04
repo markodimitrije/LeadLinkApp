@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 import RxSwift
 
-public protocol SelectedCampaignObserving {
-    func selectedCampaign() -> Observable<Campaign?> // treba da zivi na userSession dok je login
+protocol SelectedCampaignObserving {
+    func selectedCampaign() -> Observable<CampaignProtocol?> // treba da zivi na userSession dok je login
 }
 
 struct RealmSelectedCampaign: SelectedCampaignObserving {
@@ -22,7 +22,7 @@ struct RealmSelectedCampaign: SelectedCampaignObserving {
         self.campaignsDataStore = campaignsDataStore
     }
     
-    func selectedCampaign() -> Observable<Campaign?> {
+    func selectedCampaign() -> Observable<CampaignProtocol?> {
         guard let id = selectedCampaignId else {
             fatalError() // bolje vrati error...
         }

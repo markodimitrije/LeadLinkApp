@@ -10,12 +10,12 @@ import Foundation
 
 struct BarOrChartData: BarOrChartInfo {
     
-    private var campaign: Campaign
+    private var campaign: CampaignProtocol
     private var webReports: [RealmWebReportedAnswers]
     
     var compartmentValues = [Int]()
     
-    init(campaign: Campaign, webReports: [RealmWebReportedAnswers]) {
+    init(campaign: CampaignProtocol, webReports: [RealmWebReportedAnswers]) {
         self.campaign = campaign
         self.webReports = webReports
         self.loadCompartmentValues()

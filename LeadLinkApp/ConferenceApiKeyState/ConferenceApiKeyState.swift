@@ -12,7 +12,7 @@ import Realm
 class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     
     private var authToken = ""
-    private var selectedCampaign: Campaign!
+    private var selectedCampaign: CampaignProtocol!
     
     var conferenceId: Int? {
         get {
@@ -30,7 +30,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
         }
     }
     
-    init(authToken: String, selectedCampaign: Campaign? = nil) {
+    init(authToken: String, selectedCampaign: CampaignProtocol? = nil) {
         self.authToken = authToken
         self.selectedCampaign = selectedCampaign
     }
@@ -49,10 +49,8 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     }
     
     // API:
-    func updateWith(selectedCampaign campaign: Campaign) {
+    func updateWith(selectedCampaign campaign: CampaignProtocol) {
         self.selectedCampaign = campaign
     }
-    
-    
     
 }

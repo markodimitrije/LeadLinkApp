@@ -16,11 +16,10 @@ class CampaignCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var subtitleLbl: UILabel!
     
-    func update(campaign: Campaign) {
+    func update(campaign: CampaignProtocol) {
         
         self.titleLbl?.text = campaign.name
         self.subtitleLbl?.text = campaign.description
-        //self.titleLbl?.text = "\(campaign.organization.name)"
         
 //        self.orgNameLbl?.text = campaign.description // temp test
 //        self.eventNameLbl?.text = campaign.description // temp test

@@ -76,7 +76,8 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
 
-        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos)
+        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
+                                                                campaign: surveyInfo.campaign)
         let answersWebReporter = AnswersReportsToWebState()
         viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
                                                    answersWebReporterWorker: answersWebReporter,
