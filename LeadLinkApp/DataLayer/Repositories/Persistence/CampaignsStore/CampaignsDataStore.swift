@@ -9,14 +9,14 @@
 import Foundation
 import PromiseKit
 
-public protocol CampaignsDataStoreBase {
-    func readAllCampaigns() -> Promise<[Campaign]>
-    func readCampaign(id: Int) -> Promise<Campaign>
-    func save(campaigns: [Campaign]) -> Promise<[Campaign]>
-    func delete(campaigns: [Campaign]) -> Promise<[Campaign]>
+protocol CampaignsDataStoreBase {
+    func readAllCampaigns() -> Promise<[CampaignProtocol]>
+    func readCampaign(id: Int) -> Promise<CampaignProtocol>
+    func save(campaigns: [Campaign]) -> Promise<[CampaignProtocol]>
+    func delete(campaigns: [Campaign]) -> Promise<[CampaignProtocol]>
 }
 
-public protocol CampaignsDataStore: CampaignsDataStoreBase {
+protocol CampaignsDataStore: CampaignsDataStoreBase {
     func readAllCampaignLogoInfos() -> Promise<[LogoInfo]>
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>

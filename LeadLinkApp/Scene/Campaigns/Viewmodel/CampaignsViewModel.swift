@@ -80,9 +80,9 @@ public class CampaignsViewModel {
     
     // MARK:- calculators
     
-    func getCampaign(forSelectedTableIndex index: Int) -> RealmCampaign {
+    func getCampaign(forSelectedTableIndex index: Int) -> Campaign {
         // mogao si check za index i rooms.count -> RealmCampaign?
-        return campaigns[index]
+        return Campaign(realmCampaign: campaigns[index])
     }
     
     // MARK:- Private methods

@@ -12,7 +12,7 @@ public struct LogoInfo {
     var id: Int
     var url: String?
     var imgData: Data?
-    init(campaign: Campaign) {
+    init(campaign: CampaignProtocol) {
         self.id = campaign.id
         self.url = campaign.logo
         self.imgData = nil

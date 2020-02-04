@@ -12,14 +12,14 @@ import RealmSwift
 import RxSwift
 import RxRealm
 
-public class RealmCampaignsDataStore: CampaignsDataStore {
+class RealmCampaignsDataStore: CampaignsDataStore {
     
     // MARK: - Properties
     var realm = try! Realm.init()
     
     // MARK: - manage campaigns
     
-    public func readCampaign(id: Int) -> Promise<Campaign> {
+    func readCampaign(id: Int) -> Promise<CampaignProtocol> {
         
         return Promise() { seal in
             
@@ -40,7 +40,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    public func readAllCampaigns() -> Promise<[Campaign]> {
+    func readAllCampaigns() -> Promise<[CampaignProtocol]> {
         
         return Promise() { seal in
             
@@ -59,7 +59,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    public func save(campaigns: [Campaign]) -> Promise<[Campaign]> {
+    func save(campaigns: [Campaign]) -> Promise<[CampaignProtocol]> {
         
         return Promise() { seal in
             
@@ -82,7 +82,7 @@ public class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
-    public func delete(campaigns: [Campaign]) -> Promise<[Campaign]> {
+    func delete(campaigns: [Campaign]) -> Promise<[CampaignProtocol]> {
         
         let ids = campaigns.map {$0.id}
         

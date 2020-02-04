@@ -84,13 +84,11 @@ extension CampaignsVC: UITableViewDelegate {
         //UserDefaults.standard.set(selectedCampaign.id, forKey: "campaignId")
         selectedCampaignId = selectedCampaign.id
         
-        let campaign = Campaign(realmCampaign: selectedCampaign)
-        
-        confApiKeyState!.updateWith(selectedCampaign: campaign)
+        confApiKeyState!.updateWith(selectedCampaign: selectedCampaign)
         
         let navigateToFactory = FromCampaignsVCNavigateToViewControllerFactory()
         
-        if let scanningVC = navigateToFactory.getNavigationDestination(dict: ["campaignId": campaign.id]) {
+        if let scanningVC = navigateToFactory.getNavigationDestination(dict: ["campaignId": selectedCampaign.id]) {
             navigationController?.pushViewController(scanningVC, animated: true)
         }
     }

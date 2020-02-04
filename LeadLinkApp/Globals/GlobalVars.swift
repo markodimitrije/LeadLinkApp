@@ -15,16 +15,6 @@ var surveyInfo: SurveyInfo?
 
 var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
-var tableRowHeightCalculator: QuestionsAnswersTableRowHeightCalculating = {
-
-    guard let deviceType = getDeviceType() else { fatalError("cant determine device type!?!") }
-    
-    switch deviceType {
-    case DeviceType.iPhone: return IphoneQuestionsAnswersTableRowHeightCalculator()
-    case DeviceType.iPad: return IpadQuestionsAnswersTableRowHeightCalculator()
-    }
-}()
-
 var tableHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
     
     guard let deviceType = getDeviceType() else { fatalError("cant determine device type!?!") }

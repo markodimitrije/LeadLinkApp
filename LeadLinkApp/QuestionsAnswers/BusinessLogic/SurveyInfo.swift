@@ -14,7 +14,7 @@ enum InternalError: Error {
 
 struct SurveyInfo {
     
-    var campaign: Campaign
+    var campaign: CampaignProtocol
     var code: String
     var dataStore: RealmAnswersDataStore
     var hasConsent = false
@@ -27,7 +27,7 @@ struct SurveyInfo {
     var questions: [Question] { return campaign.questions }
     var answers = [MyAnswerProtocol]()
     
-    init(campaign: Campaign,
+    init(campaign: CampaignProtocol,
          code: String,
          hasConsent: Bool = false,
          dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
