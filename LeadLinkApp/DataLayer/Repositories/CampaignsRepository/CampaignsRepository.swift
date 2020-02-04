@@ -11,27 +11,13 @@ import RxSwift
 import RealmSwift
 
 protocol CampaignsRepositoryProtocol {
-    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool>
+    func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> // TODO: MOVE!! ...
+    func updateImg(data: Data?, campaignId id: Int)
+    func fetchCampaign(_ campaignId: Int) -> Observable<Campaign>
 }
 
-public class CampaignsRepository: CampaignsRepositoryProtocol {
+extension CampaignsRepository: CampaignsRepositoryProtocol {
     
-    // MARK: - Properties
-    let dataStore: CampaignsDataStore
-    let userSessionRepository: UserSessionRepository
-    let remoteAPI: CampaignsRemoteAPI
-    let questionsDataStore: QuestionsDataStoreProtocol
-    let campaignsVersionChecker: CampaignsVersionChecker
-    
-    // MARK: - Methods
-    init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStoreProtocol, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
-        self.userSessionRepository = userSessionRepository
-        self.dataStore = dataStore
-        self.remoteAPI = remoteAPI
-        self.questionsDataStore = questionsDataStore
-        self.campaignsVersionChecker = campaignsVersionChecker
-    }
-
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
         
         let update =
@@ -71,7 +57,15 @@ public class CampaignsRepository: CampaignsRepositoryProtocol {
         
     }
     
-    //func fetchCampaign(_ campaignId: Int) -> Observable<RealmCampaign> {
+    func updateImg(data: Data?, campaignId id: Int) {
+        guard let realm = try? Realm.init() else {return}
+        guard let record = realm.objects(RealmCampaign.self).first(where: {$0.id == id}) else {return}
+        //print("RealmCampaign/updateImg. image data treba da su saved... ")
+        try? realm.write {
+            record.imgData = data
+        }
+    }
+    
     func fetchCampaign(_ campaignId: Int) -> Observable<Campaign> {
         let realm = try! Realm()
         guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
@@ -80,4 +74,24 @@ public class CampaignsRepository: CampaignsRepositoryProtocol {
         
         return Observable.from(object: realmCampaign).map(Campaign.init)
     }
+}
+
+public class CampaignsRepository {
+    
+    // MARK: - Properties
+    let dataStore: CampaignsDataStore
+    let userSessionRepository: UserSessionRepository
+    let remoteAPI: CampaignsRemoteAPI
+    let questionsDataStore: QuestionsDataStoreProtocol
+    let campaignsVersionChecker: CampaignsVersionChecker
+    
+    // MARK: - Methods
+    init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStoreProtocol, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
+        self.userSessionRepository = userSessionRepository
+        self.dataStore = dataStore
+        self.remoteAPI = remoteAPI
+        self.questionsDataStore = questionsDataStore
+        self.campaignsVersionChecker = campaignsVersionChecker
+    }
+
 }

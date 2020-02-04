@@ -93,41 +93,8 @@ class RealmCampaign: Object {
         
     }
     
-    public func questions(forCampaignId id: Int) -> [RealmQuestion] {
-        
-        guard let realm = try? Realm.init() else {return [ ]}
-        
-        let questions: Results<RealmQuestion> = realm.objects(RealmQuestion.self).filter ("id == %@", id)
-        
-        return Array(questions)
-        
-    }
-    
-    public func questions(campaignId id: Int) -> [Question] {
-        
-        let rqs = questions(forCampaignId: id)
-
-        return rqs.map {
-            Question.init(realmQuestion: $0)
-        }
-        
-    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-    static func updateImg(data: Data?, campaignId id: Int) {
-        guard let realm = try? Realm.init() else {return}
-        guard let record = realm.objects(RealmCampaign.self).first(where: {$0.id == id}) else {return}
-        //print("RealmCampaign/updateImg. image data treba da su saved... ")
-        try? realm.write {
-            record.imgData = data
-        }
-    }
-    
-//    override static func ignoredProperties() -> [String] { // sta nije bitno za Scaner app?
-//        return ["primary_color"]//, "floor", "imported_id"]
-//    }
-    
+        
 }

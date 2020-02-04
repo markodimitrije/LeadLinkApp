@@ -63,8 +63,8 @@ public class CampaignsViewModel {
             }
 
         }.done { (infos) in     //       print("imam logo infos")
-            let _ = infos.map {
-                RealmCampaign.updateImg(data: $0.imgData, campaignId: $0.id)
+            let _ = infos.map { [weak self] in
+                self?.campaignsRepository.updateImg(data: $0.imgData, campaignId: $0.id)
             }
         }.catch { (err) in
             guard let err = err as? CampaignError else {return}
