@@ -19,9 +19,9 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         return surveyQuestions.map {$0.getQuestion()}
     }
     var viewModel: QuestionsAnswersViewModel!
-    lazy private var obsDelegate: Observable<Delegate?> = {
-        return DelegatesRemoteAPI.shared.getDelegate(withCode: surveyInfo.code)
-    }()
+    var obsDelegate: Observable<Delegate?>!
+    
+    private let answersWebReporter = AnswersReportsToWebState()
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)
@@ -78,7 +78,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
 
         let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
                                                                 campaign: surveyInfo.campaign)
-        let answersWebReporter = AnswersReportsToWebState()
+        
         viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
                                                    answersWebReporterWorker: answersWebReporter,
                                                    obsDelegate: obsDelegate)

@@ -36,6 +36,7 @@ class QuestionsAnswersViewControllerFactory {
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
         vc.surveyInfo = surveyInfo
+        vc.obsDelegate = Observable.just(delegate)
         
         return vc
     }
@@ -51,6 +52,7 @@ class QuestionsAnswersViewControllerFactory {
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
         vc.surveyInfo = surveyInfo
+        vc.obsDelegate = Observable.just(nil)
         
         return vc
     }
