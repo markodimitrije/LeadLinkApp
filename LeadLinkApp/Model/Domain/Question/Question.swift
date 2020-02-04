@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct Questions {
+struct Questions {
     var data: [QuestionProtocol]
 }
 
-public struct Question: Codable {
+struct Question: Codable {
     var id: Int
     var campaign_id: Int
     var title: String

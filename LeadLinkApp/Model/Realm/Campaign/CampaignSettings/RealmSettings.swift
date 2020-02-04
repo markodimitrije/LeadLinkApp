@@ -16,7 +16,7 @@ class RealmSettings: Object {
     @objc dynamic var useScanditScanner: Bool = false
     @objc dynamic var showEmail: Bool = false
     
-    public func update(with settings: Settings, forCampaignId id: Int) {
+    public func update(with settings: SettingsProtocol, forCampaignId id: Int) {
     
         self.id = id
         

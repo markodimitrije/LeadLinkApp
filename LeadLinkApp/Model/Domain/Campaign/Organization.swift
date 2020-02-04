@@ -8,7 +8,12 @@
 
 import Foundation
 
-public struct Organization: Codable {
+protocol OrganizationProtocol {
+    var id: Int { get set }
+    var name: String { get set }
+}
+
+public struct Organization: OrganizationProtocol {
     var id: Int
     var name: String
     

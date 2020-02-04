@@ -15,7 +15,7 @@ class RealmOptIn: Object {
     @objc dynamic var url: String = ""
     @objc dynamic var privacyPolicy: String = ""
     
-    public func update(with optIn: OptIn, forCampaignId campaignId: Int) {
+    public func update(with optIn: OptInProtocol, forCampaignId campaignId: Int) {
         
         self.id = campaignId
         self.text = optIn.text

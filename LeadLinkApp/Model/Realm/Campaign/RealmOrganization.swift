@@ -13,11 +13,9 @@ class RealmOrganization: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     
-    public func update(with organization: Organization) {
-        
+    public func update(with organization: OrganizationProtocol) {
         self.id = organization.id
         self.name = organization.name
-        
     }
     
     override static func primaryKey() -> String? {

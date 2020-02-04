@@ -28,9 +28,9 @@ protocol CampaignProtocol {
     
     var questions: [QuestionProtocol] { get set }
     var codes: [Code]? { get set }
-    var application: Application { get set }
-    var settings: Settings? { get set }
-    var organization: Organization? { get set }
+    var application: ApplicationProtocol { get set }
+    var settings: SettingsProtocol? { get set }
+    var organization: OrganizationProtocol? { get set }
     
     var dateReadAt: Date? { get set }
 }
@@ -51,9 +51,9 @@ public struct Campaign: CampaignProtocol {
     
     var questions: [QuestionProtocol]
     var codes: [Code]?
-    var application: Application
-    var settings: Settings?
-    var organization: Organization?
+    var application: ApplicationProtocol
+    var settings: SettingsProtocol?
+    var organization: OrganizationProtocol?
     
     var dateReadAt: Date?
     

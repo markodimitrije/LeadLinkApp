@@ -15,7 +15,7 @@ class RealmDisclaimer: Object {
     @objc dynamic var privacyPolicy: String = ""
     @objc dynamic var url: String = ""
     
-    public func update(with disclaimer: Disclaimer, forCampaignId id: Int) {
+    public func update(with disclaimer: DisclaimerProtocol, forCampaignId id: Int) {
         
         self.id = id
         self.text = disclaimer.text

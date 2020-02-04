@@ -12,13 +12,13 @@ class OptInViewFactory: GetViewProtocol {
     
     private var textView: UITextView!
     private var myView: UIView!
-    private let optIn: OptIn
+    private let optIn: OptInProtocol
     
     func getView() -> UIView {
         return self.myView
     }
     
-    init(optIn: OptIn, titleWithHiperlinkViewFactory: TextWithHiperlinkViewFactory) {
+    init(optIn: OptInProtocol, titleWithHiperlinkViewFactory: TextWithHiperlinkViewFactory) {
         self.optIn = optIn
         self.myView = titleWithHiperlinkViewFactory.getView()
     }

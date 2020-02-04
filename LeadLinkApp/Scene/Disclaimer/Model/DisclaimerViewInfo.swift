@@ -9,11 +9,11 @@
 import Foundation
 
 struct DisclaimerViewInfo {
-    var disclaimer: Disclaimer
+    var disclaimer: DisclaimerProtocol
     var title: String = ""
     var disagreeTitle: String = ""
     var agreeTitle: String = ""
-    init(disclaimer: Disclaimer) {
+    init(disclaimer: DisclaimerProtocol) {
         self.disclaimer = disclaimer
         self.title = Constants.Disclaimer.title
         self.disagreeTitle = Constants.Disclaimer.disagree

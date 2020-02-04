@@ -13,7 +13,7 @@ protocol ApplicationProtocol {
     var api_key: String { get set }
 }
 
-public struct Application: Codable, ApplicationProtocol {
+public struct Application: ApplicationProtocol {
     
     var id: Int
     var api_key: String

@@ -8,9 +8,16 @@
 
 import Foundation
 
-public struct Settings: Codable {
-    var disclaimer: Disclaimer?
-    var optIn: OptIn?
+protocol SettingsProtocol {
+    var disclaimer: DisclaimerProtocol? { get set }
+    var optIn: OptInProtocol? { get set }
+    var use_scandit_scanner: Bool? { get set }
+    var showEmail: Bool? { get set }
+}
+
+public struct Settings: SettingsProtocol {
+    var disclaimer: DisclaimerProtocol?
+    var optIn: OptInProtocol?
     var use_scandit_scanner: Bool?
     var showEmail: Bool?
     
@@ -32,7 +39,13 @@ public struct Settings: Codable {
     }
 }
 
-public struct Disclaimer: Codable {
+protocol DisclaimerProtocol {
+    var text: String { get set }
+    var privacyPolicy: String { get set }
+    var url: String { get set }
+}
+
+public struct Disclaimer: DisclaimerProtocol {
     var text: String
     var privacyPolicy: String
     var url: String
@@ -56,7 +69,13 @@ public struct Disclaimer: Codable {
     }
 }
 
-public struct OptIn: Codable {
+protocol OptInProtocol {
+    var text: String { get set }
+    var privacyPolicy: String { get set }
+    var url: String { get set }
+}
+
+public struct OptIn: OptInProtocol {
     var text: String
     var url: String
     var privacyPolicy: String
