@@ -46,6 +46,7 @@
 		7C1CEA4823A102540015F8F7 /* SaveButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */; };
 		7C1CEA4D23A14E720015F8F7 /* BarcodeTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */; };
 		7C1CEA4F23A14E9B0015F8F7 /* PhoneTextFieldFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA4E23A14E9B0015F8F7 /* PhoneTextFieldFactory.swift */; };
+		7C1CF85D23EAD2B000D06886 /* NavusPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */; };
 		7C1D1E4523A7BCAF001D9415 /* LabelTextField_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D1E4423A7BCAF001D9415 /* LabelTextField_ViewModel.swift */; };
 		7C1D1E4723A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1D1E4623A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift */; };
 		7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */; };
@@ -384,6 +385,7 @@
 		7C1CEA4723A102540015F8F7 /* SaveButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonFactory.swift; sourceTree = "<group>"; };
 		7C1CEA4C23A14E720015F8F7 /* BarcodeTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTextViewFactory.swift; sourceTree = "<group>"; };
 		7C1CEA4E23A14E9B0015F8F7 /* PhoneTextFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldFactory.swift; sourceTree = "<group>"; };
+		7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusPieChart.swift; sourceTree = "<group>"; };
 		7C1D1E4423A7BCAF001D9415 /* LabelTextField_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField_ViewModel.swift; sourceTree = "<group>"; };
 		7C1D1E4623A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldViewModelFactory.swift; sourceTree = "<group>"; };
 		7C1E80B623802DCF006957BB /* ChartGridViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridViewFactory.swift; sourceTree = "<group>"; };
@@ -1058,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				7CCFEACC2269C968004F4838 /* ChartVC.swift */,
+				7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2790,6 +2793,7 @@
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,
 				7C4E076923A02B91003FBCF6 /* LabelTextViewViewModel.swift in Sources */,
+				7C1CF85D23EAD2B000D06886 /* NavusPieChart.swift in Sources */,
 				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,
 				7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,

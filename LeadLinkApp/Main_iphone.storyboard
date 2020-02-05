@@ -458,36 +458,15 @@ barcode number manually</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="center" id="S8u-fU-5fj" customClass="PieChart" customModule="PieCharts">
-                                <rect key="frame" x="0.0" y="8" width="320" height="384"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-j4-ynU" userLabel="Upper View">
+                                <rect key="frame" x="8" y="20" width="304" height="304"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="S8u-fU-5fj" secondAttribute="height" multiplier="1:1.2" id="AhZ-I2-f16"/>
+                                    <constraint firstAttribute="width" secondItem="Ch1-j4-ynU" secondAttribute="height" multiplier="1:1" id="bZe-zl-xCJ"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
-                                        <real key="value" value="65"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRadius">
-                                        <real key="value" value="130"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="referenceAngle">
-                                        <real key="value" value="270"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedOffset">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-j9-xCA">
-                                <rect key="frame" x="0.0" y="392" width="320" height="130"/>
+                                <rect key="frame" x="-9" y="332" width="338" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="qQa-UW-eKA"/>
                                 </constraints>
@@ -495,23 +474,24 @@ barcode number manually</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="width" secondItem="S8u-fU-5fj" secondAttribute="width" id="AEe-J1-QNB"/>
-                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="top" secondItem="S8u-fU-5fj" secondAttribute="bottom" id="C37-f1-Juq"/>
-                            <constraint firstItem="S8u-fU-5fj" firstAttribute="leading" secondItem="EHN-qL-WUt" secondAttribute="leading" id="cQM-ac-j8i"/>
+                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="width" secondItem="Ch1-j4-ynU" secondAttribute="width" multiplier="1.11111" id="Obq-AT-HHk"/>
+                            <constraint firstItem="Ch1-j4-ynU" firstAttribute="centerX" secondItem="B6A-DY-6gI" secondAttribute="centerX" id="THj-no-xUv"/>
+                            <constraint firstItem="Ch1-j4-ynU" firstAttribute="top" secondItem="EHN-qL-WUt" secondAttribute="top" constant="20" id="Tnf-e1-GZ4"/>
+                            <constraint firstItem="dDJ-j9-xCA" firstAttribute="top" secondItem="Ch1-j4-ynU" secondAttribute="bottom" constant="8" id="VhH-Mi-jwN"/>
+                            <constraint firstItem="EHN-qL-WUt" firstAttribute="trailing" secondItem="Ch1-j4-ynU" secondAttribute="trailing" constant="8" id="lJM-Gd-csY"/>
                             <constraint firstItem="dDJ-j9-xCA" firstAttribute="centerX" secondItem="B6A-DY-6gI" secondAttribute="centerX" id="lwn-8D-WoQ"/>
-                            <constraint firstItem="S8u-fU-5fj" firstAttribute="top" secondItem="EHN-qL-WUt" secondAttribute="top" constant="8" id="olf-Wh-5MK"/>
-                            <constraint firstItem="S8u-fU-5fj" firstAttribute="centerX" secondItem="B6A-DY-6gI" secondAttribute="centerX" id="rTo-0u-Dj2"/>
+                            <constraint firstItem="Ch1-j4-ynU" firstAttribute="leading" secondItem="EHN-qL-WUt" secondAttribute="leading" constant="8" id="tyK-mw-G0K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EHN-qL-WUt"/>
                     </view>
                     <connections>
                         <outlet property="lowerView" destination="dDJ-j9-xCA" id="9Qs-Do-Krv"/>
-                        <outlet property="upperView" destination="S8u-fU-5fj" id="7Oi-8Y-vIV"/>
+                        <outlet property="upperView" destination="Ch1-j4-ynU" id="W5S-mU-b8W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY0-qS-wiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2374" y="1549"/>
+            <point key="canvasLocation" x="2373.75" y="1548.5915492957747"/>
         </scene>
         <!--Choose OptionsVC-->
         <scene sceneID="8gk-1N-u0l">
