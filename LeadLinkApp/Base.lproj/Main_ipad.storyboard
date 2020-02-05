@@ -464,7 +464,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-UV-aIp" customClass="PieChart" customModule="PieCharts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-UV-aIp">
                                 <rect key="frame" x="20" y="0.0" width="984" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -507,7 +507,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="lowerView" destination="AZg-CQ-oJM" id="O6G-bY-pQv"/>
-                        <outlet property="upperView" destination="Ine-UV-aIp" id="T2X-Ac-bPR"/>
+                        <outlet property="upperView" destination="Ine-UV-aIp" id="J2a-JI-Bhh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-uC-eII" userLabel="First Responder" sceneMemberID="firstResponder"/>

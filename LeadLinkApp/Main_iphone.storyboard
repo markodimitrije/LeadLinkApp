@@ -460,7 +460,6 @@ barcode number manually</string>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-j4-ynU" userLabel="Upper View">
                                 <rect key="frame" x="8" y="20" width="304" height="304"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ch1-j4-ynU" secondAttribute="height" multiplier="1:1" id="bZe-zl-xCJ"/>
                                 </constraints>

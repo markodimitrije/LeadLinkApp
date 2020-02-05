@@ -21,28 +21,25 @@ class ChartVC: UIViewController, Storyboarded {
     var pieChartViewModel: PieChartViewModeling! // nek ti ubaci odg. Factory....
     var gridViewModel: GridViewModeling! // nek ti ubaci odg. Factory....
     
-    private var pieChartModels = [PieSliceModel]()
-    
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
         hookUpPieChartViewFromYourViewModel()
         hookUpGridViewFromYourViewModel()
     }
     
-    private func loadChart() {
+    private func hookUpPieChartViewFromYourViewModel() {
+        pieChartViewModel.output.debounce(1.0, scheduler: MainScheduler())
+            .subscribe(onNext: { [weak self] chartData in guard let sSelf = self else {return}
+                let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
+                sSelf.loadChart(chartModels: pieSliceModelCreator.models)
+            })
+            .disposed(by: bag)
+    }
+    
+    private func loadChart(chartModels: [PieSliceModel]) {
         upperView.removeAllSubviews()
         let pieChartView = NavusPieChart(frame: upperView.bounds)
         upperView.addSubview(pieChartView)
-        pieChartView.models = pieChartModels
-    }
-    
-    private func hookUpPieChartViewFromYourViewModel() {
-        pieChartViewModel.output.debounce(0.5, scheduler: MainScheduler())
-            .subscribe(onNext: { [weak self] chartData in guard let sSelf = self else {return}
-                let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
-                sSelf.pieChartModels = pieSliceModelCreator.models
-                sSelf.loadChart()
-            })
-            .disposed(by: bag)
+        pieChartView.models = chartModels
     }
     
     private func hookUpGridViewFromYourViewModel() {
