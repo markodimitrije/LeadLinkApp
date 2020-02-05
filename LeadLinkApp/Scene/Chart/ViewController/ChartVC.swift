@@ -34,17 +34,15 @@ class ChartVC: UIViewController, Storyboarded {
     }
     
     private func loadChart() {
-        if pieChartView == nil {
-            let pieChartView = NavusPieChart(frame: upperView.bounds)
-            upperView.addSubview(pieChartView)
-        }
-        pieChartView!.models = pieChartModels
+        upperView.removeAllSubviews()
+        let pieChartView = NavusPieChart(frame: upperView.bounds)
+        upperView.addSubview(pieChartView)
+        pieChartView.models = pieChartModels
     }
     
     private func hookUpPieChartViewFromYourViewModel() {
         pieChartViewModel.output
             .subscribe(onNext: { [weak self] chartData in guard let sSelf = self else {return}
-                
                 let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
                 sSelf.pieChartModels = pieSliceModelCreator.models
             })
