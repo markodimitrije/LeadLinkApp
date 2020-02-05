@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BarOrChartData: BarOrChartInfo {
+struct BarOrChartData: BarOrChartInfoProtocol {
     
     private var campaign: CampaignProtocol
     private var webReports: [RealmWebReportedAnswers]

@@ -8,11 +8,11 @@
 
 import Foundation
 
-class CompartmentBuilder: BarOrChartCompartmentsInfo {
+struct CompartmentBuilder: BarOrChartCompartmentsProtocol {
     
     var compartments: [SingleCompartment]
     
-    init(barOrChartInfo: BarOrChartInfo) {
+    init(barOrChartInfo: BarOrChartInfoProtocol) {
 
         // MOCK
 //        let totalOtherDevicesCompartmentInfo =

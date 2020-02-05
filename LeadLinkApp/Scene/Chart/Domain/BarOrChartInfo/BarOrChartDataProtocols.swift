@@ -8,12 +8,10 @@
 
 import Foundation
 
-protocol BarOrChartInfo {
+protocol BarOrChartInfoProtocol {
     var compartmentValues: [Int] {get set}
 }
 
-protocol BarOrChartCompartmentsInfo {
+protocol BarOrChartCompartmentsProtocol {
     var compartments: [SingleCompartment] {get set}
 }
-
-protocol BarOrChartSuperInfo: BarOrChartInfo, BarOrChartCompartmentsInfo {} // naming !!
