@@ -32,8 +32,8 @@ class ChartGridViewFactory: ChartGridViewBuilding {
     }
     
     private func createGridView(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) -> UIView {
-        let barOrChartData = BarOrChartData(campaign: campaign, webReports: webReports)
-        let compartmentsBuilder = CompartmentBuilder(barOrChartInfo: barOrChartData)
+        let values = CompartmentValues(campaign: campaign, webReports: webReports)
+        let compartmentsBuilder = CompartmentBuilder(compartmentInfo: values)
         let compartmentsInGridViewFactory = CompartmentsInGridViewFactory(compartmentBuilder: compartmentsBuilder)
         return compartmentsInGridViewFactory.outputView
     }

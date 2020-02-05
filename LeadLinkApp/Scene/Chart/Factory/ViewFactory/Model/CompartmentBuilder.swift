@@ -10,9 +10,9 @@ import Foundation
 
 struct CompartmentBuilder: BarOrChartCompartmentsProtocol {
     
-    var compartments: [SingleCompartment]
+    var compartments: [SingleCompartmentProtocol]
     
-    init(barOrChartInfo: BarOrChartInfoProtocol) {
+    init(compartmentInfo: CompartmentValuesProtocol) {
 
         // MOCK
 //        let totalOtherDevicesCompartmentInfo =
@@ -25,17 +25,16 @@ struct CompartmentBuilder: BarOrChartCompartmentsProtocol {
 //            NotSyncedThisDeviceCompartmentInfo(value: 0)
         
         let totalOtherDevicesCompartmentInfo =
-            TotalOtherDevicesCompartmentInfo(value: barOrChartInfo.compartmentValues[0])
+            TotalOtherDevicesCompartmentInfo(value: compartmentInfo.compartmentValues[0])
 
         let syncedThisDeviceCompartmentInfo =
-            SyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[1])
+            SyncedThisDeviceCompartmentInfo(value: compartmentInfo.compartmentValues[1])
 
         let notSyncedThisDeviceCompartmentInfo =
-            NotSyncedThisDeviceCompartmentInfo(value: barOrChartInfo.compartmentValues[2])
+            NotSyncedThisDeviceCompartmentInfo(value: compartmentInfo.compartmentValues[2])
         
         self.compartments = [totalOtherDevicesCompartmentInfo,
                              syncedThisDeviceCompartmentInfo,
                              notSyncedThisDeviceCompartmentInfo]
-        
     }
 }

@@ -1,5 +1,5 @@
 //
-//  BarOrChartDataProtocols.swift
+//  CompartmentValuesProtocol.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 09/07/2019.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol BarOrChartInfoProtocol {
+protocol CompartmentValuesProtocol {
     var compartmentValues: [Int] {get set}
 }
 
 protocol BarOrChartCompartmentsProtocol {
-    var compartments: [SingleCompartment] {get set}
+    var compartments: [SingleCompartmentProtocol] {get set}
 }

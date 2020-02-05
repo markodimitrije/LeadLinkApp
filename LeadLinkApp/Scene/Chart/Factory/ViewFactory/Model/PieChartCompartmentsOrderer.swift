@@ -10,11 +10,11 @@ import Foundation
 
 class PieChartCompartmentsOrderer {
     
-    var compartments: [SingleCompartment]
+    var compartments: [SingleCompartmentProtocol]
     
-    init(compartments: [SingleCompartment]) {
+    init(compartments: [SingleCompartmentProtocol]) {
         
-        var myOrderCompartments = [SingleCompartment?]()
+        var myOrderCompartments = [SingleCompartmentProtocol?]()
         
         myOrderCompartments.append(compartments.first(where: {$0 is SyncedThisDeviceCompartmentInfo}))
         myOrderCompartments.append(compartments.first(where: {$0 is NotSyncedThisDeviceCompartmentInfo}))

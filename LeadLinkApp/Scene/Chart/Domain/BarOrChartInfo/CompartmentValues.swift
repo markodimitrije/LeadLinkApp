@@ -1,5 +1,5 @@
 //
-//  BarOrChartDataImplementations.swift
+//  CompartmentValuesImplementations.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 09/07/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BarOrChartData: BarOrChartInfoProtocol {
+struct CompartmentValues: CompartmentValuesProtocol {
     
     private var campaign: CampaignProtocol
     private var webReports: [RealmWebReportedAnswers]

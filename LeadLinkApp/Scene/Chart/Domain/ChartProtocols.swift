@@ -11,11 +11,11 @@ import UIKit
 // Diagram + GridTable protocols
 
 protocol BarOrChartDiagram {
-    var compartments: [SingleCompartment] {get set}
+    var compartments: [SingleCompartmentProtocol] {get set}
 }
 
 protocol BarOrChartTable {
-    var compartments: [SingleCompartment] {get set}
+    var compartments: [SingleCompartmentProtocol] {get set}
     var date: Date {get set}
 }
 

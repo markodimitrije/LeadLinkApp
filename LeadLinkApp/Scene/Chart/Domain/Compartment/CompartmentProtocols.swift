@@ -10,16 +10,16 @@ import UIKit
 
 // SingleCompartment - SingleBar
 
-protocol SingleCompartmentColor {
+protocol SingleCompartmentColorProtocol {
     var color: UIColor {get set}
 }
 
-protocol SingleCompartmentName {
+protocol SingleCompartmentNameProtocol {
     var name: String {get set}
 }
 
-protocol SingleCompartmentValue {
+protocol SingleCompartmentValueProtocol {
     var value: Int {get set}
 }
 
-protocol SingleCompartment: SingleCompartmentColor, SingleCompartmentName, SingleCompartmentValue {}
+protocol SingleCompartmentProtocol: SingleCompartmentColorProtocol, SingleCompartmentNameProtocol, SingleCompartmentValueProtocol {}

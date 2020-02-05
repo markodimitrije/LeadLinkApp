@@ -35,7 +35,7 @@ class SingleRowGridTableView: UIView {
         
     }
     
-    func update(compartment: SingleCompartment) {
+    func update(compartment: SingleCompartmentProtocol) {
         colorView.backgroundColor = compartment.color
         descLabel.text = compartment.name
         valueLabel.text = "\(compartment.value)"

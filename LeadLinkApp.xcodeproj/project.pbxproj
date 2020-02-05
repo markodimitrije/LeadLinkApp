@@ -109,8 +109,8 @@
 		7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */; };
 		7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */; };
 		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
-		7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */; };
-		7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */; };
+		7C38D4A722D4A45C0044AFC5 /* CompartmentValuesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* CompartmentValuesProtocol.swift */; };
+		7C38D4A922D4A47F0044AFC5 /* CompartmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* CompartmentValues.swift */; };
 		7C38D8C923E1C56900BAA559 /* CampaignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */; };
 		7C38D8CB23E1CB2E00BAA559 /* CampaignResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */; };
 		7C38D8CD23E1CB6000BAA559 /* ApplicationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */; };
@@ -447,8 +447,8 @@
 		7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCompartmentsTableViewFactory.swift; sourceTree = "<group>"; };
 		7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
 		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
-		7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataProtocols.swift; sourceTree = "<group>"; };
-		7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarOrChartDataImplementations.swift; sourceTree = "<group>"; };
+		7C38D4A622D4A45C0044AFC5 /* CompartmentValuesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentValuesProtocol.swift; sourceTree = "<group>"; };
+		7C38D4A822D4A47F0044AFC5 /* CompartmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentValues.swift; sourceTree = "<group>"; };
 		7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponse.swift; sourceTree = "<group>"; };
 		7C38D8CA23E1CB2E00BAA559 /* CampaignResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponseProtocol.swift; sourceTree = "<group>"; };
 		7C38D8CC23E1CB6000BAA559 /* ApplicationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationResponse.swift; sourceTree = "<group>"; };
@@ -1455,8 +1455,8 @@
 		7C38D4A522D4A4160044AFC5 /* BarOrChartInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D4A622D4A45C0044AFC5 /* BarOrChartDataProtocols.swift */,
-				7C38D4A822D4A47F0044AFC5 /* BarOrChartDataImplementations.swift */,
+				7C38D4A622D4A45C0044AFC5 /* CompartmentValuesProtocol.swift */,
+				7C38D4A822D4A47F0044AFC5 /* CompartmentValues.swift */,
 			);
 			path = BarOrChartInfo;
 			sourceTree = "<group>";
@@ -2674,7 +2674,7 @@
 				7C69552223391ECB009D4A25 /* UIMarginLabel.swift in Sources */,
 				7C1EE71D23A295C500DB9ED8 /* GroupViewFactory.swift in Sources */,
 				7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */,
-				7C38D4A922D4A47F0044AFC5 /* BarOrChartDataImplementations.swift in Sources */,
+				7C38D4A922D4A47F0044AFC5 /* CompartmentValues.swift in Sources */,
 				7C1E80B723802DCF006957BB /* ChartGridViewFactory.swift in Sources */,
 				7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */,
 				7C38D8C923E1C56900BAA559 /* CampaignResponse.swift in Sources */,
@@ -2720,7 +2720,7 @@
 				7C38086922C5113900BB62C5 /* DataErrorFromUrlResponse.swift in Sources */,
 				7C22270E2379B4090006B8EE /* Constants+BtnTitles.swift in Sources */,
 				7C27AA2323A8ED5200B678E9 /* CheckboxBtnImage.swift in Sources */,
-				7C38D4A722D4A45C0044AFC5 /* BarOrChartDataProtocols.swift in Sources */,
+				7C38D4A722D4A45C0044AFC5 /* CompartmentValuesProtocol.swift in Sources */,
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,

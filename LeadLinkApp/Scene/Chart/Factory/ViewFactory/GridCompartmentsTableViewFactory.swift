@@ -10,7 +10,7 @@ import UIKit
 
 class CompartmentsInGridViewFactory {
     
-    private var compartments = [SingleCompartment]()
+    private var compartments = [SingleCompartmentProtocol]()
     private var compartmentViews = [SingleRowGridTableView]()
     
     var outputView = UIStackView(arrangedSubviews: [])

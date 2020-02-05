@@ -1,9 +1,10 @@
 //
-//  PieSliceModelCreator.swift
-//  LeadLinkApp
+//  Purpose: transform integer values into compartments to render in PieChart
 //
-//  Created by Marko Dimitrijevic on 10/06/2019.
-//  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
+//  this class receives data in it's init (var compartmentValues: [Int])
+//  1. transforms those data into [SingleCompartment] (name, val, color)
+//  2. transforms those data into models: [PieSliceModel]
+//  models: [PieSliceModel] is property on PieChart(View) - lib PieCharts
 //
 
 import UIKit
@@ -11,16 +12,17 @@ import PieCharts
 
 class PieSliceModelCreator {
     
-    private var compartments: [SingleCompartment]
+    private var compartments: [SingleCompartmentProtocol]
     var models = [PieSliceModel]()
     
-    init(chartData: BarOrChartData) {
-        let compartmentBuilder = CompartmentBuilder(barOrChartInfo: chartData)
+    init(chartData: CompartmentValuesProtocol) {
+        let compartmentBuilder = CompartmentBuilder(compartmentInfo: chartData)
         let pieChartCompartmentsOrderer = PieChartCompartmentsOrderer(compartments: compartmentBuilder.compartments)
         self.compartments = pieChartCompartmentsOrderer.compartments
         
         self.makePieSliceModels()
     }
+    
     private func makePieSliceModels() {
         
         var tweakCompartments = self.compartments

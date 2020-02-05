@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TotalOtherDevicesCompartmentInfo: SingleCompartment {
+struct TotalOtherDevicesCompartmentInfo: SingleCompartmentProtocol {
     var color: UIColor
     var name: String
     var value: Int
@@ -19,7 +19,7 @@ struct TotalOtherDevicesCompartmentInfo: SingleCompartment {
     }
 }
 
-struct SyncedThisDeviceCompartmentInfo: SingleCompartment {
+struct SyncedThisDeviceCompartmentInfo: SingleCompartmentProtocol {
     var color: UIColor
     var name: String
     var value: Int
@@ -30,7 +30,7 @@ struct SyncedThisDeviceCompartmentInfo: SingleCompartment {
     }
 }
 
-struct NotSyncedThisDeviceCompartmentInfo: SingleCompartment {
+struct NotSyncedThisDeviceCompartmentInfo: SingleCompartmentProtocol {
     var color: UIColor
     var name: String
     var value: Int

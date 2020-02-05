@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol PieChartViewModeling {
-    var output: ReplaySubject<BarOrChartData> {get set}
+    var output: ReplaySubject<CompartmentValues> {get set}
 }
 
 class PieChartViewModel: PieChartViewModeling {
@@ -21,7 +21,7 @@ class PieChartViewModel: PieChartViewModeling {
     private var newWebReports = [RealmWebReportedAnswers]()
     private var newCampaign: CampaignProtocol!
     
-    var output = ReplaySubject<BarOrChartData>.create(bufferSize: 10) // output
+    var output = ReplaySubject<CompartmentValues>.create(bufferSize: 10) // output
     
     init(campaign: Observable<CampaignProtocol?>, webReports: Observable<[RealmWebReportedAnswers]>) {
         
@@ -62,7 +62,7 @@ class PieChartViewModel: PieChartViewModeling {
     
     private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) {
 
-        let chartData = BarOrChartData(campaign: newCampaign, webReports: newWebReports)
+        let chartData = CompartmentValues(campaign: newCampaign, webReports: newWebReports)
         output.onNext(chartData)
     }
     
