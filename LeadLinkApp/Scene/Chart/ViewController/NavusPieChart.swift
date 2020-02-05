@@ -24,7 +24,7 @@ class NavusPieChart: PieChart {
         formatColor()
         setGapBetweenPies()
         setReferenceAngle()
-        setAnimationDuration()
+//        setAnimationDuration()
     }
     
     private func formatRadius() {

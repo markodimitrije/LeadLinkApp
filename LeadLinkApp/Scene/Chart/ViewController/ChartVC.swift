@@ -28,11 +28,6 @@ class ChartVC: UIViewController, Storyboarded {
         hookUpGridViewFromYourViewModel()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        loadChart()
-    }
-    
     private func loadChart() {
         upperView.removeAllSubviews()
         let pieChartView = NavusPieChart(frame: upperView.bounds)
@@ -41,10 +36,11 @@ class ChartVC: UIViewController, Storyboarded {
     }
     
     private func hookUpPieChartViewFromYourViewModel() {
-        pieChartViewModel.output
+        pieChartViewModel.output.debounce(0.5, scheduler: MainScheduler())
             .subscribe(onNext: { [weak self] chartData in guard let sSelf = self else {return}
                 let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
                 sSelf.pieChartModels = pieSliceModelCreator.models
+                sSelf.loadChart()
             })
             .disposed(by: bag)
     }
