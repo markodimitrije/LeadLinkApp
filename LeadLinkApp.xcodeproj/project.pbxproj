@@ -240,8 +240,7 @@
 		7CBDC27422D743D100B7D43F /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */; };
 		7CBDC27622D74D0C00B7D43F /* PieChartViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */; };
 		7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */; };
-		7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDC27A22D773D600B7D43F /* PieChartView.xib */; };
-		7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27B22D773D600B7D43F /* PieChartView.swift */; };
+		7CBDC27D22D773D600B7D43F /* PieSliceModelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27B22D773D600B7D43F /* PieSliceModelCreator.swift */; };
 		7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */; };
 		7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5223A3ABBC00D52338 /* KeyboardHandling.swift */; };
 		7CC94E5523A3ABD400D52338 /* ScrollViewKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC94E5423A3ABD400D52338 /* ScrollViewKeyboardHandler.swift */; };
@@ -581,8 +580,7 @@
 		7CBDC27322D743D100B7D43F /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
 		7CBDC27522D74D0C00B7D43F /* PieChartViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewFactory.swift; sourceTree = "<group>"; };
 		7CBDC27722D7567500B7D43F /* CompartmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentBuilder.swift; sourceTree = "<group>"; };
-		7CBDC27A22D773D600B7D43F /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
-		7CBDC27B22D773D600B7D43F /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		7CBDC27B22D773D600B7D43F /* PieSliceModelCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieSliceModelCreator.swift; sourceTree = "<group>"; };
 		7CBDC27E22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCompartmentsOrderer.swift; sourceTree = "<group>"; };
 		7CC94E5223A3ABBC00D52338 /* KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandling.swift; sourceTree = "<group>"; };
 		7CC94E5423A3ABD400D52338 /* ScrollViewKeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewKeyboardHandler.swift; sourceTree = "<group>"; };
@@ -1061,6 +1059,7 @@
 			children = (
 				7CCFEACC2269C968004F4838 /* ChartVC.swift */,
 				7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */,
+				7CBDC27B22D773D600B7D43F /* PieSliceModelCreator.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1944,8 +1943,6 @@
 		7CBDC27922D7732F00B7D43F /* PieChartView */ = {
 			isa = PBXGroup;
 			children = (
-				7CBDC27B22D773D600B7D43F /* PieChartView.swift */,
-				7CBDC27A22D773D600B7D43F /* PieChartView.xib */,
 			);
 			path = PieChartView;
 			sourceTree = "<group>";
@@ -2451,7 +2448,6 @@
 				7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */,
 				ADAEE88021D8F331000B3C52 /* Main_ipad.storyboard in Resources */,
 				ADAFED8422395CB3004C4AC1 /* QRcodeView.xib in Resources */,
-				7CBDC27C22D773D600B7D43F /* PieChartView.xib in Resources */,
 				ADBECCEF2237EBD000C846F8 /* Main_iphone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2728,7 +2724,7 @@
 				7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */,
 				7C1F42BD237ACDCA0043D5E3 /* ReportsDataStore.swift in Sources */,
 				7C51085F22C0CDF7005EE58B /* StatsViewControllerFactory.swift in Sources */,
-				7CBDC27D22D773D600B7D43F /* PieChartView.swift in Sources */,
+				7CBDC27D22D773D600B7D43F /* PieSliceModelCreator.swift in Sources */,
 				7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */,
 				7C1CEA3423A0F6580015F8F7 /* RadioBtnsWithInputViewModel.swift in Sources */,
 				7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */,
