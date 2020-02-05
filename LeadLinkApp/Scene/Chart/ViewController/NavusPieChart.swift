@@ -20,9 +20,28 @@ class NavusPieChart: PieChart {
         super.init(coder: aDecoder)
     }
     private func format() {
+        formatRadius()
+        formatColor()
+        setGapBetweenPies()
+        setReferenceAngle()
+    }
+    
+    private func formatRadius() {
         self.innerRadius = rect.width / 5
         self.outerRadius = rect.width / 2.5
+    }
+    
+    private func formatColor() {
         self.tintColor = .white
-        self.backgroundColor = .yellow
+        self.backgroundColor = .white
+    }
+    
+    private func setGapBetweenPies() {
+        self.strokeWidth = 10.0
+        self.strokeColor = .white
+    }
+    
+    private func setReferenceAngle() {
+        self.referenceAngle = 270.0
     }
 }
