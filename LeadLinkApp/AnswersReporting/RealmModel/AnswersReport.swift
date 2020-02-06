@@ -35,8 +35,8 @@ class AnswersReport: AnswersReportProtocol {
     }
 
     private func loadAnswers() {
-        guard let realm = try? Realm.init(),
-             let campaignId = Int(campaignId) else {return}
+        let realm = RealmFactory.make()
+        guard let campaignId = Int(campaignId) else {return}
         
         let realmAnswers = realm.objects(RealmAnswer.self).filter("campaignId == %i && code == %@", campaignId, code)
         answers = Array(realmAnswers).compactMap(MyAnswer.init)

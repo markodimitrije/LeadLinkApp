@@ -18,8 +18,7 @@ struct AnswersReportDataStore {
     
     func getRealmWebReportedAnswers() -> Observable<[RealmWebReportedAnswers]> {
         
-        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-        
+        let realm = RealmFactory.make()
         let results = realm.objects(RealmWebReportedAnswers.self)
         
         return Observable
@@ -31,27 +30,19 @@ struct AnswersReportDataStore {
     
     func getReports() -> [AnswersReport] {
         
-        guard let realm = try? Realm.init() else {return [ ]} // iako je Error!
-        
+        let realm = RealmFactory.make()
         let realmResults = realm.objects(RealmWebReportedAnswers.self).toArray()
         
         return realmResults.map {AnswersReport.init(realmAnswersReport: $0)}
-        
     }
     
     func getFailedReports() -> [AnswersReport] {
-        
-        let all = getReports()
-        return all.filter {$0.success == false}
-        
+        return getReports().filter {$0.success == false}
     }
     
     func updateReports(_ reports: [AnswersReport]) -> Observable<Bool> {
         
-        guard let realm = try? Realm.init() else {
-            return Observable.just(false)
-        } // iako je Error!
-        
+        let realm = RealmFactory.make()
         let records = reports.map {RealmWebReportedAnswers.create(report: $0)}
         
         do {
@@ -70,10 +61,8 @@ struct AnswersReportDataStore {
     
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
         
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        
+        let realm = RealmFactory.make()
+
         do {
             try realm.write {
                 realm.add(objects, update: .modified)
@@ -88,9 +77,7 @@ struct AnswersReportDataStore {
     
     func saveToRealm(report: AnswersReport) -> Observable<Bool> {
         
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
         
         let newReport = RealmWebReportedAnswers.create(report: report)
 
@@ -111,9 +98,7 @@ struct AnswersReportDataStore {
     // MARK: All data (delete)
     
     func deleteAllDataIfAny() -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
         do {
             try realm.write {
                 realm.deleteAll()
@@ -125,9 +110,7 @@ struct AnswersReportDataStore {
     }
     
     func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
         do {
             try realm.write {
                 for type in types {
@@ -144,9 +127,7 @@ struct AnswersReportDataStore {
     // MARK: save codes successfully reported to web
     func save(reportsAcceptedFromWeb reports: [AnswersReport]) -> Observable<Bool> {
 
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
 
         let realmWebReportedCodes = reports.enumerated().map { (offset, report) -> RealmWebReportedAnswers in
             let record = RealmWebReportedAnswers.create(report: report)
@@ -166,4 +147,15 @@ struct AnswersReportDataStore {
         
     }
     
+}
+
+class RealmFactory {
+    static func make() -> Realm {
+        do {
+            let realm = try Realm.init()
+            return realm
+        } catch {
+            fatalError("RealmFactory.make failed, show alert...")
+        }
+    }
 }

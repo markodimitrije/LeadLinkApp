@@ -12,14 +12,10 @@ import RealmSwift
 
 public class RealmCodesDataStore: CodesDataStore {
     
-    var realm = try! Realm.init()
     var campaignsDataStore: CampaignsDataStore
     
     init(campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
         self.campaignsDataStore = campaignsDataStore
-        if let realm = realm {
-            self.realm = realm
-        }
     }
     
     public func readCodes(campaignId id: Int) -> Promise<[Code]> {
@@ -37,6 +33,8 @@ public class RealmCodesDataStore: CodesDataStore {
     public func save(code: Code) -> Promise<Code> {
         
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             let rCode = RealmCode.init()
             rCode.update(with: code)
@@ -60,6 +58,8 @@ public class RealmCodesDataStore: CodesDataStore {
     // sync
     
     public func getCodes(campaignId id: Int) -> [Code] {
+        
+        let realm = RealmFactory.make()
         
         let rCodes = realm.objects(RealmCode.self).filter("campaign_id == %i", id).toArray()
         

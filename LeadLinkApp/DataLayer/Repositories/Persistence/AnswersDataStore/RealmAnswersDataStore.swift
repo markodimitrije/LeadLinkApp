@@ -16,18 +16,12 @@ protocol AnswersDataStore {
 
 public class RealmAnswersDataStore: AnswersDataStore {
     
-    // MARK: - Properties
-    var realm = try! Realm.init()
-    
     // MARK: - GET
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<RealmAnswer?> {
         
         return Promise() { seal in
             
-            guard let _ = try? Realm.init() else {
-                seal.reject(CampaignError.unknown)
-                return
-            }
+            let realm = RealmFactory.make()
             
             guard let answerIdentifier = answerIdentifier,
                 let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: answerIdentifier.compositeId) else {
@@ -43,9 +37,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     
     func answer(question: Question, code: String) -> RealmAnswer? {
         
-        guard let _ = try? Realm.init() else {
-            return nil
-        }
+        let realm = RealmFactory.make()
         
         let compositeId = "\(question.campaign_id)" + "\(question.id)" + code
         
@@ -59,7 +51,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     
     func answer(campaign_id: Int, questionId: Int, code: String) -> RealmAnswer? {
         
-        guard let _ = try? Realm.init() else { return nil }
+        let realm = RealmFactory.make()
         
         let compositeId = "\(campaign_id)" + "\(questionId)" + code
         
@@ -72,6 +64,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     }
     
     func answers(campaign_id: Int, code: String) -> [RealmAnswer] {
+        let realm = RealmFactory.make()
         return
             realm.objects(RealmAnswer.self)
                 .filter("code == %@ && campaignId == %i", code, campaign_id)
@@ -82,6 +75,8 @@ public class RealmAnswersDataStore: AnswersDataStore {
     func save(answers: [MyAnswerProtocol], forCode code: String) -> Promise<Bool> {
         
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             let objects = answers.compactMap { answer -> RealmAnswer? in
                 let rAnswer = RealmAnswer()
@@ -104,6 +99,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
     // MARK: - DELETE
     public func delete(answers: [MyAnswer]) -> Promise<[RealmAnswer]> {
         
+        let realm = RealmFactory.make()
         let ids = answers.map {$0.id}
         
         return Promise() { seal in

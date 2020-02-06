@@ -82,7 +82,8 @@ class RealmCampaign: Object {
             }
         }
         
-        let realm = try! Realm.init() // update questions and codes
+        let realm = RealmFactory.make()
+        
         try? realm.write {
             
             questions.removeAll()

@@ -44,6 +44,8 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
          answersWebReporterWorker: AnswersReportsToWebStateProtocol,
          obsDelegate: Observable<Delegate?>) {
        
+        print("QuestionsAnswersViewModel is getting initialized!!")
+        
         self.items = getViewItemsWorker.getViewItems()
         self.answersWebReporter = answersWebReporterWorker
         self.obsDelegate = obsDelegate

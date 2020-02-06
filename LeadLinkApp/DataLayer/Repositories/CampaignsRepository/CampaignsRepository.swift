@@ -60,7 +60,7 @@ extension CampaignsRepository: CampaignsRepositoryProtocol {
     }
     
     func updateImg(data: Data?, campaignId id: Int) {
-        guard let realm = try? Realm.init() else {return}
+        let realm = RealmFactory.make()
         guard let record = realm.objects(RealmCampaign.self).first(where: {$0.id == id}) else {return}
         //print("RealmCampaign/updateImg. image data treba da su saved... ")
         try? realm.write {

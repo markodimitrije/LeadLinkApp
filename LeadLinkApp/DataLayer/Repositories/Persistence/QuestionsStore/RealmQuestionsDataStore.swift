@@ -12,17 +12,11 @@ import RealmSwift
 
 public class RealmQuestionsDataStore: QuestionsDataStoreProtocol {
     
-    // MARK: - Properties
-    var realm = try! Realm.init()
-    
     func readAllQuestions() -> Promise<[QuestionProtocol]> {
         
         return Promise() { seal in
             
-            guard let _ = try? Realm.init() else {
-                seal.reject(CampaignError.unknown)
-                return
-            }
+            let realm = RealmFactory.make()
             
             let results = realm.objects(RealmQuestion.self).sorted(by: {$0.id < $1.id})
             
@@ -38,6 +32,8 @@ public class RealmQuestionsDataStore: QuestionsDataStoreProtocol {
         
 //        print("Realm location = \(Realm.Configuration.defaultConfiguration.fileURL!)")
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             let objects = questions.compactMap { question -> RealmQuestion in
                 
@@ -59,6 +55,8 @@ public class RealmQuestionsDataStore: QuestionsDataStoreProtocol {
     }
     
     func delete(questions: [QuestionProtocol]) -> Promise<[QuestionProtocol]> {
+        
+        let realm = RealmFactory.make()
         
         let ids = questions.map {$0.qId}
         

@@ -13,22 +13,18 @@ import RxCocoa
 
 public class RealmReportsDataStore: ReportsDataStore {
     
-    private var realm = try! Realm.init()
     internal var campaignId: Int
     
     // output:
     var oReports = BehaviorRelay<[RealmWebReportedAnswers]>.init(value: [])
     
-    init(campaignId: Int, realm: Realm? = nil) {
+    init(campaignId: Int) {
         self.campaignId = campaignId
-        if let realm = realm {
-            self.realm = realm
-        }
         self.hookUpOutput()
     }
     
     private func hookUpOutput() {
-        guard let realm = try? Realm.init() else {return}
+        let realm = RealmFactory.make()
         let realmReports = realm.objects(RealmWebReportedAnswers.self)
                                 .filter("campaignId == %@", "\(campaignId)")
         

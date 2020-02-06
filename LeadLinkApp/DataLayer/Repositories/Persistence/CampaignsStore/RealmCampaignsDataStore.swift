@@ -14,19 +14,13 @@ import RxRealm
 
 class RealmCampaignsDataStore: CampaignsDataStore {
     
-    // MARK: - Properties
-    var realm = try! Realm.init()
-    
     // MARK: - manage campaigns
     
     func readCampaign(id: Int) -> Promise<CampaignProtocol> {
         
         return Promise() { seal in
             
-            guard let _ = try? Realm.init() else {
-                seal.reject(CampaignError.unknown)
-                return
-            }
+            let realm = RealmFactory.make()
             
             guard let result = realm.object(ofType: RealmCampaign.self, forPrimaryKey: id) else {
                 //fatalError("asking for not existing code in database!")
@@ -44,10 +38,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         
         return Promise() { seal in
             
-            guard let _ = try? Realm.init() else {
-                seal.reject(CampaignError.unknown)
-                return
-            }
+            let realm = RealmFactory.make()
             
             let results = realm.objects(RealmCampaign.self).sorted(by: {$0.id < $1.id})
             
@@ -62,6 +53,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     func save(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]> {
         
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             let objects = campaigns.compactMap { campaign -> RealmCampaign? in
                 let rc = RealmCampaign()
@@ -83,6 +76,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     }
     
     func delete(campaigns: [CampaignProtocol]) -> Promise<[CampaignProtocol]> {
+        
+        let realm = RealmFactory.make()
         
         let ids = campaigns.map {$0.id}
         
@@ -120,10 +115,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         
         return Promise() { seal in
             
-            guard let realm = try? Realm.init() else {
-                seal.reject(CampaignError.unknown)
-                return
-            }
+            let realm = RealmFactory.make()
             
             guard let realmJson = realm.objects(RealmJson.self).first(where: {$0.name == name} ) else {
                 seal.fulfill("") // ako nemas nista
@@ -139,6 +131,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     public func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool> {
         
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             let object = RealmJson()
             object.update(name: name, value: json)
@@ -160,6 +154,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     public func deleteCampaignsJsonString() -> Promise<Bool> {
         
         return Promise() { seal in
+            
+            let realm = RealmFactory.make()
             
             guard let object = realm.objects(RealmJson.self).first else {
                 seal.fulfill(true) // realno je error...
@@ -189,8 +185,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     
     // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
     public func deleteCampaignRelatedData() {
-        let objectTypes: [Object.Type] = campaignObjectTypes + [RealmJson.self]
         
+        let objectTypes: [Object.Type] = campaignObjectTypes + [RealmJson.self]
         _ = objectTypes.map { type -> Void in
             _ = self.deleteAllObjects(ofTypes: [type])
         }
@@ -199,9 +195,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     // MARK: All data (delete)
     
     func deleteAllDataIfAny() -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
         do {
             try realm.write {
                 realm.deleteAll()
@@ -213,9 +207,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
     }
     
     private func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realm = RealmFactory.make()
         do {
             try realm.write {
                 for type in types {
