@@ -180,22 +180,20 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
+    public func deleteAllCampaignRelatedDataExceptJson() {
+        
+        _ = campaignObjectTypes.map { type -> Void in
+            _ = self.deleteAllObjects(ofTypes: [type])
+        }
+    }
+    
     // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
     public func deleteCampaignRelatedData() {
-        let objectTypes: [Object.Type] = [RealmCampaign.self,
-                                    RealmSettings.self,
-                                    RealmOrganization.self,
-                                    RealmApplication.self,
-                                    RealmQuestion.self,
-                                    RealmQuestionSettings.self,
-                                    RealmDisclaimer.self,
-                                    RealmOptIn.self,
-                                    RealmJson.self]
+        let objectTypes: [Object.Type] = campaignObjectTypes + [RealmJson.self]
         
         _ = objectTypes.map { type -> Void in
             _ = self.deleteAllObjects(ofTypes: [type])
         }
-        
     }
     
     // MARK: All data (delete)
@@ -214,7 +212,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         return Observable<Bool>.just(true) // all good
     }
     
-    func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
+    private func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
         guard let realm = try? Realm() else {
             return Observable<Bool>.just(false) // treba da imas err za Realm...
         }
@@ -231,4 +229,12 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         return Observable<Bool>.just(true) // all good
     }
     
+    private var campaignObjectTypes: [Object.Type] = [RealmCampaign.self,
+                                                      RealmSettings.self,
+                                                      RealmOrganization.self,
+                                                      RealmApplication.self,
+                                                      RealmQuestion.self,
+                                                      RealmQuestionSettings.self,
+                                                      RealmDisclaimer.self,
+                                                      RealmOptIn.self]
 }

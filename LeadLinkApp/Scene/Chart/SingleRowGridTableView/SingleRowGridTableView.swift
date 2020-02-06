@@ -42,18 +42,3 @@ class SingleRowGridTableView: UIView {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,5 +21,6 @@ protocol CampaignsDataStore: CampaignsDataStoreBase {
     func getCampaignsJsonString(requestName name: String) -> Promise<String>
     func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool>
     func deleteCampaignRelatedData()
+    func deleteAllCampaignRelatedDataExceptJson()
 }
 

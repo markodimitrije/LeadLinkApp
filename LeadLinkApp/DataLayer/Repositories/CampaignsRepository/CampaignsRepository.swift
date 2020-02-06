@@ -44,6 +44,8 @@ extension CampaignsRepository: CampaignsRepositoryProtocol {
                 
                 let campaignsWithQuestions = results.campaignsWithQuestions
 
+                self.dataStore.deleteAllCampaignRelatedDataExceptJson()
+                
                 let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
 
                 return allCampaignsSaved
