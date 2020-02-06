@@ -12,6 +12,6 @@ protocol CompartmentValuesProtocol {
     var compartmentValues: [Int] {get set}
 }
 
-protocol BarOrChartCompartmentsProtocol {
+protocol CompartmentsProtocol {
     var compartments: [SingleCompartmentProtocol] {get set}
 }

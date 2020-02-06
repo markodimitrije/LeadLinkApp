@@ -8,7 +8,7 @@
 
 import UIKit
 import RxSwift
-import PieCharts
+//import PieCharts
 
 class ChartVC: UIViewController, Storyboarded {
     
@@ -28,18 +28,17 @@ class ChartVC: UIViewController, Storyboarded {
     
     private func hookUpPieChartViewFromYourViewModel() {
         pieChartViewModel.output.debounce(1.0, scheduler: MainScheduler())
-            .subscribe(onNext: { [weak self] chartData in guard let sSelf = self else {return}
-                let pieSliceModelCreator = PieSliceModelCreator.init(chartData: chartData)
-                sSelf.loadChart(chartModels: pieSliceModelCreator.models)
+            .subscribe(onNext: { [weak self] compartments in guard let sSelf = self else {return}
+                sSelf.loadChart(compartments: compartments)
             })
             .disposed(by: bag)
     }
     
-    private func loadChart(chartModels: [PieSliceModel]) {
+    private func loadChart(compartments: CompartmentValues) {
         upperView.removeAllSubviews()
         let pieChartView = NavusPieChart(frame: upperView.bounds)
+        pieChartView.update(compartments: compartments)
         upperView.addSubview(pieChartView)
-        pieChartView.models = chartModels
     }
     
     private func hookUpGridViewFromYourViewModel() {

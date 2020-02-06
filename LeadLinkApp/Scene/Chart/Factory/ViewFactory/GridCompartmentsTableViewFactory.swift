@@ -15,7 +15,7 @@ class CompartmentsInGridViewFactory {
     
     var outputView = UIStackView(arrangedSubviews: [])
     
-    init(compartmentBuilder: BarOrChartCompartmentsProtocol) {
+    init(compartmentBuilder: CompartmentsProtocol) {
         self.compartments = compartmentBuilder.compartments
         self.createOutput()
     }

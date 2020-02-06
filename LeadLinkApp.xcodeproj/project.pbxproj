@@ -107,8 +107,8 @@
 		7C38D49A22D486890044AFC5 /* SingleRowGridTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */; };
 		7C38D49B22D486890044AFC5 /* SingleRowGridTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */; };
 		7C38D49F22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */; };
-		7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */; };
-		7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */; };
+		7C38D4A222D4A1470044AFC5 /* SingleCompartmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A122D4A1470044AFC5 /* SingleCompartmentProtocol.swift */; };
+		7C38D4A422D4A1DC0044AFC5 /* SingleCompartments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A322D4A1DC0044AFC5 /* SingleCompartments.swift */; };
 		7C38D4A722D4A45C0044AFC5 /* CompartmentValuesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A622D4A45C0044AFC5 /* CompartmentValuesProtocol.swift */; };
 		7C38D4A922D4A47F0044AFC5 /* CompartmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D4A822D4A47F0044AFC5 /* CompartmentValues.swift */; };
 		7C38D8C923E1C56900BAA559 /* CampaignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */; };
@@ -445,8 +445,8 @@
 		7C38D49822D486890044AFC5 /* SingleRowGridTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleRowGridTableView.xib; sourceTree = "<group>"; };
 		7C38D49922D486890044AFC5 /* SingleRowGridTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRowGridTableView.swift; sourceTree = "<group>"; };
 		7C38D49E22D48BFA0044AFC5 /* GridCompartmentsTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCompartmentsTableViewFactory.swift; sourceTree = "<group>"; };
-		7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentProtocols.swift; sourceTree = "<group>"; };
-		7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentImplementations.swift; sourceTree = "<group>"; };
+		7C38D4A122D4A1470044AFC5 /* SingleCompartmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCompartmentProtocol.swift; sourceTree = "<group>"; };
+		7C38D4A322D4A1DC0044AFC5 /* SingleCompartments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCompartments.swift; sourceTree = "<group>"; };
 		7C38D4A622D4A45C0044AFC5 /* CompartmentValuesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentValuesProtocol.swift; sourceTree = "<group>"; };
 		7C38D4A822D4A47F0044AFC5 /* CompartmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartmentValues.swift; sourceTree = "<group>"; };
 		7C38D8C823E1C56900BAA559 /* CampaignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponse.swift; sourceTree = "<group>"; };
@@ -1058,8 +1058,6 @@
 			isa = PBXGroup;
 			children = (
 				7CCFEACC2269C968004F4838 /* ChartVC.swift */,
-				7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */,
-				7CBDC27B22D773D600B7D43F /* PieSliceModelCreator.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1553,8 +1551,8 @@
 		7C3D473C22D3585F0096EA75 /* Compartment */ = {
 			isa = PBXGroup;
 			children = (
-				7C38D4A122D4A1470044AFC5 /* CompartmentProtocols.swift */,
-				7C38D4A322D4A1DC0044AFC5 /* CompartmentImplementations.swift */,
+				7C38D4A122D4A1470044AFC5 /* SingleCompartmentProtocol.swift */,
+				7C38D4A322D4A1DC0044AFC5 /* SingleCompartments.swift */,
 			);
 			path = Compartment;
 			sourceTree = "<group>";
@@ -1943,6 +1941,8 @@
 		7CBDC27922D7732F00B7D43F /* PieChartView */ = {
 			isa = PBXGroup;
 			children = (
+				7C1CF85C23EAD2B000D06886 /* NavusPieChart.swift */,
+				7CBDC27B22D773D600B7D43F /* PieSliceModelCreator.swift */,
 			);
 			path = PieChartView;
 			sourceTree = "<group>";
@@ -2592,10 +2592,10 @@
 				7C1F4311237B0EE30043D5E3 /* UITextField+ResignResponder+Rx.swift in Sources */,
 				7C26C50A23BA0CF6006E7FA6 /* QuestionProtocol.swift in Sources */,
 				7C4E076B23A02C33003FBCF6 /* LabelTextViewViewModelFactory.swift in Sources */,
-				7C38D4A222D4A1470044AFC5 /* CompartmentProtocols.swift in Sources */,
+				7C38D4A222D4A1470044AFC5 /* SingleCompartmentProtocol.swift in Sources */,
 				7C22272D2379CBF00006B8EE /* Date+Extensions.swift in Sources */,
 				7CF225DC2326913A004E023C /* RealmOptIn.swift in Sources */,
-				7C38D4A422D4A1DC0044AFC5 /* CompartmentImplementations.swift in Sources */,
+				7C38D4A422D4A1DC0044AFC5 /* SingleCompartments.swift in Sources */,
 				7CA998E922A95E5400C226F1 /* Countries.swift in Sources */,
 				7CF225E2232A513B004E023C /* LoginAuthRemoteAPI.swift in Sources */,
 				7C4E077623A03474003FBCF6 /* CheckboxBtnsViewModel.swift in Sources */,

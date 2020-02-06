@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CompartmentBuilder: BarOrChartCompartmentsProtocol {
+struct CompartmentBuilder: CompartmentsProtocol {
     
     var compartments: [SingleCompartmentProtocol]
     

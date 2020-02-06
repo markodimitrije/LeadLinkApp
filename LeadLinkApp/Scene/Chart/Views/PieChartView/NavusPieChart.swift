@@ -19,6 +19,13 @@ class NavusPieChart: PieChart {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // MARK:- API
+    func update(compartments: CompartmentValues) {
+        let pieSliceModelCreator = PieSliceModelCreator.init(chartData: compartments)
+        self.models = pieSliceModelCreator.models
+    }
+    
     private func format() {
         formatRadius()
         formatColor()
@@ -31,17 +38,14 @@ class NavusPieChart: PieChart {
         self.innerRadius = rect.width / 5
         self.outerRadius = rect.width / 2.5
     }
-    
     private func formatColor() {
         self.tintColor = .white
         self.backgroundColor = .white
     }
-    
     private func setGapBetweenPies() {
         self.strokeWidth = 10.0
         self.strokeColor = .white
     }
-    
     private func setReferenceAngle() {
         self.referenceAngle = 270.0
     }
