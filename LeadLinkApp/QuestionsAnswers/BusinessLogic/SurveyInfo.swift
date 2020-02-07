@@ -8,10 +8,6 @@
 
 import RxSwift
 
-enum InternalError: Error {
-    case viewmodelConversion
-}
-
 struct SurveyInfo {
     
     var campaign: CampaignProtocol
@@ -20,8 +16,6 @@ struct SurveyInfo {
     var hasConsent = false
     
     var oVcWillAppear = BehaviorSubject<Bool>.init(value: false)
-    
-    private let realmAnswersDataStore = AnswersDataStore.init()
     
     var surveyQuestions = [SurveyQuestionProtocol]()
     var questions: [QuestionProtocol] { return campaign.questions }
