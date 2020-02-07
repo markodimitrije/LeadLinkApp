@@ -38,20 +38,6 @@ public class AnswersDataStore: AnswersDataStoreProtocol {
         
     }
     
-    func answer(question: Question, code: String) -> RealmAnswer? {
-        
-        let realm = RealmFactory.make()
-        
-        let compositeId = "\(question.campaign_id)" + "\(question.id)" + code
-        
-        guard let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: compositeId) else {
-//            print("nemam odgovor u bazi....")
-            return nil
-        }
-//        print("imam odgovor u bazi....")
-        return result
-    }
-    
     func answer(campaign_id: Int, questionId: Int, code: String) -> MyAnswerProtocol? {
         
         let realm = RealmFactory.make()
@@ -98,30 +84,6 @@ public class AnswersDataStore: AnswersDataStoreProtocol {
             
         }
     }
-    /* depricated...
-    // MARK: - DELETE
-    public func delete(answers: [MyAnswer]) -> Promise<[RealmAnswer]> {
-        
-        let realm = RealmFactory.make()
-        let ids = answers.map {$0.id}
-        
-        return Promise() { seal in
-            
-            let objects = realm.objects(RealmAnswer.self).filter { answer -> Bool in
-                return ids.contains(answer.id)
-            }
-            
-            do {
-                try realm.write { // ovako
-                    realm.delete(objects)
-                }
-                seal.fulfill(Array(objects))
-            } catch {
-                seal.reject(CampaignError.cantDelete)
-            }
-            
-        }
-    }
-    */
+    
 }
 
