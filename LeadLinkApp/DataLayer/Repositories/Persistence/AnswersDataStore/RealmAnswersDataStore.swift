@@ -11,13 +11,13 @@ import PromiseKit
 import RealmSwift
 
 protocol AnswersDataStore {
-    func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<RealmAnswer?>
+    func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<MyAnswerProtocol?>
 }
 
 public class RealmAnswersDataStore: AnswersDataStore {
     
     // MARK: - GET
-    func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<RealmAnswer?> {
+    func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<MyAnswerProtocol?> {
         
         return Promise() { seal in
             
@@ -29,7 +29,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
                     return
             }
             
-            seal.fulfill(result)
+            seal.fulfill(MyAnswer.init(realmAnswer: result))
             
         }
         
@@ -63,7 +63,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
         return result
     }
     
-    func answers(campaign_id: Int, code: String) -> [RealmAnswer] {
+    func answers(campaign_id: Int, code: String) -> [RealmAnswer] { // TODO: ne vracaj realm obj !
         let realm = RealmFactory.make()
         return
             realm.objects(RealmAnswer.self)

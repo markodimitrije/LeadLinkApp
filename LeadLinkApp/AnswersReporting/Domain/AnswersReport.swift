@@ -10,20 +10,19 @@ import RealmSwift
 
 class AnswersReport: AnswersReportProtocol {
     
-    private let answersWebReportFactory = AnswersWebReportFactory()
+    private let payloadFactory = AnswersReportsToWebPayloadFactory()
     private var answers = [MyAnswerProtocol]()
     var campaignId = "0"
     var code = ""
     var success = false
     var date: Date = Date(timeIntervalSinceNow: 0)
     
-    init(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol], date: Date? = nil, success: Bool) {
-        self.answers = answers
+    init(surveyInfo: SurveyInfo, date: Date? = nil, success: Bool) {
+        self.answers = surveyInfo.answers
         self.code = surveyInfo.code
         self.campaignId = "\(surveyInfo.campaign.id)"
         self.success = success
         self.date = date ?? Date(timeIntervalSinceNow: 0)
-        self.loadAnswers()
     }
     
     init(realmAnswersReport: RealmWebReportedAnswers) {
@@ -45,7 +44,7 @@ class AnswersReport: AnswersReportProtocol {
     // API:
     func getPayload() -> [[String: String]] {
         return answers.map {
-            answersWebReportFactory.make(answer: $0)
+            payloadFactory.make(answer: $0)
         }
     }
     

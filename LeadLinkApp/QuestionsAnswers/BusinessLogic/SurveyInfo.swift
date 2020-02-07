@@ -39,9 +39,9 @@ struct SurveyInfo {
     
         answers = campaign.questions.compactMap { question -> MyAnswerProtocol? in
             let answerIdentifier = AnswerIdentifer.init(campaignId: campaign.id, questionId: question.qId, code: code)
-            if let realmAnswer = dataStore.readAnswer(answerIdentifier: answerIdentifier).value,
-                realmAnswer != nil {
-                return MyAnswer.init(realmAnswer: realmAnswer)
+            if let answer = dataStore.readAnswer(answerIdentifier: answerIdentifier).value,
+                answer != nil {
+                return answer
             }
             return nil
         }

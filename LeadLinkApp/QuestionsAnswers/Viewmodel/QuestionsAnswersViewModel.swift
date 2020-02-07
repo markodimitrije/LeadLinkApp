@@ -118,13 +118,12 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         if validator.questionsFormIsValid {
             
             let survey = questionsVC!.surveyInfo
-            
+
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: survey!, answers: answers)
             
             formIsValid.onNext(nil)
             
-            let newReport = AnswersReport.init(surveyInfo: survey!, answers: answers, success: false)
-            self.reportAnswersToWebWorker.report.accept(newReport)
+            reportAnswersToWeb(surveyInfo: survey!, answers: answers)
             
         } else {
             formIsValid.onNext(validator.invalidFieldQuestion)
@@ -137,6 +136,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
                 self.questionsVC?.surveyInfo = surveyInfo //update state
             })
             .disposed(by: bag)
+    }
+    
+    private func reportAnswersToWeb(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
+        var survey = surveyInfo
+        survey.answers = answers
+        let newReport = AnswersReport.init(surveyInfo: survey, success: false)
+        self.reportAnswersToWebWorker.report.accept(newReport)
     }
     
 }
