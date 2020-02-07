@@ -14,7 +14,7 @@ class ReportsTVC: UITableViewCell {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var syncLbl: UILabel!
     
-    func update(report: Report) {
+    func update(report: ReportProtocol) {
         codeLbl.text = report.code//report.code.count >= 6 ? trimmedToSixCharactersCode(code: report.code) : report.code
         dateLbl.text = report.date?.toString(format: Date.codeReportShortFormatString)
         syncLbl.text = report.sync ? "YES" : "NO"

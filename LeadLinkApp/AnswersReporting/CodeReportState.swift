@@ -12,14 +12,14 @@ import RealmSwift
 
 protocol AnswersReportsToWebStateProtocol {
     //input
-    var report: BehaviorRelay<AnswersReport?> {get set}
+    var report: BehaviorRelay<AnswersReportProtocol?> {get set}
     //output
-    var webNotified: BehaviorRelay<(AnswersReport, Bool)?> {get set}
+    var webNotified: BehaviorRelay<(AnswersReportProtocol, Bool)?> {get set}
 }
 
 class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
     
-    private var reports = [AnswersReport]()
+    private var reports = [AnswersReportProtocol]()
     
     private var shouldReportToWeb: Bool {
         return reports.isEmpty
@@ -31,11 +31,11 @@ class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
     
     // INPUT
     
-    var report = BehaviorRelay<AnswersReport?>.init(value: nil)
+    var report = BehaviorRelay<AnswersReportProtocol?>.init(value: nil)
     
     // OUTPUT
     
-    var webNotified = BehaviorRelay<(AnswersReport, Bool)?>.init(value: nil)
+    var webNotified = BehaviorRelay<(AnswersReportProtocol, Bool)?>.init(value: nil)
     
     init() {
         bindInputWithOutput()
@@ -67,26 +67,28 @@ class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
             .disposed(by: bag)
     }
     
-    private func reportedToWeb(report: AnswersReport, with success: Bool) {
+    private func reportedToWeb(report: AnswersReportProtocol, with success: Bool) {
         
-        webNotified.accept((report, success)) // postavi na svoj Output
+        var myReport = report
         
-        report.success = success
+        webNotified.accept((myReport, success)) // postavi na svoj Output
+        
+        myReport.success = success
         
         if success { // hard-coded of
             print("jesam success, implement save to realm!")
-            AnswersReportDataStore.shared.save(reportsAcceptedFromWeb: [report])
+            AnswersReportDataStore.shared.save(reportsAcceptedFromWeb: [myReport])
                 .subscribe(onNext: { saved in
                     print("code successfully reported to web, save in your archive")
                 }).disposed(by: bag)
         }
         
         if !success {
-            codeReportFailed(report) // izmestac code
+            codeReportFailed(myReport) // izmestac code
         }
     }
     
-    private func codeReportFailed(_ report: AnswersReport) {
+    private func codeReportFailed(_ report: AnswersReportProtocol) {
         
         print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
@@ -106,13 +108,13 @@ class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
         
     }
     
-    private func reportImidiatelly(report: AnswersReport?) -> Observable<(AnswersReport, Bool)> {
+    private func reportImidiatelly(report: AnswersReportProtocol?) -> Observable<(AnswersReportProtocol, Bool)> {
         
         guard let report = report else {return Observable.empty()}
         
 //        print("prijavi ovaj report = \(report)")
         
-        return AnswersRemoteAPI.shared.notifyWeb(withReports: [report]).map { (reports, success) -> (AnswersReport, Bool) in
+        return AnswersRemoteAPI.shared.notifyWeb(withReports: [report]).map { (reports, success) -> (AnswersReportProtocol, Bool) in
             return (reports.first!, success)
         }
         

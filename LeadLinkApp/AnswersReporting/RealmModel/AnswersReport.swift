@@ -49,7 +49,7 @@ class AnswersReport: AnswersReportProtocol {
         }
     }
     
-    func updated(withSuccess success: Bool) -> AnswersReport {
+    func updated(withSuccess success: Bool) -> AnswersReportProtocol {
         let updated = self
         updated.success = success
         return updated

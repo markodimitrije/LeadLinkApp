@@ -22,7 +22,7 @@ class AnswersRemoteAPI {
     private var headerFieldsCreator: AnswersHeaderFieldsCreator!
     
     //MARK: - API Calls
-    func notifyWeb(withReports reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
+    func notifyWeb(withReports reports: [AnswersReportProtocol]) -> Observable<([AnswersReportProtocol], Bool)> {
         
         headerFieldsCreator = AnswersHeaderFieldsCreator()
         
@@ -30,7 +30,7 @@ class AnswersRemoteAPI {
         
     }
     
-    private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, reports: [AnswersReport]) -> Observable<([AnswersReport], Bool)> {
+    private func postRequest(base: URL = Domain.baseUrl, pathComponent: String, reports: [AnswersReportProtocol]) -> Observable<([AnswersReportProtocol], Bool)> {
         
         let url = base.appendingPathComponent(pathComponent)
         var request = URLRequest(url: url)

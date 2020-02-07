@@ -15,7 +15,7 @@ class RealmWebReportedAnswers: Object {
     @objc dynamic var success: Bool = false
     @objc dynamic var date: Date?
     
-    static func create(report: AnswersReport) -> RealmWebReportedAnswers {
+    static func create(report: AnswersReportProtocol) -> RealmWebReportedAnswers {
         let object = RealmWebReportedAnswers()
         object.campaignId = report.campaignId
         object.code = report.code

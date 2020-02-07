@@ -16,10 +16,10 @@ class ReportsDataStoreFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    func makeReportsDataStore() -> ReportsDataStore {
+    func makeReportsDataStore() -> ReportsDataStoreProtocol {
         guard let campaignId = selectedCampaignId else { // TODO: global var!?!
             fatalError("no campaign id ?!?")
         }
-        return RealmReportsDataStore.init(campaignId: campaignId)
+        return ReportsDataStore.init(campaignId: campaignId)
     }
 }

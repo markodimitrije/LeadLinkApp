@@ -57,7 +57,7 @@ class ReportsDumper {
             .subscribe(onNext: { success in
                 if success {
                     
-                    let reported = reports.map({ report -> AnswersReport in
+                    let reported = reports.map({ report -> AnswersReportProtocol in
                         return report.updated(withSuccess: success)
                     })
                     AnswersReportDataStore.shared.updateReports(reported)
@@ -123,7 +123,7 @@ class ReportsDumper {
             .disposed(by: bag)
     }
     
-    private func reportToWeb(reports: [AnswersReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    private func reportToWeb(reports: [AnswersReportProtocol]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
         guard !reports.isEmpty else { print("ReportsDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)

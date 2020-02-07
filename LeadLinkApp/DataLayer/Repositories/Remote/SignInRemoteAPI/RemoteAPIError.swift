@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  RemoteAPIError.swift
 //  signInApp
 //
 //  Created by Marko Dimitrijevic on 30/12/2018.

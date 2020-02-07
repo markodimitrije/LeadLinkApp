@@ -28,7 +28,7 @@ struct AnswersReportDataStore {
 
     // MARK:- Reports
     
-    func getReports() -> [AnswersReport] {
+    func getReports() -> [AnswersReportProtocol] {
         
         let realm = RealmFactory.make()
         let realmResults = realm.objects(RealmWebReportedAnswers.self).toArray()
@@ -36,11 +36,11 @@ struct AnswersReportDataStore {
         return realmResults.map {AnswersReport.init(realmAnswersReport: $0)}
     }
     
-    func getFailedReports() -> [AnswersReport] {
+    func getFailedReports() -> [AnswersReportProtocol] {
         return getReports().filter {$0.success == false}
     }
     
-    func updateReports(_ reports: [AnswersReport]) -> Observable<Bool> {
+    func updateReports(_ reports: [AnswersReportProtocol]) -> Observable<Bool> {
         
         let realm = RealmFactory.make()
         let records = reports.map {RealmWebReportedAnswers.create(report: $0)}
@@ -75,7 +75,7 @@ struct AnswersReportDataStore {
         
     }
     
-    func saveToRealm(report: AnswersReport) -> Observable<Bool> {
+    func saveToRealm(report: AnswersReportProtocol) -> Observable<Bool> {
         
         let realm = RealmFactory.make()
         
@@ -125,7 +125,7 @@ struct AnswersReportDataStore {
     }
     
     // MARK: save codes successfully reported to web
-    func save(reportsAcceptedFromWeb reports: [AnswersReport]) -> Observable<Bool> {
+    func save(reportsAcceptedFromWeb reports: [AnswersReportProtocol]) -> Observable<Bool> {
 
         let realm = RealmFactory.make()
 
@@ -152,10 +152,13 @@ struct AnswersReportDataStore {
 class RealmFactory {
     static func make() -> Realm {
         do {
-            let realm = try Realm.init()
+            let realm = try! Realm.init() // should refactor to display error if realm cant be made
             return realm
-        } catch {
-            fatalError("RealmFactory.make failed, show alert...")
         }
     }
 }
+
+enum StorageError: Error {
+    case insuficientMemory
+}
+

@@ -10,5 +10,9 @@ import Foundation
 
 protocol AnswersReportProtocol {
     func getPayload() -> [[String: String]]
-    func updated(withSuccess success: Bool) -> AnswersReport
+    func updated(withSuccess success: Bool) -> AnswersReportProtocol
+    var campaignId: String { get set }
+    var code: String { get set }
+    var success: Bool { get set }
+    var date: Date { get set }
 }

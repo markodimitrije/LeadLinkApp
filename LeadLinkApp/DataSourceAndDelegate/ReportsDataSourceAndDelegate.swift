@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ReportsDataSourceAndDelegate.swift
 //  LeadLinkApp
 //
 //  Created by Marko Dimitrijevic on 23/05/2019.
@@ -15,7 +15,7 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
     
     weak var tableView: UITableView!
     var cellId: String
-    private var reportsDataStore: ReportsDataStore
+    private var reportsDataStore: ReportsDataStoreProtocol
 
     var data = [Report]() {
         didSet {
@@ -25,14 +25,13 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    init(campaignId: Int, reportsDataStore: ReportsDataStore, cellId: String) {
+    init(campaignId: Int, reportsDataStore: ReportsDataStoreProtocol, cellId: String) {
         self.cellId = cellId
         self.reportsDataStore = reportsDataStore
         super.init()
         reportsDataStore.oReports
             .subscribe(onNext: { [weak self] realmReports in guard let sSelf = self else {return}
                 
-                //sSelf.data = realmReports.map(Report.init)
                 sSelf.data = realmReports.map(Report.init).sorted(by: { (rCode1, rCode2) -> Bool in
                     return (rCode1.date ?? Date.now) > (rCode2.date ?? Date.now)
                 })
@@ -63,18 +62,5 @@ class ReportsDelegate: NSObject, UITableViewDelegate {
     var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) at destination // dummy initialization
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex.accept(indexPath)
-    }
-}
-
-struct Report {
-    var code: String
-    var date: Date?
-    var sync: Bool
-    var campaignId: Int
-    init(realmReport: RealmWebReportedAnswers) {
-        self.code = realmReport.code
-        self.date = realmReport.date
-        self.sync = realmReport.success
-        self.campaignId = Int(realmReport.campaignId)!
     }
 }
