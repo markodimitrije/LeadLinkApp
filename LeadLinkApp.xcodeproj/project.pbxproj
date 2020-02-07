@@ -188,7 +188,7 @@
 		7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068522DC7C63001D7D86 /* ScanditScanner.swift */; };
 		7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068622DC7C63001D7D86 /* ScanditSettings.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
-		7C62226822941F9300717CA1 /* RealmAnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* RealmAnswersDataStore.swift */; };
+		7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* AnswersDataStore.swift */; };
 		7C62226B229422A800717CA1 /* ReportAnswersToWebWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* ReportAnswersToWebWorker.swift */; };
 		7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* AnswersReport.swift */; };
 		7C62226F2294264600717CA1 /* ReportsDumperWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* ReportsDumperWorker.swift */; };
@@ -528,7 +528,7 @@
 		7C62068522DC7C63001D7D86 /* ScanditScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditScanner.swift; sourceTree = "<group>"; };
 		7C62068622DC7C63001D7D86 /* ScanditSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditSettings.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
-		7C62226722941F9300717CA1 /* RealmAnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAnswersDataStore.swift; sourceTree = "<group>"; };
+		7C62226722941F9300717CA1 /* AnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersDataStore.swift; sourceTree = "<group>"; };
 		7C62226A229422A800717CA1 /* ReportAnswersToWebWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAnswersToWebWorker.swift; sourceTree = "<group>"; };
 		7C62226C2294232300717CA1 /* AnswersReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersReport.swift; sourceTree = "<group>"; };
 		7C62226E2294264600717CA1 /* ReportsDumperWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsDumperWorker.swift; sourceTree = "<group>"; };
@@ -978,7 +978,7 @@
 		7C1F42BB237ACD5A0043D5E3 /* AnswersDataStore */ = {
 			isa = PBXGroup;
 			children = (
-				7C62226722941F9300717CA1 /* RealmAnswersDataStore.swift */,
+				7C62226722941F9300717CA1 /* AnswersDataStore.swift */,
 			);
 			path = AnswersDataStore;
 			sourceTree = "<group>";
@@ -2777,7 +2777,7 @@
 				7C1F19AE23E96E23006C4901 /* ScanningProcess.swift in Sources */,
 				7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */,
 				7C22272F2379CC1C0006B8EE /* UserDefaults+Extensions.swift in Sources */,
-				7C62226822941F9300717CA1 /* RealmAnswersDataStore.swift in Sources */,
+				7C62226822941F9300717CA1 /* AnswersDataStore.swift in Sources */,
 				7CF0CEB0237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift in Sources */,
 				7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */,
 				7C2E556D23D891D5002AA513 /* GroupSeparatorViewItem.swift in Sources */,

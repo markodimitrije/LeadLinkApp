@@ -119,11 +119,9 @@ extension SurveyInfo {
             return nil
         }
 
-        let dataStore = AnswersDataStore.init()
-        
-        let answer = dataStore.answer(campaign_id: self.campaign.id,
-                                       questionId: myQuestion.qId,
-                                       code: self.code)
+        let answer = self.dataStore.answer(campaign_id: self.campaign.id,
+                                           questionId: myQuestion.qId,
+                                           code: self.code)
         
         return answer
         

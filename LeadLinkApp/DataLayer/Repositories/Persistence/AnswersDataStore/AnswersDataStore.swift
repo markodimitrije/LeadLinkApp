@@ -13,6 +13,7 @@ import RealmSwift
 protocol AnswersDataStoreProtocol {
     func save(answers: [MyAnswerProtocol], forCode code: String) -> Promise<Bool>
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<MyAnswerProtocol?>
+    func answer(campaign_id: Int, questionId: Int, code: String) -> MyAnswerProtocol?
     func answers(campaign_id: Int, code: String) -> [MyAnswerProtocol]
 }
 
