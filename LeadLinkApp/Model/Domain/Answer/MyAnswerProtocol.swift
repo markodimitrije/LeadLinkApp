@@ -16,4 +16,5 @@ protocol MyAnswerProtocol {
     var content: [String] {get set}
     var optionIds: [Int]? {get set}
     var questionType: String {get set}
+    var isEmpty: Bool { get }
 }

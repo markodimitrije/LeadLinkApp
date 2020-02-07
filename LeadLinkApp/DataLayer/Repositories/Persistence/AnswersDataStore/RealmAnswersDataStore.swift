@@ -1,6 +1,6 @@
 
 //
-//  RealmAnswersDataStore.swift
+//  AnswersDataStore.swift
 //  tryLeadLinkModularComponent
 //
 //  Created by Marko Dimitrijevic on 21/04/2019.
@@ -10,11 +10,13 @@
 import PromiseKit
 import RealmSwift
 
-protocol AnswersDataStore {
+protocol AnswersDataStoreProtocol {
+    func save(answers: [MyAnswerProtocol], forCode code: String) -> Promise<Bool>
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<MyAnswerProtocol?>
+    func answers(campaign_id: Int, code: String) -> [MyAnswerProtocol]
 }
 
-public class RealmAnswersDataStore: AnswersDataStore {
+public class AnswersDataStore: AnswersDataStoreProtocol {
     
     // MARK: - GET
     func readAnswer(answerIdentifier: AnswerIdentifer?) -> Promise<MyAnswerProtocol?> {
@@ -49,26 +51,25 @@ public class RealmAnswersDataStore: AnswersDataStore {
         return result
     }
     
-    func answer(campaign_id: Int, questionId: Int, code: String) -> RealmAnswer? {
+    func answer(campaign_id: Int, questionId: Int, code: String) -> MyAnswerProtocol? {
         
         let realm = RealmFactory.make()
         
         let compositeId = "\(campaign_id)" + "\(questionId)" + code
         
         guard let result = realm.object(ofType: RealmAnswer.self, forPrimaryKey: compositeId) else {
-//            print("nemam odgovor u bazi....")
             return nil
         }
-//        print("imam odgovor u bazi....")
-        return result
+        return MyAnswer(realmAnswer: result)
     }
     
-    func answers(campaign_id: Int, code: String) -> [RealmAnswer] { // TODO: ne vracaj realm obj !
+    func answers(campaign_id: Int, code: String) -> [MyAnswerProtocol] { // TODO: ne vracaj realm obj !
         let realm = RealmFactory.make()
         return
             realm.objects(RealmAnswer.self)
                 .filter("code == %@ && campaignId == %i", code, campaign_id)
                 .toArray()
+                .compactMap(MyAnswer.init)
     }
     
     // MARK: - SAVE
@@ -96,6 +97,7 @@ public class RealmAnswersDataStore: AnswersDataStore {
             
         }
     }
+    /* depricated...
     // MARK: - DELETE
     public func delete(answers: [MyAnswer]) -> Promise<[RealmAnswer]> {
         
@@ -119,5 +121,6 @@ public class RealmAnswersDataStore: AnswersDataStore {
             
         }
     }
+    */
 }
 

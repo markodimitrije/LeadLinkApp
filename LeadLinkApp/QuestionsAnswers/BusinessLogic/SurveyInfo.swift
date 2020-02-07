@@ -16,12 +16,12 @@ struct SurveyInfo {
     
     var campaign: CampaignProtocol
     var code: String
-    var dataStore: RealmAnswersDataStore
+    var dataStore: AnswersDataStoreProtocol
     var hasConsent = false
     
     var oVcWillAppear = BehaviorSubject<Bool>.init(value: false)
     
-    private let realmAnswersDataStore = RealmAnswersDataStore.init()
+    private let realmAnswersDataStore = AnswersDataStore.init()
     
     var surveyQuestions = [SurveyQuestionProtocol]()
     var questions: [QuestionProtocol] { return campaign.questions }
@@ -30,7 +30,7 @@ struct SurveyInfo {
     init(campaign: CampaignProtocol,
          code: String,
          hasConsent: Bool = false,
-         dataStore: RealmAnswersDataStore = RealmAnswersDataStore()) {
+         dataStore: AnswersDataStoreProtocol = AnswersDataStore()) {
         
         self.campaign = campaign
         self.code = code
@@ -98,10 +98,9 @@ extension SurveyInfo {
     }
     
     private func shouldLoadAnswerWithDelegateData(optionKey: QuestionPersonalInfoKey) -> Bool {
-        if existingAnswer(forKey: optionKey) == nil {return true}
-        let answer = existingAnswer(forKey: optionKey)!
-//        print("shouldLoadAnswerWithDelegateData/za optionKey= \(optionKey) vracam answer.isEmpty = \(answer.isEmpty)")
-        return answer.isEmpty
+        let answer = existingAnswer(forKey: optionKey)
+        if answer == nil {return true}
+        return answer!.isEmpty
     }
     
     private func question(forKey optionKey: QuestionPersonalInfoKey) -> QuestionProtocol? { // ili PersonalInfoKey ?
@@ -114,19 +113,19 @@ extension SurveyInfo {
         return myQuestion
     }
     
-    private func existingAnswer(forKey optionKey: QuestionPersonalInfoKey ) -> MyAnswer? { // ili PersonalInfoKey ?
+    private func existingAnswer(forKey optionKey: QuestionPersonalInfoKey ) -> MyAnswerProtocol? { // ili PersonalInfoKey ?
         
         guard let myQuestion = question(forKey: optionKey) else {
             return nil
         }
 
-        let dataStore = RealmAnswersDataStore.init()
+        let dataStore = AnswersDataStore.init()
         
-        let rAnswer = dataStore.answer(campaign_id: self.campaign.id,
+        let answer = dataStore.answer(campaign_id: self.campaign.id,
                                        questionId: myQuestion.qId,
                                        code: self.code)
         
-        return MyAnswer.init(realmAnswer: rAnswer)
+        return answer
         
     }
     
