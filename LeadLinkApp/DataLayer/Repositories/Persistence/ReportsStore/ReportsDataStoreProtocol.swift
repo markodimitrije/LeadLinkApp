@@ -11,5 +11,5 @@ import RxCocoa
 protocol ReportsDataStoreProtocol {
     /// Read
     var campaignId: Int {get set}
-    var oReports: BehaviorRelay<[RealmWebReportedAnswers]> {get set}
+    var oReports: BehaviorRelay<[AnswersReportProtocol]> {get set}
 }

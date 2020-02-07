@@ -16,10 +16,7 @@ class ReportsDataStoreFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    func makeReportsDataStore() -> ReportsDataStoreProtocol {
-        guard let campaignId = selectedCampaignId else { // TODO: global var!?!
-            fatalError("no campaign id ?!?")
-        }
+    func makeReportsDataStore(campaignId: Int) -> ReportsDataStoreProtocol {
         return ReportsDataStore.init(campaignId: campaignId)
     }
 }

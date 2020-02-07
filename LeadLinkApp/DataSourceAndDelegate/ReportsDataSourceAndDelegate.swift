@@ -17,7 +17,7 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
     var cellId: String
     private var reportsDataStore: ReportsDataStoreProtocol
 
-    var data = [Report]() {
+    var data = [ReportProtocol]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
@@ -29,12 +29,11 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
         self.cellId = cellId
         self.reportsDataStore = reportsDataStore
         super.init()
+       
         reportsDataStore.oReports
-            .subscribe(onNext: { [weak self] realmReports in guard let sSelf = self else {return}
+            .subscribe(onNext: { [weak self] answerReports in guard let sSelf = self else {return}
                 
-                sSelf.data = realmReports.map(Report.init).sorted(by: { (rCode1, rCode2) -> Bool in
-                    return (rCode1.date ?? Date.now) > (rCode2.date ?? Date.now)
-                })
+                sSelf.data = answerReports.map(Report.init).sorted(by: >)
                 
             }).disposed(by: bag)
     }

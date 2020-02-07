@@ -16,7 +16,7 @@ class ReportsTVC: UITableViewCell {
     
     func update(report: ReportProtocol) {
         codeLbl.text = report.code//report.code.count >= 6 ? trimmedToSixCharactersCode(code: report.code) : report.code
-        dateLbl.text = report.date?.toString(format: Date.codeReportShortFormatString)
+        dateLbl.text = report.date.toString(format: Date.codeReportShortFormatString)
         syncLbl.text = report.sync ? "YES" : "NO"
         self.setColor(synced: report.sync)
     }

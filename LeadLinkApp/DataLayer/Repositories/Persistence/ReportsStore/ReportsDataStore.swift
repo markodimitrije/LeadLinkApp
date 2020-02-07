@@ -7,7 +7,6 @@
 //
 
 import RealmSwift
-
 import RxSwift
 import RxCocoa
 
@@ -16,7 +15,7 @@ public class ReportsDataStore: ReportsDataStoreProtocol {
     internal var campaignId: Int
     
     // output:
-    var oReports = BehaviorRelay<[RealmWebReportedAnswers]>.init(value: [])
+    var oReports = BehaviorRelay<[AnswersReportProtocol]>.init(value: [])
     
     init(campaignId: Int) {
         self.campaignId = campaignId
@@ -29,11 +28,11 @@ public class ReportsDataStore: ReportsDataStoreProtocol {
                                 .filter("campaignId == %@", "\(campaignId)")
         
         Observable.collection(from: realmReports)
-            .subscribe(onNext: { [weak self] results in guard let sSelf = self else {return}
-                let reports = Array(results)
-                
+            .subscribe(onNext: { [weak self] results in
+                guard let sSelf = self else {return}
+                let realmReports = Array(results)
+                let reports = realmReports.map(AnswersReport.init)
                 sSelf.oReports.accept(reports)
-                
             }).disposed(by: bag)
     }
     
