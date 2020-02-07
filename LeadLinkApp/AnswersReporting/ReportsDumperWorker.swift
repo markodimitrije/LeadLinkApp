@@ -1,5 +1,5 @@
 //
-//  ReportsDumper.swift
+//  ReportsDumperWorker.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 04/11/2018.
@@ -10,7 +10,12 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-class ReportsDumper {
+protocol ReportsDumperWorkerProtocol {
+    var oReportsDumped: BehaviorRelay<Bool> { get set }
+    func sendToWebUnsycedReports()
+}
+
+class ReportsDumperWorker: ReportsDumperWorkerProtocol {
     
     // Output
     var oReportsDumped = BehaviorRelay<Bool>.init(value: false)

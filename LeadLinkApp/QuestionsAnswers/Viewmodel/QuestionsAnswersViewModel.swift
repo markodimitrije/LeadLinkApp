@@ -17,7 +17,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
     lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: questionsVC!.surveyInfo, questionsAnswersViewModel: self)
-    private var answersWebReporter: AnswersReportsToWebStateProtocol
+    private var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol
     private var obsDelegate: Observable<Delegate?>
     
     private var questionsVC: QuestionsAnswersVC? {
@@ -41,13 +41,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private var items = [QuestionPageGetViewProtocol]()
     
     init(getViewItemsWorker: QuestionPageGetViewItemsProtocol,
-         answersWebReporterWorker: AnswersReportsToWebStateProtocol,
+         reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
          obsDelegate: Observable<Delegate?>) {
        
         print("QuestionsAnswersViewModel is getting initialized!!")
         
         self.items = getViewItemsWorker.getViewItems()
-        self.answersWebReporter = answersWebReporterWorker
+        self.reportAnswersToWebWorker = reportAnswersToWebWorker
         self.obsDelegate = obsDelegate
         super.init()
         listenOnDelegate()
@@ -124,7 +124,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
             formIsValid.onNext(nil)
             
             let newReport = AnswersReport.init(surveyInfo: survey!, answers: answers, success: false)
-            self.answersWebReporter.report.accept(newReport)
+            self.reportAnswersToWebWorker.report.accept(newReport)
             
         } else {
             formIsValid.onNext(validator.invalidFieldQuestion)

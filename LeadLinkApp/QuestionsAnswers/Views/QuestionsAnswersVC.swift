@@ -21,7 +21,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     var viewModel: QuestionsAnswersViewModel!
     var obsDelegate: Observable<Delegate?>!
     
-    private let answersWebReporter = AnswersReportsToWebState()
+    private let reportAnswersToWebWorker = ReportAnswersToWebWorker()
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)
@@ -76,7 +76,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                                                                 campaign: surveyInfo.campaign)
         
         viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
-                                                   answersWebReporterWorker: answersWebReporter,
+                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
                                                    obsDelegate: obsDelegate)
         
         let viewItems = viewModel.getQuestionPageViewItems()

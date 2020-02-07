@@ -59,8 +59,12 @@ class ReportsDataSource: NSObject, UITableViewDataSource {
 
 class ReportsDelegate: NSObject, UITableViewDelegate {
     weak var tableView: UITableView!
-    var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) at destination // dummy initialization
+//    var selectedIndex = BehaviorRelay.init(value: IndexPath.init())//.skip(1) at destination // dummy initialization
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        selectedIndex.accept(indexPath)
+//    }
+    var selectedIndex = PublishSubject<IndexPath>.init()
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex.accept(indexPath)
+        selectedIndex.onNext(indexPath)
     }
 }

@@ -16,7 +16,7 @@ class ReportsVC: UIViewController, Storyboarded {
         syncTapped()
     }
     
-    private var myReportsDumper: ReportsDumper? = reportsDumper
+    //private var myReportsDumper: ReportsDumperWorkerProtocol? = reportsDumperWorker
     private let questionsAnswersVcFactory = QuestionsAnswersViewControllerFactory(appDependancyContainer: factory)
     private let bag = DisposeBag()
     
@@ -30,14 +30,14 @@ class ReportsVC: UIViewController, Storyboarded {
         self.tableView.dataSource = dataSource
         self.tableView.delegate = delegate
         
-        listenTableTapEvents()
+        onTableTapGoToQuestionsScreen()
 //        monitorVisibility()
     }
     
     deinit { print("ReportsVC.deinit") }
     
-    private func listenTableTapEvents() {
-        delegate?.selectedIndex.skip(1)
+    private func onTableTapGoToQuestionsScreen() {
+        delegate?.selectedIndex//.skip(1)
             .subscribe(onNext: { [weak self] indexPath in guard let sSelf = self else {return}
                 let index = indexPath.row
                 guard let report = sSelf.dataSource?.data[index] else {return}
@@ -51,7 +51,7 @@ class ReportsVC: UIViewController, Storyboarded {
     }
     
     private func syncTapped() {
-        reportsDumper?.sendToWebUnsycedReports()
+        reportsDumperWorker?.sendToWebUnsycedReports()
     }
     
 //    private func monitorVisibility() {

@@ -13,7 +13,7 @@ let factory: AppDependencyContainer = AppDependencyContainer.init()
 
 var surveyInfo: SurveyInfo?
 
-var reportsDumper: ReportsDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
+var reportsDumperWorker: ReportsDumperWorkerProtocol! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
 var tableHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
     

@@ -60,7 +60,6 @@
 		7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */; };
 		7C1F42C2237ACF430043D5E3 /* CampaignsVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42C1237ACF430043D5E3 /* CampaignsVersionChecker.swift */; };
 		7C1F42C4237ACF5A0043D5E3 /* CampaignsVersionChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42C3237ACF5A0043D5E3 /* CampaignsVersionChecking.swift */; };
-		7C1F42C6237AD4270043D5E3 /* ReportToWebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42C5237AD4270043D5E3 /* ReportToWebError.swift */; };
 		7C1F42DD237AF8CD0043D5E3 /* NotSignedInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42DC237AF8CD0043D5E3 /* NotSignedInResponder.swift */; };
 		7C1F42F0237B04150043D5E3 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42EF237B04150043D5E3 /* UIImage+Extensions.swift */; };
 		7C1F42F4237B05C00043D5E3 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42F3237B05C00043D5E3 /* UITextView+Extensions.swift */; };
@@ -190,9 +189,9 @@
 		7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068622DC7C63001D7D86 /* ScanditSettings.swift */; };
 		7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */; };
 		7C62226822941F9300717CA1 /* RealmAnswersDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226722941F9300717CA1 /* RealmAnswersDataStore.swift */; };
-		7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* CodeReportState.swift */; };
+		7C62226B229422A800717CA1 /* ReportAnswersToWebWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226A229422A800717CA1 /* ReportAnswersToWebWorker.swift */; };
 		7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226C2294232300717CA1 /* AnswersReport.swift */; };
-		7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* ReportsDumper.swift */; };
+		7C62226F2294264600717CA1 /* ReportsDumperWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62226E2294264600717CA1 /* ReportsDumperWorker.swift */; };
 		7C6222742294345E00717CA1 /* AnswersRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6222732294345E00717CA1 /* AnswersRemoteAPI.swift */; };
 		7C62227A229446BD00717CA1 /* RealmWebReportedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */; };
 		7C64DBCB23BB610800674E04 /* SurveyQuestionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */; };
@@ -399,7 +398,6 @@
 		7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResults.swift; sourceTree = "<group>"; };
 		7C1F42C1237ACF430043D5E3 /* CampaignsVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsVersionChecker.swift; sourceTree = "<group>"; };
 		7C1F42C3237ACF5A0043D5E3 /* CampaignsVersionChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsVersionChecking.swift; sourceTree = "<group>"; };
-		7C1F42C5237AD4270043D5E3 /* ReportToWebError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportToWebError.swift; sourceTree = "<group>"; };
 		7C1F42DC237AF8CD0043D5E3 /* NotSignedInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSignedInResponder.swift; sourceTree = "<group>"; };
 		7C1F42EF237B04150043D5E3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7C1F42F3237B05C00043D5E3 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
@@ -531,9 +529,9 @@
 		7C62068622DC7C63001D7D86 /* ScanditSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditSettings.swift; sourceTree = "<group>"; };
 		7C62222D2294039500717CA1 /* CodesDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		7C62226722941F9300717CA1 /* RealmAnswersDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAnswersDataStore.swift; sourceTree = "<group>"; };
-		7C62226A229422A800717CA1 /* CodeReportState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
+		7C62226A229422A800717CA1 /* ReportAnswersToWebWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAnswersToWebWorker.swift; sourceTree = "<group>"; };
 		7C62226C2294232300717CA1 /* AnswersReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersReport.swift; sourceTree = "<group>"; };
-		7C62226E2294264600717CA1 /* ReportsDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsDumper.swift; sourceTree = "<group>"; };
+		7C62226E2294264600717CA1 /* ReportsDumperWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsDumperWorker.swift; sourceTree = "<group>"; };
 		7C6222732294345E00717CA1 /* AnswersRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersRemoteAPI.swift; sourceTree = "<group>"; };
 		7C622279229446BD00717CA1 /* RealmWebReportedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWebReportedAnswers.swift; sourceTree = "<group>"; };
 		7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionProtocol.swift; sourceTree = "<group>"; };
@@ -1757,9 +1755,8 @@
 			isa = PBXGroup;
 			children = (
 				7C6222782294469F00717CA1 /* RealmModel */,
-				7C62226A229422A800717CA1 /* CodeReportState.swift */,
-				7C62226E2294264600717CA1 /* ReportsDumper.swift */,
-				7C1F42C5237AD4270043D5E3 /* ReportToWebError.swift */,
+				7C62226A229422A800717CA1 /* ReportAnswersToWebWorker.swift */,
+				7C62226E2294264600717CA1 /* ReportsDumperWorker.swift */,
 			);
 			path = AnswersReporting;
 			sourceTree = "<group>";
@@ -2776,7 +2773,7 @@
 				7CF0CEB0237EAD2200834CD9 /* UIControl+MyRx+Extensions.swift in Sources */,
 				7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */,
 				7C2E556D23D891D5002AA513 /* GroupSeparatorViewItem.swift in Sources */,
-				7C62226F2294264600717CA1 /* ReportsDumper.swift in Sources */,
+				7C62226F2294264600717CA1 /* ReportsDumperWorker.swift in Sources */,
 				7C39F3A522BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift in Sources */,
 				7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
@@ -2788,7 +2785,6 @@
 				ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */,
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
-				7C1F42C6237AD4270043D5E3 /* ReportToWebError.swift in Sources */,
 				7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */,
 				7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
@@ -2803,7 +2799,7 @@
 				7C4E076923A02B91003FBCF6 /* LabelTextViewViewModel.swift in Sources */,
 				7C1CF85D23EAD2B000D06886 /* NavusPieChart.swift in Sources */,
 				7C51087022C0D912005EE58B /* LogoutViewModelFactory.swift in Sources */,
-				7C62226B229422A800717CA1 /* CodeReportState.swift in Sources */,
+				7C62226B229422A800717CA1 /* ReportAnswersToWebWorker.swift in Sources */,
 				ADAFED8822395CB3004C4AC1 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
 				7C1F42DD237AF8CD0043D5E3 /* NotSignedInResponder.swift in Sources */,
 				7C51087422C0DC62005EE58B /* ScaningViewControllerFactory.swift in Sources */,

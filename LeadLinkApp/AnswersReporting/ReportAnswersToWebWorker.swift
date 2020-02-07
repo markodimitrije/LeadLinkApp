@@ -1,5 +1,5 @@
 //
-//  Code.swift
+//  ReportAnswersToWebWorker.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 04/11/2018.
@@ -10,14 +10,14 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-protocol AnswersReportsToWebStateProtocol {
+protocol ReportAnswersToWebWorkerProtocol {
     //input
     var report: BehaviorRelay<AnswersReportProtocol?> {get set}
     //output
     var webNotified: BehaviorRelay<(AnswersReportProtocol, Bool)?> {get set}
 }
 
-class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
+class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
     
     private var reports = [AnswersReportProtocol]()
     
@@ -94,13 +94,13 @@ class AnswersReportsToWebState: AnswersReportsToWebStateProtocol {
         
         _ = AnswersReportDataStore.shared.saveToRealm(report: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
-        if reportsDumper == nil {
-            reportsDumper = ReportsDumper() // u svom init, zna da javlja reports web-u...
-            reportsDumper.oReportsDumped
+        if reportsDumperWorker == nil {
+            reportsDumperWorker = ReportsDumperWorker() // u svom init, zna da javlja reports web-u...
+            reportsDumperWorker.oReportsDumped
                 .asObservable()
                 .subscribe(onNext: { (success) in
                     if success {
-                        reportsDumper = nil
+                        reportsDumperWorker = nil
                     }
                 })
                 .disposed(by: bag)
