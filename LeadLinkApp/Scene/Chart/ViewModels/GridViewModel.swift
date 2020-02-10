@@ -15,17 +15,17 @@ protocol GridViewModeling {
 class GridViewModel: GridViewModeling {
     
     private var campaign: Observable<CampaignProtocol?>
-    private var webReports: Observable<[RealmWebReportedAnswers]>
+    private var webReports: Observable<[AnswersReportProtocol]>
     private var viewFactory: ChartGridViewBuilding
     private let bag = DisposeBag()
     
-    private var newWebReports = [RealmWebReportedAnswers]()
+    private var newWebReports = [AnswersReportProtocol]()
     private var newCampaign: CampaignProtocol!
     
     var output = ReplaySubject<UIView>.create(bufferSize: 10) // output
     
     init(campaign: Observable<CampaignProtocol?>,
-         webReports: Observable<[RealmWebReportedAnswers]>,
+         webReports: Observable<[AnswersReportProtocol]>,
          viewFactory: ChartGridViewBuilding) {
         
         self.campaign = campaign
@@ -64,7 +64,7 @@ class GridViewModel: GridViewModeling {
             }).disposed(by: bag)
     }
     
-    private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) {
+    private func newEventIsCatchedEmitUpdatedView(webReports: [AnswersReportProtocol], campaign: CampaignProtocol) {
         
         let compartmentsGridView: UIStackView = viewFactory.makeOutput(webReports: webReports,
                                                                        campaign: campaign)

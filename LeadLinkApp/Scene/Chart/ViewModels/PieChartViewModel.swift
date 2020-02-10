@@ -15,15 +15,15 @@ protocol PieChartViewModeling {
 class PieChartViewModel: PieChartViewModeling {
     
     private var campaign: Observable<CampaignProtocol?>
-    private var webReports: Observable<[RealmWebReportedAnswers]>
+    private var webReports: Observable<[AnswersReportProtocol]>
     private let bag = DisposeBag()
     
-    private var newWebReports = [RealmWebReportedAnswers]()
+    private var newWebReports = [AnswersReportProtocol]()
     private var newCampaign: CampaignProtocol!
     
     var output = ReplaySubject<CompartmentValues>.create(bufferSize: 10) // output
     
-    init(campaign: Observable<CampaignProtocol?>, webReports: Observable<[RealmWebReportedAnswers]>) {
+    init(campaign: Observable<CampaignProtocol?>, webReports: Observable<[AnswersReportProtocol]>) {
         
         self.campaign = campaign
         self.webReports = webReports
@@ -60,7 +60,7 @@ class PieChartViewModel: PieChartViewModeling {
             }).disposed(by: bag)
     }
     
-    private func newEventIsCatchedEmitUpdatedView(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) {
+    private func newEventIsCatchedEmitUpdatedView(webReports: [AnswersReportProtocol], campaign: CampaignProtocol) {
 
         let chartData = CompartmentValues(campaign: newCampaign, webReports: newWebReports)
         output.onNext(chartData)

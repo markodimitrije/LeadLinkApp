@@ -16,7 +16,16 @@ struct AnswersReportDataStore {
     
     // observable OUTPUT
     
-    func getRealmWebReportedAnswers() -> Observable<[RealmWebReportedAnswers]> {
+//    func getRealmWebReportedAnswers() -> Observable<[RealmWebReportedAnswers]> {
+//
+//        let realm = RealmFactory.make()
+//        let results = realm.objects(RealmWebReportedAnswers.self)
+//
+//        return Observable
+//            .collection(from: results) // this is live source !!
+//            .map {$0.toArray()}
+//    }
+    func getRealmWebReportedAnswers() -> Observable<[AnswersReportProtocol]> {
         
         let realm = RealmFactory.make()
         let results = realm.objects(RealmWebReportedAnswers.self)
@@ -24,6 +33,9 @@ struct AnswersReportDataStore {
         return Observable
             .collection(from: results) // this is live source !!
             .map {$0.toArray()}
+            .map { (realmAnswersReportsArray) -> [AnswersReportProtocol] in
+                return realmAnswersReportsArray.map {AnswersReport.init(realmAnswersReport: $0)}
+        }
     }
 
     // MARK:- Reports

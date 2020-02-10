@@ -10,7 +10,7 @@ import Foundation
 
 class ChartRefreshDateCalculator {
     
-    private var webReports: [RealmWebReportedAnswers]
+    private var webReports: [AnswersReportProtocol]
     private var campaign: CampaignProtocol
     
     var date: Date {
@@ -20,7 +20,7 @@ class ChartRefreshDateCalculator {
         return max(lastWebReportDate, lastCampaignDate!)
     }
     
-    init(webReports: [RealmWebReportedAnswers], campaign: CampaignProtocol) {
+    init(webReports: [AnswersReportProtocol], campaign: CampaignProtocol) {
         self.webReports = webReports
         self.campaign = campaign
     }

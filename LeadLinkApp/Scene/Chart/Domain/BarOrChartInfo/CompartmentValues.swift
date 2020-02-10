@@ -11,11 +11,11 @@ import Foundation
 struct CompartmentValues: CompartmentValuesProtocol {
     
     private var campaign: CampaignProtocol
-    private var webReports: [RealmWebReportedAnswers]
+    private var webReports: [AnswersReportProtocol]
     
     var compartmentValues = [Int]()
     
-    init(campaign: CampaignProtocol, webReports: [RealmWebReportedAnswers]) {
+    init(campaign: CampaignProtocol, webReports: [AnswersReportProtocol]) {
         self.campaign = campaign
         self.webReports = webReports
         self.loadCompartmentValues()
