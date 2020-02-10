@@ -35,6 +35,7 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
+        vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         vc.obsDelegate = Observable.just(delegate)
         vc.surveyInfo = surveyInfo
         
@@ -51,6 +52,7 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
+        vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         vc.obsDelegate = Observable.just(nil)
         vc.surveyInfo = surveyInfo
         

@@ -20,6 +20,7 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
     // Output
     var oReportsDumped = BehaviorRelay<Bool>.init(value: false)
     
+    private let answersReportDataStore: AnswersReportDataStoreProtocol
     private let bag = DisposeBag.init()
     private var timer: Observable<Int>?
     private var isRunning = BehaviorRelay.init(value: false) // timer
@@ -43,20 +44,19 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
         return BehaviorRelay.init(value: AnswersReportDataStore.shared.getFailedReports().isEmpty)
     }()
     
-    init() { print("ReportsDumper.INIT, fire every \(Constants.TimeInterval.reportUnsyncBarcodesEvery) sec or on wi-fi changed")
+    init(answersReportDataStore: AnswersReportDataStoreProtocol) { print("ReportsDumper.INIT, fire every \(Constants.TimeInterval.reportUnsyncBarcodesEvery) sec or on wi-fi changed")
+        
+        self.answersReportDataStore = answersReportDataStore
         
         hookUpTimer()
-        
         hookUpNotifyWebRepeteadly()
-        
         hookUpAllCodesReportedToWeb()
-        
     }
     
     // MARK:- API
     func sendToWebUnsycedReports() {
         
-        let reports = AnswersReportDataStore.shared.getFailedReports()
+        let reports = answersReportDataStore.getFailedReports()
         
         self.reportToWeb(reports: reports)
             .subscribe(onNext: { success in
@@ -65,7 +65,7 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
                     let reported = reports.map({ report -> AnswersReportProtocol in
                         return report.updated(withSuccess: success)
                     })
-                    AnswersReportDataStore.shared.updateReports(reported)
+                    self.answersReportDataStore.updateReports(reported)
                         .subscribe(onNext: { reportsSyncedLocaly in
                             
                             self.allReportsSynced.accept(reportsSyncedLocaly)

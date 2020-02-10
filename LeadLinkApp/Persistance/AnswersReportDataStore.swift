@@ -10,9 +10,15 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 
+protocol AnswersReportDataStoreProtocol {
+    func getWebReportedAnswers() -> Observable<[AnswersReportProtocol]>
+    func getReports() -> [AnswersReportProtocol]
+    func getFailedReports() -> [AnswersReportProtocol]
+    func updateReports(_ reports: [AnswersReportProtocol]) -> Observable<Bool>
+    func save(reports: [AnswersReportProtocol]) -> Observable<Bool>
+}
 
-
-struct AnswersReportDataStore {
+struct AnswersReportDataStore: AnswersReportDataStoreProtocol {
     
     static var shared = AnswersReportDataStore()
     

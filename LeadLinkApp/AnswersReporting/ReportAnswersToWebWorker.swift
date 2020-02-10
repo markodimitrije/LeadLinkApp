@@ -19,10 +19,10 @@ protocol ReportAnswersToWebWorkerProtocol {
 
 class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
     
-    private var reports = [AnswersReportProtocol]()
+    private let reportAnswersDataStore: AnswersReportDataStoreProtocol
     
     private var shouldReportToWeb: Bool {
-        return reports.isEmpty
+        return reportAnswersDataStore.getReports().isEmpty
     }
     
     private var timer: Timer?
@@ -37,15 +37,10 @@ class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
     
     var webNotified = BehaviorRelay<(AnswersReportProtocol, Bool)?>.init(value: nil)
     
-    init() {
+    init(reportAnswersDataStore: AnswersReportDataStoreProtocol) {
+        self.reportAnswersDataStore = reportAnswersDataStore
         bindInputWithOutput()
-        self.reports = AnswersReportDataStore.shared.getReports()
     }
-    
-//    init(answersReportDataStore: AnswersReportDataStore) { // TODO - DIP + remove .shared
-//        self.reports = answersReportDataStore.getReports()
-//        bindInputWithOutput()
-//    }
     
     private func bindInputWithOutput() { print("AnswersReportsToWebState.bindInputWithOutput")
         
@@ -95,7 +90,7 @@ class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
         _ = AnswersReportDataStore.shared.save(reports: [report])
         // okini process da javljas web-u sve sto ima u realm (codes)
         if reportsDumperWorker == nil {
-            reportsDumperWorker = ReportsDumperWorker() // u svom init, zna da javlja reports web-u...
+            reportsDumperWorker = ReportsDumperWorker(answersReportDataStore: reportAnswersDataStore) // u svom init, zna da javlja reports web-u...
             reportsDumperWorker.oReportsDumped
                 .asObservable()
                 .subscribe(onNext: { (success) in
@@ -105,19 +100,14 @@ class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
                 })
                 .disposed(by: bag)
         }
-        
     }
     
     private func reportImidiatelly(report: AnswersReportProtocol?) -> Observable<(AnswersReportProtocol, Bool)> {
         
         guard let report = report else {return Observable.empty()}
-        
 //        print("prijavi ovaj report = \(report)")
-        
         return AnswersRemoteAPI.shared.notifyWeb(withReports: [report]).map { (reports, success) -> (AnswersReportProtocol, Bool) in
             return (reports.first!, success)
         }
-        
     }
-    
 }

@@ -20,8 +20,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     }
     var viewModel: QuestionsAnswersViewModel!
     var obsDelegate: Observable<Delegate?>!
-    
-    private let reportAnswersToWebWorker = ReportAnswersToWebWorker()
+    var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol!
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)

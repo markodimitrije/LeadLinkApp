@@ -9,10 +9,14 @@
 class ChartViewControllerFactory {
 
     private var appDependancyContainer: AppDependencyContainer
+    private var answersReportDataStore: AnswersReportDataStoreProtocol
     private var selectedCampaign: SelectedCampaignObserving
 
-    init(appDependancyContainer: AppDependencyContainer, selectedCampaign: SelectedCampaignObserving) {
+    init(appDependancyContainer: AppDependencyContainer,
+         answersReportDataStore: AnswersReportDataStoreProtocol,
+         selectedCampaign: SelectedCampaignObserving) {
         self.appDependancyContainer = appDependancyContainer
+        self.answersReportDataStore = answersReportDataStore
         self.selectedCampaign = selectedCampaign
     }
 
@@ -32,7 +36,7 @@ class ChartViewControllerFactory {
     private func createPieChartViewModel(campaignId id: Int) -> PieChartViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = AnswersReportDataStore.shared.getWebReportedAnswers()
+        let webReports = answersReportDataStore.getWebReportedAnswers()
         
         return PieChartViewModel(campaign: campaign, webReports: webReports)
     }
@@ -40,7 +44,7 @@ class ChartViewControllerFactory {
     private func createGridViewModel(campaignId id: Int) -> GridViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = AnswersReportDataStore.shared.getWebReportedAnswers()
+        let webReports = answersReportDataStore.getWebReportedAnswers()
         let viewFactory: ChartGridViewBuilding = ChartGridViewFactory()
         
         return GridViewModel(campaign: campaign,
