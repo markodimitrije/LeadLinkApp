@@ -39,7 +39,7 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
         return resulting
     }
     
-    private var reportsDeleted: BehaviorRelay<Bool> = {
+    private var allReportsSynced: BehaviorRelay<Bool> = {
         return BehaviorRelay.init(value: AnswersReportDataStore.shared.getFailedReports().isEmpty)
     }()
     
@@ -66,9 +66,9 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
                         return report.updated(withSuccess: success)
                     })
                     AnswersReportDataStore.shared.updateReports(reported)
-                        .subscribe(onNext: { deleted in
+                        .subscribe(onNext: { reportsSyncedLocaly in
                             
-                            self.reportsDeleted.accept(deleted)
+                            self.allReportsSynced.accept(reportsSyncedLocaly)
                         })
                         .disposed(by: self.bag)
                 }
@@ -116,7 +116,7 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
     
     private func hookUpAllCodesReportedToWeb() {
         
-        reportsDeleted.asObservable()
+        allReportsSynced.asObservable()
             .subscribe(onNext: { [weak self] success in
                 guard let sSelf = self else {return}
                 if success { //print("all good, ugasi timer!")

@@ -10,22 +10,15 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 
+
+
 struct AnswersReportDataStore {
     
     static var shared = AnswersReportDataStore()
     
     // observable OUTPUT
     
-//    func getRealmWebReportedAnswers() -> Observable<[RealmWebReportedAnswers]> {
-//
-//        let realm = RealmFactory.make()
-//        let results = realm.objects(RealmWebReportedAnswers.self)
-//
-//        return Observable
-//            .collection(from: results) // this is live source !!
-//            .map {$0.toArray()}
-//    }
-    func getRealmWebReportedAnswers() -> Observable<[AnswersReportProtocol]> {
+    func getWebReportedAnswers() -> Observable<[AnswersReportProtocol]> {
         
         let realm = RealmFactory.make()
         let results = realm.objects(RealmWebReportedAnswers.self)
@@ -52,6 +45,8 @@ struct AnswersReportDataStore {
         return getReports().filter {$0.success == false}
     }
     
+    // MARK:- Update report(s)
+    
     func updateReports(_ reports: [AnswersReportProtocol]) -> Observable<Bool> {
         
         let realm = RealmFactory.make()
@@ -69,75 +64,9 @@ struct AnswersReportDataStore {
         
     }
     
-    // MARK:- Save data
+    // MARK:- Save report(s)
     
-    func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
-        
-        let realm = RealmFactory.make()
-
-        do {
-            try realm.write {
-                realm.add(objects, update: .modified)
-            }
-        } catch {
-            return Observable<Bool>.just(false)
-        }
-        
-        return Observable<Bool>.just(true) // all good here
-        
-    }
-    
-    func saveToRealm(report: AnswersReportProtocol) -> Observable<Bool> {
-        
-        let realm = RealmFactory.make()
-        
-        let newReport = RealmWebReportedAnswers.create(report: report)
-
-        do { // ako nemas ovaj objekat kod sebe u bazi
-            
-            try realm.write {
-                realm.add(newReport, update: .modified)
-                print("\(newReport.code), \(newReport.campaignId), \(newReport.success), saved to realm")
-            }
-        } catch {
-            return Observable<Bool>.just(false)
-        }
-        
-        return Observable<Bool>.just(true) // all good here
-        
-    }
-    
-    // MARK: All data (delete)
-    
-    func deleteAllDataIfAny() -> Observable<Bool> {
-        let realm = RealmFactory.make()
-        do {
-            try realm.write {
-                realm.deleteAll()
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
-    
-    func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
-        let realm = RealmFactory.make()
-        do {
-            try realm.write {
-                for type in types {
-                    let objects = realm.objects(type)
-                    realm.delete(objects)
-                }
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
-    
-    // MARK: save codes successfully reported to web
-    func save(reportsAcceptedFromWeb reports: [AnswersReportProtocol]) -> Observable<Bool> {
+    func save(reports: [AnswersReportProtocol]) -> Observable<Bool> {
 
         let realm = RealmFactory.make()
 
@@ -160,17 +89,3 @@ struct AnswersReportDataStore {
     }
     
 }
-
-class RealmFactory {
-    static func make() -> Realm {
-        do {
-            let realm = try! Realm.init() // should refactor to display error if realm cant be made
-            return realm
-        }
-    }
-}
-
-enum StorageError: Error {
-    case insuficientMemory
-}
-

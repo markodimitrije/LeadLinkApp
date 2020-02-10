@@ -32,7 +32,7 @@ class ChartViewControllerFactory {
     private func createPieChartViewModel(campaignId id: Int) -> PieChartViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = AnswersReportDataStore.shared.getRealmWebReportedAnswers()
+        let webReports = AnswersReportDataStore.shared.getWebReportedAnswers()
         
         return PieChartViewModel(campaign: campaign, webReports: webReports)
     }
@@ -40,7 +40,7 @@ class ChartViewControllerFactory {
     private func createGridViewModel(campaignId id: Int) -> GridViewModel {
         
         let campaign = selectedCampaign.selectedCampaign()
-        let webReports = AnswersReportDataStore.shared.getRealmWebReportedAnswers()
+        let webReports = AnswersReportDataStore.shared.getWebReportedAnswers()
         let viewFactory: ChartGridViewBuilding = ChartGridViewFactory()
         
         return GridViewModel(campaign: campaign,

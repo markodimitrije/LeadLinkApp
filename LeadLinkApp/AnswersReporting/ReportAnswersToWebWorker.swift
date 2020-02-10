@@ -77,7 +77,7 @@ class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
         
         if success { // hard-coded of
             print("jesam success, implement save to realm!")
-            AnswersReportDataStore.shared.save(reportsAcceptedFromWeb: [myReport])
+            AnswersReportDataStore.shared.save(reports: [myReport])
                 .subscribe(onNext: { saved in
                     print("code successfully reported to web, save in your archive")
                 }).disposed(by: bag)
@@ -92,7 +92,7 @@ class ReportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol {
         
         print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
-        _ = AnswersReportDataStore.shared.saveToRealm(report: report)
+        _ = AnswersReportDataStore.shared.save(reports: [report])
         // okini process da javljas web-u sve sto ima u realm (codes)
         if reportsDumperWorker == nil {
             reportsDumperWorker = ReportsDumperWorker() // u svom init, zna da javlja reports web-u...
