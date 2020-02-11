@@ -40,8 +40,8 @@ class ReportsDumperWorker: ReportsDumperWorkerProtocol {
         return resulting
     }
     
-    private var allReportsSynced: BehaviorRelay<Bool> = {
-        return BehaviorRelay.init(value: AnswersReportDataStore.shared.getFailedReports().isEmpty)
+    lazy private var allReportsSynced: BehaviorRelay<Bool> = {
+        return BehaviorRelay.init(value: answersReportDataStore.getFailedReports().isEmpty)
     }()
     
     init(answersReportDataStore: AnswersReportDataStoreProtocol) { print("ReportsDumper.INIT, fire every \(Constants.TimeInterval.reportUnsyncBarcodesEvery) sec or on wi-fi changed")

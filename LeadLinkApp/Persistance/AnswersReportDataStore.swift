@@ -20,8 +20,6 @@ protocol AnswersReportDataStoreProtocol {
 
 struct AnswersReportDataStore: AnswersReportDataStoreProtocol {
     
-    static var shared = AnswersReportDataStore()
-    
     // observable OUTPUT
     
     func getWebReportedAnswers() -> Observable<[AnswersReportProtocol]> {
