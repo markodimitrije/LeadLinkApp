@@ -31,13 +31,11 @@ class QuestionsAnswersViewControllerFactory {
             fatalError("no campaign selected or no campaign found !?!")
         }
         
-        surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
-        
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
         vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         vc.obsDelegate = Observable.just(delegate)
-        vc.surveyInfo = surveyInfo
+        vc.surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
         
         return vc
     }
@@ -48,13 +46,11 @@ class QuestionsAnswersViewControllerFactory {
             fatalError("no campaign value !?!")
         }
         
-        surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
-        
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
         vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         vc.obsDelegate = Observable.just(nil)
-        vc.surveyInfo = surveyInfo
+        vc.surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
         
         return vc
     }

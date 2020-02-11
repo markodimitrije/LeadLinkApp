@@ -140,5 +140,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF50AF52-A8CE-4EAA-8378-2662A5B644A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "loadSurveyQuestions()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF50AF52-A8CE-4EAA-8378-2662A5B644A7 - 7929644a8ef99b35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Navus_Lead.SurveyQuestionsLoader.(loadSurveyQuestions in _6DF318496F252E74F378555086BFDFDF)() -&gt; ()"
+                  moduleName = "Navus Lead"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "728">
+               </Location>
+               <Location
+                  uuid = "DF50AF52-A8CE-4EAA-8378-2662A5B644A7 - 8ec8771b143a69b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Navus_Lead.QuestionProtocol) -&gt; Swift.Optional&lt;Navus_Lead.SurveyQuestion&gt; in Navus_Lead.SurveyQuestionsLoader.(loadSurveyQuestions in _6DF318496F252E74F378555086BFDFDF)() -&gt; ()"
+                  moduleName = "Navus Lead"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/LeadLinkApp/LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "186F03FD-51A5-4102-BF08-A2B8CAA717A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/BusinessLogicAndHelpers/PropertyLoaders/SurveyQuestionsLoader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "loadSurveyQuestions()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC3E609B-D7BD-45DF-82C4-99179462FD02"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeadLinkApp/QuestionsAnswers/Views/QuestionsAnswersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "configureQuestionForm()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -11,8 +11,6 @@ import RxSwift
 
 let factory: AppDependencyContainer = AppDependencyContainer.init()
 
-var surveyInfo: SurveyInfo?
-
 var reportsDumperWorker: ReportsDumperWorkerProtocol! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 
 var tableHeaderFooterCalculator: QuestionsAnswersTableViewHeaderFooterCalculating {
