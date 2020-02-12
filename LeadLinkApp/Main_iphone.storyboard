@@ -227,6 +227,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-EZ-Nbw" userLabel="allControlsView">
                                 <rect key="frame" x="8" y="52" width="304" height="508"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xMU-Ek-bve">
+                                        <rect key="frame" x="68" y="8" width="168" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xMU-Ek-bve" secondAttribute="height" multiplier="3.3:1" id="Cef-GE-Wk0"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wej-m5-tEi" userLabel="scanView">
                                         <rect key="frame" x="16" y="67" width="272" height="228.5"/>
                                         <subviews>
@@ -255,12 +261,6 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xm2-cl-Wb0" secondAttribute="trailing" constant="16" id="jRk-Vp-S58"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xMU-Ek-bve">
-                                        <rect key="frame" x="68" y="8" width="168" height="51"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="xMU-Ek-bve" secondAttribute="height" multiplier="3.3:1" id="Cef-GE-Wk0"/>
-                                        </constraints>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-B1-hwn" userLabel="verticalDividerView">
                                         <rect key="frame" x="16" y="303.5" width="272" height="96.5"/>
                                         <subviews>
@@ -345,7 +345,7 @@ barcode number manually</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="trailing" secondItem="X8o-EZ-Nbw" secondAttribute="trailing" constant="8" id="IdJ-9X-Dzv"/>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="bottom" secondItem="X8o-EZ-Nbw" secondAttribute="bottom" constant="8" id="MpA-1i-TNR"/>

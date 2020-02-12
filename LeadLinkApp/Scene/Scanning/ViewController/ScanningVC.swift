@@ -56,10 +56,16 @@ class ScanningVC: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         startCamera()
+        loadKeyboardManager()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
         stopCamera()
+        keyboardManager = nil
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     private func startCamera() {
