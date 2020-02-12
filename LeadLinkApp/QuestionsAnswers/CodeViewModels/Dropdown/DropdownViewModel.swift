@@ -16,7 +16,9 @@ public class DropdownViewModel: NSObject {
     private let code: String
     
     fileprivate let viewControllerFactory: ChooseOptionsProtocol
-    var actualVC = UIApplication.topViewController()!
+    var actualVC: UIViewController {
+        return UIApplication.topViewController()!
+    }
     lazy fileprivate var nextViewController: UIViewController = {
         return viewControllerFactory.getViewController()
     }()

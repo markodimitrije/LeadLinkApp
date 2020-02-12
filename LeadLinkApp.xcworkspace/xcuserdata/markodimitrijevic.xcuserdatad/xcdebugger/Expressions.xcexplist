@@ -202,26 +202,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScrollViewKeyboardHandler.willFirstResponderBeCoveredWithKeyboard(relativeOrigin:keyboardHeight:):ScrollViewKeyboardHandler.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "scrollView.contentOffset.y + UIScreen.main.bounds.height - keyboardHeight">
-            </PersistentString>
-            <PersistentString
-               value = "scrollView.contentOffset.y">
-            </PersistentString>
-            <PersistentString
-               value = "scrollView.bounds.size.height">
-            </PersistentString>
-            <PersistentString
-               value = "keyboardHeight">
-            </PersistentString>
-            <PersistentString
-               value = "relativeOrigin.y">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "PresentQuestion.init(question:):PresentQuestion.swift">
          <PersistentStrings>
             <PersistentString
@@ -272,6 +252,14 @@
          <PersistentStrings>
             <PersistentString
                value = "popoverController.sourceRect">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScrollViewKeyboardHandler.keyboardWillShow(notification:):ScrollViewKeyboardHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "keyboardSize.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

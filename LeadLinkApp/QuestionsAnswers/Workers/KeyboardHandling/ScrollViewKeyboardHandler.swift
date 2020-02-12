@@ -38,7 +38,10 @@ class ScrollViewKeyboardHandler: KeyboardHandling {
         if willFirstResponderBeCoveredWithKeyboard(relativeOrigin: relativeOrigin,
                                                    keyboardHeight: keyboardSize.height) {
             
-            scrollView.contentOffset.y = scrollView.contentOffset.y + keyboardSize.height
+            let navigAreaHeight = UIScreen.main.bounds.height - scrollView.bounds.height
+            
+            let portionToScroll = (keyboardSize.height < scrollView.bounds.height / 2) ? keyboardSize.height : (keyboardSize.height - navigAreaHeight)
+            scrollView.contentOffset.y = scrollView.contentOffset.y + portionToScroll
         }
     }
     
