@@ -40,6 +40,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         keyboardHandler.registerForKeyboardEvents()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.endEditing(true)
+    }
+    
     private func configureQuestionForm() {
         
         self.hideKeyboardWhenTappedAround()
