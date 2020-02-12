@@ -345,7 +345,7 @@ barcode number manually</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="trailing" secondItem="X8o-EZ-Nbw" secondAttribute="trailing" constant="8" id="IdJ-9X-Dzv"/>
                             <constraint firstItem="oqc-iA-ie5" firstAttribute="bottom" secondItem="X8o-EZ-Nbw" secondAttribute="bottom" constant="8" id="MpA-1i-TNR"/>

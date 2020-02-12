@@ -32,11 +32,19 @@ class ScrollViewKeyboardHandler: KeyboardHandling {
             return
         }
                 
-        let relativeOrigin = responder.convert(responder.frame.origin, to: scrollView)
+        var relativeOrigin = responder.convert(responder.frame.origin, to: scrollView)
+        relativeOrigin.y += responder.bounds.height
         
-        // scroll up by keyboardHeight, but only if responder wont leave the screen
-        if relativeOrigin.y - keyboardSize.height > scrollView.contentOffset.y {
+        if willFirstResponderBeCoveredWithKeyboard(relativeOrigin: relativeOrigin,
+                                                   keyboardHeight: keyboardSize.height) {
+            
             scrollView.contentOffset.y = scrollView.contentOffset.y + keyboardSize.height
         }
-   }
+    }
+    
+    private func willFirstResponderBeCoveredWithKeyboard(relativeOrigin: CGPoint, keyboardHeight: CGFloat) -> Bool {
+        let keyboardTopY = scrollView.contentOffset.y + (UIScreen.main.bounds.height) - keyboardHeight
+        return relativeOrigin.y > keyboardTopY
+    }
+    
 }

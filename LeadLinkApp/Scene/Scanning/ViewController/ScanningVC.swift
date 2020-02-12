@@ -61,6 +61,7 @@ class ScanningVC: UIViewController, Storyboarded {
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
         stopCamera()
+        barCodeTxtField.resignFirstResponder()
         keyboardManager = nil
     }
     

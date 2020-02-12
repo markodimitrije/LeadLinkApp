@@ -35,6 +35,11 @@ class MovingKeyboardDelegate {
         keyboardActive.onNext(notification.name == UIApplication.keyboardWillShowNotification)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardWillShowNotification, object: nil)
+    }
+    
 }
 
 class QuestionsAnswersMovingKeyboardDelegate {

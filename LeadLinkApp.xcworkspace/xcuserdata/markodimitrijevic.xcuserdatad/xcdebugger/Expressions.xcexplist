@@ -25,10 +25,10 @@
                value = "cellPositionY &gt; UIScreen.main.bounds.midY">
             </PersistentString>
             <PersistentString
-               value = "cell.frame.origin.y">
+               value = "self.frame.midY">
             </PersistentString>
             <PersistentString
-               value = "self.frame.midY">
+               value = "cell.frame.origin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -44,10 +44,10 @@
          contextName = "ScannerFactory.loadScanditScannerAndPlaceItsCaptureViewIntoCameraViewOnQRCodeView():ScannerFactory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.scannerVC.scannerView">
+               value = "self.scannerVC">
             </PersistentString>
             <PersistentString
-               value = "self.scannerVC">
+               value = "self.scannerVC.scannerView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -166,10 +166,13 @@
          contextName = "ViewControllerDataSourceAndDelegate.textViewDidBeginEditing(_:):QuestionsAnswersVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "count">
+               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem.rightBarButtonItems!.count">
+            </PersistentString>
+            <PersistentString
+               value = "count">
             </PersistentString>
             <PersistentString
                value = "doneBtn">
@@ -179,9 +182,6 @@
             </PersistentString>
             <PersistentString
                value = "viewController.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "viewController.navigationItem.rightBarButtonItems">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -198,6 +198,26 @@
          <PersistentStrings>
             <PersistentString
                value = "report.code.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScrollViewKeyboardHandler.willFirstResponderBeCoveredWithKeyboard(relativeOrigin:keyboardHeight:):ScrollViewKeyboardHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scrollView.contentOffset.y + UIScreen.main.bounds.height - keyboardHeight">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.contentOffset.y">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.bounds.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "keyboardHeight">
+            </PersistentString>
+            <PersistentString
+               value = "relativeOrigin.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
