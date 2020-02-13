@@ -29,20 +29,18 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     private let bag = DisposeBag()
     
     override func viewDidLoad() { super.viewDidLoad()
+        
         self.scrollView.delegate = self
-        keyboardHandler.registerForKeyboardEvents()
-        self.configureQuestionForm()
+        self.keyboardHandler.registerForKeyboardEvents()
+        self.hideKeyboardWhenTappedAround()
+        
+        redrawScreen()
+        
         subscribeListeningToSaveEvent()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
         self.view.endEditing(true)
-    }
-    
-    func configureQuestionForm() {
-        
-        self.hideKeyboardWhenTappedAround()
-        redrawScreen()
     }
     
     private func subscribeListeningToSaveEvent() {
@@ -61,7 +59,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func redrawScreen() {
+    func redrawScreen() {
         
         stackView?.removeAllSubviews()
         let viewItems = viewModel.getQuestionPageViewItems()

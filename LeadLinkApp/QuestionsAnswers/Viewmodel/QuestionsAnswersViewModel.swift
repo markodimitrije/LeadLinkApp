@@ -40,15 +40,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private var questionInfos = [SurveyQuestionProtocol]()
     
-    let surveyInfo: SurveyInfo
+    private let surveyInfo: SurveyInfo
     private var items = [QuestionPageGetViewProtocol]()
     
     init(surveyInfo: SurveyInfo,
          getViewItemsWorker: QuestionPageGetViewItemsProtocol,
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
          obsDelegate: Observable<Delegate?>) {
-       
-        print("QuestionsAnswersViewModel is getting initialized!!")
         
         self.surveyInfo = surveyInfo
         self.getViewItemsWorker = getViewItemsWorker
@@ -95,7 +93,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     }
     
     private func shouldRedrawScreen(surveyInfo: SurveyInfo) {
-        print("should redraw screen is called")
+        
         let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
         let viewInfoProvider = ViewInfoProvider(questions: surveyQuestions,
                                                 code: surveyInfo.code)
@@ -103,7 +101,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
                                                             campaign: surveyInfo.campaign)
         items = getItemsWorker.getViewItems()
         hookUpSaveEvent()
-        questionsVC?.configureQuestionForm()
+        questionsVC?.redrawScreen()
     }
     
     private func hookUpSaveEvent() {
@@ -147,7 +145,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private func saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: SurveyInfo, answers: [MyAnswerProtocol]) {
         surveyInfo.save(answers: answers) // save to realm
             .subscribe({ (saved) in
-                self.questionsVC?.configureQuestionForm()
+                self.questionsVC?.redrawScreen()
             })
             .disposed(by: bag)
     }
@@ -157,11 +155,6 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         survey.answers = answers
         let newReport = AnswersReport.init(surveyInfo: survey, success: false)
         self.reportAnswersToWebWorker.report.accept(newReport)
-    }
-    
-    deinit {
-        let notificationName = Notification.Name.init("questionAnswersVCdidLoad")
-        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
     }
     
 }

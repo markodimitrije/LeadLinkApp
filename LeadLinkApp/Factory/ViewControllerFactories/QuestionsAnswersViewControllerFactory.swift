@@ -71,7 +71,7 @@ class QuestionsAnswersViewModelFactory {
         
         let reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         
-        let obsDelegate = Observable<Delegate?>.just(delegate)
+        let obsDelegate = Observable<Delegate?>.just(delegate).share(replay: 1)
         
         let viewModel = QuestionsAnswersViewModel(surveyInfo: surveyInfo,
                                                   getViewItemsWorker: getViewItemsWorker,
