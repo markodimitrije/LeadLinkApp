@@ -73,10 +73,16 @@ class QuestionsAnswersViewModelFactory {
         
         let obsDelegate = Observable<Delegate?>.just(delegate).share(replay: 1)
         
+        
+        let delegateEmailScrambler = DelegateEmailScrambler(campaign: surveyInfo.campaign)
+        let prepopulateDelegateDecisioner = PrepopulateDelegateDataDecisioner(surveyInfo: surveyInfo, codeToCheck: surveyInfo.code)
+        
         let viewModel = QuestionsAnswersViewModel(surveyInfo: surveyInfo,
                                                   getViewItemsWorker: getViewItemsWorker,
                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
-                                                  obsDelegate: obsDelegate)
+                                                  obsDelegate: obsDelegate,
+                                                  prepopulateDelegateDataDecisioner: prepopulateDelegateDecisioner,
+                                                  delegateEmailScrambler: delegateEmailScrambler)
         return viewModel
     }
 }

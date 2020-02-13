@@ -8,7 +8,11 @@
 
 import Foundation
 
-class PrepopulateDelegateDataDecisioner {
+protocol PrepopulateDelegateDataDecisionerProtocol {
+    func shouldPrepopulateDelegateData() -> Bool
+}
+
+class PrepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol {
     
     private var surveyInfo: SurveyInfo
     private var code: String

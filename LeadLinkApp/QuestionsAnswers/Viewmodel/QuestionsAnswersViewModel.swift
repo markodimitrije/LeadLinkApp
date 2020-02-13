@@ -1,14 +1,14 @@
-//
 //  QuestionsAnswersViewModel.swift
 //  // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
 //  1. loadItems - -  - - - - - OK
-//  2. delegate ce ti dodati preth. screen
-//  3. save to realm
-//  4. itd...
-//
+//  2. delegate ce ti dodati preth. screen ---- OK
+//  3. save to realm ------ OK
+
+//  4. PrepopulateDelegateDataDecisioner, DelegateEmailScrambler inject spolja u vm-voj Factory
+//  5. Observable viewItems analogno sa formIsValid i onda obe embed u OUTPUT
+
 //  Created by Marko Dimitrijevic on 25/03/2019.
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
-//
 
 import Foundation
 import RxSwift
@@ -17,13 +17,19 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
     
+    private let surveyInfo: SurveyInfo
     private var getViewItemsWorker: QuestionPageGetViewItemsProtocol
     private var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol
     private var obsDelegate: Observable<Delegate?>
+    private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
+    private let delegateEmailScrambler: DelegateEmailScrambling
     
     private var questionsVC: QuestionsAnswersVC? {
         (UIApplication.topViewController() as? QuestionsAnswersVC)
     }
+    
+    private var questionInfos = [SurveyQuestionProtocol]()
+    private var items = [QuestionPageGetViewProtocol]()
     
     var formIsValid = PublishSubject<QuestionProtocol?>()
     
@@ -37,20 +43,19 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         return answers
     }
     
-    private var questionInfos = [SurveyQuestionProtocol]()
-    
-    private let surveyInfo: SurveyInfo
-    private var items = [QuestionPageGetViewProtocol]()
-    
     init(surveyInfo: SurveyInfo,
-         getViewItemsWorker: QuestionPageGetViewItemsProtocol,
+         getViewItemsWorker: QuestionPageGetViewItemsProtocol, // LAZNI !! TODO: nema actual data!
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
-         obsDelegate: Observable<Delegate?>) {
+         obsDelegate: Observable<Delegate?>,
+         prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
+         delegateEmailScrambler: DelegateEmailScrambling) {
         
         self.surveyInfo = surveyInfo
         self.getViewItemsWorker = getViewItemsWorker
         self.reportAnswersToWebWorker = reportAnswersToWebWorker
         self.obsDelegate = obsDelegate
+        self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
+        self.delegateEmailScrambler = delegateEmailScrambler
         
         super.init()
         listenOnDelegate()
@@ -71,16 +76,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
             return
         }
         
-        let decisioner = PrepopulateDelegateDataDecisioner.init(surveyInfo: self.surveyInfo,
-                                                                codeToCheck: self.surveyInfo.code)
-        guard decisioner.shouldPrepopulateDelegateData() else {
+        guard prepopulateDecisioner.shouldPrepopulateDelegateData() else {
             self.shouldRedrawScreen(surveyInfo: self.surveyInfo)
             return
         }
         
         var myDelegate = delegate
         
-        let delegateEmailScrambler = DelegateEmailScrambler(campaign: self.surveyInfo.campaign)
         if !delegateEmailScrambler.shouldShowEmail() {
             myDelegate.email = ""
         }
@@ -126,17 +128,14 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
                                       answers: answers)
         
         if validator.questionsFormIsValid {
-            
-            let survey = self.surveyInfo
 
-            saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: survey, answers: answers)
+            saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: self.surveyInfo, answers: answers)
             
             formIsValid.onNext(nil)
             
-            reportAnswersToWeb(surveyInfo: survey, answers: answers)
+            reportAnswersToWeb(surveyInfo: self.surveyInfo, answers: answers)
             
         } else {
-            print("ili ovaj ?!?")
             formIsValid.onNext(validator.invalidFieldQuestion)
         }
     }
