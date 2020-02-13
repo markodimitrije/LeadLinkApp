@@ -18,7 +18,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private let bag = DisposeBag()
     
     private let surveyInfo: SurveyInfo
-    private var getViewItemsWorker: QuestionPageGetViewItemsProtocol
+    private var getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol
     private var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol
     private var obsDelegate: Observable<Delegate?>
     private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
@@ -44,14 +44,14 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     }
     
     init(surveyInfo: SurveyInfo,
-         getViewItemsWorker: QuestionPageGetViewItemsProtocol, // LAZNI !! TODO: nema actual data!
+         getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol,
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
          obsDelegate: Observable<Delegate?>,
          prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
          delegateEmailScrambler: DelegateEmailScrambling) {
         
         self.surveyInfo = surveyInfo
-        self.getViewItemsWorker = getViewItemsWorker
+        self.getViewItemsWorkerFactory = getViewItemsWorkerFactory
         self.reportAnswersToWebWorker = reportAnswersToWebWorker
         self.obsDelegate = obsDelegate
         self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
@@ -95,11 +95,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private func shouldRedrawScreen(surveyInfo: SurveyInfo) {
         
-        let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-        let viewInfoProvider = ViewInfoProvider(questions: surveyQuestions,
-                                                code: surveyInfo.code)
-        let getItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfoProvider.getViewInfos(),
-                                                            campaign: surveyInfo.campaign)
+        let getItemsWorker = getViewItemsWorkerFactory.make(surveyInfo: surveyInfo)
         items = getItemsWorker.getViewItems()
         hookUpSaveEvent()
         questionsVC?.redrawScreen()

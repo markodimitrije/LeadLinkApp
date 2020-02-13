@@ -29,6 +29,7 @@ class QuestionsAnswersViewControllerFactory {
         guard let campaignId = selectedCampaignId,
             let campaign = campaignsDataStore.readCampaign(id: campaignId).value else {
             fatalError("no campaign selected or no campaign found !?!")
+                // TODO: ima unsynced state, kampanje su updated ali je selektovana neka koja je u medjuvremenu obrisana na konfiguratoru -> alert + force logout
         }
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
@@ -61,13 +62,8 @@ class QuestionsAnswersViewControllerFactory {
 class QuestionsAnswersViewModelFactory {
     
     func make(surveyInfo: SurveyInfo, delegate: Delegate?) -> QuestionsAnswersViewModel {
-        print("kreiram objekat tipa QuestionsAnswersViewModel")
-        let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-        let helper = ViewInfoProvider(questions: surveyQuestions, code: surveyInfo.code)
-        let viewInfos = helper.getViewInfos()
-
-        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
-                                                                campaign: surveyInfo.campaign)
+        
+        let getViewItemsWorkerFactory = QuestionPageGetViewItemsWorkerFactory()
         
         let reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         
@@ -78,11 +74,27 @@ class QuestionsAnswersViewModelFactory {
         let prepopulateDelegateDecisioner = PrepopulateDelegateDataDecisioner(surveyInfo: surveyInfo, codeToCheck: surveyInfo.code)
         
         let viewModel = QuestionsAnswersViewModel(surveyInfo: surveyInfo,
-                                                  getViewItemsWorker: getViewItemsWorker,
+                                                  getViewItemsWorkerFactory: getViewItemsWorkerFactory,
                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
                                                   obsDelegate: obsDelegate,
                                                   prepopulateDelegateDataDecisioner: prepopulateDelegateDecisioner,
                                                   delegateEmailScrambler: delegateEmailScrambler)
         return viewModel
+    }
+}
+
+protocol QuestionPageGetViewItemsWorkerFactoryProtocol {
+    func make(surveyInfo: SurveyInfo) -> QuestionPageGetViewItemsWorker
+}
+
+class QuestionPageGetViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol {
+    func make(surveyInfo: SurveyInfo) -> QuestionPageGetViewItemsWorker {
+        let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
+        let helper = ViewInfoProvider(questions: surveyQuestions, code: surveyInfo.code)
+        let viewInfos = helper.getViewInfos()
+
+        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
+                                                                campaign: surveyInfo.campaign)
+        return getViewItemsWorker
     }
 }
