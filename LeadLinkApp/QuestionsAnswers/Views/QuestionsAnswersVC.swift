@@ -28,30 +28,21 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     
     private let bag = DisposeBag()
     
-    // API
-    var surveyInfo: SurveyInfo! {
-        didSet {
-            configureQuestionForm()
-        }
-    }
-    
     override func viewDidLoad() { super.viewDidLoad()
         self.scrollView.delegate = self
         keyboardHandler.registerForKeyboardEvents()
+        self.configureQuestionForm()
+        subscribeListeningToSaveEvent()
     }
     
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
         self.view.endEditing(true)
     }
     
-    private func configureQuestionForm() {
+    func configureQuestionForm() {
         
         self.hideKeyboardWhenTappedAround()
-        
-        stackView?.removeAllSubviews()
-        surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-        loadParentViewModel(questions: surveyQuestions)
-        subscribeListeningToSaveEvent()
+        redrawScreen()
     }
     
     private func subscribeListeningToSaveEvent() {
@@ -70,23 +61,10 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func loadParentViewModel(questions: [SurveyQuestionProtocol]) {
+    private func redrawScreen() {
         
-        let helper = ViewInfoProvider(questions: questions, code: surveyInfo.code)
-        let viewInfos = helper.getViewInfos()
-
-        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
-                                                                campaign: surveyInfo.campaign)
-        
-        viewModel = QuestionsAnswersViewModel.init(getViewItemsWorker: getViewItemsWorker,
-                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
-                                                   obsDelegate: obsDelegate)
-        
+        stackView?.removeAllSubviews()
         let viewItems = viewModel.getQuestionPageViewItems()
-        drawScreen(viewItems: viewItems)
-    }
-    
-    private func drawScreen(viewItems: [QuestionPageGetViewProtocol]) {
         _ = viewItems.map({
             stackView?.addArrangedSubview($0.getView())
         })

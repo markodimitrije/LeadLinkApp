@@ -26,6 +26,11 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
         
         self.campaign = campaign
         
+        loadItems(viewInfos: viewInfos)
+    }
+    
+    private func loadItems(viewInfos: [ViewInfoProtocol]) {
+        
         insertDistancerView(height: 12.0)
         
         _ = viewInfos.map({ viewInfo in
@@ -42,7 +47,6 @@ class QuestionPageGetViewItemsWorker: QuestionPageGetViewItemsProtocol {
         appendLocalItems()
         
         insertGroupSeparators()
-        
     }
     
     func appendQuestion(surveyQuestion: SurveyQuestionProtocol) {

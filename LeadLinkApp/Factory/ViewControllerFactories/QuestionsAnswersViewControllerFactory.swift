@@ -33,9 +33,10 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
-        vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
-        vc.obsDelegate = Observable.just(delegate)
-        vc.surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
+        let surveyInfo = SurveyInfo.init(campaign: campaign, code: code, hasConsent: consent)
+        let viewmodel = QuestionsAnswersViewModelFactory().make(surveyInfo: surveyInfo,
+                                                                delegate: delegate)
+        vc.viewModel = viewmodel
         
         return vc
     }
@@ -48,11 +49,34 @@ class QuestionsAnswersViewControllerFactory {
         
         let vc = QuestionsAnswersVC.instantiate(using: appDependancyContainer.sb)
         
-        vc.reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
-        vc.obsDelegate = Observable.just(nil)
-        vc.surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        let surveyInfo = SurveyInfo.init(campaign: campaign, code: codeValue)
+        let viewmodel = QuestionsAnswersViewModelFactory().make(surveyInfo: surveyInfo, delegate: nil)
+        vc.viewModel = viewmodel
         
         return vc
     }
 
+}
+
+class QuestionsAnswersViewModelFactory {
+    
+    func make(surveyInfo: SurveyInfo, delegate: Delegate?) -> QuestionsAnswersViewModel {
+        print("kreiram objekat tipa QuestionsAnswersViewModel")
+        let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
+        let helper = ViewInfoProvider(questions: surveyQuestions, code: surveyInfo.code)
+        let viewInfos = helper.getViewInfos()
+
+        let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,
+                                                                campaign: surveyInfo.campaign)
+        
+        let reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
+        
+        let obsDelegate = Observable<Delegate?>.just(delegate)
+        
+        let viewModel = QuestionsAnswersViewModel(surveyInfo: surveyInfo,
+                                                  getViewItemsWorker: getViewItemsWorker,
+                                                  reportAnswersToWebWorker: reportAnswersToWebWorker,
+                                                  obsDelegate: obsDelegate)
+        return viewModel
+    }
 }

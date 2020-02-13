@@ -17,7 +17,6 @@ struct SurveyInfo {
     
     var oVcWillAppear = BehaviorSubject<Bool>.init(value: false)
     
-    var surveyQuestions = [SurveyQuestionProtocol]()
     var questions: [QuestionProtocol] { return campaign.questions }
     var answers = [MyAnswerProtocol]()
     
