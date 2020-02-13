@@ -11,11 +11,9 @@ import UIKit
 class ScrollViewScroller: ScrollingToField {
     
     private var scrollView: QuestionsScrollView
-    private var questions: [QuestionProtocol]
     
-    init(scrollView: QuestionsScrollView, questions: [QuestionProtocol]) {
+    init(scrollView: QuestionsScrollView) {
         self.scrollView = scrollView
-        self.questions = questions
     }
     
     func scrollTo(question: QuestionProtocol) {

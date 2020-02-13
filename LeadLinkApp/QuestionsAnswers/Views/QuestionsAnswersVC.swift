@@ -14,13 +14,7 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var scrollView: QuestionsScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
-    private var surveyQuestions = [SurveyQuestionProtocol]()
-    var questions: [QuestionProtocol] {
-        return surveyQuestions.map {$0.getQuestion()}
-    }
     var viewModel: QuestionsAnswersViewModel!
-    var obsDelegate: Observable<Delegate?>!
-    var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol!
     
     lazy private var keyboardHandler: KeyboardHandling = {
         return ScrollViewKeyboardHandler(scrollView: scrollView)
@@ -77,13 +71,11 @@ class QuestionsAnswersVC: UIViewController, UIPopoverPresentationControllerDeleg
                 
                 guard let question = question else { return }
                 
-                let scroller = ScrollViewScroller(scrollView: self.scrollView,
-                                                  questions: self.questions)
+                let scroller = ScrollViewScroller(scrollView: self.scrollView)
                 
                 scroller.scrollTo(question: question)
                 
-                let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView,
-                                                              questions: self.questions)
+                let attentioner = ScrollViewPayingAttentioner(scrollView: self.scrollView)
                 
                 delay(0.05, closure: {
                     attentioner.payAttentionTo(question: question)
