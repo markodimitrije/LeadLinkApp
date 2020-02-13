@@ -133,7 +133,6 @@
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
 		7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689A22E75974007E9240 /* ScrollingToField.swift */; };
 		7C3A689D22E75C11007E9240 /* PayingAttentionToField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */; };
-		7C3B20A822E9E60200791C11 /* AnswersUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B20A722E9E60200791C11 /* AnswersUpdater.swift */; };
 		7C3BF65322CA38A3001EA1E6 /* LeadLinkAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */; };
 		7C3D473E22D358880096EA75 /* ChartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473D22D358880096EA75 /* ChartProtocols.swift */; };
 		7C3D474022D35EA40096EA75 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D473F22D35EA40096EA75 /* GridViewModel.swift */; };
@@ -470,7 +469,6 @@
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
 		7C3A689A22E75974007E9240 /* ScrollingToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingToField.swift; sourceTree = "<group>"; };
 		7C3A689C22E75C11007E9240 /* PayingAttentionToField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingAttentionToField.swift; sourceTree = "<group>"; };
-		7C3B20A722E9E60200791C11 /* AnswersUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersUpdater.swift; sourceTree = "<group>"; };
 		7C3BF65022CA38A3001EA1E6 /* LeadLinkAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeadLinkAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3BF65222CA38A3001EA1E6 /* LeadLinkAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadLinkAppTests.swift; sourceTree = "<group>"; };
 		7C3BF65422CA38A3001EA1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1180,7 +1178,6 @@
 		7C2227082379A1160006B8EE /* Answer */ = {
 			isa = PBXGroup;
 			children = (
-				7C3B20A722E9E60200791C11 /* AnswersUpdater.swift */,
 				7C98A67F2289677000DA184E /* AnswerInfo.swift */,
 			);
 			path = Answer;
@@ -2745,7 +2742,6 @@
 				7C98A6802289677000DA184E /* AnswerInfo.swift in Sources */,
 				7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */,
 				7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */,
-				7C3B20A822E9E60200791C11 /* AnswersUpdater.swift in Sources */,
 				7C1F42C2237ACF430043D5E3 /* CampaignsVersionChecker.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsWithQuestionsRemoteAPI.swift in Sources */,

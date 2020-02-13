@@ -2,7 +2,7 @@
 //  QuestionsAnswersViewModel.swift
 //  // TODO: ovaj objekat treba da ima parentWorker sa childworkers od kojih
 //  1. loadItems - -  - - - - - OK
-//  2. fetchDelegate from web - - -- - - OK (transfer to dedicated worker)
+//  2. delegate ce ti dodati preth. screen
 //  3. save to realm
 //  4. itd...
 //
@@ -16,7 +16,6 @@ import RxSwift
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private let bag = DisposeBag()
-    lazy private var answersUpdater: AnswersUpdating = AnswersUpdater.init(surveyInfo: self.surveyInfo, questionsAnswersViewModel: self)
     
     private var getViewItemsWorker: QuestionPageGetViewItemsProtocol
     private var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol
@@ -116,7 +115,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private func reactOnSaveEvent() {
         
-        let myAnswers = self.answersUpdater.updateAnswers() // both actual + realm
+        let myAnswers = self.getAnswers()
         self.persistAnswersIfFormIsValid(answers: myAnswers)
     }
     
