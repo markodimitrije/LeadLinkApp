@@ -10,8 +10,8 @@ import Foundation
 
 extension Constants {
     struct PrivacyPolicy {
-        static let url = "https://navus.e-materials.com/assets/PDFs/Privacy-and-Cookies-Policy-Navus-16062018.pdf"
-        static let navusUrl =  "https://navus.e-materials.com/assets/PDFs/Privacy-and-Cookies-Policy-Navus-16062018.pdf"
+        static let url = "https://www.navus.io/wp-content/uploads/2020/02/Privacy-and-Cookies-Policy-Navus_Feb_2020.pdf"
+        static let navusUrl =  "https://www.navus.io/wp-content/uploads/2020/02/Privacy-and-Cookies-Policy-Navus_Feb_2020.pdf"
         
         static let hyperLinkPolicyText = "Privacy Policy"
         static let navusHyperLinkPolicyText = "Navus Privacy Policy"

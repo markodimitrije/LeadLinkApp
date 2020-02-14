@@ -14,6 +14,6 @@ extension Constants {
         static let navusText = NSLocalizedString("TermsNoSwitch.navus.text", comment: "")
     }
     struct TermsAndConditions {
-        static let url = "https://navus.e-materials.com/assets/PDFs/Navus-T&Cs-Digital-Services-15062018.pdf"
+        static let url = "https://www.navus.io/wp-content/uploads/2020/02/Navus-TCs-Digital-Services-11022020.pdf"
     }
 }
