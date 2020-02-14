@@ -16,8 +16,16 @@ struct QA_Validation {
     
     // MARK:- API
     var questionsFormIsValid: Bool {
+        if questionsContainsNoEmailAndNoTerms() {
+            return true
+        }
         return hasValidEmail && hasCheckedTermsAndConditions
         //return true // hard-coded on
+    }
+    
+    private func questionsContainsNoEmailAndNoTerms() -> Bool {
+        return questions.filter({$0.qOptions.contains("email")}).isEmpty &&
+            questions.first(where: {$0.qType == QuestionType.termsSwitchBtn}) == nil
     }
     
     var invalidFieldQuestion: QuestionProtocol? {
