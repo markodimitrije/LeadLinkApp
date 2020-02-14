@@ -90,7 +90,9 @@ protocol QuestionPageGetViewItemsWorkerFactoryProtocol {
 class QuestionPageGetViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol {
     func make(surveyInfo: SurveyInfo) -> QuestionPageGetViewItemsWorker {
         let surveyQuestions = SurveyQuestionsLoader(surveyInfo: surveyInfo).getSurveyQuestions()
-        let helper = ViewInfoProvider(questions: surveyQuestions, code: surveyInfo.code)
+        let helper = ViewInfoProvider(campaign: surveyInfo.campaign,
+                                      questions: surveyQuestions,
+                                      code: surveyInfo.code)
         let viewInfos = helper.getViewInfos()
 
         let getViewItemsWorker = QuestionPageGetViewItemsWorker(viewInfos: viewInfos,

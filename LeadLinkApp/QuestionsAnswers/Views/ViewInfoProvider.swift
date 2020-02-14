@@ -10,8 +10,9 @@ import UIKit
 
 class ViewInfoProvider {
     
-    private var code: String
+    private var campaign: CampaignProtocol
     private var questionsInfos = [SurveyQuestionProtocol]()
+    private var code: String
     private var orderedQuestions = [QuestionProtocol]()
     
     lazy private var orderedGroups = orderedQuestions.map { question -> String in
@@ -35,7 +36,8 @@ class ViewInfoProvider {
 //
 //        }.unique()
     
-    init(questions: [SurveyQuestionProtocol], code: String) {
+    init(campaign: CampaignProtocol, questions: [SurveyQuestionProtocol], code: String) {
+        self.campaign = campaign
         self.questionsInfos = questions
         self.code = code
         self.orderedQuestions = questions.map {$0.getQuestion() as! Question}.sorted(by: <)
@@ -79,7 +81,7 @@ class ViewInfoProvider {
     }
     
     private func getNameForLastGroup() -> String {
-        return "Privacy policy"
+        return (campaign.settings?.optIn != nil) ? "Privacy policy" : ""
     }
     
 }
