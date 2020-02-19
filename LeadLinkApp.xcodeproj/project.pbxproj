@@ -24,8 +24,6 @@
 		7C1A45F822969A5E0032C860 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A45F722969A5E0032C860 /* ReportsTVC.swift */; };
 		7C1BBE83239FDBB1005A121D /* TryAppProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */; };
 		7C1BBE85239FDCE4005A121D /* SurveyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */; };
-		7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18723BCF20D006D1048 /* Questanable.swift */; };
-		7C1CE18A23BCF224006D1048 /* Answerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18923BCF224006D1048 /* Answerable.swift */; };
 		7C1CE18D23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */; };
 		7C1CEA2423A0EBC40015F8F7 /* RadioBtnsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */; };
 		7C1CEA2623A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */; };
@@ -128,6 +126,10 @@
 		7C39F3AB22BD57B90017A78C /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */; };
 		7C39F3AD22BD58620017A78C /* CampaignsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */; };
 		7C39F3AF22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */; };
+		7C3A319723FD57AE000E5687 /* QuestionsAnswersViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A319623FD57AE000E5687 /* QuestionsAnswersViewModelFactory.swift */; };
+		7C3A319923FD57FA000E5687 /* QuestionPageGetViewItemsWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A319823FD57FA000E5687 /* QuestionPageGetViewItemsWorkerFactory.swift */; };
+		7C3A319C23FD5879000E5687 /* QA_ValidatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A319B23FD5879000E5687 /* QA_ValidatorFactory.swift */; };
+		7C3A319E23FD5893000E5687 /* NoEmailAndTerms_QA_Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A319D23FD5893000E5687 /* NoEmailAndTerms_QA_Validation.swift */; };
 		7C3A3F7622ABE91B003C079E /* DisclaimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */; };
 		7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */; };
 		7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */; };
@@ -360,8 +362,6 @@
 		7C1A45F722969A5E0032C860 /* ReportsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		7C1BBE82239FDBB1005A121D /* TryAppProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAppProtocols.swift; sourceTree = "<group>"; };
 		7C1BBE84239FDCE4005A121D /* SurveyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestion.swift; sourceTree = "<group>"; };
-		7C1CE18723BCF20D006D1048 /* Questanable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questanable.swift; sourceTree = "<group>"; };
-		7C1CE18923BCF224006D1048 /* Answerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answerable.swift; sourceTree = "<group>"; };
 		7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageGetViewItemsWorker.swift; sourceTree = "<group>"; };
 		7C1CEA2323A0EBC40015F8F7 /* RadioBtnsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioBtnsViewModel.swift; sourceTree = "<group>"; };
 		7C1CEA2523A0ED2D0015F8F7 /* SingleRadioBtnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRadioBtnViewModel.swift; sourceTree = "<group>"; };
@@ -464,6 +464,10 @@
 		7C39F3AA22BD57B90017A78C /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C39F3AC22BD58620017A78C /* CampaignsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C3A319623FD57AE000E5687 /* QuestionsAnswersViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAnswersViewModelFactory.swift; sourceTree = "<group>"; };
+		7C3A319823FD57FA000E5687 /* QuestionPageGetViewItemsWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageGetViewItemsWorkerFactory.swift; sourceTree = "<group>"; };
+		7C3A319B23FD5879000E5687 /* QA_ValidatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QA_ValidatorFactory.swift; sourceTree = "<group>"; };
+		7C3A319D23FD5893000E5687 /* NoEmailAndTerms_QA_Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoEmailAndTerms_QA_Validation.swift; sourceTree = "<group>"; };
 		7C3A3F7522ABE91B003C079E /* DisclaimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerView.xib; sourceTree = "<group>"; };
 		7C3A3F7722ABEB6A003C079E /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		7C3A3F7922AC15AB003C079E /* DisclaimerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewFactory.swift; sourceTree = "<group>"; };
@@ -713,7 +717,6 @@
 		7C0E5CC3228F0AF40011E0A2 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */,
 				7C222703237998140006B8EE /* EmailValidation.swift */,
 				7CFDEE2F2372D8A0004D1DD0 /* PhoneValidation.swift */,
 				7CB4D3DD22DCAEB100D6987E /* ScanditAllownessValidation.swift */,
@@ -779,6 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				7C1CE18C23BCF328006D1048 /* QuestionPageGetViewItemsWorker.swift */,
+				7C3A319823FD57FA000E5687 /* QuestionPageGetViewItemsWorkerFactory.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -1503,6 +1507,24 @@
 			path = ViewControllerFactories;
 			sourceTree = "<group>";
 		};
+		7C3A319523FD579B000E5687 /* ViewModelFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A319623FD57AE000E5687 /* QuestionsAnswersViewModelFactory.swift */,
+			);
+			path = ViewModelFactory;
+			sourceTree = "<group>";
+		};
+		7C3A319A23FD5841000E5687 /* QA_Validation */ = {
+			isa = PBXGroup;
+			children = (
+				7C0E5CC4228F0B030011E0A2 /* QA_Validation.swift */,
+				7C3A319D23FD5893000E5687 /* NoEmailAndTerms_QA_Validation.swift */,
+				7C3A319B23FD5879000E5687 /* QA_ValidatorFactory.swift */,
+			);
+			path = QA_Validation;
+			sourceTree = "<group>";
+		};
 		7C3A689922E75943007E9240 /* ScrollAndPayAttentionToView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2041,9 +2063,9 @@
 		AD4F013E21D8F72600946CBA /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
-				7C1CE18723BCF20D006D1048 /* Questanable.swift */,
-				7C1CE18923BCF224006D1048 /* Answerable.swift */,
 				7C98A6762289625200DA184E /* QuestionsAnswersViewModel.swift */,
+				7C3A319523FD579B000E5687 /* ViewModelFactory */,
+				7C3A319A23FD5841000E5687 /* QA_Validation */,
 				7C1CE18B23BCF2EB006D1048 /* Workers */,
 				7C98A6732289625200DA184E /* QAViewModels */,
 			);
@@ -2580,6 +2602,7 @@
 				7C4E0754239FEF0B003FBCF6 /* DropdownViewModelFactory.swift in Sources */,
 				ADAFED8522395CB3004C4AC1 /* QRcodeView.swift in Sources */,
 				ADE9552721D9016C00B86052 /* Campaign.swift in Sources */,
+				7C3A319E23FD5893000E5687 /* NoEmailAndTerms_QA_Validation.swift in Sources */,
 				7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */,
 				7CBDC27F22D78BCB00B7D43F /* PieChartCompartmentsOrderer.swift in Sources */,
 				7CBDC26B22D6208D00B7D43F /* ChartRefreshDateCalculator.swift in Sources */,
@@ -2714,6 +2737,7 @@
 				7C3671E223B8A7C000EDCAB5 /* DistancerViewItem.swift in Sources */,
 				7C38086622C5107F00BB62C5 /* URLAndURLRequestExtensions.swift in Sources */,
 				ADAF734A2241327600A1F6D2 /* RealmAnswer.swift in Sources */,
+				7C3A319723FD57AE000E5687 /* QuestionsAnswersViewModelFactory.swift in Sources */,
 				7C31C0012292BD6F00A6B105 /* TermsVC.swift in Sources */,
 				7C0E5CC5228F0B030011E0A2 /* QA_Validation.swift in Sources */,
 				7C1D1E4723A7BD42001D9415 /* LabelTextFieldViewModelFactory.swift in Sources */,
@@ -2731,7 +2755,6 @@
 				7C1CEA3B23A0FCDD0015F8F7 /* TermsSwitchBtnViewFactory.swift in Sources */,
 				7C4E078023A03628003FBCF6 /* SingleCheckboxBtnViewModel.swift in Sources */,
 				AD1739BF21DD395100218BE5 /* SignInResponsePayload.swift in Sources */,
-				7C1CE18A23BCF224006D1048 /* Answerable.swift in Sources */,
 				7C390532233B711100249B18 /* SpinnerViewController.swift in Sources */,
 				7C398F6F22DE0A67007330CA /* SelectedCampaignObserving.swift in Sources */,
 				7C1CEA4223A100090015F8F7 /* OptInViewFactory.swift in Sources */,
@@ -2769,6 +2792,7 @@
 				7C776C082331106400250405 /* ShowDisclaimerValidator.swift in Sources */,
 				ADAB3D97223AAE8B00450625 /* StatsVC.swift in Sources */,
 				7C754068229FEC9200FFF5B9 /* ReportsSyncBtn.swift in Sources */,
+				7C3A319923FD57FA000E5687 /* QuestionPageGetViewItemsWorkerFactory.swift in Sources */,
 				7C38D8D823E1D49600BAA559 /* SettingsResponseFactory.swift in Sources */,
 				7C26C50E23BA0FA2006E7FA6 /* QuestionSettings.swift in Sources */,
 				7C98A6D822896F9300DA184E /* Rx+SelectOptionTextFieldViewModel.swift in Sources */,
@@ -2777,7 +2801,6 @@
 				AD1739CB21DE1ADA00218BE5 /* MainViewModel.swift in Sources */,
 				ADE9552B21D9175D00B86052 /* UserSessionDataStore.swift in Sources */,
 				7C26C51223BA1EF1006E7FA6 /* AnswersReportProtocol.swift in Sources */,
-				7C1CE18823BCF20D006D1048 /* Questanable.swift in Sources */,
 				7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */,
 				7C2E556F23D891F0002AA513 /* GroupSeparatorViewFactory.swift in Sources */,
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
@@ -2816,6 +2839,7 @@
 				AD1739C421DD4D2700218BE5 /* FileManager+Extensions.swift in Sources */,
 				7C19F33C23E30B2200AA488A /* CampaignResponsesProvider.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
+				7C3A319C23FD5879000E5687 /* QA_ValidatorFactory.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
 				7C38D8D223E1D44500BAA559 /* CampaignResponseFactory.swift in Sources */,
 				7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */,

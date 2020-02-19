@@ -10,6 +10,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol Questanable {
+    var question: QuestionProtocol {get set}
+    var code: String {get set}
+}
+
+protocol Answerable {
+    var answer: MyAnswerProtocol? {get set}
+}
+
 class SelectOptionTextFieldViewModel: NSObject, ViewModelType, Questanable, Answerable {
     var question: QuestionProtocol
     var answer: MyAnswerProtocol?

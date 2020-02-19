@@ -23,6 +23,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     private var obsDelegate: Observable<Delegate?>
     private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
     private let delegateEmailScrambler: DelegateEmailScrambling
+    private let validator: QA_ValidationProtocol
     
     private var questionsVC: QuestionsAnswersVC? {
         (UIApplication.topViewController() as? QuestionsAnswersVC)
@@ -48,7 +49,8 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
          obsDelegate: Observable<Delegate?>,
          prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
-         delegateEmailScrambler: DelegateEmailScrambling) {
+         delegateEmailScrambler: DelegateEmailScrambling,
+         validator: QA_ValidationProtocol) {
         
         self.surveyInfo = surveyInfo
         self.getViewItemsWorkerFactory = getViewItemsWorkerFactory
@@ -56,6 +58,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
         self.obsDelegate = obsDelegate
         self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
         self.delegateEmailScrambler = delegateEmailScrambler
+        self.validator = validator
         
         super.init()
         listenOnDelegate()
@@ -119,11 +122,7 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
     private func persistAnswersIfFormIsValid(answers: [MyAnswerProtocol]) {
                 
-        let validator = QA_Validation(surveyInfo: self.surveyInfo,
-                                      questions: self.surveyInfo.questions,
-                                      answers: answers)
-        
-        if validator.questionsFormIsValid {
+        if validator.isQuestionsFormValid(answers: answers) {
 
             saveAnswersToRealmAndUpdateSurveyInfo(surveyInfo: self.surveyInfo, answers: answers)
             
