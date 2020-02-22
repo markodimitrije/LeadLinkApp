@@ -13,8 +13,6 @@ class QuestionsAnswersViewModelFactory {
     
     func make(surveyInfo: SurveyInfo, delegate: Delegate?) -> QuestionsAnswersViewModel {
         
-        let bag = DisposeBag()
-        
         let getViewItemsWorkerFactory = QuestionPageGetViewItemsWorkerFactory()
         
         let reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
@@ -27,8 +25,7 @@ class QuestionsAnswersViewModelFactory {
         let delegateDataProcessor = DelegateDataProcessor(prepopulateDelegateDataDecisioner: prepopulateDelegateDecisioner, delegateEmailScrambler: delegateEmailScrambler)
         
         let delegateProvider = DelegateProvider(obsDelegate: obsDelegate,
-                                                delegateDataProcessor: delegateDataProcessor,
-                                                bag: bag)
+                                                delegateDataProcessor: delegateDataProcessor)
         
         let validator = QA_ValidatorFactory().make(campaign: surveyInfo.campaign)
         
@@ -36,8 +33,7 @@ class QuestionsAnswersViewModelFactory {
                                                   getViewItemsWorkerFactory: getViewItemsWorkerFactory,
                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
                                                   delegateProvider: delegateProvider,
-                                                  validator: validator,
-                                                  bag: bag)
+                                                  validator: validator)
         return viewModel
     }
 }

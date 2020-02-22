@@ -15,7 +15,7 @@ import RxSwift
 
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
-    private let bag: DisposeBag
+    private let bag = DisposeBag()
     
     private let surveyInfo: SurveyInfo
     private var getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol
@@ -46,15 +46,13 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
          getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol,
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
          delegateProvider: DelegateProviderProtocol,
-         validator: QA_ValidationProtocol,
-         bag: DisposeBag) {
+         validator: QA_ValidationProtocol) {
         
         self.surveyInfo = surveyInfo
         self.getViewItemsWorkerFactory = getViewItemsWorkerFactory
         self.reportAnswersToWebWorker = reportAnswersToWebWorker
         self.delegateProvider = delegateProvider
         self.validator = validator
-        self.bag = bag
         
         super.init()
         listenOnDelegate()

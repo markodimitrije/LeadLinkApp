@@ -16,14 +16,11 @@ protocol DelegateProviderProtocol {
 class DelegateProvider: DelegateProviderProtocol {
     
     var obsDelegate: Observable<Delegate?>
-    
-    private let bag: DisposeBag
     private let dataProcessor: DelegateDataProcessorProtocol
     
-    init(obsDelegate: Observable<Delegate?>, delegateDataProcessor: DelegateDataProcessorProtocol, bag: DisposeBag) {
+    init(obsDelegate: Observable<Delegate?>, delegateDataProcessor: DelegateDataProcessorProtocol) {
         self.obsDelegate = obsDelegate
         self.dataProcessor = delegateDataProcessor
-        self.bag = bag
         processObsDelegate()
     }
     
