@@ -13,25 +13,31 @@ class QuestionsAnswersViewModelFactory {
     
     func make(surveyInfo: SurveyInfo, delegate: Delegate?) -> QuestionsAnswersViewModel {
         
+        let bag = DisposeBag()
+        
         let getViewItemsWorkerFactory = QuestionPageGetViewItemsWorkerFactory()
         
         let reportAnswersToWebWorker = ReportAnswersToWebWorker(reportAnswersDataStore: AnswersReportDataStore())
         
         let obsDelegate = Observable<Delegate?>.just(delegate).share(replay: 1)
         
-        
         let delegateEmailScrambler = DelegateEmailScrambler(campaign: surveyInfo.campaign)
         let prepopulateDelegateDecisioner = PrepopulateDelegateDataDecisioner(surveyInfo: surveyInfo, codeToCheck: surveyInfo.code)
+        
+        let delegateDataProcessor = DelegateDataProcessor(prepopulateDelegateDataDecisioner: prepopulateDelegateDecisioner, delegateEmailScrambler: delegateEmailScrambler)
+        
+        let delegateProvider = DelegateProvider(obsDelegate: obsDelegate,
+                                                delegateDataProcessor: delegateDataProcessor,
+                                                bag: bag)
         
         let validator = QA_ValidatorFactory().make(campaign: surveyInfo.campaign)
         
         let viewModel = QuestionsAnswersViewModel(surveyInfo: surveyInfo,
                                                   getViewItemsWorkerFactory: getViewItemsWorkerFactory,
                                                   reportAnswersToWebWorker: reportAnswersToWebWorker,
-                                                  obsDelegate: obsDelegate,
-                                                  prepopulateDelegateDataDecisioner: prepopulateDelegateDecisioner,
-                                                  delegateEmailScrambler: delegateEmailScrambler,
-                                                  validator: validator)
+                                                  delegateProvider: delegateProvider,
+                                                  validator: validator,
+                                                  bag: bag)
         return viewModel
     }
 }

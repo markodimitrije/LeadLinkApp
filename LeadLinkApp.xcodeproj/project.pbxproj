@@ -149,6 +149,8 @@
 		7C40D4EF22C616B5009CD01E /* ResponseToDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */; };
 		7C410FD722CB86E5009F7CC0 /* ScannerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */; };
 		7C446C6523F2C5AF0094CC3C /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C446C6423F2C5AE0094CC3C /* ReachabilityManager.swift */; };
+		7C4604F82401938300790262 /* DelegateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4604F72401938300790262 /* DelegateProvider.swift */; };
+		7C4604FA240193B900790262 /* DelegateDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4604F9240193B900790262 /* DelegateDataProcessor.swift */; };
 		7C4E0754239FEF0B003FBCF6 /* DropdownViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */; };
 		7C4E0757239FEF69003FBCF6 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */; };
 		7C4E0759239FEF8F003FBCF6 /* GetViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */; };
@@ -489,6 +491,8 @@
 		7C40D4EE22C616B5009CD01E /* ResponseToDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToDataParser.swift; sourceTree = "<group>"; };
 		7C410FD622CB86E5009F7CC0 /* ScannerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewFactory.swift; sourceTree = "<group>"; };
 		7C446C6423F2C5AE0094CC3C /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		7C4604F72401938300790262 /* DelegateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProvider.swift; sourceTree = "<group>"; };
+		7C4604F9240193B900790262 /* DelegateDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateDataProcessor.swift; sourceTree = "<group>"; };
 		7C4E0753239FEF0B003FBCF6 /* DropdownViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewModelFactory.swift; sourceTree = "<group>"; };
 		7C4E0756239FEF69003FBCF6 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		7C4E0758239FEF8F003FBCF6 /* GetViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewProtocol.swift; sourceTree = "<group>"; };
@@ -948,7 +952,6 @@
 			isa = PBXGroup;
 			children = (
 				7C9B779023E9A9080039C325 /* TableViewCalculating */,
-				7C3667752347571600A21F25 /* EmailScrambling */,
 				7C8BCE1F230AD5360011A125 /* PropertyLoaders */,
 			);
 			path = BusinessLogicAndHelpers;
@@ -995,7 +998,6 @@
 			isa = PBXGroup;
 			children = (
 				7C2227082379A1160006B8EE /* Answer */,
-				7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */,
 				7C98A67B228962D900DA184E /* SurveyInfo.swift */,
 			);
 			path = BusinessLogic;
@@ -1377,14 +1379,6 @@
 			path = GroupSeparator;
 			sourceTree = "<group>";
 		};
-		7C3667752347571600A21F25 /* EmailScrambling */ = {
-			isa = PBXGroup;
-			children = (
-				7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */,
-			);
-			path = EmailScrambling;
-			sourceTree = "<group>";
-		};
 		7C3671E023B8A79700EDCAB5 /* Distancer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1627,6 +1621,25 @@
 				7C69552023391EBA009D4A25 /* View */,
 			);
 			path = Spinner;
+			sourceTree = "<group>";
+		};
+		7C4604F62401936E00790262 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				7C4604F72401938300790262 /* DelegateProvider.swift */,
+				7C4604FB240193F400790262 /* DelegateDataProcessor */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		7C4604FB240193F400790262 /* DelegateDataProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				7C4604F9240193B900790262 /* DelegateDataProcessor.swift */,
+				7C39F3A422BCEFC10017A78C /* PrepopulateDelegateDataDecisioner.swift */,
+				7C3667762347572600A21F25 /* DelegateEmailScrambling.swift */,
+			);
+			path = DelegateDataProcessor;
 			sourceTree = "<group>";
 		};
 		7C4E0752239FEEF8003FBCF6 /* CodeViewModels */ = {
@@ -2063,6 +2076,7 @@
 		AD4F013E21D8F72600946CBA /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
+				7C4604F62401936E00790262 /* Dependencies */,
 				7C98A6762289625200DA184E /* QuestionsAnswersViewModel.swift */,
 				7C3A319523FD579B000E5687 /* ViewModelFactory */,
 				7C3A319A23FD5841000E5687 /* QA_Validation */,
@@ -2721,6 +2735,7 @@
 				7C98A666228960B100DA184E /* GlobalVars.swift in Sources */,
 				7C1CEA4623A101EC0015F8F7 /* SaveBtnViewItem.swift in Sources */,
 				ADA9B1CC22384D8400B7D74F /* DividerView.swift in Sources */,
+				7C4604FA240193B900790262 /* DelegateDataProcessor.swift in Sources */,
 				ADE9552221D9008200B86052 /* AuthRemoteAPI.swift in Sources */,
 				7CE63AC622A80578008E477B /* Delegate.swift in Sources */,
 				ADE9551A21D8F9BB00B86052 /* RemoteUserSession.swift in Sources */,
@@ -2840,6 +2855,7 @@
 				7C19F33C23E30B2200AA488A /* CampaignResponsesProvider.swift in Sources */,
 				ADE9551D21D8FAE900B86052 /* UserSession.swift in Sources */,
 				7C3A319C23FD5879000E5687 /* QA_ValidatorFactory.swift in Sources */,
+				7C4604F82401938300790262 /* DelegateProvider.swift in Sources */,
 				ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */,
 				7C38D8D223E1D44500BAA559 /* CampaignResponseFactory.swift in Sources */,
 				7C4E078A23A0437A003FBCF6 /* CheckboxBtnsWithInputViewModelFactory.swift in Sources */,

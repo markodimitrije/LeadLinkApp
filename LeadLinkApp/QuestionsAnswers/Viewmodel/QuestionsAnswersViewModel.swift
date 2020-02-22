@@ -15,14 +15,12 @@ import RxSwift
 
 class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     
-    private let bag = DisposeBag()
+    private let bag: DisposeBag
     
     private let surveyInfo: SurveyInfo
     private var getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol
     private var reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol
-    private var obsDelegate: Observable<Delegate?>
-    private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
-    private let delegateEmailScrambler: DelegateEmailScrambling
+    private let delegateProvider: DelegateProviderProtocol
     private let validator: QA_ValidationProtocol
     
     private var questionsVC: QuestionsAnswersVC? {
@@ -47,25 +45,23 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
     init(surveyInfo: SurveyInfo,
          getViewItemsWorkerFactory: QuestionPageGetViewItemsWorkerFactoryProtocol,
          reportAnswersToWebWorker: ReportAnswersToWebWorkerProtocol,
-         obsDelegate: Observable<Delegate?>,
-         prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
-         delegateEmailScrambler: DelegateEmailScrambling,
-         validator: QA_ValidationProtocol) {
+         delegateProvider: DelegateProviderProtocol,
+         validator: QA_ValidationProtocol,
+         bag: DisposeBag) {
         
         self.surveyInfo = surveyInfo
         self.getViewItemsWorkerFactory = getViewItemsWorkerFactory
         self.reportAnswersToWebWorker = reportAnswersToWebWorker
-        self.obsDelegate = obsDelegate
-        self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
-        self.delegateEmailScrambler = delegateEmailScrambler
+        self.delegateProvider = delegateProvider
         self.validator = validator
+        self.bag = bag
         
         super.init()
         listenOnDelegate()
     }
     
     private func listenOnDelegate() {
-        obsDelegate.take(1)
+        self.delegateProvider.obsDelegate.take(1)
             .subscribe(onNext: { (delegate) in
                 self.dataReceived(delegate: delegate)
             })
@@ -79,21 +75,8 @@ class QuestionsAnswersViewModel: NSObject, QuestionsViewItemManaging {
             return
         }
         
-        guard prepopulateDecisioner.shouldPrepopulateDelegateData() else {
-            self.shouldRedrawScreen(surveyInfo: self.surveyInfo)
-            return
-        }
-        
-        var myDelegate = delegate
-        
-        if !delegateEmailScrambler.shouldShowEmail() {
-            myDelegate.email = ""
-        }
-        
-        let updatedSurvey = self.surveyInfo.updated(withDelegate: myDelegate)
-        
+        let updatedSurvey = self.surveyInfo.updated(withDelegate: delegate)
         self.shouldRedrawScreen(surveyInfo: updatedSurvey)
-        
     }
     
     private func shouldRedrawScreen(surveyInfo: SurveyInfo) {
@@ -161,55 +144,4 @@ extension QuestionsAnswersViewModel: UITextViewDelegate {
             textView.textColor = .black
         }
     }
-}
-
-protocol DelegateProviderProtocol {
-    var obsDelegate: Observable<Delegate?> { get }
-}
-
-protocol DelegateDataProcessorProtocol {
-    func process(delegate: Delegate?) -> Delegate?
-}
-
-struct DelegateProvider: DelegateProviderProtocol {
-    
-    var obsDelegate: Observable<Delegate?>
-    private let dataProcessor: DelegateDataProcessorProtocol
-    
-    init(obsDelegate: Observable<Delegate?>, dataProcessor: DelegateDataProcessorProtocol) {
-        self.obsDelegate = obsDelegate
-        self.dataProcessor = dataProcessor
-    }
-}
-
-struct DelegateDataProcessor: DelegateDataProcessorProtocol {
-    
-    func process(delegate: Delegate?) -> Delegate? {
-        guard let delegate = delegate else {
-            return nil
-        }
-        
-        guard prepopulateDecisioner.shouldPrepopulateDelegateData() else {
-            return delegate
-        }
-        
-        var myDelegate = delegate
-        
-        if !delegateEmailScrambler.shouldShowEmail() {
-            myDelegate.email = ""
-        }
-        
-        return myDelegate
-    }
-    
-    private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
-    private let delegateEmailScrambler: DelegateEmailScrambling
-    
-    init(prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
-         delegateEmailScrambler: DelegateEmailScrambling) {
-        
-        self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
-        self.delegateEmailScrambler = delegateEmailScrambler
-    }
-    
 }
