@@ -162,3 +162,54 @@ extension QuestionsAnswersViewModel: UITextViewDelegate {
         }
     }
 }
+
+protocol DelegateProviderProtocol {
+    var obsDelegate: Observable<Delegate?> { get }
+}
+
+protocol DelegateDataProcessorProtocol {
+    func process(delegate: Delegate?) -> Delegate?
+}
+
+struct DelegateProvider: DelegateProviderProtocol {
+    
+    var obsDelegate: Observable<Delegate?>
+    private let dataProcessor: DelegateDataProcessorProtocol
+    
+    init(obsDelegate: Observable<Delegate?>, dataProcessor: DelegateDataProcessorProtocol) {
+        self.obsDelegate = obsDelegate
+        self.dataProcessor = dataProcessor
+    }
+}
+
+struct DelegateDataProcessor: DelegateDataProcessorProtocol {
+    
+    func process(delegate: Delegate?) -> Delegate? {
+        guard let delegate = delegate else {
+            return nil
+        }
+        
+        guard prepopulateDecisioner.shouldPrepopulateDelegateData() else {
+            return delegate
+        }
+        
+        var myDelegate = delegate
+        
+        if !delegateEmailScrambler.shouldShowEmail() {
+            myDelegate.email = ""
+        }
+        
+        return myDelegate
+    }
+    
+    private let prepopulateDecisioner: PrepopulateDelegateDataDecisionerProtocol
+    private let delegateEmailScrambler: DelegateEmailScrambling
+    
+    init(prepopulateDelegateDataDecisioner: PrepopulateDelegateDataDecisionerProtocol,
+         delegateEmailScrambler: DelegateEmailScrambling) {
+        
+        self.prepopulateDecisioner = prepopulateDelegateDataDecisioner
+        self.delegateEmailScrambler = delegateEmailScrambler
+    }
+    
+}
