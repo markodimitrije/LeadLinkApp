@@ -186,6 +186,8 @@
 		7C51087422C0DC62005EE58B /* ScaningViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087322C0DC62005EE58B /* ScaningViewControllerFactory.swift */; };
 		7C51087622C0E074005EE58B /* CampaignsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */; };
 		7C51087C22C0E8FE005EE58B /* NavigationViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */; };
+		7C5264B1243F2EF60072B85F /* StartViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5264B0243F2EF60072B85F /* StartViewControllerProvider.swift */; };
+		7C5264B3243F2F100072B85F /* StartViewControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5264B2243F2F100072B85F /* StartViewControllerProviding.swift */; };
 		7C62068822DC7C63001D7D86 /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */; };
 		7C62068922DC7C63001D7D86 /* ScanditScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068522DC7C63001D7D86 /* ScanditScanner.swift */; };
 		7C62068A22DC7C63001D7D86 /* ScanditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62068622DC7C63001D7D86 /* ScanditSettings.swift */; };
@@ -528,6 +530,8 @@
 		7C51087322C0DC62005EE58B /* ScaningViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaningViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C51087522C0E074005EE58B /* CampaignsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModelFactory.swift; sourceTree = "<group>"; };
+		7C5264B0243F2EF60072B85F /* StartViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewControllerProvider.swift; sourceTree = "<group>"; };
+		7C5264B2243F2F100072B85F /* StartViewControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewControllerProviding.swift; sourceTree = "<group>"; };
 		7C62068422DC7C63001D7D86 /* ScanningProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
 		7C62068522DC7C63001D7D86 /* ScanditScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditScanner.swift; sourceTree = "<group>"; };
 		7C62068622DC7C63001D7D86 /* ScanditSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanditSettings.swift; sourceTree = "<group>"; };
@@ -1495,6 +1499,7 @@
 		7C39F3A922BD578B0017A78C /* ViewControllerFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7C5264AF243F2EE40072B85F /* StartViewControllerProvider */,
 				7C51086022C0D001005EE58B /* TermsViewControllerFactory.swift */,
 				7C39F3AE22BD5C180017A78C /* QuestionsAnswersViewControllerFactory.swift */,
 			);
@@ -1770,6 +1775,15 @@
 				7C51087B22C0E8FE005EE58B /* NavigationViewModelFactory.swift */,
 			);
 			path = ViewModelFactories;
+			sourceTree = "<group>";
+		};
+		7C5264AF243F2EE40072B85F /* StartViewControllerProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7C5264B2243F2F100072B85F /* StartViewControllerProviding.swift */,
+				7C5264B0243F2EF60072B85F /* StartViewControllerProvider.swift */,
+			);
+			path = StartViewControllerProvider;
 			sourceTree = "<group>";
 		};
 		7C5636F722D6203500DB3C9E /* Calculators_Helpers */ = {
@@ -2579,6 +2593,7 @@
 				7C1F430F237B0EA20043D5E3 /* UIViewController+DismissKeyboard+Rx.swift in Sources */,
 				ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */,
 				7C19F33A23E30AF400AA488A /* CampaignResponsesFactory.swift in Sources */,
+				7C5264B3243F2F100072B85F /* StartViewControllerProviding.swift in Sources */,
 				7CC94E5523A3ABD400D52338 /* ScrollViewKeyboardHandler.swift in Sources */,
 				7C1A45F5229699860032C860 /* ReportsDataSourceAndDelegate.swift in Sources */,
 				7C1CEA2E23A0F0E70015F8F7 /* RadioBtnsViewModelFactory.swift in Sources */,
@@ -2781,6 +2796,7 @@
 				7C4E077123A03203003FBCF6 /* TextAreaViewModelFactory.swift in Sources */,
 				7CBDC27822D7567500B7D43F /* CompartmentBuilder.swift in Sources */,
 				7C1F42C2237ACF430043D5E3 /* CampaignsVersionChecker.swift in Sources */,
+				7C5264B1243F2EF60072B85F /* StartViewControllerProvider.swift in Sources */,
 				ADAB3D93223A540D00450625 /* NavigationViewModel.swift in Sources */,
 				ADB6A63421DF8356002224C0 /* CampaignsWithQuestionsRemoteAPI.swift in Sources */,
 				7C1E80B923802E54006957BB /* LastDateSyncViewFactory.swift in Sources */,

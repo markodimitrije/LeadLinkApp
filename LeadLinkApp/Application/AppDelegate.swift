@@ -60,8 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc func logoutBtnTapped() {
         
         guard let topController = UIApplication.topViewController() else { fatalError() }
-        let centerView = UIView.init(frame: CGRect.init(center: CGPoint.init(x: UIScreen.main.bounds.midX,
-                                                                             y: UIScreen.main.bounds.midY), size: CGSize.init(width: 1, height: 1)))
+        let centerPt = CGPoint.init(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+        let centerSize = CGSize.init(width: 1, height: 1)
+        let centerView = UIView.init(frame: CGRect.init(center: centerPt, size: centerSize))
         topController.view.addSubview(centerView)
             
         topController.alert(alertInfo: AlertInfo.getInfo(type: .logout), sourceView: centerView)
@@ -114,29 +115,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let disposeBag = DisposeBag()
     
-}
-
-protocol StartViewControllerProviding {
-    func getStartViewControllers() -> [UIViewController]
-}
-
-class StartViewControllerProvider: StartViewControllerProviding {
-    
-    var factory: AppDependencyContainer
-
-    init(factory: AppDependencyContainer) {
-        self.factory = factory
-    }
-    func getStartViewControllers() -> [UIViewController] {
-        let userSession = factory.sharedUserSessionRepository.readUserSession()
-        let loginVcFactory = LoginViewControllerFactory.init(appDependancyContainer: factory)
-        let loginVC = loginVcFactory.makeVC()
-        let campaignsVcFactory = CampaignsViewControllerFactory.init(appDependancyContainer: factory)
-        let campaignsVC = campaignsVcFactory.makeVC()
-        if let _ = userSession.value {
-            return [loginVC, campaignsVC]
-        } else {
-            return [loginVC]
-        }
-    }
 }
