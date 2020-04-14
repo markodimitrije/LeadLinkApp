@@ -12,7 +12,7 @@ import RxSwift
 
 class LoginViewController: UIViewController, Storyboarded {
 
-    var logInViewModel: LogInViewModel! // injected by LoginViewControllerFactory
+    var logInViewModel: LogInViewModel!
     
     private var keyboardManager: MovingKeyboardDelegate?
     
@@ -201,5 +201,5 @@ class LoginViewController: UIViewController, Storyboarded {
     }
     
     private let disposeBag = DisposeBag.init()
-
+    
 }

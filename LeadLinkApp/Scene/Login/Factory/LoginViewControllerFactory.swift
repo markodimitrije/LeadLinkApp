@@ -19,7 +19,8 @@ class LoginViewControllerFactory {
     func makeVC() -> LoginViewController {
         
         let viewController = LoginViewController.instantiate(using: appDependancyContainer.sb)
-        viewController.logInViewModel = LoginViewModelFactory(appDependancyContainer: factory).makeLoginViewModel()
+        let loginViewModelFactory = LoginViewModelFactory(appDependancyContainer: factory)
+        viewController.logInViewModel = loginViewModelFactory.makeLoginViewModel()
 
         return viewController
     }

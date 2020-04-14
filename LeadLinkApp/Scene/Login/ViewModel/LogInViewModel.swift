@@ -121,6 +121,4 @@ public class LogInViewModel {
         passwordInput.onNext("")
     }
     
-    deinit { print("deinit.LogInViewModel ") }
-   
 }

@@ -37,9 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationViewModel = navigationViewModelFactory.makeViewModel()
         
-        //downloadCampaignsQuestionsAndLogos()
-        
-        let navVC = window?.rootViewController as? UINavigationController
+        let navVC = UINavigationController()
         
         bindNavigationViewModelWithNavigationViewController(navViewModel: navigationViewModel,
                                                             navVC: navVC)
@@ -47,8 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let startingVCs = startVCProvider.getStartViewControllers()
         
         _ = startingVCs.map { vc -> Void in
-            navVC?.pushViewController(vc, animated: false)
+            navVC.pushViewController(vc, animated: false)
         }
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navVC
+        self.window?.makeKeyAndVisible()
         
         return true
     }
