@@ -55,4 +55,3 @@ public struct LogoutAuthRemoteAPI: LogoutRemoteAPIProtocol {
         }
     }
 }
-
