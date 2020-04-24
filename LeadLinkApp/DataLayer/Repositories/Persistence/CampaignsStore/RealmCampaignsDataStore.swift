@@ -63,10 +63,10 @@ class RealmCampaignsDataStore: CampaignsDataStore {
             }
             
             do {
-                try realm.write { // ovako
+                try realm.write {
                     realm.add(objects, update: .modified)
                 }
-                //                print("SAVED CAMPAIGNS!")
+//                print("SAVED CAMPAIGNS!")
                 seal.fulfill(campaigns)
             } catch {
                 seal.reject(CampaignError.cantSave)

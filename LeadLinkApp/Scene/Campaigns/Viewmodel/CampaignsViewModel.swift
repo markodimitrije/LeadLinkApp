@@ -39,34 +39,14 @@ public class CampaignsViewModel {
             return
         }
         
-        firstly {
+        
+        
+        firstly { // TODO: just line below + catch + err handler ?
             
-            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)//userSession)
+            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
             
-        }.then { success -> Promise<[LogoInfo]> in
-            
-            if success {
-                return self.campaignsRepository.dataStore.readAllCampaignLogoInfos()
-            } else {
-                return Promise<[LogoInfo]>.init(resolver: { (seal) in
-                    seal.reject(CampaignError.dontNeedUpdate)
-                })
-            }
-            
-        }.thenMap { logoInfo -> Promise<LogoInfo> in
-
-            let dataPromise = self.downloadImageAPI.getImage(url: logoInfo.url ?? "")
-
-            return dataPromise.map { (data) -> LogoInfo in
-
-                return LogoInfo.init(id: logoInfo.id, url: logoInfo.url, imgData: data)
-            }
-
-        }.done { (infos) in     //       print("imam logo infos")
-            let _ = infos.map { [weak self] in
-                self?.campaignsRepository.updateImg(data: $0.imgData, campaignId: $0.id)
-            }
-        }.catch { (err) in
+        }
+        .catch { (err) in
             guard let err = err as? CampaignError else {return}
             if err == .dontNeedUpdate {
                 return

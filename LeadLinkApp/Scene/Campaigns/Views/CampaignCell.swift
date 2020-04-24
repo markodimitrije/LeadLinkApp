@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+import Kingfisher
 
 class CampaignCell: UITableViewCell {
     
@@ -20,14 +19,8 @@ class CampaignCell: UITableViewCell {
         
         self.titleLbl?.text = campaign.name
         self.subtitleLbl?.text = campaign.description
-        
-//        self.orgNameLbl?.text = campaign.description // temp test
-//        self.eventNameLbl?.text = campaign.description // temp test
-        
-        self.imgView?.image = (campaign.imgData != nil) ? UIImage.init(data: campaign.imgData!) : UIImage.campaignPlaceholder
-        
+        self.imgView.kf.setImage(with: URL(string: campaign.logo ?? ""),
+                                 placeholder: UIImage.campaignPlaceholder)
     }
-    
-    private let disposeBag = DisposeBag()
     
 }
