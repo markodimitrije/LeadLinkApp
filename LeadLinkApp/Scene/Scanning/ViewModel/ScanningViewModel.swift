@@ -13,14 +13,12 @@ class ScanningViewModel {
     
     private (set) var obsCampaign: Observable<CampaignProtocol>
     private (set) var codesDataStore: CodesDataStore
-    private (set) var logo: UIImage?
     
     public let codeInput = BehaviorSubject<String>(value: "")
     private var showDisclaimerValidator: ShowDisclaimerValidatorProtocol!
     
     private (set) var campaign: CampaignProtocol! {
         didSet {
-            updateLogoImage()
             setCodeListener()
             self.showDisclaimerValidator = ShowDisclaimerValidator(campaign: campaign)
         }
@@ -38,10 +36,6 @@ class ScanningViewModel {
             self.campaign = campaign
         })
         .disposed(by: disposeBag)
-    }
-    
-    private func updateLogoImage() {
-        self.logo = UIImage.imageFromData(data: campaign.imgData) ?? UIImage.campaignPlaceholder
     }
     
     private func setCodeListener() {

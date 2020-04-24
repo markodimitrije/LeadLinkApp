@@ -92,7 +92,8 @@ class ScanningVC: UIViewController, Storyboarded {
     
     private func bindUI() {
         
-        logoImageView?.image = viewModel?.logo
+        logoImageView?.kf.setImage(with: URL(string: campaign?.logo ?? ""),
+                                   placeholder: UIImage.campaignPlaceholder)
         
         scanBarcodeBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { _ in
             self.scannerView.isHidden = false // show avSession (camera) view
