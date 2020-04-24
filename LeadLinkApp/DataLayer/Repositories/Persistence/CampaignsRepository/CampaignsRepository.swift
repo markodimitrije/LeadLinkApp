@@ -19,26 +19,10 @@ extension CampaignsRepository: CampaignsRepositoryProtocol {
     
     func getCampaignsAndQuestions(userSession: UserSession) -> Promise<Bool> {
         
-        let update =
-            when(fulfilled: [remoteAPI.getCampaignsWithQuestions(userSession: userSession)])
-            .then { results -> Promise<(Bool, CampaignResults)> in
-                    
-                return Promise.init { (resolver) in
-                    resolver.fulfill((true, results.first!))
-                }
-                
-            }
-        
-        return update.map { (jsonUpdated, results) -> Bool in
-                            
-            let campaignsWithQuestions = results.campaignsWithQuestions
-
-            let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
-
-            return allCampaignsSaved
-
-        }
-        
+        let camRes = remoteAPI.getCampaignsWithQuestions(userSession: userSession)
+        let arr = camRes.map {$0.campaignsWithQuestions}
+        let campaigns = arr.mapValues { $0.0 }
+        return campaigns.then(self.dataStore.save).map {_ in return true}
     }
     
     func fetchCampaign(_ campaignId: Int) -> Observable<CampaignProtocol> {

@@ -12,9 +12,7 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
     
     static let shared = CampaignsWithQuestionsRemoteAPI()
     
-    // MARK: - Methods
-    
-    public init() {} // TODO: ovde dependencies: CampaignResponsesProvider
+    // TODO marko : ovde init sa dependencies: CampaignResponsesProvider
     
     public func getCampaignsWithQuestions(userSession: UserSession) -> Promise<CampaignResults> {
             
@@ -42,8 +40,6 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                         return
                     }
                     
-                    let jsonString = String.init(data: data!, encoding: String.Encoding.utf8) // versioning
-                    
                     let campaigns = campaignResponses.map { Campaign.init(campaignResponse: $0) }
                     let questions = campaigns.map {$0.questions}
                     
@@ -54,7 +50,7 @@ public struct CampaignsWithQuestionsRemoteAPI: CampaignsRemoteAPI {
                     
                     let results = (0...max(0, campaigns.count-1)).map { (campaigns[$0], questions[$0]) }
                     
-                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results, jsonString: jsonString ?? "")
+                    let campaignResults = CampaignResults.init(campaignsWithQuestions: results)
                     
                     seal.fulfill(campaignResults)
                 }

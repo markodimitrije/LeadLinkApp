@@ -6,9 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-
 public struct CampaignResults {
     var campaignsWithQuestions = [(CampaignProtocol, [QuestionProtocol])]()
-    var jsonString: String = ""
 }
