@@ -22,38 +22,21 @@ extension CampaignsRepository: CampaignsRepositoryProtocol {
         let update =
             when(fulfilled: [remoteAPI.getCampaignsWithQuestions(userSession: userSession)])
             .then { results -> Promise<(Bool, CampaignResults)> in
-                
-                let promise = self.campaignsVersionChecker.needsUpdate(newJson: (results.first!).jsonString)
-                
-                return promise.map({ shouldUpdate -> (Bool, CampaignResults) in
-                    return (shouldUpdate, results.first!)
-                })
-            }.map { (shouldUpdate, results) -> (Bool, CampaignResults) in
-                
-                if !shouldUpdate { // ako ne treba da update, samo izadji.....
-                    return (shouldUpdate, results)
+                    
+                return Promise.init { (resolver) in
+                    resolver.fulfill((true, results.first!))
                 }
                 
-                return (self.dataStore.saveCampaignsJsonString(requestName: WebRequestName.campaignsWithQuestions, json: results.jsonString).isFulfilled, results)
-        }
+            }
         
         return update.map { (jsonUpdated, results) -> Bool in
-            
-            if jsonUpdated {
-                
-                let campaignsWithQuestions = results.campaignsWithQuestions
+                            
+            let campaignsWithQuestions = results.campaignsWithQuestions
 
-                //self.dataStore.deleteAllCampaignRelatedDataExceptJson()
-                
-                let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
+            let allCampaignsSaved = self.dataStore.save(campaigns: campaignsWithQuestions.map {$0.0}).isFulfilled
 
-                return allCampaignsSaved
-                
-            } else {
-                print("CapmaignsRepository.getCampaignsAndQuestions. ne trebam update, isti json")
-                return false
-            }
-            
+            return allCampaignsSaved
+
         }
         
     }
@@ -75,15 +58,13 @@ public class CampaignsRepository {
     let userSessionRepository: UserSessionRepository
     let remoteAPI: CampaignsRemoteAPI
     let questionsDataStore: QuestionsDataStoreProtocol
-    let campaignsVersionChecker: CampaignsVersionChecker
     
     // MARK: - Methods
-    init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStoreProtocol, remoteAPI: CampaignsRemoteAPI, campaignsVersionChecker: CampaignsVersionChecker) {
+    init(userSessionRepository: UserSessionRepository, dataStore: CampaignsDataStore, questionsDataStore: QuestionsDataStoreProtocol, remoteAPI: CampaignsRemoteAPI) {
         self.userSessionRepository = userSessionRepository
         self.dataStore = dataStore
         self.remoteAPI = remoteAPI
         self.questionsDataStore = questionsDataStore
-        self.campaignsVersionChecker = campaignsVersionChecker
     }
 
 }

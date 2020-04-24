@@ -109,74 +109,8 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         
     }
     
-    // MARK: - manage json
     
-    public func getCampaignsJsonString(requestName name: String) -> Promise<String> {
-        
-        return Promise() { seal in
-            
-            let realm = RealmFactory.make()
-            
-            guard let realmJson = realm.objects(RealmJson.self).first(where: {$0.name == name} ) else {
-                seal.fulfill("") // ako nemas nista
-                return
-            }
-            
-            seal.fulfill(realmJson.value)
-            
-        }
-        
-    }
-    
-    public func saveCampaignsJsonString(requestName name: String, json: String) -> Promise<Bool> {
-        
-        return Promise() { seal in
-            
-            let realm = RealmFactory.make()
-            
-            let object = RealmJson()
-            object.update(name: name, value: json)
-            
-            do {
-                try realm.write {
-                    realm.add(object, update: .modified)
-                }
-                print("SAVED JSON za kampanje !")
-                seal.fulfill(true)
-            } catch {
-                seal.reject(CampaignError.cantSave)
-            }
-            
-        }
-        
-    }
-    
-    public func deleteCampaignsJsonString() -> Promise<Bool> {
-        
-        return Promise() { seal in
-            
-            let realm = RealmFactory.make()
-            
-            guard let object = realm.objects(RealmJson.self).first else {
-                seal.fulfill(true) // realno je error...
-                return
-            }
-            
-            do {
-                try realm.write {
-                    realm.delete(object)
-                }
-                print("DELETE JSON za versioning za kampanje.... !")
-                seal.fulfill(true)
-            } catch {
-                seal.reject(CampaignError.cantSave)
-            }
-            
-        }
-        
-    }
-    
-    public func deleteAllCampaignRelatedDataExceptJson() {
+    public func deleteAllCampaignRelatedDataExceptJson() { // TODO marko: rename no json..
         
         _ = campaignObjectTypes.map { type -> Void in
             _ = self.deleteAllObjects(ofTypes: [type])
