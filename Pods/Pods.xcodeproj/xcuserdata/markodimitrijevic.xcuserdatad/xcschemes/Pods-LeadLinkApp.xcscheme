@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BD26F6544DDFBA6F1986FF18593D7A0"
+               BlueprintIdentifier = "5E5DBDDD3910E8F5BE06FBBD2151F0DA"
                BuildableName = "Pods_LeadLinkApp.framework"
                BlueprintName = "Pods-LeadLinkApp"
                ReferencedContainer = "container:Pods.xcodeproj">

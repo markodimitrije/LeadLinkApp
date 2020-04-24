@@ -16,6 +16,7 @@ target 'LeadLinkApp' do
     pod 'PieCharts'
     pod 'ScanditBarcodeCapture', "6.0.3"
     pod 'PhoneNumberKit'
+    pod 'Kingfisher'
 
   # Pods for tryLeadLinkModularComponent
 
