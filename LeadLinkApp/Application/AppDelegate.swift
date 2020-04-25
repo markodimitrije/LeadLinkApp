@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let campaignsViewmodel = CampaignsViewModelFactory.init(appDependancyContainer: factory).makeViewModel()
         
-        print("downloadCampaignsQuestionsAndLogos.calling getCampaignsFromWeb.... .... ....")
+        print("download campaigns Web.... .... ")
         
         campaignsViewmodel.getCampaignsFromWeb()
         

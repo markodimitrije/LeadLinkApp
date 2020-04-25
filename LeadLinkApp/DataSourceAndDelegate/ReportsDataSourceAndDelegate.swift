@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
-import RealmSwift
 
 class ReportsDataSource: NSObject, UITableViewDataSource {
     
