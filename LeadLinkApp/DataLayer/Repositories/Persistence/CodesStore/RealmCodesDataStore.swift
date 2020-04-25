@@ -12,9 +12,9 @@ import RealmSwift
 
 public class RealmCodesDataStore: CodesDataStore {
     
-    var campaignsDataStore: CampaignsDataStore
+    var campaignsDataStore: ICampaignsRepository
     
-    init(campaignsDataStore: CampaignsDataStore, realm: Realm? = nil) {
+    init(campaignsDataStore: ICampaignsRepository, realm: Realm? = nil) {
         self.campaignsDataStore = campaignsDataStore
     }
     

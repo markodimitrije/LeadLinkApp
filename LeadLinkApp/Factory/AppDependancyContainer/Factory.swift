@@ -26,7 +26,6 @@ public class AppDependencyContainer {
     let sharedUserSessionRepository: UserSessionRepository
     let sharedMainViewModel: MainViewModel
     let sharedCampaignsRepository: CampaignsRepository
-    let downloadImageAPI: DownloadImageAPI
     
     private let campaignsDataStore = RealmCampaignsDataStore.init()
     
@@ -59,17 +58,15 @@ public class AppDependencyContainer {
             //let userSession = sharedUserSessionRepository.readUserSession().value!! // oprez - ne valja ovo mislim....
             let userSessionRepository = makeUserSessionRepository()
             let dataStore = RealmCampaignsDataStore.init()
-            let questionsDataStore = RealmQuestionsDataStore.init()
             let remoteAPI = CampaignsWithQuestionsRemoteAPI.shared
             
             return CampaignsRepository
-                .init(userSessionRepository: userSessionRepository, dataStore: dataStore, questionsDataStore: questionsDataStore, remoteAPI: remoteAPI)
+                .init(userSessionRepository: userSessionRepository, dataStore: dataStore, remoteAPI: remoteAPI)
         }
         
         self.sharedUserSessionRepository = makeUserSessionRepository()
         self.sharedMainViewModel = makeMainViewModel()
         self.sharedCampaignsRepository = makeCampaignsRepository()
-        self.downloadImageAPI = DownloadImageRemoteAPI()
 
     }
     

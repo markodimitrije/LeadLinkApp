@@ -7,12 +7,11 @@
 //
 
 import PromiseKit
-import Realm
 import RealmSwift
 import RxSwift
 import RxRealm
 
-class RealmCampaignsDataStore: CampaignsDataStore {
+class RealmCampaignsDataStore: ICampaignsRepository {
     
     // MARK: - manage campaigns
     
@@ -106,19 +105,7 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
-    // MARK: All data (delete)
-    
-    func deleteAllDataIfAny() -> Observable<Bool> {
-        let realm = RealmFactory.make()
-        do {
-            try realm.write {
-                realm.deleteAll()
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
+    // MARK: delete
     
     private func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
         let realm = RealmFactory.make()

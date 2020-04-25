@@ -15,7 +15,6 @@ class CampaignsViewModel {
     
     // MARK: - Properties
     private let campaignsWorker: ICampaignsWorker
-    private let downloadImageAPI: DownloadImageAPI
     private let disposeBag = DisposeBag()
     
     private(set) var campaigns: Results<RealmCampaign>!
@@ -23,9 +22,8 @@ class CampaignsViewModel {
     var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
     
     // MARK: - Methods
-    init(campaignsWorker: ICampaignsWorker, downloadImageAPI: DownloadImageAPI) {
+    init(campaignsWorker: ICampaignsWorker) {
         self.campaignsWorker = campaignsWorker
-        self.downloadImageAPI = downloadImageAPI
         bindOutput()
     }
     

@@ -51,7 +51,6 @@
 		7C1EE71B23A295AA00DB9ED8 /* GroupViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */; };
 		7C1EE71D23A295C500DB9ED8 /* GroupViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */; };
 		7C1F19AE23E96E23006C4901 /* ScanningProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */; };
-		7C1F19B223E986B0006C4901 /* QuestionsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */; };
 		7C1F42B4237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */; };
 		7C1F42BD237ACDCA0043D5E3 /* ReportsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BC237ACDCA0043D5E3 /* ReportsDataStoreProtocol.swift */; };
 		7C1F42BF237ACEDB0043D5E3 /* CampaignResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */; };
@@ -201,7 +200,6 @@
 		7C64DBCB23BB610800674E04 /* SurveyQuestionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */; };
 		7C64DBCD23BB614000674E04 /* GroupViewInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCC23BB614000674E04 /* GroupViewInfoProtocol.swift */; };
 		7C64DBCF23BB615F00674E04 /* GroupViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64DBCE23BB615F00674E04 /* GroupViewInfo.swift */; };
-		7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AA22CDFBE10077464C /* DownloadImage.swift */; };
 		7C6528AD22CDFF290077464C /* AVCaptureSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */; };
 		7C6528AF22CE003A0077464C /* AVCaptureDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */; };
 		7C6528B322CE42ED0077464C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6528B222CE42ED0077464C /* Application.swift */; };
@@ -291,7 +289,6 @@
 		ADAB3D9C223AB56200450625 /* AlertWithRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3D9B223AB56200450625 /* AlertWithRx.swift */; };
 		ADABCC4D21E4AB3C00B43427 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4C21E4AB3C00B43427 /* Question.swift */; };
 		ADABCC4F21E4AB7700B43427 /* RealmQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */; };
-		ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */; };
 		ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040821E65EC4006463A2 /* CampaignCell.swift */; };
 		ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040A21E73F29006463A2 /* LogoInfo.swift */; };
 		ADAD040F21E7826E006463A2 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040E21E7826E006463A2 /* Organization.swift */; };
@@ -392,7 +389,6 @@
 		7C1EE71A23A295AA00DB9ED8 /* GroupViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewItem.swift; sourceTree = "<group>"; };
 		7C1EE71C23A295C500DB9ED8 /* GroupViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewFactory.swift; sourceTree = "<group>"; };
 		7C1F19AD23E96E23006C4901 /* ScanningProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProcess.swift; sourceTree = "<group>"; };
-		7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsDataStoreProtocol.swift; sourceTree = "<group>"; };
 		7C1F42B3237AC7CB0043D5E3 /* MovingKeyboardDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingKeyboardDelegateFactory.swift; sourceTree = "<group>"; };
 		7C1F42BC237ACDCA0043D5E3 /* ReportsDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataStoreProtocol.swift; sourceTree = "<group>"; };
 		7C1F42BE237ACEDB0043D5E3 /* CampaignResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResults.swift; sourceTree = "<group>"; };
@@ -544,7 +540,6 @@
 		7C64DBCA23BB610800674E04 /* SurveyQuestionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionProtocol.swift; sourceTree = "<group>"; };
 		7C64DBCC23BB614000674E04 /* GroupViewInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewInfoProtocol.swift; sourceTree = "<group>"; };
 		7C64DBCE23BB615F00674E04 /* GroupViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewInfo.swift; sourceTree = "<group>"; };
-		7C6528AA22CDFBE10077464C /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		7C6528AC22CDFF290077464C /* AVCaptureSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionError.swift; sourceTree = "<group>"; };
 		7C6528AE22CE003A0077464C /* AVCaptureDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDeviceExtension.swift; sourceTree = "<group>"; };
 		7C6528B222CE42ED0077464C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -634,7 +629,6 @@
 		ADAB3D9B223AB56200450625 /* AlertWithRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWithRx.swift; sourceTree = "<group>"; };
 		ADABCC4C21E4AB3C00B43427 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ADABCC4E21E4AB7700B43427 /* RealmQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestion.swift; sourceTree = "<group>"; };
-		ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestionsDataStore.swift; sourceTree = "<group>"; };
 		ADAD040821E65EC4006463A2 /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
 		ADAD040A21E73F29006463A2 /* LogoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoInfo.swift; sourceTree = "<group>"; };
 		ADAD040E21E7826E006463A2 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
@@ -1821,14 +1815,6 @@
 			path = GroupViewInfo;
 			sourceTree = "<group>";
 		};
-		7C6528A922CDFBC30077464C /* DownloadImage */ = {
-			isa = PBXGroup;
-			children = (
-				7C6528AA22CDFBE10077464C /* DownloadImage.swift */,
-			);
-			path = DownloadImage;
-			sourceTree = "<group>";
-		};
 		7C69552023391EBA009D4A25 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2146,7 +2132,6 @@
 		ADABCC4821E4A30D00B43427 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
-				7C6528A922CDFBC30077464C /* DownloadImage */,
 				7C40D4ED22C6169D009CD01E /* ResponseToDataParser */,
 				7C38086A22C5117800BB62C5 /* MyURLRequest */,
 				7C38086722C5112600BB62C5 /* URLResponse */,
@@ -2160,8 +2145,6 @@
 		ADABCC5021E4E22900B43427 /* QuestionsStore */ = {
 			isa = PBXGroup;
 			children = (
-				7C1F19B123E986B0006C4901 /* QuestionsDataStoreProtocol.swift */,
-				ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */,
 			);
 			path = QuestionsStore;
 			sourceTree = "<group>";
@@ -2737,7 +2720,6 @@
 				7C38D8E023E1D77600BAA559 /* OptInResponse.swift in Sources */,
 				7C1F4302237B09980043D5E3 /* AlertInfoType.swift in Sources */,
 				7C3A3F7822ABEB6A003C079E /* DisclaimerView.swift in Sources */,
-				ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */,
 				ADAEE87D21D8F331000B3C52 /* LoginViewController.swift in Sources */,
 				7C1F4300237B095E0043D5E3 /* AlertInfo.swift in Sources */,
 				7C27AA2123A8ED3300B678E9 /* RadioBtnImage.swift in Sources */,
@@ -2801,7 +2783,6 @@
 				7C4E078E23A045E5003FBCF6 /* CheckboxWithInputViewFactory.swift in Sources */,
 				7C62222E2294039500717CA1 /* CodesDataSourceAndDelegate.swift in Sources */,
 				7C3A689B22E75974007E9240 /* ScrollingToField.swift in Sources */,
-				7C6528AB22CDFBE10077464C /* DownloadImage.swift in Sources */,
 				7C62226D2294232300717CA1 /* AnswersReport.swift in Sources */,
 				7C64DBCF23BB615F00674E04 /* GroupViewInfo.swift in Sources */,
 				7C6528B522CE43990077464C /* RealmApplication.swift in Sources */,
@@ -2835,7 +2816,6 @@
 				ADE9552021D9005300B86052 /* AuthRemoteAPIProtocols.swift in Sources */,
 				ADBB468A22426C3C00E1020F /* RealmCode.swift in Sources */,
 				7C2227162379B58E0006B8EE /* GlobalVars+ScanditKey.swift in Sources */,
-				7C1F19B223E986B0006C4901 /* QuestionsDataStoreProtocol.swift in Sources */,
 				7CE63AC422A7F83E008E477B /* DelegatesRemoteAPI.swift in Sources */,
 				7C390535233B7AD600249B18 /* SpinnerViewManager.swift in Sources */,
 				ADAFED8722395CB3004C4AC1 /* AVSessionViewModel.swift in Sources */,

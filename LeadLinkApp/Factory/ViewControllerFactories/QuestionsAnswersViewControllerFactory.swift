@@ -12,7 +12,7 @@ import RxSwift
 class QuestionsAnswersViewControllerFactory {
     
     private var appDependancyContainer: AppDependencyContainer
-    private var campaignsDataStore: CampaignsDataStore {
+    private var campaignsDataStore: ICampaignsRepository {
         return appDependancyContainer.sharedCampaignsRepository.dataStore
     }
     

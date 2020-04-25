@@ -16,9 +16,9 @@ protocol SelectedCampaignObserving {
 
 struct RealmSelectedCampaign: SelectedCampaignObserving {
     
-    var campaignsDataStore: CampaignsDataStore
+    var campaignsDataStore: ICampaignsRepository
     
-    init(campaignsDataStore: CampaignsDataStore) {
+    init(campaignsDataStore: ICampaignsRepository) {
         self.campaignsDataStore = campaignsDataStore
     }
     

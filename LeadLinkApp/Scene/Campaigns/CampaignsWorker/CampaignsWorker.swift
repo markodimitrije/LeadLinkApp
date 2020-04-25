@@ -25,7 +25,7 @@ extension CampaignsWorker: ICampaignsWorker {
 }
 
 struct CampaignsWorker {
-    let dataStore: CampaignsDataStore
+    let dataStore: ICampaignsRepository
     let userSessionDataStore: UserSessionDataStore
     let remoteAPI: CampaignsRemoteAPI
 }
