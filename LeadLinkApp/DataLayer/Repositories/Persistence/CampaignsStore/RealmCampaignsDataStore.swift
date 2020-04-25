@@ -13,6 +13,14 @@ import RxRealm
 
 class RealmCampaignsDataStore: ICampaignsRepository {
     
+    func fetchCampaign(_ campaignId: Int) -> Observable<CampaignProtocol> {
+        let realm = try! Realm()
+        guard let realmCampaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: campaignId) else {
+            fatalError("someone asked for selected campaign, before it was saved ?!?")
+        }
+        return Observable.from(object: realmCampaign).map(Campaign.init)
+    }
+    
     // MARK: - manage campaigns
     
     func readCampaign(id: Int) -> Promise<CampaignProtocol> {
@@ -131,3 +139,4 @@ class RealmCampaignsDataStore: ICampaignsRepository {
                                                       RealmDisclaimer.self,
                                                       RealmOptIn.self]
 }
+

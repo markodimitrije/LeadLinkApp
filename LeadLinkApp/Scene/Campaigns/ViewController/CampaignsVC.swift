@@ -20,7 +20,7 @@ class CampaignsVC: UIViewController, Storyboarded { // rename u campaignsVC a lo
     // MARK:- injected by factory
     var logOutViewModel: Logoutable!
     var campaignsViewModel: CampaignsViewModel!
-    var repository: UserSessionRepository!
+    var repository: UserSessionRepositoryProtocol!
     var notSignedInResponder: NotSignedInResponder!
     // MARK:- campaigns outputs
     // UserDefaults.standard -> trebalo je da neki dependancy....

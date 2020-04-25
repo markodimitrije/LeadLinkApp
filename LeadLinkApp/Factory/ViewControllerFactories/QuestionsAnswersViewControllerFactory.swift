@@ -13,7 +13,7 @@ class QuestionsAnswersViewControllerFactory {
     
     private var appDependancyContainer: AppDependencyContainer
     private var campaignsDataStore: ICampaignsRepository {
-        return appDependancyContainer.sharedCampaignsRepository.dataStore
+        return appDependancyContainer.campaignsDataStore
     }
     
     init(appDependancyContainer: AppDependencyContainer) {

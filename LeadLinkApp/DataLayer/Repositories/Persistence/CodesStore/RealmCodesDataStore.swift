@@ -12,12 +12,6 @@ import RealmSwift
 
 public class RealmCodesDataStore: CodesDataStore {
     
-    var campaignsDataStore: ICampaignsRepository
-    
-    init(campaignsDataStore: ICampaignsRepository, realm: Realm? = nil) {
-        self.campaignsDataStore = campaignsDataStore
-    }
-    
     public func readCodes(campaignId id: Int) -> Promise<[Code]> {
         
         return Promise() { seal in

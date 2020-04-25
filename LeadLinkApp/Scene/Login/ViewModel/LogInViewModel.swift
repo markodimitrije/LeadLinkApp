@@ -11,13 +11,13 @@ import RxSwift
 public class LogInViewModel {
     
     // MARK: - Properties
-    let userSessionRepository: UserSessionRepository
+    let userSessionRepository: UserSessionRepositoryProtocol
     let signedInResponder: SignedInResponder
     let sharedMainViewModel = AppDependencyContainer.init().sharedMainViewModel
     private let bag = DisposeBag()
     
     // MARK: - Methods
-    public init(userSessionRepository: UserSessionRepository,
+    public init(userSessionRepository: UserSessionRepositoryProtocol,
                 signedInResponder: SignedInResponder) {
         self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder

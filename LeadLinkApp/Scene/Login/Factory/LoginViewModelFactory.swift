@@ -21,8 +21,8 @@ class LoginViewModelFactory {
         let userSessionRepo = appDependancyContainer.sharedUserSessionRepository
         let mainViewModel = appDependancyContainer.sharedMainViewModel
         
-        let viewmodel = LogInViewModel.init(userSessionRepository: userSessionRepo,
-                                            signedInResponder: mainViewModel)
+        let viewmodel = LogInViewModel(userSessionRepository: userSessionRepo,
+                                       signedInResponder: mainViewModel)
         return viewmodel
     }
 }

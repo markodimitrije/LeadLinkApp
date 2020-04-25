@@ -30,8 +30,7 @@ var confApiKeyState: ConferenceApiKeyState? = {
     var selectedCampaign: CampaignProtocol?
     
     if let campaignId = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) as? Int {
-        let sharedCampaignsRepository = factory.sharedCampaignsRepository
-        sharedCampaignsRepository.dataStore.readCampaign(id: campaignId)
+        let sharedCampaignsRepository = factory.sharedCampaignsRepository.readCampaign(id: campaignId)
             .done { campaign in
                 selectedCampaign = campaign
         }

@@ -23,51 +23,35 @@ public class AppDependencyContainer {
     // MARK: - Properties
 
     // Long-lived dependencies
-    let sharedUserSessionRepository: UserSessionRepository
+    let sharedUserSessionRepository: UserSessionRepositoryProtocol
     let sharedMainViewModel: MainViewModel
-    let sharedCampaignsRepository: CampaignsRepository
-    
-    private let campaignsDataStore = RealmCampaignsDataStore.init()
+    let sharedCampaignsRepository: ICampaignsRepository//CampaignsRepositoryProtocol
+    let campaignsDataStore: ICampaignsRepository
     
     public init() {
-        
-        func makeUserSessionRepository() -> UserSessionRepository {
-            let dataStore = makeUserSessionDataStore()
-            let remoteAPI = makeAuthRemoteAPI()
-            return UserSessionRepository.init(dataStore: dataStore, remoteAPI: remoteAPI)
-        }
 
         func makeUserSessionDataStore() -> UserSessionDataStore {
-            
             return FileUserSessionDataStore()
-
         }
 
         func makeAuthRemoteAPI() -> AuthRemoteAPIProtocol {
             return AuthRemoteAPI.shared
+        }
+        
+        func makeUserSessionRepository() -> UserSessionRepositoryProtocol {
+            let dataStore = makeUserSessionDataStore()
+            let remoteAPI = makeAuthRemoteAPI()
+            return UserSessionRepository.init(dataStore: dataStore, remoteAPI: remoteAPI)
         }
 
         func makeMainViewModel() -> MainViewModel {
             return MainViewModel()
         }
         
-        // campaignsRepository
-        
-        func makeCampaignsRepository() -> CampaignsRepository {
-            
-            //let userSession = sharedUserSessionRepository.readUserSession().value!! // oprez - ne valja ovo mislim....
-            let userSessionRepository = makeUserSessionRepository()
-            let dataStore = RealmCampaignsDataStore.init()
-            let remoteAPI = CampaignsWithQuestionsRemoteAPI.shared
-            
-            return CampaignsRepository
-                .init(userSessionRepository: userSessionRepository, dataStore: dataStore, remoteAPI: remoteAPI)
-        }
-        
         self.sharedUserSessionRepository = makeUserSessionRepository()
         self.sharedMainViewModel = makeMainViewModel()
-        self.sharedCampaignsRepository = makeCampaignsRepository()
-
+        self.sharedCampaignsRepository = RealmCampaignsDataStore()//makeCampaignsRepository()
+        self.campaignsDataStore = RealmCampaignsDataStore.init()
     }
     
     func getViewControllerTypes() -> [UIViewController.Type] {
@@ -81,7 +65,7 @@ public class AppDependencyContainer {
     
     // MARK:- Make repositories
     
-    private func makeUserSessionRepository() -> UserSessionRepository {
+    private func makeUserSessionRepository() -> UserSessionRepositoryProtocol {
         return self.sharedUserSessionRepository
     }
     

@@ -12,20 +12,22 @@ protocol Logoutable {
     func signOut()
 }
 
-public class LogOutViewModel: Logoutable {
+class LogOutViewModel: Logoutable {
     
     // MARK: - Properties
-    let userSessionRepository: UserSessionRepository
+    let userSessionRepository: UserSessionRepositoryProtocol
     let notSignedInResponder: NotSignedInResponder
+    let mutableCampaignsRepo: ICampaignsMutableRepository
     
-    private let campaignsDataStore = factory.sharedCampaignsRepository
     private let realmCampaignsDataStore = RealmCampaignsDataStore.init()
     
     // MARK: - Methods
-    public init(userSessionRepository: UserSessionRepository,
-                notSignedInResponder: NotSignedInResponder) {
+    init(userSessionRepository: UserSessionRepositoryProtocol,
+                notSignedInResponder: NotSignedInResponder,
+                mutableCampaignsRepo: ICampaignsMutableRepository) {
         self.userSessionRepository = userSessionRepository
         self.notSignedInResponder = notSignedInResponder
+        self.mutableCampaignsRepo = mutableCampaignsRepo
     }
     
     @objc
@@ -39,7 +41,8 @@ public class LogOutViewModel: Logoutable {
                     .ensure { [weak self] in guard let sSelf = self else {return}
                         sSelf.notSignedInResponder.notSignedIn()
                         sSelf.deleteConfApiKeyStateAndAuthorization()
-                        sSelf.realmCampaignsDataStore.deleteCampaignRelatedData()
+                        //sSelf.realmCampaignsDataStore.deleteCampaignRelatedData()
+                        sSelf.mutableCampaignsRepo.deleteCampaignRelatedData()
                 }
             }
     }

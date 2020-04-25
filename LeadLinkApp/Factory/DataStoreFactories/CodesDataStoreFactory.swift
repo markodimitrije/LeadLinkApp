@@ -17,8 +17,7 @@ class CodesDataStoreFactory {
     }
     
     func makeCodeDataStore() -> CodesDataStore {
-        let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-        return RealmCodesDataStore.init(campaignsDataStore: realmCampaignsDataStore)
+        return RealmCodesDataStore()
     }
     
 }
