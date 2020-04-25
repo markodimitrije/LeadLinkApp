@@ -294,7 +294,6 @@
 		ADABCC5421E4E28F00B43427 /* RealmQuestionsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */; };
 		ADAD040921E65EC4006463A2 /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040821E65EC4006463A2 /* CampaignCell.swift */; };
 		ADAD040B21E73F29006463A2 /* LogoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040A21E73F29006463A2 /* LogoInfo.swift */; };
-		ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040C21E73F4E006463A2 /* RealmJson.swift */; };
 		ADAD040F21E7826E006463A2 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD040E21E7826E006463A2 /* Organization.swift */; };
 		ADAD041121E782EA006463A2 /* RealmOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD041021E782EA006463A2 /* RealmOrganization.swift */; };
 		ADAEE87B21D8F331000B3C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEE87A21D8F331000B3C52 /* AppDelegate.swift */; };
@@ -638,7 +637,6 @@
 		ADABCC5321E4E28F00B43427 /* RealmQuestionsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuestionsDataStore.swift; sourceTree = "<group>"; };
 		ADAD040821E65EC4006463A2 /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
 		ADAD040A21E73F29006463A2 /* LogoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoInfo.swift; sourceTree = "<group>"; };
-		ADAD040C21E73F4E006463A2 /* RealmJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmJson.swift; sourceTree = "<group>"; };
 		ADAD040E21E7826E006463A2 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		ADAD041021E782EA006463A2 /* RealmOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrganization.swift; sourceTree = "<group>"; };
 		ADAEE87721D8F331000B3C52 /* Navus Lead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navus Lead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1194,7 +1192,6 @@
 				7C22271A2379BF510006B8EE /* CampaignQuestion */,
 				ADBB468922426C3C00E1020F /* RealmCode.swift */,
 				ADAF73492241327600A1F6D2 /* RealmAnswer.swift */,
-				ADAD040C21E73F4E006463A2 /* RealmJson.swift */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -2682,7 +2679,6 @@
 				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,
-				ADAD040D21E73F4E006463A2 /* RealmJson.swift in Sources */,
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,
 				7C2227292379CBA30006B8EE /* UIViewController+DismissKeyboard.swift in Sources */,
 				7CD1AF0723A67D7F003DDF0C /* EmailTextViewFactory.swift in Sources */,

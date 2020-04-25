@@ -18,6 +18,5 @@ protocol CampaignsDataStoreBase {
 
 protocol CampaignsDataStore: CampaignsDataStoreBase {
     func deleteCampaignRelatedData()
-    func deleteAllCampaignRelatedDataExceptJson()
 }
 

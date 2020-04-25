@@ -99,29 +99,9 @@ class RealmCampaignsDataStore: CampaignsDataStore {
         }
     }
     
-    // MARK: - manage logo(s)
-    
-    public func readAllCampaignLogoInfos() -> Promise<[LogoInfo]> {
-        
-        return readAllCampaigns().map { camps -> [LogoInfo] in
-            return camps.compactMap { LogoInfo.init(campaign: $0) }
-        }
-        
-    }
-    
-    
-    public func deleteAllCampaignRelatedDataExceptJson() { // TODO marko: rename no json..
+    public func deleteCampaignRelatedData() { // TODO marko: rename no json..
         
         _ = campaignObjectTypes.map { type -> Void in
-            _ = self.deleteAllObjects(ofTypes: [type])
-        }
-    }
-    
-    // TODO: mogu li ovde da kazem obrisi sve types koji nasledjuju (Realm)Object ??
-    public func deleteCampaignRelatedData() {
-        
-        let objectTypes: [Object.Type] = campaignObjectTypes + [RealmJson.self]
-        _ = objectTypes.map { type -> Void in
             _ = self.deleteAllObjects(ofTypes: [type])
         }
     }
