@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard confApiKeyState != nil else {return}
         
-        let campaignsViewmodel = CampaignsViewModel.init(campaignsRepository: factory.sharedCampaignsRepository, downloadImageAPI: factory.downloadImageAPI)
+        let campaignsViewmodel = CampaignsViewModelFactory.init(appDependancyContainer: factory).makeViewModel()
         
         print("downloadCampaignsQuestionsAndLogos.calling getCampaignsFromWeb.... .... ....")
         

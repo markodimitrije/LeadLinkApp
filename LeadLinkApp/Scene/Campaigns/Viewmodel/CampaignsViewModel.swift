@@ -7,50 +7,34 @@
 //
 
 import RealmSwift
-import RxSwift
 import RxRealm
+import RxSwift
 import PromiseKit
 
-public class CampaignsViewModel {
+class CampaignsViewModel {
     
     // MARK: - Properties
-    let campaignsRepository: CampaignsRepository
-    let downloadImageAPI: DownloadImageAPI
+    private let campaignsWorker: ICampaignsWorker
+    private let downloadImageAPI: DownloadImageAPI
+    private let disposeBag = DisposeBag()
     
     private(set) var campaigns: Results<RealmCampaign>!
-    
-    // output
-    
     private(set) var oCampaigns: Observable<(AnyRealmCollection<RealmCampaign>, RealmChangeset?)>!
-    
     var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
     
     // MARK: - Methods
-    public init(campaignsRepository: CampaignsRepository, downloadImageAPI: DownloadImageAPI) {
-        self.campaignsRepository = campaignsRepository
+    init(campaignsWorker: ICampaignsWorker, downloadImageAPI: DownloadImageAPI) {
+        self.campaignsWorker = campaignsWorker
         self.downloadImageAPI = downloadImageAPI
         bindOutput()
     }
     
-    @objc // zasto si zvao odavde ? verovatno treba da je matod pod repository
-    public func getCampaignsFromWeb() { // neko ti trazi da download-ujes i persist...
+    func getCampaignsFromWeb() { // neko ti trazi da download-ujes i persist...
         
-        guard let userSession = campaignsRepository.userSessionRepository.readUserSession().value else {
-            return
-        }
-        
-        
-        
-        firstly { // TODO: just line below + catch + err handler ?
-            
-            campaignsRepository.getCampaignsAndQuestions(userSession: userSession)
-            
-        }
-        .catch { (err) in
+        self.campaignsWorker
+            .getCampaignsAndQuestions()
+            .catch { (err) in
             guard let err = err as? CampaignError else {return}
-            if err == .dontNeedUpdate {
-                return
-            }
             self.handleErrorUsingAlert(err: err)
             _ = factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
             RealmCampaignsDataStore().deleteCampaignRelatedData()
@@ -77,12 +61,8 @@ public class CampaignsViewModel {
         
     }
     
-    private let disposeBag = DisposeBag()
-    
     private func handleErrorUsingAlert(err: Error) {
         var alertInfo: AlertInfo!
-        
-        if err == CampaignError.dontNeedUpdate { return }
         
         if err == CampaignError.noCampaignsFound {
             alertInfo = AlertInfo.getInfo(type: AlertInfoType.noCampaigns)
