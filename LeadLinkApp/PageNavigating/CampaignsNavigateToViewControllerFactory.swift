@@ -10,7 +10,7 @@ import UIKit
 
 struct FromCampaignsVCNavigateToViewControllerFactory: PageNavigatingProtocol {
     
-    let immutableCampaignsRepo = factory.sharedCampaignsRepository
+    let immutableCampaignsRepo = factory.campaignsImmutableRepo
     let scanningViewModelFactory = ScanningViewModelFactory(appDependancyContainer: factory)
     
     func getNavigationDestination(dict: [String: Any]) -> UIViewController? {

@@ -20,7 +20,7 @@ class LogoutViewModelFactory {
         
         let userSessionRepo = appDependancyContainer.sharedUserSessionRepository
         let mainViewModel = appDependancyContainer.sharedMainViewModel
-        let mutableCampaignRepo = appDependancyContainer.sharedCampaignsRepository
+        let mutableCampaignRepo = appDependancyContainer.campaignsMutableRepo
         
         let viewmodel = LogOutViewModel(userSessionRepository: userSessionRepo,
                                         notSignedInResponder: mainViewModel,

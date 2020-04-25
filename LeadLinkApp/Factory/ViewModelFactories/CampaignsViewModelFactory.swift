@@ -19,7 +19,7 @@ class CampaignsViewModelFactory {
     func makeViewModel() -> CampaignsViewModel {
         
         let campaignsWorker = CampaignsWorkerFactory.make()
-        let campaignsRepo = appDependancyContainer.sharedCampaignsRepository
+        let campaignsRepo = appDependancyContainer.campaignsMutableRepo
         
         return CampaignsViewModel.init(campaignsWorker: campaignsWorker,
                                        campaignsRepo: campaignsRepo)

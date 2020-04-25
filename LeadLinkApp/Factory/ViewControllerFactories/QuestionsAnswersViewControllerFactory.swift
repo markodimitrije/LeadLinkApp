@@ -12,8 +12,8 @@ import RxSwift
 class QuestionsAnswersViewControllerFactory {
     
     private var appDependancyContainer: AppDependencyContainer
-    private var campaignsDataStore: ICampaignsRepository {
-        return appDependancyContainer.campaignsDataStore
+    private var campaignsDataStore: ICampaignsImmutableRepository {
+        return appDependancyContainer.campaignsImmutableRepo
     }
     
     init(appDependancyContainer: AppDependencyContainer) {

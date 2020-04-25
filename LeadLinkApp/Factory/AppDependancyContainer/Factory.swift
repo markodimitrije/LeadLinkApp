@@ -25,8 +25,8 @@ public class AppDependencyContainer {
     // Long-lived dependencies
     let sharedUserSessionRepository: UserSessionRepositoryProtocol
     let sharedMainViewModel: MainViewModel
-    let sharedCampaignsRepository: ICampaignsRepository// mutable
-    let campaignsDataStore: ICampaignsRepository // immutable
+    let campaignsMutableRepo: ICampaignsMutableRepository
+    let campaignsImmutableRepo: ICampaignsImmutableRepository
     
     public init() {
 
@@ -50,8 +50,8 @@ public class AppDependencyContainer {
         
         self.sharedUserSessionRepository = makeUserSessionRepository()
         self.sharedMainViewModel = makeMainViewModel()
-        self.sharedCampaignsRepository = RealmCampaignsDataStore()//makeCampaignsRepository()
-        self.campaignsDataStore = RealmCampaignsDataStore.init()
+        self.campaignsMutableRepo = CampaignsMutableRepoFactory.make()
+        self.campaignsImmutableRepo = CampaignsImmutableRepoFactory.make()
     }
     
     func getViewControllerTypes() -> [UIViewController.Type] {

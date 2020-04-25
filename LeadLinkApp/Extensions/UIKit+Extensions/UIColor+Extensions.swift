@@ -18,7 +18,7 @@ extension UIColor {
         guard let campaignId = selectedCampaignId else {
             return UIColor(hexString: "#672edf")
         }
-        guard let colorName = factory.campaignsDataStore.readCampaign(id: campaignId).value?.color else {
+        guard let colorName = factory.campaignsImmutableRepo.readCampaign(id: campaignId).value?.color else {
             return UIColor(hexString: "#672edf")
         }
         return UIColor(hexString: colorName)

@@ -8,7 +8,7 @@
 
 class CampaignsWorkerFactory {
     static func make() -> ICampaignsWorker {
-        CampaignsWorker(dataStore: RealmCampaignsDataStore(),
+        CampaignsWorker(dataStore: CampaignsMutableRepoFactory.make(),
                         userSessionDataStore: FileUserSessionDataStore(),
                         remoteAPI: CampaignsWithQuestionsRemoteAPI.shared)
     }

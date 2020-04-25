@@ -22,7 +22,7 @@ class StatsViewControllerFactory {
             ChartViewControllerFactory.init(
                 appDependancyContainer: appDependancyContainer,
                 answersReportDataStore: AnswersReportDataStore(),
-                selectedCampaign: RealmSelectedCampaign.init(campaignsRepo: appDependancyContainer.campaignsDataStore))
+                selectedCampaign: RealmSelectedCampaign.init(campaignsRepo: appDependancyContainer.campaignsImmutableRepo))
         
         let reportsVcFactory =
             ReportsViewControllerFactory(appDependancyContainer: appDependancyContainer)
