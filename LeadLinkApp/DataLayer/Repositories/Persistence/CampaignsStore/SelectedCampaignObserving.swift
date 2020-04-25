@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 import RxSwift
 
@@ -16,10 +15,10 @@ protocol SelectedCampaignObserving {
 
 struct RealmSelectedCampaign: SelectedCampaignObserving {
     
-    var campaignsDataStore: ICampaignsRepository
+    var campaignsRepo: ICampaignsImmutableRepository
     
-    init(campaignsDataStore: ICampaignsRepository) {
-        self.campaignsDataStore = campaignsDataStore
+    init(campaignsRepo: ICampaignsImmutableRepository) {
+        self.campaignsRepo = campaignsRepo
     }
     
     func selectedCampaign() -> Observable<CampaignProtocol?> {

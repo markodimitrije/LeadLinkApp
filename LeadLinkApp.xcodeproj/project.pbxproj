@@ -308,7 +308,6 @@
 		ADB6A63121DF80F2002224C0 /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */; };
 		ADB6A63421DF8356002224C0 /* CampaignsWithQuestionsRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63321DF8356002224C0 /* CampaignsWithQuestionsRemoteAPI.swift */; };
 		ADB6A63621DF83A2002224C0 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */; };
-		ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63921DF855A002224C0 /* CampaignsRepository.swift */; };
 		ADB6A63D21DF8B94002224C0 /* CampaignsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63C21DF8B94002224C0 /* CampaignsDataStore.swift */; };
 		ADB6A63F21DF8BA5002224C0 /* RealmCampaignsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A63E21DF8BA5002224C0 /* RealmCampaignsDataStore.swift */; };
 		ADB6A64321DF9089002224C0 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB6A64221DF9089002224C0 /* RealmCampaign.swift */; };
@@ -650,7 +649,6 @@
 		ADB6A63021DF80F2002224C0 /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		ADB6A63321DF8356002224C0 /* CampaignsWithQuestionsRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWithQuestionsRemoteAPI.swift; sourceTree = "<group>"; };
 		ADB6A63521DF83A2002224C0 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
-		ADB6A63921DF855A002224C0 /* CampaignsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepository.swift; sourceTree = "<group>"; };
 		ADB6A63C21DF8B94002224C0 /* CampaignsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsDataStore.swift; sourceTree = "<group>"; };
 		ADB6A63E21DF8BA5002224C0 /* RealmCampaignsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignsDataStore.swift; sourceTree = "<group>"; };
 		ADB6A64221DF9089002224C0 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
@@ -2229,7 +2227,6 @@
 		ADB6A63821DF84FC002224C0 /* CampaignsRepository */ = {
 			isa = PBXGroup;
 			children = (
-				ADB6A63921DF855A002224C0 /* CampaignsRepository.swift */,
 			);
 			path = CampaignsRepository;
 			sourceTree = "<group>";
@@ -2659,7 +2656,6 @@
 				7C22270A2379B38C0006B8EE /* Constants+AlertInfo.swift in Sources */,
 				7CEFA5F422AA806C00BD2660 /* ViewInfoProvider.swift in Sources */,
 				7C4E076F23A031CD003FBCF6 /* TextAreaViewModel.swift in Sources */,
-				ADB6A63A21DF855A002224C0 /* CampaignsRepository.swift in Sources */,
 				7CC94E5323A3ABBC00D52338 /* KeyboardHandling.swift in Sources */,
 				7C222704237998140006B8EE /* EmailValidation.swift in Sources */,
 				7C3A3F7A22AC15AB003C079E /* DisclaimerViewFactory.swift in Sources */,

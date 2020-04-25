@@ -19,8 +19,6 @@ class LogOutViewModel: Logoutable {
     let notSignedInResponder: NotSignedInResponder
     let mutableCampaignsRepo: ICampaignsMutableRepository
     
-    private let realmCampaignsDataStore = RealmCampaignsDataStore.init()
-    
     // MARK: - Methods
     init(userSessionRepository: UserSessionRepositoryProtocol,
                 notSignedInResponder: NotSignedInResponder,
@@ -41,7 +39,6 @@ class LogOutViewModel: Logoutable {
                     .ensure { [weak self] in guard let sSelf = self else {return}
                         sSelf.notSignedInResponder.notSignedIn()
                         sSelf.deleteConfApiKeyStateAndAuthorization()
-                        //sSelf.realmCampaignsDataStore.deleteCampaignRelatedData()
                         sSelf.mutableCampaignsRepo.deleteCampaignRelatedData()
                 }
             }

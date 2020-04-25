@@ -25,8 +25,8 @@ public class AppDependencyContainer {
     // Long-lived dependencies
     let sharedUserSessionRepository: UserSessionRepositoryProtocol
     let sharedMainViewModel: MainViewModel
-    let sharedCampaignsRepository: ICampaignsRepository//CampaignsRepositoryProtocol
-    let campaignsDataStore: ICampaignsRepository
+    let sharedCampaignsRepository: ICampaignsRepository// mutable
+    let campaignsDataStore: ICampaignsRepository // immutable
     
     public init() {
 

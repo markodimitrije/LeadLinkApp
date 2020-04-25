@@ -16,7 +16,6 @@ class ScanningViewModelFactory {
         self.appDependancyContainer = appDependancyContainer
     }
     
-    //func makeViewModel(campaignRepository: CampaignsRepositoryProtocol,
     func makeViewModel(campaignRepository: ICampaignsImmutableRepository,
                        codesDataStore: CodesDataStore? = nil) -> ScanningViewModel {
         

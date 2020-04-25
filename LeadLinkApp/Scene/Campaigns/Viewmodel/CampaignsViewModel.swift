@@ -15,6 +15,7 @@ class CampaignsViewModel {
     
     // MARK: - Properties
     private let campaignsWorker: ICampaignsWorker
+    private let campaignsRepo: ICampaignsMutableRepository
     private let disposeBag = DisposeBag()
     
     private(set) var campaigns: Results<RealmCampaign>!
@@ -22,8 +23,9 @@ class CampaignsViewModel {
     var selectedCampaign = BehaviorSubject<RealmCampaign?>.init(value: nil)
     
     // MARK: - Methods
-    init(campaignsWorker: ICampaignsWorker) {
+    init(campaignsWorker: ICampaignsWorker, campaignsRepo: ICampaignsMutableRepository) {
         self.campaignsWorker = campaignsWorker
+        self.campaignsRepo = campaignsRepo
         bindOutput()
     }
     
@@ -31,11 +33,11 @@ class CampaignsViewModel {
         
         self.campaignsWorker
             .getCampaignsAndQuestions()
-            .catch { (err) in
+            .catch { [weak self](err) in
             guard let err = err as? CampaignError else {return}
-            self.handleErrorUsingAlert(err: err)
+            self?.handleErrorUsingAlert(err: err)
             _ = factory.sharedUserSessionRepository.signOut(userSession: factory.sharedUserSessionRepository.readUserSession().value!)
-            RealmCampaignsDataStore().deleteCampaignRelatedData()
+                self?.campaignsRepo.deleteCampaignRelatedData()
         }
     
     }
