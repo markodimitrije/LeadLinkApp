@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        let dataBaseMigrator: DataBaseMigrating = RealmSchemaMigrator.init(newVersion: 12)
+        let dataBaseMigrator: DataBaseMigrating = RealmSchemaMigrator.init(newVersion: 1)
         dataBaseMigrator.migrate()
 
         return true
