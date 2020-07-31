@@ -11,6 +11,8 @@ ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
 ${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework
 ${BUILT_PRODUCTS_DIR}/RxRealmDataSources/RxRealmDataSources.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${PODS_ROOT}/ScanditBarcodeCapture/ScanditBarcodeCapture.framework
+${PODS_ROOT}/ScanditCaptureCore/ScanditCaptureCore.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

@@ -32,7 +32,7 @@ extension Reactive where Base: UITextField {
 // MARK:- EMITERS:
 extension Reactive where Base: UISwitch {
     public var switchTag: ControlProperty<Int> {
-        return base.rx.controlProperty(editingEvents: UIControlEvents.valueChanged, getter: { (uiSwitch) -> Int in
+        return base.rx.controlProperty(editingEvents: UIControl.Event.valueChanged, getter: { (uiSwitch) -> Int in
             uiSwitch.tag
         }, setter: { (uiSwitch, value) in
             uiSwitch.tag = value

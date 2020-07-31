@@ -39,7 +39,8 @@ class ScanningViewModel {
     }
     
     private func setCodeListener() {
-        codeInput.debounce(0.5, scheduler: MainScheduler.instance) // jako vazno, da nema conflict na write u realm
+        codeInput.debounce(RxTimeInterval.seconds(1),
+                           scheduler: MainScheduler.instance) // jako vazno, da nema conflict na write u realm
         .subscribe(onNext: { code in
             guard code != "" else {return}
             let myCode = Code.init(value: code, campaign_id: self.campaign.id)

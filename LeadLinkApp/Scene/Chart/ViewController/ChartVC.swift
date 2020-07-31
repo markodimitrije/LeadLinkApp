@@ -27,7 +27,8 @@ class ChartVC: UIViewController, Storyboarded {
     }
     
     private func hookUpPieChartViewFromYourViewModel() {
-        pieChartViewModel.output.debounce(1.0, scheduler: MainScheduler())
+        pieChartViewModel.output.debounce(RxTimeInterval.seconds(1),
+                                          scheduler: MainScheduler())
             .subscribe(onNext: { [weak self] compartments in guard let sSelf = self else {return}
                 sSelf.loadChart(compartments: compartments)
             })
