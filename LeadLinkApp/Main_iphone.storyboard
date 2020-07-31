@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CEk-eC-qjC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CEk-eC-qjC">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -383,14 +383,12 @@ barcode number manually</string>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="oBS-qr-K5K" firstAttribute="bottom" secondItem="vOL-HX-ISw" secondAttribute="bottom" id="1vF-BB-aM1"/>
-                                    <constraint firstItem="vOL-HX-ISw" firstAttribute="leading" secondItem="oBS-qr-K5K" secondAttribute="leading" constant="8" id="6cE-DZ-Fun"/>
-                                    <constraint firstItem="vOL-HX-ISw" firstAttribute="top" secondItem="oBS-qr-K5K" secondAttribute="top" id="UnD-KH-PZT"/>
+                                    <constraint firstAttribute="bottom" secondItem="vOL-HX-ISw" secondAttribute="bottom" id="1vF-BB-aM1"/>
+                                    <constraint firstItem="vOL-HX-ISw" firstAttribute="leading" secondItem="TPB-Q1-a0p" secondAttribute="leading" constant="8" id="6cE-DZ-Fun"/>
+                                    <constraint firstItem="vOL-HX-ISw" firstAttribute="top" secondItem="TPB-Q1-a0p" secondAttribute="top" id="UnD-KH-PZT"/>
                                     <constraint firstItem="vOL-HX-ISw" firstAttribute="centerX" secondItem="TPB-Q1-a0p" secondAttribute="centerX" id="jLi-Zr-Uea"/>
-                                    <constraint firstItem="oBS-qr-K5K" firstAttribute="trailing" secondItem="vOL-HX-ISw" secondAttribute="trailing" constant="8" id="mg1-bn-cOh"/>
+                                    <constraint firstAttribute="trailing" secondItem="vOL-HX-ISw" secondAttribute="trailing" constant="8" id="mg1-bn-cOh"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="oBS-qr-K5K"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="nxB-dS-pTT"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
