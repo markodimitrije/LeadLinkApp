@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "16671FA936254F40ADDD512010952F4A"
+               BlueprintIdentifier = "03C17F9C6DDEF739822C8ED582758FCC"
                BuildableName = "ScanditBarcodeCapture"
                BlueprintName = "ScanditBarcodeCapture"
                ReferencedContainer = "container:Pods.xcodeproj">

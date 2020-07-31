@@ -56,7 +56,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Differentiator
     - PhoneNumberKit
     - PieCharts
@@ -90,6 +90,6 @@ SPEC CHECKSUMS:
   ScanditCaptureCore: b9eb50d9ea9d05a32e5eb9c3c9490867fcaaaf6d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: fa14afafdec135264d6a6f198802681b5306928e
+PODFILE CHECKSUM: 66c84b93f47df62afa44f9f565c145b81aa8c0cc
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

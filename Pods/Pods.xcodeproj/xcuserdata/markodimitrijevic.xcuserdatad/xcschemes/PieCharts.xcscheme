@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A79715A8C99B4FF7FD4FE989828C5E53"
+               BlueprintIdentifier = "5352E9F7E2BA40B729D6F4355D629ED5"
                BuildableName = "PieCharts.framework"
                BlueprintName = "PieCharts"
                ReferencedContainer = "container:Pods.xcodeproj">
